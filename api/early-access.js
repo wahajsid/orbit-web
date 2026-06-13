@@ -78,7 +78,9 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "valid email required" });
   }
 
-  // 1) Store the lead (anon key honours the insert-only RLS policy).
+  // 1) Store the lead (anon key honours the insert-only RLS policy). A unique
+  //    index on lower(email) makes a repeat signup return 409 — we treat that
+  //    as "already on the list" and skip the welcome email (no double-emails).
   try {
     const r = await fetch(`${process.env.SUPABASE_URL}/rest/v1/early_access`, {
       method: "POST",
@@ -86,10 +88,13 @@ module.exports = async (req, res) => {
         "Content-Type": "application/json",
         apikey: process.env.SUPABASE_ANON_KEY,
         Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`,
-        Prefer: "return-minimal",
+        Prefer: "return=minimal",
       },
       body: JSON.stringify({ name, email, company }),
     });
+    if (r.status === 409) {
+      return res.status(200).json({ ok: true, already: true });
+    }
     if (!r.ok) {
       return res.status(502).json({ error: "could not store signup" });
     }
@@ -97,7 +102,7 @@ module.exports = async (req, res) => {
     return res.status(502).json({ error: "could not store signup" });
   }
 
-  // 2) Send the welcome email (best-effort — never fail the signup on this).
+  // 2) New signup → send the welcome email (best-effort — never fail on this).
   if (process.env.RESEND_API_KEY) {
     try {
       await fetch("https://api.resend.com/emails", {

@@ -657,7 +657,9 @@
         body:JSON.stringify({name,email,company})
       });
       if(!r.ok)throw new Error('bad');
-      msg.style.color='var(--ok)';msg.textContent="You're on the list. We'll be in touch.";
+      const data=await r.json().catch(()=>({}));
+      msg.style.color='var(--ok)';
+      msg.textContent=data.already?"You're already on the list — see you at launch.":"You're on the list. We'll be in touch.";
       document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('company').value='';
       btn.textContent='Requested ✓';
     }catch(e){

@@ -26,3 +26,8 @@ create policy "anon insert only"
 
 -- (Read your signups from the Supabase dashboard / SQL editor, or later via
 --  the service_role key on a trusted server — never from the public site.)
+
+-- Dedupe: one row per email (case-insensitive). A repeat signup hits this
+-- index → PostgREST returns 409 → the function reports "already on the list"
+-- and skips the welcome email.
+create unique index if not exists early_access_email_uniq on early_access (lower(email));
