@@ -221,6 +221,20 @@
   #msg{margin-top:16px;font-size:14px;min-height:20px}
   .full{width:100%;justify-content:center;margin-top:10px}
 
+  /* ── countdown ── */
+  .countdown-sec{position:relative;z-index:1;padding:46px 0 6px}
+  .cd-card{max-width:940px;margin:0 auto;text-align:center;border-radius:22px;padding:40px 32px;
+    background:linear-gradient(180deg,rgba(110,168,254,.12),var(--card));border:1px solid rgba(110,168,254,.35);box-shadow:var(--glow)}
+  .cd-head{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.6vw,38px);letter-spacing:-.025em;line-height:1.1;margin:14px 0 8px}
+  .cd-sub{color:var(--sub);font-size:15.5px;line-height:1.6;max-width:600px;margin:0 auto}
+  .cd-timer{display:flex;gap:12px;justify-content:center;margin:30px 0 8px;flex-wrap:wrap}
+  .cd-unit{min-width:96px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:16px 10px}
+  .cd-num{font-family:var(--display);font-weight:800;font-size:clamp(38px,6.5vw,58px);line-height:1;letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;background:linear-gradient(180deg,#fff,#A9C2EC);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cd-lab{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-top:9px}
+  .cd-foot{color:var(--faint);font-size:12.5px;margin-top:16px}
+  @media(max-width:560px){.cd-unit{min-width:70px;padding:13px 6px}}
+
   /* footer */
   footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
@@ -302,6 +316,25 @@
     </div>
   </div>
 </header>
+
+<!-- countdown -->
+<section class="countdown-sec" id="launch">
+  <div class="wrap">
+    <div class="cd-card">
+      <span class="pill-tag" style="margin-bottom:0"><span class="dot"></span>Founding cohort · limited to 100</span>
+      <h2 class="cd-head">The first 100 sign-ups get Orbit <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent">free for a year</span>.</h2>
+      <p class="cd-sub">We open the doors on 01 July. Join the founding cohort and use Orbit free for twelve months — fair-usage policy applies — with founder pricing locked in after that.</p>
+      <div class="cd-timer">
+        <div class="cd-unit"><div class="cd-num" id="cdD">00</div><div class="cd-lab">Days</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdH">00</div><div class="cd-lab">Hours</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdM">00</div><div class="cd-lab">Minutes</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdS">00</div><div class="cd-lab">Seconds</div></div>
+      </div>
+      <div class="cd-foot">Counting down to launch · 01 July 2026</div>
+      <div style="margin-top:20px"><button class="btn btn-primary" onclick="scrollTo2('#access')">Claim your spot →</button></div>
+    </div>
+  </div>
+</section>
 
 <!-- integrations strip -->
 <div class="strip wrap reveal">
@@ -602,12 +635,10 @@
 </footer>
 
 <script>
-  // ── Supabase wiring (fill these in on deploy) ──
-  const SUPABASE_URL = "https://zusyfrschrsnpgtnmuke.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1c3lmcnNjaHJzbnBndG5tdWtlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMzg1NTEsImV4cCI6MjA5NjkxNDU1MX0.KMJD-Rvs5--4PefTagdEwMsgjhkFC4k9RQPTJt5USz8";
-  // Table: create table early_access (id uuid primary key default gen_random_uuid(),
-  //   name text, email text, company text, created_at timestamptz default now());
-  // RLS: enable, add policy: insert for anon allowed.
+  // ── Early-access signup ──
+  // The form posts to the serverless function /api/early-access, which stores
+  // the lead in Supabase and sends the welcome email server-side. No keys live
+  // in this page.
 
   function scrollTo2(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'});}
 
@@ -620,14 +651,12 @@
     if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.style.color='var(--bad)';msg.textContent='Please enter a valid email.';return;}
     btn.disabled=true;btn.textContent='Sending…';
     try{
-      if(SUPABASE_URL.startsWith('http')){
-        const r=await fetch(SUPABASE_URL+'/rest/v1/early_access',{
-          method:'POST',
-          headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return-minimal'},
-          body:JSON.stringify({name,email,company})
-        });
-        if(!r.ok)throw new Error('bad');
-      }else{await new Promise(r=>setTimeout(r,600));}
+      const r=await fetch('/api/early-access',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,email,company})
+      });
+      if(!r.ok)throw new Error('bad');
       msg.style.color='var(--ok)';msg.textContent="You're on the list. We'll be in touch.";
       document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('company').value='';
       btn.textContent='Requested ✓';
@@ -650,6 +679,21 @@
   function rs(){w=c.width=innerWidth;h=c.height=innerHeight;st=Array.from({length:Math.min(140,w/10)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3+.2,a:Math.random()*.5+.2,s:Math.random()*.4+.1}));}
   function draw(){x.clearRect(0,0,w,h);st.forEach(p=>{p.y-=p.s;if(p.y<0)p.y=h;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(180,205,255,'+p.a+')';x.fill();});requestAnimationFrame(draw);}
   if(!matchMedia('(prefers-reduced-motion:reduce)').matches){rs();draw();addEventListener('resize',rs);}
+
+  // ── countdown to launch (01 Jul 2026, Gulf time) ──
+  (function(){
+    const target=new Date('2026-07-01T00:00:00+04:00').getTime();
+    const D=document.getElementById('cdD'),H=document.getElementById('cdH'),M=document.getElementById('cdM'),S=document.getElementById('cdS');
+    const pad=n=>String(n).padStart(2,'0');
+    function tick(){
+      let diff=target-Date.now(); if(diff<0)diff=0;
+      D.textContent=pad(Math.floor(diff/86400000));
+      H.textContent=pad(Math.floor(diff%86400000/3600000));
+      M.textContent=pad(Math.floor(diff%3600000/60000));
+      S.textContent=pad(Math.floor(diff%60000/1000));
+    }
+    if(D){tick();setInterval(tick,1000);}
+  })();
 </script>
 </body>
 </html>

@@ -2,3 +2,7 @@
 .vercel
 *.log
 node_modules
+
+.vercel
+.env*
+_serve.mjs
