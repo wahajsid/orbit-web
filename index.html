@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orbit — Your books, on autopilot</title>
+<meta name="description" content="Orbit is the AI finance team for the Gulf. It does your bookkeeping, tax and month-end close — and answers when you ask. From the region, for the region." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#060911; --bg2:#0A0F1C; --ink:#EAF0FA; --sub:#94A3BC; --faint:#5D6B85;
+    --accent:#6EA8FE; --accent2:#7DD3FC; --accentInk:#9CC2FF;
+    --line:rgba(255,255,255,0.08); --line2:rgba(255,255,255,0.045);
+    --card:rgba(255,255,255,0.032); --cardUp:rgba(255,255,255,0.06);
+    --ok:#34D399; --warn:#FBBF24; --bad:#F87171;
+    --glow:0 0 40px rgba(110,168,254,0.28);
+    --display:'Sora',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--body);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5;
+    background-image:
+      radial-gradient(1200px 600px at 75% -8%, rgba(91,140,255,0.16), transparent 60%),
+      radial-gradient(900px 500px at 0% 25%, rgba(125,211,252,0.07), transparent 55%),
+      radial-gradient(800px 700px at 100% 90%, rgba(110,168,254,0.06), transparent 60%);
+    background-attachment:fixed;
+  }
+  ::selection{background:rgba(110,168,254,0.3)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)}
+
+  /* starfield */
+  #stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+
+  /* ── nav ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);
+    background:rgba(6,9,17,0.6);border-bottom:1px solid var(--line);transition:.3s}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .ring{position:relative;width:22px;height:22px;flex-shrink:0}
+  .ring::before{content:"";position:absolute;inset:0;border-radius:50%;border:2.5px solid var(--accent);opacity:.9}
+  .ring::after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent2);
+    top:-1px;left:58%;box-shadow:0 0 10px var(--accent2);animation:orbit 6s linear infinite}
+  @keyframes orbit{from{transform:rotate(0) translateX(11px) rotate(0)}to{transform:rotate(360deg) translateX(11px) rotate(-360deg)}}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:14px;color:var(--sub);transition:.2s}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{font-family:var(--body);font-weight:600;font-size:14px;cursor:pointer;border:none;border-radius:11px;
+    padding:11px 20px;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary{color:#06121f;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--glow)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 56px rgba(110,168,254,.45)}
+  .btn-ghost{color:var(--ink);background:transparent;border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);background:rgba(110,168,254,.06)}
+  .nav-toggle{display:none;background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer}
+
+  /* ── hero ── */
+  header{position:relative;z-index:1;padding:170px 0 90px;text-align:center}
+  .pill-tag{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:var(--accentInk);
+    background:rgba(110,168,254,.1);border:1px solid var(--line);border-radius:30px;padding:7px 15px;margin-bottom:30px;
+    font-weight:500}
+  .pill-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,7.5vw,90px);line-height:.98;letter-spacing:-.035em;
+    background:linear-gradient(180deg,#fff 30%,#A9C2EC);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:clamp(17px,2.2vw,21px);color:var(--sub);max-width:640px;margin:26px auto 0;line-height:1.55}
+  .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+  .hero-note{margin-top:18px;font-size:13px;color:var(--faint)}
+
+  /* product mock floating */
+  .hero-mock{position:relative;z-index:1;max-width:1020px;margin:64px auto 0;padding:0 20px;
+    perspective:1800px}
+  .mock-frame{border-radius:16px;border:1px solid var(--line);overflow:hidden;
+    background:var(--bg2);box-shadow:0 50px 130px rgba(0,0,0,.7),0 0 80px rgba(110,168,254,.12);
+    transform:rotateX(8deg);transform-origin:center top;transition:.6s}
+  .hero-mock:hover .mock-frame{transform:rotateX(2deg)}
+  .mock-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .mock-dot{width:11px;height:11px;border-radius:50%}
+  .mock-url{margin-left:14px;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+  .mock-body{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px}
+  .mock-kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px;text-align:left}
+  .mock-kpi .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .mock-kpi .v{font-family:var(--display);font-weight:700;font-size:21px;margin:7px 0 3px;letter-spacing:-.02em}
+  .mock-kpi .d{font-size:10.5px;font-weight:600}
+  .mock-kpi.hero-kpi{background:linear-gradient(135deg,rgba(110,168,254,.16),transparent 75%)}
+  .mock-wide{grid-column:span 4;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px;text-align:left;margin-top:0}
+  .mock-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line2);font-size:12px}
+  .mock-row:last-child{border:none}
+  .sev{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .mock-row .grow{flex:1;color:var(--sub)}
+  .mock-row .grow b{color:var(--ink);font-weight:600}
+  .chip{font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;white-space:nowrap}
+
+  /* logos / trust strip */
+  .strip{position:relative;z-index:1;text-align:center;padding:60px 0 10px}
+  .strip p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .strip-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .int{font-family:var(--mono);font-size:13px;color:var(--sub);border:1px solid var(--line);border-radius:9px;padding:9px 16px;background:var(--card)}
+
+  /* sections */
+  section{position:relative;z-index:1;padding:96px 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 60px}
+  .sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,46px);letter-spacing:-.03em;line-height:1.05;margin-top:14px}
+  .sec-head p{color:var(--sub);font-size:17px;margin-top:16px;line-height:1.6}
+
+  /* problem */
+  .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .prob{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .prob h3{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:10px}
+  .prob p{color:var(--sub);font-size:14.5px;line-height:1.6}
+  .prob .x{font-family:var(--display);font-size:30px;font-weight:800;color:rgba(248,113,113,.5);margin-bottom:14px;display:block}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+  .step{position:relative;padding-top:14px}
+  .step .n{font-family:var(--mono);font-size:13px;color:var(--accentInk);font-weight:500}
+  .step h3{font-family:var(--display);font-weight:600;font-size:20px;margin:14px 0 10px}
+  .step p{color:var(--sub);font-size:15px;line-height:1.6}
+  .step .line{height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:18px}
+
+  /* agents grid */
+  .agents{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .agent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.25s}
+  .agent:hover{background:var(--cardUp);border-color:rgba(110,168,254,.3);transform:translateY(-3px)}
+  .agent .ic{width:34px;height:34px;border-radius:9px;background:rgba(110,168,254,.12);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:14px}
+  .agent h3{font-family:var(--display);font-weight:600;font-size:15px;margin-bottom:7px}
+  .agent p{color:var(--sub);font-size:13px;line-height:1.55}
+
+  /* feature split (tax/gcc) */
+  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .split.rev{direction:rtl}.split.rev>*{direction:ltr}
+  .split h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.025em;line-height:1.08}
+  .split p.lead{color:var(--sub);font-size:16.5px;line-height:1.65;margin-top:18px}
+  .feat-list{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+  .feat-list li{list-style:none;display:flex;gap:13px;align-items:flex-start;font-size:14.5px;color:var(--ink)}
+  .feat-list .tick{color:var(--ok);flex-shrink:0;margin-top:2px}
+  .feat-list span.t{color:var(--sub)}
+  .visual-card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .vc-head{padding:13px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--faint);display:flex;justify-content:space-between;align-items:center}
+  .vc-body{padding:18px}
+  .tax-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line2);font-size:13px}
+  .tax-row:last-child{border:none}
+  .tax-row .nm{color:var(--ink);font-weight:500}
+  .ar-line{font-family:var(--mono);font-size:12px;color:var(--accentInk);text-align:right;direction:rtl;padding:6px 0}
+
+  /* close cockpit visual */
+  .prog-wrap{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .prog{flex:1;height:8px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden}
+  .prog>div{height:100%;width:68%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+  /* CTA / form */
+  /* onboarding */
+  .onb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .onb{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px;position:relative}
+  .onb-n{font-family:var(--mono);font-size:13px;color:var(--accentInk);font-weight:500;margin-bottom:16px}
+  .onb h3{font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:11px}
+  .onb p{color:var(--sub);font-size:14.5px;line-height:1.62}
+  .onb-note{text-align:center;max-width:680px;margin:40px auto 0;color:var(--accentInk);font-size:15px;line-height:1.6;
+    background:rgba(110,168,254,.07);border:1px solid var(--line);border-radius:14px;padding:20px 26px}
+
+  /* pricing */
+  .price-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  .price-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;position:relative;transition:.25s}
+  .price-card:hover{transform:translateY(-3px);border-color:rgba(110,168,254,.3)}
+  .price-card.feature{background:linear-gradient(180deg,rgba(110,168,254,.1),var(--card));border-color:rgba(110,168,254,.4);box-shadow:var(--glow)}
+  .price-flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:600;letter-spacing:.04em;
+    color:#06121f;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:5px 14px;border-radius:20px;white-space:nowrap}
+  .price-top h3{font-family:var(--display);font-weight:600;font-size:17px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+  .price{margin:14px 0 6px;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .price .cur{font-family:var(--body);font-size:13px;color:var(--faint);font-weight:600}
+  .price .amt{font-family:var(--display);font-weight:800;font-size:42px;letter-spacing:-.03em;color:var(--ink)}
+  .price .per{font-size:14px;color:var(--faint)}
+  .price-sub{color:var(--sub);font-size:13.5px;line-height:1.5;min-height:38px}
+  .price-list{list-style:none;margin:22px 0 26px}
+  .price-list li{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--ink);margin-bottom:13px;line-height:1.45}
+  .price-list .tick{color:var(--ok);flex-shrink:0}
+  .price-foot{text-align:center;margin-top:34px;color:var(--faint);font-size:13.5px}
+
+  /* story */
+  .story-card{max-width:780px;margin:0 auto;text-align:center}
+  .story-card h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.2vw,42px);letter-spacing:-.03em;line-height:1.08;margin-top:14px}
+  .story-body{margin-top:30px;text-align:left}
+  .story-body p{color:var(--sub);font-size:16.5px;line-height:1.75;margin-bottom:20px}
+  .story-body p:first-child{color:var(--ink);font-size:18px}
+  .story-sign{font-family:var(--display);font-style:italic;color:var(--accentInk);font-size:15px;margin-top:8px}
+
+  .cta-sec{text-align:center}
+  .cta-card{max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:48px 40px;box-shadow:var(--glow)}
+  .cta-card h2{font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:-.025em}
+  .cta-card p{color:var(--sub);margin:14px 0 28px;font-size:15.5px}
+  .form-row{display:flex;gap:10px;flex-wrap:wrap}
+  .form-row input{flex:1;min-width:200px;font-family:var(--body);font-size:15px;color:var(--ink);
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;padding:14px 16px;outline:none;transition:.2s}
+  .form-row input:focus{border-color:var(--accent);background:rgba(110,168,254,.05)}
+  #msg{margin-top:16px;font-size:14px;min-height:20px}
+  .full{width:100%;justify-content:center;margin-top:10px}
+
+  /* footer */
+  footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
+  .foot-brand{max-width:300px}
+  .foot-brand p{color:var(--sub);font-size:14px;margin-top:14px;line-height:1.6}
+  .foot-col h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px;font-weight:600}
+  .foot-col a,.foot-col div{display:block;color:var(--sub);font-size:14px;margin-bottom:10px;transition:.2s}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-bot{margin-top:44px;padding-top:24px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--faint)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .nav-links{display:none}.nav-toggle{display:block}
+    .mock-body{grid-template-columns:repeat(2,1fr)}.mock-kpi:nth-child(n+5){display:none}.mock-wide{grid-column:span 2}
+    .prob-grid,.steps,.agents{grid-template-columns:1fr}
+    .agents{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1fr;gap:34px}.split.rev{direction:ltr}
+    section{padding:68px 0}
+  }
+  @media(max-width:560px){.agents{grid-template-columns:1fr}.hero-cta{flex-direction:column}.hero-cta .btn{width:100%;justify-content:center}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><span class="ring"></span>Orbit</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#agents">The agents</a>
+      <a href="#gcc">Built for the Gulf</a>
+      <a href="#onboarding">Getting started</a>
+      <a href="#story">Our story</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <button class="btn btn-primary" onclick="scrollTo2('#access')">Request early access</button>
+    </div>
+    <button class="nav-toggle" onclick="scrollTo2('#access')">→</button>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <span class="pill-tag"><span class="dot"></span>Pre-launch · UAE &amp; KSA · Arabic-enabled</span>
+    <h1>Your books,<br>on autopilot.</h1>
+    <p class="sub">It's the AI finance team for the Gulf. Snap a photo, forward an email, or just ask. Orbit does the bookkeeping, the tax and the dreaded month-end close — and actually answers when you need it.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="scrollTo2('#access')">Request early access</button>
+      <a class="btn btn-ghost" href="#how">See how it works</a>
+    </div>
+    <div class="hero-note">No spreadsheets to wrestle. No accounting degree required. Promise.</div>
+  </div>
+
+  <!-- floating product mock -->
+  <div class="hero-mock reveal">
+    <div class="mock-frame">
+      <div class="mock-bar">
+        <span class="mock-dot" style="background:#F87171"></span>
+        <span class="mock-dot" style="background:#FBBF24"></span>
+        <span class="mock-dot" style="background:#34D399"></span>
+        <span class="mock-url">app.orbitgulf.com</span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-kpi hero-kpi"><div class="l">Cash position</div><div class="v">AED 4.21m</div><div class="d" style="color:var(--ok)">+6.2% MoM</div></div>
+        <div class="mock-kpi"><div class="l">Revenue MTD</div><div class="v">AED 912k</div><div class="d" style="color:var(--ok)">+11.4% vs budget</div></div>
+        <div class="mock-kpi"><div class="l">Payables 30d</div><div class="v">AED 689k</div><div class="d" style="color:var(--sub)">14 invoices</div></div>
+        <div class="mock-kpi"><div class="l">Runway</div><div class="v">19.4 mo</div><div class="d" style="color:var(--ok)">+1.1 months</div></div>
+        <div class="mock-wide">
+          <div class="l" style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:6px">Decisions required · 2 critical</div>
+          <div class="mock-row"><span class="sev" style="background:var(--bad);box-shadow:0 0 8px var(--bad)"></span><span class="grow"><b>Tax invoice criteria not met</b> — Almarai INV-5512 omits supplier TRN. AED 1,036 input VAT blocked.</span><span class="chip" style="background:rgba(248,113,113,.14);color:var(--bad)">Critical</span></div>
+          <div class="mock-row"><span class="sev" style="background:var(--bad);box-shadow:0 0 8px var(--bad)"></span><span class="grow"><b>Probable duplicate</b> — Etisalat INV-88102 matches a prior invoice on TRN, amount and date.</span><span class="chip" style="background:rgba(248,113,113,.14);color:var(--bad)">Blocked</span></div>
+          <div class="mock-row"><span class="sev" style="background:var(--warn);box-shadow:0 0 8px var(--warn)"></span><span class="grow"><b>Coding below threshold</b> — Gray Mackenzie AED 14,720. Proposed: Office consumables (74%).</span><span class="chip" style="background:rgba(251,191,36,.14);color:var(--warn)">Review</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- integrations strip -->
+<div class="strip wrap reveal">
+  <p>Sits on top of the ledger you already use</p>
+  <div class="strip-row">
+    <span class="int">Xero</span>
+    <span class="int">QuickBooks</span>
+    <span class="int">Zoho Books</span>
+    <span class="int">WhatsApp</span>
+    <span class="int">Telegram</span>
+    <span class="int">Email</span>
+    <span class="int">Bank feeds</span>
+  </div>
+</div>
+
+<!-- problem -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>Nobody started a business to do bookkeeping.</h2>
+      <p>Founders dodge it. Finance teams drown in it. And the tools built for accountants quietly assume you are one.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob reveal"><span class="x">01</span><h3>Coding is a slog</h3><p>Every receipt gets filed to the right account by hand. Get it wrong and the numbers quietly lie to you. Xero and QuickBooks just assume you know your debits from your credits.</p></div>
+      <div class="prob reveal"><span class="x">02</span><h3>Tax is a minefield</h3><p>One missing TRN or a wonky invoice format, and there goes your recoverable VAT. By the time the auditor spots it, the money's long gone.</p></div>
+      <div class="prob reveal"><span class="x">03</span><h3>The close eats your month</h3><p>Accruals, prepayments, reconciliations, chasing people to explain why a number moved. Days of it, every single month, just to find out where you stand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- how it works -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Send it. Orbit handles the rest.</h2>
+      <p>The hard, boring parts run themselves. You just talk to it like a person.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">STEP 01</div><h3>Snap it, send it</h3><p>Photograph a receipt on WhatsApp, forward an invoice by email, dump a thousand PDFs at once, or just ramble into a voice note. Orbit reads every last one.</p><div class="line"></div></div>
+      <div class="step reveal"><div class="n">STEP 02</div><h3>It does the thinking</h3><p>Orbit codes each transaction the way you would, checks it against UAE and KSA tax rules, matches it to the PO, and posts the entry — with a confidence score and a trail you can always follow back.</p><div class="line"></div></div>
+      <div class="step reveal"><div class="n">STEP 03</div><h3>Just ask</h3><p>"How much do we owe Careem?" "Move this to marketing." "Close the month." Orbit answers in seconds, does it once you say go, and never touches a number behind your back.</p><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- agents -->
+<section id="agents">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The team that never sleeps</span>
+      <h2>A whole finance department. No salaries.</h2>
+      <p>Each agent owns one job and quietly gets on with it, around the clock. They only tap you on the shoulder when something genuinely needs a human.</p>
+    </div>
+    <div class="agents">
+      <div class="agent reveal"><div class="ic">📸</div><h3>Intake &amp; coding</h3><p>Reads anything you throw at it, from any channel, and files it where it belongs — picking up your habits as it goes.</p></div>
+      <div class="agent reveal"><div class="ic">🛡️</div><h3>Tax compliance</h3><p>Tests every invoice against the law. Tells you what's recoverable, what's blocked, and exactly what's missing.</p></div>
+      <div class="agent reveal"><div class="ic">🔁</div><h3>Accruals</h3><p>Spots when a regular bill hasn't shown up, accrues it for you, then quietly reverses it the moment the real one lands.</p></div>
+      <div class="agent reveal"><div class="ic">📊</div><h3>Variance</h3><p>Explains why a number moved using the underlying entries, or asks the person who spent it.</p></div>
+      <div class="agent reveal"><div class="ic">🏦</div><h3>Bank matching</h3><p>Ties your statements back to the ledger, clever enough to know an oddly precise figure is a better clue than a round one.</p></div>
+      <div class="agent reveal"><div class="ic">📨</div><h3>Collections</h3><p>Chases overdue customers on a cadence you approve once, then tracks every promise to its date.</p></div>
+      <div class="agent reveal"><div class="ic">🤝</div><h3>Supplier recon</h3><p>Reconciles a third of your vendors every month, drafting and sending the confirmations itself.</p></div>
+      <div class="agent reveal"><div class="ic">🔒</div><h3>Reviewer</h3><p>Samples the agents' work, so a qualified human always has eyes on the books before they're trusted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- tax split -->
+<section id="tax">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">The tax layer</span>
+        <h2>Every invoice, checked against the law before it's trusted.</h2>
+        <p class="lead">Orbit knows what a compliant tax invoice looks like in the UAE and KSA. It runs the test the moment a document lands, quantifies the VAT at stake, and tells you precisely what to do.</p>
+        <ul class="feat-list">
+          <li><span class="tick">✓</span><div><b>Recoverable or not</b> <span class="t">— and if not, exactly which criterion failed.</span></div></li>
+          <li><span class="tick">✓</span><div><b>The recovery, in dirhams</b> <span class="t">— so you know what a missing TRN actually costs.</span></div></li>
+          <li><span class="tick">✓</span><div><b>A drafted fix</b> <span class="t">— the correction request, pre-addressed to the supplier.</span></div></li>
+          <li><span class="tick">✓</span><div><b>Your call, on the record</b> <span class="t">— request a correction, claim anyway, or forfeit.</span></div></li>
+        </ul>
+      </div>
+      <div class="visual-card reveal">
+        <div class="vc-head"><span>Tax invoice test · Art. 59 ER</span><span style="color:var(--bad)">1 issue</span></div>
+        <div class="vc-body">
+          <div class="tax-row"><span class="nm">Title "Tax Invoice" present</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Pass</span></div>
+          <div class="tax-row"><span class="nm">Supplier TRN</span><span class="chip" style="background:rgba(248,113,113,.14);color:var(--bad)">Missing</span></div>
+          <div class="tax-row"><span class="nm">VAT rate &amp; amount</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Pass</span></div>
+          <div class="tax-row"><span class="nm">Sequential number &amp; date</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Pass</span></div>
+          <div style="margin-top:16px;padding:13px;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.3);border-radius:10px;font-size:13px;color:var(--ink);line-height:1.55"><b style="color:var(--bad)">Input VAT of AED 1,036 blocked</b> until a corrected invoice is received. Correction request drafted to <span style="font-family:var(--mono);color:var(--accentInk)">ap@almarai.ae</span>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- gcc split -->
+<section id="gcc">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="reveal">
+        <span class="eyebrow">Built for the Gulf</span>
+        <h2>From the region. For the region.</h2>
+        <p class="lead">Orbit isn't a Western tool with a currency setting. It's built around how business actually works in the UAE and KSA — the tax law, the language, the rhythm.</p>
+        <ul class="feat-list">
+          <li><span class="tick">✓</span><div><b>UAE &amp; KSA tax, native</b> <span class="t">— FTA and ZATCA rules built into the engine, not bolted on.</span></div></li>
+          <li><span class="tick">✓</span><div><b>Arabic-enabled</b> <span class="t">— the whole interface, right to left, in a tap.</span></div></li>
+          <li><span class="tick">✓</span><div><b>WhatsApp-first</b> <span class="t">— because that's where the region already does business.</span></div></li>
+          <li><span class="tick">✓</span><div><b>Multi-entity, multi-currency</b> <span class="t">— AED and SAR, group companies, free zones.</span></div></li>
+        </ul>
+      </div>
+      <div class="visual-card reveal">
+        <div class="vc-head"><span>Close cockpit · June 2026</span><span style="color:var(--accentInk)">68%</span></div>
+        <div class="vc-body">
+          <div class="prog-wrap"><div class="prog"><div></div></div><span style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accentInk)">68%</span></div>
+          <div class="tax-row"><span class="nm">Recurring accruals proposed</span><span class="chip" style="background:rgba(251,191,36,.13);color:var(--warn)">1 escalated</span></div>
+          <div class="tax-row"><span class="nm">Depreciation posted</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Done</span></div>
+          <div class="tax-row"><span class="nm">VAT return draft</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Ready</span></div>
+          <div class="tax-row"><span class="nm">Bank reconciled</span><span class="chip" style="background:rgba(52,211,153,.13);color:var(--ok)">Matched</span></div>
+          <div class="ar-line">كل رقم موثّق بمستند مصدري</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- security note -->
+<section id="trust" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <span class="eyebrow">Your data</span>
+      <h2>The data is yours. The trail is permanent.</h2>
+      <p>Every number traces to a document. Nothing is ever deleted — corrections and voids leave a record. Agents propose; a human gates what matters. Your books stay auditable by design.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- onboarding -->
+<section id="onboarding">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Getting started</span>
+      <h2>Live in a day. Not a quarter.</h2>
+      <p>Most accounting tools make you rebuild your whole world before they're useful. Orbit starts from what you already have.</p>
+    </div>
+    <div class="onb-grid">
+      <div class="onb reveal">
+        <div class="onb-n">01</div>
+        <h3>Bring your history</h3>
+        <p>Export your existing ledger from Xero, QuickBooks or Zoho — or hand us a spreadsheet. Orbit ingests it, learns your chart of accounts, and studies how every supplier and customer was coded before.</p>
+      </div>
+      <div class="onb reveal">
+        <div class="onb-n">02</div>
+        <h3>It learns your habits</h3>
+        <p>That history becomes memory. From day one, Orbit codes a Careem receipt or a DEWA bill the way you always have — no rules to write, no training to sit through.</p>
+      </div>
+      <div class="onb reveal">
+        <div class="onb-n">03</div>
+        <h3>Connect your channels</h3>
+        <p>Hook up WhatsApp, email and your bank feed in a few taps. Start forwarding documents the same afternoon. Keep your ledger where it is — Orbit syncs to it.</p>
+      </div>
+    </div>
+    <div class="onb-note reveal">Your historical ledger is the secret. The more you bring, the smarter Orbit is on day one — so onboarding is mostly us doing the heavy lifting, not you.</div>
+  </div>
+</section>
+
+<!-- why we built this -->
+<section id="story">
+  <div class="wrap">
+    <div class="story-card reveal">
+      <span class="eyebrow">Why we built this</span>
+      <h2>We watched good accountants lose their evenings.</h2>
+      <div class="story-body">
+        <p>We didn't come to this from the outside. We've spent years in tax and finance across the Gulf, and we kept seeing the same thing: brilliant people buried under work a machine should have handled hours ago.</p>
+        <p>Coding receipts at midnight. Chasing a supplier for a TRN that should never have been missing. Rebuilding the same accrual every month. Explaining, again, why a number moved. None of it was the actual job — the judgement, the advice, the strategy. It was the busywork around the job, and it was quietly burning people out.</p>
+        <p>So we built the thing we always wished we'd had. Orbit takes the headaches off the plate — the coding, the tax checks, the close — and hands the time back to the people who are good at the parts that matter. That's the whole idea.</p>
+        <div class="story-sign">— The team behind Orbit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- why we built this -->
+<section id="story">
+  <div class="wrap">
+    <div class="story-card reveal">
+      <span class="eyebrow">Why we built this</span>
+      <h2>We watched good accountants lose their evenings.</h2>
+      <div class="story-body">
+        <p>We didn't come to this from the outside. We've spent years in tax and finance across the Gulf, and we kept seeing the same thing: brilliant people buried under work a machine should have handled hours ago.</p>
+        <p>Coding receipts at midnight. Chasing a supplier for a TRN that should never have been missing. Rebuilding the same accrual every month. Explaining, again, why a number moved. None of it was the actual job — the judgement, the advice, the strategy. It was the busywork around the job, and it was quietly burning people out.</p>
+        <p>So we built the thing we always wished we'd had. Orbit takes the headaches off the plate — the coding, the tax checks, the close — and hands the time back to the people who are good at the parts that matter. That's the whole idea.</p>
+        <div class="story-sign">— The team behind Orbit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pricing -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>Less than a cup of coffee a day.</h2>
+      <p>Honest, simple pricing. No setup fees, no per-seat games, no surprises at the bottom of an invoice.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price-card reveal">
+        <div class="price-top">
+          <h3>Starter</h3>
+          <div class="price"><span class="cur">AED / SAR</span> <span class="amt">199</span> <span class="per">/ month</span></div>
+          <div class="price-sub">For founders and small teams who just want their books done.</div>
+        </div>
+        <ul class="price-list">
+          <li><span class="tick">✓</span>AP &amp; GL, fully automated</li>
+          <li><span class="tick">✓</span>WhatsApp, email &amp; voice intake</li>
+          <li><span class="tick">✓</span>Tax-invoice checks (UAE &amp; KSA)</li>
+          <li><span class="tick">✓</span>Ask-anything assistant</li>
+          <li><span class="tick">✓</span>One entity, one ledger sync</li>
+        </ul>
+        <button class="btn btn-ghost full" onclick="scrollTo2('#access')">Request access</button>
+      </div>
+
+      <div class="price-card feature reveal">
+        <div class="price-flag">Most popular</div>
+        <div class="price-top">
+          <h3>Growth</h3>
+          <div class="price"><span class="cur">AED / SAR</span> <span class="amt">499</span> <span class="per">/ month</span></div>
+          <div class="price-sub">For finance teams running a real close, every month.</div>
+        </div>
+        <ul class="price-list">
+          <li><span class="tick">✓</span>Everything in Starter, plus:</li>
+          <li><span class="tick">✓</span>AR, collections &amp; supplier recon</li>
+          <li><span class="tick">✓</span>Accruals, schedules &amp; fixed assets</li>
+          <li><span class="tick">✓</span>Month-end close cockpit</li>
+          <li><span class="tick">✓</span>Variance engine &amp; background agents</li>
+          <li><span class="tick">✓</span>Multi-bank, multi-currency</li>
+        </ul>
+        <button class="btn btn-primary full" onclick="scrollTo2('#access')">Request access</button>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-top">
+          <h3>Group</h3>
+          <div class="price"><span class="amt">Let's talk</span></div>
+          <div class="price-sub">For multi-entity groups and the firms who serve them.</div>
+        </div>
+        <ul class="price-list">
+          <li><span class="tick">✓</span>Everything in Growth, plus:</li>
+          <li><span class="tick">✓</span>Unlimited entities, consolidation</li>
+          <li><span class="tick">✓</span>Pre-audit evidence packs</li>
+          <li><span class="tick">✓</span>Priority onboarding &amp; support</li>
+          <li><span class="tick">✓</span>Dedicated reviewer of record</li>
+        </ul>
+        <button class="btn btn-ghost full" onclick="scrollTo2('#contact')">Talk to us</button>
+      </div>
+    </div>
+    <div class="price-foot reveal">Early-access cohort gets founder pricing locked in. Prices in AED for the UAE, SAR for KSA.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="access" class="cta-sec">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Request early access</h2>
+      <p>Orbit is still in private build. Drop your details and we'll pull you into the first group to try it.</p>
+      <div class="form-row">
+        <input id="name" type="text" placeholder="Your name" autocomplete="name" />
+        <input id="email" type="email" placeholder="Work email" autocomplete="email" />
+      </div>
+      <div class="form-row" style="margin-top:10px">
+        <input id="company" type="text" placeholder="Company (optional)" autocomplete="organization" />
+      </div>
+      <button class="btn btn-primary full" id="submitBtn" onclick="submitAccess()">Request access →</button>
+      <div id="msg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="ring"></span>Orbit</a>
+        <p>The AI finance team for the Gulf. From the region, for the region.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#how">How it works</a>
+        <a href="#agents">The agents</a>
+        <a href="#tax">Tax layer</a>
+        <a href="#gcc">Built for the Gulf</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@orbitgulf.com">info@orbitgulf.com</a>
+        <a href="tel:+971506873135">+971 50 687 3135</a>
+        <div>Dubai, United Arab Emirates</div>
+      </div>
+      <div class="foot-col">
+        <h4>Get started</h4>
+        <a href="#access">Request early access</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Orbit. All rights reserved.</span>
+      <span>orbitgulf.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Supabase wiring (fill these in on deploy) ──
+  const SUPABASE_URL = "YOUR_SUPABASE_URL";          // e.g. https://xxxx.supabase.co
+  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  // Table: create table early_access (id uuid primary key default gen_random_uuid(),
+  //   name text, email text, company text, created_at timestamptz default now());
+  // RLS: enable, add policy: insert for anon allowed.
+
+  function scrollTo2(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'});}
+
+  async function submitAccess(){
+    const name=document.getElementById('name').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const company=document.getElementById('company').value.trim();
+    const msg=document.getElementById('msg');
+    const btn=document.getElementById('submitBtn');
+    if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.style.color='var(--bad)';msg.textContent='Please enter a valid email.';return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    try{
+      if(SUPABASE_URL.startsWith('http')){
+        const r=await fetch(SUPABASE_URL+'/rest/v1/early_access',{
+          method:'POST',
+          headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return-minimal'},
+          body:JSON.stringify({name,email,company})
+        });
+        if(!r.ok)throw new Error('bad');
+      }else{await new Promise(r=>setTimeout(r,600));}
+      msg.style.color='var(--ok)';msg.textContent="You're on the list. We'll be in touch.";
+      document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('company').value='';
+      btn.textContent='Requested ✓';
+    }catch(e){
+      msg.style.color='var(--bad)';msg.innerHTML='Something went wrong. Email us at <a href="mailto:info@orbitgulf.com" style="color:var(--accentInk)">info@orbitgulf.com</a>.';
+      btn.disabled=false;btn.textContent='Request access →';
+    }
+  }
+
+  // ── nav shadow on scroll ──
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>20?'0 10px 40px rgba(0,0,0,.4)':'none';});
+
+  // ── reveal on scroll ──
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ── starfield ──
+  const c=document.getElementById('stars'),x=c.getContext('2d');let st=[],w,h;
+  function rs(){w=c.width=innerWidth;h=c.height=innerHeight;st=Array.from({length:Math.min(140,w/10)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3+.2,a:Math.random()*.5+.2,s:Math.random()*.4+.1}));}
+  function draw(){x.clearRect(0,0,w,h);st.forEach(p=>{p.y-=p.s;if(p.y<0)p.y=h;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(180,205,255,'+p.a+')';x.fill();});requestAnimationFrame(draw);}
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){rs();draw();addEventListener('resize',rs);}
+</script>
+</body>
+</html>
