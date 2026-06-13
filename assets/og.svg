@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow1" cx="78%" cy="6%" r="55%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="6%" cy="92%" r="50%">
+      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#7DD3FC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="25%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#A9C2EC"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6EA8FE"/>
+      <stop offset="100%" stop-color="#7DD3FC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#060911"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- brand row -->
+  <g transform="translate(100,96)">
+    <circle cx="20" cy="20" r="19" fill="none" stroke="#6EA8FE" stroke-width="4"/>
+    <circle cx="36.2" cy="9" r="5.5" fill="#7DD3FC"/>
+    <text x="56" y="34" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" fill="#EAF0FA" letter-spacing="-1">Orbit</text>
+  </g>
+
+  <!-- headline -->
+  <text x="100" y="320" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800" letter-spacing="-3" fill="url(#head)">Your books,</text>
+  <text x="100" y="430" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800" letter-spacing="-3" fill="url(#accent)">on autopilot.</text>
+
+  <!-- sub -->
+  <text x="103" y="498" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="500" fill="#94A3BC">The AI finance team for the Gulf — bookkeeping, tax and the close.</text>
+
+  <!-- footer -->
+  <text x="100" y="572" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#5D6B85" letter-spacing="1">orbitgulf.com</text>
+  <text x="1100" y="572" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" fill="#5D6B85">UAE &amp; KSA · Arabic-enabled</text>
+</svg>
