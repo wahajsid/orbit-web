@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 const HEADLINES: [string, string][] = [
   ["You didn't start a company", "to reconcile spreadsheets."],
   ["You didn't build a business", "to chase receipts on WhatsApp."],
-  ["You didn't hire a team", "to be buried in reconciliations."],
+  ["You didn't hire your team", "to be buried in reconciliations and adjusting entries."],
 ];
 
 export function RotatingHeadline({ items = HEADLINES }: { items?: [string, string][] }) {

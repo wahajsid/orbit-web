@@ -7,9 +7,9 @@
 /* newpage hero headline — the founder truths run longer than the home hero's,
    so size them to fit two rows and reserve that height to stop reflow/overlap */
 .np-hero .hero-rotate {
-  font-size: clamp(32px, 4.8vw, 56px);
-  line-height: 1.05;
-  min-height: 2.2em;
+  font-size: clamp(30px, 4.4vw, 50px);
+  line-height: 1.08;
+  min-height: 3.35em;   /* reserve the tallest headline (3 lines) so rotating never reflows the sub */
   margin-bottom: 6px;
 }
 
@@ -178,6 +178,12 @@
 .np-stat .l { font-size: 13px; color: var(--text-muted); max-width: 15ch; line-height: 1.4; }
 .np-band-ink .np-stat .l { color: var(--text-on-ink-muted); }
 .np-arrow { color: var(--text-faint); font-size: 28px; align-self: center; }
+@media (max-width: 640px) {
+  .np-statrow { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .np-statrow .np-arrow { display: none; }
+  .np-stat { width: 100%; gap: 14px; }
+  .np-stat .l { max-width: none; }
+}
 
 /* transcript-style block (interview evidence) */
 .np-script { margin-top: 34px; border: 1.5px solid var(--hairline-on-ink); border-radius: var(--radius); background: var(--ink); color: var(--text-on-ink); padding: 22px 24px; font-family: var(--mono); font-size: 13.5px; line-height: 2; }

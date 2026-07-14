@@ -133,6 +133,10 @@ export default function HirePage() {
               <div><span className="meta">10:22</span> <span className="who">ORBIT</span> follow-up · &ldquo;How did you handle the intercompany eliminations?&rdquo;</div>
               <div><span className="meta">10:23</span> <span className="who">SCORE</span> <span className="you">ownership 4/5 · technical 5/5 · communication 4/5</span></div>
             </div>
+            <div className="np-shot np-rise d1">
+              <Image src="/shots/hire-analysis.jpg" alt="Orbit Hire interview analysis — aptitude and interpersonal scoring across a radar, scorecard and assessor panel" width={1600} height={1826} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">Interview analysis — aptitude and interpersonal scoring, each with the evidence behind it.</div>
           </div>
         </section>
 
@@ -155,6 +159,10 @@ export default function HirePage() {
               <Image src="/shots/hire-scoring.jpg" alt="Orbit Hire ranked candidates — per-criterion scores, confidence, red flags and the trust & fairness block" width={1600} height={1550} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Ranked candidates — every score explained, protected characteristics sealed.</div>
+            <div className="np-shot np-rise d1">
+              <Image src="/shots/hire-radar.jpg" alt="Orbit Hire candidate comparison — an overlaid radar and scorecard matrix across finalists" width={1600} height={1681} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">Compare finalists side by side — a shared radar and scorecard, best-in-row highlighted.</div>
           </div>
         </section>
 
