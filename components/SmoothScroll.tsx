@@ -1,0 +1,18 @@
+"use client";
+
+/* Lenis smooth scroll — skipped entirely under prefers-reduced-motion. */
+
+import { useEffect } from "react";
+import Lenis from "lenis";
+
+export function SmoothScroll() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const lenis = new Lenis({ duration: 1.05 });
+    let raf: number;
+    const loop = (time: number) => { lenis.raf(time); raf = requestAnimationFrame(loop); };
+    raf = requestAnimationFrame(loop);
+    return () => { cancelAnimationFrame(raf); lenis.destroy(); };
+  }, []);
+  return null;
+}

@@ -1,0 +1,210 @@
+/* ══════════════════════════════════════════════════════════════════
+   /newpage — the scroll film, composed from the Wire system.
+   Reuses ink/paper/petrol/brass tokens; adds only act-band layout,
+   the screenshot frames, the big number and the scroll reveal.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* newpage hero headline — the founder truths run longer than the home hero's,
+   so size them to fit two rows and reserve that height to stop reflow/overlap */
+.np-hero .hero-rotate {
+  font-size: clamp(32px, 4.8vw, 56px);
+  line-height: 1.05;
+  min-height: 2.2em;
+  margin-bottom: 6px;
+}
+
+/* an act band — ink or paper, generous rhythm */
+.np-act { padding: 96px 0; }
+.np-band-ink { background: var(--ink); color: var(--text-on-ink); }
+
+.np-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+
+.np-kicker { margin-bottom: 14px; color: var(--petrol); }
+.np-band-ink .np-kicker { color: var(--brass); }
+
+.np-head {
+  font-size: clamp(30px, 4.4vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  margin: 0;
+  text-wrap: balance;
+  max-width: 20ch;
+  color: var(--text);
+}
+.np-band-ink .np-head { color: var(--text-on-ink); }
+.np-accent { color: var(--petrol); }
+.np-band-ink .np-accent { color: var(--brass); }
+
+.np-say {
+  font-size: 16px;
+  line-height: 1.72;
+  margin: 20px 0 0;
+  max-width: 58ch;
+  color: var(--text-muted);
+}
+.np-band-ink .np-say { color: var(--text-on-ink-muted); }
+.np-say strong { color: var(--text); font-weight: 700; }
+.np-band-ink .np-say strong { color: var(--text-on-ink); }
+
+/* stat chips — sans (mono is reserved for the terminal), hairline boxes */
+.np-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.np-chip {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  color: var(--text-muted);
+}
+.np-band-ink .np-chip { border-color: var(--hairline-on-ink); color: var(--text-on-ink-muted); }
+.np-chip .k { color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; font-size: 10.5px; margin-right: 8px; font-weight: 700; }
+.np-chip b { font-weight: 800; color: var(--text); }
+.np-band-ink .np-chip b { color: var(--text-on-ink); }
+.np-chip .p { color: var(--petrol); font-weight: 800; }
+.np-band-ink .np-chip .p { color: var(--petrol-bright); }
+
+/* screenshot frame — hairline border, 3px, no shadow (Wire rule) */
+.np-shot {
+  margin-top: 36px;
+  border: 1.5px solid var(--text);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-height: 80vh;
+  background: var(--paper);
+}
+.np-band-ink .np-shot { border-color: var(--hairline-on-ink); }
+.np-shot img { width: 100%; height: auto; display: block; }
+.np-cap { margin-top: 14px; font-size: 12.5px; color: var(--text-faint); }
+.np-band-ink .np-cap { color: var(--text-on-ink-muted); }
+
+/* the close — one big number */
+.np-big {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(88px, 17vw, 208px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+  margin: 18px 0 6px;
+}
+.np-big .sub {
+  font-size: clamp(15px, 1.7vw, 19px);
+  letter-spacing: -0.01em;
+  color: var(--text-on-ink-muted);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 14px;
+}
+
+/* hero screenshot — bleeds from the ink band into the section below */
+.np-hero-shot {
+  margin-top: 40px;
+  margin-bottom: -96px;
+  border: 1.5px solid var(--hairline-on-ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  max-height: 66vh;
+}
+.np-hero-shot img { width: 100%; height: auto; display: block; }
+/* the first section after the hero makes room for the bleed */
+.np-after-hero { padding-top: 150px; }
+
+/* scroll reveal — a single quiet rise. Content is visible by default (no-JS
+   safe); only once JS marks <html class="np-js"> do not-yet-revealed items hide,
+   and NpEnhance reveals them as they enter view. Parks under reduced-motion. */
+.np-rise { transition: opacity 0.85s cubic-bezier(0.2,0.7,0.2,1), transform 0.85s cubic-bezier(0.2,0.7,0.2,1); }
+.np-js .np-rise:not(.in) { opacity: 0; transform: translateY(22px); }
+.np-rise.d1 { transition-delay: 0.07s; }
+.np-rise.d2 { transition-delay: 0.14s; }
+
+/* prominent "70 seconds" scroll cue in the hero */
+.np-scrollcue {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 30px;
+  text-decoration: none;
+  color: var(--text-on-ink);
+  font-size: clamp(16px, 1.9vw, 20px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.np-scrollcue .tri {
+  color: var(--brass);
+  font-size: 0.7em;
+  transform: translateY(1px);
+}
+.np-scrollcue .lab {
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 5px;
+}
+.np-scrollcue:hover .lab { border-bottom-color: var(--text-on-ink); }
+.np-scrollcue .chev { color: var(--brass); animation: np-bob 1.6s ease-in-out infinite; }
+.np-scrollcue:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+@keyframes np-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .np-scrollcue .chev { animation: none; } }
+
+/* ── Orbit Hire — fairness "weighed vs sealed" diagram ─────────── */
+.np-fair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 38px; }
+.np-fair-col { border: 1.5px solid var(--hairline); border-radius: var(--radius); padding: 22px 24px; background: var(--paper-raised); }
+.np-band-ink .np-fair-col { border-color: var(--hairline-on-ink); background: rgba(255,255,255,0.03); }
+.np-fair-col h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+.np-fair-col.see h4 { color: var(--petrol); }
+.np-band-ink .np-fair-col.see h4 { color: var(--petrol-bright); }
+.np-fair-col.seal h4 { color: var(--text-faint); }
+.np-fair-col .cap2 { font-size: 12px; color: var(--text-faint); margin: 0 0 14px; }
+.np-fair-row { display: flex; align-items: center; gap: 11px; padding: 10px 0; border-top: 1px solid var(--hairline); font-size: 14.5px; }
+.np-band-ink .np-fair-row { border-color: var(--hairline-on-ink); color: var(--text-on-ink); }
+.np-fair-row:first-of-type { border-top: none; }
+.np-fair-row .ic { width: 15px; text-align: center; flex-shrink: 0; font-weight: 800; }
+.np-fair-col.see .ic { color: var(--petrol); }
+.np-band-ink .np-fair-col.see .ic { color: var(--petrol-bright); }
+.np-fair-row.sealed { color: var(--text-faint); }
+.np-fair-row.sealed .ic { color: var(--text-faint); }
+.np-fair-row.sealed .val { filter: blur(4.5px); user-select: none; letter-spacing: -0.05em; }
+@media (max-width: 720px) { .np-fair { grid-template-columns: 1fr; } }
+
+/* stat row — big numbers flowing left to right (the pile → shortlist) */
+.np-statrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 20px; margin-top: 30px; }
+.np-stat { display: flex; align-items: baseline; gap: 12px; }
+.np-stat .n { font-size: clamp(44px, 7vw, 82px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--brass); font-variant-numeric: tabular-nums; }
+.np-stat .l { font-size: 13px; color: var(--text-muted); max-width: 15ch; line-height: 1.4; }
+.np-band-ink .np-stat .l { color: var(--text-on-ink-muted); }
+.np-arrow { color: var(--text-faint); font-size: 28px; align-self: center; }
+
+/* transcript-style block (interview evidence) */
+.np-script { margin-top: 34px; border: 1.5px solid var(--hairline-on-ink); border-radius: var(--radius); background: var(--ink); color: var(--text-on-ink); padding: 22px 24px; font-family: var(--mono); font-size: 13.5px; line-height: 2; }
+.np-script .who { color: var(--petrol-bright); font-weight: 600; }
+.np-script .you { color: var(--brass); font-weight: 600; }
+.np-script .meta { color: var(--text-faint); }
+
+/* subtle hero backlink (between products) */
+.np-backlink { color: var(--text-on-ink-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
+.np-backlink:hover { color: var(--text-on-ink); }
+
+/* sister-product strip */
+.np-sister { border-top: 1px solid var(--hairline); margin-top: 8px; }
+.np-sister .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 40px; padding-bottom: 8px; }
+.np-sister .lead { font-size: clamp(20px, 2.6vw, 30px); font-weight: 800; letter-spacing: -0.02em; margin: 0; max-width: 22ch; }
+.np-sister .sub2 { font-size: 14px; color: var(--text-muted); margin: 8px 0 0; max-width: 42ch; }
+
+/* scroll progress hairline */
+.np-prog { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--brass); z-index: 60; }
+
+@media (prefers-reduced-motion: reduce) {
+  .np-rise, .np-js .np-rise:not(.in) { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 880px) {
+  .np-act { padding: 64px 0; }
+  .np-shot { max-height: 72vh; }
+  .np-hero-shot { margin-bottom: -60px; max-height: 52vh; }
+  .np-after-hero { padding-top: 96px; }
+}

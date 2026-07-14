@@ -1,0 +1,135 @@
+/* ══════════════════════════════════════════════════════════════════
+   ORBIT — "The Wire" design system (design_handoff README tokens)
+   ink & paper, petrol & brass. Brass = action. Petrol = data.
+   No gradients, no glow, no blur, no starfield, nothing pill-shaped.
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ink: #16211f;
+  --paper: #fbfaf7;
+  --paper-raised: #f7f5f0;
+  --text: #1d1d1b;
+  --text-muted: #4a4841;
+  --text-faint: #8a877f;
+  --text-on-ink: #f3f1ec;
+  --text-on-ink-muted: #b8b4a9;
+  --petrol: #1e5f5a;
+  --petrol-bright: #1fa08f;
+  --brass: #c99a4a;
+  --brass-deep: #a3782c;
+  --hairline: #d8d4ca;
+  --hairline-on-ink: #2c3a37;
+  --radius: 3px;
+  /* type — populated by next/font variables in layout.tsx */
+  --sans: var(--font-manrope), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: var(--font-plex-mono), ui-monospace, Menlo, Consolas, monospace;
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(201, 154, 74, 0.28); }
+
+a { color: inherit; }
+
+button { font: inherit; }
+
+img { max-width: 100%; display: block; }
+
+/* ── shared primitives ─────────────────────────────────────────── */
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+/* Micro-text is Manrope like everything else — per the owner's rule, the
+   ONLY mono surface on the site is the terminal feed (.term-header/.term-feed). */
+.mono {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.microlabel {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kicker { color: var(--petrol); }
+.on-ink .kicker { color: var(--brass); }
+
+/* CTA — brass fill, ink text; darkens ~8% on hover, no scale, no glow. */
+.cta {
+  display: inline-block;
+  background: var(--brass);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease;
+}
+.cta:hover { filter: brightness(0.92); }
+.cta:focus-visible { outline: 2px solid var(--petrol); outline-offset: 2px; }
+
+.textlink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 2px;
+  font-weight: 700;
+}
+.textlink:hover { border-bottom-color: currentColor; }
+.textlink:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+/* screenshot frames — 3px radius, hairline border, no shadow */
+.shot { border: 1.5px solid var(--hairline-on-ink); border-radius: var(--radius); overflow: hidden; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.on-paper .shot { border-color: var(--text); }
+
+/* ── motion (3 moments total; all park under reduced-motion) ────── */
+
+/* 1 · hero arrival — the brief slides up into the band on load */
+@keyframes wire-arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.arrive { animation: wire-arrive 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) 0.15s both; }
+
+/* 2 · terminal feed — lines revealed by JS as the panel scrolls in */
+.feedline { opacity: 0; transform: translateY(4px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.feedline.on { opacity: 1; transform: translateY(0); }
+
+/* 3 · logo orbit — one slow revolution, ~8s, defined in OrbitLogo.tsx */
+@keyframes orbit-revolve { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .arrive { animation: none; }
+  .feedline { opacity: 1; transform: none; transition: none; }
+  .orbit-anim { animation: none !important; }
+}
+
+/* ── responsive foundations ────────────────────────────────────── */
+@media (max-width: 720px) {
+  .wrap { padding: 0 22px; }
+  body { font-size: 16px; }
+}

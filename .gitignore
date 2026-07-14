@@ -2,7 +2,7 @@
 .vercel
 *.log
 node_modules
-
-.vercel
+.next
 .env*
 _serve.mjs
+next-env.d.ts

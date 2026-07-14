@@ -1,0 +1,269 @@
+import Image from "next/image";
+import { OrbitLogo } from "@/components/OrbitLogo";
+import { Hero } from "@/components/Hero";
+import { NavClaim } from "@/components/NavClaim";
+import { Terminal } from "@/components/Terminal";
+import { LedgerForm } from "@/components/LedgerForm";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { SiteFooter } from "@/components/SiteChrome";
+import { getNextSeat } from "@/lib/launch";
+
+const TIERS: { name: string; price: string; popular?: boolean; lines: string[] }[] = [
+  {
+    name: "STARTER", price: "149",
+    lines: [
+      "Morning Brief + monthly board pack",
+      "25 AI team runs a month",
+      "Money Finder + the fines Shield",
+      "Email & Telegram intake",
+    ],
+  },
+  {
+    name: "GROWTH", price: "499", popular: true,
+    lines: [
+      "Everything in Starter",
+      "150 AI team runs a month",
+      "WhatsApp tasking",
+      "Collections that run themselves",
+      "Deeper web research per run",
+    ],
+  },
+  {
+    name: "SCALE", price: "1,499",
+    lines: [
+      "Everything in Growth",
+      "1,000 AI team runs a month",
+      "Highest token allowances",
+      "For finance teams & multi-entity groups",
+    ],
+  },
+];
+
+const IMPACT: { num: string; label: string; petrol?: boolean }[] = [
+  { num: "2 days", label: "the month-end close, down from nine" },
+  { num: "100%", label: "of lines tax-tested against FTA & ZATCA rules", petrol: true },
+  { num: "13 weeks", label: "of rolling cash visibility, refreshed nightly" },
+  { num: "38", label: "documents posted in a single night, untouched" },
+  { num: "6", label: "accounting systems Orbit posts straight into", petrol: true },
+  { num: "06:04", label: "your books, briefed before you're at your desk" },
+];
+
+const STEPS: [string, string, string][] = [
+  ["01", "Claim a seat", "Your founding invite lands by email; the workspace is live in minutes. No implementation project, no consultants."],
+  ["02", "Bring your books", "Connect Zoho Books, Xero, QuickBooks, Odoo, Wafeq or ERPNext — or skip setup entirely and just forward documents by email or WhatsApp."],
+  ["03", "Verify once, then it flows", "Confirm your channel and anything you send files itself: read, coded from your own history, tax-tested, matched to POs and bank lines, posted."],
+  ["04", "Run the morning, not the month", "One brief at sunrise: what happened yesterday, the few things that need you today. Nothing posts silently past the thresholds you set — the judgement calls always wait for a human."],
+];
+
+const GULF: [string, string, string][] = [
+  ["FTA-READY", "UAE VAT & Corporate Tax built in", "5% input-VAT testing on every line, 9% CT accrual, and a one-click FTA audit-response assembler."],
+  ["ZATCA-AWARE", "KSA from day one", "15% VAT rules and e-invoice clearance status tracked; Saudi entities aren't an afterthought."],
+  ["AED · SAR", "Native to Gulf money", "Multi-entity across the UAE and Saudi, in the currencies your board actually reads."],
+  ["DUBAI & RIYADH", "Home-grown, not localized", "Built and supported in your timezone — not a Western template with a currency dropdown."],
+];
+
+const CONNECTORS: [string, string][] = [
+  ["Zoho Books", "OAuth · two-way journal sync"],
+  ["Xero", "OAuth · history import"],
+  ["QuickBooks", "OAuth · Intuit-verified flow"],
+  ["Odoo", "API key · legacy import"],
+  ["Wafeq", "API key · Gulf-native ledger"],
+  ["ERPNext", "API key · history import"],
+];
+
+export const revalidate = 60;   // keeps the founding-seat counter fresh
+
+export default async function Page() {
+  const seat = await getNextSeat();
+  return (
+    <>
+      <SmoothScroll />
+
+      {/* ── HERO BAND (ink): nav + hero ─────────────────────────── */}
+      <header className="hero-band on-ink" id="top">
+        <div className="wrap">
+          <nav className="nav" aria-label="Main">
+            <OrbitLogo />
+            <div className="nav-links">
+              <a href="#product" className="nav-hide-m">PRODUCT</a>
+              <a href="#pricing" className="nav-hide-m">PRICING</a>
+              <a href="/faq" className="nav-hide-m">FAQ</a>
+              <a href="/contact" className="nav-hide-m">CONTACT</a>
+              <NavClaim />
+            </div>
+          </nav>
+          <Hero seat={seat} />
+        </div>
+      </header>
+
+      <main>
+        {/* ── STAT BAND (paper) — the product promise, in numbers ── */}
+        <section className="stats wrap" aria-label="What a month with Orbit looks like">
+          <div className="stats-grid">
+            <div className="stat">
+              <div className="stat-num">38</div>
+              <div className="microlabel stat-label">DOCS POSTED IN A SINGLE NIGHT</div>
+            </div>
+            <div className="stat">
+              <div className="stat-num petrol"><span className="petrol">AED 4,210</span></div>
+              <div className="microlabel stat-label">THE VAT A MONTH TYPICALLY HIDES</div>
+            </div>
+            <div className="stat">
+              <div className="stat-num">2 <small>days, not 9</small></div>
+              <div className="microlabel stat-label">MONTH-END, AFTER ORBIT</div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── HOW IT WORKS (rotating ink terminal) ────────────────── */}
+        <section className="section wrap" id="product">
+          <Terminal />
+        </section>
+
+        {/* ── FEATURES (ruled grid) ───────────────────────────────── */}
+        <section className="section wrap">
+          <h2 className="section-head">The rest of your finance team.</h2>
+          <div className="feat-grid">
+            <div className="feat-cell">
+              <div className="microlabel feat-kicker">SCORE</div>
+              <div className="feat-title">Orbit Score — one health number, nightly</div>
+              <div className="feat-shot">
+                <Image src="/shots/orbit-score.png" alt="The Orbit Score — a single 0–100 financial-health number with its weighted components" width={1280} height={800} />
+              </div>
+            </div>
+            <div className="feat-cell right">
+              <div className="microlabel feat-kicker">FINDER</div>
+              <div className="feat-title">Money Finder — missed VAT &amp; duplicates, recovered</div>
+              <div className="feat-shot">
+                <Image src="/shots/money-finder.png" alt="Money Finder — duplicate payments, under-claimed VAT and unapplied credits, each with evidence" width={1440} height={900} />
+              </div>
+            </div>
+            <div className="feat-textrow">
+              <div className="feat-mini">
+                <div className="microlabel feat-kicker">CASH</div>
+                <div className="feat-mini-title">13-week forecast</div>
+                <p className="feat-mini-sub">Rolling, refreshed nightly.</p>
+              </div>
+              <div className="feat-mini">
+                <div className="microlabel feat-kicker">PACK</div>
+                <div className="feat-mini-title">Board pack, assembled</div>
+                <p className="feat-mini-sub">Monthly, zero effort.</p>
+              </div>
+              <div className="feat-mini">
+                <div className="microlabel feat-kicker">TAX</div>
+                <div className="feat-mini-title">VAT + CT reconciliation</div>
+                <p className="feat-mini-sub">One-click FTA audit response.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── WHY WE BUILT THIS (ink band) ────────────────────────── */}
+        <section className="why-band on-ink" id="why">
+          <div className="wrap">
+            <div className="microlabel hero-kicker">WHY WE BUILT THIS</div>
+            <h2 className="why-head">We lived the month-end<br />we&rsquo;re deleting.</h2>
+            <div className="why-cols">
+              <p>
+                Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at
+                midnight, a VAT deadline breathing down the quarter — and the numbers that actually
+                matter, untouched. We watched brilliant finance teams spend their nights and days on
+                administrative work and overlook the real value sitting in front of them: what the
+                data was saying.
+              </p>
+              <p>
+                Orbit is one of the very few products in this space <strong>built by accountants who
+                have lived and slept through these processes</strong> — not by engineers guessing at
+                them. So we built the colleague we always wanted: one who does the busywork, shows
+                its evidence, and leaves the judgement to you.
+              </p>
+            </div>
+            <div className="why-sig mono">— SIDDIQUI · FOUNDER, ORBIT</div>
+          </div>
+        </section>
+
+        {/* ── HOW TO USE IT (numbered — a real sequence) ──────────── */}
+        <section className="section wrap" id="how">
+          <h2 className="section-head">From invite to autopilot,<br />in four steps.</h2>
+          <div className="steps-grid">
+            {STEPS.map(([n, title, detail]) => (
+              <div key={n} className="step-cell">
+                <div className="mono step-num">{n}</div>
+                <div className="step-title">{title}</div>
+                <p className="step-detail">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── BUILT FOR THE GULF ──────────────────────────────────── */}
+        <section className="section wrap" id="gulf">
+          <div className="microlabel kicker">HOME-GROWN</div>
+          <h2 className="section-head" style={{ marginTop: 8 }}>Built in the Gulf,<br />for the Gulf.</h2>
+          <div className="gulf-grid">
+            {GULF.map(([kick, title, detail]) => (
+              <div key={kick} className="gulf-cell">
+                <div className="microlabel kicker">{kick}</div>
+                <div className="gulf-title">{title}</div>
+                <p className="gulf-detail">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── IMPACT IN NUMBERS ───────────────────────────────────── */}
+        <section className="section wrap" id="impact">
+          <div className="microlabel kicker">THE ORBIT EFFECT</div>
+          <h2 className="section-head" style={{ marginTop: 8 }}>Your first month, in numbers.</h2>
+          <div className="impact-grid">
+            {IMPACT.map((c) => (
+              <div key={c.label} className="impact-cell">
+                <div className={`impact-num${c.petrol ? " petrol" : ""}`}>{c.num}</div>
+                <div className="impact-label">{c.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── INTEGRATIONS ────────────────────────────────────────── */}
+        <section className="section wrap" id="integrations">
+          <div className="microlabel kicker">INTEGRATIONS</div>
+          <h2 className="section-head" style={{ marginTop: 8 }}>Plugs into the books<br />you already keep.</h2>
+          <div className="conn-grid">
+            {CONNECTORS.map(([name, detail]) => (
+              <div key={name} className="conn-cell">
+                <div className="conn-name">{name}</div>
+                <div className="mono conn-detail">{detail}</div>
+              </div>
+            ))}
+          </div>
+          <div className="conn-foot">
+            <span className="mono">DOCUMENTS IN FROM&nbsp;&nbsp;WhatsApp · Telegram · Email</span>
+            <a href="/integrations" className="textlink" style={{ fontSize: 13.5 }}>How each connection works →</a>
+          </div>
+        </section>
+
+        {/* ── PRICING + FOUNDING LEDGER ───────────────────────────── */}
+        <section className="section wrap" id="pricing">
+          <h2 className="section-head">Priced for the business,<br />not the software budget.</h2>
+          <div className="price-grid">
+            <div className="tiers">
+              {TIERS.map((t) => (
+                <div key={t.name} className={`tier${t.popular ? " popular" : ""}`}>
+                  <div className="microlabel tier-kicker">{t.name}</div>
+                  <div className="tier-price">AED {t.price}<small>/mo</small></div>
+                  <ul className="tier-lines">
+                    {t.lines.map((l) => <li key={l}>{l}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <LedgerForm seat={seat} />
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </>
+  );
+}
