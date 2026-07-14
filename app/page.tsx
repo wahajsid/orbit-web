@@ -63,7 +63,8 @@ export default async function Page() {
           <nav className="nav" aria-label="Main">
             <OrbitLogo />
             <div className="nav-links">
-              <a href="/hire" className="nav-hide-m">ORBIT HIRE</a>
+              <a href="/hire" className="nav-hide-m">HIRE</a>
+              <a href="/firms" className="nav-hide-m">FOR FIRMS</a>
               <a href="/faq" className="nav-hide-m">FAQ</a>
               <a href="/contact" className="nav-hide-m">CONTACT</a>
               <a href="#ledger" className="nav-cta">CLAIM A SEAT</a>
@@ -226,15 +227,30 @@ export default async function Page() {
           </div>
         </section>
 
-        {/* ── SISTER PRODUCT — ORBIT HIRE ─────────────────────────── */}
+        {/* ── THE ORBIT FAMILY — sister products ──────────────────── */}
+        <section className="section wrap" style={{ paddingBottom: 8 }}>
+          <div className="microlabel kicker">THE ORBIT FAMILY</div>
+          <h2 className="section-head" style={{ marginTop: 8 }}>Three products, one mission.</h2>
+          <p className="section-sub">Software that does the busywork and shows its evidence — across your books, your hiring, and your whole practice.</p>
+        </section>
         <section className="np-sister">
           <div className="wrap">
             <div>
-              <div className="microlabel kicker">THE SISTER PRODUCT</div>
-              <p className="lead">Hiring is busywork too. Meet Orbit&nbsp;Hire.</p>
+              <div className="microlabel kicker">ORBIT HIRE</div>
+              <p className="lead">Hiring is busywork too.</p>
               <p className="sub2">Reads every application, interviews every candidate by voice, and hands you a ranked shortlist — fair by design.</p>
             </div>
             <a className="cta" href="/hire">See Orbit Hire →</a>
+          </div>
+        </section>
+        <section className="np-sister">
+          <div className="wrap">
+            <div>
+              <div className="microlabel kicker">ORBIT FOR FIRMS · COMING SOON</div>
+              <p className="lead">Run the whole practice.</p>
+              <p className="sub2">The operating system for tax &amp; accounting firms — clients, engagements, filings and your team, in one place.</p>
+            </div>
+            <a className="cta" href="/firms">See Orbit for Firms →</a>
           </div>
         </section>
       </main>

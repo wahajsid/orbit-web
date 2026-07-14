@@ -13,6 +13,64 @@
   margin-bottom: 6px;
 }
 
+/* ══ Per-product accent — a distinct colour combo per product ══════
+   Orbit (finance) & Hire use the brass accent. Orbit for Firms remaps the
+   accent token to plum, so every np-* accent, kicker, CTA and rule turns plum
+   without touching the component markup. Petrol stays the "good/data" colour. */
+.prod-firms {
+  --brass: #6E5B9E; --brass-lit: #9585C0; --brass-deep: #53437D;
+}
+.prod-firms .np-accent, .prod-firms .np-kicker, .prod-firms .kicker,
+.prod-firms .np-feat .k { color: var(--brass); }
+.prod-firms .np-band-ink .np-accent, .prod-firms .np-band-ink .np-kicker,
+.prod-firms .on-ink .kicker { color: var(--brass-lit); }
+.prod-firms .cta { color: var(--text-on-ink); }              /* light text on the darker plum */
+.prod-firms .nav-links .nav-cta { border-bottom-color: var(--brass); }
+
+/* coming-soon badge — hairline box, small live dot (no pills) */
+.np-soon {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--brass-lit);
+  border: 1px solid var(--hairline-on-ink); border-radius: var(--radius); padding: 7px 12px;
+  margin-bottom: 22px;
+}
+.np-soon .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brass-lit); box-shadow: 0 0 8px var(--brass-lit); }
+
+/* feature grid — ruled cells, no imagery (coming-soon safe) */
+.np-features { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--hair); margin-top: 40px; }
+.np-feat { padding: 24px 26px 28px 0; border-bottom: 1px solid var(--hair); }
+.np-feat:nth-child(3n + 2), .np-feat:nth-child(3n) { padding-left: 26px; border-left: 1px solid var(--hair); }
+.np-feat:nth-child(3n) { padding-right: 0; }
+.np-band-ink .np-feat { border-color: var(--hairline-on-ink); }
+.np-feat .k { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--petrol); }
+.np-feat h3 { font-size: 16.5px; font-weight: 800; letter-spacing: -0.015em; margin: 8px 0 6px; color: var(--text); }
+.np-feat p { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 0; max-width: 34ch; }
+.np-band-ink .np-feat h3 { color: var(--text-on-ink); }
+.np-band-ink .np-feat p { color: var(--text-on-ink-muted); }
+@media (max-width: 720px) {
+  .np-features { grid-template-columns: 1fr; }
+  .np-feat, .np-feat:nth-child(3n + 2), .np-feat:nth-child(3n) { padding-left: 0; padding-right: 0; border-left: none; }
+  .np-feat p { max-width: none; }
+  .np-tree .row.l1 { padding-left: 30px; } .np-tree .row.l2 { padding-left: 46px; }
+  .np-tree .tag { width: 74px; }
+}
+
+/* hierarchy tree — the "structure" visual in place of a screenshot */
+.np-tree { margin-top: 36px; border: 1.5px solid var(--hair); border-radius: 6px; overflow: hidden; background: var(--paper-raised); }
+.np-band-ink .np-tree { border-color: var(--hairline-on-ink); background: rgba(255,255,255,0.02); }
+.np-tree .row { display: flex; align-items: baseline; gap: 12px; padding: 13px 20px; border-top: 1px solid var(--hair2); }
+.np-tree .row:first-child { border-top: none; }
+.np-band-ink .np-tree .row { border-color: var(--hairline-on-ink); }
+.np-tree .tag { font-size: 9.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); flex-shrink: 0; width: 96px; }
+.np-tree .name { font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--text); }
+.np-band-ink .np-tree .name { color: var(--text-on-ink); }
+.np-tree .meta { font-size: 12.5px; color: var(--text-muted); }
+.np-band-ink .np-tree .meta { color: var(--text-on-ink-muted); }
+.np-tree .row.l1 { padding-left: 40px; }
+.np-tree .row.l2 { padding-left: 68px; }
+.np-tree .row.l1 .name, .np-tree .row.l2 .name { font-weight: 600; }
+
 /* an act band — ink or paper, generous rhythm */
 .np-act { padding: 96px 0; }
 .np-band-ink { background: var(--ink); color: var(--text-on-ink); }
