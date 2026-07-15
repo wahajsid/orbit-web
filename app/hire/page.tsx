@@ -149,7 +149,7 @@ export default function HirePage() {
               <span className="np-chip"><span className="k">Finalist 3</span><span className="b">fast learner · thin evidence · ask for samples</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-scoring.jpg" alt="Orbit Hire ranked candidates — per-criterion scores, confidence, red flags and the trust & fairness block" width={1600} height={1550} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-scoring.jpg" alt="Orbit Hire ranked candidates — per-criterion scores, confidence, red flags and the trust & fairness block" width={1600} height={1444} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Ranked candidates — every score explained, protected characteristics sealed.</div>
             <div className="np-shot np-rise d1">
