@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "../advert.css";
-import { OrbitLogo } from "@/components/OrbitLogo";
+import { ProductNav } from "@/components/ProductNav";
 import { HireTerminal } from "@/components/HireTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { SiteFooter } from "@/components/SiteChrome";
@@ -27,14 +27,7 @@ export default function HirePage() {
       {/* ── HERO (ink) ──────────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <nav className="nav" aria-label="Main">
-            <OrbitLogo />
-            <div className="nav-links">
-              <a href="/" className="nav-hide-m">ORBIT FINANCE</a>
-              <a href="/contact" className="nav-hide-m">CONTACT</a>
-              <a href="#access" className="nav-cta">EARLY ACCESS</a>
-            </div>
-          </nav>
+          <ProductNav active="hire" cta={{ label: "EARLY ACCESS", href: "#access" }} />
 
           <div style={{ paddingTop: 40 }}>
             <div className="microlabel hero-kicker">ORBIT HIRE · THE SISTER PRODUCT TO ORBIT</div>
@@ -50,7 +43,7 @@ export default function HirePage() {
             </a>
             <div className="hero-actions">
               <a className="cta" href="#access">Request early access</a>
-              <a className="np-backlink" href="/">← the finance OS is at orbitgulf.com</a>
+              <a className="np-backlink" href="/">← part of the Orbit family</a>
             </div>
           </div>
         </div>
@@ -185,7 +178,7 @@ export default function HirePage() {
                 judgement, and the audit trail, back to you.
               </p>
             </div>
-            <div className="why-sig np-rise">&mdash; SIDDIQUI · FOUNDER, ORBIT</div>
+            <div className="why-sig np-rise">&mdash; SRW</div>
           </div>
         </section>
 

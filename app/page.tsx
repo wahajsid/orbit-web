@@ -1,55 +1,46 @@
-import Image from "next/image";
 import "./advert.css";
-import { OrbitLogo } from "@/components/OrbitLogo";
-import { Terminal } from "@/components/Terminal";
 import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { SiteFooter } from "@/components/SiteChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
+import { ProductNav } from "@/components/ProductNav";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Orbit — your books, already done",
+  title: "Orbit — the finance universe, in continuous motion",
   description:
-    "The finance operating system for the Gulf. AP, receivables, the ledger, tax and the month-end close — run by a team of agents, watched over by you.",
+    "We're taking the busywork out of finance, accounting and tax — the agents do the doing, the judgment stays yours. Three products, one mission. Built in the Gulf, by accountants who lived it.",
 };
 
-const pad3 = (n: number) => String(n).padStart(3, "0");
+const ANTHEM: [string, string][] = [
+  ["You spent a decade on judgment —", "not on chasing receipts at midnight."],
+  ["The close should close itself.", "The thinking should stay yours."],
+  ["You got into this to make sense —", "let's give you the time to."],
+];
 
-type Chip = { k: string; v: string; tone?: "p" | "b" };
-function Act({
-  ink, kicker, head, say, chips, shot, cap,
-}: {
-  ink?: boolean; kicker: string; head: React.ReactNode; say: React.ReactNode;
-  chips?: Chip[]; shot: { src: string; w: number; h: number; alt: string }; cap: string;
-}) {
-  return (
-    <section className={`np-act${ink ? " np-band-ink" : ""}`}>
-      <div className="wrap">
-        <div className="microlabel np-kicker np-rise">{kicker}</div>
-        <h2 className="np-head np-rise d1">{head}</h2>
-        <p className="np-say np-rise d1">{say}</p>
-        {chips && (
-          <div className="np-chips np-rise d2">
-            {chips.map((c) => (
-              <span key={c.k} className="np-chip">
-                <span className="k">{c.k}</span>
-                <span className={c.tone === "p" ? "p" : c.tone === "b" ? "b" : undefined}>{c.v}</span>
-              </span>
-            ))}
-          </div>
-        )}
-        <div className="np-shot np-rise d1">
-          <Image src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} sizes="(max-width: 1120px) 100vw, 1064px" />
-        </div>
-        <div className="np-cap np-rise">{cap}</div>
-      </div>
-    </section>
-  );
-}
+const WORLDS: { wk: React.ReactNode; h: string; ex: React.ReactNode; met: string; href: string; go: string }[] = [
+  {
+    wk: "ACCOUNTING", h: "Orbit",
+    ex: <>Aisha forwards a supplier invoice from WhatsApp at 9pm. By sunrise it&rsquo;s coded from her own history, tested against the FTA&rsquo;s rules, matched to the bank line, and posted to Zoho — she never touched it.</>,
+    met: "Month-end in 2 days, not 9 · 100% of lines VAT-tested · ~AED 4,200 of hidden VAT found a month.",
+    href: "/accounting", go: "See Orbit →",
+  },
+  {
+    wk: "HIRE", h: "Orbit Hire",
+    ex: <>52 CVs land Tuesday morning. By lunch Orbit has read every one, scored them on your rubric, sealed the names and photos, and put three people on your desk to meet — Layla, Omar and Priya.</>,
+    met: "50 CVs read in minutes, not a week · every candidate a real first interview · scoring you can defend.",
+    href: "/hire", go: "See Orbit Hire →",
+  },
+  {
+    wk: <>FOR FIRMS · <span className="soon">COMING SOON</span></>, h: "Orbit for Firms",
+    ex: <>Every client, engagement and filing in one place. Rashid logs an hour to the ELC Group VAT engagement in a tap; the disbursement lands on the right client; realization per engagement, without a spreadsheet.</>,
+    met: "Timesheets, project & expense tracking, and the whole practice — organized.",
+    href: "/firms", go: "See Orbit for Firms →",
+  },
+];
 
 export default async function Page() {
   const seat = await getNextSeat();
@@ -57,200 +48,171 @@ export default async function Page() {
     <>
       <SmoothScroll />
 
-      {/* ── HERO (ink) — rotating headline + the product, bleeding in ── */}
+      {/* ── HERO — the anthem ─────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <nav className="nav" aria-label="Main">
-            <OrbitLogo />
-            <div className="nav-links">
-              <a href="/hire" className="nav-hide-m">HIRE</a>
-              <a href="/firms" className="nav-hide-m">FOR FIRMS</a>
-              <a href="/faq" className="nav-hide-m">FAQ</a>
-              <a href="/contact" className="nav-hide-m">CONTACT</a>
-              <a href="#ledger" className="nav-cta">CLAIM A SEAT</a>
-            </div>
-          </nav>
-
+          <ProductNav cta={{ label: "JOIN US", href: "#join" }} />
           <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">AN AI FINANCE TEAM FOR THE UAE &amp; KSA</div>
-            <RotatingHeadline />
-            <p className="hero-sub" style={{ maxWidth: 560 }}>
-              Orbit runs the busywork — AP, receivables, the ledger, tax and the month-end
-              close — and leaves the judgement to you.
+            <div className="microlabel hero-kicker">THE FINANCE UNIVERSE, IN CONTINUOUS MOTION</div>
+            <RotatingHeadline items={ANTHEM} />
+            <p className="hero-sub" style={{ maxWidth: 600 }}>
+              We&rsquo;re taking the busywork out of finance, accounting and tax — the agents do the
+              doing, the judgment stays yours. Built in the Gulf, by accountants who lived every
+              late night of it.
             </p>
-            <a className="np-scrollcue" href="#live" aria-label="Scroll to watch">
+            <a className="np-scrollcue" href="#truth" aria-label="Read our story">
               <span className="tri">▶</span>
-              <span className="lab">Seventy seconds of what it looks like</span>
+              <span className="lab">Why we built Orbit</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
-              <a className="cta" href="#ledger">Claim a founding seat</a>
-              <span className="mono hero-seat">SEAT {pad3(seat)}/{FOUNDING_SEATS} REMAINS</span>
+              <a className="cta" href="#join">Join the founding cohort</a>
+              <a className="np-backlink" href="#worlds">or meet the three products →</a>
             </div>
-          </div>
-
-          <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.jpg" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1834} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
 
       <main>
-        {/* ── LIVE: the invoice → close → collections terminal ────── */}
-        <section className="section wrap np-after-hero" id="live">
-          <Terminal />
-        </section>
-
-        {/* ── ACT · Money out ─────────────────────────────────────── */}
-        <Act
-          ink
-          kicker="MONEY OUT"
-          head={<>Every invoice hides two questions: <span className="np-accent">is it coded right, and is the tax deductible?</span></>}
-          say={<>Orbit codes it on arrival from your own ledger&rsquo;s memory, then tax-tests it against UAE law. This one <strong>fails Article 59</strong> — the supplier TRN is missing — so the input VAT is held, not claimed. And a duplicate is stopped before it ever posts.</>}
-          chips={[
-            { k: "Tax test", v: "input VAT AED 1,036 held", tone: "b" },
-            { k: "Duplicate", v: "stopped before posting", tone: "b" },
-            { k: "Coding memory", v: "2,418 txns", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-payables.jpg", w: 1600, h: 1741, alt: "Orbit Payables — the tax test embedded in the invoice row" }}
-          cap="Payables — the tax layer embedded in every row, with its evidence attached."
-        />
-
-        {/* ── ACT · The regional layer ────────────────────────────── */}
-        <Act
-          kicker="THE REGIONAL LAYER"
-          head={<>Your global tools don&rsquo;t know what the FTA or ZATCA want. <span className="np-accent">This one was built here.</span></>}
-          say={<>VAT and Corporate Tax reconciled every month, each deadline tracked by a watchdog, e-invoices cleared and stored with proof. The AED 200,000 gap? Explained, and cited to the journal.</>}
-          chips={[
-            { k: "VAT ↔ CT", v: "Δ +200k · explained", tone: "p" },
-            { k: "Filing", v: "Q2 due 28 Jul · T-14", tone: "b" },
-            { k: "ZATCA", v: "142 cleared · 0 rejected", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-tax.jpg", w: 1600, h: 1119, alt: "Orbit GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
-          cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
-        />
-
-        {/* ── ACT · The permanent record ──────────────────────────── */}
-        <Act
-          ink
-          kicker="THE PERMANENT RECORD"
-          head={<>Nothing is ever deleted. <span className="np-accent">Mistakes are reversed in the open.</span></>}
-          say={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
-          shot={{ src: "/shots/adv-ledger.jpg", w: 1600, h: 1207, alt: "Orbit general ledger — journal activity with agent commentary and evidence" }}
-          cap="Ledger — every entry explained, its evidence one click away."
-        />
-
-        {/* ── ACT · Money in ──────────────────────────────────────── */}
-        <Act
-          kicker="MONEY IN"
-          head={<>Who owes you — and what to do about it, <span className="np-accent">already chased.</span></>}
-          say={<>Collection reminders write themselves on a cadence you approve once; nothing sends without you. Write-off exposure is provisioned against your policy, automatically.</>}
-          chips={[
-            { k: "DSO", v: "41 days · improving", tone: "p" },
-            { k: "Past due", v: "AED 346,700", tone: "b" },
-            { k: "Provisioned", v: "policy-driven" },
-          ]}
-          shot={{ src: "/shots/adv-receivables.jpg", w: 1600, h: 1342, alt: "Orbit Receivables — collections queue, DSO and the ageing posture" }}
-          cap="Receivables — the collections runbook, drafted, chased and reconciled."
-        />
-
-        {/* ── ACT · The close (the 78% moment) ────────────────────── */}
-        <section className="np-act np-band-ink" id="close">
+        {/* ── THE TRUTH ─────────────────────────────────────────────── */}
+        <section className="np-act np-after-hero" id="truth" style={{ paddingTop: 110 }}>
           <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE CLOSE</div>
-            <h2 className="np-head np-rise d1">Month-end used to be a few weeks.</h2>
-            <div className="np-big np-rise d1">
-              <span data-np-count="78">0%</span>
-              <span className="sub">done before you woke up.</span>
-            </div>
-            <p className="np-say np-rise d2">
-              Accruals proposed, variances flagged, bank reconciled, VAT drafted — Orbit&rsquo;s side is
-              done before you open it. What&rsquo;s left is your call. Then you seal the month in one
-              tap, and it can never quietly change again.
+            <div className="microlabel np-kicker np-rise">THE TRUTH</div>
+            <h2 className="np-head np-rise d1">We got into this to make sense of things. <span className="np-accent">Then the job changed.</span></h2>
+            <p className="np-say np-rise d1">
+              Every one of us became the person a business trusts with its numbers. Somewhere along
+              the way the receipts, the reconciliations, the filing that&rsquo;s always due — they filled
+              the days, then the nights, then the years. The judgment we trained a decade for got
+              crowded out by work anyone could do. We built Orbit because that felt like a quiet
+              waste, and we couldn&rsquo;t unsee it.
             </p>
-            <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.jpg" alt="Orbit close cockpit — 78% complete, engine-proposed accruals" width={1600} height={1446} sizes="(max-width: 1120px) 100vw, 1064px" />
-            </div>
-            <div className="np-cap np-rise">Close cockpit — &ldquo;Orbit runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
           </div>
         </section>
 
-        {/* ── ACT · One OS ────────────────────────────────────────── */}
-        <Act
-          kicker="ONE OS, ANY SHAPE"
-          head={<>One business or five. One currency or five. <span className="np-accent">One language or two.</span></>}
-          say={<>Switch entities, consolidate, and flip the whole workspace into Arabic — right-to-left, down to the numerals. The product bends. You don&rsquo;t.</>}
-          shot={{ src: "/shots/adv-arabic.jpg", w: 1600, h: 1796, alt: "Orbit in Arabic — the full workspace, right to left" }}
-          cap="نفس النظام — the same Orbit, in Arabic, right-to-left."
-        />
-
-        {/* ── WHY WE BUILT THIS (ink band) ────────────────────────── */}
-        <section className="why-band on-ink" id="why" style={{ marginTop: 0 }}>
+        {/* ── THE MISSION ───────────────────────────────────────────── */}
+        <section className="np-act np-band-ink">
           <div className="wrap">
-            <div className="microlabel hero-kicker np-rise">WHY WE BUILT THIS</div>
-            <h2 className="why-head np-rise d1">We lived the month-end<br />we&rsquo;re deleting.</h2>
+            <div className="microlabel np-kicker np-rise">THE MISSION</div>
+            <h2 className="np-head np-rise d1">Give the profession its time — <span className="np-accent">and its judgment — back.</span></h2>
+            <p className="np-say np-rise d1">
+              Take the busywork off the desk of every accountant, tax adviser and finance team — the
+              coding, the matching, the chasing, the close — and automate it, end to end. The agents
+              do the doing. The hours go where they belong: the advice, the calls, the strategy only
+              a person can make.
+            </p>
+          </div>
+        </section>
+
+        {/* ── THE VISION ────────────────────────────────────────────── */}
+        <section className="np-act">
+          <div className="wrap">
+            <div className="microlabel np-kicker np-rise">THE VISION</div>
+            <h2 className="np-head np-rise d1">Finance isn&rsquo;t one job. <span className="np-accent">It&rsquo;s a universe of them.</span></h2>
+            <p className="np-say np-rise d1">
+              The books. The people you hire. The practice you run. We&rsquo;re bringing every corner of it
+              into orbit — the doing handled by agents, the evidence shown, the last word always left
+              to you. One family, one standard: the software does the work and shows its working; the
+              judgment, and the relationship, stay yours.
+            </p>
+          </div>
+        </section>
+
+        {/* ── WHY WE'RE CALLED ORBIT — the name story ───────────────── */}
+        <section className="np-act np-band-ink">
+          <div className="wrap">
+            <div className="microlabel np-kicker np-rise">WHY WE&rsquo;RE CALLED ORBIT</div>
+            <h2 className="np-head np-rise d1">You stop chasing the work. <span className="np-accent">It orbits you.</span></h2>
+            <p className="np-say np-rise d1">
+              We called it Orbit because that&rsquo;s what good finance feels like when it finally works:
+              everything you carry — the books, the people you hire, the practice you run — held in
+              steady, continuous motion around you, without you having to push it.
+            </p>
+            <p className="np-say np-rise d1">
+              Think about what an orbit actually is. Nothing falls; nothing flies off. It just keeps
+              moving — reliably, quietly, held by a force you can&rsquo;t see. That&rsquo;s the job we handed
+              the agents: keep the whole thing turning in the background — the coding, the reconciling,
+              the chasing, the filing — automated, evidenced, never silent past the calls that need you.
+            </p>
+            <p className="np-say np-rise d1">
+              You get to stand where you always belonged — <strong>at the centre, deciding.</strong>
+            </p>
+          </div>
+        </section>
+
+        {/* ── THE COMPOUNDING ───────────────────────────────────────── */}
+        <section className="np-act">
+          <div className="wrap">
+            <div className="microlabel np-kicker np-rise">THE COMPOUNDING</div>
+            <h2 className="np-head np-rise d1" style={{ maxWidth: "22ch" }}>Time, handed back, <span className="np-accent">compounds.</span></h2>
+            <p className="np-say np-rise d1">
+              An hour you get back isn&rsquo;t just an hour. Give it to a good accountant and it compounds —
+              into advice that changes a client&rsquo;s year, a firm that grows without burning its people
+              out, a life with evenings in it again. The ones who let go of the busywork won&rsquo;t work
+              less. They&rsquo;ll pull ahead — because they finally get to think.
+            </p>
+          </div>
+        </section>
+
+        {/* ── FROM THE FOUNDER (SRW) ────────────────────────────────── */}
+        <section className="why-band on-ink" style={{ marginTop: 0 }}>
+          <div className="wrap">
+            <div className="microlabel hero-kicker np-rise">FROM THE FOUNDER</div>
+            <h2 className="why-head np-rise d1">I&rsquo;ve done<br />the midnights.</h2>
             <div className="why-cols np-rise d1">
               <p>
-                Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at
-                midnight, a VAT deadline breathing down the quarter — and the numbers that actually
-                matter, untouched. We watched brilliant finance teams spend their nights on
-                administrative work and overlook the real value sitting in front of them: what the
-                data was saying.
+                I&rsquo;ve filed at 11:58. I&rsquo;ve watched brilliant people spend their best years on work a
+                machine could do. So I built the colleague I always wished I had — one who does the
+                grunt work, shows me exactly how, and hands the judgment back to me.
               </p>
               <p>
-                Orbit is one of the very few products in this space <strong>built by accountants who
-                have lived and slept through these processes</strong> — not by engineers guessing at
-                them. So we built the colleague we always wanted: one who does the busywork, shows
-                its evidence, and leaves the judgement to you.
+                That&rsquo;s all Orbit is. If you chose this work to <strong>think</strong>, and found
+                yourself buried instead, we built this for you — and we&rsquo;re only getting started.
               </p>
             </div>
-            <div className="why-sig np-rise">&mdash; SIDDIQUI · FOUNDER, ORBIT</div>
+            <div className="why-sig np-rise">&mdash; SRW</div>
           </div>
         </section>
 
-        {/* ── FOUNDING LEDGER (the waitlist) ──────────────────────── */}
-        <section className="section wrap" id="ledger">
-          <h2 className="section-head">Claim a founding seat.</h2>
+        {/* ── THE THREE WORLDS ──────────────────────────────────────── */}
+        <section className="np-act" id="worlds">
+          <div className="wrap">
+            <div className="microlabel np-kicker np-rise">THE ORBIT FAMILY</div>
+            <h2 className="np-head np-rise d1">Three worlds. <span className="np-accent">One universe.</span></h2>
+            <p className="np-say np-rise d1">
+              Three products, built to one standard — the busywork automated, the evidence shown, the
+              judgment yours.
+            </p>
+            <div className="np-worlds np-rise d1">
+              {WORLDS.map((w) => (
+                <div key={w.h} className="np-world">
+                  <div className="wk">{w.wk}</div>
+                  <h3>{w.h}</h3>
+                  <p className="ex">{w.ex}</p>
+                  <p className="met">{w.met}</p>
+                  <a className="go" href={w.href}>{w.go}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── JOIN ──────────────────────────────────────────────────── */}
+        <section className="section wrap" id="join">
+          <h2 className="section-head">Come build the universe with us.</h2>
           <p className="section-sub">
-            The first {FOUNDING_SEATS} companies get twelve months free, with founder pricing locked in
-            after. Work email only — a real person reads every entry.
+            This is bigger than software — it&rsquo;s a bet on what people do with their time when the
+            busywork is gone. The first {FOUNDING_SEATS} companies get twelve months free, with founder
+            pricing locked in after. Work email only — a real person reads every entry.
           </p>
           <div className="price-grid">
             <div>
               <div className="np-chips" style={{ marginTop: 28 }}>
-                <span className="np-chip"><span className="k">Setup</span><span className="p">minutes, not a project</span></span>
-                <span className="np-chip"><span className="k">Books</span><span className="b">Zoho · Xero · QuickBooks · Odoo · Wafeq · ERPNext</span></span>
-                <span className="np-chip"><span className="k">Intake</span><span className="b">WhatsApp · Telegram · Email</span></span>
+                <span className="np-chip"><span className="k">Books</span><span className="p">the finance OS, live today</span></span>
+                <span className="np-chip"><span className="k">Hiring</span><span className="b">Orbit Hire, live today</span></span>
+                <span className="np-chip"><span className="k">Practice</span><span className="b">Orbit for Firms, coming soon</span></span>
               </div>
             </div>
             <LedgerForm seat={seat} />
-          </div>
-        </section>
-
-        {/* ── THE ORBIT FAMILY — sister products ──────────────────── */}
-        <section className="section wrap" style={{ paddingBottom: 8 }}>
-          <div className="microlabel kicker">THE ORBIT FAMILY</div>
-          <h2 className="section-head" style={{ marginTop: 8 }}>Three products, one mission.</h2>
-          <p className="section-sub">Software that does the busywork and shows its evidence — across your books, your hiring, and your whole practice.</p>
-        </section>
-        <section className="np-sister">
-          <div className="wrap">
-            <div>
-              <div className="microlabel kicker">ORBIT HIRE</div>
-              <p className="lead">Hiring is busywork too.</p>
-              <p className="sub2">Reads every application, interviews every candidate by voice, and hands you a ranked shortlist — fair by design.</p>
-            </div>
-            <a className="cta" href="/hire">See Orbit Hire →</a>
-          </div>
-        </section>
-        <section className="np-sister">
-          <div className="wrap">
-            <div>
-              <div className="microlabel kicker">ORBIT FOR FIRMS · COMING SOON</div>
-              <p className="lead">Run the whole practice.</p>
-              <p className="sub2">The operating system for tax &amp; accounting firms — clients, engagements, filings and your team, in one place.</p>
-            </div>
-            <a className="cta" href="/firms">See Orbit for Firms →</a>
           </div>
         </section>
       </main>

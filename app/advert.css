@@ -249,9 +249,24 @@
 .np-script .you { color: var(--brass); font-weight: 600; }
 .np-script .meta { color: var(--text-faint); }
 
+/* current product in the shared nav — highlighted in the page accent */
+.nav-links a.nav-cur { color: var(--brass-lit); }
+
 /* subtle hero backlink (between products) */
 .np-backlink { color: var(--text-on-ink-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
 .np-backlink:hover { color: var(--text-on-ink); }
+
+/* the three worlds — product cards on the front door */
+.np-worlds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+.np-world { display: flex; flex-direction: column; border: 1.5px solid var(--hair); border-radius: 6px; padding: 24px 24px 22px; background: var(--card); box-shadow: var(--shadow); }
+.np-world .wk { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); }
+.np-world .wk .soon { color: var(--text-faint); }
+.np-world h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 10px; color: var(--text); }
+.np-world .ex { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 0 0 14px; flex: 1; }
+.np-world .met { font-family: var(--sans); font-size: 12px; color: var(--petrol); font-weight: 600; line-height: 1.5; margin: 0 0 16px; }
+.np-world .go { align-self: flex-start; font-size: 13.5px; font-weight: 700; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--brass); padding-bottom: 3px; }
+.np-world .go:hover { border-bottom-color: var(--text); }
+@media (max-width: 860px) { .np-worlds { grid-template-columns: 1fr; } }
 
 /* sister-product strip */
 .np-sister { border-top: 1px solid var(--hairline); margin-top: 8px; }

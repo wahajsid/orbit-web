@@ -1,5 +1,5 @@
 import "../advert.css";
-import { OrbitLogo } from "@/components/OrbitLogo";
+import { ProductNav } from "@/components/ProductNav";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { SiteFooter } from "@/components/SiteChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
@@ -20,10 +20,10 @@ const HEADLINES: [string, string][] = [
 const FEATURES: { k: string; h: string; p: string }[] = [
   { k: "Clients", h: "Clients, groups & memos", p: "Every client, group and contact in one place — with searchable memos tagged VAT, CT or general, so the context never leaves with the person who had it." },
   { k: "Engagements", h: "Engagements & the IRL", p: "VAT Monthly, CT Annual, advisory — each engagement carries its own working papers and its information-request list, from proposal to engagement letter to active." },
-  { k: "Filings", h: "Filings, never missed", p: "Every deadline tracked and escalated as it approaches. The watchdog that means a filing date is never a surprise again." },
-  { k: "Documents", h: "Working papers & IRL", p: "Onboarding, working papers and information-request folders — foldered, versioned and linked to the filing they support." },
-  { k: "Team", h: "The whole firm, in one place", p: "Client channels, the tax team, management — the conversation lives next to the work, not in a dozen other apps." },
-  { k: "Copilot", h: "Ask about any client", p: "AI woven through: client summaries on demand, OCR on what you upload, and the challenges that need a partner's eye surfaced early." },
+  { k: "Timesheets", h: "Time, logged to the work", p: "Log an hour to a client or an engagement in a tap — no separate timesheet app. See realization per engagement and per person, without building a spreadsheet." },
+  { k: "Projects", h: "Disbursements & project costs", p: "Track out-of-pockets, disbursements and cost-to-serve against the right client and engagement — so what a job actually costs you is never a mystery at the end." },
+  { k: "Filings", h: "Filings, never missed", p: "Every deadline tracked and escalated as it approaches. The watchdog that means a filing date is never a surprise again — with the working papers linked to it." },
+  { k: "Copilot", h: "Ask about any client", p: "Agents woven through: client summaries on demand, OCR on what you upload, and the challenges that need a partner's eye surfaced early." },
 ];
 
 export default function FirmsPage() {
@@ -34,23 +34,15 @@ export default function FirmsPage() {
       {/* ── HERO (ink · plum) ─────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <nav className="nav" aria-label="Main">
-            <OrbitLogo />
-            <div className="nav-links">
-              <a href="/" className="nav-hide-m">ORBIT</a>
-              <a href="/hire" className="nav-hide-m">ORBIT HIRE</a>
-              <a href="/contact" className="nav-hide-m">CONTACT</a>
-              <a href="#access" className="nav-cta">EARLY ACCESS</a>
-            </div>
-          </nav>
+          <ProductNav active="firms" cta={{ label: "EARLY ACCESS", href: "#access" }} />
 
           <div style={{ paddingTop: 40 }}>
             <div className="np-soon"><span className="dot" /> Orbit for Firms · Coming soon</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
               Orbit for Firms is the operating system for tax and accounting practices — clients,
-              engagements, working papers, filings, tasks and your team, run as one, with AI woven
-              through. Built by a Gulf firm that lived the chaos.
+              engagements, timesheets, filings, disbursements and your team, run as one, with agents
+              doing the busywork. Built by a Gulf firm that lived the chaos.
             </p>
             <a className="np-scrollcue" href="#what" aria-label="See what it does">
               <span className="tri">▶</span>
@@ -85,6 +77,11 @@ export default function FirmsPage() {
           <div className="wrap">
             <div className="microlabel np-kicker np-rise">ONE PLACE FOR THE PRACTICE</div>
             <h2 className="np-head np-rise d1">Every client, every engagement, <span className="np-accent">every filing.</span></h2>
+            <p className="np-say np-rise d1">
+              Clients, engagements, timesheets, filings, working papers, disbursements and your team —
+              organised into one clean structure, so nothing is ever orphaned and the whole history
+              of a client is a click from the work in front of you.
+            </p>
             <div className="np-features np-rise d1">
               {FEATURES.map((f) => (
                 <div key={f.k} className="np-feat">
