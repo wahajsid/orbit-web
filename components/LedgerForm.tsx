@@ -43,7 +43,7 @@ export function LedgerForm({ seat }: { seat: number }) {
         </div>
         <div className="taken">{pad3(seat + 1)} · ——————</div>
         <div className="taken">⋮</div>
-        <div className="taken">{pad3(FOUNDING_SEATS)} · doors open 20 July</div>
+        <div className="taken">{pad3(FOUNDING_SEATS)} · doors open 14 October</div>
       </div>
 
       {open && !done && !post && (

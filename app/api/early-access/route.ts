@@ -37,7 +37,7 @@ const WELCOME_HTML = `<!doctype html>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 20px 0;">
             <tr><td style="background:#F7F5F0;border:1px solid #D8D4CA;border-radius:6px;padding:18px 20px;">
               <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#A3782C;margin-bottom:6px;">You're early — and that counts</div>
-              <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1D1D1B;line-height:1.6;">The <strong>first 100 sign-ups get Orbit free for a year</strong> (fair-usage policy applies), with founder pricing locked in after that. We open the doors on <strong>20 July 2026</strong>.</div>
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1D1D1B;line-height:1.6;">The <strong>first 100 sign-ups get Orbit free for a year</strong> (fair-usage policy applies), with founder pricing locked in after that. We open the doors on <strong>14 October 2026</strong>.</div>
             </td></tr>
           </table>
           <p style="font-size:15px;color:#4A4841;line-height:1.7;margin:0 0 22px 0;">We'll be in touch as we bring the founding cohort in, group by group. In the meantime, if you'd like to tell us what you need most, just reply to this email — a real person reads it.</p>
@@ -60,7 +60,7 @@ Thank you for requesting early access to Orbit. You've put your name down for so
 
 What Orbit does: snap, forward or just ask (WhatsApp, email, PDFs); agents code, tax-test, match and post with a trail you can follow; you supervise what matters.
 
-You're early — and that counts: the first 100 sign-ups get Orbit free for a year (fair-usage policy applies), founder pricing locked in after. We open the doors on 20 July 2026.
+You're early — and that counts: the first 100 sign-ups get Orbit free for a year (fair-usage policy applies), founder pricing locked in after. We open the doors on 14 October 2026.
 
 We'll be in touch as we bring the founding cohort in. Reply any time — a real person reads it.
 

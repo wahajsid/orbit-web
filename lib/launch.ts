@@ -1,9 +1,9 @@
 /* Launch gate — one constant, shared by every CTA and the founding ledger.
-   Pre-launch the page sells founding seats via the capture forms; from 20 July
-   2026 (Gulf time) every CTA points straight at the app's signup instead.
-   ?preview=post / ?preview=pre override for testing either state. */
+   Pre-launch the page sells founding seats via the capture forms; from
+   14 October 2026 (Gulf time) every CTA points straight at the app's signup
+   instead. ?preview=post / ?preview=pre override for testing either state. */
 
-export const LAUNCH_AT = new Date("2026-07-20T00:00:00+04:00").getTime();
+export const LAUNCH_AT = new Date("2026-10-14T00:00:00+04:00").getTime();
 export const APP_SIGNUP = "https://app.orbitgulf.com/signup";
 
 export const FOUNDING_SEATS = 100;

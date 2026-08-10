@@ -18,7 +18,7 @@ Brass = action, petrol = data. No gradients, glows, pills or starfields.
 - `app/api/early-access/route.ts` — waitlist endpoint: honeypot + submit-timing
   decoys, business-email-only guard, insert-only Supabase write (409 = already
   listed), Resend welcome email.
-- `lib/launch.ts` — the July-20 launch gate (`?preview=post` / `?preview=pre`
+- `lib/launch.ts` — the October-14 launch gate (`?preview=post` / `?preview=pre`
   to preview either state) + the founding-seat counter (`NEXT_SEAT`, bump by hand).
 - `lib/email-domains.ts` — personal/disposable domain lists, mirrored by hand
   from the app repo's `lib/email-domain.ts`.
