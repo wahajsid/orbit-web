@@ -7,7 +7,7 @@
    signup instead. */
 
 import { useEffect, useState } from "react";
-import { APP_SIGNUP, FOUNDING_SEATS, LAUNCH_AT, isPostLaunch } from "@/lib/launch";
+import { APP_SIGNUP, FOUNDING_SEATS, LAUNCH_AT, LAUNCH_DATE_SHORT, isPostLaunch } from "@/lib/launch";
 import { useEarlyAccess } from "./useEarlyAccess";
 
 const pad3 = (n: number) => String(n).padStart(3, "0");
@@ -43,7 +43,7 @@ export function LedgerForm({ seat }: { seat: number }) {
         </div>
         <div className="taken">{pad3(seat + 1)} · ——————</div>
         <div className="taken">⋮</div>
-        <div className="taken">{pad3(FOUNDING_SEATS)} · doors open 14 October</div>
+        <div className="taken">{pad3(FOUNDING_SEATS)} · doors open {LAUNCH_DATE_SHORT}</div>
       </div>
 
       {open && !done && !post && (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteNav, SiteFooter } from "@/components/SiteChrome";
+import { LAUNCH_DATE_LONG } from "@/lib/launch";
 
 export const metadata: Metadata = {
   title: "FAQ — Orbit",
@@ -33,7 +34,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "What does the founding cohort actually get?",
-    "The first 100 companies get Orbit free for twelve months (fair-usage policy applies), with founder pricing locked in afterwards. Doors open 14 October 2026; founding entries are reviewed by a real person and invites go out by email.",
+    `The first 100 companies get Orbit free for twelve months (fair-usage policy applies), with founder pricing locked in afterwards. Doors open ${LAUNCH_DATE_LONG}; founding entries are reviewed by a real person and invites go out by email.`,
   ],
   [
     "What does it cost after that?",

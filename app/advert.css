@@ -256,8 +256,8 @@
 .np-backlink { color: var(--text-on-ink-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
 .np-backlink:hover { color: var(--text-on-ink); }
 
-/* the three worlds — product cards on the front door */
-.np-worlds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+/* the four worlds — product cards on the front door (2×2; 1-col on mobile) */
+.np-worlds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 44px; }
 .np-world { display: flex; flex-direction: column; border: 1.5px solid var(--hair); border-radius: 6px; padding: 24px 24px 22px; background: var(--card); box-shadow: var(--shadow); }
 .np-world .wk { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); }
 .np-world .wk .soon { color: var(--text-faint); }

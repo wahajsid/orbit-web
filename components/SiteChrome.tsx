@@ -9,8 +9,8 @@ export function SiteNav({ sub }: { sub?: boolean }) {
     <nav className="nav" aria-label="Main">
       <a href="/" style={{ textDecoration: "none" }}><OrbitLogo /></a>
       <div className="nav-links">
-        <a href="/#product" className="nav-hide-m">PRODUCT</a>
-        <a href="/#pricing" className="nav-hide-m">PRICING</a>
+        {/* /#product and /#pricing no longer exist on the manifesto homepage */}
+        <a href="/#worlds" className="nav-hide-m">PRODUCTS</a>
         <a href="/faq" className="nav-hide-m">FAQ</a>
         <a href="/contact" className="nav-hide-m">CONTACT</a>
         {sub ? <a href="/" className="nav-cta">FOUNDING COHORT →</a> : <NavClaim />}

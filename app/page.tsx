@@ -12,7 +12,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "Orbit — the finance universe, in continuous motion",
   description:
-    "We're taking the busywork out of finance, accounting and tax — the agents do the doing, the judgment stays yours. Three products, one mission. Built in the Gulf, by accountants who lived it.",
+    "We're taking the busywork out of finance, accounting and tax — the agents do the doing, the judgment stays yours. Four products, one mission. Built in the Gulf, by accountants who lived it.",
 };
 
 const ANTHEM: [string, string][] = [
@@ -33,6 +33,12 @@ const WORLDS: { wk: React.ReactNode; h: string; ex: React.ReactNode; met: string
     ex: <>52 CVs land Tuesday morning. By lunch Orbit has read every one, scored them on your rubric, sealed the names and photos, and put three people on your desk to meet — Layla, Omar and Priya.</>,
     met: "50 CVs read in minutes, not a week · every candidate a real first interview · scoring you can defend.",
     href: "/hire", go: "See Orbit Hire →",
+  },
+  {
+    wk: "INVOICE · TAX COMPLIANCE", h: "Orbit Invoice",
+    ex: <>A folder of 214 supplier invoices lands at 9am. By 9:20 every one is read, its arithmetic re-checked in code, tested against the FTA&rsquo;s and ZATCA&rsquo;s rules, and risk-ranked — the nine that would fail an audit are flagged before the return is filed.</>,
+    met: "Every invoice tax-tested · UAE & KSA rules · risky VAT held before it's claimed.",
+    href: "/invoice", go: "See Orbit Invoice →",
   },
   {
     wk: <>FOR FIRMS · <span className="soon">COMING SOON</span></>, h: "Orbit for Firms",
@@ -60,22 +66,45 @@ export default async function Page() {
               doing, the judgment stays yours. Built in the Gulf, by accountants who lived every
               late night of it.
             </p>
-            <a className="np-scrollcue" href="#truth" aria-label="Read our story">
+            <a className="np-scrollcue" href="#worlds" aria-label="Meet the products">
               <span className="tri">▶</span>
-              <span className="lab">Why we built Orbit</span>
+              <span className="lab">Meet the four products</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
               <a className="cta" href="#join">Join the founding cohort</a>
-              <a className="np-backlink" href="#worlds">or meet the three products →</a>
+              <a className="np-backlink" href="#truth">or read why we built it →</a>
             </div>
           </div>
         </div>
       </header>
 
       <main>
+        {/* ── THE ORBIT FAMILY — product first; the manifesto follows ── */}
+        <section className="np-act np-after-hero" id="worlds" style={{ paddingTop: 110 }}>
+          <div className="wrap">
+            <div className="microlabel np-kicker np-rise">THE ORBIT FAMILY</div>
+            <h2 className="np-head np-rise d1">Four worlds. <span className="np-accent">One universe.</span></h2>
+            <p className="np-say np-rise d1">
+              Four products, built to one standard — the busywork automated, the evidence shown, the
+              judgment yours.
+            </p>
+            <div className="np-worlds np-rise d1">
+              {WORLDS.map((w) => (
+                <div key={w.h} className="np-world">
+                  <div className="wk">{w.wk}</div>
+                  <h3>{w.h}</h3>
+                  <p className="ex">{w.ex}</p>
+                  <p className="met">{w.met}</p>
+                  <a className="go" href={w.href}>{w.go}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── THE TRUTH ─────────────────────────────────────────────── */}
-        <section className="np-act np-after-hero" id="truth" style={{ paddingTop: 110 }}>
+        <section className="np-act" id="truth">
           <div className="wrap">
             <div className="microlabel np-kicker np-rise">THE TRUTH</div>
             <h2 className="np-head np-rise d1">We got into this to make sense of things. <span className="np-accent">Then the job changed.</span></h2>
@@ -173,29 +202,6 @@ export default async function Page() {
           </div>
         </section>
 
-        {/* ── THE THREE WORLDS ──────────────────────────────────────── */}
-        <section className="np-act" id="worlds">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE ORBIT FAMILY</div>
-            <h2 className="np-head np-rise d1">Three worlds. <span className="np-accent">One universe.</span></h2>
-            <p className="np-say np-rise d1">
-              Three products, built to one standard — the busywork automated, the evidence shown, the
-              judgment yours.
-            </p>
-            <div className="np-worlds np-rise d1">
-              {WORLDS.map((w) => (
-                <div key={w.h} className="np-world">
-                  <div className="wk">{w.wk}</div>
-                  <h3>{w.h}</h3>
-                  <p className="ex">{w.ex}</p>
-                  <p className="met">{w.met}</p>
-                  <a className="go" href={w.href}>{w.go}</a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── JOIN ──────────────────────────────────────────────────── */}
         <section className="section wrap" id="join">
           <h2 className="section-head">Come build the universe with us.</h2>
@@ -209,6 +215,7 @@ export default async function Page() {
               <div className="np-chips" style={{ marginTop: 28 }}>
                 <span className="np-chip"><span className="k">Books</span><span className="p">the finance OS, live today</span></span>
                 <span className="np-chip"><span className="k">Hiring</span><span className="b">Orbit Hire, live today</span></span>
+                <span className="np-chip"><span className="k">Tax</span><span className="b">Orbit Invoice, live today</span></span>
                 <span className="np-chip"><span className="k">Practice</span><span className="b">Orbit for Firms, coming soon</span></span>
               </div>
             </div>

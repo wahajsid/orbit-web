@@ -6,6 +6,17 @@
 export const LAUNCH_AT = new Date("2026-10-14T00:00:00+04:00").getTime();
 export const APP_SIGNUP = "https://app.orbitgulf.com/signup";
 
+/* Display forms of the launch date, DERIVED from LAUNCH_AT so copy can never
+   drift from the gate again (it did once: two emails said different dates).
+   Formatted in Gulf time — the audience's calendar, and the gate's anchor. */
+const launchDate = new Date(LAUNCH_AT);
+export const LAUNCH_DATE_LONG = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Dubai",
+}).format(launchDate);                       // "14 October 2026"
+export const LAUNCH_DATE_SHORT = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric", month: "long", timeZone: "Asia/Dubai",
+}).format(launchDate);                       // "14 October"
+
 export const FOUNDING_SEATS = 100;
 
 /* The displayed seat number is a base offset + the LIVE waitlist row count
