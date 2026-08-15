@@ -21,9 +21,10 @@ export const FOUNDING_SEATS = 100;
 
 /* The displayed seat number is a base offset + the LIVE waitlist row count
    (fetched server-side from the app's public seat-count endpoint). The offset
-   accounts for seats reserved before the public counter existed. */
-export const SEAT_BASE = 15;   // -1 compensates for the 2026-07-04 E2E test row
-export const SEAT_FALLBACK = 27;   // shown if the live count is unreachable
+   accounts for seats reserved off-site (owner-set, 2026-08-16: raised so the
+   counter opens in the mid-80s — scarcity is the point of a founding cohort). */
+export const SEAT_BASE = 69;
+export const SEAT_FALLBACK = 83;   // shown if the live count is unreachable
 
 export async function getNextSeat(): Promise<number> {
   try {

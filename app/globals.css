@@ -744,3 +744,28 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mg-price-grid { grid-template-columns: 1fr; }
   .mg-price-hero { box-shadow: 6px 6px 0 var(--accent); }
 }
+
+/* ── Launch countdown — ruled band, tabular numerals, flush left ── */
+.mg-count {
+  padding: 56px 48px 64px;
+  border-top: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-count-row { display: flex; margin-top: 20px; border-top: 2px solid var(--ink); max-width: 720px; }
+.mg-count-cell { flex: 1; padding: 18px 18px 0 0; border-right: 1px solid var(--hairline); }
+.mg-count-cell:last-child { border-right: none; }
+.mg-count-cell + .mg-count-cell { padding-left: 18px; }
+.mg-count-n {
+  font-size: 56px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.mg-count-l {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-faint); margin-top: 8px;
+}
+@media (max-width: 760px) {
+  .mg-count { padding: 40px 22px 48px; }
+  .mg-count-n { font-size: 34px; }
+  .mg-count-cell { padding-right: 12px; }
+  .mg-count-cell + .mg-count-cell { padding-left: 12px; }
+}

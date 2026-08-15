@@ -3,6 +3,7 @@ import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { NpEnhance } from "@/components/NpEnhance";
 import { AgentFeed } from "@/components/AgentFeed";
+import { Countdown } from "@/components/Countdown";
 import { Mark, MgNav, MgFooter } from "@/components/MgChrome";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
@@ -240,6 +241,13 @@ export default async function Page() {
             <LedgerForm seat={seat} />
           </div>
         </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            THE CLOCK — the very last thing on the page: a ruled band
+            counting down to 14 October (LAUNCH_AT drives it, so the
+            timer and the copy can never disagree).
+            ══════════════════════════════════════════════════════════════ */}
+        <Countdown />
       </main>
 
       {/* ══════════════════════════════════════════════════════════════
