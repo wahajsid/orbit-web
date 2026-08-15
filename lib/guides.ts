@@ -187,6 +187,82 @@ export const GUIDES: Guide[] = [
   },
 ];
 
+GUIDES.push(
+  {
+    slug: "uae-eosb-gratuity",
+    title: "How UAE end-of-service gratuity (EOSB) is calculated",
+    description:
+      "The 21-day and 30-day rule, what counts as basic wage, the two-year cap — and why the provision belongs in your books every month, not as a year-end surprise.",
+    updated: "2026-08-16",
+    minutes: 4,
+    tax: true,
+    sections: [
+      {
+        h: "The core rule",
+        ps: [
+          "A full-time foreign employee who completes at least one year of continuous service is entitled to an end-of-service benefit calculated on their basic wage: 21 days of basic wage for each of the first five years of service, and 30 days for each year beyond five. The total benefit is capped at two years' wage.",
+          "Two details do most of the damage in practice: the calculation runs on the basic wage — allowances for housing, transport and the like are excluded — and unpaid days of absence don't count toward the service period.",
+        ],
+      },
+      {
+        h: "A worked example",
+        ps: [
+          "An employee on a basic wage of AED 10,000/month leaves after 7 years. Daily basic wage: 10,000 × 12 ÷ 365 ≈ AED 328.77. First five years: 5 × 21 days = 105 days. Years six and seven: 2 × 30 = 60 days. Total 165 days ≈ AED 54,247.",
+        ],
+      },
+      {
+        h: "Why it belongs in your monthly books",
+        ps: [
+          "The gratuity is a liability that grows with every month of service. A business that only computes it when someone resigns is carrying an understated liability all year — and discovering the true cost at the worst moment. The clean pattern: accrue the provision monthly per employee, and settle against the provision on exit, so the P&L feels the cost in the periods that earned it.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit's payroll engine computes the EOSB provision per employee as part of the monthly run, posts the provision movements with the register as evidence, and keeps the salary history append-only — so the balance sheet always carries what you actually owe.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-blocked-input-vat",
+    title: "Input VAT you cannot recover in the UAE",
+    description:
+      "The blocked categories — entertainment, personal-use vehicles, employee benefits — where the 5% is a cost, not a claim, and how to keep them out of your VAT return.",
+    updated: "2026-08-16",
+    minutes: 3,
+    tax: true,
+    sections: [
+      {
+        h: "Not all input VAT comes back",
+        ps: [
+          "The default is generous: VAT you pay on costs used to make taxable supplies is recoverable. But the Executive Regulations block recovery on specific categories regardless of how business-related the spend feels — and claiming blocked VAT is one of the easiest findings an FTA audit can make, because it sits in plain sight on the return.",
+        ],
+      },
+      {
+        h: "The blocked categories",
+        list: [
+          "Entertainment provided to anyone who is not an employee — client dinners, hospitality, events for customers and partners",
+          "Motor vehicles that are available for personal use — the purchase, lease, fuel and maintenance VAT is blocked unless the vehicle qualifies (taxi, driving school, genuine pool car with no personal use)",
+          "Goods or services purchased for employees' personal benefit free of charge, unless there is a legal or contractual obligation to provide them",
+        ],
+      },
+      {
+        h: "The grey zones worth respecting",
+        ps: [
+          "Staff entertainment has narrow allowances (modest hospitality incidental to business meetings is treated differently from a gala dinner), and 'available for personal use' on vehicles is judged on facts, not on what the logbook says. When a cost sits in a grey zone, the defensible position is to hold the claim until the facts are documented — not to claim first and explain later.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit classifies input VAT per line as recoverable, blocked or conditional, keeps blocked VAT out of the return automatically, and shows the blocked total on its own report — so the cost is visible, but never claimed.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }

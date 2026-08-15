@@ -16,5 +16,6 @@ Key facts:
 - [Integrations](https://www.orbitgulf.com/integrations): how the six ledger connections work
 - [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
 - [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
+- [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
 - [Orbit Invoice](https://www.orbitgulf.com/invoice): tax compliance and e-invoice validation

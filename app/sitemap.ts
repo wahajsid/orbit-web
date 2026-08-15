@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/integrations", priority: 0.7 },
     { path: "/guides", priority: 0.7 },
     { path: "/faq", priority: 0.6 },
+    { path: "/about", priority: 0.5 },
     { path: "/contact", priority: 0.5 },
   ];
   const now = new Date();

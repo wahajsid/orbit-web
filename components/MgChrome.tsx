@@ -48,6 +48,7 @@ export function MgFooter() {
         <a href="/integrations">Integrations</a>
         <a href="/guides">Guides</a>
         <a href="/faq">FAQ</a>
+        <a href="/about">About</a>
         <a href="/contact">Contact</a>
       </nav>
       <span className="mg-footer-loc">Dubai, UAE · EN / <bdi>العربية</bdi> · © 2026 Orbit</span>
