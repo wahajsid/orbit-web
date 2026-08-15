@@ -3,6 +3,7 @@ import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { NpEnhance } from "@/components/NpEnhance";
 import { AgentFeed } from "@/components/AgentFeed";
+import { Mark, MgNav, MgFooter } from "@/components/MgChrome";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
 export const revalidate = 60;
@@ -43,19 +44,6 @@ const COMPLIANCE: { h: string; p: string }[] = [
   { h: "Full audit trail", p: "every action, human or agent, logged with evidence." },
 ];
 
-/* Reference mark used inline (site nav + footer + hero mock). Solid green
-   ring + satellite dot inside a 2px ink square — the design system's one
-   circle survives here. */
-function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth = 2 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 30 30" aria-hidden="true" style={{ flexShrink: 0 }}>
-      {framed && !ringOnly && <rect x="1" y="1" width="28" height="28" fill="none" stroke="var(--ink)" strokeWidth="2" />}
-      <circle cx="15" cy="15" r="7" fill="none" stroke="var(--accent)" strokeWidth={strokeWidth} />
-      <circle cx={ringOnly ? 24 : 24} cy={ringOnly ? 8 : 8} r={ringOnly ? 4 : 3} fill="var(--accent)" />
-    </svg>
-  );
-}
-
 export default async function Page() {
   const seat = await getNextSeat();
 
@@ -64,29 +52,10 @@ export default async function Page() {
       <SmoothScroll />
 
       {/* ══════════════════════════════════════════════════════════════
-          STICKY RULED NAV — framed mark + wordmark, three links, a
-          language toggle, sign-in, and the green Book-a-demo CTA. Ruled
-          bottom, sticky, paper background.
+          STICKY RULED NAV — shared modernist chrome (MgChrome). The
+          Product link now goes to the real /product page.
           ══════════════════════════════════════════════════════════════ */}
-      <header className="mg-nav" role="banner">
-        <div className="mg-nav-inner">
-          <a href="/" className="mg-brand" aria-label="Orbit home">
-            <Mark size={30} />
-            <span className="mg-wordmark">ORBIT</span>
-          </a>
-          <nav className="mg-nav-links" aria-label="Primary">
-            <a href="#agents">Agents</a>
-            <a href="#compliance">Compliance</a>
-            <a href="#worlds">Products</a>
-            <span className="mg-hidden-narrow">Pricing</span>
-          </nav>
-          <div className="mg-nav-right">
-            <span className="mg-lang" aria-label="Language">EN · <span className="mg-lang-alt">ع</span></span>
-            <a href="#join" className="mg-signin">Sign in</a>
-            <a href="#join" className="mg-cta">Book a demo →</a>
-          </div>
-        </div>
-      </header>
+      <MgNav />
 
       <main>
         {/* ══════════════════════════════════════════════════════════════
@@ -277,12 +246,7 @@ export default async function Page() {
       {/* ══════════════════════════════════════════════════════════════
           FOOTER — flush strip: mark + wordmark, url, location, ©
           ══════════════════════════════════════════════════════════════ */}
-      <footer className="mg-footer">
-        <Mark size={18} />
-        <span className="mg-wordmark mg-wordmark-sm">ORBIT</span>
-        <span className="mg-footer-url">orbitgulf.com</span>
-        <span className="mg-footer-loc">Dubai, UAE · EN / <bdi>العربية</bdi> · © 2026 Orbit</span>
-      </footer>
+      <MgFooter />
 
       <NpEnhance />
     </>

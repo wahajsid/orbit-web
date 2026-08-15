@@ -525,3 +525,110 @@ html, body { max-width: 100%; overflow-x: hidden; }
   /* Long unbroken strings (emails, ids) wrap instead of scrolling. */
   h1, h2, h3, p, span, div { overflow-wrap: anywhere; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   /product — six module rows alternating copy and UI vignette in a
+   2-col ruled grid (orbit-product.dc.html). Vignettes sit on the same
+   80px-column raised-paper ground as the hero mock, but WITHOUT the
+   green offset shadow — that stays reserved for hero-level cards.
+   ══════════════════════════════════════════════════════════════════ */
+
+.mg-nav-links a.mg-nav-active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+.mg-prod-hero { padding: 64px 48px 48px; border-bottom: 2px solid var(--ink); max-width: 1440px; margin: 0 auto; }
+.mg-prod-h {
+  font-size: 52px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+  max-width: 26ch; margin: 14px 0 0; color: var(--ink); text-wrap: pretty;
+}
+.mg-prod-lede { font-size: 16px; line-height: 1.55; color: var(--text-muted); max-width: 56ch; margin: 18px 0 0; }
+
+.mg-prod-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-prod-copy { padding: 48px; border-right: 2px solid var(--ink); min-width: 0; }
+/* Flipped rows keep copy FIRST in the DOM (mobile stacks copy on top);
+   on desktop the vignette takes the left column and the rule moves with it. */
+.mg-prod-row-flip .mg-prod-copy { order: 2; border-right: none; border-left: 2px solid var(--ink); }
+.mg-prod-mh { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin: 12px 0 14px; color: var(--ink); text-wrap: pretty; }
+.mg-prod-mp { font-size: 14px; line-height: 1.6; color: var(--text-muted); max-width: 50ch; margin: 0; }
+.mg-prod-metrics { display: flex; gap: 24px; margin-top: 22px; font-size: 13px; flex-wrap: wrap; color: var(--ink); }
+.mg-prod-metrics b { color: var(--accent); }
+
+.mg-prod-vig {
+  padding: 40px 48px;
+  background: repeating-linear-gradient(90deg, var(--paper-raised) 0, var(--paper-raised) 1px, transparent 1px, transparent 80px);
+  display: flex; align-items: center; min-width: 0;
+}
+.mg-vig-card { width: 100%; background: var(--surface); border: 2px solid var(--ink); }
+.mg-vig-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; border-bottom: 2px solid var(--ink);
+  font-size: 12px; font-weight: 700; color: var(--ink);
+}
+.mg-vig-head-right { margin-left: auto; color: var(--accent); flex-shrink: 0; }
+.mg-vig-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; font-size: 12.5px; color: var(--ink); }
+.mg-vig-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.mg-vig-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.02em; flex-shrink: 0; }
+.mg-vig-tag-w { width: 52px; }
+.mg-vig-tag-ok { color: var(--accent); }
+.mg-vig-tag-bad { color: var(--bad); }
+.mg-vig-tag-mute { color: var(--text-muted); }
+.mg-vig-meta { margin-left: auto; color: var(--text-muted); flex-shrink: 0; }
+.mg-vig-strike { text-decoration: line-through; color: var(--text-muted); }
+.mg-vig-je { display: flex; gap: 16px; }
+.mg-vig-je-side { color: var(--text-muted); width: 30px; flex-shrink: 0; }
+.mg-vig-je-amt { margin-left: auto; font-weight: 700; }
+.mg-vig-note { border-top: 1px solid var(--hairline); padding-top: 10px; color: var(--text-muted); line-height: 1.5; }
+.mg-vig-note b { color: var(--accent); }
+.mg-vig-check { display: flex; gap: 10px; }
+.mg-vig-check-mark { font-weight: 800; flex-shrink: 0; }
+.mg-vig-lock {
+  background: var(--ink); color: var(--text-on-ink);
+  font-size: 12px; font-weight: 600; padding: 9px 13px;
+  align-self: flex-start; margin-top: 4px;
+  border: none; cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.mg-vig-lock:hover { background: var(--accent); }
+
+/* Rows 05 + 06 share one band split by a hairline, not an ink rule. */
+.mg-prod-duo {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-prod-duo > div { padding: 48px; min-width: 0; }
+.mg-prod-duo > div:first-child { border-right: 1px solid var(--hairline); }
+.mg-prod-dh { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 12px 0 12px; color: var(--ink); }
+.mg-prod-dp { font-size: 14px; line-height: 1.6; color: var(--text-muted); max-width: 46ch; margin: 0; }
+
+.mg-prod-cta {
+  background: var(--accent); color: var(--text-on-ink);
+  padding: 64px 48px; border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-prod-cta-h {
+  font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
+  max-width: 24ch; margin: 0; text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .mg-prod-hero { padding: 44px 22px 36px; }
+  .mg-prod-h { font-size: 34px; letter-spacing: -0.025em; }
+  .mg-prod-row { grid-template-columns: 1fr; }
+  .mg-prod-copy,
+  .mg-prod-row-flip .mg-prod-copy {
+    order: 0; padding: 40px 22px;
+    border-right: none; border-left: none;
+    border-bottom: 2px solid var(--ink);
+  }
+  .mg-prod-mh { font-size: 26px; }
+  .mg-prod-vig { padding: 32px 22px; }
+  .mg-prod-duo { grid-template-columns: 1fr; }
+  .mg-prod-duo > div { padding: 40px 22px; }
+  .mg-prod-duo > div:first-child { border-right: none; border-bottom: 1px solid var(--hairline); }
+  .mg-prod-cta { padding: 44px 22px; }
+  .mg-prod-cta-h { font-size: 32px; }
+}
