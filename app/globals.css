@@ -1,28 +1,43 @@
 /* ══════════════════════════════════════════════════════════════════
-   ORBIT — "The Wire" design system (design_handoff README tokens)
-   ink & paper, petrol & brass. Brass = action. Petrol = data.
-   No gradients, no glow, no blur, no starfield, nothing pill-shaped.
+   ORBIT — "Modernist green" (design_handoff_rebrand)
+   Off-white paper, near-black ink, ONE deep-green accent. Archivo
+   everywhere, zero corner radius, strong 2px rules, visible grid,
+   flush-left type. No gradients, glows, blurs or pills.
+   Green = action + positive · ochre = open/review · red = critical.
+
+   The old Wire names (--brass, --petrol) are KEPT and now carry green:
+   every call-site across eight pages resolves through them, so the
+   rebrand lands everywhere at once instead of in a 600-line sweep.
    ══════════════════════════════════════════════════════════════════ */
 
 :root {
-  --ink: #16211f;
-  --paper: #fbfaf7;
-  --paper-raised: #f7f5f0;
-  --text: #1d1d1b;
-  --text-muted: #4a4841;
-  --text-faint: #8a877f;
-  --text-on-ink: #f3f1ec;
-  --text-on-ink-muted: #b8b4a9;
-  --petrol: #1e5f5a;
-  --petrol-bright: #1fa08f;
-  --brass: #c99a4a;
-  --brass-deep: #a3782c;
-  --hairline: #d8d4ca;
-  --hairline-on-ink: #2c3a37;
-  --radius: 3px;
+  --ink: #201e1d;
+  --paper: #f3f2f2;
+  --paper-raised: #eceae6;
+  --surface: #ffffff;
+  --text: #201e1d;
+  --text-muted: #4a4744;
+  --text-faint: #8a8580;
+  --text-on-ink: #f3f2f2;
+  --text-on-ink-muted: #b3aea8;
+  /* The one accent. Both legacy names point at it. */
+  --accent: #0e5b3a;
+  --accent-deep: #0b4a2f;
+  --accent-tint: #e6f0ea;
+  --accent-muted: #a8cbb5;
+  --petrol: #0e5b3a;
+  --petrol-bright: #0e5b3a;
+  --brass: #0e5b3a;
+  --brass-deep: #0b4a2f;
+  --warn: #9a6a10;
+  --bad: #a3341c;
+  --bad-tint: #f7ebe8;
+  --hairline: #c9c5bf;
+  --hairline-on-ink: #4a4744;
+  --radius: 0px;
   /* type — populated by next/font variables in layout.tsx */
-  --sans: var(--font-manrope), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono: var(--font-plex-mono), ui-monospace, Menlo, Consolas, monospace;
+  --sans: var(--font-archivo), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
 * , *::before, *::after { box-sizing: border-box; }
@@ -39,7 +54,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection { background: rgba(201, 154, 74, 0.28); }
+::selection { background: rgba(14, 91, 58, 0.20); }
 
 a { color: inherit; }
 
@@ -71,25 +86,48 @@ img { max-width: 100%; display: block; }
 .kicker { color: var(--petrol); }
 .on-ink .kicker { color: var(--brass); }
 
-/* CTA — brass fill, ink text; darkens ~8% on hover, no scale, no glow. */
+/* CTA — solid green fill with PAPER text (v2 replaced dark-on-brass).
+   Hover darkens to the pressed green; no scale, no glow, no brightness
+   wash. Labels flush left: a wide button never centres its text. */
 .cta {
-  display: inline-block;
-  background: var(--brass);
-  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--accent);
+  color: var(--text-on-ink);
   font-family: var(--sans);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.01em;
-  padding: 12px 22px;
+  padding: 14px 24px;
+  min-height: 46px;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 0;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: filter 0.15s ease;
+  transition: background-color 0.15s ease;
 }
-.cta:hover { filter: brightness(0.92); }
-.cta:focus-visible { outline: 2px solid var(--petrol); outline-offset: 2px; }
+.cta:hover { background: var(--accent-deep); }
+.cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* The secondary action is an ink-ruled box that tints green on hover. */
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  min-height: 46px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.cta-ghost:hover { background: var(--accent-tint); }
 
 .textlink {
   color: inherit;
@@ -102,7 +140,7 @@ img { max-width: 100%; display: block; }
 .textlink:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
 /* screenshot frames — 3px radius, hairline border, no shadow */
-.shot { border: 1.5px solid var(--hairline-on-ink); border-radius: var(--radius); overflow: hidden; }
+.shot { border: 1.5px solid var(--hairline-on-ink); border-radius: 0; overflow: hidden; }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .on-paper .shot { border-color: var(--text); }
 
@@ -132,4 +170,32 @@ img { max-width: 100%; display: block; }
 @media (max-width: 720px) {
   .wrap { padding: 0 22px; }
   body { font-size: 16px; }
+}
+
+/* Nothing may push the page sideways. */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Touch targets. Small inline links are fine inside running prose, but any
+   link that acts as a CONTROL — nav, footer, product jumps, scroll cues —
+   needs a real hit area on a phone. Padding rather than height so the
+   visual rhythm of the type is untouched. */
+@media (max-width: 760px) {
+  .nav a,
+  .nav-cta,
+  .nav-burger,
+  .footer-links a,
+  .go,
+  .np-scrollcue,
+  .np-backlink,
+  .ledger-you {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-links { gap: 4px 18px; flex-wrap: wrap; }
+  .nav-burger { min-width: 44px; justify-content: center; }
+  /* 16px inputs stop iOS zooming on focus. */
+  input, select, textarea { font-size: 16px !important; }
+  /* Long unbroken strings (emails, ids) wrap instead of scrolling. */
+  h1, h2, h3, p, span, div { overflow-wrap: anywhere; }
 }

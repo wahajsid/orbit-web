@@ -1,19 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, IBM_Plex_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import "./wire.css";
 
-const manrope = Manrope({
+// v2 "Modernist green": Archivo everywhere. Mono is the system stack now
+// (see --mono in globals.css) — the site's only mono surface is the
+// terminal feed, and it no longer needs a webfont of its own.
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-plex-mono",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -39,12 +35,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#16211F",
+  themeColor: "#201E1D",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${plexMono.variable}`}>
+    <html lang="en" className={archivo.variable}>
       <body>{children}</body>
     </html>
   );

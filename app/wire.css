@@ -29,7 +29,7 @@
   position: absolute;
   inset: 0;
   border: 1.5px solid var(--brass);
-  border-radius: 50%;
+  border-radius: 0;
   transform: scaleY(0.82);
 }
 .logo-track {
@@ -45,7 +45,7 @@
   width: 4.5px;
   height: 4.5px;
   margin-left: -2.25px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--brass);
 }
 
@@ -86,7 +86,7 @@
   display: none;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+  border-radius: 0;
   color: var(--text-on-ink);
   font-size: 15px;
   line-height: 1;
@@ -103,7 +103,7 @@
   min-width: 210px;
   background: var(--ink);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 6px;
+  border-radius: 0;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   padding: 8px;
 }
@@ -115,7 +115,7 @@
   color: var(--text-on-ink);
   text-decoration: none;
   padding: 11px 12px;
-  border-radius: 4px;
+  border-radius: 0;
 }
 .nav-sheet a:hover { background: rgba(255, 255, 255, 0.08); }
 .nav-sheet a.nav-cur { color: var(--brass); }
@@ -166,14 +166,14 @@
 
 /* terminal scenario progress dots */
 .term-dots { display: flex; gap: 7px; margin-top: 18px; }
-.term-dot { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--text-faint); transition: background 0.3s ease; }
+.term-dot { width: 7px; height: 7px; border-radius: 0; border: 1.5px solid var(--text-faint); transition: background 0.3s ease; }
 .term-dot.on { background: var(--petrol); border-color: var(--petrol); }
 
 /* one-click capture — unfolds in place of the CTA */
 .hero-capture {
   margin-top: 30px;
   border: 1px solid var(--hairline-on-ink);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 16px 18px;
   max-width: 560px;
   background: rgba(255, 255, 255, 0.03);
@@ -186,7 +186,7 @@
   color: var(--text-on-ink);
   background: transparent;
   border: 1px solid var(--hairline-on-ink);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 10px 11px;
   outline: none;
   min-width: 0;
@@ -253,7 +253,7 @@
 .term-sticky { position: sticky; top: 40px; }
 .term-panel {
   background: var(--ink);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 20px 24px 24px;
   color: var(--text-on-ink);
 }
@@ -288,7 +288,7 @@
 .feat-cell.right { padding-left: 26px; padding-right: 0; border-left: 1px solid var(--hairline); }
 .feat-kicker { color: var(--petrol); }
 .feat-title { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; margin: 6px 0 14px; }
-.feat-shot { border: 1.5px solid var(--text); border-radius: var(--radius); overflow: hidden; }
+.feat-shot { border: 1.5px solid var(--text); border-radius: 0; overflow: hidden; }
 .feat-shot img { width: 100%; height: auto; display: block; }
 .feat-textrow {
   display: grid;
@@ -316,7 +316,7 @@
   font-size: 12px;
   color: var(--text-muted);
   border: 1.5px dashed var(--text-faint);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 7px 14px;
 }
 
@@ -331,7 +331,7 @@
 .tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 .tier {
   border: 1.5px solid var(--text);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 20px 20px 18px;
   background: var(--paper);
 }
@@ -356,7 +356,7 @@
 }
 .ledger-panel {
   border: 1.5px solid var(--text);
-  border-radius: var(--radius);
+  border-radius: 0;
   background: var(--paper-raised);
   padding: 18px 20px;
 }
@@ -368,7 +368,7 @@
   background: var(--brass-deep);
   color: #fff;
   padding: 1px 6px;
-  border-radius: 2px;
+  border-radius: 0;
   cursor: pointer;
   border: none;
   font: inherit;
@@ -381,7 +381,7 @@
   color: var(--text);
   background: var(--paper);
   border: 1px solid var(--hairline);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 9px 11px;
   outline: none;
   width: 100%;
@@ -400,7 +400,7 @@
   height: 116px;
   flex-shrink: 0;
   border: 1.5px solid var(--text);
-  border-radius: var(--radius);
+  border-radius: 0;
   overflow: hidden;
 }
 .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -514,7 +514,7 @@
   gap: 16px;
   margin-top: 44px;
 }
-.contact-card { border: 1.5px solid var(--text); border-radius: var(--radius); padding: 24px 24px 22px; display: flex; flex-direction: column; }
+.contact-card { border: 1.5px solid var(--text); border-radius: 0; padding: 24px 24px 22px; display: flex; flex-direction: column; }
 .contact-title { font-size: 18px; font-weight: 800; letter-spacing: -0.015em; margin: 8px 0 8px; }
 .contact-detail { font-size: 13.5px; line-height: 1.65; color: var(--text-muted); margin: 0 0 18px; flex: 1; }
 

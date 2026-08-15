@@ -32,10 +32,10 @@
   display: inline-flex; align-items: center; gap: 9px;
   font-family: var(--sans); font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--brass-lit);
-  border: 1px solid var(--hairline-on-ink); border-radius: var(--radius); padding: 7px 12px;
+  border: 1px solid var(--hairline-on-ink); border-radius: 0; padding: 7px 12px;
   margin-bottom: 22px;
 }
-.np-soon .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brass-lit); box-shadow: 0 0 8px var(--brass-lit); }
+.np-soon .dot { width: 6px; height: 6px; border-radius: 0; background: var(--brass-lit); box-shadow: 0 0 8px var(--brass-lit); }
 
 /* feature grid — ruled cells, no imagery (coming-soon safe) */
 .np-features { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--hair); margin-top: 40px; }
@@ -57,7 +57,7 @@
 }
 
 /* hierarchy tree — the "structure" visual in place of a screenshot */
-.np-tree { margin-top: 36px; border: 1.5px solid var(--hair); border-radius: 6px; overflow: hidden; background: var(--paper-raised); }
+.np-tree { margin-top: 36px; border: 1.5px solid var(--hair); border-radius: 0; overflow: hidden; background: var(--paper-raised); }
 .np-band-ink .np-tree { border-color: var(--hairline-on-ink); background: rgba(255,255,255,0.02); }
 .np-tree .row { display: flex; align-items: baseline; gap: 12px; padding: 13px 20px; border-top: 1px solid var(--hair2); }
 .np-tree .row:first-child { border-top: none; }
@@ -113,7 +113,7 @@
   font-weight: 600;
   letter-spacing: 0.01em;
   border: 1px solid var(--hairline);
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: 8px 12px;
   color: var(--text-muted);
 }
@@ -128,7 +128,7 @@
 .np-shot {
   margin-top: 36px;
   border: 1.5px solid var(--text);
-  border-radius: var(--radius);
+  border-radius: 0;
   overflow: hidden;
   max-height: 80vh;
   background: var(--paper);
@@ -164,7 +164,7 @@
   margin-top: 40px;
   margin-bottom: -96px;
   border: 1.5px solid var(--hairline-on-ink);
-  border-radius: var(--radius);
+  border-radius: 0;
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -211,7 +211,7 @@
 
 /* ── Orbit Hire — fairness "weighed vs sealed" diagram ─────────── */
 .np-fair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 38px; }
-.np-fair-col { border: 1.5px solid var(--hairline); border-radius: var(--radius); padding: 22px 24px; background: var(--paper-raised); }
+.np-fair-col { border: 1.5px solid var(--hairline); border-radius: 0; padding: 22px 24px; background: var(--paper-raised); }
 .np-band-ink .np-fair-col { border-color: var(--hairline-on-ink); background: rgba(255,255,255,0.03); }
 .np-fair-col h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
 .np-fair-col.see h4 { color: var(--petrol); }
@@ -244,7 +244,7 @@
 }
 
 /* transcript-style block (interview evidence) */
-.np-script { margin-top: 34px; border: 1.5px solid var(--hairline-on-ink); border-radius: var(--radius); background: var(--ink); color: var(--text-on-ink); padding: 22px 24px; font-family: var(--mono); font-size: 13.5px; line-height: 2; }
+.np-script { margin-top: 34px; border: 1.5px solid var(--hairline-on-ink); border-radius: 0; background: var(--ink); color: var(--text-on-ink); padding: 22px 24px; font-family: var(--mono); font-size: 13.5px; line-height: 2; }
 .np-script .who { color: var(--petrol-bright); font-weight: 600; }
 .np-script .you { color: var(--brass); font-weight: 600; }
 .np-script .meta { color: var(--text-faint); }
@@ -258,7 +258,7 @@
 
 /* the four worlds — product cards on the front door (2×2; 1-col on mobile) */
 .np-worlds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 44px; }
-.np-world { display: flex; flex-direction: column; border: 1.5px solid var(--hair); border-radius: 6px; padding: 24px 24px 22px; background: var(--card); box-shadow: var(--shadow); }
+.np-world { display: flex; flex-direction: column; border: 1.5px solid var(--hair); border-radius: 0; padding: 24px 24px 22px; background: var(--card); box-shadow: var(--shadow); }
 .np-world .wk { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); }
 .np-world .wk .soon { color: var(--text-faint); }
 .np-world h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 10px; color: var(--text); }
