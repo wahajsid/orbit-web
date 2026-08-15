@@ -6,3 +6,6 @@ node_modules
 .env*
 _serve.mjs
 next-env.d.ts
+
+# Build artifact — never committed
+tsconfig.tsbuildinfo
