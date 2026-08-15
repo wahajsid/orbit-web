@@ -686,3 +686,61 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mg-page-h { font-size: 32px; letter-spacing: -0.025em; }
   .mg-page-body { padding: 28px 22px 48px; }
 }
+
+/* Footer link row — quiet, muted, wraps on a phone with real tap areas. */
+.mg-footer-links { display: flex; gap: 4px 18px; flex-wrap: wrap; margin-left: 8px; }
+.mg-footer-links a { text-decoration: none; font-weight: 600; color: var(--text-muted); }
+.mg-footer-links a:hover { color: var(--accent-deep); }
+@media (max-width: 760px) {
+  .mg-footer-links { width: 100%; }
+  .mg-footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* ── Guides — index rows + article body ─────────────────────────── */
+.mg-guide-row {
+  display: flex; gap: 24px; align-items: baseline; justify-content: space-between;
+  padding: 24px 0; border-bottom: 1px solid var(--hairline);
+  text-decoration: none; color: inherit;
+}
+.mg-guide-row:last-child { border-bottom: none; }
+.mg-guide-row:hover .mg-guide-title { color: var(--accent-deep); }
+.mg-guide-title { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; color: var(--ink); }
+.mg-guide-desc { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 8px 0 0; max-width: 72ch; }
+.mg-guide-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-faint); flex-shrink: 0; }
+
+.mg-guide-body { max-width: 820px; }
+.mg-guide-sec { margin-bottom: 32px; }
+.mg-guide-h { font-size: 21px; font-weight: 800; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px; }
+.mg-guide-p { font-size: 14.5px; line-height: 1.7; color: var(--text-muted); margin: 0 0 12px; }
+.mg-guide-list { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--ink); }
+.mg-guide-list li {
+  font-size: 14px; line-height: 1.55; color: var(--text-muted);
+  padding: 11px 0; border-bottom: 1px solid var(--hairline);
+}
+.mg-guide-disclaimer {
+  font-size: 12.5px; line-height: 1.6; color: var(--text-faint);
+  border-top: 1px solid var(--hairline); padding-top: 16px; margin: 40px 0 0;
+}
+.mg-guide-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+/* ── Pricing — three ruled tier cards + the founding band ────────── */
+.mg-price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.mg-price-card {
+  border: 2px solid var(--ink); background: var(--surface);
+  padding: 26px 24px; display: flex; flex-direction: column;
+}
+.mg-price-hero { box-shadow: 8px 8px 0 var(--accent); }
+.mg-price-n { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin-top: 10px; }
+.mg-price-per { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-left: 4px; letter-spacing: 0; }
+.mg-price-who { font-size: 13px; line-height: 1.5; color: var(--text-muted); margin: 8px 0 0; }
+.mg-price-feats { list-style: none; padding: 0; margin: 16px 0 22px; flex: 1; border-top: 2px solid var(--ink); }
+.mg-price-feats li {
+  font-size: 13px; line-height: 1.5; color: var(--text-muted);
+  padding: 9px 0; border-bottom: 1px solid var(--hairline);
+}
+.mg-price-card .mg-cta { align-self: flex-start; }
+.mg-price-founding { border-top: 2px solid var(--ink); margin-top: 44px; padding-top: 36px; }
+@media (max-width: 900px) {
+  .mg-price-grid { grid-template-columns: 1fr; }
+  .mg-price-hero { box-shadow: 6px 6px 0 var(--accent); }
+}

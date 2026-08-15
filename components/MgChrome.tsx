@@ -24,11 +24,12 @@ export function MgNav({ active }: { active?: "product" }) {
           <a href="/product" className={active === "product" ? "mg-nav-active" : undefined} aria-current={active === "product" ? "page" : undefined}>Product</a>
           <a href="/#agents">Agents</a>
           <a href="/#compliance">Compliance</a>
-          <span className="mg-hidden-narrow">Pricing</span>
+          <a href="/pricing">Pricing</a>
+          <a href="/#products" className="mg-hidden-narrow">More products</a>
         </nav>
         <div className="mg-nav-right">
           <span className="mg-lang" aria-label="Language">EN · <span className="mg-lang-alt">ع</span></span>
-          <a href="/#join" className="mg-signin">Sign in</a>
+          <a href="https://app.orbitgulf.com" className="mg-signin">Sign in</a>
           <a href="/#join" className="mg-cta">Book a demo →</a>
         </div>
       </div>
@@ -41,7 +42,14 @@ export function MgFooter() {
     <footer className="mg-footer">
       <Mark size={18} />
       <span className="mg-wordmark mg-wordmark-sm">ORBIT</span>
-      <span className="mg-footer-url">orbitgulf.com</span>
+      <nav className="mg-footer-links" aria-label="Footer">
+        <a href="/product">Product</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/integrations">Integrations</a>
+        <a href="/guides">Guides</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
       <span className="mg-footer-loc">Dubai, UAE · EN / <bdi>العربية</bdi> · © 2026 Orbit</span>
     </footer>
   );

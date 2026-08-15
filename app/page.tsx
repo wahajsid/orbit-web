@@ -174,12 +174,24 @@ export default async function Page() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════════
-            THE FOUR PRODUCTS — since the site's four brands still matter,
-            keep them here (the reference didn't include this section but
-            our home has always led on the product family; kept as ruled
-            paper strips so the language is consistent).
+            THE POSTER CTA — full-green wall, paper text, one primary
+            (paper) + one ghost (paper-outlined). On a phone the display
+            drops from 52 to 34 and the buttons stack.
             ══════════════════════════════════════════════════════════════ */}
-        <section id="worlds" className="mg-section">
+        <section className="mg-poster">
+          <h2 className="mg-poster-h">The close ends in days. Your evenings come back.</h2>
+          <div className="mg-poster-cta">
+            <a href="#join" className="mg-cta mg-cta-on-green">Book a demo →</a>
+            <a href="/product" className="mg-ghost mg-ghost-on-green">Explore the product</a>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            THE FOUR PRODUCTS — moved to the page bottom so the homepage
+            tells one product's story start to finish; the family is the
+            coda, reachable from the header's "More products".
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="products" className="mg-section">
           <div className="mg-kicker">THE ORBIT FAMILY</div>
           <h2 className="mg-h2">Four worlds. One universe.</h2>
           <div className="mg-worlds">
@@ -211,19 +223,6 @@ export default async function Page() {
               <p className="mg-world-met">Timesheets, project &amp; expense tracking, and the whole practice — organized.</p>
               <span className="mg-world-go">See Orbit for Firms →</span>
             </a>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            THE POSTER CTA — full-green wall, paper text, one primary
-            (paper) + one ghost (paper-outlined). On a phone the display
-            drops from 52 to 34 and the buttons stack.
-            ══════════════════════════════════════════════════════════════ */}
-        <section className="mg-poster">
-          <h2 className="mg-poster-h">The close ends in days. Your evenings come back.</h2>
-          <div className="mg-poster-cta">
-            <a href="#join" className="mg-cta mg-cta-on-green">Book a demo →</a>
-            <a href="/accounting" className="mg-ghost mg-ghost-on-green">Explore the product</a>
           </div>
         </section>
 

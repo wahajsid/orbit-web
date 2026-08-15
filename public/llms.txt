@@ -1,0 +1,20 @@
+# Orbit
+
+> Orbit is an AI finance team for UAE and KSA businesses. Documents arrive by WhatsApp, Telegram or email; specialist agents read them, code them from the business's own posting history, test them against FTA and ZATCA tax rules, match them to purchase orders and bank lines, and post them to the ledger — with human approval on every decision that matters. Orbit sits on top of the ledger a business already uses (Zoho Books, Xero, QuickBooks, Odoo, Wafeq, ERPNext) rather than replacing it, or keeps clean books itself when there is no ledger.
+
+Key facts:
+- Made for the Gulf: UAE VAT (5%) tested line-by-line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax accrued monthly and reconciled against VAT; KSA 15% VAT and ZATCA e-invoice clearance tracked.
+- Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, humans approve past confidence thresholds.
+- Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
+- Pricing (after a founding-cohort year free for the first 100 companies): Starter AED 149/month, Growth AED 499/month, Scale AED 1,499/month — sized by usage, not seats.
+- Company: built in Dubai, UAE by accountants; contact info@orbitgulf.com; the app runs at app.orbitgulf.com.
+
+## Pages
+- [Home](https://www.orbitgulf.com/): what Orbit is, the agent roster, compliance posture
+- [Product](https://www.orbitgulf.com/product): the six modules — payables, receivables, ledger, close, documents, tax
+- [Pricing](https://www.orbitgulf.com/pricing): the three tiers and the founding-cohort offer
+- [Integrations](https://www.orbitgulf.com/integrations): how the six ledger connections work
+- [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
+- [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
+- [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
+- [Orbit Invoice](https://www.orbitgulf.com/invoice): tax compliance and e-invoice validation

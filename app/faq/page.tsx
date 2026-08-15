@@ -50,9 +50,21 @@ const FAQS: [string, string][] = [
   ],
 ];
 
+/* FAQPage structured data — generative engines quote exactly this shape. */
+const FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(([q, a]) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
       <MgNav />
       <main>
         <section className="mg-page-hero">
