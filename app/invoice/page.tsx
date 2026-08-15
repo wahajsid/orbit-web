@@ -1,8 +1,7 @@
 import "../advert.css";
-import { ProductNav } from "@/components/ProductNav";
 import { InvoiceTerminal } from "@/components/InvoiceTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
 
@@ -23,11 +22,11 @@ export default function InvoicePage() {
     <>
       <SmoothScroll />
 
+      <MgNav />
+
       {/* ── HERO (ink) ──────────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <ProductNav active="invoice" cta={{ label: "REQUEST ACCESS", href: "#access" }} />
-
           <div style={{ paddingTop: 40 }}>
             <div className="microlabel hero-kicker">ORBIT INVOICE · TAX COMPLIANCE &amp; E-INVOICE VALIDATION</div>
             <RotatingHeadline items={HEADLINES} />
@@ -191,7 +190,7 @@ export default function InvoicePage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <MgFooter />
       <NpEnhance />
     </>
   );

@@ -1,7 +1,6 @@
 /* ── Modernist-green shared chrome ───────────────────────────────────
-   The sticky ruled nav, the framed mark and the flush footer, shared by
-   every page already moved to the mg-* language. Pages still on the old
-   Wire chrome keep SiteChrome/ProductNav until their sweep. */
+   The sticky ruled nav, the framed mark and the flush footer — the one
+   chrome every page uses. */
 
 export function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth = 2 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
   return (
