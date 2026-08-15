@@ -3,10 +3,9 @@ import "../advert.css";
 import { Terminal } from "@/components/Terminal";
 import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
-import { ProductNav } from "@/components/ProductNav";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
 export const revalidate = 60;
@@ -57,10 +56,10 @@ export default async function AccountingPage() {
     <>
       <SmoothScroll />
 
+      <MgNav />
+
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <ProductNav active="accounting" cta={{ label: "CLAIM A SEAT", href: "#ledger" }} />
-
           <div style={{ paddingTop: 40 }}>
             <div className="microlabel hero-kicker">AN AI FINANCE TEAM FOR THE UAE &amp; KSA</div>
             <RotatingHeadline />
@@ -209,7 +208,7 @@ export default async function AccountingPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <MgFooter />
       <NpEnhance />
     </>
   );

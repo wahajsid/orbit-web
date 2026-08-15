@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SiteNav, SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 
 export const metadata: Metadata = {
   title: "Integrations — Orbit",
@@ -42,44 +42,46 @@ const LEDGERS: { name: string; how: string; detail: string; extras: string[] }[]
 export default function IntegrationsPage() {
   return (
     <>
-      <SiteNav sub />
-      <main className="wrap subpage">
-        <div className="microlabel kicker">INTEGRATIONS</div>
-        <h1 className="subpage-head">Your ledger stays<br />the ledger.</h1>
-        <p className="subpage-sub">
-          Orbit doesn&rsquo;t replace your accounting system — it does the work inside it. Connect one
-          ledger (one at a time, so there&rsquo;s a single source of truth), or connect nothing and let
-          Orbit keep the books itself.
-        </p>
-
-        <div className="faq-list">
-          {LEDGERS.map((l) => (
-            <div key={l.name} className="faq-item">
-              <div className="mono" style={{ color: "var(--petrol)", fontSize: 11, marginBottom: 6 }}>{l.how}</div>
-              <h2 className="faq-q">{l.name}</h2>
-              <p className="faq-a">{l.detail}</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 12 }}>
-                {l.extras.map((x) => <span key={x} className="conn-chip">{x}</span>)}
+      <MgNav />
+      <main>
+        <section className="mg-page-hero">
+          <div className="mg-kicker">INTEGRATIONS</div>
+          <h1 className="mg-page-h">Your ledger stays the ledger.</h1>
+          <p className="mg-page-lede">
+            Orbit doesn&rsquo;t replace your accounting system — it does the work inside it. Connect one
+            ledger (one at a time, so there&rsquo;s a single source of truth), or connect nothing and let
+            Orbit keep the books itself.
+          </p>
+        </section>
+        <section className="mg-page-body">
+          <div className="mg-int-grid">
+            {LEDGERS.map((l) => (
+              <div key={l.name} className="mg-int-cell">
+                <div className="mg-kicker">{l.how}</div>
+                <h2 className="mg-int-name">{l.name}</h2>
+                <p className="mg-int-p">{l.detail}</p>
+                <div className="mg-int-chips">
+                  {l.extras.map((x) => <span key={x} className="mg-chip">{x}</span>)}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 56 }}>
-          <div className="microlabel kicker">DOCUMENTS IN</div>
-          <h2 className="section-head" style={{ marginTop: 8, fontSize: "clamp(26px, 3.4vw, 36px)" }}>No ledger needed to start.</h2>
-          <p className="subpage-sub">
-            WhatsApp a photo, forward an email, drop a PDF on Telegram — a verified channel is all
-            Orbit needs. Every document is read, coded, tax-tested and filed with its evidence,
-            whether or not a ledger is connected.
-          </p>
-          <p className="subpage-sub" style={{ marginTop: 12 }}>
-            Missing your system?{" "}
-            <a className="textlink" href="mailto:info@orbitgulf.com?subject=Integration%20request">Request an integration →</a>
-          </p>
-        </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 56 }}>
+            <div className="mg-kicker">DOCUMENTS IN</div>
+            <h2 className="mg-h2" style={{ fontSize: 30 }}>No ledger needed to start.</h2>
+            <p className="mg-page-lede" style={{ marginTop: 0 }}>
+              WhatsApp a photo, forward an email, drop a PDF on Telegram — a verified channel is all
+              Orbit needs. Every document is read, coded, tax-tested and filed with its evidence,
+              whether or not a ledger is connected.
+            </p>
+            <p className="mg-page-lede" style={{ marginTop: 12 }}>
+              Missing your system?{" "}
+              <a className="textlink" href="mailto:info@orbitgulf.com?subject=Integration%20request">Request an integration →</a>
+            </p>
+          </div>
+        </section>
       </main>
-      <SiteFooter />
+      <MgFooter />
     </>
   );
 }

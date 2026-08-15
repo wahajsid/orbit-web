@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SiteNav, SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { LAUNCH_DATE_LONG } from "@/lib/launch";
 
 export const metadata: Metadata = {
@@ -53,24 +53,26 @@ const FAQS: [string, string][] = [
 export default function FaqPage() {
   return (
     <>
-      <SiteNav sub />
-      <main className="wrap subpage">
-        <div className="microlabel kicker">FAQ</div>
-        <h1 className="subpage-head">Straight answers.</h1>
-        <p className="subpage-sub">
-          The questions founders and finance leads actually ask us. Anything missing —
-          <a href="mailto:info@orbitgulf.com" className="textlink" style={{ marginLeft: 6 }}>ask a real person</a>.
-        </p>
-        <div className="faq-list">
+      <MgNav />
+      <main>
+        <section className="mg-page-hero">
+          <div className="mg-kicker">FAQ</div>
+          <h1 className="mg-page-h">Straight answers.</h1>
+          <p className="mg-page-lede">
+            The questions founders and finance leads actually ask us. Anything missing —
+            <a href="mailto:info@orbitgulf.com" className="textlink" style={{ marginLeft: 6 }}>ask a real person</a>.
+          </p>
+        </section>
+        <section className="mg-page-body">
           {FAQS.map(([q, a]) => (
-            <div key={q} className="faq-item">
-              <h2 className="faq-q">{q}</h2>
-              <p className="faq-a">{a}</p>
+            <div key={q} className="mg-faq-item">
+              <h2 className="mg-faq-q">{q}</h2>
+              <p className="mg-faq-a">{a}</p>
             </div>
           ))}
-        </div>
+        </section>
       </main>
-      <SiteFooter />
+      <MgFooter />
     </>
   );
 }

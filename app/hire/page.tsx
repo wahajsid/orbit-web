@@ -1,9 +1,8 @@
 import Image from "next/image";
 import "../advert.css";
-import { ProductNav } from "@/components/ProductNav";
 import { HireTerminal } from "@/components/HireTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
 
@@ -24,11 +23,11 @@ export default function HirePage() {
     <>
       <SmoothScroll />
 
+      <MgNav />
+
       {/* ── HERO (ink) ──────────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <ProductNav active="hire" cta={{ label: "EARLY ACCESS", href: "#access" }} />
-
           <div style={{ paddingTop: 40 }}>
             <div className="microlabel hero-kicker">ORBIT HIRE · THE SISTER PRODUCT TO ORBIT</div>
             <RotatingHeadline items={HEADLINES} />
@@ -196,7 +195,7 @@ export default function HirePage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <MgFooter />
       <NpEnhance />
     </>
   );

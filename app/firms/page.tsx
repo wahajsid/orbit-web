@@ -1,7 +1,6 @@
 import "../advert.css";
-import { ProductNav } from "@/components/ProductNav";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
 
@@ -31,11 +30,11 @@ export default function FirmsPage() {
     <div className="prod-firms">
       <SmoothScroll />
 
-      {/* ── HERO (ink · plum) ─────────────────────────────────────── */}
+      <MgNav />
+
+      {/* ── HERO (ink) ────────────────────────────────────────────── */}
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
-          <ProductNav active="firms" cta={{ label: "EARLY ACCESS", href: "#access" }} />
-
           <div style={{ paddingTop: 40 }}>
             <div className="np-soon"><span className="dot" /> Orbit for Firms · Coming soon</div>
             <RotatingHeadline items={HEADLINES} />
@@ -154,7 +153,7 @@ export default function FirmsPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <MgFooter />
       <NpEnhance />
     </div>
   );

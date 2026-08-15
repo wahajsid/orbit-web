@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SiteNav, SiteFooter } from "@/components/SiteChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 
 export const metadata: Metadata = {
   title: "Contact — Orbit",
@@ -33,29 +33,33 @@ const CARDS: { kicker: string; title: string; detail: string; cta: string; mailt
 export default function ContactPage() {
   return (
     <>
-      <SiteNav sub />
-      <main className="wrap subpage">
-        <div className="microlabel kicker">CONTACT</div>
-        <h1 className="subpage-head">A real person reads<br />every message.</h1>
-        <p className="subpage-sub">
-          No ticket deflection, no chatbot maze. Pick the lane that fits and write like you&rsquo;d
-          write to a colleague — because that&rsquo;s who answers.
-        </p>
-        <div className="contact-grid">
-          {CARDS.map((c) => (
-            <div key={c.kicker} className="contact-card">
-              <div className="microlabel kicker">{c.kicker}</div>
-              <div className="contact-title">{c.title}</div>
-              <p className="contact-detail">{c.detail}</p>
-              <a className="cta" href={c.mailto} style={{ textAlign: "center" }}>{c.cta}</a>
-            </div>
-          ))}
-        </div>
-        <p className="subpage-sub" style={{ marginTop: 36 }}>
-          Direct line: <a className="textlink" href="mailto:info@orbitgulf.com">info@orbitgulf.com</a> · Dubai &amp; Riyadh
-        </p>
+      <MgNav />
+      <main>
+        <section className="mg-page-hero">
+          <div className="mg-kicker">CONTACT</div>
+          <h1 className="mg-page-h">A real person reads every message.</h1>
+          <p className="mg-page-lede">
+            No ticket deflection, no chatbot maze. Pick the lane that fits and write like you&rsquo;d
+            write to a colleague — because that&rsquo;s who answers.
+          </p>
+        </section>
+        <section className="mg-page-body">
+          <div className="mg-contact-grid">
+            {CARDS.map((c) => (
+              <div key={c.kicker} className="mg-contact-card">
+                <div className="mg-kicker">{c.kicker}</div>
+                <div className="mg-contact-title">{c.title}</div>
+                <p className="mg-contact-p">{c.detail}</p>
+                <a className="mg-cta" href={c.mailto}>{c.cta}</a>
+              </div>
+            ))}
+          </div>
+          <p className="mg-page-lede" style={{ marginTop: 36 }}>
+            Direct line: <a className="textlink" href="mailto:info@orbitgulf.com">info@orbitgulf.com</a> · Dubai &amp; Riyadh
+          </p>
+        </section>
       </main>
-      <SiteFooter />
+      <MgFooter />
     </>
   );
 }
