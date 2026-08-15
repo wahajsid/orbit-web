@@ -1,230 +1,289 @@
 import "./advert.css";
 import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { SiteFooter } from "@/components/SiteChrome";
-import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
-import { ProductNav } from "@/components/ProductNav";
+import { AgentFeed } from "@/components/AgentFeed";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Orbit — the finance universe, in continuous motion",
+  title: "Orbit — AI agents run your finance. You approve the calls.",
   description:
-    "We're taking the busywork out of finance, accounting and tax — the agents do the doing, the judgment stays yours. Four products, one mission. Built in the Gulf, by accountants who lived it.",
+    "Sixteen agents read your invoices, code your ledger, watch your VAT and drive the close — and stop to ask you when it matters. Built in the Gulf, by accountants who lived every late night of it.",
 };
 
-const ANTHEM: [string, string][] = [
-  ["You spent a decade on judgment —", "not on chasing receipts at midnight."],
-  ["The close should close itself.", "The thinking should stay yours."],
-  ["You got into this to make sense —", "let's give you the time to."],
+/* ── The four steps ("How Orbit works") ─────────────────────────────
+   Kept in data rather than inline so the mobile stack and the desktop
+   4-col ruled grid read the same rows. */
+const STEPS: { n: string; h: string; p: string }[] = [
+  { n: "01", h: "Send anything, anyhow", p: "WhatsApp a photo, forward an email, drop a PDF. Orbit files it, de-duplicates it and starts reading." },
+  { n: "02", h: "Agents read and code",   p: "Extraction, account coding from your own history, VAT checks and duplicate detection — in minutes, not month-end." },
+  { n: "03", h: "You make the few calls", p: "Anything below your confidence threshold comes to you as a plain-language decision with the evidence attached." },
+  { n: "04", h: "The period locks itself", p: "Accruals, depreciation and schedules post on time. When the checklist is green, you close and lock — done in days." },
 ];
 
-const WORLDS: { wk: React.ReactNode; h: string; ex: React.ReactNode; met: string; href: string; go: string }[] = [
-  {
-    wk: "ACCOUNTING", h: "Orbit",
-    ex: <>Aisha forwards a supplier invoice from WhatsApp at 9pm. By sunrise it&rsquo;s coded from her own history, tested against the FTA&rsquo;s rules, matched to the bank line, and posted to Zoho — she never touched it.</>,
-    met: "Month-end in 2 days, not 9 · 100% of lines VAT-tested · ~AED 4,200 of hidden VAT found a month.",
-    href: "/accounting", go: "See Orbit →",
-  },
-  {
-    wk: "HIRE", h: "Orbit Hire",
-    ex: <>52 CVs land Tuesday morning. By lunch Orbit has read every one, scored them on your rubric, sealed the names and photos, and put three people on your desk to meet — Layla, Omar and Priya.</>,
-    met: "50 CVs read in minutes, not a week · every candidate a real first interview · scoring you can defend.",
-    href: "/hire", go: "See Orbit Hire →",
-  },
-  {
-    wk: "INVOICE · TAX COMPLIANCE", h: "Orbit Invoice",
-    ex: <>A folder of 214 supplier invoices lands at 9am. By 9:20 every one is read, its arithmetic re-checked in code, tested against the FTA&rsquo;s and ZATCA&rsquo;s rules, and risk-ranked — the nine that would fail an audit are flagged before the return is filed.</>,
-    met: "Every invoice tax-tested · UAE & KSA rules · risky VAT held before it's claimed.",
-    href: "/invoice", go: "See Orbit Invoice →",
-  },
-  {
-    wk: <>FOR FIRMS · <span className="soon">COMING SOON</span></>, h: "Orbit for Firms",
-    ex: <>Every client, engagement and filing in one place. Rashid logs an hour to the ELC Group VAT engagement in a tap; the disbursement lands on the right client; realization per engagement, without a spreadsheet.</>,
-    met: "Timesheets, project & expense tracking, and the whole practice — organized.",
-    href: "/firms", go: "See Orbit for Firms →",
-  },
+/* ── The agent roster ────────────────────────────────────────────────
+   Seven cells + one green cell that leads to the product page. */
+const AGENTS: { h: string; p: string; green?: boolean }[] = [
+  { h: "Coding agent", p: "Codes every line from your own posting history. Asks when it's less than sure." },
+  { h: "Tax agent", p: "Tests every invoice against UAE Article 59 before VAT is claimed." },
+  { h: "Accrual engine", p: "Learns each supplier's billing rhythm; proposes accruals when bills go missing." },
+  { h: "Anomaly agent", p: "Watches unit prices and cadence; flags creep before renewal dates." },
+  { h: "Bank-match agent", p: "Scores and matches every bank line to its document, to the decimal." },
+  { h: "Schedules agent", p: "Releases prepayments and recurring journals on schedule, with commentary." },
+  { h: "Collections agent", p: "Drafts and sends reminders on a cadence you approve once." },
+  { h: "…and nine more", p: "Duplicates, depreciation, variances, intake, dispatch.", green: true },
 ];
+
+const COMPLIANCE: { h: string; p: string }[] = [
+  { h: "Article 59 tax-invoice test", p: "on every inbound invoice — TRN, rates, rounding." },
+  { h: "E-invoicing ready", p: "ahead of the UAE mandate." },
+  { h: "Period locks", p: "that agents cannot cross — locked means locked." },
+  { h: "Full audit trail", p: "every action, human or agent, logged with evidence." },
+];
+
+/* Reference mark used inline (site nav + footer + hero mock). Solid green
+   ring + satellite dot inside a 2px ink square — the design system's one
+   circle survives here. */
+function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth = 2 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 30 30" aria-hidden="true" style={{ flexShrink: 0 }}>
+      {framed && !ringOnly && <rect x="1" y="1" width="28" height="28" fill="none" stroke="var(--ink)" strokeWidth="2" />}
+      <circle cx="15" cy="15" r="7" fill="none" stroke="var(--accent)" strokeWidth={strokeWidth} />
+      <circle cx={ringOnly ? 24 : 24} cy={ringOnly ? 8 : 8} r={ringOnly ? 4 : 3} fill="var(--accent)" />
+    </svg>
+  );
+}
 
 export default async function Page() {
   const seat = await getNextSeat();
+
   return (
     <>
       <SmoothScroll />
 
-      {/* ── HERO — the anthem ─────────────────────────────────────── */}
-      <header className="hero-band on-ink np-hero" id="top">
-        <div className="wrap">
-          <ProductNav cta={{ label: "JOIN US", href: "#join" }} />
-          <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">THE FINANCE UNIVERSE, IN CONTINUOUS MOTION</div>
-            <RotatingHeadline items={ANTHEM} />
-            <p className="hero-sub" style={{ maxWidth: 600 }}>
-              We&rsquo;re taking the busywork out of finance, accounting and tax — the agents do the
-              doing, the judgment stays yours. Built in the Gulf, by accountants who lived every
-              late night of it.
-            </p>
-            <a className="np-scrollcue" href="#worlds" aria-label="Meet the products">
-              <span className="tri">▶</span>
-              <span className="lab">Meet the four products</span>
-              <span className="chev" aria-hidden="true">↓</span>
-            </a>
-            <div className="hero-actions">
-              <a className="cta" href="#join">Join the founding cohort</a>
-              <a className="np-backlink" href="#truth">or read why we built it →</a>
-            </div>
+      {/* ══════════════════════════════════════════════════════════════
+          STICKY RULED NAV — framed mark + wordmark, three links, a
+          language toggle, sign-in, and the green Book-a-demo CTA. Ruled
+          bottom, sticky, paper background.
+          ══════════════════════════════════════════════════════════════ */}
+      <header className="mg-nav" role="banner">
+        <div className="mg-nav-inner">
+          <a href="/" className="mg-brand" aria-label="Orbit home">
+            <Mark size={30} />
+            <span className="mg-wordmark">ORBIT</span>
+          </a>
+          <nav className="mg-nav-links" aria-label="Primary">
+            <a href="#agents">Agents</a>
+            <a href="#compliance">Compliance</a>
+            <a href="#worlds">Products</a>
+            <span className="mg-hidden-narrow">Pricing</span>
+          </nav>
+          <div className="mg-nav-right">
+            <span className="mg-lang" aria-label="Language">EN · <span className="mg-lang-alt">ع</span></span>
+            <a href="#join" className="mg-signin">Sign in</a>
+            <a href="#join" className="mg-cta">Book a demo →</a>
           </div>
         </div>
       </header>
 
       <main>
-        {/* ── THE ORBIT FAMILY — product first; the manifesto follows ── */}
-        <section className="np-act np-after-hero" id="worlds" style={{ paddingTop: 110 }}>
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE ORBIT FAMILY</div>
-            <h2 className="np-head np-rise d1">Four worlds. <span className="np-accent">One universe.</span></h2>
-            <p className="np-say np-rise d1">
-              Four products, built to one standard — the busywork automated, the evidence shown, the
-              judgment yours.
-            </p>
-            <div className="np-worlds np-rise d1">
-              {WORLDS.map((w) => (
-                <div key={w.h} className="np-world">
-                  <div className="wk">{w.wk}</div>
-                  <h3>{w.h}</h3>
-                  <p className="ex">{w.ex}</p>
-                  <p className="met">{w.met}</p>
-                  <a className="go" href={w.href}>{w.go}</a>
+        {/* ══════════════════════════════════════════════════════════════
+            SPLIT HERO — headline + stats on paper (left); a paper mock of
+            the close cockpit with the 8px 8px 0 green offset shadow on an
+            80px-column paper-raised ground (right). Ruled everywhere.
+            On a phone the mock stacks below and the stats reflow.
+            ══════════════════════════════════════════════════════════════ */}
+        <section className="mg-hero">
+          <div className="mg-hero-copy">
+            <div className="mg-kicker">FINANCE OS · UAE &amp; GCC</div>
+            <h1 className="mg-hero-h">AI agents run your finance. You approve the calls.</h1>
+            <p className="mg-hero-p">Sixteen agents read your invoices, code your ledger, watch your VAT and drive the close — and stop to ask you when it matters. Plain answers, full evidence, every time.</p>
+            <div className="mg-hero-cta">
+              <a href="#join" className="mg-cta">Book a demo →</a>
+              <a href="#how" className="mg-ghost">See how it works</a>
+            </div>
+            <div className="mg-stats">
+              <div><div className="mg-stat-n">16</div><div className="mg-stat-l">agents on your books</div></div>
+              <div><div className="mg-stat-n">93%</div><div className="mg-stat-l">journals posted untouched</div></div>
+              <div><div className="mg-stat-n">3 days</div><div className="mg-stat-l">to a locked period</div></div>
+            </div>
+          </div>
+          <div className="mg-hero-mock-slot">
+            <div className="mg-mock">
+              <div className="mg-mock-head">
+                <Mark size={16} framed={false} strokeWidth={3} ringOnly />
+                <span className="mg-mock-title">Close cockpit — June 2026</span>
+                <span className="mg-mock-pct">68% COMPLETE</span>
+              </div>
+              <div className="mg-mock-body">
+                <div className="mg-mock-bar"><div /></div>
+                <div className="mg-mock-meta">
+                  <span>Accruals · 2 awaiting you</span>
+                  <span>VAT AED 118k due 28 Jul</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── THE TRUTH ─────────────────────────────────────────────── */}
-        <section className="np-act" id="truth">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE TRUTH</div>
-            <h2 className="np-head np-rise d1">We got into this to make sense of things. <span className="np-accent">Then the job changed.</span></h2>
-            <p className="np-say np-rise d1">
-              Every one of us became the person a business trusts with its numbers. Somewhere along
-              the way the receipts, the reconciliations, the filing that&rsquo;s always due — they filled
-              the days, then the nights, then the years. The judgment we trained a decade for got
-              crowded out by work anyone could do. We built Orbit because that felt like a quiet
-              waste, and we couldn&rsquo;t unsee it.
-            </p>
-          </div>
-        </section>
-
-        {/* ── THE MISSION ───────────────────────────────────────────── */}
-        <section className="np-act np-band-ink">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE MISSION</div>
-            <h2 className="np-head np-rise d1">Give the profession its time — <span className="np-accent">and its judgment — back.</span></h2>
-            <p className="np-say np-rise d1">
-              Take the busywork off the desk of every accountant, tax adviser and finance team — the
-              coding, the matching, the chasing, the close — and automate it, end to end. The agents
-              do the doing. The hours go where they belong: the advice, the calls, the strategy only
-              a person can make.
-            </p>
-          </div>
-        </section>
-
-        {/* ── THE VISION ────────────────────────────────────────────── */}
-        <section className="np-act">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE VISION</div>
-            <h2 className="np-head np-rise d1">Finance isn&rsquo;t one job. <span className="np-accent">It&rsquo;s a universe of them.</span></h2>
-            <p className="np-say np-rise d1">
-              The books. The people you hire. The practice you run. We&rsquo;re bringing every corner of it
-              into orbit — the doing handled by agents, the evidence shown, the last word always left
-              to you. One family, one standard: the software does the work and shows its working; the
-              judgment, and the relationship, stay yours.
-            </p>
-          </div>
-        </section>
-
-        {/* ── WHY WE'RE CALLED ORBIT — the name story ───────────────── */}
-        <section className="np-act np-band-ink">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">WHY WE&rsquo;RE CALLED ORBIT</div>
-            <h2 className="np-head np-rise d1">You stop chasing the work. <span className="np-accent">It orbits you.</span></h2>
-            <p className="np-say np-rise d1">
-              We called it Orbit because that&rsquo;s what good finance feels like when it finally works:
-              everything you carry — the books, the people you hire, the practice you run — held in
-              steady, continuous motion around you, without you having to push it.
-            </p>
-            <p className="np-say np-rise d1">
-              Think about what an orbit actually is. Nothing falls; nothing flies off. It just keeps
-              moving — reliably, quietly, held by a force you can&rsquo;t see. That&rsquo;s the job we handed
-              the agents: keep the whole thing turning in the background — the coding, the reconciling,
-              the chasing, the filing — automated, evidenced, never silent past the calls that need you.
-            </p>
-            <p className="np-say np-rise d1">
-              You get to stand where you always belonged — <strong>at the centre, deciding.</strong>
-            </p>
-          </div>
-        </section>
-
-        {/* ── THE COMPOUNDING ───────────────────────────────────────── */}
-        <section className="np-act">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE COMPOUNDING</div>
-            <h2 className="np-head np-rise d1" style={{ maxWidth: "22ch" }}>Time, handed back, <span className="np-accent">compounds.</span></h2>
-            <p className="np-say np-rise d1">
-              An hour you get back isn&rsquo;t just an hour. Give it to a good accountant and it compounds —
-              into advice that changes a client&rsquo;s year, a firm that grows without burning its people
-              out, a life with evenings in it again. The ones who let go of the busywork won&rsquo;t work
-              less. They&rsquo;ll pull ahead — because they finally get to think.
-            </p>
-          </div>
-        </section>
-
-        {/* ── FROM THE FOUNDER (SRW) ────────────────────────────────── */}
-        <section className="why-band on-ink" style={{ marginTop: 0 }}>
-          <div className="wrap">
-            <div className="microlabel hero-kicker np-rise">FROM THE FOUNDER</div>
-            <h2 className="why-head np-rise d1">I&rsquo;ve done<br />the midnights.</h2>
-            <div className="why-cols np-rise d1">
-              <p>
-                I&rsquo;ve filed at 11:58. I&rsquo;ve watched brilliant people spend their best years on work a
-                machine could do. So I built the colleague I always wished I had — one who does the
-                grunt work, shows me exactly how, and hands the judgment back to me.
-              </p>
-              <p>
-                That&rsquo;s all Orbit is. If you chose this work to <strong>think</strong>, and found
-                yourself buried instead, we built this for you — and we&rsquo;re only getting started.
-              </p>
-            </div>
-            <div className="why-sig np-rise">&mdash; SRW</div>
-          </div>
-        </section>
-
-        {/* ── JOIN ──────────────────────────────────────────────────── */}
-        <section className="section wrap" id="join">
-          <h2 className="section-head">Come build the universe with us.</h2>
-          <p className="section-sub">
-            This is bigger than software — it&rsquo;s a bet on what people do with their time when the
-            busywork is gone. The first {FOUNDING_SEATS} companies get twelve months free, with founder
-            pricing locked in after. Work email only — a real person reads every entry.
-          </p>
-          <div className="price-grid">
-            <div>
-              <div className="np-chips" style={{ marginTop: 28 }}>
-                <span className="np-chip"><span className="k">Books</span><span className="p">the finance OS, live today</span></span>
-                <span className="np-chip"><span className="k">Hiring</span><span className="b">Orbit Hire, live today</span></span>
-                <span className="np-chip"><span className="k">Tax</span><span className="b">Orbit Invoice, live today</span></span>
-                <span className="np-chip"><span className="k">Practice</span><span className="b">Orbit for Firms, coming soon</span></span>
+                <div className="mg-mock-row">
+                  <span className="mg-mock-tag mg-mock-tag-crit">CRITICAL</span>
+                  <div><b>Two periods missing — Etisalat fibre.</b> Two seasonal accruals proposed, AED 2,150 each. <span className="mg-mock-cta">Confirm →</span></div>
+                </div>
+                <div className="mg-mock-row">
+                  <span className="mg-mock-tag mg-mock-tag-crit">CRITICAL</span>
+                  <div><b>Tax invoice missing TRN — Almarai.</b> AED 1,036 input VAT blocked until corrected. <span className="mg-mock-cta">Review →</span></div>
+                </div>
+                <div className="mg-mock-row mg-mock-row-done">
+                  <span className="mg-mock-tag mg-mock-tag-done">DONE</span>
+                  <div>Depreciation posted — all classes, AED 21,408 · Fixed assets agent</div>
+                </div>
+                <button type="button" className="mg-mock-lock">Close the period and lock</button>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            LIVE FROM THE AGENTS — infinite marquee (kept in a client
+            component so the animation and reduced-motion rule fire).
+            ══════════════════════════════════════════════════════════════ */}
+        <AgentFeed />
+
+        {/* ══════════════════════════════════════════════════════════════
+            HOW ORBIT WORKS — 4-step ruled grid, top-lined 2px ink.
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="how" className="mg-section">
+          <div className="mg-kicker">HOW ORBIT WORKS</div>
+          <h2 className="mg-h2">From a photo of an invoice to a locked period.</h2>
+          <div className="mg-steps">
+            {STEPS.map((s) => (
+              <div key={s.n} className="mg-step">
+                <div className="mg-step-n">{s.n}</div>
+                <div className="mg-step-h">{s.h}</div>
+                <div className="mg-step-p">{s.p}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            THE ROSTER — 4×2 grid, one green cell in the corner.
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="agents" className="mg-section">
+          <div className="mg-roster-head">
+            <div>
+              <div className="mg-kicker">THE ROSTER</div>
+              <h2 className="mg-h2">Sixteen specialists. Zero headcount.</h2>
+            </div>
+            <p className="mg-roster-lede">Each agent does one job, explains itself, and hands anything uncertain to you. A sample of the team:</p>
+          </div>
+          <div className="mg-roster">
+            {AGENTS.map((a) => (
+              <div key={a.h} className={a.green ? "mg-agent mg-agent-green" : "mg-agent"}>
+                <div className="mg-agent-h">{a.h}</div>
+                <div className="mg-agent-p">
+                  {a.p}{a.green && <> <a href="/accounting" className="mg-agent-cta">Meet the full team →</a></>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            COMPLIANCE BAND — full-width ink, two columns. On a phone
+            each item stacks and the copy shrinks — nothing narrower.
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="compliance" className="mg-compliance">
+          <div className="mg-compliance-copy">
+            <div className="mg-kicker mg-kicker-on-ink">BUILT FOR THE FTA</div>
+            <h2 className="mg-h2 mg-h2-on-ink">Compliance isn&rsquo;t a feature. It&rsquo;s the default.</h2>
+            <p className="mg-compliance-p">Every document is tested against UAE VAT rules before a dirham moves. Every journal carries its agent&rsquo;s commentary and the source evidence. When the auditor asks, you hand over the trail — not a shoebox.</p>
+          </div>
+          <ul className="mg-compliance-list">
+            {COMPLIANCE.map((c) => (
+              <li key={c.h}><span className="mg-check">✓</span><div><b>{c.h}</b> {c.p}</div></li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            THE FOUR PRODUCTS — since the site's four brands still matter,
+            keep them here (the reference didn't include this section but
+            our home has always led on the product family; kept as ruled
+            paper strips so the language is consistent).
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="worlds" className="mg-section">
+          <div className="mg-kicker">THE ORBIT FAMILY</div>
+          <h2 className="mg-h2">Four worlds. One universe.</h2>
+          <div className="mg-worlds">
+            <a href="/accounting" className="mg-world">
+              <div className="mg-kicker mg-kicker-tight">ACCOUNTING</div>
+              <div className="mg-world-h">Orbit</div>
+              <p>Aisha forwards a supplier invoice from WhatsApp at 9pm. By sunrise it&rsquo;s coded from her own history, tested against the FTA&rsquo;s rules, matched to the bank line, and posted to Zoho — she never touched it.</p>
+              <p className="mg-world-met">Month-end in 2 days, not 9 · 100% of lines VAT-tested · ~AED 4,200 of hidden VAT found a month.</p>
+              <span className="mg-world-go">See Orbit →</span>
+            </a>
+            <a href="/hire" className="mg-world">
+              <div className="mg-kicker mg-kicker-tight">HIRE</div>
+              <div className="mg-world-h">Orbit Hire</div>
+              <p>52 CVs land Tuesday morning. By lunch Orbit has read every one, scored them on your rubric, sealed the names and photos, and put three people on your desk to meet — Layla, Omar and Priya.</p>
+              <p className="mg-world-met">50 CVs read in minutes, not a week · every candidate a real first interview · scoring you can defend.</p>
+              <span className="mg-world-go">See Orbit Hire →</span>
+            </a>
+            <a href="/invoice" className="mg-world">
+              <div className="mg-kicker mg-kicker-tight">INVOICE · TAX COMPLIANCE</div>
+              <div className="mg-world-h">Orbit Invoice</div>
+              <p>A folder of 214 supplier invoices lands at 9am. By 9:20 every one is read, its arithmetic re-checked in code, tested against the FTA&rsquo;s and ZATCA&rsquo;s rules, and risk-ranked — the nine that would fail an audit are flagged before the return is filed.</p>
+              <p className="mg-world-met">Every invoice tax-tested · UAE &amp; KSA rules · risky VAT held before it&rsquo;s claimed.</p>
+              <span className="mg-world-go">See Orbit Invoice →</span>
+            </a>
+            <a href="/firms" className="mg-world">
+              <div className="mg-kicker mg-kicker-tight">FOR FIRMS · COMING SOON</div>
+              <div className="mg-world-h">Orbit for Firms</div>
+              <p>Every client, engagement and filing in one place. Rashid logs an hour to the ELC Group VAT engagement in a tap; the disbursement lands on the right client; realization per engagement, without a spreadsheet.</p>
+              <p className="mg-world-met">Timesheets, project &amp; expense tracking, and the whole practice — organized.</p>
+              <span className="mg-world-go">See Orbit for Firms →</span>
+            </a>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            THE POSTER CTA — full-green wall, paper text, one primary
+            (paper) + one ghost (paper-outlined). On a phone the display
+            drops from 52 to 34 and the buttons stack.
+            ══════════════════════════════════════════════════════════════ */}
+        <section className="mg-poster">
+          <h2 className="mg-poster-h">The close ends in days. Your evenings come back.</h2>
+          <div className="mg-poster-cta">
+            <a href="#join" className="mg-cta mg-cta-on-green">Book a demo →</a>
+            <a href="/accounting" className="mg-ghost mg-ghost-on-green">Explore the product</a>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            JOIN — the founding-cohort capture. Kept because it drives
+            every conversion on the site today.
+            ══════════════════════════════════════════════════════════════ */}
+        <section id="join" className="mg-section">
+          <div className="mg-kicker">JOIN THE FOUNDING COHORT</div>
+          <h2 className="mg-h2">Come build the universe with us.</h2>
+          <p className="mg-lede">
+            This is bigger than software — it&rsquo;s a bet on what people do with their time when the busywork is gone. The first {FOUNDING_SEATS} companies get twelve months free, with founder pricing locked in after. Work email only — a real person reads every entry.
+          </p>
+          <div className="mg-join">
             <LedgerForm seat={seat} />
           </div>
         </section>
       </main>
 
-      <SiteFooter />
+      {/* ══════════════════════════════════════════════════════════════
+          FOOTER — flush strip: mark + wordmark, url, location, ©
+          ══════════════════════════════════════════════════════════════ */}
+      <footer className="mg-footer">
+        <Mark size={18} />
+        <span className="mg-wordmark mg-wordmark-sm">ORBIT</span>
+        <span className="mg-footer-url">orbitgulf.com</span>
+        <span className="mg-footer-loc">Dubai, UAE · EN / <bdi>العربية</bdi> · © 2026 Orbit</span>
+      </footer>
+
       <NpEnhance />
     </>
   );

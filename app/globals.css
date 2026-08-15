@@ -160,10 +160,22 @@ img { max-width: 100%; display: block; }
 /* 3 · logo orbit — one slow revolution, ~8s, defined in OrbitLogo.tsx */
 @keyframes orbit-revolve { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+/* 4 · agent feed — a duplicated track, translateX(-50%) loop, ~36s
+   linear. The track is TWO copies concatenated inline, so the wrap is
+   seamless: as the tail of copy A leaves, the head of copy B is already
+   in position. The green square next to the label pulses at 1.6s. */
+@keyframes orbit-feed { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.orbit-feed { animation: orbit-feed 36s linear infinite; }
+@keyframes orbit-square-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.orbit-square-pulse { display: inline-block; animation: orbit-square-pulse 1.6s ease-in-out infinite; }
+
+/* Pause on hover so a reader can catch a specific line. */
+.agent-feed:hover .orbit-feed { animation-play-state: paused; }
+
 @media (prefers-reduced-motion: reduce) {
   .arrive { animation: none; }
   .feedline { opacity: 1; transform: none; transition: none; }
-  .orbit-anim { animation: none !important; }
+  .orbit-anim, .orbit-feed, .orbit-square-pulse { animation: none !important; }
 }
 
 /* ── responsive foundations ────────────────────────────────────── */
@@ -174,6 +186,320 @@ img { max-width: 100%; display: block; }
 
 /* Nothing may push the page sideways. */
 html, body { max-width: 100%; overflow-x: hidden; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   MODERNIST GREEN — home page (mg-*). Ported one-for-one from
+   design_handoff_rebrand/orbit-home.dc.html. Ruled everything, zero
+   radius, one green accent, flush-left type. Every section is a
+   ruled band; the page reads as a stack of horizontals held together
+   by strong 2px ink rules.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.mg-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); min-height: 44px; }
+.mg-wordmark { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
+.mg-wordmark-sm { font-size: 13px; }
+
+.mg-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; }
+.mg-kicker-on-ink { color: var(--accent-muted); }
+.mg-kicker-tight { margin-bottom: 8px; }
+.mg-h2 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin: 14px 0 20px; color: var(--ink); text-wrap: pretty; }
+.mg-h2-on-ink { color: var(--text-on-ink); }
+.mg-lede { font-size: 16px; line-height: 1.6; color: var(--text-muted); max-width: 58ch; margin: 0 0 20px; }
+
+.mg-hidden-narrow { }
+@media (max-width: 900px) { .mg-hidden-narrow { display: none; } }
+
+/* ── Sticky ruled nav ─────────────────────────────────────────────── */
+.mg-nav {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.mg-nav-inner {
+  display: flex; align-items: center; gap: 32px;
+  padding: 16px 48px;
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-nav-links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+.mg-nav-links a { text-decoration: none; }
+.mg-nav-links a:hover, .mg-nav-links span:hover { color: var(--accent-deep); }
+.mg-nav-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.mg-lang { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--text-muted); }
+.mg-lang-alt { color: var(--text-faint); }
+.mg-signin { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--ink); }
+.mg-cta {
+  display: inline-flex; align-items: center; justify-content: flex-start;
+  background: var(--accent); color: var(--text-on-ink);
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  padding: 10px 22px 10px 16px; border: none; text-decoration: none;
+  min-height: 40px; cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.mg-cta:hover { background: var(--accent-deep); color: var(--text-on-ink); }
+.mg-cta-on-green { background: var(--paper); color: var(--accent); }
+.mg-cta-on-green:hover { background: var(--accent-tint); color: var(--accent-deep); }
+.mg-ghost {
+  display: inline-flex; align-items: center;
+  border: 2px solid var(--ink); background: transparent;
+  color: var(--ink); font-size: 14px; font-weight: 600;
+  padding: 12px 18px; text-decoration: none;
+  min-height: 46px; cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.mg-ghost:hover { background: var(--accent-tint); }
+.mg-ghost-on-green { color: var(--text-on-ink); border-color: var(--text-on-ink); }
+.mg-ghost-on-green:hover { background: rgba(255,255,255,0.08); }
+
+/* Mobile: nav collapses to mark + CTA; wordmark stays; other links hide. */
+@media (max-width: 760px) {
+  .mg-nav-inner { padding: 12px 20px; gap: 14px; }
+  .mg-nav-links { display: none; }
+  .mg-nav-right { gap: 10px; }
+  .mg-lang, .mg-signin { display: none; }
+  .mg-cta { padding: 10px 16px; font-size: 12px; }
+}
+
+/* ── Split hero ───────────────────────────────────────────────────── */
+.mg-hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-hero-copy {
+  padding: 72px 48px 56px;
+  border-right: 2px solid var(--ink);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.mg-hero-h {
+  font-size: 60px; font-weight: 800; line-height: 1.02;
+  letter-spacing: -0.03em; color: var(--ink); margin: 0;
+  text-wrap: pretty;
+}
+.mg-hero-p {
+  font-size: 17px; line-height: 1.55; color: var(--text-muted);
+  max-width: 46ch; margin: 0;
+}
+.mg-hero-cta { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.mg-hero-cta .mg-cta { font-size: 14px; padding: 14px 28px 14px 18px; min-height: 46px; }
+.mg-stats {
+  display: flex; margin-top: 24px;
+  border-top: 2px solid var(--ink);
+}
+.mg-stats > div { flex: 1; padding: 16px; border-right: 1px solid var(--hairline); }
+.mg-stats > div:first-child { padding-left: 0; }
+.mg-stats > div:last-child { border-right: none; }
+.mg-stat-n { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.mg-stat-l { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* Right pane: paper-raised grid (80px repeating rule) holds the mock. */
+.mg-hero-mock-slot {
+  padding: 48px;
+  display: flex; align-items: center;
+  background: repeating-linear-gradient(90deg, var(--paper-raised) 0, var(--paper-raised) 1px, transparent 1px, transparent 80px);
+  min-width: 0;
+}
+.mg-mock {
+  width: 100%; background: var(--surface);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+.mg-mock-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 18px; border-bottom: 2px solid var(--ink);
+}
+.mg-mock-title { font-size: 12px; font-weight: 700; color: var(--ink); }
+.mg-mock-pct { margin-left: auto; font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+.mg-mock-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.mg-mock-bar { height: 8px; background: var(--paper-raised); overflow: hidden; }
+.mg-mock-bar > div { width: 68%; height: 100%; background: var(--accent); }
+.mg-mock-meta {
+  display: flex; gap: 8px;
+  font-size: 10.5px; font-weight: 600; color: var(--text-muted);
+}
+.mg-mock-meta > span:last-child { margin-left: auto; }
+.mg-mock-row {
+  border: 1px solid var(--hairline);
+  padding: 10px 12px;
+  display: flex; gap: 10px; align-items: baseline;
+  font-size: 12px; line-height: 1.4;
+}
+.mg-mock-row-done { opacity: 0.65; }
+.mg-mock-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.02em; flex-shrink: 0; }
+.mg-mock-tag-crit { color: var(--bad); }
+.mg-mock-tag-done { color: var(--text-muted); }
+.mg-mock-cta { color: var(--accent); font-weight: 600; }
+.mg-mock-lock {
+  align-self: flex-start; margin-top: 4px;
+  background: var(--ink); color: var(--text-on-ink);
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  padding: 12px 16px; min-height: 44px; border: none; cursor: pointer;
+  display: inline-flex; align-items: center;
+  transition: background-color 0.15s ease;
+}
+.mg-mock-lock:hover { background: var(--accent); }
+
+/* Mobile: hero stacks; the mock sits above the fold in a phone-friendly
+   width; the ruled 80px grid stays as a texture. */
+@media (max-width: 900px) {
+  .mg-hero { grid-template-columns: 1fr; }
+  .mg-hero-copy { padding: 44px 22px 36px; border-right: none; border-bottom: 2px solid var(--ink); gap: 20px; }
+  .mg-hero-h { font-size: 40px; letter-spacing: -0.025em; }
+  .mg-hero-p { font-size: 15.5px; }
+  .mg-hero-mock-slot { padding: 32px 22px; }
+  .mg-stats > div:first-child { padding-left: 16px; }
+}
+
+/* ── Section shell ────────────────────────────────────────────────── */
+.mg-section {
+  padding: 56px 48px;
+  border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+@media (max-width: 760px) {
+  .mg-section { padding: 40px 22px; }
+  .mg-h2 { font-size: 28px; }
+}
+
+/* ── How Orbit works — 4-step grid ────────────────────────────────── */
+.mg-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+  margin-top: 36px;
+}
+.mg-step { padding: 24px 24px 40px; border-right: 1px solid var(--hairline); }
+.mg-step:first-child { padding-left: 0; }
+.mg-step:last-child { border-right: none; padding-right: 0; }
+.mg-step-n { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
+.mg-step-h { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+.mg-step-p { font-size: 13.5px; line-height: 1.55; color: var(--text-muted); }
+@media (max-width: 760px) {
+  .mg-steps { grid-template-columns: 1fr; border-top: 1px solid var(--hairline); margin-top: 24px; }
+  .mg-step { padding: 22px 0; border-right: none; border-bottom: 1px solid var(--hairline); }
+  .mg-step:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+/* ── Roster ───────────────────────────────────────────────────────── */
+.mg-roster-head {
+  display: flex; align-items: flex-end; gap: 20px; margin-bottom: 36px; flex-wrap: wrap;
+}
+.mg-roster-head > div:first-child { min-width: 0; }
+.mg-roster-lede { margin-left: auto; font-size: 13.5px; color: var(--text-muted); max-width: 36ch; line-height: 1.5; }
+.mg-roster {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 2px solid var(--ink);
+}
+.mg-agent {
+  padding: 22px;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  min-width: 0;
+}
+.mg-agent:nth-child(4n) { border-right: none; }
+.mg-agent:nth-last-child(-n+4) { border-bottom: none; }
+.mg-agent-green { background: var(--accent); color: var(--text-on-ink); }
+.mg-agent-green .mg-agent-h { color: var(--text-on-ink); }
+.mg-agent-green .mg-agent-p { color: var(--accent-tint); }
+.mg-agent-h { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+.mg-agent-p { font-size: 12.5px; line-height: 1.5; color: var(--text-muted); }
+.mg-agent-cta { color: var(--text-on-ink); font-weight: 700; text-decoration: underline; display: inline-block; padding: 6px 0; }
+@media (max-width: 960px) {
+  .mg-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mg-agent:nth-child(4n) { border-right: 1px solid var(--hairline); }
+  .mg-agent:nth-child(2n) { border-right: none; }
+  .mg-agent:nth-last-child(-n+2) { border-bottom: none; }
+  .mg-agent:nth-child(-n+6) { border-bottom: 1px solid var(--hairline); }
+}
+@media (max-width: 580px) {
+  .mg-roster { grid-template-columns: 1fr; }
+  .mg-agent, .mg-agent:nth-child(4n), .mg-agent:nth-child(2n) { border-right: none; border-bottom: 1px solid var(--hairline); }
+  .mg-agent:last-child { border-bottom: none; }
+}
+
+/* ── Ink compliance band ──────────────────────────────────────────── */
+.mg-compliance {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--ink); color: var(--text-on-ink);
+  border-bottom: 2px solid var(--ink);
+}
+.mg-compliance-copy { padding: 56px 48px; border-right: 1px solid var(--hairline-on-ink); }
+.mg-compliance-p { font-size: 14.5px; line-height: 1.6; color: var(--text-on-ink-muted); max-width: 52ch; margin: 12px 0 0; }
+.mg-compliance-list { list-style: none; padding: 40px 48px; margin: 0; display: flex; flex-direction: column; gap: 0; }
+.mg-compliance-list li {
+  display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--hairline-on-ink);
+  font-size: 14px; line-height: 1.5; color: var(--text-on-ink);
+}
+.mg-compliance-list li:last-child { border-bottom: none; }
+.mg-check { color: var(--accent-muted); font-weight: 800; flex-shrink: 0; }
+@media (max-width: 760px) {
+  .mg-compliance { grid-template-columns: 1fr; }
+  .mg-compliance-copy { padding: 40px 22px; border-right: none; border-bottom: 1px solid var(--hairline-on-ink); }
+  .mg-compliance-list { padding: 20px 22px 32px; }
+  .mg-h2-on-ink { font-size: 26px; }
+}
+
+/* ── The four products ────────────────────────────────────────────── */
+.mg-worlds {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0; border-top: 2px solid var(--ink); margin-top: 36px;
+}
+.mg-world {
+  padding: 28px 28px 28px 0;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: background-color 0.15s ease;
+}
+.mg-world:nth-child(2n) { padding-right: 0; padding-left: 28px; border-right: none; }
+.mg-world:nth-last-child(-n+2) { border-bottom: none; }
+.mg-world:hover { background: var(--accent-tint); }
+.mg-world-h { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.mg-world p { font-size: 14px; line-height: 1.55; color: var(--text-muted); margin: 0; max-width: 52ch; }
+.mg-world-met { font-size: 13px; color: var(--accent) !important; font-weight: 600; }
+.mg-world-go { font-size: 13.5px; font-weight: 700; color: var(--accent); margin-top: 4px; border-bottom: 2px solid var(--accent); align-self: flex-start; padding-bottom: 2px; }
+@media (max-width: 760px) {
+  .mg-worlds { grid-template-columns: 1fr; }
+  .mg-world, .mg-world:nth-child(2n) { padding: 24px 0; border-right: none; border-bottom: 1px solid var(--hairline); }
+  .mg-world:last-child { border-bottom: none; }
+}
+
+/* ── Poster CTA ───────────────────────────────────────────────────── */
+.mg-poster {
+  background: var(--accent); color: var(--text-on-ink);
+  padding: 72px 48px;
+  border-bottom: 2px solid var(--ink);
+  max-width: 1440px; margin: 0 auto;
+}
+.mg-poster-h {
+  font-size: 52px; font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.05; max-width: 22ch; margin: 0; text-wrap: pretty;
+  color: var(--text-on-ink);
+}
+.mg-poster-cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .mg-poster { padding: 44px 22px; }
+  .mg-poster-h { font-size: 34px; }
+}
+
+/* ── Join capture ────────────────────────────────────────────────── */
+.mg-join { margin-top: 28px; max-width: 720px; }
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.mg-footer {
+  display: flex; align-items: center; gap: 10px;
+  padding: 20px 48px;
+  font-size: 12px; color: var(--text-muted);
+  max-width: 1440px; margin: 0 auto;
+  flex-wrap: wrap;
+}
+.mg-footer .mg-wordmark { color: var(--ink); }
+.mg-footer-url { margin-left: 4px; }
+.mg-footer-loc { margin-left: auto; }
+@media (max-width: 760px) {
+  .mg-footer { padding: 18px 22px; gap: 8px; }
+  .mg-footer-loc { margin-left: 0; width: 100%; margin-top: 4px; }
+}
 
 /* Touch targets. Small inline links are fine inside running prose, but any
    link that acts as a CONTROL — nav, footer, product jumps, scroll cues —
