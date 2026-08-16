@@ -15,8 +15,8 @@ const FOOTER = `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid 
 
 function wrap(preheader: string, body: string): string {
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Orbit</title></head>
-<body style="margin:0;padding:0;background:#F3F2F2;">
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Orbit</title></head>
+<body style="margin:0;padding:0;background:#F3F2F2;color:#201E1D;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${preheader}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F2F2;padding:30px 12px;">
     <tr><td align="center">
@@ -43,7 +43,7 @@ function p(text: string, mb = 16): string {
 }
 
 function signoff(name: string): string {
-  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#201E1D;line-height:1.7;margin:0 0 4px 0;">${name}<br /><span style="color:#0E5B3A;">&mdash; Wahaj &amp; the Orbit team</span></p>`;
+  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#201E1D;line-height:1.7;margin:0 0 4px 0;">${name}<br /><span style="color:#0E5B3A;">&mdash; The Orbit team</span></p>`;
 }
 
 function infobox(label: string, content: string): string {
@@ -67,7 +67,7 @@ export const WELCOME_HTML = wrap(
   ${cta("https://www.orbitgulf.com/how-it-works", "Read the full walkthrough &rarr;")}
   ${infobox("What happens next", "We're bringing the founding cohort in group by group. Your login is coming soon &mdash; <strong>twelve months free, founder pricing after</strong>. We'll email you the moment it's ready.")}
   ${p("Reply to this email with what matters most to you &mdash; AP automation? VAT compliance? The close? We read every one, and it shapes what we build next.", 20)}
-  ${signoff("See you inside,")}`
+  ${signoff("See you inside.")}`
 );
 
 export const WELCOME_TEXT = `Welcome to the founding cohort.
@@ -85,8 +85,8 @@ What happens next: We're bringing the founding cohort in group by group. Your lo
 
 Reply to this email with what matters most to you — AP automation? VAT compliance? The close? We read every one, and it shapes what we build next.
 
-See you inside,
-— Wahaj & the Orbit team
+See you inside.
+— The Orbit team
 orbitgulf.com · info@orbitgulf.com`;
 
 export const WELCOME_SUBJECT = "Welcome to the founding cohort — your books are about to change";
@@ -105,7 +105,7 @@ export const APPROVED_HTML = wrap(
   ${infobox("Quick-start checklist", '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;"><tr><td style="padding:3px 0;color:#201E1D;">1. Sign in at app.orbitgulf.com</td></tr><tr><td style="padding:3px 0;color:#201E1D;">2. Connect your ledger (Xero, Zoho, QuickBooks &mdash; or skip to use Orbit\'s own books)</td></tr><tr><td style="padding:3px 0;color:#201E1D;">3. Send your first document (WhatsApp, email or upload)</td></tr><tr><td style="padding:3px 0;color:#201E1D;">4. Watch the intake agent code it in real time</td></tr></table>')}
   ${cta("https://app.orbitgulf.com", "Sign in to Orbit &rarr;")}
   ${p("We're here. Reply any time &mdash; same inbox, same humans.", 20)}
-  ${signoff("Let's go,")}`
+  ${signoff("Let's go.")}`
 );
 
 export const APPROVED_TEXT = `Your account is ready.
@@ -129,8 +129,8 @@ Quick-start checklist:
 
 We're here. Reply any time — same inbox, same humans.
 
-Let's go,
-— Wahaj & the Orbit team
+Let's go.
+— The Orbit team
 orbitgulf.com · info@orbitgulf.com`;
 
 export const APPROVED_SUBJECT = "Your Orbit account is live — sign in and start";
