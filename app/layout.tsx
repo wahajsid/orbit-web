@@ -39,6 +39,9 @@ export const metadata: Metadata = {
       "An AI finance team for UAE & KSA businesses. Documents in, ledger done, one honest email at sunrise.",
     images: ["/og.png"],
   },
+  verification: {
+    other: { "msvalidate.01": "4BDEB5AE75B04E2C2EA5C6991217BAE4" },
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.png" }],
     apple: "/apple-touch-icon.png",
