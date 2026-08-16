@@ -46,6 +46,7 @@ export function MgFooter() {
         <a href="/product">Product</a>
         <a href="/pricing">Pricing</a>
         <a href="/integrations">Integrations</a>
+        <a href="/how-it-works">How it works</a>
         <a href="/guides">Guides</a>
         <a href="/tools">Tools</a>
         <a href="/faq">FAQ</a>

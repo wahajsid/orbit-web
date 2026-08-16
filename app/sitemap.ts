@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/hire", priority: 0.7 },
     { path: "/invoice", priority: 0.7 },
     { path: "/firms", priority: 0.6 },
+    { path: "/how-it-works", priority: 0.8 },
     { path: "/integrations", priority: 0.7 },
     { path: "/guides", priority: 0.7 },
     { path: "/tools", priority: 0.7 },
