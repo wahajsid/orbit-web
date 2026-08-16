@@ -13,6 +13,30 @@ export const runtime = "nodejs";
 
 const MIN_SUBMIT_MS = 1500;
 
+export async function GET(req: NextRequest) {
+  const secret = req.headers.get("x-approve-secret");
+  if (!process.env.APPROVE_SECRET || secret !== process.env.APPROVE_SECRET) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  try {
+    const r = await fetch(
+      `${process.env.SUPABASE_URL}/rest/v1/early_access?select=name,email,company,created_at&order=created_at.desc`,
+      {
+        headers: {
+          apikey: process.env.SUPABASE_ANON_KEY ?? "",
+          Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY ?? ""}`,
+        },
+      },
+    );
+    if (!r.ok) return NextResponse.json({ error: "could not fetch list" }, { status: 502 });
+    const rows = await r.json();
+    return NextResponse.json({ count: rows.length, users: rows });
+  } catch {
+    return NextResponse.json({ error: "could not fetch list" }, { status: 502 });
+  }
+}
+
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown> = {};
   try { body = await req.json(); } catch { /* empty body → validation below rejects */ }

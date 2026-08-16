@@ -1,7 +1,7 @@
 /* Approve a waitlisted user — sends the "account ready" email with login
    details. Called when the owner clicks approve in the admin panel.
    Protected by a shared secret (APPROVE_SECRET env var).
-   Env: RESEND_API_KEY, EMAIL_FROM, EMAIL_REPLY_TO, APPROVE_SECRET. */
+   Env: RESEND_API_KEY, EMAIL_FROM, EMAIL_REPLY_TO, SIGNUP_CC, APPROVE_SECRET. */
 
 import { NextRequest, NextResponse } from "next/server";
 import { APPROVED_HTML, APPROVED_TEXT, APPROVED_SUBJECT } from "@/lib/emails";
@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         from: process.env.EMAIL_FROM || "Orbit <notifications@app.orbitgulf.com>",
         to: email,
+        cc: process.env.SIGNUP_CC || "wahajs@simpla.ai",
         reply_to: process.env.EMAIL_REPLY_TO || "info@orbitgulf.com",
         subject: APPROVED_SUBJECT,
         html: APPROVED_HTML,
