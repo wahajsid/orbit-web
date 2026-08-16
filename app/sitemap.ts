@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { GUIDES } from "@/lib/guides";
+import { TOOLS } from "@/lib/tools";
 
 const BASE = "https://www.orbitgulf.com";
 
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/firms", priority: 0.6 },
     { path: "/integrations", priority: 0.7 },
     { path: "/guides", priority: 0.7 },
+    { path: "/tools", priority: 0.7 },
     { path: "/faq", priority: 0.6 },
     { path: "/about", priority: 0.5 },
     { path: "/contact", priority: 0.5 },
@@ -24,5 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages.map((p) => ({ url: `${BASE}${p.path}`, lastModified: now, priority: p.priority })),
     ...GUIDES.map((g) => ({ url: `${BASE}/guides/${g.slug}`, lastModified: new Date(g.updated), priority: 0.6 })),
+    ...TOOLS.map((t) => ({ url: `${BASE}/tools/${t.slug}`, lastModified: now, priority: 0.6 })),
   ];
 }

@@ -15,6 +15,7 @@ Key facts:
 - [Pricing](https://www.orbitgulf.com/pricing): the three tiers and the founding-cohort offer
 - [Integrations](https://www.orbitgulf.com/integrations): how the six ledger connections work
 - [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
+- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 9 ECL provision matrix, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax
 - [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
 - [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
