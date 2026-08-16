@@ -5,7 +5,7 @@ import { TOOLS } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Tools — Orbit",
   description:
-    "Free Gulf finance calculators: IFRS 9 ECL provisions, UAE end-of-service gratuity, VAT at 5% and 15%, and UAE Corporate Tax. Computed in your browser, nothing uploaded.",
+    "Free Gulf finance calculators: IFRS 16 leases, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL and EIR, UAE gratuity, VAT and Corporate Tax. Computed in your browser, nothing uploaded.",
 };
 
 export default function ToolsPage() {

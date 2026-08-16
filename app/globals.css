@@ -819,8 +819,26 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .mg-tool-check { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); min-height: 44px; }
 .mg-tool-check input { width: 18px; height: 18px; accent-color: var(--accent); }
 
+.mg-tool-schedule-h {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-faint); margin: 28px 0 8px; padding: 0;
+}
+.mg-tool-table-wide { min-width: 760px; }
+.mg-tool-add {
+  margin-top: 10px; font: inherit; font-size: 12px; font-weight: 700;
+  color: var(--accent); background: none; border: 2px solid var(--accent);
+  padding: 6px 16px; cursor: pointer; letter-spacing: 0.04em;
+}
+.mg-tool-add:hover { background: var(--accent-tint); }
+.mg-tool-rm {
+  font: inherit; font-size: 18px; font-weight: 700; color: var(--text-faint);
+  background: none; border: none; cursor: pointer; padding: 4px 8px; line-height: 1;
+}
+.mg-tool-rm:hover { color: var(--bad); }
+
 @media (max-width: 760px) {
   .mg-tool-big { font-size: 26px; }
   .mg-tool-result { gap: 20px; }
   .mg-tool-table th, .mg-tool-table td { padding-right: 10px; }
+  .mg-tool-table-wide { min-width: 560px; }
 }

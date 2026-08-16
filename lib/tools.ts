@@ -30,6 +30,41 @@ export const TOOLS: Tool[] = [
       "0% to AED 375,000, 9% above — with the Small Business Relief election handled.",
     guide: "uae-tax-deadlines",
   },
+  {
+    slug: "ifrs16-lease-calculator",
+    title: "IFRS 16 lease liability & ROU asset calculator",
+    description:
+      "Compute the day-1 lease liability and right-of-use asset, then generate the full amortisation schedule — interest unwinding and straight-line depreciation, period by period.",
+    guide: "month-end-close-checklist",
+  },
+  {
+    slug: "ias19-actuarial-eosb-calculator",
+    title: "IAS 19 actuarial EOSB valuation",
+    description:
+      "A simplified projected unit credit estimate for UAE end-of-service benefits: discount rate, salary escalation, attrition — the inputs an actuary uses, in your browser.",
+    guide: "uae-eosb-gratuity",
+  },
+  {
+    slug: "ias36-impairment-calculator",
+    title: "IAS 36 impairment test — value-in-use DCF",
+    description:
+      "Five-year cash-flow projection, WACC discount, terminal value — determine whether a CGU is impaired and by how much.",
+    guide: "month-end-close-checklist",
+  },
+  {
+    slug: "ias12-deferred-tax-calculator",
+    title: "IAS 12 deferred tax schedule",
+    description:
+      "Add your balance-sheet items, their carrying amounts and tax bases — get the temporary differences and the resulting DTL/DTA positions at any tax rate.",
+    guide: "uae-tax-deadlines",
+  },
+  {
+    slug: "ifrs9-eir-calculator",
+    title: "IFRS 9 effective interest rate (EIR) calculator",
+    description:
+      "Solve for the EIR on a financial instrument with origination fees or a premium/discount, and produce the full amortised-cost schedule.",
+    guide: "month-end-close-checklist",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
