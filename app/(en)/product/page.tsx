@@ -1,4 +1,5 @@
 import "../../advert.css";
+import Image from "next/image";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -40,13 +41,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <div className="mg-vig-head">Intake — this morning</div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok">CODED</span><span>Gray Mackenzie — AED 14,720 → Office consumables</span><span className="mg-vig-meta">WhatsApp · 07:41</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-bad">HELD</span><span>Almarai INV-5512 — TRN missing, VAT blocked</span><span className="mg-vig-meta">Email · 08:02</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok">CODED</span><span>Knight Frank — rent, month 3 of 12 schedule</span><span className="mg-vig-meta">Email · 08:15</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-mute">DUPE</span><span className="mg-vig-strike">Etisalat 4402 — already filed 04 Jun</span><span className="mg-vig-meta">WhatsApp · 08:31</span></div>
-              </div>
+              <Image src="/shots/adv-payables.png" alt="Orbit Payables — open payables with the tax layer embedded in every row" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -60,12 +55,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <div className="mg-vig-head">Receivables — cadence</div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok mg-vig-tag-w">SENT</span><span>Reminder 2 of 3 — Helio Retail, AED 42,300 overdue 12 days</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok mg-vig-tag-w">PAID</span><span>Nimbus FZ LLC settled — matched to bank line, to the fils</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-bad mg-vig-tag-w">ASK</span><span>Write-off exposure vs policy on Delta Trading — your call</span></div>
-              </div>
+              <Image src="/shots/adv-receivables.png" alt="Orbit Receivables — the collections queue, DSO and ageing posture" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -79,12 +69,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <div className="mg-vig-head"><span>JE-2040 — Prepayment release</span><span className="mg-vig-head-right">CONF 99</span></div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-je"><span className="mg-vig-je-side">DR</span><span>Rent — office</span><span className="mg-vig-je-amt">36,750</span></div>
-                <div className="mg-vig-je"><span className="mg-vig-je-side">CR</span><span>Prepayments</span><span className="mg-vig-je-amt">36,750</span></div>
-                <div className="mg-vig-note"><b>Agent commentary</b> — Knight Frank annual rent, month 3 of 12. Schedule on file; amount corroborated by OCR against the lease.</div>
-              </div>
+              <Image src="/shots/adv-ledger.png" alt="Orbit general ledger — journal activity with agent commentary and evidence" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -102,29 +87,36 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <div className="mg-vig-head"><span>Close checklist — June</span><span className="mg-vig-head-right">68%</span></div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--accent)" }}>✓</span><span>Bank reconciliation — all accounts matched</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--accent)" }}>✓</span><span>Depreciation posted — all classes</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--bad)" }}>●</span><span>Accruals — 2 proposals awaiting your yes</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--text-muted)" }}>○</span><span>Zoho Books: lock period 01–30 Jun — after Orbit close gate</span></div>
-                <button type="button" className="mg-vig-lock">Close the period and lock</button>
-              </div>
+              <Image src="/shots/adv-close.png" alt="Orbit close cockpit — Orbit's side done, your ledger's side listed, the lock gated" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
 
-        {/* ── 05 + 06 — text-only pair split by a hairline ────────── */}
-        <section className="mg-prod-duo">
-          <div>
+        {/* ── 05 · DOCUMENTS — copy left, vault screenshot right ──── */}
+        <section className="mg-prod-row">
+          <div className="mg-prod-copy">
             <div className="mg-kicker">05 · Documents</div>
-            <h2 className="mg-prod-dh">A vault, not a shoebox.</h2>
-            <p className="mg-prod-dp">Every document sha-deduped, org-scoped and linked to its journal. Search by supplier, amount or period — the evidence is one click from the number.</p>
+            <h2 className="mg-prod-mh">A vault, not a shoebox.</h2>
+            <p className="mg-prod-mp">Every document sha-deduped, org-scoped and linked to its journal. Search by supplier, amount or period — the evidence is one click from the number.</p>
           </div>
-          <div>
+          <div className="mg-prod-vig">
+            <div className="mg-vig-card">
+              <Image src="/shots/adv-documents.png" alt="Orbit Documents — the evidence vault, every file linked to its journal" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── 06 · TAX — screenshot left, copy right ───────────────── */}
+        <section className="mg-prod-row mg-prod-row-flip">
+          <div className="mg-prod-copy">
             <div className="mg-kicker">06 · Tax &amp; compliance</div>
-            <h2 className="mg-prod-dh">FTA-grade, before you file.</h2>
-            <p className="mg-prod-dp">Article 59 tested on every invoice, input VAT held until documents qualify, e-invoicing ready ahead of the mandate. Your VAT return assembles itself as the month runs.</p>
+            <h2 className="mg-prod-mh">FTA-grade, before you file.</h2>
+            <p className="mg-prod-mp">Article 59 tested on every invoice, input VAT held until documents qualify, e-invoicing ready ahead of the mandate. Your VAT return assembles itself as the month runs.</p>
+          </div>
+          <div className="mg-prod-vig">
+            <div className="mg-vig-card">
+              <Image src="/shots/adv-tax.png" alt="Orbit tax — VAT–CT reconciliation, deadlines and clearance in one place" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
+            </div>
           </div>
         </section>
 

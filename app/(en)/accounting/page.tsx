@@ -82,7 +82,7 @@ export default async function AccountingPage() {
           </div>
 
           <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.jpg" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1834} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+            <Image src="/shots/adv-overview.png" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
@@ -102,7 +102,7 @@ export default async function AccountingPage() {
             { k: "Duplicate", v: "stopped before posting", tone: "b" },
             { k: "Coding memory", v: "2,418 txns", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-payables.jpg", w: 1600, h: 1741, alt: "Orbit Payables — the tax test embedded in the invoice row" }}
+          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "Orbit Payables — the tax test embedded in the invoice row" }}
           cap="Payables — the tax layer embedded in every row, with its evidence attached."
         />
 
@@ -115,7 +115,7 @@ export default async function AccountingPage() {
             { k: "Filing", v: "Q2 due 28 Jul · T-14", tone: "b" },
             { k: "ZATCA", v: "142 cleared · 0 rejected", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-tax.jpg", w: 1600, h: 1119, alt: "Orbit GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
+          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Orbit GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
           cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
         />
 
@@ -124,7 +124,7 @@ export default async function AccountingPage() {
           kicker="THE PERMANENT RECORD"
           head={<>Nothing is ever deleted. <span className="np-accent">Mistakes are reversed in the open.</span></>}
           say={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
-          shot={{ src: "/shots/adv-ledger.jpg", w: 1600, h: 1207, alt: "Orbit general ledger — journal activity with agent commentary and evidence" }}
+          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "Orbit general ledger — journal activity with agent commentary and evidence" }}
           cap="Ledger — every entry explained, its evidence one click away."
         />
 
@@ -137,7 +137,7 @@ export default async function AccountingPage() {
             { k: "Past due", v: "AED 346,700", tone: "b" },
             { k: "Provisioned", v: "policy-driven" },
           ]}
-          shot={{ src: "/shots/adv-receivables.jpg", w: 1600, h: 1342, alt: "Orbit Receivables — collections queue, DSO and the ageing posture" }}
+          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "Orbit Receivables — collections queue, DSO and the ageing posture" }}
           cap="Receivables — the collections runbook, drafted, chased and reconciled."
         />
 
@@ -155,7 +155,7 @@ export default async function AccountingPage() {
               tap, and it can never quietly change again.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.jpg" alt="Orbit close cockpit — 78% complete, engine-proposed accruals" width={1600} height={1446} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-close.png" alt="Orbit close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Close cockpit — &ldquo;Orbit runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
           </div>
@@ -165,7 +165,7 @@ export default async function AccountingPage() {
           kicker="ONE OS, ANY SHAPE"
           head={<>One business or five. One currency or five. <span className="np-accent">One language or two.</span></>}
           say={<>Switch entities, consolidate, and flip the whole workspace into Arabic — right-to-left, down to the numerals. The product bends. You don&rsquo;t.</>}
-          shot={{ src: "/shots/adv-arabic.jpg", w: 1600, h: 1796, alt: "Orbit in Arabic — the full workspace, right to left" }}
+          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Orbit in Arabic — the full workspace, right to left" }}
           cap="نفس النظام — the same Orbit, in Arabic, right-to-left."
         />
 

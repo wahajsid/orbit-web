@@ -1,4 +1,5 @@
 import "../../advert.css";
+import Image from "next/image";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -39,14 +40,8 @@ export default function Page() {
             </div>
           </div>
           <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <div className="mg-vig-head">الاستقبال — صباح اليوم</div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok">مُرمَّز</span><span>Gray Mackenzie — ‏14,720 درهم ← مستهلكات مكتبية</span><span className="mg-vig-meta">واتساب · 07:41</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-bad">موقوف</span><span>المراعي INV-5512 — الرقم الضريبي مفقود، ضريبة المدخلات موقوفة</span><span className="mg-vig-meta">بريد · 08:02</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok">مُرمَّز</span><span>Knight Frank — إيجار، الشهر 3 من جدول 12</span><span className="mg-vig-meta">بريد · 08:15</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-mute">مكرر</span><span className="mg-vig-strike">اتصالات 4402 — مؤرشفة سابقًا في 4 يونيو</span><span className="mg-vig-meta">واتساب · 08:31</span></div>
-              </div>
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-payables.png" alt="الذمم الدائنة في Orbit — المستحقات المفتوحة وطبقة الضريبة مدمجة في كل سطر" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -59,13 +54,8 @@ export default function Page() {
             <p className="mg-prod-mp">وكلاء التحصيل يصيغون التذكيرات ويرسلونها بوتيرة توافق عليها مرة واحدة. المدفوعات الواردة تُطابَق مع البنك تلقائيًا؛ ومخاطر الشطب تُقاس وفق سياستك، لا بالتخمين.</p>
           </div>
           <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <div className="mg-vig-head">الذمم المدينة — الوتيرة</div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok mg-vig-tag-w">أُرسل</span><span>التذكير 2 من 3 — Helio Retail، ‏42,300 درهم متأخرة 12 يومًا</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-ok mg-vig-tag-w">سُدّد</span><span>Nimbus FZ LLC سدّدت — طوبقت مع السطر البنكي حتى آخر فلس</span></div>
-                <div className="mg-vig-row"><span className="mg-vig-tag mg-vig-tag-bad mg-vig-tag-w">سؤال</span><span>مخاطر الشطب مقابل السياسة لدى Delta Trading — القرار لك</span></div>
-              </div>
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-receivables.png" alt="الذمم المدينة في Orbit — طابور التحصيل وفترة التحصيل وأعمار الذمم" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -78,13 +68,8 @@ export default function Page() {
             <p className="mg-prod-mp">كل قيد يحمل تعليق وكيله وحزمة الأدلة الكاملة — المستند المصدر، وتأكيد OCR، ودرجة الثقة. افتح أي رقم وسترى بالضبط لماذا هو هناك.</p>
           </div>
           <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <div className="mg-vig-head"><span>JE-2040 — تحرير مدفوعات مسبقة</span><span className="mg-vig-head-right">الثقة 99</span></div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-je"><span className="mg-vig-je-side">مدين</span><span>الإيجار — المكتب</span><span className="mg-vig-je-amt">36,750</span></div>
-                <div className="mg-vig-je"><span className="mg-vig-je-side">دائن</span><span>المدفوعات المسبقة</span><span className="mg-vig-je-amt">36,750</span></div>
-                <div className="mg-vig-note"><b>تعليق الوكيل</b> — إيجار Knight Frank السنوي، الشهر 3 من 12. الجدول محفوظ؛ والمبلغ مؤكد بمطابقة OCR مع عقد الإيجار.</div>
-              </div>
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-ledger.png" alt="دفتر الأستاذ العام في Orbit — حركة القيود مع تعليقات الوكلاء والأدلة" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -101,30 +86,37 @@ export default function Page() {
             </div>
           </div>
           <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <div className="mg-vig-head"><span>قائمة الإقفال — يونيو</span><span className="mg-vig-head-right">68%</span></div>
-              <div className="mg-vig-body">
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--accent)" }}>✓</span><span>مطابقة البنك — جميع الحسابات مطابقة</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--accent)" }}>✓</span><span>تم ترحيل الإهلاك — جميع الفئات</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--bad)" }}>●</span><span>الاستحقاقات — مقترحان بانتظار موافقتك</span></div>
-                <div className="mg-vig-check"><span className="mg-vig-check-mark" style={{ color: "var(--text-muted)" }}>○</span><span>‏Zoho Books: قفل الفترة 1–30 يونيو — بعد بوابة إقفال أوربت</span></div>
-                <button type="button" className="mg-vig-lock">أقفل الفترة وثبّت القفل</button>
-              </div>
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Orbit — جانب Orbit منجز، ومهام دفترك مرتّبة، والقفل خلف بوابة" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
 
-        {/* ── 05 + 06 — ثنائي نصي يفصله خط شعري ──────────────────── */}
-        <section className="mg-prod-duo">
-          <div>
+        {/* ── 05 · المستندات — النص أولًا، ثم لقطة الخزنة ───────────── */}
+        <section className="mg-prod-row">
+          <div className="mg-prod-copy">
             <div className="mg-kicker">05 · المستندات</div>
-            <h2 className="mg-prod-dh">خزنة، لا صندوق أوراق.</h2>
-            <p className="mg-prod-dp">كل مستند مُزال تكراره ببصمة SHA، ومحصور في نطاق منشأتك، ومربوط بقيده. ابحث بالمورد أو المبلغ أو الفترة — الدليل على بُعد نقرة من الرقم.</p>
+            <h2 className="mg-prod-mh">خزنة، لا صندوق أوراق.</h2>
+            <p className="mg-prod-mp">كل مستند مُزال تكراره ببصمة SHA، ومحصور في نطاق منشأتك، ومربوط بقيده. ابحث بالمورد أو المبلغ أو الفترة — الدليل على بُعد نقرة من الرقم.</p>
           </div>
-          <div>
+          <div className="mg-prod-vig">
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-documents.png" alt="مستندات Orbit — خزنة الأدلة، كل ملف مربوط بقيده" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── 06 · الضرائب — اللقطة أولًا على الشاشات الكبيرة ───────── */}
+        <section className="mg-prod-row mg-prod-row-flip">
+          <div className="mg-prod-copy">
             <div className="mg-kicker">06 · الضرائب والامتثال</div>
-            <h2 className="mg-prod-dh">بمستوى الهيئة الاتحادية للضرائب، قبل أن تقدّم الإقرار.</h2>
-            <p className="mg-prod-dp">اختبار المادة 59 على كل فاتورة، وضريبة المدخلات موقوفة حتى تكتمل مستنداتها، وجاهزية للفوترة الإلكترونية قبل موعد الإلزام. وإقرار ضريبة القيمة المضافة يجمع نفسه مع جريان الشهر.</p>
+            <h2 className="mg-prod-mh">بمستوى الهيئة الاتحادية للضرائب، قبل أن تقدّم الإقرار.</h2>
+            <p className="mg-prod-mp">اختبار المادة 59 على كل فاتورة، وضريبة المدخلات موقوفة حتى تكتمل مستنداتها، وجاهزية للفوترة الإلكترونية قبل موعد الإلزام. وإقرار ضريبة القيمة المضافة يجمع نفسه مع جريان الشهر.</p>
+          </div>
+          <div className="mg-prod-vig">
+            <div className="mg-vig-card" dir="ltr">
+              <Image src="/shots/adv-tax.png" alt="ضرائب Orbit — تسوية القيمة المضافة مع ضريبة الشركات، والمواعيد، والتخليص في مكان واحد" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
+            </div>
           </div>
         </section>
 

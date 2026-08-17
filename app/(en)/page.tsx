@@ -1,10 +1,11 @@
 import "../advert.css";
+import Image from "next/image";
 import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { NpEnhance } from "@/components/NpEnhance";
 import { AgentFeed } from "@/components/AgentFeed";
 import { Countdown } from "@/components/Countdown";
-import { Mark, MgNav, MgFooter } from "@/components/MgChrome";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -83,32 +84,10 @@ export default async function Page() {
             </div>
           </div>
           <div className="mg-hero-mock-slot">
+            {/* The real product, not a mock — today's workspace from the live
+                demo dataset, in the framed card with the green offset shadow. */}
             <div className="mg-mock">
-              <div className="mg-mock-head">
-                <Mark size={16} framed={false} strokeWidth={3} ringOnly />
-                <span className="mg-mock-title">Close cockpit — June 2026</span>
-                <span className="mg-mock-pct">68% COMPLETE</span>
-              </div>
-              <div className="mg-mock-body">
-                <div className="mg-mock-bar"><div /></div>
-                <div className="mg-mock-meta">
-                  <span>Accruals · 2 awaiting you</span>
-                  <span>VAT AED 118k due 28 Jul</span>
-                </div>
-                <div className="mg-mock-row">
-                  <span className="mg-mock-tag mg-mock-tag-crit">CRITICAL</span>
-                  <div><b>Two periods missing — Etisalat fibre.</b> Two seasonal accruals proposed, AED 2,150 each. <span className="mg-mock-cta">Confirm →</span></div>
-                </div>
-                <div className="mg-mock-row">
-                  <span className="mg-mock-tag mg-mock-tag-crit">CRITICAL</span>
-                  <div><b>Tax invoice missing TRN — Almarai.</b> AED 1,036 input VAT blocked until corrected. <span className="mg-mock-cta">Review →</span></div>
-                </div>
-                <div className="mg-mock-row mg-mock-row-done">
-                  <span className="mg-mock-tag mg-mock-tag-done">DONE</span>
-                  <div>Depreciation posted — all classes, AED 21,408 · Fixed assets agent</div>
-                </div>
-                <button type="button" className="mg-mock-lock">Close the period and lock</button>
-              </div>
+              <Image src="/shots/adv-overview.png" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 900px) 100vw, 640px" priority />
             </div>
           </div>
         </section>
@@ -157,6 +136,12 @@ export default async function Page() {
               </div>
             ))}
           </div>
+          {/* The queue itself — agents propose with confidence and evidence;
+              a person resolves with the reason on the record. */}
+          <div className="mg-mock" style={{ marginTop: 32 }}>
+            <Image src="/shots/adv-decisions.png" alt="The Orbit decision queue — everything waiting on a human, each item with its agent, confidence and evidence" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
+          </div>
+          <p className="mg-stat-l" style={{ marginTop: 12 }}>The decision queue, live — engines propose, post and reconcile on their own, and stop here for anything below the confidence gate.</p>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════

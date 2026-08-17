@@ -87,7 +87,7 @@ export default async function AccountingPage() {
           </div>
 
           <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.jpg" alt="مساحة عمل Orbit — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1834} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+            <Image src="/shots/adv-overview.png" alt="مساحة عمل Orbit — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
@@ -109,7 +109,7 @@ export default async function AccountingPage() {
             { k: "التكرار", v: "أُوقف قبل الترحيل", tone: "b" },
             { k: "ذاكرة الترميز", v: "2,418 معاملة", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-payables.jpg", w: 1600, h: 1741, alt: "الذمم الدائنة في Orbit — اختبار الضريبة مدمج في سطر الفاتورة" }}
+          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "الذمم الدائنة في Orbit — اختبار الضريبة مدمج في سطر الفاتورة" }}
           cap="الذمم الدائنة — طبقة الضريبة مدمجة في كل سطر، وأدلتها مرفقة."
         />
 
@@ -122,7 +122,7 @@ export default async function AccountingPage() {
             { k: "الإقرار", v: "الربع الثاني يُستحق 28 يوليو · باقي 14 يومًا", tone: "b" },
             { k: "زاتكا", v: "142 مخلَّصة · 0 مرفوضة", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-tax.jpg", w: 1600, h: 1119, alt: "ذكاء الضرائب الخليجي في Orbit — تسوية القيمة المضافة مع ضريبة الشركات وحارس الإقرارات" }}
+          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "ذكاء الضرائب الخليجي في Orbit — تسوية القيمة المضافة مع ضريبة الشركات وحارس الإقرارات" }}
           cap="الضرائب — التسوية والمواعيد والتخليص، في مكان واحد."
         />
 
@@ -131,7 +131,7 @@ export default async function AccountingPage() {
           kicker="السجل الدائم"
           head={<>لا شيء يُحذف أبدًا. <span className="np-accent">والأخطاء تُعكس على المكشوف.</span></>}
           say={<>كل قيد يحمل مَن أنشأه، ولماذا، والمستند الذي خلفه — وكلٌّ منها يُرحِّله وكيل مُسمّى بدرجة ثقة معلنة. إقفالٌ تسلّمه للمدقق دون أن يرفّ لك جفن.</>}
-          shot={{ src: "/shots/adv-ledger.jpg", w: 1600, h: 1207, alt: "دفتر الأستاذ العام في Orbit — حركة القيود مع تعليقات الوكلاء والأدلة" }}
+          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "دفتر الأستاذ العام في Orbit — حركة القيود مع تعليقات الوكلاء والأدلة" }}
           cap="دفتر الأستاذ — كل قيد مُفسَّر، ودليله على بعد نقرة."
         />
 
@@ -144,7 +144,7 @@ export default async function AccountingPage() {
             { k: "متأخرات", v: "346,700 درهم", tone: "b" },
             { k: "المخصصات", v: "وفق السياسة" },
           ]}
-          shot={{ src: "/shots/adv-receivables.jpg", w: 1600, h: 1342, alt: "الذمم المدينة في Orbit — طابور التحصيل وفترة التحصيل وأعمار الذمم" }}
+          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "الذمم المدينة في Orbit — طابور التحصيل وفترة التحصيل وأعمار الذمم" }}
           cap="الذمم المدينة — دليل التحصيل، مُصاغًا ومُلاحَقًا ومُسوًّى."
         />
 
@@ -162,7 +162,7 @@ export default async function AccountingPage() {
               تختم الشهر بلمسة واحدة، فلا يتغير بعدها في الخفاء أبدًا.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.jpg" alt="قمرة الإقفال في Orbit — اكتمال 78% واستحقاقات مقترحة من المحرك" width={1600} height={1446} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Orbit — قائمة نهاية الشهر مع استحقاقات مقترحة من المحرك" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">قمرة الإقفال — «هذا يديره Orbit» في جهة، ومهام دفترك أنت في الجهة الأخرى.</div>
           </div>
@@ -172,7 +172,7 @@ export default async function AccountingPage() {
           kicker="نظام واحد، بأي شكل"
           head={<>شركة واحدة أو خمس. عملة واحدة أو خمس. <span className="np-accent">لغة واحدة أو اثنتان.</span></>}
           say={<>بدّل بين الكيانات، ووحّد القوائم، واعمل بالعربية كاملة — من اليمين إلى اليسار حتى الأرقام — وبالإنجليزية متى احتجتها. المنتج هو الذي ينحني لك، لا أنت.</>}
-          shot={{ src: "/shots/adv-arabic.jpg", w: 1600, h: 1796, alt: "Orbit بالعربية — مساحة العمل كاملة، من اليمين إلى اليسار" }}
+          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Orbit بالعربية — مساحة العمل كاملة، من اليمين إلى اليسار" }}
           cap="نفس النظام — أوربت نفسه بالعربية، من اليمين إلى اليسار."
         />
 

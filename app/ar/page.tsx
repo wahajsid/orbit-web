@@ -4,7 +4,8 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { NpEnhance } from "@/components/NpEnhance";
 import { AgentFeed } from "@/components/AgentFeed";
 import { Countdown } from "@/components/Countdown";
-import { Mark, MgNav, MgFooter } from "@/components/MgChrome";
+import Image from "next/image";
+import { MgNav, MgFooter } from "@/components/MgChrome";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -72,32 +73,10 @@ export default async function Page() {
             </div>
           </div>
           <div className="mg-hero-mock-slot">
+            {/* المنتج الحقيقي لا نموذج مرسوم — مساحة العمل العربية نفسها،
+                من اليمين إلى اليسار، في الإطار ذي الظل الأخضر. */}
             <div className="mg-mock">
-              <div className="mg-mock-head">
-                <Mark size={16} framed={false} strokeWidth={3} ringOnly />
-                <span className="mg-mock-title">قمرة الإقفال — يونيو 2026</span>
-                <span className="mg-mock-pct">اكتمل 68%</span>
-              </div>
-              <div className="mg-mock-body">
-                <div className="mg-mock-bar"><div /></div>
-                <div className="mg-mock-meta">
-                  <span>الاستحقاقات · 2 بانتظارك</span>
-                  <span>ضريبة القيمة المضافة 118 ألف درهم — تُستحق 28 يوليو</span>
-                </div>
-                <div className="mg-mock-row">
-                  <span className="mg-mock-tag mg-mock-tag-crit">حرج</span>
-                  <div><b>فترتان مفقودتان — ألياف اتصالات.</b> اقتُرح استحقاقان موسميان، 2,150 درهم لكل منهما. <span className="mg-mock-cta">تأكيد ←</span></div>
-                </div>
-                <div className="mg-mock-row">
-                  <span className="mg-mock-tag mg-mock-tag-crit">حرج</span>
-                  <div><b>فاتورة ضريبية بلا رقم تسجيل — المراعي.</b> ‏1,036 درهم ضريبة مدخلات موقوفة حتى التصحيح. <span className="mg-mock-cta">مراجعة ←</span></div>
-                </div>
-                <div className="mg-mock-row mg-mock-row-done">
-                  <span className="mg-mock-tag mg-mock-tag-done">تم</span>
-                  <div>تم ترحيل الإهلاك — جميع الفئات، 21,408 درهم · وكيل الأصول الثابتة</div>
-                </div>
-                <button type="button" className="mg-mock-lock">أقفل الفترة</button>
-              </div>
+              <Image src="/shots/adv-arabic.png" alt="مساحة عمل Orbit بالعربية — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1360} sizes="(max-width: 900px) 100vw, 640px" priority />
             </div>
           </div>
         </section>
@@ -139,6 +118,12 @@ export default async function Page() {
               </div>
             ))}
           </div>
+          {/* قائمة القرارات نفسها — الوكلاء يقترحون مع درجة الثقة والأدلة،
+              والإنسان يحسم مع تسجيل السبب. */}
+          <div className="mg-mock" style={{ marginTop: 32 }} dir="ltr">
+            <Image src="/shots/adv-decisions.png" alt="قائمة القرارات في Orbit — كل ما ينتظر إنسانًا، مع وكيله ودرجة ثقته وأدلته" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
+          </div>
+          <p className="mg-stat-l" style={{ marginTop: 12 }}>قائمة القرارات، مباشرة — المحركات تقترح وتُرحِّل وتُطابق وحدها، وتتوقف هنا عند كل ما هو دون بوابة الثقة.</p>
         </section>
 
         {/* ══ شريط الامتثال ══ */}
