@@ -9,7 +9,21 @@ import { isPersonalEmail } from "@/lib/email-domains";
 
 export interface CaptureFields { name: string; email: string; company: string; website: string; }
 
-export function useEarlyAccess() {
+const MSG = {
+  en: {
+    invalid: "A valid email is required.",
+    personal: "Orbit is for companies — please use your work email, not a personal Gmail/Outlook-style account.",
+    generic: "Something went wrong — email us at info@orbitgulf.com.",
+  },
+  ar: {
+    invalid: "يلزم إدخال بريد إلكتروني صحيح.",
+    personal: "أوربت للشركات — يُرجى استخدام بريد العمل، وليس بريدًا شخصيًا مثل Gmail أو Outlook.",
+    generic: "حدث خطأ ما — راسلنا على info@orbitgulf.com.",
+  },
+} as const;
+
+export function useEarlyAccess(locale: "en" | "ar" = "en") {
+  const m = MSG[locale];
   const [f, setF] = useState<CaptureFields>({ name: "", email: "", company: "", website: "" });
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<{ already: boolean } | null>(null);
@@ -19,8 +33,8 @@ export function useEarlyAccess() {
   async function submit() {
     if (busy) return;
     setErr(null);
-    if (!f.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) { setErr("A valid email is required."); return; }
-    if (isPersonalEmail(f.email)) { setErr("Orbit is for companies — please use your work email, not a personal Gmail/Outlook-style account."); return; }
+    if (!f.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) { setErr(m.invalid); return; }
+    if (isPersonalEmail(f.email)) { setErr(m.personal); return; }
     setBusy(true);
     try {
       const r = await fetch("/api/early-access", {
@@ -29,10 +43,10 @@ export function useEarlyAccess() {
         body: JSON.stringify({ ...f, loadedAt }),
       });
       const data = await r.json().catch(() => ({}));
-      if (!r.ok) throw new Error(data.error || "Something went wrong — email us at info@orbitgulf.com.");
+      if (!r.ok) throw new Error(data.error || m.generic);
       setDone({ already: !!data.already });
     } catch (e) {
-      setErr(e instanceof Error ? e.message : "Something went wrong — email us at info@orbitgulf.com.");
+      setErr(e instanceof Error ? e.message : m.generic);
     } finally { setBusy(false); }
   }
 

@@ -24,8 +24,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", priority: 0.5 },
   ];
   const now = new Date();
+  /* Each marketing page exists in both languages; hreflang alternates on
+     both entries mirror the per-page metadata so crawlers see one pair. */
+  const arPath = (p: string) => (p === "/" ? "/ar" : `/ar${p}`);
+  const languages = (p: string) => ({
+    en: `${BASE}${p}`,
+    ar: `${BASE}${arPath(p)}`,
+    "x-default": `${BASE}${p}`,
+  });
   return [
-    ...pages.map((p) => ({ url: `${BASE}${p.path}`, lastModified: now, priority: p.priority })),
+    ...pages.map((p) => ({
+      url: `${BASE}${p.path}`, lastModified: now, priority: p.priority,
+      alternates: { languages: languages(p.path) },
+    })),
+    ...pages.map((p) => ({
+      url: `${BASE}${arPath(p.path)}`, lastModified: now, priority: p.priority - 0.1,
+      alternates: { languages: languages(p.path) },
+    })),
     ...GUIDES.map((g) => ({ url: `${BASE}/guides/${g.slug}`, lastModified: new Date(g.updated), priority: 0.6 })),
     ...TOOLS.map((t) => ({ url: `${BASE}/tools/${t.slug}`, lastModified: now, priority: 0.6 })),
   ];

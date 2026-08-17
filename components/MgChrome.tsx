@@ -1,6 +1,49 @@
 /* ── Modernist-green shared chrome ───────────────────────────────────
    The sticky ruled nav, the framed mark and the flush footer — the one
-   chrome every page uses. */
+   chrome every page uses. Locale-aware: pass locale="ar" from the /ar
+   tree and every label, href and arrow flips; EN pages pass nothing. */
+
+import { LangSwitch, LangSwitchFooter } from "./LangSwitch";
+
+type Locale = "en" | "ar";
+
+const NAV = {
+  en: {
+    product: "Product",
+    agents: "Agents",
+    compliance: "Compliance",
+    pricing: "Pricing",
+    more: "More products",
+    signin: "Sign in",
+    demo: "Book a demo →",
+    home: "Orbit home",
+  },
+  ar: {
+    product: "المنتج",
+    agents: "الوكلاء",
+    compliance: "الامتثال",
+    pricing: "الأسعار",
+    more: "منتجات أخرى",
+    signin: "تسجيل الدخول",
+    demo: "احجز عرضًا ←",
+    home: "أوربت — الصفحة الرئيسية",
+  },
+} as const;
+
+const FOOT = {
+  en: {
+    product: "Product", pricing: "Pricing", integrations: "Integrations",
+    how: "How it works", guides: "Guides", tools: "Tools",
+    faq: "FAQ", about: "About", contact: "Contact",
+    loc: "Dubai, UAE",
+  },
+  ar: {
+    product: "المنتج", pricing: "الأسعار", integrations: "التكاملات",
+    how: "كيف يعمل", guides: "الأدلة", tools: "الأدوات",
+    faq: "الأسئلة الشائعة", about: "من نحن", contact: "تواصل معنا",
+    loc: "دبي، الإمارات",
+  },
+} as const;
 
 export function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth = 2 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
   return (
@@ -12,48 +55,53 @@ export function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth =
   );
 }
 
-export function MgNav({ active }: { active?: "product" }) {
+export function MgNav({ active, locale = "en" }: { active?: "product"; locale?: Locale }) {
+  const t = NAV[locale];
+  const p = locale === "ar" ? "/ar" : "";
+  const home = p || "/";
   return (
     <header className="mg-nav" role="banner">
       <div className="mg-nav-inner">
-        <a href="/" className="mg-brand" aria-label="Orbit home">
+        <a href={home} className="mg-brand" aria-label={t.home}>
           <Mark size={30} />
           <span className="mg-wordmark">ORBIT</span>
         </a>
-        <nav className="mg-nav-links" aria-label="Primary">
-          <a href="/product" className={active === "product" ? "mg-nav-active" : undefined} aria-current={active === "product" ? "page" : undefined}>Product</a>
-          <a href="/#agents">Agents</a>
-          <a href="/#compliance">Compliance</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/#products" className="mg-hidden-narrow">More products</a>
+        <nav className="mg-nav-links" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary"}>
+          <a href={`${p}/product`} className={active === "product" ? "mg-nav-active" : undefined} aria-current={active === "product" ? "page" : undefined}>{t.product}</a>
+          <a href={`${home}#agents`}>{t.agents}</a>
+          <a href={`${home}#compliance`}>{t.compliance}</a>
+          <a href={`${p}/pricing`}>{t.pricing}</a>
+          <a href={`${home}#products`} className="mg-hidden-narrow">{t.more}</a>
         </nav>
         <div className="mg-nav-right">
-          <span className="mg-lang" aria-label="Language">EN · <span className="mg-lang-alt">ع</span></span>
-          <a href="https://app.orbitgulf.com" className="mg-signin">Sign in</a>
-          <a href="/#join" className="mg-cta">Book a demo →</a>
+          <LangSwitch />
+          <a href="https://app.orbitgulf.com" className="mg-signin">{t.signin}</a>
+          <a href={`${home}#join`} className="mg-cta">{t.demo}</a>
         </div>
       </div>
     </header>
   );
 }
 
-export function MgFooter() {
+export function MgFooter({ locale = "en" }: { locale?: Locale }) {
+  const t = FOOT[locale];
+  const p = locale === "ar" ? "/ar" : "";
   return (
     <footer className="mg-footer">
       <Mark size={18} />
       <span className="mg-wordmark mg-wordmark-sm">ORBIT</span>
-      <nav className="mg-footer-links" aria-label="Footer">
-        <a href="/product">Product</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/integrations">Integrations</a>
-        <a href="/how-it-works">How it works</a>
-        <a href="/guides">Guides</a>
-        <a href="/tools">Tools</a>
-        <a href="/faq">FAQ</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+      <nav className="mg-footer-links" aria-label={locale === "ar" ? "روابط أسفل الصفحة" : "Footer"}>
+        <a href={`${p}/product`}>{t.product}</a>
+        <a href={`${p}/pricing`}>{t.pricing}</a>
+        <a href={`${p}/integrations`}>{t.integrations}</a>
+        <a href={`${p}/how-it-works`}>{t.how}</a>
+        <a href={`${p}/guides`}>{t.guides}</a>
+        <a href={`${p}/tools`}>{t.tools}</a>
+        <a href={`${p}/faq`}>{t.faq}</a>
+        <a href={`${p}/about`}>{t.about}</a>
+        <a href={`${p}/contact`}>{t.contact}</a>
       </nav>
-      <span className="mg-footer-loc">Dubai, UAE · EN / <bdi>العربية</bdi> · © 2026 Orbit</span>
+      <span className="mg-footer-loc">{t.loc} · <LangSwitchFooter /> · © 2026 Orbit</span>
     </footer>
   );
 }

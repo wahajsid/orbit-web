@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LAUNCH_AT, LAUNCH_DATE_SHORT, APP_SIGNUP } from "@/lib/launch";
+import { LAUNCH_AT, LAUNCH_DATE_SHORT, LAUNCH_DATE_SHORT_AR, APP_SIGNUP } from "@/lib/launch";
 
 /* ── Launch countdown ────────────────────────────────────────────────
    Ruled paper band ticking down to the gate in lib/launch.ts (one
@@ -24,7 +24,27 @@ function partsAt(now: number): Parts | null {
   };
 }
 
-export function Countdown() {
+const T = {
+  en: {
+    open: "DOORS ARE OPEN", live: "Orbit is live.", create: "Create your workspace →",
+    kicker: (d: string) => `DOORS OPEN ${d.toUpperCase()}`,
+    aria: (d: string) => `Countdown to launch, ${d}`,
+    launch: "Launch",
+    units: ["days", "hours", "minutes", "seconds"],
+    date: LAUNCH_DATE_SHORT,
+  },
+  ar: {
+    open: "الأبواب مفتوحة", live: "أوربت متاح الآن.", create: "أنشئ مساحة عملك ←",
+    kicker: (d: string) => `الأبواب تُفتح ${d}`,
+    aria: (d: string) => `العد التنازلي للإطلاق، ${d}`,
+    launch: "الإطلاق",
+    units: ["يوم", "ساعة", "دقيقة", "ثانية"],
+    date: LAUNCH_DATE_SHORT_AR,
+  },
+} as const;
+
+export function Countdown({ locale = "en" }: { locale?: "en" | "ar" }) {
+  const t = T[locale];
   const [parts, setParts] = useState<Parts | null | "unmounted">("unmounted");
 
   useEffect(() => {
@@ -36,11 +56,11 @@ export function Countdown() {
 
   if (parts === null) {
     return (
-      <section className="mg-count" aria-label="Launch">
-        <div className="mg-kicker">DOORS ARE OPEN</div>
-        <h2 className="mg-h2" style={{ marginBottom: 0 }}>Orbit is live.</h2>
+      <section className="mg-count" aria-label={t.launch}>
+        <div className="mg-kicker">{t.open}</div>
+        <h2 className="mg-h2" style={{ marginBottom: 0 }}>{t.live}</h2>
         <div style={{ marginTop: 20 }}>
-          <a href={APP_SIGNUP} className="mg-cta">Create your workspace →</a>
+          <a href={APP_SIGNUP} className="mg-cta">{t.create}</a>
         </div>
       </section>
     );
@@ -48,15 +68,15 @@ export function Countdown() {
 
   const p = parts === "unmounted" ? { d: "—", h: "—", m: "—", s: "—" } : parts;
   const units: [string, string][] = [
-    [p.d, "days"],
-    [p.h, "hours"],
-    [p.m, "minutes"],
-    [p.s, "seconds"],
+    [p.d, t.units[0]],
+    [p.h, t.units[1]],
+    [p.m, t.units[2]],
+    [p.s, t.units[3]],
   ];
 
   return (
-    <section className="mg-count" aria-label={`Countdown to launch, ${LAUNCH_DATE_SHORT}`}>
-      <div className="mg-kicker">DOORS OPEN {LAUNCH_DATE_SHORT.toUpperCase()}</div>
+    <section className="mg-count" aria-label={t.aria(t.date)}>
+      <div className="mg-kicker">{t.kicker(t.date)}</div>
       <div className="mg-count-row" role="timer">
         {units.map(([n, l]) => (
           <div key={l} className="mg-count-cell">

@@ -17,6 +17,15 @@ export const LAUNCH_DATE_SHORT = new Intl.DateTimeFormat("en-GB", {
   day: "numeric", month: "long", timeZone: "Asia/Dubai",
 }).format(launchDate);                       // "14 October"
 
+/* Arabic display forms — Latin digits (Gulf business convention), Arabic
+   month names. Same LAUNCH_AT anchor, so the two languages can't drift. */
+export const LAUNCH_DATE_LONG_AR = new Intl.DateTimeFormat("ar-AE-u-nu-latn", {
+  day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Dubai",
+}).format(launchDate);                       // "14 أكتوبر 2026"
+export const LAUNCH_DATE_SHORT_AR = new Intl.DateTimeFormat("ar-AE-u-nu-latn", {
+  day: "numeric", month: "long", timeZone: "Asia/Dubai",
+}).format(launchDate);                       // "14 أكتوبر"
+
 export const FOUNDING_SEATS = 100;
 
 /* The displayed seat number is a base offset + the LIVE waitlist row count
