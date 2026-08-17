@@ -75,7 +75,7 @@ export default function HirePage() {
               before your coffee&rsquo;s cold.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-dashboard.jpg" alt="Orbit Hire — open positions with screening funnels and shortlist counts" width={1600} height={782} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-dashboard.png" alt="Orbit Hire — open positions with screening funnels and shortlist counts" width={1600} height={614} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Positions — every role&rsquo;s funnel and shortlist, at a glance.</div>
           </div>
@@ -129,7 +129,7 @@ export default function HirePage() {
               <div><span className="meta">10:23</span> <span className="who">SCORE</span> <span className="you">ownership 4/5 · technical 5/5 · communication 4/5</span></div>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-analysis.jpg" alt="Orbit Hire interview analysis — aptitude and interpersonal scoring across a radar, scorecard and assessor panel" width={1600} height={1826} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-analysis.png" alt="Orbit Hire interview analysis — aptitude and interpersonal scoring across a radar, scorecard and assessor panel" width={1600} height={692} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Interview analysis — aptitude and interpersonal scoring, each with the evidence behind it.</div>
           </div>
@@ -151,11 +151,11 @@ export default function HirePage() {
               <span className="np-chip"><span className="k">Finalist 3</span><span className="b">fast learner · thin evidence · ask for samples</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-scoring.jpg" alt="Orbit Hire ranked candidates — per-criterion scores, confidence, red flags and the trust & fairness block" width={1600} height={1444} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-scoring.png" alt="Orbit Hire ranked candidates — per-criterion scores, confidence, red flags and the trust & fairness block" width={1600} height={671} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Ranked candidates — every score explained, protected characteristics sealed.</div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-radar.jpg" alt="Orbit Hire candidate comparison — an overlaid radar and scorecard matrix across finalists" width={1600} height={1681} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-radar.png" alt="Orbit Hire candidate comparison — an overlaid radar and scorecard matrix across finalists" width={1600} height={705} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Compare finalists side by side — a shared radar and scorecard, best-in-row highlighted.</div>
           </div>

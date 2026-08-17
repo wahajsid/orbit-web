@@ -76,7 +76,7 @@ export default function HirePage() {
               ينتهي قبل أن تبرد قهوتك.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-dashboard.jpg" alt="Orbit Hire — الوظائف المفتوحة مع قنوات الفرز وأعداد القوائم المختصرة" width={1600} height={782} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-dashboard.png" alt="Orbit Hire — الوظائف المفتوحة مع قنوات الفرز وأعداد القوائم المختصرة" width={1600} height={614} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">الوظائف — قناة كل دور وقائمته المختصرة، بنظرة واحدة.</div>
           </div>
@@ -130,7 +130,7 @@ export default function HirePage() {
               <div><span className="meta">‏10:23</span> <span className="who">التقييم</span> <span className="you">تحمّل المسؤولية 4/5 · الجانب التقني 5/5 · التواصل 4/5</span></div>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-analysis.jpg" alt="تحليل مقابلة Orbit Hire — تقييم القدرات والمهارات الشخصية عبر مخطط راداري وبطاقة تقييم ولوحة المقيّم" width={1600} height={1826} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-analysis.png" alt="تحليل مقابلة Orbit Hire — تقييم القدرات والمهارات الشخصية عبر مخطط راداري وبطاقة تقييم ولوحة المقيّم" width={1600} height={692} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">تحليل المقابلة — تقييم القدرات والمهارات الشخصية، ولكل درجة دليلها.</div>
           </div>
@@ -152,11 +152,11 @@ export default function HirePage() {
               <span className="np-chip"><span className="k">المرشح النهائي 3</span><span className="b">سريع التعلم · أدلة ضئيلة · اطلب نماذج عمل</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-scoring.jpg" alt="المرشحون المرتّبون في Orbit Hire — درجات لكل معيار، ومستوى الثقة، والإشارات الحمراء، وكتلة الثقة والإنصاف" width={1600} height={1444} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-scoring.png" alt="المرشحون المرتّبون في Orbit Hire — درجات لكل معيار، ومستوى الثقة، والإشارات الحمراء، وكتلة الثقة والإنصاف" width={1600} height={671} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">المرشحون المرتّبون — كل درجة مفسَّرة، والخصائص المحمية مختومة.</div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/hire-radar.jpg" alt="مقارنة المرشحين في Orbit Hire — مخطط راداري متراكب ومصفوفة بطاقات تقييم عبر المرشحين النهائيين" width={1600} height={1681} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/hire-radar.png" alt="مقارنة المرشحين في Orbit Hire — مخطط راداري متراكب ومصفوفة بطاقات تقييم عبر المرشحين النهائيين" width={1600} height={705} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">قارن المرشحين النهائيين جنبًا إلى جنب — رادار وبطاقة تقييم مشتركان، والأفضل في كل صف مُبرز.</div>
           </div>

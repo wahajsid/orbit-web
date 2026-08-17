@@ -1,4 +1,5 @@
 import "../../advert.css";
+import Image from "next/image";
 import { InvoiceTerminal } from "@/components/InvoiceTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
@@ -134,6 +135,10 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">راسبة</span><span className="b">لا تُطالِب — والسبب مُسمّى</span></span>
               <span className="np-chip"><span className="k">مكررة</span><span className="b">حُظرت، والنسخة الثانية متعقَّبة</span></span>
             </div>
+            <div className="np-shot np-rise d1" dir="ltr">
+              <Image src="/shots/adv-ocr-review.png" alt="مراجعة Orbit Invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59 مع تسمية الحقل الراسب" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">المراجعة — ما قرأه OCR في جهة، ومعايير المادة 59 التسعة في الجهة الأخرى، والحكم في الأعلى.</div>
           </div>
         </section>
 
@@ -154,6 +159,10 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">Excel</span><span className="b">تصدير جاهز للتدقيق، بنقرة واحدة</span></span>
               <span className="np-chip"><span className="k">السجل التاريخي</span><span className="b">جداولك القديمة، مستوردة</span></span>
             </div>
+            <div className="np-shot np-rise d1" dir="ltr">
+              <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر Orbit Invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر، والأحكام وحالة المطالبة على السطر" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">سجل المخاطر — مرتّب حسب مخاطر التدقيق، مع الموقوف والمُلاحَق والجاهز للمطالبة.</div>
           </div>
         </section>
 

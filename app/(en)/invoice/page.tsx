@@ -1,4 +1,5 @@
 import "../../advert.css";
+import Image from "next/image";
 import { InvoiceTerminal } from "@/components/InvoiceTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
@@ -133,6 +134,10 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">Failed</span><span className="b">don&rsquo;t claim — reason named</span></span>
               <span className="np-chip"><span className="k">Duplicate</span><span className="b">blocked, second copy traced</span></span>
             </div>
+            <div className="np-shot np-rise d1">
+              <Image src="/shots/adv-ocr-review.png" alt="Orbit Invoice review — the OCR read, the arithmetic re-check and the Article 59 test with the failing field named" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">The review — what the OCR read on the left, the nine Article 59 criteria on the right, the verdict on top.</div>
           </div>
         </section>
 
@@ -153,6 +158,10 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">Excel</span><span className="b">audit-ready export, one click</span></span>
               <span className="np-chip"><span className="k">History</span><span className="b">your old sheets, imported</span></span>
             </div>
+            <div className="np-shot np-rise d1">
+              <Image src="/shots/adv-ocr-register.png" alt="Orbit Invoice risk register — every invoice read and risk-ranked, verdicts and claim status on the row" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+            </div>
+            <div className="np-cap np-rise">The risk register — sorted by audit risk, with what&rsquo;s held, chased and ready to claim.</div>
           </div>
         </section>
 
