@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/firms", priority: 0.6 },
     { path: "/how-it-works", priority: 0.8 },
     { path: "/integrations", priority: 0.7 },
+    { path: "/compliance", priority: 0.7 },
     { path: "/guides", priority: 0.7 },
     { path: "/tools", priority: 0.7 },
     { path: "/faq", priority: 0.6 },

@@ -33,12 +33,14 @@ const NAV = {
 const FOOT = {
   en: {
     product: "Product", pricing: "Pricing", integrations: "Integrations",
+    compliance: "Compliance",
     how: "How it works", guides: "Guides", tools: "Tools",
     faq: "FAQ", about: "About", contact: "Contact",
     loc: "Dubai, UAE",
   },
   ar: {
     product: "المنتج", pricing: "الأسعار", integrations: "التكاملات",
+    compliance: "الامتثال",
     how: "كيف يعمل", guides: "الأدلة", tools: "الأدوات",
     faq: "الأسئلة الشائعة", about: "من نحن", contact: "تواصل معنا",
     loc: "دبي، الإمارات",
@@ -69,7 +71,7 @@ export function MgNav({ active, locale = "en" }: { active?: "product"; locale?: 
         <nav className="mg-nav-links" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary"}>
           <a href={`${p}/product`} className={active === "product" ? "mg-nav-active" : undefined} aria-current={active === "product" ? "page" : undefined}>{t.product}</a>
           <a href={`${home}#agents`}>{t.agents}</a>
-          <a href={`${home}#compliance`}>{t.compliance}</a>
+          <a href={`${p}/compliance`}>{t.compliance}</a>
           <a href={`${p}/pricing`}>{t.pricing}</a>
           <a href={`${home}#products`} className="mg-hidden-narrow">{t.more}</a>
         </nav>
@@ -94,6 +96,7 @@ export function MgFooter({ locale = "en" }: { locale?: Locale }) {
         <a href={`${p}/product`}>{t.product}</a>
         <a href={`${p}/pricing`}>{t.pricing}</a>
         <a href={`${p}/integrations`}>{t.integrations}</a>
+        <a href={`${p}/compliance`}>{t.compliance}</a>
         <a href={`${p}/how-it-works`}>{t.how}</a>
         <a href={`${p}/guides`}>{t.guides}</a>
         <a href={`${p}/tools`}>{t.tools}</a>
