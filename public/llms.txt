@@ -8,6 +8,7 @@ Key facts:
 - Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
 - Pricing (after a founding-cohort year free for the first 100 companies): Starter AED 149/month, Growth AED 499/month, Scale AED 1,499/month — sized by usage, not seats.
 - Company: built in Dubai, UAE by accountants; contact info@orbitgulf.com; the app runs at app.orbitgulf.com.
+- Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under https://www.orbitgulf.com/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.
 
 ## Pages
 - [Home](https://www.orbitgulf.com/): what Orbit is, the agent roster, compliance posture
@@ -16,8 +17,9 @@ Key facts:
 - [Integrations](https://www.orbitgulf.com/integrations): how the six ledger connections work
 - [How it works](https://www.orbitgulf.com/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
 - [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
-- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax
+- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA)
 - [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
 - [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
 - [Orbit Invoice](https://www.orbitgulf.com/invoice): tax compliance and e-invoice validation
+- [الموقع بالعربية](https://www.orbitgulf.com/ar): the full marketing site in Arabic, right-to-left

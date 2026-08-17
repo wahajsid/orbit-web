@@ -65,6 +65,12 @@ export const TOOLS: Tool[] = [
       "Solve for the EIR on a financial instrument with origination fees or a premium/discount, and produce the full amortised-cost schedule.",
     guide: "month-end-close-checklist",
   },
+  {
+    slug: "ksa-zakat-calculator",
+    title: "KSA Zakat estimator (ZATCA)",
+    description:
+      "Build the zakat base the way ZATCA does — equity, provisions and long-term borrowing in, fixed assets and long-term investments out, floored at the year's adjusted profit — at the Hijri 2.5% or Gregorian 2.5777% rate, with mixed Saudi/GCC ownership handled.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

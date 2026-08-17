@@ -674,3 +674,111 @@ export function EirCalculator() {
     </div>
   );
 }
+
+/* ── 10 · KSA Zakat estimator (ZATCA) ─────────────────────────────── */
+
+const sar = (n: number) =>
+  `SAR ${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+const sar2 = (n: number) =>
+  `SAR ${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+export function ZakatCalculator() {
+  // Sources of funds (the base builds up from what finances the business…)
+  const [capital, setCapital] = useState("1000000");
+  const [retained, setRetained] = useState("250000");
+  const [provisions, setProvisions] = useState("50000");
+  const [ltLiab, setLtLiab] = useState("300000");
+  const [profit, setProfit] = useState("400000");
+  // …less what is tied up long-term (not zakatable working wealth).
+  const [fixedAssets, setFixedAssets] = useState("700000");
+  const [ltInvest, setLtInvest] = useState("100000");
+  const [losses, setLosses] = useState("0");
+
+  const [yearType, setYearType] = useState<"hijri" | "gregorian">("gregorian");
+  const [saudiPct, setSaudiPct] = useState("100");
+
+  // ZATCA levies 2.5% for a Hijri year; a Gregorian year is grossed up
+  // for its extra days: 2.5% × 365/354 ≈ 2.577683%.
+  const rate = yearType === "hijri" ? 2.5 : 2.577683;
+
+  const additions = num(capital) + num(retained) + num(provisions) + num(ltLiab) + num(profit);
+  const deductions = num(fixedAssets) + num(ltInvest) + num(losses);
+  const netBase = additions - deductions;
+  // The base is floored at the adjusted profit for the year: deductions
+  // can shelter equity, never the year's result itself.
+  const flooredBase = Math.max(netBase, num(profit));
+  const base = Math.max(0, flooredBase);
+  const floorApplied = base > 0 && netBase < num(profit);
+
+  const share = Math.min(100, Math.max(0, num(saudiPct)));
+  const zakatable = base * (share / 100);
+  const zakat = zakatable * (rate / 100);
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <div className="mg-tool-field" style={{ maxWidth: 280 }}>
+          <span className="mg-tool-label">Fiscal year</span>
+          <div className="mg-tool-toggle">
+            <button type="button" className={yearType === "hijri" ? "on" : ""} onClick={() => setYearType("hijri")}>Hijri · 2.5%</button>
+            <button type="button" className={yearType === "gregorian" ? "on" : ""} onClick={() => setYearType("gregorian")}>Gregorian · 2.5777%</button>
+          </div>
+        </div>
+        <Field label="Saudi / GCC ownership" value={saudiPct} onChange={setSaudiPct} suffix="%" width={180} />
+      </div>
+
+      <h3 className="mg-tool-schedule-h">Sources of funds (additions to the base)</h3>
+      <div className="mg-tool-fields">
+        <Field label="Paid-up capital (SAR)" value={capital} onChange={setCapital} width={200} />
+        <Field label="Retained earnings + reserves" value={retained} onChange={setRetained} width={200} />
+        <Field label="Provisions (opening)" value={provisions} onChange={setProvisions} width={180} />
+        <Field label="Long-term liabilities" value={ltLiab} onChange={setLtLiab} width={180} />
+        <Field label="Adjusted net profit for the year" value={profit} onChange={setProfit} width={210} />
+      </div>
+
+      <h3 className="mg-tool-schedule-h">Deductions (long-term uses of funds)</h3>
+      <div className="mg-tool-fields">
+        <Field label="Net fixed assets & intangibles" value={fixedAssets} onChange={setFixedAssets} width={210} />
+        <Field label="Long-term investments" value={ltInvest} onChange={setLtInvest} width={190} />
+        <Field label="Carried-forward losses" value={losses} onChange={setLosses} width={190} />
+      </div>
+
+      <div className="mg-tool-tablewrap" style={{ marginTop: 20 }}>
+        <table className="mg-tool-table">
+          <thead>
+            <tr><th>Zakat base build-up</th><th>SAR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sources of funds</td><td className="mg-tool-mono">{fmt2(additions)}</td></tr>
+            <tr><td>Less: deductible long-term assets</td><td className="mg-tool-mono">({fmt2(deductions)})</td></tr>
+            <tr><td>Net position</td><td className="mg-tool-mono">{fmt2(netBase)}</td></tr>
+            {floorApplied && (
+              <tr><td>Floor — base cannot fall below adjusted profit</td><td className="mg-tool-mono">{fmt2(num(profit))}</td></tr>
+            )}
+            <tr><td><b>Zakat base</b></td><td className="mg-tool-mono"><b>{fmt2(base)}</b></td></tr>
+            {share < 100 && (
+              <tr><td>Saudi / GCC share ({share}%)</td><td className="mg-tool-mono">{fmt2(zakatable)}</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">Zakat due</div>
+          <div className="mg-tool-big">{sar2(zakat)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Rate applied</div>
+          <div className="mg-tool-big">{rate.toFixed(4)}%</div>
+        </div>
+        <div className="mg-tool-note">
+          {floorApplied && <>The floor rule applied: deductions took the equity base below the year&rsquo;s adjusted profit, so zakat is charged on the profit itself ({sar(num(profit))}). </>}
+          {share < 100
+            ? <>Zakat applies to the Saudi/GCC share only ({share}%); the non-Saudi share of profits is instead subject to 20% income tax, which this tool does not compute.</>
+            : <>The base is what finances the business (equity, provisions, long-term borrowing and the year&rsquo;s profit) less what is locked up long-term (fixed assets, long-term investments, carried losses).</>}
+        </div>
+      </div>
+    </div>
+  );
+}
