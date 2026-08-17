@@ -29,7 +29,6 @@ export const metadata: Metadata = {
       "An AI finance team for UAE & KSA businesses. Documents in, ledger done, one honest email at sunrise.",
     url: "https://www.orbitgulf.com",
     siteName: "Orbit",
-    images: [{ url: "/og.png", width: 1200, height: 630 }],
     locale: "en_US",
     type: "website",
   },
@@ -38,7 +37,6 @@ export const metadata: Metadata = {
     title: "Orbit — The close ran while you slept",
     description:
       "An AI finance team for UAE & KSA businesses. Documents in, ledger done, one honest email at sunrise.",
-    images: ["/og.png"],
   },
   verification: {
     other: { "msvalidate.01": "4BDEB5AE75B04E2C2EA5C6991217BAE4" },

@@ -66,7 +66,7 @@ img { max-width: 100%; display: block; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
 
-/* Micro-text is Manrope like everything else — per the owner's rule, the
+/* Micro-text is Archivo like everything else — per the owner's rule, the
    ONLY mono surface on the site is the terminal feed (.term-header/.term-feed). */
 .mono {
   font-family: var(--sans);
@@ -139,7 +139,7 @@ img { max-width: 100%; display: block; }
 .textlink:hover { border-bottom-color: currentColor; }
 .textlink:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
-/* screenshot frames — 3px radius, hairline border, no shadow */
+/* screenshot frames — zero radius, hairline border, no shadow */
 .shot { border: 1.5px solid var(--hairline-on-ink); border-radius: 0; overflow: hidden; }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .on-paper .shot { border-color: var(--text); }

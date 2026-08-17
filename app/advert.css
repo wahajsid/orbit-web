@@ -4,6 +4,11 @@
    the screenshot frames, the big number and the scroll reveal.
    ══════════════════════════════════════════════════════════════════ */
 
+/* Legacy hairline aliases — np-* rules reference --hair/--hair2, which were
+   never defined after the wire→mg token rename, so every border using them
+   was silently dropped. Point both at the canonical hairline. */
+:root { --hair: var(--hairline); --hair2: var(--hairline); }
+
 /* newpage hero headline — the founder truths run longer than the home hero's,
    so size them to fit two rows and reserve that height to stop reflow/overlap */
 .np-hero .hero-rotate {
@@ -35,7 +40,7 @@
   border: 1px solid var(--hairline-on-ink); border-radius: 0; padding: 7px 12px;
   margin-bottom: 22px;
 }
-.np-soon .dot { width: 6px; height: 6px; border-radius: 0; background: var(--brass-lit); box-shadow: 0 0 8px var(--brass-lit); }
+.np-soon .dot { width: 6px; height: 6px; border-radius: 0; background: var(--brass-lit); }
 
 /* feature grid — ruled cells, no imagery (coming-soon safe) */
 .np-features { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--hair); margin-top: 40px; }
@@ -124,7 +129,7 @@
 .np-chip .p { color: var(--petrol); font-weight: 800; }
 .np-band-ink .np-chip .p { color: var(--petrol-bright); }
 
-/* screenshot frame — hairline border, 3px, no shadow (Wire rule) */
+/* screenshot frame — hairline border, zero radius, no shadow */
 .np-shot {
   margin-top: 36px;
   border: 1.5px solid var(--text);

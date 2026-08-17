@@ -34,7 +34,6 @@ export const metadata: Metadata = {
       "فريق مالي يعمل بالذكاء الاصطناعي لشركات الإمارات والسعودية. المستندات تدخل، والدفاتر تُنجَز، وبريد واحد صادق مع شروق الشمس.",
     url: "https://www.orbitgulf.com/ar",
     siteName: "Orbit",
-    images: [{ url: "/og.png", width: 1200, height: 630 }],
     locale: "ar_AE",
     type: "website",
   },
@@ -43,7 +42,6 @@ export const metadata: Metadata = {
     title: "Orbit — الإقفال اكتمل وأنت نائم",
     description:
       "فريق مالي يعمل بالذكاء الاصطناعي لشركات الإمارات والسعودية. المستندات تدخل، والدفاتر تُنجَز، وبريد واحد صادق مع شروق الشمس.",
-    images: ["/og.png"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.png" }],

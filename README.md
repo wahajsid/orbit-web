@@ -5,9 +5,11 @@ finance team for UAE/KSA SMEs. **Isolated** from the Orbit app repo and from
 Oblique OS (separate repo, separate Vercel project); both share the single
 OrbitFinance Supabase project.
 
-Next.js 14 (App Router), no Tailwind. Design system: **"The Wire"** — ink &
-paper, petrol & brass (see the design_handoff README for the full token spec).
-Brass = action, petrol = data. No gradients, glows, pills or starfields.
+Next.js 14 (App Router), no Tailwind. Design system: **"Modernist green"** —
+paper `#F3F2F2`, ink `#201E1D`, one green accent `#0E5B3A`, Archivo, zero
+radius, 2px rules (tokens in `app/globals.css` `:root`; the legacy
+petrol/brass token names are aliased to green). No gradients, glows, pills
+or starfields.
 
 ## Layout
 - `app/page.tsx` — the whole page: ink hero band (nav + Morning Brief bleed),

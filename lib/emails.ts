@@ -5,12 +5,12 @@
 const HEADER = `<tr><td style="background:#201E1D;padding:22px 32px;">
   <table role="presentation" cellpadding="0" cellspacing="0"><tr>
     <td style="vertical-align:middle;padding-right:10px;"><div style="width:22px;height:22px;border:2px solid #0E5B3A;border-radius:50%;"></div></td>
-    <td style="vertical-align:middle;"><span style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:800;color:#F3F2F2;letter-spacing:0.06em;">ORBIT</span></td>
+    <td style="vertical-align:middle;"><span style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:18px;font-weight:800;color:#F3F2F2;letter-spacing:0.06em;">ORBIT</span></td>
   </tr></table>
 </td></tr>`;
 
 const FOOTER = `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #c9c5bf;">
-  <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#8a8580;line-height:1.6;margin:10px 0 0 0;">Orbit &middot; Dubai, UAE<br /><a href="https://www.orbitgulf.com" style="color:#0E5B3A;text-decoration:none;">orbitgulf.com</a> &middot; <a href="mailto:info@orbitgulf.com" style="color:#0E5B3A;text-decoration:none;">info@orbitgulf.com</a><br />You're receiving this because you requested early access at orbitgulf.com.</p>
+  <p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;color:#8a8580;line-height:1.6;margin:10px 0 0 0;">Orbit &middot; Dubai, UAE<br /><a href="https://www.orbitgulf.com" style="color:#0E5B3A;text-decoration:none;">orbitgulf.com</a> &middot; <a href="mailto:info@orbitgulf.com" style="color:#0E5B3A;text-decoration:none;">info@orbitgulf.com</a><br />You're receiving this because you requested early access at orbitgulf.com.</p>
 </td></tr>`;
 
 function wrap(preheader: string, body: string): string {
@@ -22,7 +22,7 @@ function wrap(preheader: string, body: string): string {
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;overflow:hidden;border:2px solid #201E1D;">
         ${HEADER}
-        <tr><td style="padding:32px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;">
+        <tr><td style="padding:32px 36px 8px 36px;font-family:Archivo,Arial,Helvetica,sans-serif;">
           ${body}
         </td></tr>
         ${FOOTER}
@@ -34,7 +34,7 @@ function wrap(preheader: string, body: string): string {
 
 function cta(href: string, label: string): string {
   return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:18px 0;"><tr>
-    <td style="background:#0E5B3A;"><a href="${href}" style="display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#F3F2F2;text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
+    <td style="background:#0E5B3A;"><a href="${href}" style="display:inline-block;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#F3F2F2;text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
   </tr></table>`;
 }
 
@@ -43,14 +43,14 @@ function p(text: string, mb = 16): string {
 }
 
 function signoff(name: string): string {
-  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#201E1D;line-height:1.7;margin:0 0 4px 0;">${name}<br /><span style="color:#0E5B3A;">&mdash; The Orbit team</span></p>`;
+  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#201E1D;line-height:1.7;margin:0 0 4px 0;">${name}<br /><span style="color:#0E5B3A;">&mdash; The Orbit team</span></p>`;
 }
 
 function infobox(label: string, content: string): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 20px 0;">
     <tr><td style="background:#F3F2F2;border:2px solid #c9c5bf;padding:16px 20px;">
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:#0E5B3A;margin-bottom:6px;">${label}</div>
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#201E1D;line-height:1.6;">${content}</div>
+      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:#0E5B3A;margin-bottom:6px;">${label}</div>
+      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;color:#201E1D;line-height:1.6;">${content}</div>
     </td></tr>
   </table>`;
 }
