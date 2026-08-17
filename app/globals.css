@@ -303,6 +303,10 @@ html, body { max-width: 100%; overflow-x: hidden; }
   border: 2px solid var(--ink);
   box-shadow: 8px 8px 0 var(--accent);
 }
+/* Real screenshots inside the framed cards: the global img rule caps
+   width at 100% but leaves the attribute height, which stretches — pin
+   the ratio here (np-shot does the same in advert.css). */
+.mg-mock img, .mg-vig-card img { width: 100%; height: auto; display: block; }
 .mg-mock-head {
   display: flex; align-items: center; gap: 10px;
   padding: 12px 18px; border-bottom: 2px solid var(--ink);
