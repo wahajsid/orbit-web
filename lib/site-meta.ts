@@ -14,6 +14,7 @@ export const ORG_LD = {
   email: "info@orbitgulf.com",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   areaServed: ["AE", "SA"],
+  sameAs: ["https://www.linkedin.com/company/orbitgulf"],
 };
 
 export const APP_LD = {

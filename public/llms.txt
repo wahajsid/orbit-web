@@ -34,3 +34,8 @@ Key facts:
 - [Keep your ledger](https://www.orbitgulf.com/guides/keep-your-ledger): why Orbit posts into your existing books instead of replacing them
 - [UAE EOSB gratuity](https://www.orbitgulf.com/guides/uae-eosb-gratuity): how end-of-service benefits are calculated
 - [UAE blocked input VAT](https://www.orbitgulf.com/guides/uae-blocked-input-vat): the expense categories where input VAT cannot be recovered
+- [Loyalty points accounting](https://www.orbitgulf.com/guides/loyalty-points-accounting-uae): IFRS 15 deferred revenue on points, breakage, and the UAE VAT treatment of redemptions
+- [Gift cards & vouchers VAT](https://www.orbitgulf.com/guides/gift-cards-vouchers-vat-uae): Article 40 — VAT at redemption not issue, above-face-value sales, breakage
+- [Small Business Relief](https://www.orbitgulf.com/guides/uae-small-business-relief): the AED 3m Corporate Tax election — who qualifies, the catches, until when
+- [Free zone 0% Corporate Tax](https://www.orbitgulf.com/guides/free-zone-corporate-tax-0-percent): Qualifying Free Zone Person conditions, de minimis, and the five-year cliff
+- [Intercompany management fees](https://www.orbitgulf.com/guides/intercompany-management-fees-uae): arm's length pricing, VAT between group entities, and the evidence file

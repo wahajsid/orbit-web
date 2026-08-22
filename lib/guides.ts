@@ -263,6 +263,241 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-08-22 — the weekly cadence: niche topics people search for
+   and find little good material on (loyalty, vouchers) plus the high-volume
+   CT questions (Small Business Relief, free zone 0%, intercompany fees). */
+GUIDES.push(
+  {
+    slug: "loyalty-points-accounting-uae",
+    title: "Loyalty points and rewards: how to account for them under IFRS 15 — and what UAE VAT expects",
+    description:
+      "Points are deferred revenue, not a marketing footnote: allocating the sale price, estimating breakage, releasing on redemption — and how VAT treats the free redemption.",
+    updated: "2026-08-22",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The mistake almost everyone makes",
+        ps: [
+          "Most businesses book the full sale as revenue and treat the loyalty points as a future marketing cost. IFRS 15 says the opposite: points a customer earns in a sale are a material right — a separate performance obligation — and part of today's sale price belongs to them. Until the points are redeemed or expire, that slice is a contract liability, not revenue.",
+          "The difference is not cosmetic. A retailer with an active programme can be carrying months of deferred revenue; recognising it all upfront overstates today's profit and understates a real obligation — the kind of adjustment an auditor makes late, painfully, and with a restated comparative.",
+        ],
+      },
+      {
+        h: "The mechanics, step by step",
+        list: [
+          "Split the transaction price between the goods sold today and the points granted, in proportion to their relative standalone selling prices",
+          "The standalone selling price of a point is not its face value — it is the redemption value weighted by the likelihood of redemption. Points you expect to expire are worth less",
+          "Park the points' share as a contract liability (deferred revenue) on the balance sheet",
+          "Release it to revenue as points are redeemed — in proportion to the pattern of expected total redemptions, so breakage income emerges as the programme runs, not in one lump at expiry",
+          "Re-estimate the redemption rate at each close; the adjustment flows through revenue, not equity",
+        ],
+      },
+      {
+        h: "A worked example",
+        ps: [
+          "A customer spends AED 1,000 and earns points worth AED 50 of future goods, of which you expect 80% to be redeemed. The points' standalone value is AED 40. Allocate: 1,000 × 1,000/1,040 ≈ AED 962 to today's sale, AED 38 deferred for the points. When half the expected redemptions have happened, half the AED 38 has been released — whether or not the calendar says the points are old.",
+        ],
+      },
+      {
+        h: "What UAE VAT expects",
+        ps: [
+          "VAT follows the consideration actually charged, not the IFRS allocation. On the original sale, output VAT is due on the full amount the customer pays — issuing points does not reduce the taxable value. When points are later redeemed as a price reduction on a new purchase, VAT is due on the net amount the customer actually pays for that supply.",
+          "The sharp edge is redemptions where the customer pays nothing: goods handed over wholly against points can fall into the deemed-supply rules if input VAT was recovered on them. The regulations carve out small amounts — but the thresholds are per-recipient and per-year, and a busy programme crosses them without noticing. The defensible pattern is to decide the treatment when the programme is designed, document it, and apply it mechanically — not to hope the redemptions stay small.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit carries the points liability as its own ledger account, posts the allocation on each qualifying sale, releases it on redemption evidence, and keeps the redemption-rate estimate as a monthly close decision with the movement history attached — so the liability is always current and the auditor sees the model, not a plug.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "gift-cards-vouchers-vat-uae",
+    title: "Gift cards and vouchers in the UAE: VAT at issue, VAT at redemption, and the breakage question",
+    description:
+      "Selling a voucher is not a supply — redemption is. Where Article 40 draws the line, what happens when a voucher sells above face value, and how unredeemed balances are treated.",
+    updated: "2026-08-22",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The rule in one sentence",
+        ps: [
+          "Under Article 40 of the UAE VAT Decree-Law, selling or issuing a voucher is not itself a supply — VAT happens when the voucher is redeemed, on the goods or services it buys. The one exception: if a voucher is sold for more than its advertised monetary value, VAT is due on the excess at the time of sale.",
+          "This is a genuinely different regime from Europe's single-purpose/multi-purpose split — importing that logic into a UAE VAT position is one of the most common errors in advice found online. In the UAE the treatment does not depend on whether the redemption VAT rate is known upfront.",
+        ],
+      },
+      {
+        h: "What counts as a voucher",
+        ps: [
+          "The instrument must give the right to receive goods or services up to a stated monetary value, or a stated discount — a AED 500 gift card, a prepaid dining voucher. Instruments without a face value entitlement, and postage stamps, sit outside the definition. So do points in a loyalty programme, which follow their own analysis.",
+        ],
+      },
+      {
+        h: "The three moments that matter",
+        list: [
+          "Issue — no VAT on the sale of the card at or below face value; the cash received is a liability (unearned), not revenue",
+          "Redemption — a normal taxable supply of whatever is bought, at that supply's rate, with the voucher as consideration; the tax invoice is issued for this supply",
+          "Expiry / breakage — no supply ever happened, so no output VAT is due on the unredeemed balance; for accounting, IFRS 15 lets expected breakage be recognised as revenue in proportion to actual redemptions rather than in one lump at expiry",
+        ],
+      },
+      {
+        h: "The operational traps",
+        list: [
+          "Booking card sales as revenue at the till — overstates revenue and desynchronises the VAT return from the ledger",
+          "Charging VAT at issue and again at redemption — double tax that a customer or an audit will eventually surface",
+          "Selling vouchers through resellers at a margin without deciding whose supply the margin is",
+          "No voucher liability register — without one, breakage income and the VAT position are both guesses",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit posts voucher sales to a voucher liability account, matches redemptions to the liability with the sale document as evidence, tracks the unredeemed balance by expiry cohort, and releases breakage on the documented pattern — so the VAT return and the balance sheet tell the same story.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-small-business-relief",
+    title: "UAE Corporate Tax Small Business Relief: who qualifies, what it actually does, and the catches",
+    description:
+      "Revenue at or under AED 3 million can mean no taxable income at all — but the relief is an election with conditions, an expiry date, and consequences for losses.",
+    updated: "2026-08-22",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "What the relief does",
+        ps: [
+          "Small Business Relief lets a UAE-resident taxable person be treated as having no taxable income for a tax period — no 9% to pay — if revenue is AED 3,000,000 or less in that period and in every previous tax period ending on or before 31 December 2026. It is an election made in the tax return, period by period, not an automatic exemption.",
+          "Two things it does not do: it does not remove the obligation to register for Corporate Tax and file a return, and it does not last forever — it is available only for tax periods ending on or before 31 December 2026.",
+        ],
+      },
+      {
+        h: "Who cannot use it",
+        list: [
+          "Qualifying Free Zone Persons — the free zone 0% regime and Small Business Relief are mutually exclusive",
+          "Members of multinational groups with consolidated revenue above the country-by-country reporting threshold (AED 3.15 billion)",
+          "Businesses artificially split into pieces to stay under AED 3 million each — the anti-abuse rule treats the arrangement as one business and unwinds the advantage, with penalties",
+        ],
+      },
+      {
+        h: "The catches worth reading twice",
+        list: [
+          "Revenue means revenue — gross income, not profit. A low-margin trader crosses AED 3m long before it earns AED 375,000 of profit",
+          "One breach ends it — cross the threshold in any period and the relief is gone for that period and cannot be claimed again, because the test requires all previous periods to have stayed under",
+          "Losses in a relief period cannot be carried forward, and interest deductions in the period are similarly parked — electing in a loss-making year gives up something real",
+          "The election still requires clean books: the FTA can ask how the revenue figure was built, and the simplified return is simplified, not unaudited",
+        ],
+      },
+      {
+        h: "Should a small business elect?",
+        ps: [
+          "Usually yes if profitable and comfortably under the threshold. The genuine judgement call is a growing business near AED 3m, or one making a loss it could otherwise carry forward against future 9% profits. That is a modelling exercise — a year of relief today against a deduction tomorrow — and the answer depends on the trajectory, not a rule of thumb.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit tracks rolling revenue against the AED 3m line as the year runs — not at filing time — flags the approach while there is still time to plan, and keeps the revenue build traceable to documents so the election survives a question from the FTA.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "free-zone-corporate-tax-0-percent",
+    title: "Free zone 0% Corporate Tax: what a Qualifying Free Zone Person actually is",
+    description:
+      "The 0% rate is a conditional regime, not a postcode benefit: qualifying income, the de minimis test, substance, audited accounts — and the five-year penalty for slipping.",
+    updated: "2026-08-22",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The headline, corrected",
+        ps: [
+          "Being registered in a free zone does not give you 0% Corporate Tax. The 0% rate applies only to the qualifying income of a Qualifying Free Zone Person (QFZP) — a status you earn by meeting every condition, every period. Everything that is not qualifying income is taxed at 9%, and a QFZP does not get the AED 375,000 0% band that mainland businesses enjoy on that non-qualifying slice.",
+        ],
+      },
+      {
+        h: "The conditions — all of them, every period",
+        list: [
+          "Maintain adequate substance in the free zone — people, premises and expenditure proportionate to the income booked there",
+          "Derive qualifying income: broadly, transactions with other free zone persons, and income from a defined list of qualifying activities (manufacturing, processing, trading of qualifying commodities, fund and wealth management, treasury and financing of related parties, distribution from a designated zone, logistics, and others)",
+          "Stay out of excluded activities — dealings with natural persons (with narrow exceptions), regulated banking and insurance, and most immovable-property and intellectual-property income do not qualify regardless of the counterparty",
+          "Keep non-qualifying revenue inside the de minimis: the lower of AED 5 million or 5% of total revenue",
+          "Prepare audited financial statements, comply with transfer pricing rules and documentation, and not have elected into the standard 9% regime",
+        ],
+      },
+      {
+        h: "The cliff",
+        ps: [
+          "Fail any condition — blow the de minimis, let substance thin out, miss the audit — and QFZP status is lost not just for that period but for the four that follow: five years of 9% on everything. The regime is generous precisely because the exit is punitive; it is designed to be planned for, not stumbled into.",
+        ],
+      },
+      {
+        h: "What this means for structuring",
+        ps: [
+          "The real work is classification discipline: knowing, customer by customer and revenue stream by revenue stream, what is qualifying, what is excluded, and how close the non-qualifying tail is to the de minimis line — continuously, because the test is annual but the drift is monthly. A free zone entity selling to mainland consumers through the year and checking the mix in month twelve has already made its decision by accident.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit tags revenue by counterparty type and activity as invoices post, keeps a running qualifying / non-qualifying split with the de minimis headroom visible, and raises the flag when the tail approaches the line — while the mix can still be managed, not after the period has decided itself.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "intercompany-management-fees-uae",
+    title: "Intercompany management fees between UAE group entities: pricing, paper and VAT",
+    description:
+      "The three tests a management charge must pass — arm's length under Corporate Tax, proper VAT treatment between entities, and evidence the service actually happened.",
+    updated: "2026-08-22",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "Why this suddenly matters",
+        ps: [
+          "Before Corporate Tax, a management fee between two UAE group companies moved profit but not tax, and nobody looked hard. At 9% — and with free zone entities at 0% sitting next to mainland entities at 9% — the same charge now moves real tax, and it is precisely the transaction the transfer pricing rules were written for. Charges that shift profit toward the 0% entity draw the most attention of all.",
+        ],
+      },
+      {
+        h: "Test one: arm's length",
+        ps: [
+          "Related-party transactions must be priced as independent parties would price them. For routine management and back-office services that usually means cost plus a modest margin, supported by a method you can name. Payments that reach owners or directors face a second hurdle: deductible only to the extent they reflect market value of a genuine service. Above the ministerial thresholds, the charges are disclosed with the tax return — and larger groups also maintain transfer pricing documentation, so the number must be born defensible, not defended later.",
+        ],
+      },
+      {
+        h: "Test two: VAT does not care that it's family",
+        list: [
+          "A management fee between two legal entities is a taxable supply at 5% — being in the same group changes nothing by default",
+          "The paying entity needs a valid tax invoice from the charging entity to recover the input VAT, subject to its own recovery position",
+          "A registered VAT tax group removes intra-group supplies from VAT entirely — but the group registration has its own conditions, and CT and VAT grouping are separate regimes with separate rules; being grouped for one does not group you for the other",
+        ],
+      },
+      {
+        h: "Test three: the service must be real",
+        ps: [
+          "The cleanest pricing fails if there is nothing behind it. An intercompany agreement signed before the charges start, a description of the services actually delivered, a cost base that reconciles to the charging entity's ledger, and invoices raised on a regular cadence — that is the evidence file. A single year-end journal labelled 'management fee' with no agreement, no invoice and a suspiciously round number is not a transaction; it is a finding waiting to be written.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit posts intercompany charges only against the agreement and invoice as evidence, keeps both sides' entries mirrored so the charge never exists in one ledger only, applies the VAT treatment consistently, and shows related-party flows on their own report — the same view a reviewer would build, available before they ask.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
