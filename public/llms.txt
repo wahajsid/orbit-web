@@ -18,7 +18,7 @@ Key facts:
 - [Compliance](https://www.orbitgulf.com/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
 - [How it works](https://www.orbitgulf.com/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
 - [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
-- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA)
+- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA), free zone de minimis (QFZP), Small Business Relief checker, UAE VAT penalty estimator, IFRS 15 loyalty points deferred revenue, KSA withholding tax (WHT)
 - [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
 - [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product

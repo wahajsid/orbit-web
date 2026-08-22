@@ -782,3 +782,270 @@ export function ZakatCalculator() {
     </div>
   );
 }
+
+/* ── 11 · Free zone de minimis test (QFZP) ────────────────────────── */
+
+export function DeMinimisCalculator() {
+  const [total, setTotal] = useState("12000000");
+  const [nonQual, setNonQual] = useState("450000");
+
+  const t = num(total);
+  const nq = num(nonQual);
+  const threshold = Math.min(5000000, t * 0.05);
+  const pass = t > 0 && nq <= threshold;
+  const headroom = threshold - nq;
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label="Total revenue for the period (AED)" value={total} onChange={setTotal} width={260} />
+        <Field label="Non-qualifying revenue (AED)" value={nonQual} onChange={setNonQual} width={260} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">De minimis threshold</div>
+          <div className="mg-tool-big">{aed(threshold)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Result</div>
+          <div className="mg-tool-big" style={{ color: pass ? "var(--accent)" : "var(--bad)" }}>{t > 0 ? (pass ? "Within" : "Breached") : "—"}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{pass ? "Headroom left" : "Over by"}</div>
+          <div className="mg-tool-big">{t > 0 ? aed(Math.abs(headroom)) : "—"}</div>
+        </div>
+        <div className="mg-tool-note">
+          The threshold is the lower of AED 5,000,000 and 5% of total revenue ({aed(t * 0.05)}).{" "}
+          {pass
+            ? "Non-qualifying revenue is inside the de minimis — the 0% regime survives this test (the other QFZP conditions still apply: substance, audited accounts, transfer pricing)."
+            : <b>Breaching the de minimis loses Qualifying Free Zone Person status for this period and the four that follow — five years of 9% on everything.</b>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 12 · Small Business Relief eligibility checker ───────────────── */
+
+export function SbrCheckerCalculator() {
+  const [revenue, setRevenue] = useState("2400000");
+  const [taxable, setTaxable] = useState("400000");
+  const [priorOk, setPriorOk] = useState(true);
+  const [qfzp, setQfzp] = useState(false);
+  const [mne, setMne] = useState(false);
+
+  const r = num(revenue);
+  const ti = num(taxable);
+  const underCap = r <= 3000000;
+  const eligible = underCap && priorOk && !qfzp && !mne;
+  const taxWithout = Math.max(0, ti - 375000) * 0.09;
+  const blockers: string[] = [];
+  if (!underCap) blockers.push("revenue exceeds AED 3,000,000");
+  if (!priorOk) blockers.push("a previous period already exceeded AED 3,000,000");
+  if (qfzp) blockers.push("Qualifying Free Zone Persons cannot elect");
+  if (mne) blockers.push("members of large MNE groups cannot elect");
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label="Revenue for the period (AED)" value={revenue} onChange={setRevenue} width={240} />
+        <Field label="Taxable income, if known (AED)" value={taxable} onChange={setTaxable} width={240} />
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={priorOk} onChange={(e) => setPriorOk(e.target.checked)} />
+          <span>All previous tax periods also stayed at or under AED 3m</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={qfzp} onChange={(e) => setQfzp(e.target.checked)} />
+          <span>Qualifying Free Zone Person (0% regime)</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={mne} onChange={(e) => setMne(e.target.checked)} />
+          <span>Member of an MNE group above the CbCR threshold (AED 3.15bn)</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">Eligibility</div>
+          <div className="mg-tool-big" style={{ color: eligible ? "var(--accent)" : "var(--bad)" }}>{eligible ? "Can elect" : "Cannot elect"}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Estimated 9% saved</div>
+          <div className="mg-tool-big">{eligible ? aed(taxWithout) : "—"}</div>
+        </div>
+        <div className="mg-tool-note">
+          {eligible
+            ? <>With the election, taxable income is treated as nil for the period — versus an estimated {aed2(taxWithout)} at the standard 0%/9% bands. The election is made in the tax return, applies to periods ending on or before 31 December 2026, and gives up loss carry-forward for the period. Registration and filing are still required.</>
+            : <>Not eligible: {blockers.join("; ")}. The standard 0% band to AED 375,000 and 9% above still apply.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 13 · UAE VAT late filing & payment penalties ─────────────────── */
+
+export function VatPenaltyCalculator() {
+  const [unpaid, setUnpaid] = useState("50000");
+  const [days, setDays] = useState("45");
+  const [lateReturn, setLateReturn] = useState(true);
+  const [repeat, setRepeat] = useState(false);
+
+  const tax = Math.max(0, num(unpaid));
+  const d = Math.max(0, Math.floor(num(days)));
+  const monthlyHits = d >= 31 ? Math.floor((d - 1) / 30) : 0;
+  const latePct = d > 0 ? Math.min(300, 2 + 4 * monthlyHits) : 0;
+  const latePayment = (tax * latePct) / 100;
+  const filing = lateReturn ? (repeat ? 2000 : 1000) : 0;
+  const total = latePayment + filing;
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label="Unpaid VAT (AED)" value={unpaid} onChange={setUnpaid} width={220} />
+        <Field label="Days past the deadline" value={days} onChange={setDays} width={200} />
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={lateReturn} onChange={(e) => setLateReturn(e.target.checked)} />
+          <span>The return itself was also filed late</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={repeat} onChange={(e) => setRepeat(e.target.checked)} />
+          <span>Repeat late filing within 24 months</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">Late-payment penalty ({latePct}%)</div>
+          <div className="mg-tool-big">{aed2(latePayment)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Late-filing penalty</div>
+          <div className="mg-tool-big">{aed2(filing)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Total exposure</div>
+          <div className="mg-tool-big">{aed2(total)}</div>
+        </div>
+        <div className="mg-tool-note">
+          Late payment: 2% of the unpaid tax immediately after the deadline, then 4% monthly starting one month after it{monthlyHits > 0 ? ` (${monthlyHits} monthly charge${monthlyHits === 1 ? "" : "s"} so far)` : ""}, capped at 300%. Late filing: AED 1,000 first offence, AED 2,000 on repetition within 24 months. Voluntary disclosure before an audit notice generally reduces the exposure — the numbers here assume none.
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 14 · Loyalty points deferred revenue (IFRS 15) ───────────────── */
+
+export function LoyaltyCalculator() {
+  const [sale, setSale] = useState("1000");
+  const [face, setFace] = useState("50");
+  const [redeemPct, setRedeemPct] = useState("80");
+  const [donePct, setDonePct] = useState("0");
+
+  const s = Math.max(0, num(sale));
+  const f = Math.max(0, num(face));
+  const rr = Math.min(100, Math.max(0, num(redeemPct))) / 100;
+  const done = Math.min(100, Math.max(0, num(donePct))) / 100;
+
+  const ssp = f * rr; // standalone value of the points, breakage-weighted
+  const denom = s + ssp;
+  const revNow = denom > 0 ? (s * s) / denom : 0;
+  const deferred = denom > 0 ? (s * ssp) / denom : 0;
+  const progress = rr > 0 ? Math.min(1, done / rr) : 0;
+  const released = deferred * progress;
+  const liability = deferred - released;
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label="Sale amount (AED)" value={sale} onChange={setSale} width={200} />
+        <Field label="Points granted, at face value (AED)" value={face} onChange={setFace} width={250} />
+        <Field label="Expected redemption" value={redeemPct} onChange={setRedeemPct} suffix="%" width={190} />
+        <Field label="Redeemed to date (of points issued)" value={donePct} onChange={setDonePct} suffix="%" width={250} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">Revenue at sale</div>
+          <div className="mg-tool-big">{aed2(revNow)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Deferred to points</div>
+          <div className="mg-tool-big">{aed2(deferred)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Contract liability today</div>
+          <div className="mg-tool-big">{aed2(liability)}</div>
+        </div>
+        <div className="mg-tool-note">
+          The points&rsquo; standalone value is their face value weighted by expected redemption ({aed2(ssp)}); the sale price is split in proportion ({fmt2(denom > 0 ? (s / denom) * 100 : 0)}% / {fmt2(denom > 0 ? (ssp / denom) * 100 : 0)}%). Deferred revenue releases in proportion to redemptions against the expected total — {fmt2(progress * 100)}% released so far ({aed2(released)}), so breakage income emerges as the programme runs rather than in one lump at expiry.
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 15 · KSA withholding tax (reuses the Zakat calculator's sar2) ── */
+
+const WHT_CATS = [
+  { k: "Management fees", r: 20 },
+  { k: "Royalties", r: 15 },
+  { k: "Other services", r: 15 },
+  { k: "Dividends", r: 5 },
+  { k: "Interest", r: 5 },
+  { k: "Rent", r: 5 },
+  { k: "Technical / consulting", r: 5 },
+  { k: "Insurance premiums", r: 5 },
+  { k: "Intl. telecommunications", r: 5 },
+] as const;
+
+export function WhtCalculator() {
+  const [amount, setAmount] = useState("100000");
+  const [cat, setCat] = useState(0);
+  const [grossUp, setGrossUp] = useState(false);
+
+  const a = Math.max(0, num(amount));
+  const r = WHT_CATS[cat].r / 100;
+  const wht = grossUp ? (a * r) / (1 - r) : a * r;
+  const gross = grossUp ? a + wht : a;
+  const net = gross - wht;
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={grossUp ? "Net amount the supplier must receive (SAR)" : "Gross payment (SAR)"} value={amount} onChange={setAmount} width={290} />
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={grossUp} onChange={(e) => setGrossUp(e.target.checked)} />
+          <span>Contract is net-of-tax (gross-up the WHT)</span>
+        </label>
+      </div>
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">Payment category</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {WHT_CATS.map((c, i) => (
+            <button key={c.k} type="button" className={cat === i ? "on" : ""} onClick={() => setCat(i)}>{c.k} · {c.r}%</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">WHT to withhold ({WHT_CATS[cat].r}%)</div>
+          <div className="mg-tool-big">{sar2(wht)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Supplier receives</div>
+          <div className="mg-tool-big">{sar2(net)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">Total cost</div>
+          <div className="mg-tool-big">{sar2(gross)}</div>
+        </div>
+        <div className="mg-tool-note">
+          Withholding applies to payments from KSA to non-residents for KSA-source income, at the domestic rates shown; the WHT return and payment are due within the first ten days of the month following payment. A tax treaty can reduce the rate — in practice via withhold-and-refund. Gross-up clauses make the tax the payer&rsquo;s cost, as computed here.
+        </div>
+      </div>
+    </div>
+  );
+}

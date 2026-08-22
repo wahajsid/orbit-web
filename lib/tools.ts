@@ -71,6 +71,41 @@ export const TOOLS: Tool[] = [
     description:
       "Build the zakat base the way ZATCA does — equity, provisions and long-term borrowing in, fixed assets and long-term investments out, floored at the year's adjusted profit — at the Hijri 2.5% or Gregorian 2.5777% rate, with mixed Saudi/GCC ownership handled.",
   },
+  {
+    slug: "freezone-de-minimis-calculator",
+    title: "Free zone de minimis calculator (QFZP)",
+    description:
+      "Test your non-qualifying revenue against the lower of AED 5m and 5% of total revenue — with the headroom shown, because breaching it costs the 0% rate for five years.",
+    guide: "free-zone-corporate-tax-0-percent",
+  },
+  {
+    slug: "small-business-relief-checker",
+    title: "Small Business Relief eligibility checker",
+    description:
+      "The AED 3m revenue test, the prior-period condition, the QFZP and MNE exclusions — a yes/no on the election, with the 9% it would save.",
+    guide: "uae-small-business-relief",
+  },
+  {
+    slug: "uae-vat-penalty-calculator",
+    title: "UAE VAT penalty estimator",
+    description:
+      "What a late return and late payment actually cost: the fixed filing penalties plus 2% immediately and 4% monthly on unpaid tax, capped at 300% — computed from days late.",
+    guide: "uae-tax-deadlines",
+  },
+  {
+    slug: "loyalty-points-calculator",
+    title: "Loyalty points deferred revenue calculator (IFRS 15)",
+    description:
+      "Split a sale between today's revenue and the points liability using breakage-weighted standalone value, then watch the release as redemptions come in.",
+    guide: "loyalty-points-accounting-uae",
+  },
+  {
+    slug: "ksa-withholding-tax-calculator",
+    title: "KSA withholding tax (WHT) calculator",
+    description:
+      "Domestic WHT on payments to non-residents by category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
+    guide: "intercompany-management-fees-uae",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
