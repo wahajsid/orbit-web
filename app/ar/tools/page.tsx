@@ -20,18 +20,18 @@ export default function ToolsPage() {
           <h1 className="mg-page-h">حاسبات تُريك طريقة الحساب.</h1>
           <p className="mg-page-lede">
             مجانية وسريعة وتُحسب بالكامل في متصفحك — الأرقام التي تمدّ إليها فرق المالية
-            الخليجية يدها كل أسبوع، مع القاعدة وراء كل رقم مشروحة بوضوح، والحاسبات نفسها
-            متاحة حاليًا بالإنجليزية.
+            الخليجية يدها كل أسبوع، مع القاعدة وراء كل رقم مشروحة بوضوح. بعض الحاسبات
+            متاح بالعربية والبقية بالإنجليزية حتى تكتمل الترجمة.
           </p>
         </section>
         <section className="mg-page-body">
           {TOOLS.map((t) => (
-            <a key={t.slug} href={`/tools/${t.slug}`} className="mg-guide-row">
+            <a key={t.slug} href={t.arTitle ? `/ar/tools/${t.slug}` : `/tools/${t.slug}`} className="mg-guide-row">
               <div>
-                <div className="mg-guide-title">{t.title}</div>
-                <p className="mg-guide-desc">{t.description}</p>
+                <div className="mg-guide-title">{t.arTitle ?? t.title}</div>
+                <p className="mg-guide-desc">{t.arDescription ?? t.description}</p>
               </div>
-              <span className="mg-guide-meta">مجاني</span>
+              <span className="mg-guide-meta">{t.arTitle ? "مجاني" : "EN · مجاني"}</span>
             </a>
           ))}
         </section>

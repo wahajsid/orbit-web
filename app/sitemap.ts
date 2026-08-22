@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { GUIDES } from "@/lib/guides";
+import { getArGuide } from "@/lib/guides-ar";
 import { TOOLS } from "@/lib/tools";
 
 const BASE = "https://www.orbitgulf.com";
@@ -42,7 +43,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE}${arPath(p.path)}`, lastModified: now, priority: p.priority - 0.1,
       alternates: { languages: languages(p.path) },
     })),
-    ...GUIDES.map((g) => ({ url: `${BASE}/guides/${g.slug}`, lastModified: new Date(g.updated), priority: 0.6 })),
-    ...TOOLS.map((t) => ({ url: `${BASE}/tools/${t.slug}`, lastModified: now, priority: 0.6 })),
+    /* Guides and tools with an Arabic twin get both URLs + the hreflang
+       pair; untranslated ones stay single-entry until their wave lands. */
+    ...GUIDES.flatMap((g) => {
+      const base = { lastModified: new Date(g.updated), priority: 0.6 };
+      if (!getArGuide(g.slug)) return [{ url: `${BASE}/guides/${g.slug}`, ...base }];
+      const alt = { languages: languages(`/guides/${g.slug}`) };
+      return [
+        { url: `${BASE}/guides/${g.slug}`, ...base, alternates: alt },
+        { url: `${BASE}/ar/guides/${g.slug}`, ...base, priority: 0.5, alternates: alt },
+      ];
+    }),
+    ...TOOLS.flatMap((t) => {
+      const base = { lastModified: now, priority: 0.6 };
+      if (!t.arTitle) return [{ url: `${BASE}/tools/${t.slug}`, ...base }];
+      const alt = { languages: languages(`/tools/${t.slug}`) };
+      return [
+        { url: `${BASE}/tools/${t.slug}`, ...base, alternates: alt },
+        { url: `${BASE}/ar/tools/${t.slug}`, ...base, priority: 0.5, alternates: alt },
+      ];
+    }),
   ];
 }

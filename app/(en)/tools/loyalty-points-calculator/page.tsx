@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { LoyaltyCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "Loyalty points deferred revenue calculator (IFRS 15) — Orbit",
   description:
     "Free IFRS 15 loyalty programme calculator: allocate the sale price between goods and points using breakage-weighted standalone value, and track the contract liability as redemptions come in.",
+  alternates: langAlternates("/tools/loyalty-points-calculator"),
 };
 
 export default function Page() {

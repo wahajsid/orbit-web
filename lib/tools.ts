@@ -1,6 +1,9 @@
 /* The tools registry — drives the /tools index, the sitemap and llms.txt. */
 
-export type Tool = { slug: string; title: string; description: string; guide?: string };
+/* arTitle/arDescription mark a calculator whose UI is translated — the AR
+   index links to /ar/tools/<slug> when they exist, and the sitemap emits
+   the hreflang pair. */
+export type Tool = { slug: string; title: string; description: string; guide?: string; arTitle?: string; arDescription?: string };
 
 export const TOOLS: Tool[] = [
   {
@@ -77,6 +80,9 @@ export const TOOLS: Tool[] = [
     description:
       "Test your non-qualifying revenue against the lower of AED 5m and 5% of total revenue — with the headroom shown, because breaching it costs the 0% rate for five years.",
     guide: "free-zone-corporate-tax-0-percent",
+    arTitle: "حاسبة الحد الأدنى للمناطق الحرة (QFZP)",
+    arDescription:
+      "اختبر إيراداتك غير المؤهلة مقابل الأدنى من 5 ملايين درهم أو 5% من إجمالي الإيرادات — مع إظهار الهامش، لأن تجاوز الحد يكلّف نسبة الـ 0% خمس سنوات.",
   },
   {
     slug: "small-business-relief-checker",
@@ -84,6 +90,9 @@ export const TOOLS: Tool[] = [
     description:
       "The AED 3m revenue test, the prior-period condition, the QFZP and MNE exclusions — a yes/no on the election, with the 9% it would save.",
     guide: "uae-small-business-relief",
+    arTitle: "فاحص أهلية تخفيف الأعمال الصغيرة",
+    arDescription:
+      "اختبار إيرادات الـ 3 ملايين درهم، وشرط الفترات السابقة، واستثناءات المناطق الحرة والمجموعات الكبرى — جواب نعم/لا على الاختيار، مع الـ 9% التي سيوفرها.",
   },
   {
     slug: "uae-vat-penalty-calculator",
@@ -91,6 +100,9 @@ export const TOOLS: Tool[] = [
     description:
       "What a late return and late payment actually cost: the fixed filing penalties plus 2% immediately and 4% monthly on unpaid tax, capped at 300% — computed from days late.",
     guide: "uae-tax-deadlines",
+    arTitle: "حاسبة غرامات ضريبة القيمة المضافة الإماراتية",
+    arDescription:
+      "كم يكلّف الإقرار المتأخر والسداد المتأخر فعلًا: الغرامات الثابتة زائد 2% فورًا و4% شهريًا على الضريبة غير المدفوعة بسقف 300% — محسوبة من أيام التأخر.",
   },
   {
     slug: "loyalty-points-calculator",
@@ -98,6 +110,9 @@ export const TOOLS: Tool[] = [
     description:
       "Split a sale between today's revenue and the points liability using breakage-weighted standalone value, then watch the release as redemptions come in.",
     guide: "loyalty-points-accounting-uae",
+    arTitle: "حاسبة الإيراد المؤجل لنقاط الولاء (IFRS 15)",
+    arDescription:
+      "قسّم البيع بين إيراد اليوم والتزام النقاط بالقيمة المستقلة المرجّحة بالاسترداد، ثم راقب الإطلاق مع ورود الاستردادات.",
   },
   {
     slug: "ksa-withholding-tax-calculator",
@@ -105,6 +120,9 @@ export const TOOLS: Tool[] = [
     description:
       "Domestic WHT on payments to non-residents by category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
     guide: "intercompany-management-fees-uae",
+    arTitle: "حاسبة ضريبة الاستقطاع السعودية",
+    arDescription:
+      "الاستقطاع المحلي على المدفوعات لغير المقيمين حسب الفئة — أتعاب الإدارة 20% والإتاوات 15% ومعظم الباقي 5% — مع معالجة عقود الصافي من الضريبة.",
   },
 ];
 

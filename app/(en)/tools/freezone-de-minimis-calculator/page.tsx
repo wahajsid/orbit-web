@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { DeMinimisCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "Free zone de minimis calculator (QFZP) — Orbit",
   description:
     "Free UAE free zone de minimis test: check non-qualifying revenue against the lower of AED 5m and 5% of total revenue, see your headroom, and understand the five-year cliff.",
+  alternates: langAlternates("/tools/freezone-de-minimis-calculator"),
 };
 
 export default function Page() {

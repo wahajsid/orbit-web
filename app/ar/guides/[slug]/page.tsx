@@ -1,27 +1,28 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MgNav, MgFooter } from "@/components/MgChrome";
-import { GUIDES, getGuide } from "@/lib/guides";
-import { getArGuide } from "@/lib/guides-ar";
+import { AR_GUIDES, getArGuide } from "@/lib/guides-ar";
 import { langAlternates } from "@/lib/site-meta";
 
+/* Arabic guide pages exist only for translated slugs (lib/guides-ar);
+   everything else 404s and the AR index links to the English page. */
+
 export function generateStaticParams() {
-  return GUIDES.map((g) => ({ slug: g.slug }));
+  return AR_GUIDES.map((g) => ({ slug: g.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const g = getGuide(params.slug);
+  const g = getArGuide(params.slug);
   if (!g) return {};
   return {
     title: `${g.title} — Orbit`,
     description: g.description,
-    // hreflang pair only once an Arabic twin exists
-    ...(getArGuide(g.slug) ? { alternates: langAlternates(`/guides/${g.slug}`) } : {}),
+    alternates: langAlternates(`/guides/${g.slug}`),
   };
 }
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  const g = getGuide(params.slug);
+export default function ArGuidePage({ params }: { params: { slug: string } }) {
+  const g = getArGuide(params.slug);
   if (!g) notFound();
 
   const ARTICLE_LD = {
@@ -30,19 +31,20 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     headline: g.title,
     description: g.description,
     dateModified: g.updated,
+    inLanguage: "ar",
     author: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
     publisher: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-    mainEntityOfPage: `https://www.orbitgulf.com/guides/${g.slug}`,
+    mainEntityOfPage: `https://www.orbitgulf.com/ar/guides/${g.slug}`,
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
-      <MgNav />
+      <MgNav locale="ar" />
       <main>
         <section className="mg-page-hero">
           <div className="mg-kicker">
-            <a href="/guides" style={{ textDecoration: "none" }}>GUIDES</a> · {g.minutes} MIN
+            <a href="/ar/guides" style={{ textDecoration: "none" }}>الأدلة</a> · {g.minutes} دقائق
           </div>
           <h1 className="mg-page-h">{g.title}</h1>
           <p className="mg-page-lede">{g.description}</p>
@@ -61,17 +63,17 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           ))}
           {g.tax && (
             <p className="mg-guide-disclaimer">
-              General information for Gulf businesses, not tax advice. Regulations move — verify
-              against the official FTA/ZATCA text or your advisor before acting.
+              معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير — تحقق من النص
+              الرسمي للهيئة الاتحادية للضرائب أو زاتكا أو من مستشارك قبل التصرف.
             </p>
           )}
           <div className="mg-guide-cta">
-            <a href="/product" className="mg-cta">See how Orbit runs this →</a>
-            <a href="/guides" className="mg-ghost">All guides</a>
+            <a href="/ar/product" className="mg-cta">شاهد كيف يدير Orbit ذلك ←</a>
+            <a href="/ar/guides" className="mg-ghost">كل الأدلة</a>
           </div>
         </section>
       </main>
-      <MgFooter />
+      <MgFooter locale="ar" />
     </>
   );
 }
