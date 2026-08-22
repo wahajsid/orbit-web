@@ -23,4 +23,14 @@ Key facts:
 - [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
 - [Orbit Invoice](https://www.orbitgulf.com/invoice): tax compliance and e-invoice validation
+- [Orbit for Firms](https://www.orbitgulf.com/firms): Orbit as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
+- [Contact](https://www.orbitgulf.com/contact): how to reach the team
 - [الموقع بالعربية](https://www.orbitgulf.com/ar): the full marketing site in Arabic, right-to-left
+
+## Guides
+- [UAE tax-invoice checklist](https://www.orbitgulf.com/guides/uae-tax-invoice-checklist): the FTA Article 59 fields an invoice needs before input VAT can be claimed
+- [UAE VAT and Corporate Tax deadlines](https://www.orbitgulf.com/guides/uae-tax-deadlines): every filing date in one place
+- [Month-end close checklist](https://www.orbitgulf.com/guides/month-end-close-checklist): the ordered close, step by step
+- [Keep your ledger](https://www.orbitgulf.com/guides/keep-your-ledger): why Orbit posts into your existing books instead of replacing them
+- [UAE EOSB gratuity](https://www.orbitgulf.com/guides/uae-eosb-gratuity): how end-of-service benefits are calculated
+- [UAE blocked input VAT](https://www.orbitgulf.com/guides/uae-blocked-input-vat): the expense categories where input VAT cannot be recovered
