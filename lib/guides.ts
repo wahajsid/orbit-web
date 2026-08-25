@@ -498,6 +498,147 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-08-23 — one niche (bad-debt relief, thin coverage
+   everywhere) + two search magnets (CT penalties, ZATCA Phase 2). */
+GUIDES.push(
+  {
+    slug: "uae-vat-bad-debt-relief",
+    title: "VAT bad-debt relief in the UAE: reclaiming the 5% on invoices that will never be paid",
+    description:
+      "Article 64 lets a supplier take back output VAT on written-off receivables — but only when four conditions are all met, and your customer has an obligation too.",
+    updated: "2026-08-23",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The problem it solves",
+        ps: [
+          "When you issue a tax invoice, you account for the 5% output VAT in that period — whether or not the customer ever pays. A receivable that goes bad therefore costs you twice: the revenue you'll never collect, and VAT you already paid to the FTA on money that never arrived. Bad-debt relief is the mechanism that returns the second loss.",
+        ],
+      },
+      {
+        h: "The four conditions — all of them",
+        list: [
+          "The goods or services were supplied and the output tax was charged and paid to the FTA",
+          "The consideration has been written off, in full or in part, in your accounts — a real accounting write-off, not just an ageing report entry",
+          "More than six months have passed since the date of the supply",
+          "You have notified the customer of the amount written off",
+        ],
+      },
+      {
+        h: "How the adjustment works",
+        ps: [
+          "Once every condition is met, you reduce your output tax in the VAT return for the period in which the conditions were satisfied — by the VAT fraction of the amount written off (for a 5% supply, 5/105 of the gross unpaid amount). The relief is proportional: write off half the invoice, adjust half the VAT.",
+          "The mirror matters: a registered customer who received your write-off notice must reduce the input VAT they claimed on that invoice. The FTA can see both sides — a supplier claiming relief against a customer still holding the input credit is a mismatch that surfaces in audit.",
+        ],
+      },
+      {
+        h: "The traps",
+        list: [
+          "Counting six months from the invoice date when the supply date differs — the clock runs from the date of supply",
+          "Claiming relief on debts that were never written off in the books — the accounting entry is a condition, not a formality",
+          "Skipping the customer notification, the condition most often missed and the easiest for an auditor to test",
+          "Forgetting the reverse: if the customer later pays, the VAT comes back — output tax is re-accounted on the amount recovered",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-corporate-tax-penalties",
+    title: "UAE Corporate Tax penalties: what late registration, filing and payment actually cost",
+    description:
+      "AED 10,000 for late registration, a filing meter that runs monthly, and 14% a year on unpaid tax — the Corporate Tax penalty schedule in plain numbers.",
+    updated: "2026-08-23",
+    minutes: 4,
+    tax: true,
+    sections: [
+      {
+        h: "The three penalties that matter",
+        list: [
+          "Late registration: a fixed AED 10,000 for failing to submit the registration application within the FTA's deadline for your licence",
+          "Late filing: AED 500 for each month (or part of one) the return is late during the first twelve months, rising to AED 1,000 per month from the thirteenth month onward",
+          "Late payment: 14% per annum on the unpaid tax, applied monthly from the day after the payment deadline",
+        ],
+      },
+      {
+        h: "What that looks like in dirhams",
+        ps: [
+          "A company that files its return nine months late owes AED 4,500 in filing penalties before any tax is counted. If it also owes AED 100,000 of tax for those nine months, the late-payment charge adds roughly AED 10,500 more — about AED 15,000 of pure penalty on a position that a calendar reminder would have avoided entirely.",
+          "The filing penalty runs even when no tax is due: a loss-making company that ignores its return obligation accumulates the same monthly charges as a profitable one.",
+        ],
+      },
+      {
+        h: "The ones people forget",
+        list: [
+          "Failing to keep the required records and information carries its own fixed penalties, repeated on re-offence",
+          "An incorrect return can be penalised — voluntary disclosure before the FTA notices is what keeps corrections cheap",
+          "Registered but dormant? The filing obligation doesn't sleep: nil-activity companies file too",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit's deadline watchdog tracks each entity's registration and filing calendar, escalates well before the nine-month line, and drafts the return from the ledger as the year runs — so the penalty schedule above stays a reference page, not a bill.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "zatca-e-invoicing-phase-2",
+    title: "ZATCA e-invoicing Phase 2: integration, waves, and what your invoices must carry",
+    description:
+      "Saudi Arabia's Fatoora integration phase in practice — clearance for standard invoices, 24-hour reporting for simplified ones, the wave system by revenue, and the technical fields that trip businesses up.",
+    updated: "2026-08-23",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The two phases, briefly",
+        ps: [
+          "Phase 1 (generation, live since December 2021) required all VAT-registered businesses in KSA to issue e-invoices from a compliant system — no handwritten or plain-PDF invoices. Phase 2 (integration) is the real shift: your invoicing system connects to ZATCA's Fatoora platform, and invoices flow to the authority in near-real time.",
+        ],
+      },
+      {
+        h: "What integration means day to day",
+        list: [
+          "Standard (B2B) tax invoices are cleared: sent to ZATCA first, cryptographically stamped, and only then delivered to your customer — an uncleared invoice is not a valid tax invoice",
+          "Simplified (B2C) invoices are reported: issued to the customer immediately, transmitted to ZATCA within 24 hours",
+          "Every invoice carries the Phase 2 technical envelope: XML (or PDF/A-3 with embedded XML), UUID, cryptographic stamp, hash chain, and QR code",
+          "Your system must be onboarded onto Fatoora with a production certificate per device/unit",
+        ],
+      },
+      {
+        h: "The wave system",
+        ps: [
+          "ZATCA phases businesses in by taxable revenue, in numbered waves with individually announced deadlines. Integration began in January 2023 with the largest taxpayers (above SAR 3 billion) and the threshold has stepped down wave by wave since — reaching businesses with revenue in the low millions of riyals through 2025 and continuing downward in 2026. Each wave gets formal notice from ZATCA at least six months before its deadline.",
+          "The operational takeaway: if you are VAT-registered in KSA and not yet integrated, your wave is a matter of when, not if. The revenue test uses your VAT-taxable revenue, and ZATCA's notification arrives against the year they measured — a business that grew recently should assume it is closer to the front of the queue than it feels.",
+        ],
+      },
+      {
+        h: "Where implementations go wrong",
+        list: [
+          "Treating it as a tax project instead of a systems project — the hard part is the ERP/POS integration and certificate management, not the VAT logic",
+          "Invoice fields that pass Phase 1 but fail Phase 2 validation: missing buyer details on standard invoices, wrong invoice type codes, broken hash chains after system restores",
+          "Credit notes issued outside the platform flow — corrections must travel the same cleared/reported path as the invoices they amend",
+          "Waiting for the notification letter to start — six months is short for an ERP integration with certification testing",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit validates KSA invoices against the Phase 2 field requirements as they arrive, flags documents that would fail clearance, and reconciles what your system issued against what the ledger holds — so integration day is a switch-flip, not an archaeology project.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }

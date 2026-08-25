@@ -124,6 +124,36 @@ export const TOOLS: Tool[] = [
     arDescription:
       "الاستقطاع المحلي على المدفوعات لغير المقيمين حسب الفئة — أتعاب الإدارة 20% والإتاوات 15% ومعظم الباقي 5% — مع معالجة عقود الصافي من الضريبة.",
   },
+  {
+    slug: "uae-corporate-tax-penalty-calculator",
+    title: "UAE Corporate Tax penalty calculator",
+    description:
+      "Late registration, monthly filing penalties (AED 500 rising to 1,000) and 14% p.a. on unpaid tax — enter months late and see the full exposure.",
+    guide: "uae-corporate-tax-penalties",
+    arTitle: "حاسبة غرامات ضريبة الشركات الإماراتية",
+    arDescription:
+      "التسجيل المتأخر، وغرامات التقديم الشهرية (500 درهم ترتفع إلى 1,000)، و14% سنويًا على الضريبة غير المدفوعة — أدخل أشهر التأخر وشاهد التعرض كاملًا.",
+  },
+  {
+    slug: "uae-vat-registration-checker",
+    title: "UAE VAT registration checker",
+    description:
+      "The AED 375,000 mandatory and AED 187,500 voluntary thresholds, tested the way the FTA tests them — rolling 12 months plus the next-30-days rule.",
+    guide: "uae-tax-deadlines",
+    arTitle: "فاحص التسجيل في ضريبة القيمة المضافة الإماراتية",
+    arDescription:
+      "عتبتا الإلزامي 375,000 درهم والاختياري 187,500 درهم، مختبرتان كما تختبرهما الهيئة — 12 شهرًا متحركة وقاعدة الثلاثين يومًا القادمة.",
+  },
+  {
+    slug: "uae-bad-debt-relief-calculator",
+    title: "VAT bad-debt relief calculator (Article 64)",
+    description:
+      "Check the four conditions, count the six months, and get the exact 5/105 output-tax adjustment on the written-off amount.",
+    guide: "uae-vat-bad-debt-relief",
+    arTitle: "حاسبة إعفاء الديون المعدومة (المادة 64)",
+    arDescription:
+      "افحص الشروط الأربعة، وعُدّ الأشهر الستة، واحصل على تسوية ضريبة المخرجات 5/105 بالضبط على المبلغ المشطوب.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

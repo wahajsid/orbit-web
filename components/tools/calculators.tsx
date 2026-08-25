@@ -1088,3 +1088,165 @@ export function WhtCalculator({ ar = false }: { ar?: boolean } = {}) {
     </div>
   );
 }
+
+/* ── 16 · UAE Corporate Tax penalties ─────────────────────────────── */
+
+export function CtPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [unpaid, setUnpaid] = useState("100000");
+  const [months, setMonths] = useState("9");
+  const [lateReg, setLateReg] = useState(false);
+
+  const tax = Math.max(0, num(unpaid));
+  const m = Math.max(0, Math.ceil(num(months)));
+  const filing = 500 * Math.min(m, 12) + 1000 * Math.max(0, m - 12);
+  const payment = tax * 0.14 * (m / 12);
+  const reg = lateReg ? 10000 : 0;
+  const total = filing + payment + reg;
+
+  const L = ar
+    ? { unpaid: "الضريبة غير المدفوعة (درهم)", months: "أشهر التأخر (تقديمًا وسدادًا)", reg: "التسجيل نفسه تأخر أيضًا (‏10,000 درهم)", f: "غرامة التقديم", p: "غرامة السداد (14% سنويًا)", t: "إجمالي الغرامات" }
+    : { unpaid: "Unpaid Corporate Tax (AED)", months: "Months late (filing & payment)", reg: "Registration was also late (AED 10,000)", f: "Filing penalty", p: "Payment penalty (14% p.a.)", t: "Total penalties" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.unpaid} value={unpaid} onChange={setUnpaid} width={240} />
+        <Field label={L.months} value={months} onChange={setMonths} width={230} />
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={lateReg} onChange={(e) => setLateReg(e.target.checked)} />
+          <span>{L.reg}</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.f}</div>
+          <div className="mg-tool-big">{aed2(filing + reg)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.p}</div>
+          <div className="mg-tool-big">{aed2(payment)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.t}</div>
+          <div className="mg-tool-big">{aed2(total)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>التقديم المتأخر: 500 درهم شهريًا للأشهر الاثني عشر الأولى ثم 1,000 درهم شهريًا بعدها — ويجري حتى بلا ضريبة مستحقة. السداد المتأخر: 14% سنويًا على غير المدفوع تُحتسب شهريًا. التسجيل المتأخر: 10,000 درهم ثابتة. الأرقام استرشادية للتخطيط لا لإعداد المنازعات.</>
+            : <>Late filing: AED 500/month for the first twelve months, AED 1,000/month after — and it runs even when no tax is due. Late payment: 14% per annum on the unpaid amount, applied monthly. Late registration: AED 10,000 fixed. Indicative figures for planning, not dispute preparation.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 17 · UAE VAT registration checker ────────────────────────────── */
+
+export function VatRegistrationCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [past, setPast] = useState("300000");
+  const [next30, setNext30] = useState("0");
+
+  const p = Math.max(0, num(past));
+  const n = Math.max(0, num(next30));
+  const test = Math.max(p, n);
+  const mandatory = test > 375000;
+  const voluntary = !mandatory && test > 187500;
+
+  const L = ar
+    ? { past: "التوريدات الخاضعة آخر 12 شهرًا (درهم)", next: "المتوقع خلال الثلاثين يومًا القادمة (درهم)", verdict: "النتيجة", m: "التسجيل إلزامي", v: "التسجيل اختياري متاح", b: "تحت العتبتين", gap: mandatory ? "فوق العتبة بـ" : "المسافة إلى الإلزامي" }
+    : { past: "Taxable supplies, last 12 months (AED)", next: "Expected in the next 30 days (AED)", verdict: "Verdict", m: "Registration is mandatory", v: "Voluntary registration available", b: "Below both thresholds", gap: mandatory ? "Over the threshold by" : "Distance to mandatory" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.past} value={past} onChange={setPast} width={280} />
+        <Field label={L.next} value={next30} onChange={setNext30} width={280} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.verdict}</div>
+          <div className="mg-tool-big" style={{ color: mandatory ? "var(--bad)" : voluntary ? "var(--accent)" : "var(--text-muted)" }}>
+            {mandatory ? L.m : voluntary ? L.v : L.b}
+          </div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.gap}</div>
+          <div className="mg-tool-big">{aed(Math.abs(375000 - test))}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>الإلزامي عند تجاوز 375,000 درهم في الاثني عشر شهرًا الماضية أو توقّع تجاوزها خلال الثلاثين يومًا القادمة؛ والاختياري من 187,500 درهم (توريدات أو مصروفات خاضعة). التسجيل المتأخر يكلّف 10,000 درهم — والعداد يجري على أساس متحرك شهريًا، لا على السنة المالية.</>
+            : <>Mandatory once taxable supplies exceed AED 375,000 in the past 12 months, or are expected to in the next 30 days; voluntary from AED 187,500 (supplies or taxable expenses). Late registration costs AED 10,000 — and the test runs on a rolling monthly basis, not your financial year.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 18 · VAT bad-debt relief (Article 64) ────────────────────────── */
+
+export function BadDebtCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [gross, setGross] = useState("52500");
+  const [monthsSince, setMonthsSince] = useState("8");
+  const [paid, setPaid] = useState(true);
+  const [writtenOff, setWrittenOff] = useState(true);
+  const [notified, setNotified] = useState(false);
+
+  const g = Math.max(0, num(gross));
+  const m = Math.max(0, num(monthsSince));
+  const sixMonths = m > 6;
+  const eligible = paid && writtenOff && notified && sixMonths;
+  const relief = (g * 5) / 105;
+
+  const blockers: string[] = [];
+  if (!paid) blockers.push(ar ? "لم تُسدد ضريبة المخرجات للهيئة" : "output VAT not yet paid to the FTA");
+  if (!writtenOff) blockers.push(ar ? "لم يُشطب الدين في الحسابات" : "debt not written off in the accounts");
+  if (!notified) blockers.push(ar ? "لم يُخطَر العميل بالشطب" : "customer not notified of the write-off");
+  if (!sixMonths) blockers.push(ar ? "لم تمضِ ستة أشهر على التوريد" : "six months have not passed since the supply");
+
+  const L = ar
+    ? { gross: "الإجمالي المشطوب شامل الضريبة (درهم)", months: "الأشهر منذ تاريخ التوريد", paid: "ضريبة المخرجات حُسبت وسُددت للهيئة", wo: "المقابل شُطب في الحسابات", not: "العميل أُخطر بالمبلغ المشطوب", res: "النتيجة", ok: "الإعفاء متاح", no: "ليس بعد", amt: "تسوية ضريبة المخرجات (5/105)" }
+    : { gross: "Gross written-off amount, VAT-inclusive (AED)", months: "Months since the date of supply", paid: "Output VAT was charged and paid to the FTA", wo: "Consideration written off in the accounts", not: "Customer notified of the write-off", res: "Result", ok: "Relief available", no: "Not yet", amt: "Output VAT adjustment (5/105)" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.gross} value={gross} onChange={setGross} width={290} />
+        <Field label={L.months} value={monthsSince} onChange={setMonthsSince} width={220} />
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={paid} onChange={(e) => setPaid(e.target.checked)} />
+          <span>{L.paid}</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={writtenOff} onChange={(e) => setWrittenOff(e.target.checked)} />
+          <span>{L.wo}</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={notified} onChange={(e) => setNotified(e.target.checked)} />
+          <span>{L.not}</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.res}</div>
+          <div className="mg-tool-big" style={{ color: eligible ? "var(--accent)" : "var(--bad)" }}>{eligible ? L.ok : L.no}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.amt}</div>
+          <div className="mg-tool-big">{eligible ? aed2(relief) : "—"}</div>
+        </div>
+        <div className="mg-tool-note">
+          {eligible
+            ? (ar
+              ? <>خفّض ضريبة المخرجات بـ {aed2(relief)} في إقرار الفترة التي اكتملت فيها الشروط. تذكّر المرآة: على عميلك المسجل تخفيض ضريبة مدخلاته بالمقدار نفسه — وإن حصّلت لاحقًا أعدت احتساب الضريبة على المحصَّل.</>
+              : <>Reduce output tax by {aed2(relief)} in the return for the period the conditions were completed. Remember the mirror: your registered customer must reduce their input VAT by the same measure — and if you later recover, the VAT is re-accounted on the recovery.</>)
+            : (ar
+              ? <>الشروط غير المكتملة: {blockers.join("؛ ")}. الإعفاء يتطلب الأربعة كلها بموجب المادة 64.</>
+              : <>Outstanding conditions: {blockers.join("; ")}. Relief requires all four under Article 64.</>)}
+        </div>
+      </div>
+    </div>
+  );
+}
