@@ -1250,3 +1250,209 @@ export function BadDebtCalculator({ ar = false }: { ar?: boolean } = {}) {
     </div>
   );
 }
+
+/* ── 19 · Designated zone VAT decision checker ────────────────────── */
+
+const DZ_TYPES = [
+  { k: "Goods — resold or incorporated", ak: "سلع — تُباع أو تُدمج" },
+  { k: "Goods — consumed in the zone", ak: "سلع — تُستهلك في المنطقة" },
+  { k: "Services", ak: "خدمات" },
+] as const;
+const DZ_DESTS = [
+  { k: "Within the same designated zone", ak: "داخل المنطقة المحددة نفسها" },
+  { k: "To another designated zone", ak: "إلى منطقة محددة أخرى" },
+  { k: "To the UAE mainland", ak: "إلى البر الرئيسي" },
+  { k: "Abroad (export)", ak: "إلى الخارج (تصدير)" },
+] as const;
+
+export function DesignatedZoneCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [type, setType] = useState(0);
+  const [dest, setDest] = useState(0);
+
+  // type 2 = services → always standard 5%. Goods consumed → 5% within zone.
+  // Goods for resale/incorporation: within zone / zone-to-zone / abroad →
+  // outside scope; to mainland → import VAT on entry.
+  let verdict: "out" | "vat" | "import";
+  if (type === 2) verdict = "vat";
+  else if (dest === 2) verdict = "import";
+  else if (type === 1 && dest === 0) verdict = "vat";
+  else verdict = "out";
+
+  const V = ar
+    ? { out: "خارج نطاق الضريبة", vat: "خاضع 5%", import: "ضريبة استيراد عند الدخول" }
+    : { out: "Outside the scope", vat: "Standard-rated 5%", import: "Import VAT on entry" };
+  const NOTES = ar
+    ? {
+        out: "خارج النطاق بشرط بقاء الرقابة الجمركية وعدم إطلاق السلع للتداول في الطريق. احتفظ بدليل الحركة — الخروج من النطاق معيار توثيق.",
+        vat: type === 2
+          ? "مكان توريد الخدمات في المنطقة المحددة يعامَل كالبر الرئيسي — كل الخدمات بالنسبة العادية أيًا كان الطرفان."
+          : "السلع المشتراة لتُستهلك داخل المنطقة (لا لإعادة البيع أو الدمج) تُفرض عليها الضريبة عاديًا.",
+        import: "انتقال السلع من المنطقة المحددة إلى البر الرئيسي استيراد: تستحق ضريبة الاستيراد عبر رقم التسجيل الضريبي للمستورد أو عند الجمارك.",
+      }
+    : {
+        out: "Outside the scope provided customs controls hold and the goods aren't released into circulation in transit. Keep the movement evidence — outside-scope is a documentation standard.",
+        vat: type === 2
+          ? "Place of supply of services in a designated zone is treated as the mainland — all services at the standard rate, whoever the parties are."
+          : "Goods bought to be used or consumed inside the zone (not resold or incorporated) are taxed normally.",
+        import: "Goods moving from a designated zone to the mainland are an import: import VAT is due via the importer's TRN or at customs.",
+      };
+  const L = ar
+    ? { type: "ما الذي يورَّد؟", dest: "إلى أين؟", res: "المعاملة" }
+    : { type: "What is being supplied?", dest: "Where is it going?", res: "Treatment" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.type}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {DZ_TYPES.map((t, i) => (
+            <button key={t.k} type="button" className={type === i ? "on" : ""} onClick={() => setType(i)}>{ar ? t.ak : t.k}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.dest}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {DZ_DESTS.map((d, i) => (
+            <button key={d.k} type="button" className={dest === i ? "on" : ""} onClick={() => setDest(i)} disabled={type === 2 && i !== 0}>{ar ? d.ak : d.k}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.res}</div>
+          <div className="mg-tool-big" style={{ color: verdict === "out" ? "var(--accent)" : verdict === "vat" ? "var(--text)" : "var(--warn, #9A6A10)" }}>{V[verdict]}</div>
+        </div>
+        <div className="mg-tool-note">{NOTES[verdict]}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 20 · E-commerce VAT checker ──────────────────────────────────── */
+
+export function EcomVatCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [amount, setAmount] = useState("1000");
+  const [stream, setStream] = useState(0); // 0 goods, 1 electronic services
+  const [abroad, setAbroad] = useState(false);
+  const [evidence, setEvidence] = useState(false);
+
+  const a = Math.max(0, num(amount));
+  // Domestic → 5%. Goods abroad with export evidence → 0%; without → hold at 5%.
+  // E-services used abroad with evidence → 0%/out of scope; without → 5%.
+  const zero = abroad && evidence;
+  const vat = zero ? 0 : a * 0.05;
+
+  const L = ar
+    ? { amt: "قيمة الطلب (درهم)", stream: "نوع الإيراد", goods: "سلع تُشحن", es: "خدمات إلكترونية", abroad: stream === 0 ? "العميل خارج الإمارات (تصدير)" : "الخدمة تُستخدم خارج الإمارات", ev: stream === 0 ? "دليل الخروج الجمركي محفوظ" : "دليل مكان الاستخدام محفوظ", rate: "النسبة", out: "الضريبة", tot: "الإجمالي" }
+    : { amt: "Order amount (AED)", stream: "Revenue stream", goods: "Goods shipped", es: "Electronic services", abroad: stream === 0 ? "Customer outside the UAE (export)" : "Service used outside the UAE", ev: stream === 0 ? "Customs exit evidence retained" : "Use-and-enjoyment evidence retained", rate: "Rate", out: "VAT", tot: "Total" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.amt} value={amount} onChange={setAmount} width={200} />
+        <div className="mg-tool-field" style={{ maxWidth: 320 }}>
+          <span className="mg-tool-label">{L.stream}</span>
+          <div className="mg-tool-toggle">
+            <button type="button" className={stream === 0 ? "on" : ""} onClick={() => setStream(0)}>{L.goods}</button>
+            <button type="button" className={stream === 1 ? "on" : ""} onClick={() => setStream(1)}>{L.es}</button>
+          </div>
+        </div>
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={abroad} onChange={(e) => setAbroad(e.target.checked)} />
+          <span>{L.abroad}</span>
+        </label>
+        {abroad && (
+          <label className="mg-tool-check">
+            <input type="checkbox" checked={evidence} onChange={(e) => setEvidence(e.target.checked)} />
+            <span>{L.ev}</span>
+          </label>
+        )}
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.rate}</div>
+          <div className="mg-tool-big" style={{ color: zero ? "var(--accent)" : "var(--text)" }}>{zero ? "0%" : "5%"}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.out}</div>
+          <div className="mg-tool-big">{aed2(vat)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.tot}</div>
+          <div className="mg-tool-big">{aed2(a + vat)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? (abroad && !evidence
+              ? <b>وجهة خارجية بلا دليل محفوظ: عامل التوريد 5% حتى يكتمل الملف — النسبة الصفرية تُكتسب بالتوثيق، والهيئة تعيد التسعير حيث يغيب.</b>
+              : zero
+                ? "نسبة صفرية: استرداد كامل لضريبة المدخلات، مع الاحتفاظ بالدليل لكل طلب مربوطًا برقمه."
+                : "توريد محلي: 5% على السعر وفاتورة ضريبية (المبسطة تكفي المستهلكين عادة). وتذكّر عتبة التسجيل 375,000 درهم على إيراد متحرك.")
+            : (abroad && !evidence
+              ? <b>Foreign destination without retained evidence: treat the supply as 5% until the file is complete — zero-rating is earned by documentation, and the FTA re-rates where it is missing.</b>
+              : zero
+                ? "Zero-rated: full input-tax recovery, with the evidence kept per order, linked to the order number."
+                : "Domestic supply: 5% on the price with a tax invoice (simplified usually suffices for consumers). Remember the AED 375,000 registration threshold runs on rolling revenue.")}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 21 · UAE employee cost calculator ────────────────────────────── */
+
+export function EmployeeCostCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [gross, setGross] = useState("15000");
+  const [basicPct, setBasicPct] = useState("60");
+  const [national, setNational] = useState(false);
+  const [pensionPct, setPensionPct] = useState("12.5");
+
+  const g = Math.max(0, num(gross));
+  const bp = Math.min(100, Math.max(0, num(basicPct))) / 100;
+  const basic = g * bp;
+  // EOSB accrues on basic at 21 days/year for expat staff; nationals get
+  // pension contributions instead.
+  const eosb = national ? 0 : (basic * 21) / 365;
+  const pension = national ? (g * Math.max(0, num(pensionPct))) / 100 : 0;
+  const monthly = g + eosb + pension;
+
+  const L = ar
+    ? { g: "الراتب الإجمالي الشهري (درهم)", b: "نسبة الأساسي من الإجمالي", nat: "الموظف مواطن (معاش بدل مكافأة نهاية الخدمة)", pp: "مساهمة صاحب العمل في المعاش", eosb: "مخصص نهاية الخدمة الشهري", pen: "مساهمة المعاش الشهرية", tot: "التكلفة الشهرية لصاحب العمل", yr: "سنويًا" }
+    : { g: "Gross monthly salary (AED)", b: "Basic as % of gross", nat: "UAE/GCC national (pension instead of EOSB)", pp: "Employer pension contribution", eosb: "Monthly EOSB provision", pen: "Monthly pension contribution", tot: "Monthly employer cost", yr: "Annually" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.g} value={gross} onChange={setGross} width={220} />
+        <Field label={L.b} value={basicPct} onChange={setBasicPct} suffix="%" width={190} />
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={national} onChange={(e) => setNational(e.target.checked)} />
+          <span>{L.nat}</span>
+        </label>
+        {national && <Field label={L.pp} value={pensionPct} onChange={setPensionPct} suffix="%" width={200} />}
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{national ? L.pen : L.eosb}</div>
+          <div className="mg-tool-big">{aed2(national ? pension : eosb)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.tot}</div>
+          <div className="mg-tool-big">{aed2(monthly)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.yr}</div>
+          <div className="mg-tool-big">{aed(monthly * 12)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>مخصص نهاية الخدمة يُحتسب شهريًا على الأساسي (21 يومًا سنويًا لأول خمس سنوات؛ يرتفع إلى 30 بعدها فترتفع التكلفة الحقيقية مع الأقدمية). للمواطنين تُطبق مساهمات المعاش وفق نظام الهيئة المختصة ونسبتها تختلف بحسب تاريخ الالتحاق — عدّل الحقل لموقفك. أضف تكاليفك الثابتة (التأشيرة والتأمين الطبي وبدل الإجازة) فوق هذا الرقم.</>
+            : <>The EOSB provision accrues monthly on basic wage (21 days/year for the first five years; 30 after, so true cost rises with tenure). For nationals, pension contributions apply per the relevant authority and the rate differs by joining date — adjust the field to your case. Add your fixed costs (visa, medical insurance, leave allowance) on top of this figure.</>}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -154,6 +154,36 @@ export const TOOLS: Tool[] = [
     arDescription:
       "افحص الشروط الأربعة، وعُدّ الأشهر الستة، واحصل على تسوية ضريبة المخرجات 5/105 بالضبط على المبلغ المشطوب.",
   },
+  {
+    slug: "uae-designated-zone-vat-checker",
+    title: "Designated zone VAT checker",
+    description:
+      "Pick what's being supplied and where it's going — get the treatment: outside the scope, standard 5%, or import VAT on entry to the mainland.",
+    guide: "uae-designated-zone-vat",
+    arTitle: "فاحص ضريبة المناطق المحددة",
+    arDescription:
+      "اختر ما يورَّد وإلى أين يذهب — واحصل على المعاملة: خارج النطاق، أو 5% عادية، أو ضريبة استيراد عند دخول البر الرئيسي.",
+  },
+  {
+    slug: "uae-ecommerce-vat-checker",
+    title: "E-commerce VAT checker (UAE)",
+    description:
+      "Goods or electronic services, domestic or abroad, evidence or not — the rate, the VAT and the total per order, with the zero-rating documentation rule enforced.",
+    guide: "uae-ecommerce-vat",
+    arTitle: "فاحص ضريبة التجارة الإلكترونية (الإمارات)",
+    arDescription:
+      "سلع أو خدمات إلكترونية، محلي أو خارجي، بدليل أو بدونه — النسبة والضريبة والإجمالي لكل طلب، مع فرض قاعدة توثيق النسبة الصفرية.",
+  },
+  {
+    slug: "uae-employee-cost-calculator",
+    title: "UAE employee cost calculator",
+    description:
+      "What a hire really costs per month: gross salary plus the monthly EOSB provision on basic wage — or pension contributions for nationals — with the annual total.",
+    guide: "uae-wps-payroll-compliance",
+    arTitle: "حاسبة تكلفة الموظف في الإمارات",
+    arDescription:
+      "كم يكلّف التوظيف شهريًا فعلًا: الراتب الإجمالي زائد مخصص نهاية الخدمة الشهري على الأساسي — أو مساهمات المعاش للمواطنين — مع الإجمالي السنوي.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

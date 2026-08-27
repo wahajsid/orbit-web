@@ -639,6 +639,236 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-08-24 — two niche (director remuneration, construction
+   retentions) + three search magnets (designated zones, e-commerce VAT,
+   WPS payroll). */
+GUIDES.push(
+  {
+    slug: "uae-designated-zone-vat",
+    title: "Designated zone VAT in the UAE: when goods are outside the scope and when they aren't",
+    description:
+      "A designated zone is not a VAT-free zone. Where the outside-scope treatment actually applies — goods, not services; movement, not consumption — and the import moment everyone forgets.",
+    updated: "2026-08-24",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The misconception to clear first",
+        ps: [
+          "A designated zone is a specific fenced, customs-controlled area named in a Cabinet Decision — not every free zone qualifies, and being in one does not switch VAT off. Companies in designated zones register for VAT under the normal thresholds, charge VAT on their services, and file returns like everyone else. The special treatment is narrow: it applies to certain movements and supplies of goods.",
+        ],
+      },
+      {
+        h: "What is actually outside the scope",
+        list: [
+          "A supply of goods within a designated zone, where the goods are incorporated into another product, resold, or otherwise not consumed in the zone — outside the scope of UAE VAT",
+          "Goods moved between two designated zones — outside the scope, provided the goods aren't released into circulation or used in transit, and the customs controls hold",
+          "Goods supplied from a designated zone directly abroad — outside the scope of UAE VAT (customs export procedures still apply)",
+        ],
+      },
+      {
+        h: "What is taxed exactly as on the mainland",
+        list: [
+          "Services — all of them. Place of supply of services in a designated zone is treated as the mainland: rent, logistics fees, consultancy, everything at the normal rate",
+          "Goods consumed inside the zone — a supply of goods bought to be used or consumed there (not resold or incorporated) is taxed normally",
+          "Goods moving from the zone to the mainland — this is an import: import VAT is due on entry, accounted via the importer's TRN or at customs",
+          "Water, energy and real estate in the zone follow their own specific rules",
+        ],
+      },
+      {
+        h: "Where businesses get hurt",
+        ps: [
+          "The pattern in audits is consistent: a designated-zone trader treats everything it does as outside scope — including its service income and its mainland deliveries — and the FTA reconstructs years of output tax and import VAT at once. The clean discipline is per-transaction: what is being supplied, where the goods physically move, and whether they are consumed. Those three questions decide the treatment; the licence address does not.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit classifies designated-zone transactions by supply type and movement — within-zone, zone-to-zone, zone-to-mainland, zone-to-abroad — applies the matching treatment on each invoice, and accrues the import VAT the moment goods cross into the mainland, so the return reflects the movements rather than the misconception.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-director-owner-remuneration",
+    title: "Paying yourself from your UAE company: salaries, dividends and Article 36",
+    description:
+      "Owner salaries are deductible, dividends are not, and connected-person payments must survive a market-value test — the Corporate Tax mechanics of taking money out of your own company.",
+    updated: "2026-08-24",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The question every owner now has",
+        ps: [
+          "Before Corporate Tax, how you took money out of your own company was a cash-flow preference. At 9%, it is a tax computation: a salary is a deductible expense that reduces taxable profit; a dividend is a distribution of profit that has already been taxed. On AED 500,000 taken out, the difference between the two routes is up to AED 45,000 of tax — every year.",
+        ],
+      },
+      {
+        h: "The catch: Article 36",
+        ps: [
+          "Payments to connected persons — owners, directors, and their related parties — are deductible only to the extent they correspond to the market value of the service actually provided, and are incurred wholly and exclusively for the business. An owner genuinely running the company can pay themselves what the market would pay a manager doing that job. An owner paying themselves AED 2 million for a role the market fills at AED 400,000 has AED 1.6 million of non-deductible distribution wearing a salary costume — and it is exactly the number an FTA reviewer prices first.",
+        ],
+      },
+      {
+        h: "Making the salary defensible",
+        list: [
+          "A real employment contract, registered where required, with the role described",
+          "A salary a recruiter would recognise for that role, that seniority, that market — benchmark it once a year and keep the evidence",
+          "Paid regularly through payroll (and WPS where applicable), not as ad-hoc round-number transfers",
+          "Board/management fees documented separately from salary, each at their own market value",
+          "The mirror check: free-zone owners at 0% have the opposite incentive (suppress salary, inflate zone profit) — the market-value test cuts both ways",
+        ],
+      },
+      {
+        h: "What never deducts",
+        list: [
+          "Dividends and profit distributions, however labelled",
+          "Owner personal spending run through the company — non-deductible, and it contaminates the books an auditor must sign",
+          "Interest on owner loans beyond arm's-length terms",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit tags connected-person payments as their own category, keeps the payroll evidence attached, and shows owner remuneration on its own line in the CT working — so the market-value conversation happens with your advisor before filing, not with the FTA after.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "construction-retention-accounting-vat",
+    title: "Retention money in construction: the accounting and the VAT date of supply",
+    description:
+      "Retentions are earned but not yet billable — which splits the accounting (contract asset, not receivable) and delays the VAT tax point. Getting either wrong distorts revenue or prepays tax.",
+    updated: "2026-08-24",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "What retention actually is",
+        ps: [
+          "A construction contract typically lets the employer hold back 5–10% of each certified payment until practical completion or the end of the defects period. The contractor has done the work — the revenue is earned under IFRS 15 — but has no unconditional right to the cash until the conditions clear. That gap drives both treatments below.",
+        ],
+      },
+      {
+        h: "The accounting: contract asset, not trade receivable",
+        ps: [
+          "Certified work you can invoice now is a receivable. Retention is a contract asset: earned consideration whose right to payment is still conditional on something other than the passage of time. Reclassify it to receivables only when the conditions clear (completion certificate, defects period end). The distinction is not cosmetic — receivables age and drive ECL provisioning on one pattern; retentions on a project running three more years age on another, and lumping them together makes both the ageing report and the provision wrong.",
+        ],
+      },
+      {
+        h: "The VAT: the tax point usually waits",
+        ps: [
+          "For continuous supplies with periodic certification, the date of supply is generally the earliest of: the tax invoice being issued, the payment falling due, or the payment being received. Retention, by design, is neither invoiced nor due at certification — so its tax point normally arrives when the retention is finally invoiced or received, not when the original work was certified.",
+          "The practical consequences: don't account for output VAT on retention years before you can bill it — that is prepaying tax on cash you don't hold; and when the retention does release, remember it carries VAT at that point — releasing AED 500,000 of retention means invoicing AED 525,000, a step contractors' cash-flow forecasts routinely miss.",
+        ],
+      },
+      {
+        h: "The traps",
+        list: [
+          "Invoicing the full certified amount including retention — that accelerates the entire VAT and defeats the deferral",
+          "Forgetting retentions in the ECL assessment — long-dated, condition-heavy balances deserve their own loss-rate thinking",
+          "Losing track of defects-period end dates, so releasable retention sits unbilled for months",
+          "Contract clauses that make retention 'due' on certification with only payment delayed — wording can move the tax point; read yours",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit carries retention per contract as a contract asset with its release conditions and dates, keeps it out of the VAT return until the tax point actually arrives, raises the invoice (VAT included) when release conditions clear, and ages it separately in the ECL working.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-ecommerce-vat",
+    title: "VAT for e-commerce in the UAE: place of supply, exports and electronic services",
+    description:
+      "Selling online doesn't change the 5% — it changes where the questions are: who the customer is, where the goods go, and what counts as an electronically supplied service.",
+    updated: "2026-08-24",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "Goods sold online, delivered in the UAE",
+        ps: [
+          "Domestic e-commerce is plain VAT: 5% on the price, a tax invoice (simplified is usually enough for consumers), and output tax in the period of supply. The platform doesn't change the analysis — a sale through your own site, a marketplace, or Instagram DM is the same supply. What online sellers actually get wrong is registration timing: the AED 375,000 mandatory threshold creeps up on a growing store month by month, and it tests rolling revenue, not the calendar year.",
+        ],
+      },
+      {
+        h: "Goods shipped abroad",
+        ps: [
+          "An export of goods is zero-rated — 0% VAT, with full input-tax recovery — but the rate is earned by evidence: official customs exit documents and commercial evidence of the shipment, retained per order. An online seller shipping GCC and international orders without an evidence file is sitting on supplies the FTA can re-rate to 5% wholesale. Zero-rated is a documentation standard, not a default.",
+        ],
+      },
+      {
+        h: "Electronic services follow use, not the seller",
+        ps: [
+          "For electronically supplied services — apps, SaaS, streaming, e-learning, digital downloads — the place of supply follows where the service is actually used and enjoyed. Sold to users in the UAE, they carry UAE VAT; genuinely used abroad, they can fall outside UAE VAT or zero-rate, evidence again deciding. The rule cuts the other way too: a foreign platform selling electronic services to UAE consumers must register for UAE VAT with no threshold — the first dirham counts.",
+        ],
+      },
+      {
+        h: "The operational checklist",
+        list: [
+          "Track the rolling-12-month revenue against AED 375,000 monthly, not annually",
+          "Keep customs exit evidence per exported order, linked to the order number",
+          "Classify each revenue stream: goods vs electronic services vs facilitation/commission — each has its own analysis",
+          "Marketplace sellers: agree in writing who invoices the customer and who accounts for the VAT — the platform's terms decide whose supply it is",
+          "COD and gateway settlements: reconcile collected VAT to the gateway payouts, where double-counting and gaps both hide",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit ingests order and gateway data, classifies each line by destination and stream, holds zero-rating where the export evidence is missing, watches the rolling threshold, and reconciles collected VAT against settlements — the whole checklist above, running continuously.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-wps-payroll-compliance",
+    title: "WPS payroll compliance in the UAE: how the Wages Protection System actually works",
+    description:
+      "Salaries in the UAE are paid through a monitored channel with deadlines and consequences — the SIF file, the 15-day rule, and what non-compliance blocks.",
+    updated: "2026-08-24",
+    minutes: 4,
+    tax: true,
+    sections: [
+      {
+        h: "What WPS is",
+        ps: [
+          "The Wages Protection System is MOHRE's electronic salary-monitoring channel: employers registered with the ministry pay wages through approved banks and exchange houses, and each payroll run generates a Salary Information File (SIF) that tells the ministry who was paid, how much, and when — matched against the registered contracts. It is how the state knows salaries were actually paid, in full, on time.",
+        ],
+      },
+      {
+        h: "The rules that bite",
+        list: [
+          "Wages must be paid through WPS-approved channels — cash and personal transfers don't count as paid, however real the money was",
+          "Payment is due within 15 days of the due date under current rules; later than that and the employer starts accruing non-compliance status",
+          "Compliance is measured on coverage too: paying most staff but skipping some, or paying materially less than the registered wage, flags the file",
+          "Consequences escalate: reminders, then blocks on new work permits, then fines and referral — and the block is the one that operationally hurts, because hiring stops",
+        ],
+      },
+      {
+        h: "Where payroll runs go wrong",
+        list: [
+          "The SIF says one thing, the bank transfer another — rejected records that nobody reconciles",
+          "Registered contract salaries drifting from actual salaries after raises, so every month quietly mismatches",
+          "Unpaid-leave and EOSB settlements processed outside WPS without the paper trail",
+          "Free-zone employers assuming WPS doesn't apply — several free zones run their own equivalent regimes with the same logic",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit's payroll run produces the register and the SIF-shaped output from the same numbers, reconciles the bank confirmation against it, flags rejected or short-paid records the day they bounce, and keeps contract-vs-paid drift visible — so WPS status is something you know, not something you discover.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }

@@ -18,7 +18,7 @@ Key facts:
 - [Compliance](https://www.orbitgulf.com/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
 - [How it works](https://www.orbitgulf.com/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
 - [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
-- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA), free zone de minimis (QFZP), Small Business Relief checker, UAE VAT penalty estimator, IFRS 15 loyalty points deferred revenue, KSA withholding tax (WHT), UAE Corporate Tax penalties, UAE VAT registration checker, VAT bad-debt relief (Article 64)
+- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA), free zone de minimis (QFZP), Small Business Relief checker, UAE VAT penalty estimator, IFRS 15 loyalty points deferred revenue, KSA withholding tax (WHT), UAE Corporate Tax penalties, UAE VAT registration checker, VAT bad-debt relief (Article 64), designated zone VAT checker, e-commerce VAT checker, UAE employee cost
 - [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
 - [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
 - [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
@@ -42,3 +42,8 @@ Key facts:
 - [VAT bad-debt relief](https://www.orbitgulf.com/guides/uae-vat-bad-debt-relief): Article 64 — the four conditions, the 5/105 adjustment, the customer's mirror obligation
 - [UAE Corporate Tax penalties](https://www.orbitgulf.com/guides/uae-corporate-tax-penalties): late registration AED 10,000, monthly filing penalties, 14% p.a. on unpaid tax
 - [ZATCA e-invoicing Phase 2](https://www.orbitgulf.com/guides/zatca-e-invoicing-phase-2): Fatoora integration, clearance vs reporting, the wave system, common failures
+- [Designated zone VAT](https://www.orbitgulf.com/guides/uae-designated-zone-vat): when goods are outside the scope, when they aren't, and the import moment
+- [Director & owner remuneration](https://www.orbitgulf.com/guides/uae-director-owner-remuneration): salaries vs dividends and the Article 36 market-value test
+- [Construction retention money](https://www.orbitgulf.com/guides/construction-retention-accounting-vat): contract asset accounting and the deferred VAT tax point
+- [E-commerce VAT](https://www.orbitgulf.com/guides/uae-ecommerce-vat): place of supply, export evidence, electronic services use-and-enjoyment
+- [WPS payroll compliance](https://www.orbitgulf.com/guides/uae-wps-payroll-compliance): the SIF file, the 15-day rule, and what non-compliance blocks
