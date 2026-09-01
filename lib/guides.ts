@@ -869,6 +869,243 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-08-28 — two niche (holding structures, branch vs
+   subsidiary) + three search magnets (reverse charge, audit rules,
+   cash vs accrual). */
+GUIDES.push(
+  {
+    slug: "uae-holding-company-participation-exemption",
+    title: "Holding companies under UAE Corporate Tax: the participation exemption, explained",
+    description:
+      "Dividends and capital gains through a UAE holding company can be fully exempt — if the participation clears the ownership, holding-period and subject-to-tax tests. The conditions, the traps, and the tax-group alternative.",
+    updated: "2026-08-28",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "Why holding structures suddenly matter",
+        ps: [
+          "At 0% corporate tax, a UAE holding company was an administrative convenience. At 9%, it is the difference between investment returns flowing through untaxed and every dividend and exit gain taking a 9% haircut on the way up. The law is actually generous here — but the generosity is conditional, and the conditions are tested participation by participation.",
+        ],
+      },
+      {
+        h: "The easy case: UAE-to-UAE dividends",
+        ps: [
+          "Dividends and other profit distributions received from a UAE-resident company are exempt from Corporate Tax in the recipient's hands — no ownership threshold, no holding period. Domestic profits are taxed once, at the operating company, and flow up clean.",
+        ],
+      },
+      {
+        h: "The conditional case: the participation exemption",
+        list: [
+          "Ownership: at least 5% of the shares — or, alternatively, an acquisition cost of at least AED 4 million",
+          "Holding period: held, or intended to be held, for at least 12 months",
+          "Subject-to-tax: the participation is taxed in its home jurisdiction at a rate of at least 9%, or meets the equivalent-test conditions",
+          "Asset test: the participation is not, in substance, a wrapper for assets that would fail these tests if held directly",
+        ],
+      },
+      {
+        h: "The traps",
+        list: [
+          "Selling at month eleven — the gain on a participation that never reaches 12 months is fully taxable, and 'intended to hold' needs contemporaneous evidence if you lean on it",
+          "Zero-tax subsidiaries: a participation in a jurisdiction with no corporate income tax generally fails the subject-to-tax test — the exemption is not a route to double non-taxation",
+          "Mixed holdings: each participation is tested on its own; one qualifying subsidiary does not bless the portfolio",
+          "Expenses: costs of acquiring or disposing of exempt participations are correspondingly non-deductible — the exemption cuts both ways",
+        ],
+      },
+      {
+        h: "The tax-group alternative",
+        ps: [
+          "Where a UAE parent holds at least 95% of a UAE subsidiary (shares, voting rights and profit entitlement), with the same financial year and accounting standards, the two can form a Corporate Tax group and file as one taxable person: intra-group transactions disappear, losses offset automatically. The trade-offs are joint liability and the compliance work of consolidation — and neither exempt persons nor Qualifying Free Zone Persons can join. Most owner-managed groups end up with the simpler answer: keep the companies separate and let the dividend exemption do the work.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit tags investment income by participation, keeps each participation's ownership %, acquisition cost, acquisition date and jurisdiction on file, and shows the exemption position per holding in the CT working — so the 12-month clock and the subject-to-tax evidence exist before the return needs them.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-branch-vs-subsidiary",
+    title: "Branch or subsidiary in the UAE: the tax and legal mechanics of each route",
+    description:
+      "A branch is the same legal person taxed on attributable profits; a subsidiary is a new one with exempt dividends on the way up. How the 9% applies to each, and the foreign-PE mirror for UAE companies expanding abroad.",
+    updated: "2026-08-28",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The choice, stripped to its frame",
+        ps: [
+          "A foreign company entering the UAE picks between registering a branch — the same legal entity, operating through a permanent establishment — and incorporating a subsidiary, a separate UAE company it owns. Both pay 9% on UAE profits above the threshold. The differences live in liability, attribution and what happens to the money afterwards.",
+        ],
+      },
+      {
+        h: "The branch route",
+        list: [
+          "Same legal person: the parent is directly liable for everything the branch does — no liability shield",
+          "Taxed on profits attributable to the UAE permanent establishment, determined on arm's-length principles as if the branch were independent — the attribution analysis IS the tax computation, so document it",
+          "No dividend mechanics: remitting branch profits home is an internal transfer, and the UAE currently imposes no withholding tax on outbound payments anyway",
+          "Licensing is real: a branch needs its own commercial licence, a local presence, and typically audited branch accounts",
+        ],
+      },
+      {
+        h: "The subsidiary route",
+        list: [
+          "Separate legal person: liability contained, contracts in its own name, bankable locally",
+          "Taxed as any UAE company — 0% to AED 375,000, 9% above; free-zone regimes can apply where conditions are met (a branch of a foreign company cannot elect Small Business Relief; a UAE-incorporated subsidiary may, if it qualifies)",
+          "Dividends up to the foreign parent leave the UAE with no withholding tax; whether they are taxed on arrival is the parent jurisdiction's affair — often sheltered by its own participation regime",
+          "Transfer pricing applies to everything it does with the group: management fees, licences, funding — the intercompany disciplines apply from day one",
+        ],
+      },
+      {
+        h: "The mirror: UAE companies expanding abroad",
+        ps: [
+          "The same choice runs outbound. A UAE company operating abroad through a foreign permanent establishment can elect to exempt that PE's profits (and losses) from UAE Corporate Tax, provided the PE is taxed at at least 9% locally — the foreign-PE election. Without the election, foreign branch profits are taxed in the UAE with credit for foreign tax paid. A foreign subsidiary, by contrast, sits behind the participation exemption. The modelling question is always the same: where are losses expected, and which regime lets them land usefully?",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit keeps branch books attributable — separate cost centres, arm's-length intercompany charges, the PE computation maintained monthly — and for groups it keeps each entity's CT position distinct, so the branch-vs-subsidiary decision stays visible in the numbers instead of dissolving into one blended ledger.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-vat-reverse-charge",
+    title: "The reverse charge in UAE VAT: when you are your own supplier",
+    description:
+      "Imported services, imported goods, and the domestic reverse charge for gold and hydrocarbons — how the mechanism works, why it is usually cash-neutral, and the return boxes people miss.",
+    updated: "2026-08-28",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The mechanism in one paragraph",
+        ps: [
+          "Normally the supplier charges VAT. Under the reverse charge, the registered recipient accounts for the output VAT as if it had made the supply to itself — and, in the same return, recovers that VAT as input tax to the extent it is entitled. For a fully taxable business the two entries cancel: no cash moves, but both boxes must be filled. The mechanism exists so that buying from abroad carries the same VAT weight as buying locally.",
+        ],
+      },
+      {
+        h: "Where it applies",
+        list: [
+          "Imported services: anything received from a non-resident supplier with no UAE presence — software licences, consultancy, advertising platforms, SaaS subscriptions. This is the one every business has and many miss",
+          "Imported goods: import VAT accounted through the VAT return via your TRN linked at customs, rather than paid at the border",
+          "Domestic reverse charge: supplies of gold and diamonds between registrants for resale or manufacture, and crude or refined hydrocarbons supplied between registrants for resale or energy production — the buyer accounts, not the seller",
+        ],
+      },
+      {
+        h: "Why cash-neutral is not effort-neutral",
+        ps: [
+          "Because no money moves, reverse-charge supplies feel invisible — and that is exactly how they go wrong. The FTA sees the gap: a business paying Google, AWS and foreign consultants shows those costs in its accounts, and a VAT return with an empty reverse-charge box contradicts its own ledger. The exposure compounds for partially exempt businesses, where the output side is due in full but the input side is only partly recoverable — there the reverse charge is a real cost, not a wash.",
+        ],
+      },
+      {
+        h: "The compliance checklist",
+        list: [
+          "Sweep the expense ledger monthly for non-resident suppliers — the reverse-charge population is a query, not a memory exercise",
+          "Convert foreign-currency invoices at the applicable rate and account output tax in the correct period",
+          "Recover input tax only to your actual entitlement — full recovery is the common case, not the automatic one",
+          "Keep the supplier invoices: the reverse charge replaces the supplier's tax invoice as your evidence",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit flags non-resident suppliers as documents arrive, computes the output and input entries per line, applies the recovery position, and fills both sides of the return — so the reverse charge happens because a supplier is foreign, not because someone remembered.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-audit-requirements",
+    title: "Who actually needs an audit in the UAE — and what Corporate Tax changed",
+    description:
+      "Audited financial statements are mandatory above AED 50m revenue and for every Qualifying Free Zone Person — on top of the company-law and free-zone rules that already applied. The full map.",
+    updated: "2026-08-28",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "Three overlapping regimes",
+        ps: [
+          "Whether you 'need an audit' in the UAE has three separate answers that stack: what the Corporate Tax law demands, what the Commercial Companies Law demands, and what your licensing authority demands. Businesses that only checked one list are usually the ones surprised in licence-renewal week.",
+        ],
+      },
+      {
+        h: "The Corporate Tax rule",
+        list: [
+          "Revenue above AED 50,000,000 in a tax period → audited financial statements must be prepared and maintained",
+          "Every Qualifying Free Zone Person → audited financial statements, regardless of size — the audit is a condition of the 0% regime itself, and failing it risks the five-year QFZP cliff",
+          "Everyone else → financial statements per the law and ministerial decisions, but not necessarily audited for CT purposes",
+        ],
+      },
+      {
+        h: "The rules that existed before CT",
+        list: [
+          "The Commercial Companies Law requires mainland companies (LLCs included) to appoint a licensed auditor and keep accounts — enforcement historically varied, but the obligation is statutory",
+          "Most free zones require annual audited financial statements for licence renewal — DMCC, JAFZA, DIFC and peers, each with their own filing windows",
+          "Banks, investors and major customers impose audits contractually regardless of what the law requires",
+        ],
+      },
+      {
+        h: "What this means in practice",
+        ps: [
+          "The operative question is no longer 'is an audit required' but 'is there any credible configuration where it isn't' — for a free-zone entity claiming 0%, or anything with real revenue, the answer is usually no. The businesses that suffer are the ones that treat the audit as a year-end event: an auditor walking into books with unreconciled banks, undocumented journals and missing evidence charges for the archaeology, in fees and in time. Books kept audit-ready make the audit a formality.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit keeps the books audit-ready by construction — every posting carries its evidence, every adjustment its reason, every period its lock — and produces the schedules an auditor asks for first: bank reconciliations, ageing, fixed assets, provisions, related-party flows. The audit becomes a review of work already done.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-cash-vs-accrual-corporate-tax",
+    title: "Cash basis or accrual basis for UAE Corporate Tax: who gets the choice and who shouldn't take it",
+    description:
+      "Businesses with revenue up to AED 3 million may prepare financial statements on the cash basis — but eligible is not the same as advisable. The rule, the mechanics of switching, and the judgement.",
+    updated: "2026-08-28",
+    minutes: 4,
+    tax: true,
+    sections: [
+      {
+        h: "The rule",
+        ps: [
+          "Taxable income starts from accounting income, and the default accounting basis is accrual. The concession: a business whose revenue does not exceed AED 3,000,000 in the tax period may prepare its financial statements on the cash basis instead — income when received, expenses when paid. Above the threshold, accrual is mandatory, with cash basis available only in exceptional circumstances approved by the FTA.",
+        ],
+      },
+      {
+        h: "Why small businesses take it",
+        list: [
+          "It matches the bank account — no accruals, no prepayments, no revenue recognised before cash arrives",
+          "It defers tax where customers pay slowly: income lands in the period the cash does",
+          "It pairs naturally with Small Business Relief — the same AED 3m revenue line governs both",
+        ],
+      },
+      {
+        h: "Why eligible is not the same as advisable",
+        list: [
+          "VAT does not follow: tax invoices drive VAT timing regardless of your accounting basis, so cash-basis books and the VAT return tell structurally different stories that must still reconcile",
+          "Growth forces a conversion: cross AED 3m and the switch to accrual is a real exercise — opening balances, unbilled work, accrued expenses — done under time pressure",
+          "Lenders and buyers think in accrual: cash-basis statements understate a growing business and complicate any financing or exit conversation",
+          "Prepaid-heavy or inventory-heavy models distort badly on cash basis — a year's rent paid in month twelve makes a profitable year look like a loss",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit keeps the underlying records accrual-complete either way — documents, dues and payments all dated — so a cash-basis business still sees its real receivables and payables, and the day it crosses AED 3m the accrual conversion is a report, not a reconstruction.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }

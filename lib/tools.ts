@@ -184,6 +184,36 @@ export const TOOLS: Tool[] = [
     arDescription:
       "كم يكلّف التوظيف شهريًا فعلًا: الراتب الإجمالي زائد مخصص نهاية الخدمة الشهري على الأساسي — أو مساهمات المعاش للمواطنين — مع الإجمالي السنوي.",
   },
+  {
+    slug: "uae-participation-exemption-checker",
+    title: "Participation exemption checker (UAE CT)",
+    description:
+      "Ownership, holding period and subject-to-tax — the three tests that decide whether a dividend or exit gain is exempt, with the 9% at stake shown.",
+    guide: "uae-holding-company-participation-exemption",
+    arTitle: "فاحص إعفاء المساهمة (ضريبة الشركات)",
+    arDescription:
+      "الملكية ومدة الاحتفاظ والخضوع للضريبة — الاختبارات الثلاثة التي تحسم إعفاء التوزيع أو ربح التخارج، مع إظهار الـ 9% على المحك.",
+  },
+  {
+    slug: "uae-reverse-charge-calculator",
+    title: "Reverse charge VAT calculator (UAE)",
+    description:
+      "Imported services and goods: the output VAT to account, the input VAT you recover, and the net cash effect at your actual recovery rate.",
+    guide: "uae-vat-reverse-charge",
+    arTitle: "حاسبة الاحتساب العكسي (الإمارات)",
+    arDescription:
+      "الخدمات والسلع المستوردة: ضريبة المخرجات المستحقة والمدخلات المستردة والأثر النقدي الصافي بنسبة استردادك الفعلية.",
+  },
+  {
+    slug: "uae-audit-requirement-checker",
+    title: "UAE audit requirement checker",
+    description:
+      "The AED 50m Corporate Tax test, the QFZP condition, and the company-law and free-zone rules that stack on top — a straight answer on whether you need audited statements.",
+    guide: "uae-audit-requirements",
+    arTitle: "فاحص وجوب التدقيق في الإمارات",
+    arDescription:
+      "اختبار الـ 50 مليون درهم في ضريبة الشركات، وشرط الشخص المؤهل، وقواعد قانون الشركات والمناطق الحرة المتراكمة فوقهما — جواب مباشر عن حاجتك لقوائم مدققة.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

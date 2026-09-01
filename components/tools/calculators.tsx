@@ -1456,3 +1456,181 @@ export function EmployeeCostCalculator({ ar = false }: { ar?: boolean } = {}) {
     </div>
   );
 }
+
+/* ── 22 · Participation exemption checker ─────────────────────────── */
+
+export function ParticipationCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [gain, setGain] = useState("1000000");
+  const [ownPct, setOwnPct] = useState("10");
+  const [cost, setCost] = useState("0");
+  const [months, setMonths] = useState("18");
+  const [taxed9, setTaxed9] = useState(true);
+  const [uaeDividend, setUaeDividend] = useState(false);
+
+  const g = Math.max(0, num(gain));
+  const ownership = num(ownPct) >= 5 || num(cost) >= 4000000;
+  const held = num(months) >= 12;
+  const exempt = uaeDividend || (ownership && held && taxed9);
+  const taxIfNot = Math.max(0, g - 375000) * 0.09;
+
+  const blockers: string[] = [];
+  if (!uaeDividend) {
+    if (!ownership) blockers.push(ar ? "الملكية دون 5% وتكلفة الاقتناء دون 4 ملايين درهم" : "ownership below 5% and acquisition cost below AED 4m");
+    if (!held) blockers.push(ar ? "مدة الاحتفاظ دون 12 شهرًا" : "holding period under 12 months");
+    if (!taxed9) blockers.push(ar ? "المساهمة غير خاضعة لـ 9% على الأقل في بلدها" : "participation not subject to at least 9% tax in its jurisdiction");
+  }
+
+  const L = ar
+    ? { gain: "التوزيع أو الربح الرأسمالي (درهم)", own: "نسبة الملكية", cost: "أو تكلفة الاقتناء (درهم)", months: "أشهر الاحتفاظ (فعلية أو منوية)", taxed: "المساهمة خاضعة لـ 9% على الأقل في بلدها (أو تستوفي الاختبار المكافئ)", uae: "توزيع من شركة مقيمة في الإمارات (معفى دون شروط)", res: "الموقف", ok: "معفى", no: "خاضع", tax: "الضريبة إن لم يُعفَ" }
+    : { gain: "Dividend or capital gain (AED)", own: "Ownership", cost: "or acquisition cost (AED)", months: "Months held (actual or intended)", taxed: "Participation taxed at ≥9% in its jurisdiction (or meets the equivalent test)", uae: "Dividend from a UAE-resident company (exempt without conditions)", res: "Position", ok: "Exempt", no: "Taxable", tax: "Tax if not exempt" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.gain} value={gain} onChange={setGain} width={230} />
+        <Field label={L.own} value={ownPct} onChange={setOwnPct} suffix="%" width={140} />
+        <Field label={L.cost} value={cost} onChange={setCost} width={210} />
+        <Field label={L.months} value={months} onChange={setMonths} width={230} />
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={uaeDividend} onChange={(e) => setUaeDividend(e.target.checked)} />
+          <span>{L.uae}</span>
+        </label>
+        {!uaeDividend && (
+          <label className="mg-tool-check">
+            <input type="checkbox" checked={taxed9} onChange={(e) => setTaxed9(e.target.checked)} />
+            <span>{L.taxed}</span>
+          </label>
+        )}
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.res}</div>
+          <div className="mg-tool-big" style={{ color: exempt ? "var(--accent)" : "var(--bad)" }}>{exempt ? L.ok : L.no}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.tax}</div>
+          <div className="mg-tool-big">{exempt ? "—" : aed(taxIfNot)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {exempt
+            ? (ar
+              ? "المساهمة مؤهلة — التوزيع أو الربح خارج وعاء ضريبة الشركات. تذكّر المقابل: تكاليف اقتناء المساهمات المعفاة والتخارج منها غير قابلة للخصم، والأدلة (نسبة الملكية، التاريخ، إثبات الخضوع للضريبة) يجب أن تكون في الملف قبل الإقرار."
+              : "The participation qualifies — the dividend or gain sits outside the Corporate Tax base. Remember the mirror: costs of acquiring or disposing of exempt participations are non-deductible, and the evidence (ownership %, dates, subject-to-tax proof) needs to be on file before the return.")
+            : (ar
+              ? <>غير معفى: {blockers.join("؛ ")}. المبلغ يدخل الدخل الخاضع على الشرائح العادية (الضريبة المبينة تفترض عدم وجود دخل خاضع آخر).</>
+              : <>Not exempt: {blockers.join("; ")}. The amount enters taxable income at the standard bands (the tax shown assumes no other taxable income).</>)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 23 · Reverse charge VAT calculator ───────────────────────────── */
+
+export function ReverseChargeCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [amount, setAmount] = useState("50000");
+  const [recovery, setRecovery] = useState("100");
+
+  const a = Math.max(0, num(amount));
+  const rec = Math.min(100, Math.max(0, num(recovery))) / 100;
+  const output = a * 0.05;
+  const input = output * rec;
+  const net = output - input;
+
+  const L = ar
+    ? { amt: "قيمة الخدمة أو السلعة المستوردة (درهم)", rec: "نسبة استرداد المدخلات لديك", out: "ضريبة المخرجات المستحقة", inp: "المدخلات المستردة", net: "الأثر النقدي الصافي" }
+    : { amt: "Imported service or goods value (AED)", rec: "Your input-recovery entitlement", out: "Output VAT to account", inp: "Input VAT recovered", net: "Net cash effect" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.amt} value={amount} onChange={setAmount} width={270} />
+        <Field label={L.rec} value={recovery} onChange={setRecovery} suffix="%" width={230} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.out}</div>
+          <div className="mg-tool-big">{aed2(output)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.inp}</div>
+          <div className="mg-tool-big">{aed2(input)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.net}</div>
+          <div className="mg-tool-big" style={{ color: net > 0 ? "var(--bad)" : "var(--accent)" }}>{aed2(net)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? (net > 0
+              ? <>باسترداد جزئي يصبح الاحتساب العكسي كلفة حقيقية: {aed2(net)} تُدفع مع الإقرار. القيدان يظهران في الإقرار نفسه — خانة المخرجات وخانة المدخلات، كلتاهما إلزامية.</>
+              : "استرداد كامل: لا نقد يتحرك، لكن القيدين إلزاميان في الإقرار — خانة مخرجات فارغة مع مصروفات موردين أجانب في دفترك تناقضٌ تراه الهيئة.")
+            : (net > 0
+              ? <>With partial recovery the reverse charge becomes a real cost: {aed2(net)} payable with the return. Both entries appear in the same return — the output box and the input box, both mandatory.</>
+              : "Full recovery: no cash moves, but both entries are mandatory in the return — an empty reverse-charge box alongside foreign-supplier costs in your ledger is a contradiction the FTA can see.")}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 24 · UAE audit requirement checker ───────────────────────────── */
+
+export function AuditCheckCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [revenue, setRevenue] = useState("20000000");
+  const [qfzp, setQfzp] = useState(false);
+  const [freezone, setFreezone] = useState(false);
+  const [mainlandLLC, setMainlandLLC] = useState(true);
+
+  const r = Math.max(0, num(revenue));
+  const ctAudit = r > 50000000 || qfzp;
+  const otherAudit = freezone || mainlandLLC;
+  const required = ctAudit || otherAudit;
+
+  const reasons: string[] = [];
+  if (r > 50000000) reasons.push(ar ? "الإيرادات تتجاوز 50 مليون درهم (قانون ضريبة الشركات)" : "revenue exceeds AED 50m (Corporate Tax law)");
+  if (qfzp) reasons.push(ar ? "شخص مؤهل في منطقة حرة — التدقيق شرط لنظام الـ 0%" : "Qualifying Free Zone Person — the audit is a condition of the 0% regime");
+  if (freezone && !qfzp) reasons.push(ar ? "معظم المناطق الحرة تطلب قوائم مدققة لتجديد الرخصة" : "most free zones require audited statements for licence renewal");
+  if (mainlandLLC) reasons.push(ar ? "قانون الشركات التجارية يلزم شركات البر الرئيسي بمدقق معين" : "the Commercial Companies Law requires mainland companies to appoint an auditor");
+
+  const L = ar
+    ? { rev: "إيرادات الفترة (درهم)", qfzp: "شخص مؤهل في منطقة حرة (نظام 0%)", fz: "كيان منطقة حرة (غير مؤهل أو لم يختر)", ml: "شركة بر رئيسي (ذ.م.م وشبهها)", res: "قوائم مدققة؟", yes: "مطلوبة", no: "غير ملزمة ضريبيًا" }
+    : { rev: "Revenue for the period (AED)", qfzp: "Qualifying Free Zone Person (0% regime)", fz: "Free-zone entity (not QFZP / not electing)", ml: "Mainland company (LLC and similar)", res: "Audited statements?", yes: "Required", no: "Not CT-mandated" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.rev} value={revenue} onChange={setRevenue} width={240} />
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={qfzp} onChange={(e) => { setQfzp(e.target.checked); if (e.target.checked) { setFreezone(true); setMainlandLLC(false); } }} />
+          <span>{L.qfzp}</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={freezone} onChange={(e) => setFreezone(e.target.checked)} />
+          <span>{L.fz}</span>
+        </label>
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={mainlandLLC} onChange={(e) => setMainlandLLC(e.target.checked)} />
+          <span>{L.ml}</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.res}</div>
+          <div className="mg-tool-big" style={{ color: required ? "var(--bad)" : "var(--accent)" }}>{required ? L.yes : L.no}</div>
+        </div>
+        <div className="mg-tool-note">
+          {required
+            ? (ar ? <>الأسباب: {reasons.join("؛ ")}.</> : <>Because: {reasons.join("; ")}.</>)
+            : (ar
+              ? "لا إلزام تدقيق من قانون ضريبة الشركات على هذه المعطيات — لكن راجع شروط جهة ترخيصك وعقود بنوكك ومستثمريك؛ فالتدقيق يُفرض من ثلاث جهات لا واحدة."
+              : "No CT-law audit mandate on these inputs — but check your licensing authority's conditions and your bank/investor covenants; audits are imposed by three regimes, not one.")}
+        </div>
+      </div>
+    </div>
+  );
+}
