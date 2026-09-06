@@ -214,6 +214,36 @@ export const TOOLS: Tool[] = [
     arDescription:
       "اختبار الـ 50 مليون درهم في ضريبة الشركات، وشرط الشخص المؤهل، وقواعد قانون الشركات والمناطق الحرة المتراكمة فوقهما — جواب مباشر عن حاجتك لقوائم مدققة.",
   },
+  {
+    slug: "uae-tax-loss-carry-forward-calculator",
+    title: "Tax loss carry-forward calculator (UAE CT)",
+    description:
+      "Brought-forward losses against this year's income with the 75% offset cap applied — losses used, tax payable, and what carries onward.",
+    guide: "uae-tax-loss-carry-forward",
+    arTitle: "حاسبة ترحيل الخسائر الضريبية (ضريبة الشركات)",
+    arDescription:
+      "الخسائر المرحّلة مقابل دخل السنة مع تطبيق سقف التقاص 75% — الخسائر المستخدمة والضريبة المستحقة وما يستمر بالترحيل.",
+  },
+  {
+    slug: "uae-partial-exemption-calculator",
+    title: "Partial exemption calculator (input VAT apportionment)",
+    description:
+      "The three pots — taxable, exempt, residual — with the standard-method recovery ratio computed and the VAT you actually lose shown.",
+    guide: "uae-partial-exemption-input-vat",
+    arTitle: "حاسبة الإعفاء الجزئي (توزيع مدخلات الضريبة)",
+    arDescription:
+      "الأوعية الثلاثة — خاضع ومعفى ومتبقٍ — مع حساب نسبة الاسترداد بالطريقة القياسية وإظهار الضريبة التي تضيع فعلًا.",
+  },
+  {
+    slug: "uae-real-estate-vat-checker",
+    title: "UAE real estate VAT checker",
+    description:
+      "New residential, later residential, commercial, bare land, serviced apartments — the treatment, the VAT, and whether your input VAT survives.",
+    guide: "uae-real-estate-vat",
+    arTitle: "فاحص ضريبة العقارات الإماراتية",
+    arDescription:
+      "سكني جديد، سكني لاحق، تجاري، أرض فضاء، شقق مخدومة — المعاملة والضريبة وهل تنجو مدخلاتك.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

@@ -1634,3 +1634,175 @@ export function AuditCheckCalculator({ ar = false }: { ar?: boolean } = {}) {
     </div>
   );
 }
+
+/* ── 25 · Tax loss carry-forward (75% cap) ────────────────────────── */
+
+export function LossCarryCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [income, setIncome] = useState("1000000");
+  const [losses, setLosses] = useState("800000");
+
+  const inc = Math.max(0, num(income));
+  const bf = Math.max(0, num(losses));
+  const cap = inc * 0.75;
+  const used = Math.min(bf, cap);
+  const after = inc - used;
+  const tax = Math.max(0, after - 375000) * 0.09;
+  const carried = bf - used;
+
+  const L = ar
+    ? { inc: "الدخل الخاضع للفترة (درهم)", bf: "الخسائر المرحّلة المتاحة (درهم)", used: "الخسائر المستخدمة (سقف 75%)", taxable: "الدخل الخاضع بعد التقاص", tax: "الضريبة المستحقة", cf: "الخسائر المستمرة بالترحيل" }
+    : { inc: "Taxable income for the period (AED)", bf: "Brought-forward losses available (AED)", used: "Losses used (75% cap)", taxable: "Taxable income after offset", tax: "Tax payable", cf: "Losses carried onward" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.inc} value={income} onChange={setIncome} width={250} />
+        <Field label={L.bf} value={losses} onChange={setLosses} width={260} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.used}</div>
+          <div className="mg-tool-big">{aed(used)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.taxable}</div>
+          <div className="mg-tool-big">{aed(after)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.tax}</div>
+          <div className="mg-tool-big">{aed2(tax)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.cf}</div>
+          <div className="mg-tool-big">{aed(carried)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>التقاص مسقوف عند 75% من دخل الفترة ({aed(cap)})؛ والضريبة تُحسب على المتبقي بالشرائح العادية (0% حتى 375,000 درهم ثم 9%). تذكّر اختبارات البقاء: تغيّر ملكية يجاوز 50% يحتاج استمرار النشاط نفسه أو شبيهه، وخسائر فترات تخفيف الأعمال الصغيرة لا تُرحَّل أصلًا.</>
+            : <>The offset is capped at 75% of the period's income ({aed(cap)}); tax runs on the remainder at the standard bands (0% to AED 375,000, then 9%). Remember the survival tests: an ownership change over 50% needs the same-or-similar business to continue, and losses from Small Business Relief periods never carry at all.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 26 · Partial exemption recovery ratio ────────────────────────── */
+
+export function PartialExemptionCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [taxIn, setTaxIn] = useState("40000");
+  const [exIn, setExIn] = useState("10000");
+  const [resid, setResid] = useState("25000");
+
+  const t = Math.max(0, num(taxIn));
+  const e = Math.max(0, num(exIn));
+  const r = Math.max(0, num(resid));
+  const ratio = t + e > 0 ? Math.round((t / (t + e)) * 100) : 100;
+  const residRec = (r * ratio) / 100;
+  const total = t + residRec;
+  const lost = e + (r - residRec);
+
+  const L = ar
+    ? { t: "مدخلات منسوبة للتوريدات الخاضعة (درهم)", e: "مدخلات منسوبة للتوريدات المعفاة (درهم)", r: "المدخلات المتبقية — المصاريف العامة (درهم)", ratio: "نسبة الاسترداد", rec: "إجمالي المسترد", lost: "الضريبة الضائعة" }
+    : { t: "Input VAT attributed to taxable supplies (AED)", e: "Input VAT attributed to exempt supplies (AED)", r: "Residual input VAT — overheads (AED)", ratio: "Recovery ratio", rec: "Total recoverable", lost: "VAT lost" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.t} value={taxIn} onChange={setTaxIn} width={290} />
+        <Field label={L.e} value={exIn} onChange={setExIn} width={290} />
+        <Field label={L.r} value={resid} onChange={setResid} width={290} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.ratio}</div>
+          <div className="mg-tool-big">{ratio}%</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.rec}</div>
+          <div className="mg-tool-big">{aed2(total)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.lost}</div>
+          <div className="mg-tool-big" style={{ color: lost > 0 ? "var(--bad)" : "var(--accent)" }}>{aed2(lost)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>الطريقة القياسية: المدخلات المنسوبة للخاضع تُسترد كاملة، والمنسوبة للمعفى تضيع، والمتبقي يُسترد بنسبة المنسوب المسترد إلى إجمالي المنسوب ({ratio}% هنا، مقربة). ولا تنسَ التسوية السنوية — احسب السنة كلًا واحدًا وسوِّ الفرق في الفترة المقررة.</>
+            : <>The standard method: attributed-to-taxable recovers in full, attributed-to-exempt is lost, and the residual recovers at the ratio of recoverable attributed input tax to total attributed input tax ({ratio}% here, rounded). Don't skip the annual wash-up — recompute the year as a whole and adjust the difference in the prescribed period.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 27 · Real estate VAT checker ─────────────────────────────────── */
+
+const RE_TYPES = [
+  { k: "New residential — first supply within 3 years", ak: "سكني جديد — توريد أول خلال 3 سنوات", v: "zero" },
+  { k: "Residential — subsequent supply or lease", ak: "سكني — توريد لاحق أو إيجار", v: "exempt" },
+  { k: "Commercial — sale or lease", ak: "تجاري — بيع أو إيجار", v: "std" },
+  { k: "Bare land", ak: "أرض فضاء", v: "exempt2" },
+  { k: "Hotel apartments / serviced accommodation", ak: "شقق فندقية / سكن مخدوم", v: "std2" },
+] as const;
+
+export function RealEstateVatCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [amount, setAmount] = useState("1000000");
+  const [type, setType] = useState(0);
+
+  const a = Math.max(0, num(amount));
+  const v = RE_TYPES[type].v;
+  const isStd = v === "std" || v === "std2";
+  const isZero = v === "zero";
+  const vat = isStd ? a * 0.05 : 0;
+
+  const L = ar
+    ? { amt: "قيمة البيع أو الإيجار (درهم)", type: "نوع التوريد", treat: "المعاملة", vat: "الضريبة", rec: "استرداد المدخلات", zero: "صفرية 0%", ex: "معفاة", std: "خاضعة 5%", full: "متاح كاملًا", none: "غير متاح" }
+    : { amt: "Sale or lease value (AED)", type: "Supply type", treat: "Treatment", vat: "VAT", rec: "Input-VAT recovery", zero: "Zero-rated 0%", ex: "Exempt", std: "Standard 5%", full: "Fully available", none: "Not available" };
+
+  const NOTES = ar
+    ? {
+        zero: "التوريد الأول للسكني الجديد خلال ثلاث سنوات من الإنجاز صفري — لا ضريبة على المشتري واسترداد كامل لضريبة الإنشاء لدى المطوّر. وثّق تاريخي الإنجاز والتوريد الأول باليوم؛ فوات النافذة يحوّلها إعفاءً ويحبس المدخلات.",
+        exempt: "السكني بعد توريده الأول معفى: لا ضريبة على المستأجر أو المشتري، ولا استرداد لمدخلات تُنسب إليه — الصيانة والوساطة والإدارة تحمل 5% ضائعة. ومحفظة مختلطة تجرّك إلى الإعفاء الجزئي.",
+        exempt2: "الأرض الفضاء معفاة. لكن أرضًا بأعمال هندسية مدنية أو بناء منقوص الإنجاز قد تُعامل مختلفًا — إنها مسألة وقائع، والعقود الكبيرة تستحق رأيًا مكتوبًا.",
+        std: "خاضع 5% على كامل المقابل. للمشتري المسجل تُسترد الضريبة عادة؛ وانتبه لآلية الدفع الخاصة في بيوع العقار التجاري — الضريبة للهيئة مباشرة قبل النقل.",
+        std2: "السكن المخدوم والشقق الفندقية ضيافة لا سكن: خاضعة 5% مع استرداد المدخلات — والجوهر لا اللافتة هو الحاسم.",
+      }
+    : {
+        zero: "First supply of new residential within three years of completion is zero-rated — no VAT for the buyer and full recovery of construction VAT for the developer. Document completion and first-supply dates to the day; missing the window turns this exempt and strands the input VAT.",
+        exempt: "Residential after its first supply is exempt: no VAT charged, and no recovery of input VAT attributed to it — maintenance, agency and management costs carry a lost 5%. A mixed portfolio drags you into partial exemption.",
+        exempt2: "Bare land is exempt. Land with civil-engineering works or partially completed buildings can be treated differently — it is a facts question, and large deals deserve a written position.",
+        std: "Standard-rated at 5% on the full consideration. A registered buyer usually recovers it; note the special payment mechanics on commercial property sales — VAT goes to the FTA directly before transfer.",
+        std2: "Serviced accommodation and hotel apartments are hospitality, not housing: standard-rated 5% with input recovery — substance, not signage, decides.",
+      };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.amt} value={amount} onChange={setAmount} width={240} />
+      </div>
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.type}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {RE_TYPES.map((t, i) => (
+            <button key={t.k} type="button" className={type === i ? "on" : ""} onClick={() => setType(i)}>{ar ? t.ak : t.k}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.treat}</div>
+          <div className="mg-tool-big" style={{ color: isZero ? "var(--accent)" : isStd ? "var(--text)" : "var(--bad)" }}>{isZero ? L.zero : isStd ? L.std : L.ex}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.vat}</div>
+          <div className="mg-tool-big">{aed2(vat)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.rec}</div>
+          <div className="mg-tool-big">{isZero || isStd ? L.full : L.none}</div>
+        </div>
+        <div className="mg-tool-note">{NOTES[v]}</div>
+      </div>
+    </div>
+  );
+}

@@ -1106,6 +1106,236 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-09 — two niche (TP documentation, partial exemption) +
+   three search magnets (loss carry-forward, real estate VAT, free zone
+   vs mainland). */
+GUIDES.push(
+  {
+    slug: "uae-transfer-pricing-documentation",
+    title: "Transfer pricing documentation in the UAE: who files what, and when",
+    description:
+      "The disclosure form with the return, the master and local file thresholds, and the arm's-length evidence every related-party transaction needs — sized to what the FTA actually asks for.",
+    updated: "2026-09-01",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The three layers",
+        ps: [
+          "UAE transfer pricing compliance stacks in three layers, and most businesses only owe the first. Layer one: every taxable person with related-party or connected-person dealings must be able to show they were priced at arm's length — that is the substantive rule, and it has no size threshold. Layer two: a disclosure form filed with the Corporate Tax return, summarising related-party and connected-person transactions, required once those transactions cross the ministerial materiality thresholds. Layer three: formal documentation — a master file and local file — required only for the largest taxpayers: broadly, members of multinational groups above the country-by-country threshold (AED 3.15 billion consolidated revenue) or standalone businesses with revenue of AED 200 million or more.",
+        ],
+      },
+      {
+        h: "What the disclosure form wants",
+        list: [
+          "Related-party transactions by category — goods, services, IP, financing — with values and the pricing method used",
+          "Connected-person payments: remuneration and benefits to owners, directors and their relatives",
+          "Consistency: the numbers must reconcile to the financial statements the return is built on — a form that disagrees with the ledger is an invitation",
+        ],
+      },
+      {
+        h: "What arm's length means in practice",
+        ps: [
+          "Every intercompany price needs a method you can name — comparable uncontrolled price, cost plus, resale minus, transactional net margin — and evidence that the method's inputs are real: agreements signed before the charges ran, cost bases that reconcile, benchmarks for the margin. The documentation burden scales with size, but the analysis burden doesn't: a two-entity group with one management fee needs the same defensible logic as a multinational, just fewer binders.",
+        ],
+      },
+      {
+        h: "The failures that get priced first",
+        list: [
+          "Year-end round-number journals labelled 'management fee' with no agreement behind them",
+          "Free-zone entities at 0% receiving charges that strip mainland profit — the single most examined pattern",
+          "Interest-free intercompany balances left to drift for years — loans need terms, and terms need rates",
+          "Disclosure thresholds tracked nowhere, so nobody knows the form was due until the return is being finalised",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit tags related-party and connected-person flows as they post, keeps the agreement and invoice attached to each, accumulates the disclosure-form categories through the year, and shows the totals against the thresholds — so the form is a report at filing time, not a reconstruction.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-tax-loss-carry-forward",
+    title: "Tax losses under UAE Corporate Tax: carry-forward, the 75% cap, and the continuity tests",
+    description:
+      "Losses carry forward indefinitely but offset only 75% of a year's taxable income — and survive an ownership change only if the ownership or the business stays continuous. The mechanics, with numbers.",
+    updated: "2026-09-01",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The core mechanics",
+        ps: [
+          "A tax loss arises when the Corporate Tax computation goes negative. It carries forward indefinitely — no expiry — but with a throttle: in any later period, brought-forward losses can offset at most 75% of that period's taxable income. A company with AED 1,000,000 of taxable income and ample losses still pays 9% on AED 250,000. The design guarantees the FTA a minimum current-year take while still letting the losses work.",
+        ],
+      },
+      {
+        h: "A worked example",
+        ps: [
+          "Year 1: loss of AED 800,000. Year 2: taxable income AED 600,000. Offset is capped at 75% × 600,000 = AED 450,000 — taxable income becomes AED 150,000 (tax AED 0 under the 375k band), and AED 350,000 of losses carry on. The cap and the 0% band interact: small profits often pay nothing anyway, and the losses live to shelter bigger years.",
+        ],
+      },
+      {
+        h: "What kills a carried loss",
+        list: [
+          "Ownership discontinuity: if more than 50% of ownership changes hands, the losses survive only if the business continues the same or a similar activity — sell a loss-making company for its tax losses and pivot it, and the losses die",
+          "Small Business Relief: losses arising in a period where the relief is claimed cannot be carried forward — electing in a loss year burns the loss",
+          "Pre-regime history: losses from periods before Corporate Tax applied to you never enter the system",
+          "Exempt income doesn't create them: exempt-participation write-downs and other exempt-stream costs don't manufacture usable losses",
+        ],
+      },
+      {
+        h: "Sharing losses in a group",
+        ps: [
+          "Outside a full tax group, one UAE company can transfer its current-year tax loss to another where common ownership is at least 75%, both are UAE juridical residents, and neither is exempt or a Qualifying Free Zone Person — the receiving company applies the same 75% offset cap. Inside a registered tax group, losses net automatically in the consolidated computation. The practical planning question is sequencing: which entity's losses to use, transfer or bank, decided before year-end while the choices are still open.",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit maintains the loss register per entity — vintage, amount, what has been used — applies the 75% cap in the CT working automatically, and flags the continuity tests when ownership changes touch the cap table, so a decade of carried losses doesn't evaporate through a transaction nobody checked.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-real-estate-vat",
+    title: "VAT on UAE real estate: zero-rated, exempt and standard — and why the difference decides your input VAT",
+    description:
+      "First supply of new residential within three years is 0%, later residential supplies are exempt, commercial is 5%, bare land is exempt — four treatments, and your input-VAT recovery hangs on which one you make.",
+    updated: "2026-09-01",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "The map",
+        list: [
+          "New residential, first supply within three years of completion — zero-rated: no VAT charged, full input-VAT recovery for the developer",
+          "Residential thereafter — exempt: no VAT charged, and no input-VAT recovery on costs attributable to it",
+          "Commercial property, sale or lease — standard-rated 5%",
+          "Bare land — exempt; land with civil-engineering works or partially completed buildings is a facts question, not a label question",
+          "Hotel apartments and serviced accommodation — standard-rated: the supply is closer to hospitality than housing",
+        ],
+      },
+      {
+        h: "Why the treatment matters more than the rate",
+        ps: [
+          "Zero-rated and exempt both mean the tenant or buyer pays no VAT — but they are opposites for the supplier. Zero-rating keeps the door to input-VAT recovery open; exemption closes it. A residential landlord's agency fees, maintenance and management costs carry 5% that is simply lost. A developer selling first supplies at 0% recovers construction VAT in full — which is why the three-year window and the completion date are worth documenting to the day.",
+        ],
+      },
+      {
+        h: "Mixed portfolios and mixed buildings",
+        ps: [
+          "A building with retail below and apartments above makes both taxable and exempt supplies, which drags the owner into input-VAT apportionment: directly attributable costs follow their supply, shared costs split by a fair method, and the recovery position needs an annual true-up. The same logic hits any landlord holding commercial and residential side by side — the portfolio's VAT is managed at the cost-allocation level, not the invoice level.",
+        ],
+      },
+      {
+        h: "The traps",
+        list: [
+          "Charging 5% on residential rent because the tenant is a company — the supply's nature, not the tenant's, decides",
+          "Missing the first-supply window: completing in year one and first-supplying in year four turns 0% into exempt and strands the construction VAT",
+          "Commercial buyers forgetting the special payment mechanics on commercial property sales — the VAT is paid to the FTA directly before transfer",
+          "Treating a serviced-apartment operation as exempt residential when its substance is hospitality",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit classifies property income streams per unit and treatment, attributes costs to taxable and exempt pools as invoices arrive, computes the recovery ratio with the annual adjustment, and keeps completion and first-supply dates on the asset record — the facts the treatment turns on.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-partial-exemption-input-vat",
+    title: "Partial exemption in UAE VAT: apportioning input tax when you make exempt supplies",
+    description:
+      "Make any exempt supplies — residential rent, local passenger transport, certain financial services — and your input VAT splits three ways: recoverable, blocked, and the residual pot that needs a ratio.",
+    updated: "2026-09-01",
+    minutes: 5,
+    tax: true,
+    sections: [
+      {
+        h: "Who this catches",
+        ps: [
+          "Partial exemption is not a niche bank problem. A landlord with one residential unit, a trading company doing a little margin-based FX, a school with a bus service — any business making both taxable and exempt supplies recovers input VAT only in part, and needs a method for the split. Most discover this at their first audit rather than their first return.",
+        ],
+      },
+      {
+        h: "The three pots",
+        list: [
+          "Directly attributable to taxable supplies — fully recoverable (subject to the usual blocked categories)",
+          "Directly attributable to exempt supplies — not recoverable at all",
+          "Residual — overheads, rent, audit fees, software: everything serving the whole business, recoverable only in proportion",
+        ],
+      },
+      {
+        h: "The ratio and the true-up",
+        ps: [
+          "The standard method computes the recoverable share of the residual pot from the ratio your attributed input tax already implies — recoverable attributed input tax over total attributed input tax — rounded per the regulations, applied return by return. Then once a year comes the wash-up: recompute the year as a whole, compare with what was actually recovered, and adjust the difference in the prescribed period. Businesses whose mix moves through the year routinely find the annual adjustment larger than any single quarter's residual claim.",
+          "Where the standard method produces a result that doesn't fairly reflect actual use, the regulations allow a special method with FTA approval — sector-specific approaches exist, but the default assumption should be the standard method until the FTA agrees otherwise in writing.",
+        ],
+      },
+      {
+        h: "The traps",
+        list: [
+          "Recovering everything because exempt supplies feel incidental — the test is making exempt supplies, not majoring in them",
+          "No cost-attribution discipline, so the residual pot swallows costs that were directly attributable — in either direction",
+          "Skipping the annual adjustment entirely — it is a required calculation, not an optional refinement",
+          "Forgetting the de minimis-style relief does not exist here the way it does in other regimes — small exempt streams still trigger the mechanics",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit attributes each cost line to taxable, exempt or residual as documents post, computes the period ratio and the recoverable residual automatically, and runs the annual wash-up from the same records — so partial exemption becomes arithmetic on clean attributions instead of a year-end estimate.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uae-freezone-vs-mainland-tax",
+    title: "Free zone vs mainland in the UAE: the tax comparison founders actually need",
+    description:
+      "The 0% headline is conditional, the 9% baseline is simpler than it looks, and VAT mostly doesn't care — how the two setups compare on tax, and the questions that decide it.",
+    updated: "2026-09-01",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "Corporate tax: conditional 0% vs simple 9%",
+        ps: [
+          "Mainland is straightforward: 0% to AED 375,000 of taxable income, 9% above, Small Business Relief available under AED 3m revenue until the 2026 sunset. Free zone offers the famous 0% — but only as a Qualifying Free Zone Person, only on qualifying income, with substance, audited accounts, transfer pricing compliance and the de minimis test all holding, every period. A free-zone company selling mainly to mainland consumers usually ends up at 9% on that income anyway, without the AED 375,000 band, plus the audit cost the regime demands.",
+          "The honest sorting question: who are your customers? Mostly other free-zone businesses or foreign markets in a qualifying activity → the 0% regime is real. Mostly mainland UAE consumers → the free-zone tax advantage largely evaporates, and the decision should be made on licensing, premises and ownership factors instead.",
+        ],
+      },
+      {
+        h: "VAT: mostly indifferent",
+        ps: [
+          "VAT registration, rates and filing are the same in both setups. The exception is the small list of designated zones, where certain movements of goods sit outside the scope — a real benefit for goods traders structured around them, and irrelevant to services businesses, whose supplies are taxed as mainland wherever the desk sits.",
+        ],
+      },
+      {
+        h: "The rest of the ledger",
+        list: [
+          "Audit: free zones typically require audited statements for licence renewal, and QFZP status requires them by law; a small mainland LLC often carries lighter practical audit pressure",
+          "Substance: the free-zone 0% needs demonstrable people, premises and spend in the zone — a flexi-desk and a licence does not survive review",
+          "Banking and customers: some mainland counterparties and government work still prefer or require mainland licences",
+          "Switching later: moving an established business between regimes is a real migration — licences, visas, contracts, sometimes the bank — so the choice deserves modelling, not defaults",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit runs the same books either way — and for free-zone entities it tracks the qualifying/non-qualifying revenue split, the de minimis headroom and the audit readiness that keep the 0% alive, so the structure you chose stays the structure you have.",
+        ],
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
