@@ -1806,3 +1806,109 @@ export function RealEstateVatCalculator({ ar = false }: { ar?: boolean } = {}) {
     </div>
   );
 }
+
+/* ── 28 · VAT voluntary disclosure penalty ladder ─────────────────── */
+
+export function VdPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [diff, setDiff] = useState("100000");
+  const [years, setYears] = useState("1");
+  const [repeat, setRepeat] = useState(false);
+
+  const d = Math.max(0, num(diff));
+  const y = Math.max(0, num(years));
+  const pct = y <= 1 ? 5 : y <= 2 ? 10 : y <= 3 ? 20 : y <= 4 ? 30 : 40;
+  const fixed = repeat ? 2000 : 1000;
+  const pctAmt = (d * pct) / 100;
+  const total = fixed + pctAmt;
+  const nextPct = y <= 1 ? 10 : y <= 2 ? 20 : y <= 3 ? 30 : y <= 4 ? 40 : 40;
+  const waitCost = (d * (nextPct - pct)) / 100;
+
+  const L = ar
+    ? { diff: "فرق الضريبة في الإفصاح (درهم)", years: "السنوات منذ استحقاق الإقرار الأصلي", repeat: "إفصاح متكرر (الغرامة الثابتة 2,000)", pct: `الغرامة النسبية (${pct}%)`, fixed: "الغرامة الثابتة", total: "إجمالي كلفة الإفصاح", wait: "كلفة انتظار سنة أخرى" }
+    : { diff: "Tax difference being disclosed (AED)", years: "Years since the original return was due", repeat: "Repeat disclosure (AED 2,000 fixed)", pct: `Percentage penalty (${pct}%)`, fixed: "Fixed penalty", total: "Total disclosure cost", wait: "Cost of waiting another year" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.diff} value={diff} onChange={setDiff} width={270} />
+        <Field label={L.years} value={years} onChange={setYears} width={280} />
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={repeat} onChange={(e) => setRepeat(e.target.checked)} />
+          <span>{L.repeat}</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.pct}</div>
+          <div className="mg-tool-big">{aed2(pctAmt)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.fixed}</div>
+          <div className="mg-tool-big">{aed2(fixed)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.total}</div>
+          <div className="mg-tool-big">{aed2(total)}</div>
+        </div>
+        {waitCost > 0 && (
+          <div>
+            <div className="mg-tool-label">{L.wait}</div>
+            <div className="mg-tool-big" style={{ color: "var(--bad)" }}>+{aed2(waitCost)}</div>
+          </div>
+        )}
+        <div className="mg-tool-note">
+          {ar
+            ? <>السلّم: 5% خلال السنة الأولى من الاستحقاق، ثم 10% و20% و30% و40% بعد السنة الرابعة — زائد الثابتة 1,000/2,000 درهم. وكل هذا يفترض الإفصاح قبل إشعار التدقيق؛ بعده يسقط السلّم المخفَّض ويقفز التعرض. الأخطاء البالغة 10,000 درهم فأقل تُصحح في الإقرار التالي بلا نموذج 211.</>
+            : <>The ladder: 5% within the first year of the due date, then 10%, 20%, 30%, and 40% beyond year four — plus the AED 1,000/2,000 fixed penalty. All of this assumes disclosure before an audit notice; after one, the reduced ladder is gone and exposure jumps. Errors of AED 10,000 or less are corrected in the next return, no Form 211 needed.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 29 · Interest deduction cap (30% EBITDA) ─────────────────────── */
+
+export function InterestCapCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [netInt, setNetInt] = useState("20000000");
+  const [ebitda, setEbitda] = useState("50000000");
+
+  const ni = Math.max(0, num(netInt));
+  const eb = Math.max(0, num(ebitda));
+  const prong30 = eb * 0.3;
+  const cap = Math.max(prong30, 12000000);
+  const deductible = Math.min(ni, cap);
+  const carried = ni - deductible;
+  const safeHarbour = cap === 12000000 && ni > 0;
+
+  const L = ar
+    ? { ni: "صافي مصروف الفائدة (درهم)", eb: "الأرباح المعدلة قبل الفائدة والضريبة والاستهلاك (درهم)", cap: "السقف الملزِم", ded: "الفائدة القابلة للخصم", cf: "الممنوع — يُرحَّل 10 فترات", which: safeHarbour ? "ملاذ الـ 12 مليون الآمن" : "شق الـ 30% من الأرباح" }
+    : { ni: "Net interest expense (AED)", eb: "Adjusted EBITDA (AED)", cap: "Binding cap", ded: "Interest deductible", cf: "Disallowed — carries 10 periods", which: safeHarbour ? "AED 12m safe harbour" : "30% of EBITDA prong" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.ni} value={netInt} onChange={setNetInt} width={250} />
+        <Field label={L.eb} value={ebitda} onChange={setEbitda} width={300} />
+      </div>
+      <div className="mg-tool-result">
+        <div>
+          <div className="mg-tool-label">{L.cap} — {L.which}</div>
+          <div className="mg-tool-big">{aed(cap)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.ded}</div>
+          <div className="mg-tool-big" style={{ color: "var(--accent)" }}>{aed(deductible)}</div>
+        </div>
+        <div>
+          <div className="mg-tool-label">{L.cf}</div>
+          <div className="mg-tool-big" style={{ color: carried > 0 ? "var(--bad)" : "var(--text)" }}>{aed(carried)}</div>
+        </div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>السقف هو الأعلى من 30% من الأرباح المعدلة ({aed(prong30)}) أو 12,000,000 درهم. والممنوع يُرحَّل حتى عشر فترات ضمن سقوف تلك السنوات. خارج الحساب: قروض ما قبل 9 ديسمبر 2022 (استثناء تاريخي)، والبنوك والتأمين مستثنون — وقواعد قروض الأشخاص المتصلين تسبق هذا السقف.</>
+            : <>The cap is the greater of 30% of adjusted EBITDA ({aed(prong30)}) or AED 12,000,000. Disallowed interest carries up to ten periods, inside those years' own caps. Outside this computation: loans agreed before 9 December 2022 (grandfathered), banks and insurers are excluded — and the connected-person loan rules run before this cap does.</>}
+        </div>
+      </div>
+    </div>
+  );
+}

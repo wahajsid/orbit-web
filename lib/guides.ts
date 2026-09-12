@@ -5,6 +5,10 @@
    reviewed against the official text when regulations move. */
 
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
+/* faqs render as a question-and-answer block at the end of the guide and
+   emit FAQPage JSON-LD — answer-shaped content aimed at the queries people
+   actually type (and at AI answer engines). Optional per guide. */
+export type GuideFaq = { q: string; a: string };
 export type Guide = {
   slug: string;
   title: string;
@@ -13,6 +17,7 @@ export type Guide = {
   minutes: number;
   tax: boolean; // true → render the not-tax-advice disclaimer
   sections: GuideSection[];
+  faqs?: GuideFaq[];
 };
 
 export const GUIDES: Guide[] = [
@@ -1332,6 +1337,174 @@ GUIDES.push(
           "Orbit runs the same books either way — and for free-zone entities it tracks the qualifying/non-qualifying revenue split, the de minimis headroom and the audit readiness that keep the 0% alive, so the structure you chose stays the structure you have.",
         ],
       },
+    ],
+  },
+);
+
+/* Batch of 2026-09 (deep-niche wave) — complex decision-shaped topics
+   with question-and-answer blocks (FAQPage LD), aimed at PAA and AI
+   answer engines. */
+GUIDES.push(
+  {
+    slug: "uae-vat-voluntary-disclosure",
+    title: "VAT voluntary disclosure in the UAE: when Form 211 is mandatory, and what it costs by year",
+    description:
+      "Find an error over AED 10,000 and disclosure is not optional. The fixed penalties, the 5%-to-40% ladder that climbs with every year you wait, and why disclosing before the audit notice changes everything.",
+    updated: "2026-09-02",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The rule that decides your route",
+        ps: [
+          "Discover an error in a filed VAT return and the size of the error picks your route. If the net tax effect is AED 10,000 or less, you correct it in the next return you file — no separate process. Above AED 10,000, you must file a voluntary disclosure (Form 211) for the affected period. The disclosure is an obligation with its own deadline — within 20 business days of becoming aware of the error — not a goodwill gesture.",
+        ],
+      },
+      {
+        h: "What a disclosure costs",
+        ps: [
+          "Two penalties stack. A fixed penalty per disclosure: AED 1,000 the first time, AED 2,000 on repetition. Then a percentage of the tax difference that climbs with the time elapsed since the return was due: 5% if you disclose within a year, 10% in the second year, 20% in the third, 30% in the fourth, 40% after that. The design is explicit — the same error costs eight times more to confess in year five than in year one.",
+          "The cliff is the audit notice: disclose after the FTA has told you it is auditing you and the reduced ladder is gone — the percentage exposure rises steeply, and you have surrendered the one advantage a voluntary disclosure buys. The economically rational moment to disclose is always now.",
+        ],
+      },
+      {
+        h: "What actually triggers disclosures",
+        list: [
+          "Input VAT claimed on invalid tax invoices found in a later review — the classic",
+          "Reverse-charge boxes left empty while foreign-supplier costs sat in the ledger all along",
+          "Output VAT missed on deemed supplies, staff benefits, or asset disposals",
+          "Zero-rating applied to exports whose evidence file never existed",
+          "Arithmetic and mapping errors between the accounting system and the return",
+        ],
+      },
+      {
+        h: "Doing it properly",
+        list: [
+          "Quantify per period — a disclosure is filed against specific returns, and one root cause often touches several",
+          "Fix the process before filing the form: the FTA's follow-up question is always what changed so it stops recurring",
+          "Keep the workings: the disclosure asks for the corrected figures and a narrative; both should trace to documents",
+          "If the error runs your way (you over-declared), the same form is how you get the money back — disclosure is not only for bad news",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit's period-lock and evidence discipline exist so errors surface in-month, not in year three — and when a historical error does surface, the ledger's document trail quantifies the correction per period in minutes, which is the hard half of a disclosure.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "When is a VAT voluntary disclosure mandatory in the UAE?", a: "When an error in a filed return has a net tax effect above AED 10,000. You must file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead." },
+      { q: "What are the penalties for a VAT voluntary disclosure?", a: "A fixed penalty of AED 1,000 (AED 2,000 on repetition) plus a percentage of the tax difference based on how long after the original due date you disclose: 5% within the first year, 10% in the second, 20% in the third, 30% in the fourth, and 40% beyond that." },
+      { q: "Is it better to disclose before an FTA audit?", a: "Materially. Disclosing after the FTA notifies you of an audit removes the reduced percentage ladder and the exposure rises steeply. The cheapest disclosure is always the earliest one." },
+      { q: "Can a voluntary disclosure recover overpaid VAT?", a: "Yes — the same Form 211 process corrects errors in your favour, and it is how over-declared output tax or under-claimed input tax is recovered for a past period." },
+    ],
+  },
+  {
+    slug: "uae-interest-deduction-limitation",
+    title: "The 30% EBITDA interest cap in UAE Corporate Tax: how much of your finance cost actually deducts",
+    description:
+      "Net interest deducts only up to the greater of 30% of tax-EBITDA or the AED 12m safe harbour — the mechanics, the ten-year carry-forward, and the loans the rule ignores.",
+    updated: "2026-09-02",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The rule in numbers",
+        ps: [
+          "The general interest deduction limitation caps net interest expense — interest expense minus interest income — at the greater of 30% of adjusted EBITDA (earnings before interest, tax, depreciation and amortisation, computed on tax numbers) or the AED 12 million safe harbour. Whatever exceeds the cap is not lost: it carries forward up to ten tax periods, deductible in later years inside those years' own caps.",
+          "The safe harbour does most of the work for SMEs: a business whose net interest is under AED 12 million never meets the 30% computation at all. The rule is aimed at leveraged structures — but 'aimed at' is not 'limited to', and a capital-intensive business with thin EBITDA can hit the cap well below headline-large borrowings.",
+        ],
+      },
+      {
+        h: "A worked example",
+        ps: [
+          "Net interest AED 20m, adjusted EBITDA AED 50m. Cap = greater of 30% × 50m = AED 15m and AED 12m → AED 15m. Deductible now: 15m. Carried forward: 5m, usable for ten periods. Now run a bad year — EBITDA AED 20m: cap = greater of 6m and 12m → the safe harbour takes over at 12m. The cap breathes with earnings, which is exactly why loss-making leveraged years hurt twice.",
+        ],
+      },
+      {
+        h: "What the cap ignores — and what other rules catch",
+        list: [
+          "Loans agreed before 9 December 2022 sit outside the limitation under the grandfathering rule — document the vintage",
+          "Banks and insurance providers are excluded from the rule; ordinary groups are not",
+          "The cap is not the only gate: interest on connected-person loans used to pay dividends or similar distributions can be disallowed entirely under its own rule, before the cap is even computed",
+          "Islamic finance equivalents count as interest for these purposes — the label on the instrument does not change the analysis",
+        ],
+      },
+      {
+        h: "Managing it",
+        list: [
+          "Track net interest against both prongs quarterly — the binding prong flips between years, and the answer changes borrowing decisions",
+          "Model the carry-forward: disallowed interest is an asset with a ten-year clock, and it expires worthless if EBITDA never grows into it",
+          "In groups, remember the computation runs at the taxable-person level (or tax group level if grouped) — where the debt sits determines whose cap it consumes",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit computes adjusted EBITDA from the ledger as periods close, runs both prongs of the cap, maintains the disallowed-interest carry-forward register with its expiry clock, and shows the binding constraint in the CT working — so financing decisions see their tax shadow before the debt is drawn.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "How much interest can a UAE company deduct for Corporate Tax?", a: "Net interest expense is deductible up to the greater of 30% of adjusted EBITDA or AED 12 million. The excess carries forward for up to ten tax periods." },
+      { q: "Does the 30% interest cap apply to small businesses?", a: "Rarely in practice: the AED 12 million safe harbour means the 30% computation only binds when net interest exceeds AED 12m. Most SMEs never reach it, though the connected-person loan rules still apply at any size." },
+      { q: "Are old loans grandfathered from the UAE interest limitation?", a: "Loans whose terms were agreed before 9 December 2022 benefit from grandfathering under the rule. Keep the loan agreement evidencing the date — refinancing or amending terms can compromise the position." },
+      { q: "Do Islamic finance costs count as interest for the cap?", a: "Yes — amounts economically equivalent to interest under Islamic financial instruments are treated as interest for the limitation, regardless of the instrument's form." },
+    ],
+  },
+  {
+    slug: "uae-qualifying-group-relief",
+    title: "Moving assets inside a UAE group without triggering tax: qualifying group relief and restructuring relief",
+    description:
+      "Transfers between 75%-owned group companies can happen at tax book value — no gain, no loss — and whole businesses can merge tax-neutrally for shares. The conditions, and the two-year clawback on both.",
+    updated: "2026-09-02",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "Why these two reliefs exist",
+        ps: [
+          "At 9%, every internal reorganisation acquires a tax shadow: moving a property from OpCo to HoldCo, consolidating two licences into one company, hiving a division into its own entity — each is, by default, a disposal at market value with a taxable gain attached. The law provides two pressure valves: qualifying group relief for asset transfers inside a group, and business restructuring relief for mergers and demergers. Both make the move tax-neutral; both come with strings.",
+        ],
+      },
+      {
+        h: "Qualifying group relief — assets between siblings",
+        list: [
+          "Available where transferor and transferee are both UAE juridical taxable persons with 75% common ownership (direct or indirect), and neither is an exempt person or a Qualifying Free Zone Person",
+          "The asset moves at tax written-down value: no gain, no loss, and the transferee inherits the tax base and continues depreciating as the transferor would have",
+          "The clawback: if within two years the asset leaves the group, or either party leaves the qualifying group, the relief unwinds — the original transfer is retested at market value and the deferred gain lands, back in the transfer period",
+        ],
+      },
+      {
+        h: "Business restructuring relief — whole businesses for shares",
+        list: [
+          "Covers transferring an entire business (or independent part of one) in exchange for shares or ownership interests — mergers, demergers, incorporating a sole establishment into an LLC",
+          "The consideration must be substantially shares in the transferee (limited other consideration is tolerated); the business must transfer as a going concern",
+          "Same architecture: tax-neutral at transfer, elections apply, and a two-year clawback if the shares are disposed of or the business is on-sold",
+        ],
+      },
+      {
+        h: "The planning discipline",
+        list: [
+          "Diarise the clawback window per transaction — a sale in month 23 costs what the relief saved, plus the surprise",
+          "Paper the ownership maths at transfer date: 75% is tested through the chain, and a later reviewer needs the cap table as it stood",
+          "Free-zone complication: a QFZP in the chain blocks qualifying group relief — sequencing which entity elects which regime is part of the structure",
+          "The reliefs are elective, not automatic — the election is made in the return, and forgetting it converts a tax-neutral reorganisation into a taxable one retroactively",
+        ],
+      },
+      {
+        h: "How Orbit applies this",
+        ps: [
+          "Orbit records intra-group transfers with the relief election, the inherited tax base and the clawback date on the asset record, and raises the flag when a disposal or ownership change approaches a live clawback window — the two-year memory that reorganisations depend on and spreadsheets forget.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Can assets move between UAE group companies without Corporate Tax?", a: "Yes, under qualifying group relief: with 75% common ownership and both companies being UAE taxable persons (neither exempt nor a Qualifying Free Zone Person), assets transfer at tax written-down value with no gain or loss — subject to a two-year clawback." },
+      { q: "What is the clawback period for UAE group relief?", a: "Two years. If the asset leaves the group, or either company leaves the qualifying group, within two years of the transfer, the relief unwinds and the deferred gain is taxed as of the original transfer." },
+      { q: "Is a merger taxable under UAE Corporate Tax?", a: "Not necessarily: business restructuring relief makes a merger or demerger tax-neutral where a whole business (or independent part) transfers as a going concern substantially in exchange for shares, with the election made in the return — again with a two-year clawback." },
+      { q: "Does group relief work with free zone companies?", a: "A Qualifying Free Zone Person cannot participate in qualifying group relief. Groups mixing 0% free-zone entities with mainland entities need to sequence which entities hold which regime before relying on the relief." },
     ],
   },
 );

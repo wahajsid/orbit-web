@@ -25,6 +25,19 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
   const g = getArGuide(params.slug);
   if (!g) notFound();
 
+  const FAQ_LD = g.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: "ar",
+        mainEntity: g.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -40,6 +53,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
+      {FAQ_LD && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />}
       <MgNav locale="ar" />
       <main>
         <section className="mg-page-hero">
@@ -61,6 +75,17 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
               )}
             </div>
           ))}
+          {g.faqs && g.faqs.length > 0 && (
+            <div className="mg-guide-sec">
+              <h2 className="mg-guide-h">أسئلة يطرحها الناس فعلًا</h2>
+              {g.faqs.map((f) => (
+                <div key={f.q}>
+                  <p className="mg-guide-p"><strong>{f.q}</strong></p>
+                  <p className="mg-guide-p">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          )}
           {g.tax && (
             <p className="mg-guide-disclaimer">
               معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير — تحقق من النص

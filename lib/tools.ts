@@ -244,6 +244,26 @@ export const TOOLS: Tool[] = [
     arDescription:
       "سكني جديد، سكني لاحق، تجاري، أرض فضاء، شقق مخدومة — المعاملة والضريبة وهل تنجو مدخلاتك.",
   },
+  {
+    slug: "uae-voluntary-disclosure-penalty-calculator",
+    title: "VAT voluntary disclosure penalty calculator",
+    description:
+      "The Form 211 cost by year: the fixed penalty plus the 5%-to-40% ladder on the tax difference — and what waiting one more year adds.",
+    guide: "uae-vat-voluntary-disclosure",
+    arTitle: "حاسبة غرامات الإفصاح الطوعي",
+    arDescription:
+      "كلفة النموذج 211 بحسب السنة: الغرامة الثابتة زائد سلّم الـ 5% إلى 40% على فرق الضريبة — وما يضيفه انتظار سنة أخرى.",
+  },
+  {
+    slug: "uae-interest-cap-calculator",
+    title: "Interest deduction cap calculator (30% EBITDA)",
+    description:
+      "Net interest against the greater of 30% of adjusted EBITDA and the AED 12m safe harbour — deductible now, disallowed and carried, and which prong binds.",
+    guide: "uae-interest-deduction-limitation",
+    arTitle: "حاسبة سقف خصم الفائدة (30%)",
+    arDescription:
+      "صافي الفائدة مقابل الأعلى من 30% من الأرباح المعدلة وملاذ الـ 12 مليون درهم — المخصوم الآن والممنوع المرحَّل وأي الشقّين يلزِم.",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
