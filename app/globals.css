@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════════════════
-   ORBIT — "Modernist green" (design_handoff_rebrand)
-   Off-white paper, near-black ink, ONE deep-green accent. Archivo
+   ORBIT — "Navy & blush" v3 (brand/BRAND-GUIDE.md), 2026-09-15
+   Cream paper, Deep Navy ink and action, Muted Blush warmth. Archivo
    everywhere, zero corner radius, strong 2px rules, visible grid,
    flush-left type. No gradients, glows, blurs or pills.
    Green = action + positive · ochre = open/review · red = critical.
@@ -11,29 +11,34 @@
    ══════════════════════════════════════════════════════════════════ */
 
 :root {
-  --ink: #201e1d;
-  --paper: #f3f2f2;
-  --paper-raised: #eceae6;
+  --ink: #122940;
+  --paper: #FAF6EE;
+  --paper-raised: #F1ECE1;
   --surface: #ffffff;
-  --text: #201e1d;
-  --text-muted: #4a4744;
-  --text-faint: #8a8580;
-  --text-on-ink: #f3f2f2;
-  --text-on-ink-muted: #b3aea8;
-  /* The one accent. Both legacy names point at it. */
-  --accent: #0e5b3a;
-  --accent-deep: #0b4a2f;
-  --accent-tint: #e6f0ea;
-  --accent-muted: #a8cbb5;
-  --petrol: #0e5b3a;
-  --petrol-bright: #0e5b3a;
-  --brass: #0e5b3a;
-  --brass-deep: #0b4a2f;
+  --text: #122940;
+  --text-muted: #46566A;
+  --text-faint: #8A94A1;
+  --text-on-ink: #FAF6EE;
+  --text-on-ink-muted: #C9D2DD;
+  /* Deep Navy is the one action colour; Muted Blush is the warmth (tints,
+     bars, the mark's dot). The legacy petrol/brass names point at navy. */
+  --blush: #E4A1A0;
+  --blush-tint: #F7E4E3;
+  --ok: #2F7A4F;
+  --ok-tint: #E4F0E7;
+  --accent: #122940;
+  --accent-deep: #0B1B2C;
+  --accent-tint: #F7E4E3;
+  --accent-muted: #E4A1A0;
+  --petrol: #122940;
+  --petrol-bright: #122940;
+  --brass: #122940;
+  --brass-deep: #0B1B2C;
   --warn: #9a6a10;
   --bad: #a3341c;
   --bad-tint: #f7ebe8;
-  --hairline: #c9c5bf;
-  --hairline-on-ink: #4a4744;
+  --hairline: #D9D2C6;
+  --hairline-on-ink: #46566A;
   --radius: 0px;
   /* type — populated by next/font variables in layout.tsx */
   --sans: var(--font-archivo), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;

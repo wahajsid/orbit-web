@@ -23,7 +23,7 @@
    accent token to plum, so every np-* accent, kicker, CTA and rule turns plum
    without touching the component markup. Petrol stays the "good/data" colour. */
 .prod-firms {
-  --brass: #6E5B9E; --brass-lit: #9585C0; --brass-deep: #53437D;
+  --brass: #E4A1A0; --brass-lit: #F0B9B8; --brass-deep: #C97F7E;
 }
 .prod-firms .np-accent, .prod-firms .np-kicker, .prod-firms .kicker,
 .prod-firms .np-feat .k { color: var(--brass); }

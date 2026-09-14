@@ -5,10 +5,10 @@ finance team for UAE/KSA SMEs. **Isolated** from the Orbit app repo and from
 Oblique OS (separate repo, separate Vercel project); both share the single
 OrbitFinance Supabase project.
 
-Next.js 14 (App Router), no Tailwind. Design system: **"Modernist green"** —
-paper `#F3F2F2`, ink `#201E1D`, one green accent `#0E5B3A`, Archivo, zero
+Next.js 14 (App Router), no Tailwind. Design system: **"Navy & blush"** (v3, `brand/BRAND-GUIDE.md`) —
+cream `#FAF6EE`, Deep Navy `#122940` (ink + the one action colour), Muted Blush `#E4A1A0` for tints and bars, Archivo, zero
 radius, 2px rules (tokens in `app/globals.css` `:root`; the legacy
-petrol/brass token names are aliased to green). No gradients, glows, pills
+petrol/brass token names are aliased to navy). No gradients, glows, pills
 or starfields.
 
 ## Layout
