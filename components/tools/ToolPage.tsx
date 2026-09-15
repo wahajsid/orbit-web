@@ -18,8 +18,33 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
   const guide = arGuide ?? enGuide;
   const guideHref = guide ? (arGuide ? `/ar/guides/${guide.slug}` : `/guides/${guide.slug}`) : null;
   const title = ar && tool.arTitle ? tool.arTitle : tool.title;
+  const url = `https://hysaab.ai${ar ? "/ar" : ""}/tools/${slug}`;
+  const APP_LD = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: title,
+    description: ar && tool.arDescription ? tool.arDescription : tool.description,
+    url,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    inLanguage: ar ? "ar" : "en",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "AED" },
+    publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+  };
+  const BREADCRUMB_LD = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Hysaab", item: `https://hysaab.ai${ar ? "/ar" : "/"}` },
+      { "@type": "ListItem", position: 2, name: ar ? "الأدوات" : "Tools", item: `https://hysaab.ai${ar ? "/ar" : ""}/tools` },
+      { "@type": "ListItem", position: 3, name: title, item: url },
+    ],
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }} />
       <MgNav locale={locale} />
       <main>
         <section className="mg-page-hero">

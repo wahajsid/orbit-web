@@ -38,7 +38,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "What does the founding cohort actually get?",
-    `The first 100 companies get Hysaab free for twelve months (fair-usage policy applies), with founder pricing locked in afterwards. Doors open ${LAUNCH_DATE_LONG}; founding entries are reviewed by a real person and invites go out by email.`,
+    `The first 100 companies lock in founder pricing for as long as they stay (fair-usage policy applies), plus a direct line to the team building it. Doors open ${LAUNCH_DATE_LONG}; founding entries are reviewed by a real person and invites go out by email.`,
   ],
   [
     "What does it cost after that?",

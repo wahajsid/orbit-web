@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/hysaab/CtaBand";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Compliance — Hysaab",
+  title: "UAE VAT, Corporate Tax & ZATCA Compliance Software | Hysaab",
   description:
     "How Hysaab keeps UAE VAT, Corporate Tax and KSA ZATCA rules enforced by default — every document tax-tested before posting, period locks agents cannot cross, a full audit trail, and human approval past your thresholds.",
   alternates: langAlternates("/compliance"),

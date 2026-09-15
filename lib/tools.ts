@@ -228,7 +228,7 @@ export const TOOLS: Tool[] = [
     slug: "uae-partial-exemption-calculator",
     title: "Partial exemption calculator (input VAT apportionment)",
     description:
-      "The three pots — taxable, exempt, residual — with the standard-method recovery ratio computed and the VAT you actually lose shown.",
+      "The three pots — taxable, exempt, residual — with today's recovery ratio, the 2028 turnover ratio from Cabinet Decision 149, and the VAT you actually lose.",
     guide: "uae-partial-exemption-input-vat",
     arTitle: "حاسبة الإعفاء الجزئي (توزيع مدخلات الضريبة)",
     arDescription:

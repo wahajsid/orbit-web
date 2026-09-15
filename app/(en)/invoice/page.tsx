@@ -5,7 +5,7 @@ import { Wordmark } from "@/components/Wordmark";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "hysaab invoice, every supplier invoice tax-tested before you claim the VAT",
+  title: "Supplier Invoice VAT Checker for UAE & KSA | hysaab invoice",
   description:
     "hysaab invoice reads every supplier invoice, redoes the arithmetic in code, tests it against UAE Articles 59 and 60 or KSA ZATCA rules, gets a second opinion on anything risky, chases suppliers for corrections and reports to your client. A person decides every claim.",
   alternates: langAlternates("/invoice"),

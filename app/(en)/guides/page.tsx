@@ -6,7 +6,7 @@ import { GUIDES } from "@/lib/guides";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Guides — Hysaab",
+  title: "UAE & KSA Tax and Accounting Guides | Hysaab",
   description:
     "Practical Gulf finance guides: valid UAE tax invoices, VAT and Corporate Tax deadlines, the month-end close, and working with the ledger you already have.",
   alternates: langAlternates("/guides"),

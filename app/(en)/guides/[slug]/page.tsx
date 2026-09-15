@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { CtaBand } from "@/components/hysaab/CtaBand";
-import { GUIDES, getGuide } from "@/lib/guides";
+import { GUIDES, getGuide, relatedGuides, stripLinks, linkParts } from "@/lib/guides";
 import { getArGuide } from "@/lib/guides-ar";
+import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
 
 export function generateStaticParams() {
@@ -21,9 +22,23 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {linkParts(text).map((p, i) =>
+        typeof p === "string" ? p : <a key={i} className="textlink" href={p.href}>{p.label}</a>,
+      )}
+    </>
+  );
+}
+
 export default function GuidePage({ params }: { params: { slug: string } }) {
   const g = getGuide(params.slug);
   if (!g) notFound();
+
+  const url = `https://hysaab.ai/guides/${g.slug}`;
+  const tools = TOOLS.filter((t) => t.guide === g.slug);
+  const related = relatedGuides(g.slug);
 
   const FAQ_LD = g.faqs?.length
     ? {
@@ -32,7 +47,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
         mainEntity: g.faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          acceptedAnswer: { "@type": "Answer", text: stripLinks(f.a) },
         })),
       }
     : null;
@@ -45,18 +60,36 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     dateModified: g.updated,
     author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
     publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
-    mainEntityOfPage: `https://hysaab.ai/guides/${g.slug}`,
+    mainEntityOfPage: url,
+  };
+
+  const BREADCRUMB_LD = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Hysaab", item: "https://hysaab.ai/" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://hysaab.ai/guides" },
+      { "@type": "ListItem", position: 3, name: g.title, item: url },
+    ],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }} />
       {FAQ_LD && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />}
       <MgNav />
       <main>
         <section className="mg-page-hero">
           <div className="mg-kicker">
-            <a href="/guides" style={{ textDecoration: "none" }}>GUIDES</a> · {g.minutes} MIN
+            <a href="/guides" style={{ textDecoration: "none" }}>GUIDES</a> · {g.minutes} MIN · UPDATED{" "}
+            <time dateTime={g.updated}>
+              {(() => {
+                const [y, m, d] = g.updated.split("-");
+                const MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                return `${Number(d)} ${MON[Number(m) - 1]} ${y}`;
+              })()}
+            </time>
           </div>
           <h1 className="mg-page-h">{g.title}</h1>
           <p className="mg-page-lede">{g.description}</p>
@@ -65,10 +98,10 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           {g.sections.map((s) => (
             <div key={s.h} className="mg-guide-sec">
               <h2 className="mg-guide-h">{s.h}</h2>
-              {s.ps?.map((p, i) => <p key={i} className="mg-guide-p">{p}</p>)}
+              {s.ps?.map((p, i) => <p key={i} className="mg-guide-p"><Rich text={p} /></p>)}
               {s.list && (
                 <ul className="mg-guide-list">
-                  {s.list.map((li) => <li key={li}>{li}</li>)}
+                  {s.list.map((li) => <li key={li}><Rich text={li} /></li>)}
                 </ul>
               )}
             </div>
@@ -79,9 +112,22 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
               {g.faqs.map((f) => (
                 <div key={f.q}>
                   <p className="mg-guide-p"><strong>{f.q}</strong></p>
-                  <p className="mg-guide-p">{f.a}</p>
+                  <p className="mg-guide-p"><Rich text={f.a} /></p>
                 </div>
               ))}
+            </div>
+          )}
+          {(tools.length > 0 || related.length > 0) && (
+            <div className="mg-guide-sec">
+              <h2 className="mg-guide-h">Keep reading</h2>
+              <ul className="mg-guide-list">
+                {tools.map((t) => (
+                  <li key={t.slug}><strong>Tool:</strong> <a className="textlink" href={`/tools/${t.slug}`}>{t.title}</a></li>
+                ))}
+                {related.map((r) => (
+                  <li key={r.slug}><strong>Guide:</strong> <a className="textlink" href={`/guides/${r.slug}`}>{r.title}</a></li>
+                ))}
+              </ul>
             </div>
           )}
           {g.tax && (
@@ -91,7 +137,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             </p>
           )}
           <div className="mg-guide-cta">
-            <a href="/product" className="mg-cta">See how Hysaab runs this →</a>
+            <a href={g.cta?.href ?? "/product"} className="mg-cta">{g.cta?.label ?? "See how Hysaab runs this"} →</a>
             <a href="/guides" className="mg-ghost">All guides</a>
           </div>
         </section>

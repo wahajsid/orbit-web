@@ -14,9 +14,9 @@ export const revalidate = 60;
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Hysaab — your books, already done",
+  title: "Automated Bookkeeping & Accounting for UAE and KSA | Hysaab",
   description:
-    "The finance operating system for the Gulf. AP, receivables, the ledger, tax and the month-end close — run by a team of agents, watched over by you.",
+    "Automated bookkeeping for UAE and KSA businesses: payables, receivables, bank reconciliation, VAT and the month-end close, run by AI agents on your own ledger, with you approving what matters.",
   alternates: langAlternates("/accounting"),
 };
 

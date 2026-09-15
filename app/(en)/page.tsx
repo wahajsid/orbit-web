@@ -11,9 +11,9 @@ import { TOOLS } from "@/lib/tools";
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Hysaab | AI Accounting & Reporting for Gulf Businesses",
+  title: "AI Accounting Software for UAE & Saudi Businesses | Hysaab",
   description:
-    "Your accounting and reporting team, always on. Sixteen AI agents read, code, reconcile and report, and bring you the decisions that are yours. Built in Dubai for the UAE and GCC.",
+    "AI accounting software for UAE and Saudi businesses. Sixteen AI agents read, code, reconcile and report against FTA and ZATCA rules, and bring you the decisions that are yours. Built in Dubai.",
   alternates: langAlternates("/"),
 };
 
