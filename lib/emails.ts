@@ -8,8 +8,15 @@ export const SITE = "https://hysaab.ai";
 export const APP = "https://app.hysaab.ai";
 export const INFO = "info@hysaab.ai";
 
-const HEADER = `<tr><td style="background:#122940;padding:20px 32px;">
-  <a href="${SITE}" style="text-decoration:none;"><img src="${SITE}/brand/hysaab-lockup-reversed-navy.png" width="152" height="40" alt="hysaab.ai" style="display:block;border:0;width:152px;height:40px;" /></a>
+/* The header is one retina image (1152x416, shown at 576x208): the brand-guide
+   cover set at email width. Source: brand/email-header-source.html, rendered
+   with headless Chrome at 2x. The navy cell and styled alt text carry the
+   brand when a client blocks images. */
+export const EMAIL_HEADER_IMG = `${SITE}/brand/hysaab-email-header-1152x416.png`;
+export const EMAIL_HEADER_ALT = "hysaab.ai. Your shared service team of finance agents.";
+
+const HEADER = `<tr><td style="background:#122940;padding:0;line-height:0;font-size:0;">
+  <a href="${SITE}" style="text-decoration:none;display:block;"><img src="${EMAIL_HEADER_IMG}" width="576" alt="${EMAIL_HEADER_ALT}" style="display:block;border:0;width:100%;max-width:576px;height:auto;background:#122940;color:#FBF7F0;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:18px;font-weight:500;line-height:1.3;" /></a>
 </td></tr>`;
 
 const FOOTER = (reason: string) => `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #ddd6cb;">
