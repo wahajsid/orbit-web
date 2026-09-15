@@ -1,165 +1,232 @@
-import "../../advert.css";
-import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { CtaBand } from "@/components/hysaab/CtaBand";
-import { RotatingHeadline } from "@/components/RotatingHeadline";
-import { NpEnhance } from "@/components/NpEnhance";
-
+import { ServicesDay } from "@/components/hysaab/ServicesDay";
+import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
+import { Wordmark } from "@/components/Wordmark";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "hysaab services OS — the OS for professional-services firms",
+  title: "hysaab services OS, the operating system for tax and advisory firms",
   description:
-    "Coming soon. The operating system for tax and accounting firms — clients, engagements, working papers, filings, tasks and your team, run as one, with AI woven through.",
+    "One system for a professional services firm: an AI-triaged inbox, meeting notes that become tasks, a filing workbench with red-team review, proposals and e-signature, AI-drafted timesheets, billing, capacity and people. The AI proposes, code computes, a named person confirms.",
   alternates: langAlternates("/firms"),
 };
 
-const HEADLINES: [string, string][] = [
-  ["You didn't build a practice", "to chase engagement letters."],
-  ["You didn't train for years", "to live in shared drives."],
-  ["You didn't start a firm", "to miss a filing deadline."],
+const MODULES: { k: string; h: string; items: React.ReactNode[] }[] = [
+  { k: "Daily", h: "My Day, inbox and tasks", items: [
+    <><strong>My Day</strong> lists only what needs you: overdue tasks, approvals, unsent drafts and deadlines.</>,
+    <><strong>AI inbox</strong> matches every email to a client, files attachments, sets urgency and drafts the reply.</>,
+    <><strong>Tax-authority notices</strong> from the FTA, ZATCA or MoF are forced to an urgent task.</>,
+    <><strong>Team chat</strong> with an assistant that answers from a client&apos;s own documents.</>,
+  ] },
+  { k: "Clients", h: "Every client, in one file", items: [
+    <><strong>Onboarding and KYC</strong> with trade licences and VAT certificates read into the profile.</>,
+    <><strong>Data room and client portal</strong> with secure, expiring upload links.</>,
+    <><strong>Health score</strong> from filing quality, responsiveness, engagement and risk.</>,
+    <><strong>Relationship sweep</strong> surfaces dormant clients and drafts the check-in.</>,
+  ] },
+  { k: "Meetings", h: "Before, during and after", items: [
+    <><strong>Prep brief</strong>: one page on the client, open work and recent correspondence.</>,
+    <><strong>Notes to actions</strong>: attendees, decisions and action items with owners and dates.</>,
+    <><strong>Proposed tasks</strong> land in the queue; nothing is created until you confirm.</>,
+  ] },
+  { k: "Filings", h: "A workbench for every return", items: [
+    <><strong>250+ VAT and CT checks</strong> across completeness, treatment and examination.</>,
+    <><strong>Tax treatments proposed</strong> from the firm&apos;s own precedents first.</>,
+    <><strong>Red-team review</strong> before approval, variance narratives and transmittal letters.</>,
+    <><strong>Filed versions are permanent</strong>: corrections supersede, never overwrite.</>,
+  ] },
+  { k: "Growth", h: "Pipeline to signed letter", items: [
+    <><strong>Pipeline</strong> from lead to won, with cross-sell gaps across your client base.</>,
+    <><strong>Proposals and engagement letters</strong> drafted from the scope you choose.</>,
+    <><strong>Built-in e-signature</strong> sealed with a SHA-256 audit certificate.</>,
+    <><strong>Regulatory radar</strong> drafts impact letters when the law moves.</>,
+  ] },
+  { k: "Time and billing", h: "Hours that become invoices", items: [
+    <><strong>AI-drafted timesheets</strong> from the day&apos;s work; it may lower an estimate, never raise it.</>,
+    <><strong>WIP, invoices and retainers</strong> with maker-checker approval.</>,
+    <><strong>Expenses</strong> with receipts read automatically.</>,
+  ] },
+  { k: "Firm", h: "Run the practice on numbers", items: [
+    <><strong>Realisation, effective rate and utilisation</strong> per person and per client.</>,
+    <><strong>Capacity</strong> eight weeks ahead: who is idle, who is running hot.</>,
+    <><strong>Firm brief</strong> and weekly digest for the partners.</>,
+  ] },
+  { k: "Knowledge", h: "The firm's memory", items: [
+    <><strong>Ask</strong> answers from your library and positions, with sources.</>,
+    <><strong>Firm positions</strong> drafted, published and retired with approval.</>,
+    <><strong>Academy</strong> quizzes and deterministic VAT, CT, penalty and WHT calculators.</>,
+  ] },
+  { k: "People", h: "HR without the spreadsheet", items: [
+    <><strong>Leave, letters and documents</strong> in self-service.</>,
+    <><strong>Appraisals</strong> where only a person can give a rating.</>,
+    <><strong>Payroll</strong> with approval, visible to owners only.</>,
+  ] },
 ];
 
-const FEATURES: { k: string; h: string; p: string }[] = [
-  { k: "Clients", h: "Clients, groups & memos", p: "Every client, group and contact in one place — with searchable memos tagged VAT, CT or general, so the context never leaves with the person who had it." },
-  { k: "Engagements", h: "Engagements & the IRL", p: "VAT Monthly, CT Annual, advisory — each engagement carries its own working papers and its information-request list, from proposal to engagement letter to active." },
-  { k: "Timesheets", h: "Time, logged to the work", p: "Log an hour to a client or an engagement in a tap — no separate timesheet app. See realization per engagement and per person, without building a spreadsheet." },
-  { k: "Projects", h: "Disbursements & project costs", p: "Track out-of-pockets, disbursements and cost-to-serve against the right client and engagement — so what a job actually costs you is never a mystery at the end." },
-  { k: "Filings", h: "Filings, never missed", p: "Every deadline tracked and escalated as it approaches. The watchdog that means a filing date is never a surprise again — with the working papers linked to it." },
-  { k: "Copilot", h: "Ask about any client", p: "Agents woven through: client summaries on demand, OCR on what you upload, and the challenges that need a partner's eye surfaced early." },
-];
-
-export default function FirmsPage() {
+export default function ServicesOsPage() {
   return (
-    <div className="prod-firms">
-      <SmoothScroll />
-
+    <div className="hy-page">
       <MgNav />
-
-      {/* ── HERO (ink) ────────────────────────────────────────────── */}
-      <header className="hero-band on-ink np-hero" id="top">
-        <div className="wrap">
-          <div style={{ paddingTop: 40 }}>
-            <div className="np-soon"><span className="dot" /> hysaab services OS · Coming soon</div>
-            <RotatingHeadline items={HEADLINES} />
-            <p className="hero-sub" style={{ maxWidth: 600 }}>
-              hysaab services OS is the operating system for tax and accounting practices — clients,
-              engagements, timesheets, filings, disbursements and your team, run as one, with agents
-              doing the busywork. Built by a Gulf firm that lived the chaos.
-            </p>
-            <a className="np-scrollcue" href="#what" aria-label="See what it does">
-              <span className="tri">▶</span>
-              <span className="lab">What hysaab services OS does</span>
-              <span className="chev" aria-hidden="true">↓</span>
-            </a>
-            <div className="hero-actions">
-              <a className="cta" href="#access">Get early access</a>
-              <span className="mono hero-seat">Opening to a small first cohort</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main>
-        {/* ── THE PROBLEM ───────────────────────────────────────────── */}
-        <section className="np-act np-band-ink" style={{ paddingTop: 100 }} id="what">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE PRACTICE</div>
-            <h2 className="np-head np-rise d1">A firm runs on judgement. <span className="np-accent">It drowns in admin.</span></h2>
-            <p className="np-say np-rise d1">
-              Clients scattered across email and folders. Engagement letters chased by hand.
-              Working papers on a shared drive nobody trusts. A filing calendar in three places.
-              The advice your clients pay for is the last thing anyone has time for. Hysaab for
-              Firms puts the whole practice in one place — so the busywork stops eating the work.
-            </p>
+        {/* ── Hero ── */}
+        <section className="hy-hero" id="top">
+          <div className="hy-wrap hy-hero-grid">
+            <div className="hy-hero-copy">
+              <span className="hy-soon-chip"><i aria-hidden="true" /> Coming soon · founding firms</span>
+              <span className="hy-kicker hy-kicker--blush">hysaab services OS · for tax and advisory firms</span>
+              <h1 className="hy-hero-h1">Your firm sells judgement. Let the admin run itself.</h1>
+              <p className="hy-hero-p">One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make.</p>
+              <div className="hy-hero-cta">
+                <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
+                <a href="#day" className="hy-btn hy-btn--outline-cream hy-btn--lg">Watch a day in the firm</a>
+              </div>
+              <div className="hy-stats">
+                <div className="hy-stat"><span className="hy-stat-n hy-num">45+</span><span className="hy-stat-l">AI skills that propose and never decide</span></div>
+                <div className="hy-stat"><span className="hy-stat-n hy-num">250+</span><span className="hy-stat-l">VAT and CT checks on every filing</span></div>
+                <div className="hy-stat"><span className="hy-stat-n hy-num">8 → 1</span><span className="hy-stat-l">tools replaced by one system</span></div>
+              </div>
+            </div>
+            <div className="hy-hero-win">
+              <div className="hy-win">
+                <div className="hy-win-bar">
+                  <Wordmark size={15} ground="navy" suffix={false} />
+                  <span className="hy-win-org">services OS · firm brief</span>
+                  <span className="hy-win-user"><span className="hy-win-user-n">This week</span></span>
+                </div>
+                <div className="hy-pane" style={{ minHeight: 0 }}>
+                  <div className="hy-pane-head"><span className="hy-pane-title">Sahara Tax Advisory · 12 people</span><span className="hy-pane-status">illustrative</span></div>
+                  <div className="hy-tiles">
+                    <div className="hy-tile"><div className="hy-tile-l">Emails triaged</div><div className="hy-tile-n">412</div><div className="hy-tile-s">into 57 tasks</div></div>
+                    <div className="hy-tile"><div className="hy-tile-l">Realisation</div><div className="hy-tile-n">88%</div><div className="hy-tile-s">up from 79%</div></div>
+                    <div className="hy-tile"><div className="hy-tile-l">Filed on time</div><div className="hy-tile-n">31 / 31</div><div className="hy-tile-s">zero late</div></div>
+                  </div>
+                  <div className="hy-check">
+                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--bad" aria-hidden="true">!</span><span className="hy-check-l"><strong>2 FTA notices</strong> raised to urgent tasks within minutes</span></div>
+                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--ok" aria-hidden="true">✓</span><span className="hy-check-l"><strong>14 meetings</strong> became 38 tasks with owners and dates</span></div>
+                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--ok" aria-hidden="true">✓</span><span className="hy-check-l"><strong>3 engagement letters</strong> signed inside the OS</span></div>
+                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--warn" aria-hidden="true">!</span><span className="hy-check-l"><strong>Omar at 118%</strong> capacity next week · rebalance proposed</span></div>
+                  </div>
+                  <div className="hy-pane-foot">All 412 emails matched to a client or ignored · 0 sent without a person</div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ── WHAT IT DOES (feature grid) ───────────────────────────── */}
-        <section className="np-act">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">ONE PLACE FOR THE PRACTICE</div>
-            <h2 className="np-head np-rise d1">Every client, every engagement, <span className="np-accent">every filing.</span></h2>
-            <p className="np-say np-rise d1">
-              Clients, engagements, timesheets, filings, working papers, disbursements and your team —
-              organised into one clean structure, so nothing is ever orphaned and the whole history
-              of a client is a click from the work in front of you.
-            </p>
-            <div className="np-features np-rise d1">
-              {FEATURES.map((f) => (
-                <div key={f.k} className="np-feat">
-                  <div className="k">{f.k}</div>
-                  <h3>{f.h}</h3>
-                  <p>{f.p}</p>
+        {/* ── What it replaces ── */}
+        <section className="hy-story hy-section hy-rule-b" id="replaces">
+          <div className="hy-wrap">
+            <div className="hy-story-head">
+              <div className="hy-story-title">
+                <span className="hy-kicker">The practice today</span>
+                <h2 className="hy-h2 hy-h2--wide">A firm runs on judgement. It drowns in the tools around it.</h2>
+              </div>
+              <span className="hy-story-note">Client context lives in someone&apos;s inbox. Deadlines live in a spreadsheet. Time is logged on Friday from memory. The advice clients pay for gets whatever hours are left.</span>
+            </div>
+            <div className="hy-replace">
+              {[
+                ["Practice management tool", "Tasks and filings"],
+                ["Shared inbox", "AI-triaged inbox"],
+                ["Deadline spreadsheets", "Live obligations"],
+                ["Document portal", "Data room and portal"],
+                ["CRM", "Pipeline and proposals"],
+                ["E-signature app", "Built-in signing"],
+                ["Timesheet app", "Drafted timesheets"],
+                ["HR file", "People and payroll"],
+              ].map(([old, now]) => (
+                <div key={old}><s>{old}</s><span>→ {now}</span></div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── A day in the firm ── */}
+        <section className="hy-voices hy-section hy-rule-b" id="a-day">
+          <div className="hy-wrap">
+            <div className="hy-story-head">
+              <div className="hy-story-title">
+                <span className="hy-kicker">A day in the firm</span>
+                <h2 className="hy-h2 hy-h2--wide">One Tuesday. Six moments the admin used to eat.</h2>
+              </div>
+              <span className="hy-story-note">Illustrative firm and clients. Press the buttons in the window: nothing the AI proposes counts until a person confirms it.</span>
+            </div>
+            <ServicesDay />
+          </div>
+        </section>
+
+        {/* ── Savings ── */}
+        <section className="hy-cohort hy-section hy-rule-b" id="savings">
+          <div className="hy-wrap">
+            <div className="hy-voices-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <span className="hy-kicker">Time and cost</span>
+                <h2 className="hy-h2">What the admin is costing your firm.</h2>
+              </div>
+              <span className="hy-note" style={{ maxWidth: 380 }}>Put in your team and your hourly cost. Every assumption is on the page, so the number is yours to argue with.</span>
+            </div>
+            <SavingsCalc />
+          </div>
+        </section>
+
+        {/* ── Modules ── */}
+        <section className="hy-agents hy-section" id="features">
+          <div className="hy-wrap">
+            <div className="hy-agents-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <span className="hy-kicker hy-kicker--navy">Everything in the OS</span>
+                <h2 className="hy-h2">Nine areas of the firm. One system underneath.</h2>
+              </div>
+              <p className="hy-agents-p">Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
+            </div>
+            <div className="hy-agents-grid hy-grid-3">
+              {MODULES.map((m) => (
+                <div className="hy-mod" key={m.k}>
+                  <span className="hy-mod-k">{m.k}</span>
+                  <span className="hy-agent-h">{m.h}</span>
+                  <ul>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── THE STRUCTURE (hierarchy, in place of a screenshot) ───── */}
-        <section className="np-act np-band-ink">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE STRUCTURE</div>
-            <h2 className="np-head np-rise d1">From the group down to <span className="np-accent">the filing.</span></h2>
-            <p className="np-say np-rise d1">
-              Everything hangs off a clean hierarchy — so nothing is ever orphaned, and the whole
-              history of a client is one click from the work in front of you.
-            </p>
-            <div className="np-tree np-rise d1">
-              <div className="row"><span className="tag">Group</span><span className="name">ELC Group</span><span className="meta">· 4 entities</span></div>
-              <div className="row l1"><span className="tag">Client</span><span className="name">Richemont Middle East FZE</span><span className="meta">· Active · VAT + CT</span></div>
-              <div className="row l2"><span className="tag">Engagement</span><span className="name">VAT — Monthly</span><span className="meta">· working papers · IRL · 12 filings</span></div>
-              <div className="row l2"><span className="tag">Engagement</span><span className="name">Corporate Tax — FY2025</span><span className="meta">· proposal → engagement letter</span></div>
-              <div className="row l1"><span className="tag">Client</span><span className="name">Corniche Capital Ltd</span><span className="meta">· Discovery → Proposal</span></div>
-              <div className="row l2"><span className="tag">Filing</span><span className="name">VAT Q2 2026 · due 28 Jul</span><span className="meta">· T-14 · working papers linked</span></div>
+        {/* ── Humans in the loop ── */}
+        <section className="hy-whysec" id="control">
+          <div className="hy-wrap">
+            <span className="hy-kicker hy-kicker--blush">How the AI is allowed to work</span>
+            <h2 className="hy-h2 hy-h2--why" style={{ marginTop: 18, maxWidth: "24ch" }}>The model proposes. Code computes. A named person confirms.</h2>
+            <div className="hy-guard hy-grid-3">
+              <div><span className="k">Proposals, not actions</span><h3>Every AI suggestion is a card</h3><p>Tasks, timesheet lines, obligations and tax treatments arrive as proposals. Nothing is created until someone accepts it.</p></div>
+              <div><span className="k">People send</span><h3>No email leaves on its own</h3><p>Replies are drafted, never sent automatically. Auto-send to a client is off by default and, when enabled, waits in a 24-hour hold.</p></div>
+              <div><span className="k">Money is deterministic</span><h3>Code does the arithmetic</h3><p>Fees, WIP, realisation and every tax figure are computed in code. The AI writes words around numbers, never the numbers.</p></div>
+              <div><span className="k">Accountable by design</span><h3>A ledger of AI decisions</h3><p>Every AI decision is logged with whether a person agreed, and governance reports show clients and regulators how AI is used.</p></div>
+              <div><span className="k">Judgement stays human</span><h3>Some things AI cannot touch</h3><p>Appraisal ratings are human only. Automation rules ship switched off. Returns, invoices and payroll need a maker and a checker.</p></div>
+              <div><span className="k">Built to be trusted</span><h3>Security from the first table</h3><p>Row-level security on every table, access by engagement team, mandatory two-factor sign-in, expiring links, malware-scanned uploads and daily backups.</p></div>
             </div>
           </div>
         </section>
 
-        {/* ── VISION / THREE PRODUCTS ───────────────────────────────── */}
-        <section className="why-band on-ink" style={{ marginTop: 0 }}>
-          <div className="wrap">
-            <div className="microlabel hero-kicker np-rise">THE BIGGER PICTURE</div>
-            <h2 className="why-head np-rise d1">Three products.<br />One mission.</h2>
-            <div className="why-cols np-rise d1">
-              <p>
-                We&rsquo;re changing how tax, accounting and the services around them get done in the
-                Gulf — built by accountants who lived every late night of it, not by engineers
-                guessing. Hysaab runs the books. Hysaab&nbsp;Hire runs the hiring. Hysaab&nbsp;for&nbsp;Firms
-                runs the practice itself.
-              </p>
-              <p>
-                One family, one design, one standard: the software does the busywork and shows its
-                evidence — the judgement, and the client relationship, stay yours. hysaab services OS
-                is the newest of the three, and it&rsquo;s opening soon.
-              </p>
+        {/* ── Built by / coming ── */}
+        <section className="hy-family hy-section hy-rule-b">
+          <div className="hy-wrap hy-why-grid">
+            <div className="hy-why-copy">
+              <span className="hy-kicker">Why we built it</span>
+              <h2 className="hy-h2">Built inside a working Gulf tax firm.</h2>
+              <p style={{ color: "var(--hy-body)" }}>hysaab services OS started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
+              <p style={{ color: "var(--hy-body)" }}>We are opening it to a small group of founding firms in the UAE and KSA. Founding firms shape what comes next and keep founder pricing for as long as they stay.</p>
             </div>
-            <div className="hero-actions np-rise" style={{ marginTop: 26 }}>
-              <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Hysaab — the finance OS →</a>
-              <a className="textlink" href="/hire" style={{ fontSize: 13.5 }}>Ibtidah — the hiring OS →</a>
+            <div className="hy-beliefs">
+              <div className="hy-belief"><span className="hy-belief-l">On the roadmap</span><span className="hy-belief-p">Calendar and meeting-recorder connections, so notes arrive without pasting.</span></div>
+              <div className="hy-belief"><span className="hy-belief-p">Gmail and Outlook sync, sending replies from the inbox, and WhatsApp for client documents.</span></div>
+              <div className="hy-belief hy-belief--promise"><span className="hy-belief-l">Our promise</span><span className="hy-belief-p">We will show you what works today, label what does not, and never let the AI make a call that belongs to your people.</span></div>
             </div>
           </div>
         </section>
 
-        {/* ── EARLY ACCESS ──────────────────────────────────────────── */}
-        <section className="section wrap" id="access">
-          <div className="np-soon" style={{ color: "var(--brass-deep)", borderColor: "var(--hairline)" }}><span className="dot" style={{ background: "var(--brass)", boxShadow: "none" }} /> Coming soon</div>
-          <h2 className="section-head">Be first in the door.</h2>
-          <p className="section-sub">
-            hysaab services OS opens to a small first cohort of Gulf practices. Tell us about your firm
-            and we&rsquo;ll bring you in early — with founder terms.
-          </p>
-          <div className="hero-actions" style={{ marginTop: 26 }}>
-            <a className="cta" href="/contact">Request early access</a>
-            <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Looking for the finance OS? Hysaab is here →</a>
-          </div>
-        </section>
+        <CtaBand kicker="Founding firms" title="Give your people their judgement back." body="hysaab services OS opens to a small group of tax and advisory firms first. Tell us about your firm and a real person will walk you through it within one working day." />
       </main>
-
-      <CtaBand />
       <MgFooter />
-      <NpEnhance />
     </div>
   );
 }
