@@ -20,6 +20,11 @@ const CELLS: { k: string; h: string; p: string }[] = [
     p: "Before input VAT is claimed, each invoice is tested against the FTA's tax-invoice criteria — TRN present, rates, arithmetic, rounding. An invoice that fails is held with the reason stated, not silently claimed.",
   },
   {
+    k: "INPUT VAT · CABINET DECISION 149 OF 2026",
+    h: "The October 2026 recovery rules, tested on arrival",
+    p: "From 1 October 2026 the tax agent records the settlement method on every purchase and holds input VAT on cash-settled supplies above the Ministerial threshold, tags employee-benefit and accommodation costs until the legal-obligation or FTA-condition basis is recorded, flags separately priced bundles that carry different rates, and tests assets at AED 5 million and above for the Capital Asset Scheme. Partially exempt books get the 2028 turnover-based apportionment modelled alongside today's method.",
+  },
+  {
     k: "CORPORATE TAX",
     h: "Accrued monthly, reconciled against VAT",
     p: "UAE Corporate Tax (9%) accrues monthly instead of surfacing as a year-end surprise — and VAT and CT are reconciled against each other, so the two returns never tell different stories.",

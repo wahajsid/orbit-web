@@ -116,7 +116,7 @@ export default async function AccountingPage() {
             { k: "Filing", v: "Q2 due 28 Jul · T-14", tone: "b" },
             { k: "ZATCA", v: "142 cleared · 0 rejected", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Hysaab GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
+          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Hysaab tax intelligence: VAT and CT reconciliation, filing watchdog, and the Cabinet Decision 149 of 2026 recovery checks" }}
           cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
         />
 

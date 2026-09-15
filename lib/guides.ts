@@ -22,6 +22,101 @@ export type Guide = {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "uae-vat-cabinet-decision-149-2026-input-tax",
+    title: "Cabinet Decision 149 of 2026: what changes for UAE input VAT recovery from 1 October 2026",
+    description:
+      "The September 2026 amendments to the UAE VAT Executive Regulation: the cash-payment block on input tax, the redrafted employee-benefit exceptions, the composite-supply substance test, the capital asset definition, and the 2028 move to turnover-based apportionment. What to test on every invoice, and when.",
+    updated: "2026-09-15",
+    minutes: 7,
+    tax: true,
+    sections: [
+      {
+        h: "What happened",
+        ps: [
+          "Cabinet Decision No. 149 of 2026, issued on 1 September 2026 and announced by the Ministry of Finance on 8 September, amends Cabinet Decision No. 52 of 2017, the Executive Regulation of the UAE VAT law. Most of the changes take effect on 1 October 2026. The one exception is input tax apportionment, which changes from the first tax year commencing after 1 October 2027.",
+          "Three of the amendments change which input VAT you can recover. That makes them a bookkeeping problem before they are a tax-return problem: the test has to happen when the invoice arrives, not when the return is prepared. This guide lists each change, what it means in practice, and the check Hysaab now runs.",
+        ],
+      },
+      {
+        h: "1. Input tax is blocked on high-value supplies paid in cash (new Article 54(3))",
+        ps: [
+          "From 1 October 2026, input tax cannot be recovered on any supply whose value exceeds a threshold to be set by the Minister, where the consideration is paid, or intended to be paid, in cash. The threshold and the controls sit in a Ministerial Decision that had not been issued at the time of writing.",
+          "This is a standalone denial of recovery, not a timing rule. The drafting refers to the value of the supply rather than to the invoice or the payment, so on a literal reading a large supply that is partly settled in cash could lose recovery on the whole supply. It complements FTA Decision 13 of 2026 on supplier due diligence, which already pushes businesses toward electronic settlement.",
+        ],
+        list: [
+          "Map where cash settlement happens above any likely threshold: site petty cash, subcontractor payments, cash on delivery, retail and food and beverage purchasing.",
+          "Move those flows to traceable bank channels before October.",
+          "Record the settlement method against each purchase so the block can be applied and evidenced.",
+        ],
+      },
+      {
+        h: "2. Employee benefits: the exceptions are redrafted (Article 53(1)(c))",
+        ps: [
+          "Input tax on goods and services provided to employees stays blocked in principle. Two exceptions survive, both narrower than before.",
+        ],
+        list: [
+          "Legal obligation: recovery is allowed where provision is mandatory under the labour legislation of the State or of any free zone, financial or non-financial. The old wording said Designated Zone, which never matched the DIFC and ADGM employment regimes; this widens the exception.",
+          "Accommodation is carved out of the legal-obligation route unless it is mandatory under decisions or directives of the Ministry of Human Resources and Emiratisation. Construction, hospitality, manufacturing and logistics businesses that recover VAT on labour accommodation and camp operating costs need to retest each cost against a MoHRE mandate rather than a general labour-law obligation.",
+          "Contractual obligation or documented policy: recovery now depends on cases and conditions to be specified by the FTA. Until that decision is issued, an employment contract or HR policy on its own is not a safe basis for recovery, and positions taken from 1 October should be flagged internally.",
+          "Nothing in the amendment addresses utilities, furniture or maintenance around accommodation; those keep the existing treatment, and the FTA public clarification on residential versus serviced labour accommodation still applies.",
+        ],
+      },
+      {
+        h: "3. Bundled supplies: substance overrides form (new Article 4(6))",
+        ps: [
+          "A taxable person may no longer treat a multi-component supply as several supplies where the nature and economic substance of the supply show that the components are interconnected and cannot be separated. Such a supply is a single composite supply and follows the VAT treatment of its principal component.",
+          "Separate pricing on the invoice used to be enough to fall outside composite-supply treatment. It no longer is. If parts of a package carry different rates, standard, zero or exempt, you now need to show the parts are genuinely separable in practice. Bundled financial products, real estate with related services, education and healthcare packages, hospitality, telecoms and digital bundles are the obvious places to look.",
+        ],
+      },
+      {
+        h: "4. Capital assets are defined by the asset, not the spend (Article 57(1))",
+        ps: [
+          "A capital asset is now a business asset with a cost of AED 5,000,000 or more, excluding tax, rather than a single item of expenditure of that amount. The threshold, the ten-year and five-year useful lives and the tax-payable condition are unchanged. On a plain reading, expenditure of AED 5 million or more that is expensed rather than capitalised falls outside the Capital Asset Scheme even where it has a long useful life, which matters for large fit-outs, refurbishments and IT programmes with mixed accounting treatment. Article 57(3), which aggregates staged payments, still refers to a single item of expenditure.",
+        ],
+      },
+      {
+        h: "5. Apportionment moves to a turnover ratio from 2028 (Article 55(6), (7) and (19))",
+        ps: [
+          "For partially exempt businesses, residual input tax will be apportioned on the value of supplies that carry recovery over the value of all supplies, instead of the current ratio of recoverable input tax to total input tax. Disposals of the business's own capital assets and reverse-charge receipts of concerned goods and services are excluded from the calculation. Government entities and charities keep the input-tax ratio under new Clause 19.",
+          "This applies from the first tax year commencing after 1 October 2027: 1 January 2028 for calendar-year filers, and 1 February, 1 March or 1 April 2028 for quarterly filers depending on the tax year set under Article 55(1). The annual actual-use adjustment, including the AED 250,000 threshold, continues. Banks, insurers, residential landlords and holding companies with ancillary exempt income should model both methods on a full year of data now and consider applying for a special method well before the transition.",
+        ],
+      },
+      {
+        h: "The clarificatory changes",
+        list: [
+          "Profit margin scheme (Article 29(5)): acquisition costs and fees are added to the purchase price only where the input tax on them is not recoverable. Used-goods dealers should split acquisition costs by recovery status in stock records.",
+          "Healthcare zero-rating (Article 41(4)): pharmaceutical products and medical equipment are consolidated into a single category of medical products, to be specified by Cabinet Decision. Keep SKU-level registration evidence.",
+          "Exported financial services (Article 52(2)): the outside-the-State test becomes less than 30 days instead of less than a month.",
+          "Tax credit notes (Article 60(1)(a)): the labelling requirement now correctly reads credit note rather than invoice. Content requirements are unchanged.",
+        ],
+      },
+      {
+        h: "How Hysaab applies this",
+        ps: [
+          "The tax agent already tests every inbound invoice against the Article 59 tax-invoice checklist before input VAT is claimed. From 1 October 2026 it also records the settlement method on every purchase and holds the input VAT on cash-settled supplies above the threshold once the Ministerial Decision sets it; tags employee-benefit and accommodation costs and holds recovery until the legal-obligation or FTA-condition basis is recorded; flags invoices where separately priced components carry different VAT rates so the composite-supply position is documented; and tests capitalised assets at AED 5 million and above for the Capital Asset Scheme. Partially exempt clients get the turnover-based apportionment modelled alongside the current method ahead of 2028. Every hold names the rule and the missing evidence, and a person makes the call.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "When does Cabinet Decision 149 of 2026 take effect?",
+        a: "Most amendments take effect on 1 October 2026. The change to input tax apportionment applies from the first tax year commencing after 1 October 2027, which is 1 January 2028 for calendar-year filers.",
+      },
+      {
+        q: "Is the cash-payment block on input tax already in force?",
+        a: "The provision is in force from 1 October 2026, but the value threshold and the controls are set by a Ministerial Decision that had not been issued at the time of writing. Businesses should map cash settlements now and move large payments to traceable channels.",
+      },
+      {
+        q: "Can I still recover VAT on staff accommodation?",
+        a: "Only where the accommodation is mandatory under MoHRE decisions or directives, or where it falls within the contractual-obligation exception under cases and conditions the FTA is expected to specify. A general labour-law obligation is no longer enough on its own.",
+      },
+      {
+        q: "Does separate pricing still keep bundled components apart for VAT?",
+        a: "No. Under new Article 4(6), where the components are economically interconnected and inseparable, the supply is a single composite supply and follows its principal component, regardless of separate pricing.",
+      },
+    ],
+  },
+  {
     slug: "uae-tax-invoice-checklist",
     title: "What makes a valid UAE tax invoice — the Article 59 checklist",
     description:
