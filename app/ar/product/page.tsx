@@ -4,7 +4,7 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit — نظام واحد، ست وحدات، وكل درهم في حسابه.",
+  title: "Hysaab — نظام واحد، ست وحدات، وكل درهم في حسابه.",
   description:
     "الذمم الدائنة والمدينة، ودفتر الأستاذ، والإقفال الشهري، والمستندات والضرائب — كل وحدة يديرها الوكلاء، وكلها مسؤولة أمامك.",
   alternates: langAlternates("/product"),
@@ -41,7 +41,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-payables.png" alt="الذمم الدائنة في Orbit — المستحقات المفتوحة وطبقة الضريبة مدمجة في كل سطر" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-payables.png" alt="الذمم الدائنة في Hysaab — المستحقات المفتوحة وطبقة الضريبة مدمجة في كل سطر" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -55,7 +55,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-receivables.png" alt="الذمم المدينة في Orbit — طابور التحصيل وفترة التحصيل وأعمار الذمم" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-receivables.png" alt="الذمم المدينة في Hysaab — طابور التحصيل وفترة التحصيل وأعمار الذمم" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-ledger.png" alt="دفتر الأستاذ العام في Orbit — حركة القيود مع تعليقات الوكلاء والأدلة" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-ledger.png" alt="دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Orbit — جانب Orbit منجز، ومهام دفترك مرتّبة، والقفل خلف بوابة" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — جانب Hysaab منجز، ومهام دفترك مرتّبة، والقفل خلف بوابة" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -101,7 +101,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-documents.png" alt="مستندات Orbit — خزنة الأدلة، كل ملف مربوط بقيده" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-documents.png" alt="مستندات Hysaab — خزنة الأدلة، كل ملف مربوط بقيده" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -115,7 +115,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-tax.png" alt="ضرائب Orbit — تسوية القيمة المضافة مع ضريبة الشركات، والمواعيد، والتخليص في مكان واحد" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-tax.png" alt="ضرائب Hysaab — تسوية القيمة المضافة مع ضريبة الشركات، والمواعيد، والتخليص في مكان واحد" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>

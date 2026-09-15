@@ -4,7 +4,7 @@ import { FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "الأسعار — Orbit",
+  title: "الأسعار — Hysaab",
   description:
     "ثلاث فئات — Starter بـ149 درهمًا شهريًا، وGrowth بـ499 درهمًا شهريًا، وScale بـ1,499 درهمًا شهريًا — تُقاس بحجم استخدامك لفريق الذكاء الاصطناعي، لا بعدد المقاعد. أول 100 شركة تحصل على اثني عشر شهرًا مجانًا.",
   alternates: langAlternates("/pricing"),
@@ -19,7 +19,7 @@ const TIERS: { name: string; price: string; who: string; feats: string[]; hero?:
       "فريق الوكلاء كاملًا على دفاترك",
       "المستندات تصل عبر البريد وتيليغرام",
       "قائمة القرارات، والإقفال الشهري، وحزمة مجلس الإدارة",
-      "دفتر أستاذ واحد متصل — أو يتولى Orbit مسك الدفاتر",
+      "دفتر أستاذ واحد متصل — أو يتولى Hysaab مسك الدفاتر",
       "استخدام على مقاس منشأة صغيرة",
     ],
   },

@@ -4,9 +4,9 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "About — Orbit",
+  title: "About — Hysaab",
   description:
-    "Orbit is built in the Gulf by accountants who lived the month-end they're deleting — one design standard, four products, human judgement kept where it belongs.",
+    "Hysaab is built in the Gulf by accountants who lived the month-end they're deleting — one design standard, four products, human judgement kept where it belongs.",
   alternates: langAlternates("/about"),
 };
 
@@ -19,14 +19,14 @@ export default function AboutPage() {
           <div className="mg-kicker">ABOUT</div>
           <h1 className="mg-page-h">We lived the month-end we&rsquo;re deleting.</h1>
           <p className="mg-page-lede">
-            Orbit is built in Dubai by accountants who have lived and slept through these processes —
+            Hysaab is built in Dubai by accountants who have lived and slept through these processes —
             month-end, VAT filings, FTA queries — not by engineers guessing at them.
           </p>
         </section>
 
         <section className="mg-page-body mg-guide-body">
           <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">Where Orbit comes from</h2>
+            <h2 className="mg-guide-h">Where Hysaab comes from</h2>
             <p className="mg-guide-p">
               Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at
               midnight, a VAT deadline breathing down the quarter — and the numbers that actually
@@ -56,11 +56,11 @@ export default function AboutPage() {
             <h2 className="mg-guide-h">The family</h2>
             <p className="mg-guide-p">
               One mission — changing how tax, accounting and the services around them get done in the
-              Gulf — carried by four products: <a className="textlink" href="/product">Orbit</a> runs
-              the books, <a className="textlink" href="/hire">Orbit Hire</a> runs the hiring,{" "}
-              <a className="textlink" href="/invoice">Orbit Invoice</a> tests every supplier invoice
+              Gulf — carried by four products: <a className="textlink" href="/product">Hysaab</a> runs
+              the books, <a className="textlink" href="/hire">Ibtidah</a> runs the hiring,{" "}
+              <a className="textlink" href="/invoice">Hysaab Invoice</a> tests every supplier invoice
               against the FTA&rsquo;s and ZATCA&rsquo;s rules, and{" "}
-              <a className="textlink" href="/firms">Orbit for Firms</a> runs the practice itself.
+              <a className="textlink" href="/firms">Oblique OS</a> runs the practice itself.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
             <h2 className="mg-guide-h">Where we are</h2>
             <p className="mg-guide-p">
               Dubai, UAE — working across the Emirates and Saudi Arabia, in English and Arabic. Write
-              to us at <a className="textlink" href="mailto:info@orbitgulf.com">info@orbitgulf.com</a>;
+              to us at <a className="textlink" href="mailto:info@hysaab.ai">info@hysaab.ai</a>;
               a real person reads every message.
             </p>
           </div>

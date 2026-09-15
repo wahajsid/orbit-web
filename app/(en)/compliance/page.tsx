@@ -3,9 +3,9 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Compliance — Orbit",
+  title: "Compliance — Hysaab",
   description:
-    "How Orbit keeps UAE VAT, Corporate Tax and KSA ZATCA rules enforced by default — every document tax-tested before posting, period locks agents cannot cross, a full audit trail, and human approval past your thresholds.",
+    "How Hysaab keeps UAE VAT, Corporate Tax and KSA ZATCA rules enforced by default — every document tax-tested before posting, period locks agents cannot cross, a full audit trail, and human approval past your thresholds.",
   alternates: langAlternates("/compliance"),
 };
 
@@ -31,7 +31,7 @@ const CELLS: { k: string; h: string; p: string }[] = [
   {
     k: "E-INVOICING",
     h: "Ready ahead of the UAE mandate",
-    p: "Orbit reads and validates structured invoices today, ahead of the UAE e-invoicing mandate — the switch is a date on a calendar, not a migration.",
+    p: "Hysaab reads and validates structured invoices today, ahead of the UAE e-invoicing mandate — the switch is a date on a calendar, not a migration.",
   },
   {
     k: "PERIOD LOCKS",
@@ -51,7 +51,7 @@ const CELLS: { k: string; h: string; p: string }[] = [
   {
     k: "DATA SECURITY",
     h: "Isolated tenant, encrypted credentials",
-    p: "Your books live in an isolated tenant with row-level security. Ledger credentials are stored server-side, encrypted, and never reach a browser. Sign-in supports mandatory two-factor authentication, and your ledger connection can be revoked at any time — from Orbit or from the ledger's side.",
+    p: "Your books live in an isolated tenant with row-level security. Ledger credentials are stored server-side, encrypted, and never reach a browser. Sign-in supports mandatory two-factor authentication, and your ledger connection can be revoked at any time — from Hysaab or from the ledger's side.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function CompliancePage() {
           <p className="mg-page-lede">
             Every document is tested against the tax rules before a dirham moves. Every journal
             carries its evidence. Every period lock is final. This page is the plain-language map
-            of how Orbit keeps your books defensible — in the UAE and in Saudi Arabia.
+            of how Hysaab keeps your books defensible — in the UAE and in Saudi Arabia.
           </p>
         </section>
         <section className="mg-page-body">
@@ -80,7 +80,7 @@ export default function CompliancePage() {
             ))}
           </div>
           <div className="mg-guide-cta">
-            <a href="/#join" className="mg-cta">Book a demo →</a>
+            <a href="/#cohort" className="mg-cta">Book a demo →</a>
             <a href="/faq" className="mg-ghost">Straight answers in the FAQ</a>
           </div>
         </section>

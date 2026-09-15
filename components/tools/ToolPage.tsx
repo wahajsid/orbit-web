@@ -41,7 +41,7 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
                 {ar ? <>اقرأ الدليل: {guide.title.split(" — ")[0]} ←</> : <>Read the guide: {guide.title.split(" — ")[0]} →</>}
               </a>
             )}
-            <a href={ar ? "/ar/product" : "/product"} className="mg-ghost">{ar ? "شاهد Orbit يديرها فعليًا" : "See Orbit run it for real"}</a>
+            <a href={ar ? "/ar/product" : "/product"} className="mg-ghost">{ar ? "شاهد Hysaab يديرها فعليًا" : "See Hysaab run it for real"}</a>
           </div>
         </section>
       </main>

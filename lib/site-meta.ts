@@ -6,12 +6,13 @@
 export const ORG_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Orbit",
-  url: "https://www.orbitgulf.com",
-  logo: "https://www.orbitgulf.com/favicon.png",
+  name: "Hysaab",
+  alternateName: "hysaab.ai",
+  url: "https://hysaab.ai",
+  logo: "https://hysaab.ai/brand/hysaab-avatar-navy-1024.png",
   description:
-    "AI-native accounting and finance for UAE & KSA businesses — agents read documents, code the ledger, test tax and run the month-end close, with human approval on the calls that matter.",
-  email: "info@orbitgulf.com",
+    "AI accounting and reporting for Gulf businesses. Sixteen agents read documents, code the ledger, reconcile the bank, test tax and run the month-end close, with human approval on the calls that matter. Built in Dubai.",
+  email: "info@hysaab.ai",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   areaServed: ["AE", "SA"],
   sameAs: ["https://www.linkedin.com/company/orbitgulf"],
@@ -20,12 +21,12 @@ export const ORG_LD = {
 export const APP_LD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Orbit",
+  name: "Hysaab",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  url: "https://www.orbitgulf.com",
+  url: "https://hysaab.ai",
   description:
-    "An AI finance team for UAE & KSA businesses: payables, receivables, the ledger, tax and the month-end close, run by agents and approved by you. Posts into Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.",
+    "An AI accounting and reporting team for UAE and GCC businesses: payables, receivables, the ledger, tax and the month-end close, run by agents and approved by you. Posts into Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.",
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",

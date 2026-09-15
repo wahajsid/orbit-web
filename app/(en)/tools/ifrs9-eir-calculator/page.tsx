@@ -3,7 +3,7 @@ import { ToolPage } from "@/components/tools/ToolPage";
 import { EirCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "IFRS 9 effective interest rate (EIR) calculator — Orbit",
+  title: "IFRS 9 effective interest rate (EIR) calculator — Hysaab",
   description:
     "Free EIR calculator: enter the face value, coupon, term and origination fees — solve for the effective interest rate and generate the full amortised-cost schedule under IFRS 9.",
 };

@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { DeMinimisCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Free zone de minimis calculator (QFZP) — Orbit",
+  title: "Free zone de minimis calculator (QFZP) — Hysaab",
   description:
     "Free UAE free zone de minimis test: check non-qualifying revenue against the lower of AED 5m and 5% of total revenue, see your headroom, and understand the five-year cliff.",
   alternates: langAlternates("/tools/freezone-de-minimis-calculator"),

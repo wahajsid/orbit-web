@@ -5,39 +5,39 @@ import { LAUNCH_DATE_LONG } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "FAQ — Orbit",
-  description: "Straight answers about Orbit — the AI finance team for UAE & KSA businesses.",
+  title: "FAQ — Hysaab",
+  description: "Straight answers about Hysaab — the AI finance team for UAE & KSA businesses.",
   alternates: langAlternates("/faq"),
 };
 
 const FAQS: [string, string][] = [
   [
-    "What exactly is Orbit?",
+    "What exactly is Hysaab?",
     "An AI finance team for UAE and KSA businesses. Documents arrive by WhatsApp, Telegram or email; specialist agents read them, code them from your own history, test them against FTA and ZATCA tax rules, match them to POs and bank lines, and post them to your ledger. You approve the decisions that matter — nothing posts silently past the thresholds you set.",
   ],
   [
     "Do I have to replace my current accounting system?",
-    "No. Orbit posts straight into Zoho Books, Xero, QuickBooks, Odoo, Wafeq or ERPNext — your ledger stays the system of record your accountant and auditor already know. One connected ledger at a time keeps a single source of truth.",
+    "No. Hysaab posts straight into Zoho Books, Xero, QuickBooks, Odoo, Wafeq or ERPNext — your ledger stays the system of record your accountant and auditor already know. One connected ledger at a time keeps a single source of truth.",
   ],
   [
     "What if I don't use any accounting system?",
-    "Even simpler: forward documents by email or WhatsApp and Orbit keeps clean books for you — chart of accounts, journals, evidence trail included from day one.",
+    "Even simpler: forward documents by email or WhatsApp and Hysaab keeps clean books for you — chart of accounts, journals, evidence trail included from day one.",
   ],
   [
     "Does the AI post things without asking me?",
     "Only below the limits you set. Anything above your journal-value threshold, any low-confidence coding, any duplicate suspicion — waits in a decision queue for a human. Every posting carries its evidence, so you can always see why.",
   ],
   [
-    "How does Orbit handle VAT and Corporate Tax?",
+    "How does Hysaab handle VAT and Corporate Tax?",
     "UAE VAT (5%) is tested line-by-line against FTA tax-invoice criteria before input VAT is claimed; 9% Corporate Tax accrues monthly; VAT and CT are reconciled against each other so the two returns never tell different stories. For KSA, 15% VAT rules and ZATCA e-invoice clearance status are tracked. When the FTA asks questions, the audit-response assembler packages the evidence in one click.",
   ],
   [
     "Is my financial data safe?",
-    "Your books live in an isolated tenant with row-level security; ledger credentials are stored server-side, encrypted, and never reach a browser. Sign-in supports mandatory two-factor authentication. Orbit never shares your data, and your ledger connection can be revoked by you at any time — from Orbit or from the ledger's side.",
+    "Your books live in an isolated tenant with row-level security; ledger credentials are stored server-side, encrypted, and never reach a browser. Sign-in supports mandatory two-factor authentication. Hysaab never shares your data, and your ledger connection can be revoked by you at any time — from Hysaab or from the ledger's side.",
   ],
   [
     "What does the founding cohort actually get?",
-    `The first 100 companies get Orbit free for twelve months (fair-usage policy applies), with founder pricing locked in afterwards. Doors open ${LAUNCH_DATE_LONG}; founding entries are reviewed by a real person and invites go out by email.`,
+    `The first 100 companies get Hysaab free for twelve months (fair-usage policy applies), with founder pricing locked in afterwards. Doors open ${LAUNCH_DATE_LONG}; founding entries are reviewed by a real person and invites go out by email.`,
   ],
   [
     "What does it cost after that?",
@@ -49,7 +49,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Is there an Arabic version?",
-    "Yes — the site is live in Arabic at orbitgulf.com/ar, and the product workspace flips to Arabic, right-to-left, down to the numerals. The team behind Orbit works in both languages — نتحدث العربية — and support in Arabic is available today at info@orbitgulf.com.",
+    "Yes — the site is live in Arabic at hysaab.ai/ar, and the product workspace flips to Arabic, right-to-left, down to the numerals. The team behind Hysaab works in both languages — نتحدث العربية — and support in Arabic is available today at info@hysaab.ai.",
   ],
 ];
 
@@ -75,7 +75,7 @@ export default function FaqPage() {
           <h1 className="mg-page-h">Straight answers.</h1>
           <p className="mg-page-lede">
             The questions founders and finance leads actually ask us. Anything missing —
-            <a href="mailto:info@orbitgulf.com" className="textlink" style={{ marginLeft: 6 }}>ask a real person</a>.
+            <a href="mailto:info@hysaab.ai" className="textlink" style={{ marginLeft: 6 }}>ask a real person</a>.
           </p>
         </section>
         <section className="mg-page-body">

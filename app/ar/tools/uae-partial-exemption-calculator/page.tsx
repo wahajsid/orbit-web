@@ -4,7 +4,7 @@ import { PartialExemptionCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة الإعفاء الجزئي — Orbit",
+  title: "حاسبة الإعفاء الجزئي — Hysaab",
   description:
     "حاسبة مجانية للإعفاء الجزئي في الإمارات: انسب مدخلات الضريبة للأوعية الثلاثة، واحسب نسبة الاسترداد بالطريقة القياسية، وشاهد الضريبة الضائعة فعلًا.",
   alternates: langAlternates("/tools/uae-partial-exemption-calculator"),

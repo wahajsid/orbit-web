@@ -3,7 +3,7 @@ import { ToolPage } from "@/components/tools/ToolPage";
 import { ActuarialEosbCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "IAS 19 actuarial EOSB valuation — Orbit",
+  title: "IAS 19 actuarial EOSB valuation — Hysaab",
   description:
     "Free IAS 19 projected unit credit calculator for UAE end-of-service benefits: discount rate, salary growth, attrition — the actuarial estimate auditors expect, computed in your browser.",
 };

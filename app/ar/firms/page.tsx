@@ -6,7 +6,7 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit for Firms — نظام التشغيل لمكاتب الخدمات المهنية",
+  title: "Oblique OS — نظام التشغيل لمكاتب الخدمات المهنية",
   description:
     "قريبًا. نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء، والارتباطات، وأوراق العمل، والإقرارات، والمهام، وفريقك، تُدار كوحدة واحدة، والذكاء الاصطناعي منسوج في كل جزء.",
   alternates: langAlternates("/firms"),
@@ -38,16 +38,16 @@ export default function FirmsPage() {
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
           <div style={{ paddingTop: 40 }}>
-            <div className="np-soon"><span className="dot" /> ‏Orbit for Firms · قريبًا</div>
+            <div className="np-soon"><span className="dot" /> ‏Oblique OS · قريبًا</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              ‏Orbit for Firms هو نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء،
+              ‏Oblique OS هو نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء،
               والارتباطات، وسجلات الوقت، والإقرارات، والمصروفات، وفريقك، تُدار كوحدة واحدة،
               والوكلاء يتولون العمل الروتيني. بناه مكتب خليجي عاش الفوضى بنفسه.
             </p>
             <a className="np-scrollcue" href="#what" aria-label="شاهد ما يفعله">
               <span className="tri">▶</span>
-              <span className="lab">ماذا يفعل Orbit for Firms</span>
+              <span className="lab">ماذا يفعل Oblique OS</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
@@ -67,7 +67,7 @@ export default function FirmsPage() {
             <p className="np-say np-rise d1">
               عملاء مبعثرون بين البريد والمجلدات. خطابات ارتباط تُلاحق يدويًا.
               أوراق عمل على مساحة مشتركة لا يثق بها أحد. تقويم إقرارات في ثلاثة أماكن.
-              والمشورة التي يدفع عملاؤك مقابلها هي آخر ما يجد أحدٌ وقتًا له. ‏Orbit for
+              والمشورة التي يدفع عملاؤك مقابلها هي آخر ما يجد أحدٌ وقتًا له. ‏Hysaab for
               Firms يضع المكتب كله في مكان واحد — ليتوقف العمل الروتيني عن التهام العمل الحقيقي.
             </p>
           </div>
@@ -124,18 +124,18 @@ export default function FirmsPage() {
               <p>
                 نحن نغيّر الطريقة التي تُنجز بها الضرائب والمحاسبة والخدمات المحيطة بهما في
                 الخليج — على يد محاسبين عاشوا كل ليلة متأخرة منها، لا مهندسين
-                يخمّنون. ‏Orbit يدير الدفاتر. ‏Orbit&nbsp;Hire يدير التوظيف. ‏Orbit&nbsp;for&nbsp;Firms
+                يخمّنون. ‏Hysaab يدير الدفاتر. ‏Hysaab&nbsp;Hire يدير التوظيف. ‏Hysaab&nbsp;for&nbsp;Firms
                 يدير المكتب نفسه.
               </p>
               <p>
                 عائلة واحدة، وتصميم واحد، ومعيار واحد: البرنامج يؤدي العمل الروتيني ويُظهر
-                أدلته — ويبقى الحُكم المهني، وعلاقة العميل، لك أنت. ‏Orbit for Firms
+                أدلته — ويبقى الحُكم المهني، وعلاقة العميل، لك أنت. ‏Oblique OS
                 هو الأحدث بين الثلاثة، وأبوابه تُفتح قريبًا.
               </p>
             </div>
             <div className="hero-actions np-rise" style={{ marginTop: 26 }}>
-              <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>‏Orbit — نظام التشغيل المالي ←</a>
-              <a className="textlink" href="/ar/hire" style={{ fontSize: 13.5 }}>‏Orbit Hire — نظام تشغيل التوظيف ←</a>
+              <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>‏Hysaab — نظام التشغيل المالي ←</a>
+              <a className="textlink" href="/ar/hire" style={{ fontSize: 13.5 }}>‏Ibtidah — نظام تشغيل التوظيف ←</a>
             </div>
           </div>
         </section>
@@ -145,12 +145,12 @@ export default function FirmsPage() {
           <div className="np-soon" style={{ color: "var(--brass-deep)", borderColor: "var(--hairline)" }}><span className="dot" style={{ background: "var(--brass)", boxShadow: "none" }} /> قريبًا</div>
           <h2 className="section-head">كن أول من يدخل.</h2>
           <p className="section-sub">
-            يفتح Orbit for Firms أبوابه لدفعة أولى صغيرة من مكاتب الخليج. حدّثنا عن مكتبك
+            يفتح Oblique OS أبوابه لدفعة أولى صغيرة من مكاتب الخليج. حدّثنا عن مكتبك
             وسندخلك مبكرًا — بشروط المؤسسين.
           </p>
           <div className="hero-actions" style={{ marginTop: 26 }}>
             <a className="cta" href="/ar/contact">اطلب وصولًا مبكرًا</a>
-            <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>تبحث عن نظام التشغيل المالي؟ Orbit هنا ←</a>
+            <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>تبحث عن نظام التشغيل المالي؟ Hysaab هنا ←</a>
           </div>
         </section>
       </main>

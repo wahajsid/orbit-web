@@ -4,7 +4,7 @@ import { EcomVatCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص ضريبة التجارة الإلكترونية (الإمارات) — Orbit",
+  title: "فاحص ضريبة التجارة الإلكترونية (الإمارات) — Hysaab",
   description:
     "أداة مجانية لضريبة التجارة الإلكترونية في الإمارات: 5% محليًا، والنسبة الصفرية للتصدير مع فرض قاعدة الدليل، ومكان الاستخدام للخدمات الإلكترونية — لكل طلب.",
   alternates: langAlternates("/tools/uae-ecommerce-vat-checker"),

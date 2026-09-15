@@ -4,7 +4,7 @@ import { VatRegistrationCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص التسجيل في ضريبة القيمة المضافة الإماراتية — Orbit",
+  title: "فاحص التسجيل في ضريبة القيمة المضافة الإماراتية — Hysaab",
   description:
     "فاحص مجاني لعتبات التسجيل في ضريبة القيمة المضافة الإماراتية: اختبار الإلزامي عند 375,000 درهم والاختياري عند 187,500 درهم على 12 شهرًا متحركة وقاعدة الثلاثين يومًا.",
   alternates: langAlternates("/tools/uae-vat-registration-checker"),

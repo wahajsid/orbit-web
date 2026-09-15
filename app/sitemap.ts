@@ -3,7 +3,7 @@ import { GUIDES } from "@/lib/guides";
 import { getArGuide } from "@/lib/guides-ar";
 import { TOOLS } from "@/lib/tools";
 
-const BASE = "https://www.orbitgulf.com";
+const BASE = "https://hysaab.ai";
 
 /* Every indexable route on the site. Marketing pages are hand-listed —
    the set changes with deliberate launches, not file churn. */
@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/product", priority: 0.9 },
     { path: "/pricing", priority: 0.9 },
     { path: "/accounting", priority: 0.8 },
-    { path: "/hire", priority: 0.7 },
     { path: "/invoice", priority: 0.7 },
     { path: "/firms", priority: 0.6 },
     { path: "/how-it-works", priority: 0.8 },

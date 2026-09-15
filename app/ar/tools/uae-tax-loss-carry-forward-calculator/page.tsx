@@ -4,7 +4,7 @@ import { LossCarryCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة ترحيل الخسائر الضريبية — Orbit",
+  title: "حاسبة ترحيل الخسائر الضريبية — Hysaab",
   description:
     "حاسبة مجانية للخسائر الضريبية الإماراتية: طبّق الخسائر المرحّلة على الدخل الخاضع بسقف الـ 75%، وشاهد الضريبة المستحقة والخسائر المستمرة بالترحيل.",
   alternates: langAlternates("/tools/uae-tax-loss-carry-forward-calculator"),

@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { CtPenaltyCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "UAE Corporate Tax penalty calculator — Orbit",
+  title: "UAE Corporate Tax penalty calculator — Hysaab",
   description:
     "Free UAE Corporate Tax penalty calculator: AED 10,000 late registration, AED 500–1,000 monthly filing penalties, and 14% p.a. on unpaid tax — computed from months late.",
   alternates: langAlternates("/tools/uae-corporate-tax-penalty-calculator"),

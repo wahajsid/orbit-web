@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { EcomVatCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "E-commerce VAT checker (UAE) — Orbit",
+  title: "E-commerce VAT checker (UAE) — Hysaab",
   description:
     "Free UAE e-commerce VAT tool: domestic 5%, zero-rated exports with the evidence rule enforced, and use-and-enjoyment for electronic services — per order.",
   alternates: langAlternates("/tools/uae-ecommerce-vat-checker"),

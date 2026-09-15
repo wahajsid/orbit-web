@@ -4,7 +4,7 @@ import { VdPenaltyCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة غرامات الإفصاح الطوعي — Orbit",
+  title: "حاسبة غرامات الإفصاح الطوعي — Hysaab",
   description:
     "حاسبة مجانية لغرامات النموذج 211: الثابتة 1,000/2,000 درهم زائد سلّم الـ 5%-40% على فرق الضريبة بحسب السنوات — وكلفة انتظار سنة أخرى.",
   alternates: langAlternates("/tools/uae-voluntary-disclosure-penalty-calculator"),

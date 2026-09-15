@@ -69,9 +69,9 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tests every inbound invoice against this checklist on arrival, holds the input VAT on failures instead of claiming it, names the exact failing field, and can draft the correction request to the supplier. The claim happens when the paper holds up — not before.",
+          "Hysaab tests every inbound invoice against this checklist on arrival, holds the input VAT on failures instead of claiming it, names the exact failing field, and can draft the correction request to the supplier. The claim happens when the paper holds up — not before.",
         ],
       },
     ],
@@ -106,7 +106,7 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
           "A deadline watchdog tracks every registration's filing calendar, escalates as dates approach (green → amber at 14 days → red at 3), assembles the VAT return from the ledger as the month runs, and reconciles VAT against CT continuously so the filings never diverge silently.",
         ],
@@ -138,7 +138,7 @@ export const GUIDES: Guide[] = [
           "5 · Depreciation & payroll — post depreciation across classes; post the payroll run with EOSB gratuity provision movements",
           "6 · VAT draft — build the return from the posted ledger, with input VAT held on any invoice that fails the tax-invoice test",
           "7 · Variance review — explain the month's significant movements line-by-line; what can't be explained gets flagged, not smoothed",
-          "8 · Lock — when every gate is green, close and lock the period, in Orbit and in the connected ledger, so it cannot quietly change",
+          "8 · Lock — when every gate is green, close and lock the period, in Hysaab and in the connected ledger, so it cannot quietly change",
         ],
       },
       {
@@ -149,16 +149,16 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit runs steps 1–6 as agents with confidence gates, presents step 7 as plain-language decisions with the evidence attached, and enforces step 8 as a hard lock that agents cannot cross. The close cockpit shows the whole checklist live — what's done, what's posting, what needs you.",
+          "Hysaab runs steps 1–6 as agents with confidence gates, presents step 7 as plain-language decisions with the evidence attached, and enforces step 8 as a hard lock that agents cannot cross. The close cockpit shows the whole checklist live — what's done, what's posting, what needs you.",
         ],
       },
     ],
   },
   {
     slug: "keep-your-ledger",
-    title: "Why Orbit sits on top of your ledger instead of replacing it",
+    title: "Why Hysaab sits on top of your ledger instead of replacing it",
     description:
       "Switching accounting systems is a migration project with an auditor problem. The case for AI that posts into the ledger you already have — Zoho, Xero, QuickBooks, Odoo, Wafeq or ERPNext.",
     updated: "2026-08-16",
@@ -176,8 +176,8 @@ export const GUIDES: Guide[] = [
         list: [
           "Your chart of accounts is discovered and mapped — with your review — not replaced",
           "Approved journals post into the ledger two ways; anything touching an unmapped account is held with the reason stated, never half-pushed",
-          "The ledger stays the system of record your auditor already trusts; Orbit carries the evidence trail behind every number",
-          "Payables can land as proper bills where the ledger requires it — ledgers reserve their control accounts for their own documents, and Orbit respects that",
+          "The ledger stays the system of record your auditor already trusts; Hysaab carries the evidence trail behind every number",
+          "Payables can land as proper bills where the ledger requires it — ledgers reserve their control accounts for their own documents, and Hysaab respects that",
           "One connected ledger at a time, so there is always a single source of truth",
           "Disconnect any time, from either side — your books remain yours, in your ledger",
         ],
@@ -185,7 +185,7 @@ export const GUIDES: Guide[] = [
       {
         h: "When replacing is right anyway",
         ps: [
-          "If you run no accounting system at all, there is nothing to preserve: Orbit keeps the books itself from day one — chart of accounts, journals and evidence included. The point isn't that ledgers are sacred; it's that a business already invested in one shouldn't have to abandon it to get an AI finance team.",
+          "If you run no accounting system at all, there is nothing to preserve: Hysaab keeps the books itself from day one — chart of accounts, journals and evidence included. The point isn't that ledgers are sacred; it's that a business already invested in one shouldn't have to abandon it to get an AI finance team.",
         ],
       },
     ],
@@ -222,9 +222,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit's payroll engine computes the EOSB provision per employee as part of the monthly run, posts the provision movements with the register as evidence, and keeps the salary history append-only — so the balance sheet always carries what you actually owe.",
+          "Hysaab's payroll engine computes the EOSB provision per employee as part of the monthly run, posts the provision movements with the register as evidence, and keeps the salary history append-only — so the balance sheet always carries what you actually owe.",
         ],
       },
     ],
@@ -259,9 +259,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit classifies input VAT per line as recoverable, blocked or conditional, keeps blocked VAT out of the return automatically, and shows the blocked total on its own report — so the cost is visible, but never claimed.",
+          "Hysaab classifies input VAT per line as recoverable, blocked or conditional, keeps blocked VAT out of the return automatically, and shows the blocked total on its own report — so the cost is visible, but never claimed.",
         ],
       },
     ],
@@ -312,9 +312,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit carries the points liability as its own ledger account, posts the allocation on each qualifying sale, releases it on redemption evidence, and keeps the redemption-rate estimate as a monthly close decision with the movement history attached — so the liability is always current and the auditor sees the model, not a plug.",
+          "Hysaab carries the points liability as its own ledger account, posts the allocation on each qualifying sale, releases it on redemption evidence, and keeps the redemption-rate estimate as a monthly close decision with the movement history attached — so the liability is always current and the auditor sees the model, not a plug.",
         ],
       },
     ],
@@ -359,9 +359,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit posts voucher sales to a voucher liability account, matches redemptions to the liability with the sale document as evidence, tracks the unredeemed balance by expiry cohort, and releases breakage on the documented pattern — so the VAT return and the balance sheet tell the same story.",
+          "Hysaab posts voucher sales to a voucher liability account, matches redemptions to the liability with the sale document as evidence, tracks the unredeemed balance by expiry cohort, and releases breakage on the documented pattern — so the VAT return and the balance sheet tell the same story.",
         ],
       },
     ],
@@ -406,9 +406,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tracks rolling revenue against the AED 3m line as the year runs — not at filing time — flags the approach while there is still time to plan, and keeps the revenue build traceable to documents so the election survives a question from the FTA.",
+          "Hysaab tracks rolling revenue against the AED 3m line as the year runs — not at filing time — flags the approach while there is still time to plan, and keeps the revenue build traceable to documents so the election survives a question from the FTA.",
         ],
       },
     ],
@@ -451,9 +451,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tags revenue by counterparty type and activity as invoices post, keeps a running qualifying / non-qualifying split with the de minimis headroom visible, and raises the flag when the tail approaches the line — while the mix can still be managed, not after the period has decided itself.",
+          "Hysaab tags revenue by counterparty type and activity as invoices post, keeps a running qualifying / non-qualifying split with the de minimis headroom visible, and raises the flag when the tail approaches the line — while the mix can still be managed, not after the period has decided itself.",
         ],
       },
     ],
@@ -494,9 +494,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit posts intercompany charges only against the agreement and invoice as evidence, keeps both sides' entries mirrored so the charge never exists in one ledger only, applies the VAT treatment consistently, and shows related-party flows on their own report — the same view a reviewer would build, available before they ask.",
+          "Hysaab posts intercompany charges only against the agreement and invoice as evidence, keeps both sides' entries mirrored so the charge never exists in one ledger only, applies the VAT treatment consistently, and shows related-party flows on their own report — the same view a reviewer would build, available before they ask.",
         ],
       },
     ],
@@ -547,9 +547,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be.",
+          "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be.",
         ],
       },
     ],
@@ -587,9 +587,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit's deadline watchdog tracks each entity's registration and filing calendar, escalates well before the nine-month line, and drafts the return from the ledger as the year runs — so the penalty schedule above stays a reference page, not a bill.",
+          "Hysaab's deadline watchdog tracks each entity's registration and filing calendar, escalates well before the nine-month line, and drafts the return from the ledger as the year runs — so the penalty schedule above stays a reference page, not a bill.",
         ],
       },
     ],
@@ -635,9 +635,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit validates KSA invoices against the Phase 2 field requirements as they arrive, flags documents that would fail clearance, and reconciles what your system issued against what the ledger holds — so integration day is a switch-flip, not an archaeology project.",
+          "Hysaab validates KSA invoices against the Phase 2 field requirements as they arrive, flags documents that would fail clearance, and reconciles what your system issued against what the ledger holds — so integration day is a switch-flip, not an archaeology project.",
         ],
       },
     ],
@@ -687,9 +687,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit classifies designated-zone transactions by supply type and movement — within-zone, zone-to-zone, zone-to-mainland, zone-to-abroad — applies the matching treatment on each invoice, and accrues the import VAT the moment goods cross into the mainland, so the return reflects the movements rather than the misconception.",
+          "Hysaab classifies designated-zone transactions by supply type and movement — within-zone, zone-to-zone, zone-to-mainland, zone-to-abroad — applies the matching treatment on each invoice, and accrues the import VAT the moment goods cross into the mainland, so the return reflects the movements rather than the misconception.",
         ],
       },
     ],
@@ -734,9 +734,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tags connected-person payments as their own category, keeps the payroll evidence attached, and shows owner remuneration on its own line in the CT working — so the market-value conversation happens with your advisor before filing, not with the FTA after.",
+          "Hysaab tags connected-person payments as their own category, keeps the payroll evidence attached, and shows owner remuneration on its own line in the CT working — so the market-value conversation happens with your advisor before filing, not with the FTA after.",
         ],
       },
     ],
@@ -779,9 +779,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit carries retention per contract as a contract asset with its release conditions and dates, keeps it out of the VAT return until the tax point actually arrives, raises the invoice (VAT included) when release conditions clear, and ages it separately in the ECL working.",
+          "Hysaab carries retention per contract as a contract asset with its release conditions and dates, keeps it out of the VAT return until the tax point actually arrives, raises the invoice (VAT included) when release conditions clear, and ages it separately in the ECL working.",
         ],
       },
     ],
@@ -824,9 +824,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit ingests order and gateway data, classifies each line by destination and stream, holds zero-rating where the export evidence is missing, watches the rolling threshold, and reconciles collected VAT against settlements — the whole checklist above, running continuously.",
+          "Hysaab ingests order and gateway data, classifies each line by destination and stream, holds zero-rating where the export evidence is missing, watches the rolling threshold, and reconciles collected VAT against settlements — the whole checklist above, running continuously.",
         ],
       },
     ],
@@ -865,9 +865,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit's payroll run produces the register and the SIF-shaped output from the same numbers, reconciles the bank confirmation against it, flags rejected or short-paid records the day they bounce, and keeps contract-vs-paid drift visible — so WPS status is something you know, not something you discover.",
+          "Hysaab's payroll run produces the register and the SIF-shaped output from the same numbers, reconciles the bank confirmation against it, flags rejected or short-paid records the day they bounce, and keeps contract-vs-paid drift visible — so WPS status is something you know, not something you discover.",
         ],
       },
     ],
@@ -924,9 +924,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tags investment income by participation, keeps each participation's ownership %, acquisition cost, acquisition date and jurisdiction on file, and shows the exemption position per holding in the CT working — so the 12-month clock and the subject-to-tax evidence exist before the return needs them.",
+          "Hysaab tags investment income by participation, keeps each participation's ownership %, acquisition cost, acquisition date and jurisdiction on file, and shows the exemption position per holding in the CT working — so the 12-month clock and the subject-to-tax evidence exist before the return needs them.",
         ],
       },
     ],
@@ -971,9 +971,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit keeps branch books attributable — separate cost centres, arm's-length intercompany charges, the PE computation maintained monthly — and for groups it keeps each entity's CT position distinct, so the branch-vs-subsidiary decision stays visible in the numbers instead of dissolving into one blended ledger.",
+          "Hysaab keeps branch books attributable — separate cost centres, arm's-length intercompany charges, the PE computation maintained monthly — and for groups it keeps each entity's CT position distinct, so the branch-vs-subsidiary decision stays visible in the numbers instead of dissolving into one blended ledger.",
         ],
       },
     ],
@@ -1017,9 +1017,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit flags non-resident suppliers as documents arrive, computes the output and input entries per line, applies the recovery position, and fills both sides of the return — so the reverse charge happens because a supplier is foreign, not because someone remembered.",
+          "Hysaab flags non-resident suppliers as documents arrive, computes the output and input entries per line, applies the recovery position, and fills both sides of the return — so the reverse charge happens because a supplier is foreign, not because someone remembered.",
         ],
       },
     ],
@@ -1062,9 +1062,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit keeps the books audit-ready by construction — every posting carries its evidence, every adjustment its reason, every period its lock — and produces the schedules an auditor asks for first: bank reconciliations, ageing, fixed assets, provisions, related-party flows. The audit becomes a review of work already done.",
+          "Hysaab keeps the books audit-ready by construction — every posting carries its evidence, every adjustment its reason, every period its lock — and produces the schedules an auditor asks for first: bank reconciliations, ageing, fixed assets, provisions, related-party flows. The audit becomes a review of work already done.",
         ],
       },
     ],
@@ -1102,9 +1102,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit keeps the underlying records accrual-complete either way — documents, dues and payments all dated — so a cash-basis business still sees its real receivables and payables, and the day it crosses AED 3m the accrual conversion is a report, not a reconstruction.",
+          "Hysaab keeps the underlying records accrual-complete either way — documents, dues and payments all dated — so a cash-basis business still sees its real receivables and payables, and the day it crosses AED 3m the accrual conversion is a report, not a reconstruction.",
         ],
       },
     ],
@@ -1154,9 +1154,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit tags related-party and connected-person flows as they post, keeps the agreement and invoice attached to each, accumulates the disclosure-form categories through the year, and shows the totals against the thresholds — so the form is a report at filing time, not a reconstruction.",
+          "Hysaab tags related-party and connected-person flows as they post, keeps the agreement and invoice attached to each, accumulates the disclosure-form categories through the year, and shows the totals against the thresholds — so the form is a report at filing time, not a reconstruction.",
         ],
       },
     ],
@@ -1198,9 +1198,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit maintains the loss register per entity — vintage, amount, what has been used — applies the 75% cap in the CT working automatically, and flags the continuity tests when ownership changes touch the cap table, so a decade of carried losses doesn't evaporate through a transaction nobody checked.",
+          "Hysaab maintains the loss register per entity — vintage, amount, what has been used — applies the 75% cap in the CT working automatically, and flags the continuity tests when ownership changes touch the cap table, so a decade of carried losses doesn't evaporate through a transaction nobody checked.",
         ],
       },
     ],
@@ -1246,9 +1246,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit classifies property income streams per unit and treatment, attributes costs to taxable and exempt pools as invoices arrive, computes the recovery ratio with the annual adjustment, and keeps completion and first-supply dates on the asset record — the facts the treatment turns on.",
+          "Hysaab classifies property income streams per unit and treatment, attributes costs to taxable and exempt pools as invoices arrive, computes the recovery ratio with the annual adjustment, and keeps completion and first-supply dates on the asset record — the facts the treatment turns on.",
         ],
       },
     ],
@@ -1293,9 +1293,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit attributes each cost line to taxable, exempt or residual as documents post, computes the period ratio and the recoverable residual automatically, and runs the annual wash-up from the same records — so partial exemption becomes arithmetic on clean attributions instead of a year-end estimate.",
+          "Hysaab attributes each cost line to taxable, exempt or residual as documents post, computes the period ratio and the recoverable residual automatically, and runs the annual wash-up from the same records — so partial exemption becomes arithmetic on clean attributions instead of a year-end estimate.",
         ],
       },
     ],
@@ -1332,9 +1332,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit runs the same books either way — and for free-zone entities it tracks the qualifying/non-qualifying revenue split, the de minimis headroom and the audit readiness that keep the 0% alive, so the structure you chose stays the structure you have.",
+          "Hysaab runs the same books either way — and for free-zone entities it tracks the qualifying/non-qualifying revenue split, the de minimis headroom and the audit readiness that keep the 0% alive, so the structure you chose stays the structure you have.",
         ],
       },
     ],
@@ -1387,9 +1387,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit's period-lock and evidence discipline exist so errors surface in-month, not in year three — and when a historical error does surface, the ledger's document trail quantifies the correction per period in minutes, which is the hard half of a disclosure.",
+          "Hysaab's period-lock and evidence discipline exist so errors surface in-month, not in year three — and when a historical error does surface, the ledger's document trail quantifies the correction per period in minutes, which is the hard half of a disclosure.",
         ],
       },
     ],
@@ -1440,9 +1440,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit computes adjusted EBITDA from the ledger as periods close, runs both prongs of the cap, maintains the disallowed-interest carry-forward register with its expiry clock, and shows the binding constraint in the CT working — so financing decisions see their tax shadow before the debt is drawn.",
+          "Hysaab computes adjusted EBITDA from the ledger as periods close, runs both prongs of the cap, maintains the disallowed-interest carry-forward register with its expiry clock, and shows the binding constraint in the CT working — so financing decisions see their tax shadow before the debt is drawn.",
         ],
       },
     ],
@@ -1494,9 +1494,9 @@ GUIDES.push(
         ],
       },
       {
-        h: "How Orbit applies this",
+        h: "How Hysaab applies this",
         ps: [
-          "Orbit records intra-group transfers with the relief election, the inherited tax base and the clawback date on the asset record, and raises the flag when a disposal or ownership change approaches a live clawback window — the two-year memory that reorganisations depend on and spreadsheets forget.",
+          "Hysaab records intra-group transfers with the relief election, the inherited tax base and the clawback date on the asset record, and raises the flag when a disposal or ownership change approaches a live clawback window — the two-year memory that reorganisations depend on and spreadsheets forget.",
         ],
       },
     ],

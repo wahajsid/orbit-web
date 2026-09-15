@@ -1,4 +1,4 @@
-/* Business-email-only guard — mirrors lib/email-domain.ts in the Orbit app
+/* Business-email-only guard — mirrors lib/email-domain.ts in the Hysaab app
    repo (separate repo, no shared import; keep the two lists in sync by hand).
    EXACT domain match only — never substring. Used by both the API route
    (authoritative) and the ledger form (instant feedback). */

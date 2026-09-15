@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { PartialExemptionCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Partial exemption calculator (input VAT apportionment) — Orbit",
+  title: "Partial exemption calculator (input VAT apportionment) — Hysaab",
   description:
     "Free UAE partial exemption calculator: attribute input VAT to taxable, exempt and residual pots, compute the standard-method recovery ratio, and see the VAT actually lost.",
   alternates: langAlternates("/tools/uae-partial-exemption-calculator"),

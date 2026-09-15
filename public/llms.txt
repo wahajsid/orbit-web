@@ -1,62 +1,62 @@
-# Orbit
+# Hysaab
 
-> Orbit is an AI finance team for UAE and KSA businesses. Documents arrive by WhatsApp, Telegram or email; specialist agents read them, code them from the business's own posting history, test them against FTA and ZATCA tax rules, match them to purchase orders and bank lines, and post them to the ledger — with human approval on every decision that matters. Orbit sits on top of the ledger a business already uses (Zoho Books, Xero, QuickBooks, Odoo, Wafeq, ERPNext) rather than replacing it, or keeps clean books itself when there is no ledger.
+> Hysaab is an AI finance team for UAE and KSA businesses. Documents arrive by WhatsApp, Telegram or email; specialist agents read them, code them from the business's own posting history, test them against FTA and ZATCA tax rules, match them to purchase orders and bank lines, and post them to the ledger — with human approval on every decision that matters. Hysaab sits on top of the ledger a business already uses (Zoho Books, Xero, QuickBooks, Odoo, Wafeq, ERPNext) rather than replacing it, or keeps clean books itself when there is no ledger.
 
 Key facts:
 - Made for the Gulf: UAE VAT (5%) tested line-by-line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax accrued monthly and reconciled against VAT; KSA 15% VAT and ZATCA e-invoice clearance tracked.
 - Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, humans approve past confidence thresholds.
 - Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
 - Pricing (after a founding-cohort year free for the first 100 companies): Starter AED 149/month, Growth AED 499/month, Scale AED 1,499/month — sized by usage, not seats.
-- Company: built in Dubai, UAE by accountants; contact info@orbitgulf.com; the app runs at app.orbitgulf.com.
-- Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under https://www.orbitgulf.com/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.
+- Company: built in Dubai, UAE by accountants; contact info@hysaab.ai; the app runs at app.hysaab.ai.
+- Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under https://hysaab.ai/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.
 
 ## Pages
-- [Home](https://www.orbitgulf.com/): what Orbit is, the agent roster, compliance posture
-- [Product](https://www.orbitgulf.com/product): the six modules — payables, receivables, ledger, close, documents, tax
-- [Pricing](https://www.orbitgulf.com/pricing): the three tiers and the founding-cohort offer
-- [Integrations](https://www.orbitgulf.com/integrations): how the six ledger connections work
-- [Compliance](https://www.orbitgulf.com/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
-- [How it works](https://www.orbitgulf.com/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
-- [Guides](https://www.orbitgulf.com/guides): practical UAE tax and close guides
-- [Tools](https://www.orbitgulf.com/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA), free zone de minimis (QFZP), Small Business Relief checker, UAE VAT penalty estimator, IFRS 15 loyalty points deferred revenue, KSA withholding tax (WHT), UAE Corporate Tax penalties, UAE VAT registration checker, VAT bad-debt relief (Article 64), designated zone VAT checker, e-commerce VAT checker, UAE employee cost, participation exemption checker, reverse charge VAT, UAE audit requirement checker, tax loss carry-forward, partial exemption apportionment, UAE real estate VAT checker, voluntary disclosure penalties, interest deduction cap (30% EBITDA)
-- [FAQ](https://www.orbitgulf.com/faq): straight answers on data safety, autonomy limits, pricing
-- [About](https://www.orbitgulf.com/about): who builds Orbit and what it believes
-- [Orbit Hire](https://www.orbitgulf.com/hire): the sister hiring product
-- [Orbit Invoice](https://www.orbitgulf.com/invoice): tax compliance and e-invoice validation
-- [Orbit for Firms](https://www.orbitgulf.com/firms): Orbit as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
-- [Contact](https://www.orbitgulf.com/contact): how to reach the team
-- [الموقع بالعربية](https://www.orbitgulf.com/ar): the full marketing site in Arabic, right-to-left
+- [Home](https://hysaab.ai/): what Hysaab is, the agent roster, compliance posture
+- [Product](https://hysaab.ai/product): the six modules — payables, receivables, ledger, close, documents, tax
+- [Pricing](https://hysaab.ai/pricing): the three tiers and the founding-cohort offer
+- [Integrations](https://hysaab.ai/integrations): how the six ledger connections work
+- [Compliance](https://hysaab.ai/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
+- [How it works](https://hysaab.ai/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
+- [Guides](https://hysaab.ai/guides): practical UAE tax and close guides
+- [Tools](https://hysaab.ai/tools): free calculators — IFRS 16 lease liability & ROU asset, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL provision matrix, IFRS 9 EIR, UAE EOSB gratuity, VAT (UAE 5%/KSA 15%), UAE Corporate Tax, KSA Zakat (ZATCA), free zone de minimis (QFZP), Small Business Relief checker, UAE VAT penalty estimator, IFRS 15 loyalty points deferred revenue, KSA withholding tax (WHT), UAE Corporate Tax penalties, UAE VAT registration checker, VAT bad-debt relief (Article 64), designated zone VAT checker, e-commerce VAT checker, UAE employee cost, participation exemption checker, reverse charge VAT, UAE audit requirement checker, tax loss carry-forward, partial exemption apportionment, UAE real estate VAT checker, voluntary disclosure penalties, interest deduction cap (30% EBITDA)
+- [FAQ](https://hysaab.ai/faq): straight answers on data safety, autonomy limits, pricing
+- [About](https://hysaab.ai/about): who builds Hysaab and what it believes
+- [Ibtidah](https://hysaab.ai/hire): the sister hiring product
+- [Hysaab Invoice](https://hysaab.ai/invoice): tax compliance and e-invoice validation
+- [Oblique OS](https://hysaab.ai/firms): Hysaab as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
+- [Contact](https://hysaab.ai/contact): how to reach the team
+- [الموقع بالعربية](https://hysaab.ai/ar): the full marketing site in Arabic, right-to-left
 
 ## Guides
-- [UAE tax-invoice checklist](https://www.orbitgulf.com/guides/uae-tax-invoice-checklist): the FTA Article 59 fields an invoice needs before input VAT can be claimed
-- [UAE VAT and Corporate Tax deadlines](https://www.orbitgulf.com/guides/uae-tax-deadlines): every filing date in one place
-- [Month-end close checklist](https://www.orbitgulf.com/guides/month-end-close-checklist): the ordered close, step by step
-- [Keep your ledger](https://www.orbitgulf.com/guides/keep-your-ledger): why Orbit posts into your existing books instead of replacing them
-- [UAE EOSB gratuity](https://www.orbitgulf.com/guides/uae-eosb-gratuity): how end-of-service benefits are calculated
-- [UAE blocked input VAT](https://www.orbitgulf.com/guides/uae-blocked-input-vat): the expense categories where input VAT cannot be recovered
-- [Loyalty points accounting](https://www.orbitgulf.com/guides/loyalty-points-accounting-uae): IFRS 15 deferred revenue on points, breakage, and the UAE VAT treatment of redemptions
-- [Gift cards & vouchers VAT](https://www.orbitgulf.com/guides/gift-cards-vouchers-vat-uae): Article 40 — VAT at redemption not issue, above-face-value sales, breakage
-- [Small Business Relief](https://www.orbitgulf.com/guides/uae-small-business-relief): the AED 3m Corporate Tax election — who qualifies, the catches, until when
-- [Free zone 0% Corporate Tax](https://www.orbitgulf.com/guides/free-zone-corporate-tax-0-percent): Qualifying Free Zone Person conditions, de minimis, and the five-year cliff
-- [Intercompany management fees](https://www.orbitgulf.com/guides/intercompany-management-fees-uae): arm's length pricing, VAT between group entities, and the evidence file
-- [VAT bad-debt relief](https://www.orbitgulf.com/guides/uae-vat-bad-debt-relief): Article 64 — the four conditions, the 5/105 adjustment, the customer's mirror obligation
-- [UAE Corporate Tax penalties](https://www.orbitgulf.com/guides/uae-corporate-tax-penalties): late registration AED 10,000, monthly filing penalties, 14% p.a. on unpaid tax
-- [ZATCA e-invoicing Phase 2](https://www.orbitgulf.com/guides/zatca-e-invoicing-phase-2): Fatoora integration, clearance vs reporting, the wave system, common failures
-- [Designated zone VAT](https://www.orbitgulf.com/guides/uae-designated-zone-vat): when goods are outside the scope, when they aren't, and the import moment
-- [Director & owner remuneration](https://www.orbitgulf.com/guides/uae-director-owner-remuneration): salaries vs dividends and the Article 36 market-value test
-- [Construction retention money](https://www.orbitgulf.com/guides/construction-retention-accounting-vat): contract asset accounting and the deferred VAT tax point
-- [E-commerce VAT](https://www.orbitgulf.com/guides/uae-ecommerce-vat): place of supply, export evidence, electronic services use-and-enjoyment
-- [WPS payroll compliance](https://www.orbitgulf.com/guides/uae-wps-payroll-compliance): the SIF file, the 15-day rule, and what non-compliance blocks
-- [Holding companies & participation exemption](https://www.orbitgulf.com/guides/uae-holding-company-participation-exemption): when dividends and exit gains flow up exempt, and the tax-group alternative
-- [Branch vs subsidiary](https://www.orbitgulf.com/guides/uae-branch-vs-subsidiary): the tax and legal mechanics of each route, inbound and outbound
-- [VAT reverse charge](https://www.orbitgulf.com/guides/uae-vat-reverse-charge): imported services and goods, the domestic RCM, and the return boxes people miss
-- [UAE audit requirements](https://www.orbitgulf.com/guides/uae-audit-requirements): the AED 50m CT rule, the QFZP condition, and the stacked company-law rules
-- [Cash vs accrual for CT](https://www.orbitgulf.com/guides/uae-cash-vs-accrual-corporate-tax): the AED 3m cash-basis concession and when not to take it
-- [Transfer pricing documentation](https://www.orbitgulf.com/guides/uae-transfer-pricing-documentation): the disclosure form, master/local file thresholds, and arm's-length evidence
-- [Tax loss carry-forward](https://www.orbitgulf.com/guides/uae-tax-loss-carry-forward): the 75% cap, ownership-continuity tests, and group loss transfers
-- [Real estate VAT](https://www.orbitgulf.com/guides/uae-real-estate-vat): zero-rated first supplies, exempt residential, standard commercial — and input recovery
-- [Partial exemption](https://www.orbitgulf.com/guides/uae-partial-exemption-input-vat): apportioning input VAT across taxable, exempt and residual pots
-- [Free zone vs mainland](https://www.orbitgulf.com/guides/uae-freezone-vs-mainland-tax): the honest tax comparison — conditional 0% vs simple 9%
-- [VAT voluntary disclosure](https://www.orbitgulf.com/guides/uae-vat-voluntary-disclosure): when Form 211 is mandatory and the 5%-40% penalty ladder by year
-- [Interest deduction limitation](https://www.orbitgulf.com/guides/uae-interest-deduction-limitation): the 30% EBITDA cap, the AED 12m safe harbour, the ten-year carry-forward
-- [Qualifying group relief](https://www.orbitgulf.com/guides/uae-qualifying-group-relief): tax-neutral intra-group transfers and restructurings, and the two-year clawback
+- [UAE tax-invoice checklist](https://hysaab.ai/guides/uae-tax-invoice-checklist): the FTA Article 59 fields an invoice needs before input VAT can be claimed
+- [UAE VAT and Corporate Tax deadlines](https://hysaab.ai/guides/uae-tax-deadlines): every filing date in one place
+- [Month-end close checklist](https://hysaab.ai/guides/month-end-close-checklist): the ordered close, step by step
+- [Keep your ledger](https://hysaab.ai/guides/keep-your-ledger): why Hysaab posts into your existing books instead of replacing them
+- [UAE EOSB gratuity](https://hysaab.ai/guides/uae-eosb-gratuity): how end-of-service benefits are calculated
+- [UAE blocked input VAT](https://hysaab.ai/guides/uae-blocked-input-vat): the expense categories where input VAT cannot be recovered
+- [Loyalty points accounting](https://hysaab.ai/guides/loyalty-points-accounting-uae): IFRS 15 deferred revenue on points, breakage, and the UAE VAT treatment of redemptions
+- [Gift cards & vouchers VAT](https://hysaab.ai/guides/gift-cards-vouchers-vat-uae): Article 40 — VAT at redemption not issue, above-face-value sales, breakage
+- [Small Business Relief](https://hysaab.ai/guides/uae-small-business-relief): the AED 3m Corporate Tax election — who qualifies, the catches, until when
+- [Free zone 0% Corporate Tax](https://hysaab.ai/guides/free-zone-corporate-tax-0-percent): Qualifying Free Zone Person conditions, de minimis, and the five-year cliff
+- [Intercompany management fees](https://hysaab.ai/guides/intercompany-management-fees-uae): arm's length pricing, VAT between group entities, and the evidence file
+- [VAT bad-debt relief](https://hysaab.ai/guides/uae-vat-bad-debt-relief): Article 64 — the four conditions, the 5/105 adjustment, the customer's mirror obligation
+- [UAE Corporate Tax penalties](https://hysaab.ai/guides/uae-corporate-tax-penalties): late registration AED 10,000, monthly filing penalties, 14% p.a. on unpaid tax
+- [ZATCA e-invoicing Phase 2](https://hysaab.ai/guides/zatca-e-invoicing-phase-2): Fatoora integration, clearance vs reporting, the wave system, common failures
+- [Designated zone VAT](https://hysaab.ai/guides/uae-designated-zone-vat): when goods are outside the scope, when they aren't, and the import moment
+- [Director & owner remuneration](https://hysaab.ai/guides/uae-director-owner-remuneration): salaries vs dividends and the Article 36 market-value test
+- [Construction retention money](https://hysaab.ai/guides/construction-retention-accounting-vat): contract asset accounting and the deferred VAT tax point
+- [E-commerce VAT](https://hysaab.ai/guides/uae-ecommerce-vat): place of supply, export evidence, electronic services use-and-enjoyment
+- [WPS payroll compliance](https://hysaab.ai/guides/uae-wps-payroll-compliance): the SIF file, the 15-day rule, and what non-compliance blocks
+- [Holding companies & participation exemption](https://hysaab.ai/guides/uae-holding-company-participation-exemption): when dividends and exit gains flow up exempt, and the tax-group alternative
+- [Branch vs subsidiary](https://hysaab.ai/guides/uae-branch-vs-subsidiary): the tax and legal mechanics of each route, inbound and outbound
+- [VAT reverse charge](https://hysaab.ai/guides/uae-vat-reverse-charge): imported services and goods, the domestic RCM, and the return boxes people miss
+- [UAE audit requirements](https://hysaab.ai/guides/uae-audit-requirements): the AED 50m CT rule, the QFZP condition, and the stacked company-law rules
+- [Cash vs accrual for CT](https://hysaab.ai/guides/uae-cash-vs-accrual-corporate-tax): the AED 3m cash-basis concession and when not to take it
+- [Transfer pricing documentation](https://hysaab.ai/guides/uae-transfer-pricing-documentation): the disclosure form, master/local file thresholds, and arm's-length evidence
+- [Tax loss carry-forward](https://hysaab.ai/guides/uae-tax-loss-carry-forward): the 75% cap, ownership-continuity tests, and group loss transfers
+- [Real estate VAT](https://hysaab.ai/guides/uae-real-estate-vat): zero-rated first supplies, exempt residential, standard commercial — and input recovery
+- [Partial exemption](https://hysaab.ai/guides/uae-partial-exemption-input-vat): apportioning input VAT across taxable, exempt and residual pots
+- [Free zone vs mainland](https://hysaab.ai/guides/uae-freezone-vs-mainland-tax): the honest tax comparison — conditional 0% vs simple 9%
+- [VAT voluntary disclosure](https://hysaab.ai/guides/uae-vat-voluntary-disclosure): when Form 211 is mandatory and the 5%-40% penalty ladder by year
+- [Interest deduction limitation](https://hysaab.ai/guides/uae-interest-deduction-limitation): the 30% EBITDA cap, the AED 12m safe harbour, the ten-year carry-forward
+- [Qualifying group relief](https://hysaab.ai/guides/uae-qualifying-group-relief): tax-neutral intra-group transfers and restructurings, and the two-year clawback

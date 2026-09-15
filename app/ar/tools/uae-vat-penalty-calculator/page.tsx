@@ -4,7 +4,7 @@ import { VatPenaltyCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة غرامات ضريبة القيمة المضافة الإماراتية — Orbit",
+  title: "حاسبة غرامات ضريبة القيمة المضافة الإماراتية — Hysaab",
   description:
     "حاسبة مجانية لغرامات ضريبة القيمة المضافة في الإمارات: التأخر في التقديم (1,000/2,000 درهم) زائد التأخر في السداد بواقع 2% فورًا و4% شهريًا بسقف 300% — محسوبة من أيام التأخر.",
   alternates: langAlternates("/tools/uae-vat-penalty-calculator"),

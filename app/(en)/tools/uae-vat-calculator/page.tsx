@@ -3,7 +3,7 @@ import { ToolPage } from "@/components/tools/ToolPage";
 import { VatCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "VAT calculator — UAE 5% & KSA 15% — Orbit",
+  title: "VAT calculator — UAE 5% & KSA 15% — Hysaab",
   description:
     "Free VAT calculator for the Gulf: add VAT to a net amount or extract it from a gross one, at the UAE 5% or KSA 15% rate.",
 };

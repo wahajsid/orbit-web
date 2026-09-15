@@ -4,7 +4,7 @@ import { DeMinimisCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة الحد الأدنى للمناطق الحرة (QFZP) — Orbit",
+  title: "حاسبة الحد الأدنى للمناطق الحرة (QFZP) — Hysaab",
   description:
     "اختبار مجاني لحد الأدنى في المناطق الحرة الإماراتية: قارن الإيرادات غير المؤهلة بالأدنى من 5 ملايين درهم أو 5% من الإجمالي، وشاهد هامشك، وافهم هاوية السنوات الخمس.",
   alternates: langAlternates("/tools/freezone-de-minimis-calculator"),

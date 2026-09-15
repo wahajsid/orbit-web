@@ -26,7 +26,7 @@ function partsAt(now: number): Parts | null {
 
 const T = {
   en: {
-    open: "DOORS ARE OPEN", live: "Orbit is live.", create: "Create your workspace →",
+    open: "DOORS ARE OPEN", live: "Hysaab is live.", create: "Create your workspace →",
     kicker: (d: string) => `DOORS OPEN ${d.toUpperCase()}`,
     aria: (d: string) => `Countdown to launch, ${d}`,
     launch: "Launch",
@@ -34,7 +34,7 @@ const T = {
     date: LAUNCH_DATE_SHORT,
   },
   ar: {
-    open: "الأبواب مفتوحة", live: "أوربت متاح الآن.", create: "أنشئ مساحة عملك ←",
+    open: "الأبواب مفتوحة", live: "Hysaab متاح الآن.", create: "أنشئ مساحة عملك ←",
     kicker: (d: string) => `الأبواب تُفتح ${d}`,
     aria: (d: string) => `العد التنازلي للإطلاق، ${d}`,
     launch: "الإطلاق",

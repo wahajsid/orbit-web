@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { ReverseChargeCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Reverse charge VAT calculator (UAE) — Orbit",
+  title: "Reverse charge VAT calculator (UAE) — Hysaab",
   description:
     "Free UAE reverse charge calculator: output VAT on imported services and goods, input recovery at your entitlement, and the net cash effect — with why both return boxes matter.",
   alternates: langAlternates("/tools/uae-reverse-charge-calculator"),

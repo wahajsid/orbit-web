@@ -12,15 +12,15 @@ import { langAlternates } from "@/lib/site-meta";
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Orbit — وكلاء ذكاء اصطناعي يديرون ماليتك. وأنت توافق على القرارات.",
+  title: "Hysaab — وكلاء ذكاء اصطناعي يديرون ماليتك. وأنت توافق على القرارات.",
   description:
     "ستة عشر وكيلًا يقرؤون فواتيرك، ويرمّزون دفتر الأستاذ، ويراقبون ضريبة القيمة المضافة، ويقودون الإقفال الشهري — ويتوقفون ليسألوك عندما يلزم الأمر. بُني في الخليج، على يد محاسبين عاشوا كل ليلة متأخرة منه.",
   alternates: langAlternates("/"),
 };
 
-/* ── الخطوات الأربع ("كيف يعمل أوربت") ─────────────────────────────── */
+/* ── الخطوات الأربع ("كيف يعمل Hysaab") ─────────────────────────────── */
 const STEPS: { n: string; h: string; p: string }[] = [
-  { n: "01", h: "أرسل أي شيء، بأي طريقة", p: "صورة عبر واتساب، بريد مُعاد توجيهه، ملف PDF. أوربت يؤرشفه، ويزيل التكرار، ويبدأ القراءة." },
+  { n: "01", h: "أرسل أي شيء، بأي طريقة", p: "صورة عبر واتساب، بريد مُعاد توجيهه، ملف PDF. Hysaab يؤرشفه، ويزيل التكرار، ويبدأ القراءة." },
   { n: "02", h: "الوكلاء يقرؤون ويرمّزون", p: "استخراج البيانات، وترميز الحسابات من سجلّك أنت، وفحوص ضريبة القيمة المضافة، وكشف التكرار — في دقائق، لا في نهاية الشهر." },
   { n: "03", h: "أنت تتخذ القرارات القليلة", p: "كل ما هو دون عتبة الثقة يصلك كقرار بلغة واضحة مع الأدلة مرفقة." },
   { n: "04", h: "الفترة تُقفل نفسها", p: "الاستحقاقات والإهلاك والجداول تُرحَّل في موعدها. عندما تخضرّ القائمة، تُقفل الفترة وتُقيَّد — خلال أيام." },
@@ -76,7 +76,7 @@ export default async function Page() {
             {/* المنتج الحقيقي لا نموذج مرسوم — مساحة العمل العربية نفسها،
                 من اليمين إلى اليسار، في الإطار ذي الظل الأخضر. */}
             <div className="mg-mock">
-              <Image src="/shots/adv-arabic.png" alt="مساحة عمل Orbit بالعربية — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1360} sizes="(max-width: 900px) 100vw, 640px" priority />
+              <Image src="/shots/adv-arabic.png" alt="مساحة عمل Hysaab بالعربية — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1360} sizes="(max-width: 900px) 100vw, 640px" priority />
             </div>
           </div>
         </section>
@@ -84,9 +84,9 @@ export default async function Page() {
         {/* ══ مباشر من الوكلاء — الشريط المتحرك ══ */}
         <AgentFeed locale="ar" />
 
-        {/* ══ كيف يعمل أوربت ══ */}
+        {/* ══ كيف يعمل Hysaab ══ */}
         <section id="how" className="mg-section">
-          <div className="mg-kicker">كيف يعمل أوربت</div>
+          <div className="mg-kicker">كيف يعمل Hysaab</div>
           <h2 className="mg-h2">من صورة فاتورة إلى فترة مقفلة.</h2>
           <div className="mg-steps">
             {STEPS.map((s) => (
@@ -121,7 +121,7 @@ export default async function Page() {
           {/* قائمة القرارات نفسها — الوكلاء يقترحون مع درجة الثقة والأدلة،
               والإنسان يحسم مع تسجيل السبب. */}
           <div className="mg-mock" style={{ marginTop: 32 }} dir="ltr">
-            <Image src="/shots/adv-decisions.png" alt="قائمة القرارات في Orbit — كل ما ينتظر إنسانًا، مع وكيله ودرجة ثقته وأدلته" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
+            <Image src="/shots/adv-decisions.png" alt="قائمة القرارات في Hysaab — كل ما ينتظر إنسانًا، مع وكيله ودرجة ثقته وأدلته" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
           </div>
           <p className="mg-stat-l" style={{ marginTop: 12 }}>قائمة القرارات، مباشرة — المحركات تقترح وتُرحِّل وتُطابق وحدها، وتتوقف هنا عند كل ما هو دون بوابة الثقة.</p>
         </section>
@@ -149,38 +149,38 @@ export default async function Page() {
           </div>
         </section>
 
-        {/* ══ عائلة أوربت ══ */}
+        {/* ══ عائلة Hysaab ══ */}
         <section id="products" className="mg-section">
-          <div className="mg-kicker">عائلة أوربت</div>
+          <div className="mg-kicker">عائلة Hysaab</div>
           <h2 className="mg-h2">أربعة عوالم. كون واحد.</h2>
           <div className="mg-worlds">
             <a href="/ar/accounting" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">المحاسبة</div>
-              <div className="mg-world-h">Orbit</div>
+              <div className="mg-world-h">Hysaab</div>
               <p>تعيد عائشة توجيه فاتورة مورد من واتساب في التاسعة مساءً. ومع شروق الشمس تكون الفاتورة مرمّزة من سجلها هي، ومختبرة وفق قواعد الهيئة الاتحادية للضرائب، ومطابقة مع السطر البنكي، ومرحّلة إلى Zoho — دون أن تلمسها.</p>
               <p className="mg-world-met">إقفال الشهر في يومين بدل 9 · 100% من السطور مُختبرة ضريبيًا · نحو 4,200 درهم من الضريبة المخفية تُكتشف شهريًا.</p>
-              <span className="mg-world-go">شاهد Orbit ←</span>
+              <span className="mg-world-go">شاهد Hysaab ←</span>
             </a>
             <a href="/ar/hire" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">التوظيف</div>
-              <div className="mg-world-h">Orbit Hire</div>
-              <p>‏52 سيرة ذاتية تصل صباح الثلاثاء. بحلول الغداء يكون أوربت قد قرأها جميعًا، وقيّمها وفق معاييرك، وأخفى الأسماء والصور، ووضع ثلاثة أشخاص على مكتبك للمقابلة — ليلى وعمر وبريا.</p>
+              <div className="mg-world-h">Ibtidah</div>
+              <p>‏52 سيرة ذاتية تصل صباح الثلاثاء. بحلول الغداء يكون Hysaab قد قرأها جميعًا، وقيّمها وفق معاييرك، وأخفى الأسماء والصور، ووضع ثلاثة أشخاص على مكتبك للمقابلة — ليلى وعمر وبريا.</p>
               <p className="mg-world-met">‏50 سيرة تُقرأ في دقائق لا في أسبوع · لكل مرشح مقابلة أولى حقيقية · تقييم يمكنك الدفاع عنه.</p>
-              <span className="mg-world-go">شاهد Orbit Hire ←</span>
+              <span className="mg-world-go">شاهد Ibtidah ←</span>
             </a>
             <a href="/ar/invoice" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">الفواتير · الامتثال الضريبي</div>
-              <div className="mg-world-h">Orbit Invoice</div>
+              <div className="mg-world-h">Hysaab Invoice</div>
               <p>مجلد فيه 214 فاتورة مورد يصل في التاسعة صباحًا. وبحلول 9:20 تكون كل واحدة قد قُرئت، وأُعيد فحص حسابها برمجيًا، واختُبرت وفق قواعد الهيئة وهيئة الزكاة «زاتكا»، ورُتبت حسب المخاطر — والفواتير التسع التي سترسب في التدقيق مُعلَّمة قبل تقديم الإقرار.</p>
               <p className="mg-world-met">كل فاتورة مختبرة ضريبيًا · قواعد الإمارات والسعودية · الضريبة الخطرة تُحجز قبل المطالبة بها.</p>
-              <span className="mg-world-go">شاهد Orbit Invoice ←</span>
+              <span className="mg-world-go">شاهد Hysaab Invoice ←</span>
             </a>
             <a href="/ar/firms" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">للمكاتب · قريبًا</div>
-              <div className="mg-world-h">Orbit for Firms</div>
+              <div className="mg-world-h">Oblique OS</div>
               <p>كل عميل وارتباط وإقرار في مكان واحد. يسجل راشد ساعة على ارتباط ضريبة ELC Group بنقرة واحدة؛ والمصروف يقع على العميل الصحيح؛ ونسبة التحقق لكل ارتباط — بلا جداول بيانات.</p>
               <p className="mg-world-met">سجلات الوقت، وتتبع المشاريع والمصروفات، والمكتب كله — منظم.</p>
-              <span className="mg-world-go">شاهد Orbit for Firms ←</span>
+              <span className="mg-world-go">شاهد Oblique OS ←</span>
             </a>
           </div>
         </section>

@@ -4,7 +4,7 @@ import { BadDebtCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة إعفاء الديون المعدومة (المادة 64) — Orbit",
+  title: "حاسبة إعفاء الديون المعدومة (المادة 64) — Hysaab",
   description:
     "حاسبة مجانية لإعفاء الديون المعدومة في ضريبة القيمة المضافة الإماراتية: اختبر شروط المادة 64 الأربعة واحسب تسوية ضريبة المخرجات 5/105 على الذمم المشطوبة.",
   alternates: langAlternates("/tools/uae-bad-debt-relief-calculator"),

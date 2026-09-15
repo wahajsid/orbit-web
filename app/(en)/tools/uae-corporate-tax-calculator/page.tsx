@@ -3,7 +3,7 @@ import { ToolPage } from "@/components/tools/ToolPage";
 import { CtCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "UAE Corporate Tax estimator — Orbit",
+  title: "UAE Corporate Tax estimator — Hysaab",
   description:
     "Free UAE Corporate Tax calculator: 0% on the first AED 375,000 of taxable income, 9% above it, with the Small Business Relief election handled.",
 };

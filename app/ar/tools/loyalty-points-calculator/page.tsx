@@ -4,7 +4,7 @@ import { LoyaltyCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة الإيراد المؤجل لنقاط الولاء (IFRS 15) — Orbit",
+  title: "حاسبة الإيراد المؤجل لنقاط الولاء (IFRS 15) — Hysaab",
   description:
     "حاسبة مجانية لبرامج الولاء وفق IFRS 15: وزّع سعر البيع بين البضاعة والنقاط بالقيمة المستقلة المرجّحة بالاسترداد، وتتبّع التزام العقد مع ورود الاستردادات.",
   alternates: langAlternates("/tools/loyalty-points-calculator"),

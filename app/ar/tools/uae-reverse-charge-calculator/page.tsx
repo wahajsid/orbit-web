@@ -4,7 +4,7 @@ import { ReverseChargeCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة الاحتساب العكسي (الإمارات) — Orbit",
+  title: "حاسبة الاحتساب العكسي (الإمارات) — Hysaab",
   description:
     "حاسبة مجانية للاحتساب العكسي في الإمارات: ضريبة المخرجات على الخدمات والسلع المستوردة، واسترداد المدخلات بقدر استحقاقك، والأثر النقدي الصافي.",
   alternates: langAlternates("/tools/uae-reverse-charge-calculator"),

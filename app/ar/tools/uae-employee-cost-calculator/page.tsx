@@ -4,7 +4,7 @@ import { EmployeeCostCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة تكلفة الموظف في الإمارات — Orbit",
+  title: "حاسبة تكلفة الموظف في الإمارات — Hysaab",
   description:
     "حاسبة مجانية لتكلفة التوظيف في الإمارات: الراتب الإجمالي زائد مخصص نهاية الخدمة الشهري على الأساسي، أو مساهمات المعاش للمواطنين — التكلفة الشهرية والسنوية.",
   alternates: langAlternates("/tools/uae-employee-cost-calculator"),

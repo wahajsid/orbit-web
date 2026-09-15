@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const g = getGuide(params.slug);
   if (!g) return {};
   return {
-    title: `${g.title} — Orbit`,
+    title: `${g.title} — Hysaab`,
     description: g.description,
     // hreflang pair only once an Arabic twin exists
     ...(getArGuide(g.slug) ? { alternates: langAlternates(`/guides/${g.slug}`) } : {}),
@@ -42,9 +42,9 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     headline: g.title,
     description: g.description,
     dateModified: g.updated,
-    author: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-    publisher: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-    mainEntityOfPage: `https://www.orbitgulf.com/guides/${g.slug}`,
+    author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    mainEntityOfPage: `https://hysaab.ai/guides/${g.slug}`,
   };
 
   return (
@@ -90,7 +90,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             </p>
           )}
           <div className="mg-guide-cta">
-            <a href="/product" className="mg-cta">See how Orbit runs this →</a>
+            <a href="/product" className="mg-cta">See how Hysaab runs this →</a>
             <a href="/guides" className="mg-ghost">All guides</a>
           </div>
         </section>

@@ -1,34 +1,52 @@
-/* Early-access signup — Next.js port of the original api/early-access.js
-   serverless function. Same behavior: spam heuristics (honeypot + timing,
-   both rejected with a decoy success so bots can't learn), business-email
-   guard, insert-only Supabase write with 409 dedupe, Resend welcome email.
-   Env (Vercel project): SUPABASE_URL, SUPABASE_ANON_KEY, RESEND_API_KEY,
-   EMAIL_FROM, EMAIL_REPLY_TO, SIGNUP_CC. */
+/* Waitlist signup. Spam heuristics (honeypot + timing, both rejected with a
+   decoy success so bots cannot learn), business-email guard, insert-only
+   Supabase write with 409 dedupe, then the welcome email via Resend with
+   the seat number. Env (Vercel project): SUPABASE_URL, SUPABASE_ANON_KEY,
+   RESEND_API_KEY, EMAIL_FROM, EMAIL_REPLY_TO, SIGNUP_CC, APPROVE_SECRET.
+
+   Table early_access: name (nullable), email (unique on lower), company,
+   accounting_system (added 2026-09 for the Hysaab form), created_at. */
 
 import { NextRequest, NextResponse } from "next/server";
 import { PERSONAL_WEBMAIL, DISPOSABLE, emailDomainOf } from "@/lib/email-domains";
-import { WELCOME_HTML, WELCOME_TEXT, WELCOME_SUBJECT } from "@/lib/emails";
+import { welcomeEmail } from "@/lib/emails";
+import { sendMail, SIGNUP_CC } from "@/lib/mail";
+import { SEAT_BASE, FOUNDING_SEATS } from "@/lib/launch";
 
 export const runtime = "nodejs";
 
 const MIN_SUBMIT_MS = 1500;
+const SYSTEMS = new Set(["Zoho Books", "QuickBooks", "Xero", "Tally", "Spreadsheets", "Other"]);
+
+function sb(path: string, init: RequestInit = {}) {
+  return fetch(`${process.env.SUPABASE_URL}/rest/v1/${path}`, {
+    ...init,
+    headers: {
+      apikey: process.env.SUPABASE_ANON_KEY ?? "",
+      Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY ?? ""}`,
+      ...(init.headers ?? {}),
+    },
+  });
+}
+
+async function countSignups(): Promise<number | null> {
+  try {
+    const r = await sb("early_access?select=id", { headers: { Prefer: "count=exact", Range: "0-0" }, cache: "no-store" });
+    if (!r.ok && r.status !== 206) return null;
+    const n = Number((r.headers.get("content-range") ?? "").split("/")[1]);
+    return Number.isFinite(n) ? n : null;
+  } catch {
+    return null;
+  }
+}
 
 export async function GET(req: NextRequest) {
   const secret = req.headers.get("x-approve-secret");
   if (!process.env.APPROVE_SECRET || secret !== process.env.APPROVE_SECRET) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
-
   try {
-    const r = await fetch(
-      `${process.env.SUPABASE_URL}/rest/v1/early_access?select=name,email,company,created_at&order=created_at.desc`,
-      {
-        headers: {
-          apikey: process.env.SUPABASE_ANON_KEY ?? "",
-          Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY ?? ""}`,
-        },
-      },
-    );
+    const r = await sb("early_access?select=name,email,company,accounting_system,created_at&order=created_at.desc", { cache: "no-store" });
     if (!r.ok) return NextResponse.json({ error: "could not fetch list" }, { status: 502 });
     const rows = await r.json();
     return NextResponse.json({ count: rows.length, users: rows });
@@ -44,77 +62,59 @@ export async function POST(req: NextRequest) {
   const name = String(body?.name ?? "").trim().slice(0, 200);
   const email = String(body?.email ?? "").trim().slice(0, 320);
   const company = String(body?.company ?? "").trim().slice(0, 200);
+  const systemRaw = String(body?.accounting_system ?? "").trim();
+  const accounting_system = SYSTEMS.has(systemRaw) ? systemRaw : systemRaw ? "Other" : null;
   const website = String(body?.website ?? "");          // honeypot
   const loadedAt = Number(body?.loadedAt);
 
   // Spam heuristics — decoy success so bots don't learn which signal tripped.
-  if (website.trim()) return NextResponse.json({ ok: true });
-  if (Number.isFinite(loadedAt) && Date.now() - loadedAt < MIN_SUBMIT_MS) return NextResponse.json({ ok: true });
+  if (website.trim()) return NextResponse.json({ ok: true, seat: SEAT_BASE + 1 });
+  if (Number.isFinite(loadedAt) && Date.now() - loadedAt < MIN_SUBMIT_MS) return NextResponse.json({ ok: true, seat: SEAT_BASE + 1 });
 
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return NextResponse.json({ error: "valid email required" }, { status: 400 });
+    return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
-
   const domain = emailDomainOf(email);
   if (domain && DISPOSABLE.has(domain)) {
-    return NextResponse.json({ error: "Please use a real, permanent email address — disposable/temporary addresses aren't accepted." }, { status: 400 });
+    return NextResponse.json({ error: "Please use a real, permanent email address. Disposable addresses are not accepted." }, { status: 400 });
   }
   if (domain && PERSONAL_WEBMAIL.has(domain)) {
-    return NextResponse.json({ error: "Orbit is for companies — please sign up with your work email address." }, { status: 400 });
+    return NextResponse.json({ error: "Hysaab is for companies. Please sign up with your work email address." }, { status: 400 });
   }
 
   // 1) Store the lead (anon key honours the insert-only RLS policy; unique
   //    index on lower(email) → repeat signup returns 409 = already listed).
+  let already = false;
   try {
-    const r = await fetch(`${process.env.SUPABASE_URL}/rest/v1/early_access`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: process.env.SUPABASE_ANON_KEY ?? "",
-        Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY ?? ""}`,
-        Prefer: "return=minimal",
-      },
-      body: JSON.stringify({ name, email, company }),
-    });
-    if (r.status === 409) return NextResponse.json({ ok: true, already: true });
-    if (!r.ok) return NextResponse.json({ error: "could not store signup" }, { status: 502 });
-  } catch {
-    return NextResponse.json({ error: "could not store signup" }, { status: 502 });
-  }
-
-  // 2) Welcome email — the signup is already saved, so a mail failure never
-  //    breaks the request, but it's logged and reported (emailed:false).
-  let emailed = false;
-  let emailError: string | null = null;
-  if (process.env.RESEND_API_KEY) {
-    try {
-      const er = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: process.env.EMAIL_FROM || "Orbit <notifications@app.orbitgulf.com>",
-          to: email,
-          cc: process.env.SIGNUP_CC || "wahajs@simpla.ai",
-          reply_to: process.env.EMAIL_REPLY_TO || "info@orbitgulf.com",
-          subject: WELCOME_SUBJECT,
-          html: WELCOME_HTML,
-          text: WELCOME_TEXT,
-          headers: { "List-Unsubscribe": "<mailto:info@orbitgulf.com?subject=unsubscribe>" },
-        }),
-      });
-      if (er.ok) emailed = true;
-      else {
-        emailError = `resend ${er.status}: ${(await er.text()).slice(0, 300)}`;
-        console.error("[early-access] welcome email failed:", emailError);
-      }
-    } catch (e) {
-      emailError = `network: ${e instanceof Error ? e.message : e}`;
-      console.error("[early-access] welcome email threw:", emailError);
+    const insert = (row: Record<string, unknown>) =>
+      sb("early_access", { method: "POST", headers: { "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) });
+    let r = await insert({ name: name || null, email, company, accounting_system });
+    if (r.status === 400) {
+      // Column not migrated yet (PGRST204): keep the signup, drop the field,
+      // and log so the owner runs the ALTER TABLE.
+      console.error("[early-access] insert 400, retrying without accounting_system:", (await r.text()).slice(0, 200));
+      r = await insert({ name: name || null, email, company });
     }
-  } else {
-    emailError = "RESEND_API_KEY not set";
-    console.error("[early-access] " + emailError);
+    if (r.status === 409) already = true;
+    else if (!r.ok) {
+      console.error("[early-access] insert failed:", r.status, (await r.text()).slice(0, 300));
+      return NextResponse.json({ error: "We could not record your entry. Email info@hysaab.ai and a person will add you by hand." }, { status: 502 });
+    }
+  } catch {
+    return NextResponse.json({ error: "We could not record your entry. Email info@hysaab.ai and a person will add you by hand." }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true, emailed, emailError });
+  // 2) Seat number = base + rows now in the table (the row just written
+  //    included), capped at the last founding seat.
+  const count = await countSignups();
+  const seat = Math.min(SEAT_BASE + (count ?? 1), FOUNDING_SEATS);
+  if (already) return NextResponse.json({ ok: true, already: true, seat });
+
+  // 3) Welcome email — the signup is already saved, so a mail failure never
+  //    breaks the request; it is logged and reported (emailed:false).
+  const mail = welcomeEmail(seat, company);
+  const sent = await sendMail({ to: email, cc: SIGNUP_CC, ...mail });
+  if (!sent.ok) console.error("[early-access] welcome email failed:", sent.error);
+
+  return NextResponse.json({ ok: true, seat, emailed: sent.ok, emailError: sent.ok ? null : sent.error });
 }

@@ -4,7 +4,7 @@ import { RealEstateVatCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص ضريبة العقارات الإماراتية — Orbit",
+  title: "فاحص ضريبة العقارات الإماراتية — Hysaab",
   description:
     "أداة مجانية لضريبة العقارات في الإمارات: توريدات أولى صفرية، وسكني معفى، وتجاري خاضع، وأرض فضاء وشقق مخدومة — المعاملة والضريبة والاسترداد لكل صفقة.",
   alternates: langAlternates("/tools/uae-real-estate-vat-checker"),

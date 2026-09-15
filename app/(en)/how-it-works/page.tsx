@@ -4,22 +4,22 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "How it works — Orbit",
+  title: "How it works — Hysaab",
   description:
-    "A plain-English walkthrough of what Orbit does, screen by screen — written by the accountants who built it, for the accountants who'll use it.",
+    "A plain-English walkthrough of what Hysaab does, screen by screen — written by the accountants who built it, for the accountants who'll use it.",
   alternates: langAlternates("/how-it-works"),
 };
 
 const ARTICLE_LD = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "How Orbit works — a plain-language guide",
+  headline: "How Hysaab works — a plain-language guide",
   description:
-    "A plain-English walkthrough of what Orbit does, screen by screen — written by the accountants who built it.",
+    "A plain-English walkthrough of what Hysaab does, screen by screen — written by the accountants who built it.",
   dateModified: "2026-08-16",
-  author: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-  publisher: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-  mainEntityOfPage: "https://www.orbitgulf.com/how-it-works",
+  author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+  publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+  mainEntityOfPage: "https://hysaab.ai/how-it-works",
 };
 
 export default function HowItWorksPage() {
@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
             The whole system, explained by the people who close books for a living.
           </h1>
           <p className="mg-page-lede">
-            We&rsquo;re accountants. We built Orbit because we were tired of doing the same
+            We&rsquo;re accountants. We built Hysaab because we were tired of doing the same
             month-end ritual by hand — chasing documents, vouching invoices, running the same
             accrual spreadsheet, filing the same VAT. This page walks you through what the
             system actually does, in the order you&rsquo;d actually use it.
@@ -49,7 +49,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">The short version</h2>
             <p className="mg-guide-p">
-              Orbit is a team of AI agents that sits between your business and your ledger. Documents
+              Hysaab is a team of AI agents that sits between your business and your ledger. Documents
               come in (WhatsApp, email, Telegram, a bank feed — however your suppliers and staff
               actually send them). The agents read each document, classify it, extract the numbers,
               code it from your posting history, test it against the FTA&rsquo;s tax-invoice rules,
@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
               close and lock the period, and the lock is enforced everywhere.
             </p>
             <p className="mg-guide-p">
-              Orbit posts into the ledger you already use — Xero, Zoho Books, QuickBooks, Odoo,
+              Hysaab posts into the ledger you already use — Xero, Zoho Books, QuickBooks, Odoo,
               Wafeq or ERPNext — or keeps clean books itself when there isn&rsquo;t one.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function HowItWorksPage() {
             <h2 className="mg-guide-h">1. Documents come in</h2>
             <p className="mg-guide-p">
               Your suppliers don&rsquo;t care about your filing system. They send a PDF on WhatsApp
-              at 11pm, a scanned invoice by email, a photo of a receipt via Telegram. Orbit watches
+              at 11pm, a scanned invoice by email, a photo of a receipt via Telegram. Hysaab watches
               all of these channels. When a document arrives, the intake agent classifies it
               (supplier invoice, receipt, credit note, bank statement, contract, GRN), extracts the
               header fields by OCR, and sha-deduplicates it against everything already in the vault.
@@ -255,7 +255,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">10. Decisions — the things only you can call</h2>
             <p className="mg-guide-p">
-              Orbit doesn&rsquo;t pretend it can make your judgement calls. When something needs a
+              Hysaab doesn&rsquo;t pretend it can make your judgement calls. When something needs a
               human — a write-off, a reclass instruction, a variance that can&rsquo;t be
               auto-explained, a supplier invoice with a missing TRN — it surfaces a decision card
               on your overview. Each card has a severity (critical, review, info), the agent that
@@ -287,11 +287,11 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">12. Your existing ledger stays</h2>
             <p className="mg-guide-p">
-              Orbit is not a replacement for your accounting software. It sits on top.
+              Hysaab is not a replacement for your accounting software. It sits on top.
               Journals sync to Xero, Zoho Books, QuickBooks, Odoo, Wafeq or ERPNext via two-way
-              connectors — Orbit proposes and posts, your ledger is the system of record. Period
-              locks in Orbit trigger period locks in the ledger. Chart of accounts maps across. If
-              you don&rsquo;t have a ledger yet, Orbit keeps the books itself until you&rsquo;re
+              connectors — Hysaab proposes and posts, your ledger is the system of record. Period
+              locks in Hysaab trigger period locks in the ledger. Chart of accounts maps across. If
+              you don&rsquo;t have a ledger yet, Hysaab keeps the books itself until you&rsquo;re
               ready to pick one.
             </p>
           </div>
@@ -367,7 +367,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">15. Who this is for</h2>
             <p className="mg-guide-p">
-              Orbit is built for UAE and KSA businesses that have real books to keep: trading
+              Hysaab is built for UAE and KSA businesses that have real books to keep: trading
               companies, professional services firms, logistics operators, property managers,
               distributors — anyone running a month-end close, filing VAT, paying suppliers, chasing
               customers, and wishing the process were shorter.
@@ -381,7 +381,7 @@ export default function HowItWorksPage() {
 
           {/* ── CTA ──────────────────────────────────────────────── */}
           <div className="mg-guide-cta">
-            <a href="/#join" className="mg-cta">Book a demo →</a>
+            <a href="/#cohort" className="mg-cta">Book a demo →</a>
             <a href="/product" className="mg-ghost">See the product screens</a>
           </div>
         </section>

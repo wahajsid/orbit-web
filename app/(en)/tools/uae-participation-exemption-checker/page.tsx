@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { ParticipationCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Participation exemption checker (UAE CT) — Orbit",
+  title: "Participation exemption checker (UAE CT) — Hysaab",
   description:
     "Free UAE participation exemption checker: the 5% / AED 4m ownership test, the 12-month holding period, and the subject-to-tax condition — exempt or taxable, with the tax at stake.",
   alternates: langAlternates("/tools/uae-participation-exemption-checker"),

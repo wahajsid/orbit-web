@@ -14,7 +14,7 @@ const pad3 = (n: number) => String(n).padStart(3, "0");
 
 const T = {
   en: {
-    head: "FOUNDING LEDGER · 12 MO FREE",
+    head: "FOUNDING LEDGER · FOUNDER PRICING",
     taken: (name: string) => <>· <span className="redact">{name}</span> — taken</>,
     names: ["▓▓▓▓▓▓ LLC", "▓▓▓▓ Trading", "▓▓▓▓▓ & Co"],
     open: "doors are open — sign up",
@@ -27,11 +27,11 @@ const T = {
     busy: "Recording…", claim: "Claim this entry",
     already: "You're already in the ledger — see you at the doors.",
     done: (seatNo: string, company: string) => `Entry ${seatNo} reserved${company ? ` for ${company}` : ""}. Watch your inbox.`,
-    note: (seats: number) => `First ${seats} companies get twelve months free — fair-usage policy applies — with founder pricing locked in after. Work email only; a real person reads every entry.`,
+    note: (seats: number) => `The first ${seats} companies lock in founder pricing for as long as they stay. Fair-usage policy applies. Work email only; a real person reads every entry.`,
     date: LAUNCH_DATE_SHORT,
   },
   ar: {
-    head: "سجل التأسيس · 12 شهرًا مجانًا",
+    head: "سجل التأسيس · سعر المؤسسين",
     taken: (name: string) => <>· <span className="redact">{name}</span> — محجوز</>,
     names: ["▓▓▓▓▓▓ ذ.م.م", "▓▓▓▓ للتجارة", "▓▓▓▓▓ وشركاه"],
     open: "الأبواب مفتوحة — سجّل الآن",
@@ -44,7 +44,7 @@ const T = {
     busy: "جارٍ التسجيل…", claim: "احجز هذا القيد",
     already: "أنت في السجل بالفعل — نراك عند الأبواب.",
     done: (seatNo: string, company: string) => `تم حجز القيد ${seatNo}${company ? ` لشركة ${company}` : ""}. راقب بريدك الوارد.`,
-    note: (seats: number) => `أول ${seats} شركة تحصل على اثني عشر شهرًا مجانًا — تُطبَّق سياسة الاستخدام العادل — مع تثبيت سعر المؤسسين بعد ذلك. بريد العمل فقط؛ شخص حقيقي يقرأ كل قيد.`,
+    note: (seats: number) => `أول ${seats} شركة تثبّت سعر المؤسسين طوال فترة اشتراكها. تُطبَّق سياسة الاستخدام العادل. بريد العمل فقط؛ شخص حقيقي يقرأ كل قيد.`,
     date: LAUNCH_DATE_SHORT_AR,
   },
 };

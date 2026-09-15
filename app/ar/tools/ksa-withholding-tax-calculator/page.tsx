@@ -4,7 +4,7 @@ import { WhtCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "حاسبة ضريبة الاستقطاع السعودية — Orbit",
+  title: "حاسبة ضريبة الاستقطاع السعودية — Hysaab",
   description:
     "حاسبة مجانية لضريبة الاستقطاع السعودية: النسب المحلية حسب فئة الدفعة — أتعاب الإدارة 20% والإتاوات 15% ومعظم الباقي 5% — مع معالجة عقود الصافي من الضريبة.",
   alternates: langAlternates("/tools/ksa-withholding-tax-calculator"),

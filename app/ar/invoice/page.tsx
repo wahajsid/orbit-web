@@ -8,9 +8,9 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit Invoice — كل فاتورة مورد، مختبرة ضريبيًا قبل المطالبة",
+  title: "Hysaab Invoice — كل فاتورة مورد، مختبرة ضريبيًا قبل المطالبة",
   description:
-    "أداة الامتثال الضريبي والتحقق من الفوترة الإلكترونية للخليج. يقرأ Orbit Invoice كل فاتورة مورد، ويعيد فحص الحساب، ويختبرها وفق قواعد الهيئة الاتحادية للضرائب في الإمارات وهيئة الزكاة والضريبة والجمارك «زاتكا» في السعودية، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر.",
+    "أداة الامتثال الضريبي والتحقق من الفوترة الإلكترونية للخليج. يقرأ Hysaab Invoice كل فاتورة مورد، ويعيد فحص الحساب، ويختبرها وفق قواعد الهيئة الاتحادية للضرائب في الإمارات وهيئة الزكاة والضريبة والجمارك «زاتكا» في السعودية، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر.",
   alternates: langAlternates("/invoice"),
 };
 
@@ -31,22 +31,22 @@ export default function InvoicePage() {
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
           <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">‏ORBIT INVOICE · الامتثال الضريبي والتحقق من الفوترة الإلكترونية</div>
+            <div className="microlabel hero-kicker">‏HYSAAB INVOICE · الامتثال الضريبي والتحقق من الفوترة الإلكترونية</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ Orbit Invoice كل
+              أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ Hysaab Invoice كل
               سطر، ويعيد فحص الحساب بنفسه، ويختبر كل فاتورة وفق قواعد الهيئة الاتحادية
               للضرائب وهيئة الزكاة والضريبة والجمارك «زاتكا»، ويرتّب ضريبة القيمة المضافة
               التي توشك على المطالبة بها حسب المخاطر — قبل تقديم الإقرار، لا بعد التدقيق.
             </p>
             <a className="np-scrollcue" href="#live" aria-label="شاهد كيف يعمل">
               <span className="tri">▶</span>
-              <span className="lab">كيف يعمل Orbit Invoice</span>
+              <span className="lab">كيف يعمل Hysaab Invoice</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
               <a className="cta" href="#access">اطلب الوصول</a>
-              <a className="np-backlink" href="/ar">→ جزء من عائلة Orbit</a>
+              <a className="np-backlink" href="/ar">→ جزء من عائلة Hysaab</a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function InvoicePage() {
             <p className="np-say np-rise d2">
               قوة المطالبة من قوة الورق الذي يسندها. رقم ضريبي مفقود، أو مورد احتسب
               النسبة الخطأ، أو فاتورة مكررة تسللت مرتين — كل واحدة منها مالُك المعرَّض
-              للخطر عند التدقيق. يقرأ Orbit كل فاتورة يوم وصولها ويسمّي الحقل الراسب
+              للخطر عند التدقيق. يقرأ Hysaab كل فاتورة يوم وصولها ويسمّي الحقل الراسب
               بالضبط، فتصبح المشكلة طلب تصحيح في يوليو، لا مطالبة مرفوضة في تدقيق ضريبي.
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function InvoicePage() {
                 <div className="np-fair-row"><span className="ic">✓</span> تواريخ وتسلسل وإجماليات تتطابق</div>
               </div>
               <div className="np-fair-col seal">
-                <h4>ما يلتقطه Orbit</h4>
+                <h4>ما يلتقطه Hysaab</h4>
                 <p className="cap2">يُسمّى بالاسم، ولا يُمرَّر أبدًا</p>
                 <div className="np-fair-row sealed"><span className="ic">✕</span> الرقم الضريبي مفقود&nbsp;&nbsp;<span className="val">ليست فاتورة ضريبية صحيحة</span></div>
                 <div className="np-fair-row sealed"><span className="ic">✕</span> الضريبة ≠ 5%&nbsp;&nbsp;<span className="val">الحساب لا يستقيم</span></div>
@@ -136,7 +136,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">مكررة</span><span className="b">حُظرت، والنسخة الثانية متعقَّبة</span></span>
             </div>
             <div className="np-shot np-rise d1" dir="ltr">
-              <Image src="/shots/adv-ocr-review.png" alt="مراجعة Orbit Invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59 مع تسمية الحقل الراسب" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-review.png" alt="مراجعة Hysaab Invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59 مع تسمية الحقل الراسب" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">المراجعة — ما قرأه OCR في جهة، ومعايير المادة 59 التسعة في الجهة الأخرى، والحكم في الأعلى.</div>
           </div>
@@ -160,7 +160,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">السجل التاريخي</span><span className="b">جداولك القديمة، مستوردة</span></span>
             </div>
             <div className="np-shot np-rise d1" dir="ltr">
-              <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر Orbit Invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر، والأحكام وحالة المطالبة على السطر" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر Hysaab Invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر، والأحكام وحالة المطالبة على السطر" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">سجل المخاطر — مرتّب حسب مخاطر التدقيق، مع الموقوف والمُلاحَق والجاهز للمطالبة.</div>
           </div>
@@ -192,13 +192,13 @@ export default function InvoicePage() {
         <section className="section wrap" id="access">
           <h2 className="section-head">ضع فواتيرك على المحك.</h2>
           <p className="section-sub">
-            يعمل Orbit Invoice اليوم داخل فرق ضريبية عاملة، ونحن نفتحه لمزيد منها.
+            يعمل Hysaab Invoice اليوم داخل فرق ضريبية عاملة، ونحن نفتحه لمزيد منها.
             أخبرنا عن حجم فواتيرك ونطاقك — الإمارات أو السعودية أو كليهما — وسنجهّز
             لك كل شيء.
           </p>
           <div className="hero-actions" style={{ marginTop: 26 }}>
             <a className="cta" href="/ar/contact">اطلب الوصول</a>
-            <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>تبحث عن نظام التشغيل المالي؟ Orbit هنا ←</a>
+            <a className="textlink" href="/ar" style={{ fontSize: 13.5 }}>تبحث عن نظام التشغيل المالي؟ Hysaab هنا ←</a>
           </div>
         </section>
       </main>

@@ -1,7 +1,7 @@
 # orbit-web
 
-Marketing site + early-access waitlist for **Orbit** (orbitgulf.com) — an AI
-finance team for UAE/KSA SMEs. **Isolated** from the Orbit app repo and from
+Marketing site + early-access waitlist for **Hysaab** (hysaab.ai) — an AI
+finance team for UAE/KSA SMEs. **Isolated** from the Hysaab app repo and from
 Oblique OS (separate repo, separate Vercel project); both share the single
 OrbitFinance Supabase project.
 
@@ -31,7 +31,7 @@ or starfields.
 
 ## Deploy
 `vercel --prod --yes` from this directory (Vercel project **orbit** →
-orbitgulf.com). Env vars already set in the project: `SUPABASE_URL`,
+hysaab.ai). Env vars already set in the project: `SUPABASE_URL`,
 `SUPABASE_ANON_KEY`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`.
 
 ## Security

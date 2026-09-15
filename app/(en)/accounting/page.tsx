@@ -13,7 +13,7 @@ export const revalidate = 60;
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit — your books, already done",
+  title: "Hysaab — your books, already done",
   description:
     "The finance operating system for the Gulf. AP, receivables, the ledger, tax and the month-end close — run by a team of agents, watched over by you.",
   alternates: langAlternates("/accounting"),
@@ -67,7 +67,7 @@ export default async function AccountingPage() {
             <div className="microlabel hero-kicker">AN AI FINANCE TEAM FOR THE UAE &amp; KSA</div>
             <RotatingHeadline />
             <p className="hero-sub" style={{ maxWidth: 560 }}>
-              Orbit runs the busywork — AP, receivables, the ledger, tax and the month-end
+              Hysaab runs the busywork — AP, receivables, the ledger, tax and the month-end
               close — and leaves the judgement to you.
             </p>
             <a className="np-scrollcue" href="#live" aria-label="Scroll to watch">
@@ -82,7 +82,7 @@ export default async function AccountingPage() {
           </div>
 
           <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.png" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+            <Image src="/shots/adv-overview.png" alt="The Hysaab workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
@@ -96,13 +96,13 @@ export default async function AccountingPage() {
           ink
           kicker="MONEY OUT"
           head={<>Every invoice hides two questions: <span className="np-accent">is it coded right, and is the tax deductible?</span></>}
-          say={<>Orbit codes it on arrival from your own ledger&rsquo;s memory, then tax-tests it against UAE law. This one <strong>fails Article 59</strong> — the supplier TRN is missing — so the input VAT is held, not claimed. And a duplicate is stopped before it ever posts.</>}
+          say={<>Hysaab codes it on arrival from your own ledger&rsquo;s memory, then tax-tests it against UAE law. This one <strong>fails Article 59</strong> — the supplier TRN is missing — so the input VAT is held, not claimed. And a duplicate is stopped before it ever posts.</>}
           chips={[
             { k: "Tax test", v: "input VAT AED 1,036 held", tone: "b" },
             { k: "Duplicate", v: "stopped before posting", tone: "b" },
             { k: "Coding memory", v: "2,418 txns", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "Orbit Payables — the tax test embedded in the invoice row" }}
+          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "Hysaab Payables — the tax test embedded in the invoice row" }}
           cap="Payables — the tax layer embedded in every row, with its evidence attached."
         />
 
@@ -115,7 +115,7 @@ export default async function AccountingPage() {
             { k: "Filing", v: "Q2 due 28 Jul · T-14", tone: "b" },
             { k: "ZATCA", v: "142 cleared · 0 rejected", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Orbit GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
+          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Hysaab GCC tax intelligence — VAT–CT reconciliation and filing watchdog" }}
           cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
         />
 
@@ -124,7 +124,7 @@ export default async function AccountingPage() {
           kicker="THE PERMANENT RECORD"
           head={<>Nothing is ever deleted. <span className="np-accent">Mistakes are reversed in the open.</span></>}
           say={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
-          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "Orbit general ledger — journal activity with agent commentary and evidence" }}
+          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "Hysaab general ledger — journal activity with agent commentary and evidence" }}
           cap="Ledger — every entry explained, its evidence one click away."
         />
 
@@ -137,7 +137,7 @@ export default async function AccountingPage() {
             { k: "Past due", v: "AED 346,700", tone: "b" },
             { k: "Provisioned", v: "policy-driven" },
           ]}
-          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "Orbit Receivables — collections queue, DSO and the ageing posture" }}
+          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "Hysaab Receivables — collections queue, DSO and the ageing posture" }}
           cap="Receivables — the collections runbook, drafted, chased and reconciled."
         />
 
@@ -150,14 +150,14 @@ export default async function AccountingPage() {
               <span className="sub">done before you woke up.</span>
             </div>
             <p className="np-say np-rise d2">
-              Accruals proposed, variances flagged, bank reconciled, VAT drafted — Orbit&rsquo;s side is
+              Accruals proposed, variances flagged, bank reconciled, VAT drafted — Hysaab&rsquo;s side is
               done before you open it. What&rsquo;s left is your call. Then you seal the month in one
               tap, and it can never quietly change again.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.png" alt="Orbit close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
-            <div className="np-cap np-rise">Close cockpit — &ldquo;Orbit runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
+            <div className="np-cap np-rise">Close cockpit — &ldquo;Hysaab runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
           </div>
         </section>
 
@@ -165,8 +165,8 @@ export default async function AccountingPage() {
           kicker="ONE OS, ANY SHAPE"
           head={<>One business or five. One currency or five. <span className="np-accent">One language or two.</span></>}
           say={<>Switch entities, consolidate, and flip the whole workspace into Arabic — right-to-left, down to the numerals. The product bends. You don&rsquo;t.</>}
-          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Orbit in Arabic — the full workspace, right to left" }}
-          cap="نفس النظام — the same Orbit, in Arabic, right-to-left."
+          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Hysaab in Arabic — the full workspace, right to left" }}
+          cap="نفس النظام — the same Hysaab, in Arabic, right-to-left."
         />
 
         <section className="why-band on-ink" id="why" style={{ marginTop: 0 }}>
@@ -182,7 +182,7 @@ export default async function AccountingPage() {
                 data was saying.
               </p>
               <p>
-                Orbit is one of the very few products in this space <strong>built by accountants who
+                Hysaab is one of the very few products in this space <strong>built by accountants who
                 have lived and slept through these processes</strong> — not by engineers guessing at
                 them. So we built the colleague we always wanted: one who does the busywork, shows
                 its evidence, and leaves the judgement to you.
@@ -195,8 +195,8 @@ export default async function AccountingPage() {
         <section className="section wrap" id="ledger">
           <h2 className="section-head">Claim a founding seat.</h2>
           <p className="section-sub">
-            The first {FOUNDING_SEATS} companies get twelve months free, with founder pricing locked in
-            after. Work email only — a real person reads every entry.
+            The first {FOUNDING_SEATS} companies lock in founder pricing for as long as they stay.
+            Work email only. A real person reads every entry.
           </p>
           <div className="price-grid">
             <div>

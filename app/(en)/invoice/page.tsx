@@ -9,9 +9,9 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit Invoice — every supplier invoice, tax-tested before you claim",
+  title: "Hysaab Invoice — every supplier invoice, tax-tested before you claim",
   description:
-    "The tax compliance and e-invoice validator for the Gulf. Orbit Invoice reads every supplier invoice, re-checks the arithmetic, tests it against UAE FTA and KSA ZATCA rules, and risk-ranks the VAT you're about to claim.",
+    "The tax compliance and e-invoice validator for the Gulf. Hysaab Invoice reads every supplier invoice, re-checks the arithmetic, tests it against UAE FTA and KSA ZATCA rules, and risk-ranks the VAT you're about to claim.",
   alternates: langAlternates("/invoice"),
 };
 
@@ -32,22 +32,22 @@ export default function InvoicePage() {
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
           <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">ORBIT INVOICE · TAX COMPLIANCE &amp; E-INVOICE VALIDATION</div>
+            <div className="microlabel hero-kicker">HYSAAB INVOICE · TAX COMPLIANCE &amp; E-INVOICE VALIDATION</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              Drop a folder of supplier invoices — or email them in. Orbit Invoice reads every
+              Drop a folder of supplier invoices — or email them in. Hysaab Invoice reads every
               line, re-checks the arithmetic itself, tests each invoice against the FTA&rsquo;s and
               ZATCA&rsquo;s rules, and risk-ranks the VAT you&rsquo;re about to claim — before the
               return is filed, not after the audit.
             </p>
             <a className="np-scrollcue" href="#live" aria-label="See how it works">
               <span className="tri">▶</span>
-              <span className="lab">How Orbit Invoice works</span>
+              <span className="lab">How Hysaab Invoice works</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
               <a className="cta" href="#access">Request access</a>
-              <a className="np-backlink" href="/">← part of the Orbit family</a>
+              <a className="np-backlink" href="/">← part of the Hysaab family</a>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function InvoicePage() {
             <p className="np-say np-rise d2">
               A claim is only as strong as the paper behind it. A missing TRN, a supplier who
               charged the wrong rate, a duplicate that slipped through twice — each one is your
-              money at risk in an audit. Orbit reads every invoice the day it lands and names
+              money at risk in an audit. Hysaab reads every invoice the day it lands and names
               exactly which field fails, so the problem is a correction request in July, not a
               disallowance in a tax audit.
             </p>
@@ -101,7 +101,7 @@ export default function InvoicePage() {
                 <div className="np-fair-row"><span className="ic">✓</span> Dates, sequence and totals that reconcile</div>
               </div>
               <div className="np-fair-col seal">
-                <h4>What Orbit catches</h4>
+                <h4>What Hysaab catches</h4>
                 <p className="cap2">named, never waved through</p>
                 <div className="np-fair-row sealed"><span className="ic">✕</span> TRN missing&nbsp;&nbsp;<span className="val">not a valid tax invoice</span></div>
                 <div className="np-fair-row sealed"><span className="ic">✕</span> VAT ≠ 5%&nbsp;&nbsp;<span className="val">arithmetic fails</span></div>
@@ -135,7 +135,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">Duplicate</span><span className="b">blocked, second copy traced</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-ocr-review.png" alt="Orbit Invoice review — the OCR read, the arithmetic re-check and the Article 59 test with the failing field named" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-review.png" alt="Hysaab Invoice review — the OCR read, the arithmetic re-check and the Article 59 test with the failing field named" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">The review — what the OCR read on the left, the nine Article 59 criteria on the right, the verdict on top.</div>
           </div>
@@ -159,7 +159,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">History</span><span className="b">your old sheets, imported</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-ocr-register.png" alt="Orbit Invoice risk register — every invoice read and risk-ranked, verdicts and claim status on the row" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-register.png" alt="Hysaab Invoice risk register — every invoice read and risk-ranked, verdicts and claim status on the row" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">The risk register — sorted by audit risk, with what&rsquo;s held, chased and ready to claim.</div>
           </div>
@@ -191,13 +191,13 @@ export default function InvoicePage() {
         <section className="section wrap" id="access">
           <h2 className="section-head">Put your invoices to the test.</h2>
           <p className="section-sub">
-            Orbit Invoice runs today inside working tax teams, and we&rsquo;re opening it to more.
+            Hysaab Invoice runs today inside working tax teams, and we&rsquo;re opening it to more.
             Tell us about your invoice volume and jurisdiction — UAE, KSA or both — and we&rsquo;ll
             set you up.
           </p>
           <div className="hero-actions" style={{ marginTop: 26 }}>
             <a className="cta" href="/contact">Request access</a>
-            <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Looking for the finance OS? Orbit is here →</a>
+            <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Looking for the finance OS? Hysaab is here →</a>
           </div>
         </section>
       </main>

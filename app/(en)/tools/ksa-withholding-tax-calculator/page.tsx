@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { WhtCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "KSA withholding tax (WHT) calculator — Orbit",
+  title: "KSA withholding tax (WHT) calculator — Hysaab",
   description:
     "Free Saudi withholding tax calculator: domestic rates by payment category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
   alternates: langAlternates("/tools/ksa-withholding-tax-calculator"),
