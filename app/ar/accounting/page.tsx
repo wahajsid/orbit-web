@@ -87,7 +87,7 @@ export default async function AccountingPage() {
           </div>
 
           <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.png" alt="مساحة عمل Hysaab — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+            <Image src="/shots/adv-overview.png" alt="مساحة عمل Hysaab — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1378} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
@@ -109,7 +109,7 @@ export default async function AccountingPage() {
             { k: "التكرار", v: "أُوقف قبل الترحيل", tone: "b" },
             { k: "ذاكرة الترميز", v: "2,418 معاملة", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "الذمم الدائنة في Hysaab — اختبار الضريبة مدمج في سطر الفاتورة" }}
+          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "الذمم الدائنة في Hysaab — اختبار الضريبة مدمج في سطر الفاتورة" }}
           cap="الذمم الدائنة — طبقة الضريبة مدمجة في كل سطر، وأدلتها مرفقة."
         />
 
@@ -131,7 +131,7 @@ export default async function AccountingPage() {
           kicker="السجل الدائم"
           head={<>لا شيء يُحذف أبدًا. <span className="np-accent">والأخطاء تُعكس على المكشوف.</span></>}
           say={<>كل قيد يحمل مَن أنشأه، ولماذا، والمستند الذي خلفه — وكلٌّ منها يُرحِّله وكيل مُسمّى بدرجة ثقة معلنة. إقفالٌ تسلّمه للمدقق دون أن يرفّ لك جفن.</>}
-          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" }}
+          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" }}
           cap="دفتر الأستاذ — كل قيد مُفسَّر، ودليله على بعد نقرة."
         />
 
@@ -162,7 +162,7 @@ export default async function AccountingPage() {
               تختم الشهر بلمسة واحدة، فلا يتغير بعدها في الخفاء أبدًا.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — قائمة نهاية الشهر مع استحقاقات مقترحة من المحرك" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — قائمة نهاية الشهر مع استحقاقات مقترحة من المحرك" width={1600} height={1170} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">قمرة الإقفال — «هذا يديره Hysaab» في جهة، ومهام دفترك أنت في الجهة الأخرى.</div>
           </div>

@@ -42,7 +42,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-payables.png" alt="Hysaab Payables — open payables with the tax layer embedded in every row" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-payables.png" alt="Hysaab Payables — open payables with the tax layer embedded in every row" width={1600} height={1256} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -70,7 +70,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-ledger.png" alt="Hysaab general ledger — journal activity with agent commentary and evidence" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-ledger.png" alt="Hysaab general ledger — journal activity with agent commentary and evidence" width={1600} height={990} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -88,7 +88,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — Hysaab's side done, your ledger's side listed, the lock gated" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — Hysaab's side done, your ledger's side listed, the lock gated" width={1600} height={1170} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>

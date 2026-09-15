@@ -83,7 +83,7 @@ export default async function AccountingPage() {
           </div>
 
           <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.png" alt="The Hysaab workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+            <Image src="/shots/adv-overview.png" alt="The Hysaab workspace — cash, decisions, the close and tax at a glance" width={1600} height={1378} sizes="(max-width: 1120px) 100vw, 1064px" priority />
           </div>
         </div>
       </header>
@@ -103,7 +103,7 @@ export default async function AccountingPage() {
             { k: "Duplicate", v: "stopped before posting", tone: "b" },
             { k: "Coding memory", v: "2,418 txns", tone: "p" },
           ]}
-          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1273, alt: "Hysaab Payables — the tax test embedded in the invoice row" }}
+          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "Hysaab Payables — the tax test embedded in the invoice row" }}
           cap="Payables — the tax layer embedded in every row, with its evidence attached."
         />
 
@@ -125,7 +125,7 @@ export default async function AccountingPage() {
           kicker="THE PERMANENT RECORD"
           head={<>Nothing is ever deleted. <span className="np-accent">Mistakes are reversed in the open.</span></>}
           say={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
-          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 946, alt: "Hysaab general ledger — journal activity with agent commentary and evidence" }}
+          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "Hysaab general ledger — journal activity with agent commentary and evidence" }}
           cap="Ledger — every entry explained, its evidence one click away."
         />
 
@@ -156,7 +156,7 @@ export default async function AccountingPage() {
               tap, and it can never quietly change again.
             </p>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1169} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1170} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">Close cockpit — &ldquo;Hysaab runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
           </div>
