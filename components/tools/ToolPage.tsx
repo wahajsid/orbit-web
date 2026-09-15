@@ -1,4 +1,5 @@
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { getGuide } from "@/lib/guides";
 import { getArGuide } from "@/lib/guides-ar";
 import { getTool } from "@/lib/tools";

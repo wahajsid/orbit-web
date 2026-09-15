@@ -3,15 +3,16 @@ import Image from "next/image";
 import { InvoiceTerminal } from "@/components/InvoiceTerminal";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
 
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Hysaab Invoice — every supplier invoice, tax-tested before you claim",
+  title: "hysaab invoice — every supplier invoice, tax-tested before you claim",
   description:
-    "The tax compliance and e-invoice validator for the Gulf. Hysaab Invoice reads every supplier invoice, re-checks the arithmetic, tests it against UAE FTA and KSA ZATCA rules, and risk-ranks the VAT you're about to claim.",
+    "The tax compliance and e-invoice validator for the Gulf. hysaab invoice reads every supplier invoice, re-checks the arithmetic, tests it against UAE FTA and KSA ZATCA rules, and risk-ranks the VAT you're about to claim.",
   alternates: langAlternates("/invoice"),
 };
 
@@ -35,14 +36,14 @@ export default function InvoicePage() {
             <div className="microlabel hero-kicker">HYSAAB INVOICE · TAX COMPLIANCE &amp; E-INVOICE VALIDATION</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              Drop a folder of supplier invoices — or email them in. Hysaab Invoice reads every
+              Drop a folder of supplier invoices — or email them in. hysaab invoice reads every
               line, re-checks the arithmetic itself, tests each invoice against the FTA&rsquo;s and
               ZATCA&rsquo;s rules, and risk-ranks the VAT you&rsquo;re about to claim — before the
               return is filed, not after the audit.
             </p>
             <a className="np-scrollcue" href="#live" aria-label="See how it works">
               <span className="tri">▶</span>
-              <span className="lab">How Hysaab Invoice works</span>
+              <span className="lab">How hysaab invoice works</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
@@ -135,7 +136,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">Duplicate</span><span className="b">blocked, second copy traced</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-ocr-review.png" alt="Hysaab Invoice review — the OCR read, the arithmetic re-check and the Article 59 test with the failing field named" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-review.png" alt="hysaab invoice review — the OCR read, the arithmetic re-check and the Article 59 test with the failing field named" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">The review — what the OCR read on the left, the nine Article 59 criteria on the right, the verdict on top.</div>
           </div>
@@ -159,7 +160,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">History</span><span className="b">your old sheets, imported</span></span>
             </div>
             <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-ocr-register.png" alt="Hysaab Invoice risk register — every invoice read and risk-ranked, verdicts and claim status on the row" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-register.png" alt="hysaab invoice risk register — every invoice read and risk-ranked, verdicts and claim status on the row" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">The risk register — sorted by audit risk, with what&rsquo;s held, chased and ready to claim.</div>
           </div>
@@ -191,7 +192,7 @@ export default function InvoicePage() {
         <section className="section wrap" id="access">
           <h2 className="section-head">Put your invoices to the test.</h2>
           <p className="section-sub">
-            Hysaab Invoice runs today inside working tax teams, and we&rsquo;re opening it to more.
+            hysaab invoice runs today inside working tax teams, and we&rsquo;re opening it to more.
             Tell us about your invoice volume and jurisdiction — UAE, KSA or both — and we&rsquo;ll
             set you up.
           </p>
@@ -202,6 +203,7 @@ export default function InvoicePage() {
         </section>
       </main>
 
+      <CtaBand />
       <MgFooter />
       <NpEnhance />
     </>

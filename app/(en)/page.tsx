@@ -5,6 +5,8 @@ import { CohortForm } from "@/components/hysaab/CohortForm";
 import { StickyBar } from "@/components/hysaab/StickyBar";
 import { getSeatsTaken, FOUNDING_SEATS, LAUNCH_DATE_SHORT } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
+import { GUIDES } from "@/lib/guides";
+import { TOOLS } from "@/lib/tools";
 
 export const revalidate = 60;
 
@@ -244,7 +246,7 @@ export default async function Page() {
           <div className="hy-wrap" style={{ display: "flex", flexDirection: "column", gap: 28 }}>
             <span className="hy-kicker">Our products</span>
             <h2 className="hy-h2">Four products. Each stands on its own.</h2>
-            <p className="hy-family-p">Hysaab is the accounting and reporting product. Hysaab Invoice reads and checks invoices on its own. Each has its own subscription and can be used on its own.</p>
+            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own. hysaab services OS runs a professional services business. Each has its own subscription and can be used on its own.</p>
             <div className="hy-family-grid">
               <div className="hy-product hy-product--navy">
                 <span className="hy-product-l">AI accounting &amp; reporting</span>
@@ -253,9 +255,9 @@ export default async function Page() {
               </div>
               <div className="hy-product">
                 <span className="hy-product-l">Invoice processing &amp; checks</span>
-                <a href="/invoice" className="hy-product-h">Hysaab Invoice</a>
+                <a href="/invoice" className="hy-product-h" style={{ fontWeight: 500 }}>hysaab invoice</a>
                 <span className="hy-product-p">What happens to an invoice, what is checked, what is flagged and what you receive back. <strong>Available</strong>.</span>
-                <a href="/invoice" className="hy-ulink">See Hysaab Invoice →</a>
+                <a href="/invoice" className="hy-ulink">See hysaab invoice →</a>
               </div>
               <div className="hy-product">
                 <span className="hy-product-l">Hiring platform</span>
@@ -265,13 +267,47 @@ export default async function Page() {
               </div>
               <div className="hy-product">
                 <span className="hy-product-l">Professional services platform</span>
-                <span className="hy-product-h">Oblique OS</span>
-                <span className="hy-product-p">Client work, engagements and operational oversight for a professional services business. <strong>Coming soon</strong>.</span>
+                <a href="/firms" className="hy-product-h" style={{ fontWeight: 500 }}>hysaab services OS</a>
+                <span className="hy-product-p">Client work, engagements and oversight for a professional services firm, supercharged by AI so the people focus on the work that needs them. <strong>Coming soon</strong>.</span>
+                <a href="/firms" className="hy-ulink">See hysaab services OS →</a>
               </div>
             </div>
             <div className="hy-family-qa">
               <span><strong>Used independently?</strong> Yes. Each product stands alone.</span>
               <span><strong>Separate subscriptions?</strong> Yes, priced per product.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 7b. Guides and calculators ── */}
+        <section id="resources" className="hy-resources hy-section hy-rule-b">
+          <div className="hy-wrap">
+            <div className="hy-voices-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <span className="hy-kicker">Guides and calculators</span>
+                <h2 className="hy-h2">The reference shelf, written by the people who built the agents.</h2>
+              </div>
+              <span className="hy-note" style={{ maxWidth: 360 }}>Plain-language guides to UAE and KSA tax and accounting, and calculators that show their working. Free, no sign-up.</span>
+            </div>
+            <div className="hy-res-grid">
+              <div className="hy-res-col">
+                <div className="hy-res-col-h"><span className="hy-res-col-t">Guides</span><span className="hy-res-count hy-num">{GUIDES.length} articles</span></div>
+                <ul className="hy-res-list">
+                  {GUIDES.slice(0, 6).map((g) => (
+                    <li key={g.slug}><a href={`/guides/${g.slug}`}><span>{g.title}</span><span aria-hidden="true">→</span></a></li>
+                  ))}
+                </ul>
+                <a href="/guides" className="hy-ulink">All guides →</a>
+              </div>
+              <div className="hy-res-col">
+                <div className="hy-res-col-h"><span className="hy-res-col-t">Calculators</span><span className="hy-res-count hy-num">{TOOLS.length} tools</span></div>
+                <ul className="hy-res-list">
+                  {TOOLS.slice(0, 6).map((t) => (
+                    <li key={t.slug}><a href={`/tools/${t.slug}`}><span>{t.title}</span><span aria-hidden="true">→</span></a></li>
+                  ))}
+                </ul>
+                <a href="/tools" className="hy-ulink">All calculators →</a>
+              </div>
             </div>
           </div>
         </section>

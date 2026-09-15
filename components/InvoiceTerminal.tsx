@@ -1,6 +1,6 @@
 "use client";
 
-/* Hysaab Invoice — the live validation terminal. Same motion as the hire one:
+/* hysaab invoice — the live validation terminal. Same motion as the hire one:
    three scenarios (read the pile, test against the law, protect the claim)
    cycling, feed lines typing on one-by-one. Starts on scroll-in; reduced-motion
    shows the first scenario fully. Reuses the .term-* styles from wire.css. */

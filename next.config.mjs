@@ -13,9 +13,8 @@ const nextConfig = {
         destination: "https://hysaab.ai/:path*",
         statusCode: 301,      // Search Console's Change of Address validator wants a literal 301, not 308
       })),
-      // Product URLs that changed name with the rebrand.
-      { source: "/hire", destination: "https://ibtidah.ae", permanent: true },
-      { source: "/ar/hire", destination: "https://ibtidah.ae", permanent: true },
+      // The Arabic hire page is retired; the English one explains Ibtidah.
+      { source: "/ar/hire", destination: "/hire", permanent: true },
     ];
   },
 };

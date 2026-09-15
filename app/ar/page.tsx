@@ -170,17 +170,17 @@ export default async function Page() {
             </a>
             <a href="/ar/invoice" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">الفواتير · الامتثال الضريبي</div>
-              <div className="mg-world-h">Hysaab Invoice</div>
+              <div className="mg-world-h">hysaab invoice</div>
               <p>مجلد فيه 214 فاتورة مورد يصل في التاسعة صباحًا. وبحلول 9:20 تكون كل واحدة قد قُرئت، وأُعيد فحص حسابها برمجيًا، واختُبرت وفق قواعد الهيئة وهيئة الزكاة «زاتكا»، ورُتبت حسب المخاطر — والفواتير التسع التي سترسب في التدقيق مُعلَّمة قبل تقديم الإقرار.</p>
               <p className="mg-world-met">كل فاتورة مختبرة ضريبيًا · قواعد الإمارات والسعودية · الضريبة الخطرة تُحجز قبل المطالبة بها.</p>
-              <span className="mg-world-go">شاهد Hysaab Invoice ←</span>
+              <span className="mg-world-go">شاهد hysaab invoice ←</span>
             </a>
             <a href="/ar/firms" className="mg-world">
               <div className="mg-kicker mg-kicker-tight">للمكاتب · قريبًا</div>
-              <div className="mg-world-h">Oblique OS</div>
+              <div className="mg-world-h">hysaab services OS</div>
               <p>كل عميل وارتباط وإقرار في مكان واحد. يسجل راشد ساعة على ارتباط ضريبة ELC Group بنقرة واحدة؛ والمصروف يقع على العميل الصحيح؛ ونسبة التحقق لكل ارتباط — بلا جداول بيانات.</p>
               <p className="mg-world-met">سجلات الوقت، وتتبع المشاريع والمصروفات، والمكتب كله — منظم.</p>
-              <span className="mg-world-go">شاهد Oblique OS ←</span>
+              <span className="mg-world-go">شاهد hysaab services OS ←</span>
             </a>
           </div>
         </section>

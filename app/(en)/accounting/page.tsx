@@ -4,6 +4,7 @@ import { Terminal } from "@/components/Terminal";
 import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
 import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
@@ -211,6 +212,7 @@ export default async function AccountingPage() {
         </section>
       </main>
 
+      <CtaBand />
       <MgFooter />
       <NpEnhance />
     </>

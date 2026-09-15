@@ -8,9 +8,9 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Hysaab Invoice — كل فاتورة مورد، مختبرة ضريبيًا قبل المطالبة",
+  title: "hysaab invoice — كل فاتورة مورد، مختبرة ضريبيًا قبل المطالبة",
   description:
-    "أداة الامتثال الضريبي والتحقق من الفوترة الإلكترونية للخليج. يقرأ Hysaab Invoice كل فاتورة مورد، ويعيد فحص الحساب، ويختبرها وفق قواعد الهيئة الاتحادية للضرائب في الإمارات وهيئة الزكاة والضريبة والجمارك «زاتكا» في السعودية، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر.",
+    "أداة الامتثال الضريبي والتحقق من الفوترة الإلكترونية للخليج. يقرأ hysaab invoice كل فاتورة مورد، ويعيد فحص الحساب، ويختبرها وفق قواعد الهيئة الاتحادية للضرائب في الإمارات وهيئة الزكاة والضريبة والجمارك «زاتكا» في السعودية، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر.",
   alternates: langAlternates("/invoice"),
 };
 
@@ -34,14 +34,14 @@ export default function InvoicePage() {
             <div className="microlabel hero-kicker">‏HYSAAB INVOICE · الامتثال الضريبي والتحقق من الفوترة الإلكترونية</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ Hysaab Invoice كل
+              أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ hysaab invoice كل
               سطر، ويعيد فحص الحساب بنفسه، ويختبر كل فاتورة وفق قواعد الهيئة الاتحادية
               للضرائب وهيئة الزكاة والضريبة والجمارك «زاتكا»، ويرتّب ضريبة القيمة المضافة
               التي توشك على المطالبة بها حسب المخاطر — قبل تقديم الإقرار، لا بعد التدقيق.
             </p>
             <a className="np-scrollcue" href="#live" aria-label="شاهد كيف يعمل">
               <span className="tri">▶</span>
-              <span className="lab">كيف يعمل Hysaab Invoice</span>
+              <span className="lab">كيف يعمل hysaab invoice</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
@@ -136,7 +136,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">مكررة</span><span className="b">حُظرت، والنسخة الثانية متعقَّبة</span></span>
             </div>
             <div className="np-shot np-rise d1" dir="ltr">
-              <Image src="/shots/adv-ocr-review.png" alt="مراجعة Hysaab Invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59 مع تسمية الحقل الراسب" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-review.png" alt="مراجعة hysaab invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59 مع تسمية الحقل الراسب" width={1600} height={651} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">المراجعة — ما قرأه OCR في جهة، ومعايير المادة 59 التسعة في الجهة الأخرى، والحكم في الأعلى.</div>
           </div>
@@ -160,7 +160,7 @@ export default function InvoicePage() {
               <span className="np-chip"><span className="k">السجل التاريخي</span><span className="b">جداولك القديمة، مستوردة</span></span>
             </div>
             <div className="np-shot np-rise d1" dir="ltr">
-              <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر Hysaab Invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر، والأحكام وحالة المطالبة على السطر" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
+              <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر hysaab invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر، والأحكام وحالة المطالبة على السطر" width={1600} height={875} sizes="(max-width: 1120px) 100vw, 1064px" />
             </div>
             <div className="np-cap np-rise">سجل المخاطر — مرتّب حسب مخاطر التدقيق، مع الموقوف والمُلاحَق والجاهز للمطالبة.</div>
           </div>
@@ -192,7 +192,7 @@ export default function InvoicePage() {
         <section className="section wrap" id="access">
           <h2 className="section-head">ضع فواتيرك على المحك.</h2>
           <p className="section-sub">
-            يعمل Hysaab Invoice اليوم داخل فرق ضريبية عاملة، ونحن نفتحه لمزيد منها.
+            يعمل hysaab invoice اليوم داخل فرق ضريبية عاملة، ونحن نفتحه لمزيد منها.
             أخبرنا عن حجم فواتيرك ونطاقك — الإمارات أو السعودية أو كليهما — وسنجهّز
             لك كل شيء.
           </p>

@@ -57,9 +57,9 @@ export default function AboutPage() {
               مهمة واحدة — تغيير طريقة إنجاز الضرائب والمحاسبة والخدمات من حولهما في
               الخليج — تحملها أربعة منتجات: <a className="textlink" href="/ar/product">Hysaab</a> يدير
               الدفاتر، و<a className="textlink" href="/ar/hire">Ibtidah</a> يدير التوظيف، و{" "}
-              <a className="textlink" href="/ar/invoice">Hysaab Invoice</a> يختبر كل فاتورة مورد
+              <a className="textlink" href="/ar/invoice">hysaab invoice</a> يختبر كل فاتورة مورد
               وفق قواعد الهيئة الاتحادية للضرائب و«زاتكا»، و{" "}
-              <a className="textlink" href="/ar/firms">Oblique OS</a> يدير المكتب نفسه.
+              <a className="textlink" href="/ar/firms">hysaab services OS</a> يدير المكتب نفسه.
             </p>
           </div>
 

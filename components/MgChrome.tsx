@@ -18,7 +18,7 @@ type Link = readonly [string, string];
 const NAV = {
   en: {
     home: [
-      ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#ways", "Plans"], ["#why", "Why"], ["#family", "Products"],
+      ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#ways", "Plans"], ["#family", "Products"], ["#resources", "Guides"],
     ] as readonly Link[],
     inner: [
       ["/product", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
@@ -44,7 +44,7 @@ const FOOT = {
     cols: [
       ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
       ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#ways", "Self-serve or managed"]]],
-      ["Our products", [["/invoice", "Hysaab Invoice, invoice processing"], ["https://ibtidah.ae", "Ibtidah, hiring"], ["/firms", "Oblique OS, professional services"]]],
+      ["Our products", [["/invoice", "hysaab invoice, invoice processing"], ["/hire", "Ibtidah, hiring"], ["/firms", "hysaab services OS, professional services"]]],
       ["Company", [["/about", "Why we built it"], ["/#contact", "Contact"], ["/#cohort", "Join the waitlist"]]],
     ] as readonly FootCol[],
     kicker: "Get in touch",
@@ -59,7 +59,7 @@ const FOOT = {
     cols: [
       ["المنتج", [["/ar/product", "المنتج"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/pricing", "الأسعار"], ["/ar/integrations", "التكاملات"], ["/ar/compliance", "الامتثال"]]],
       ["الموارد", [["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"], ["/ar/faq", "الأسئلة الشائعة"]]],
-      ["منتجاتنا", [["/ar/invoice", "Hysaab Invoice، معالجة الفواتير"], ["https://ibtidah.ae", "Ibtidah، التوظيف"], ["/ar/firms", "Oblique OS، الخدمات المهنية"]]],
+      ["منتجاتنا", [["/ar/invoice", "hysaab invoice، معالجة الفواتير"], ["/hire", "Ibtidah، التوظيف"], ["/ar/firms", "hysaab services OS، الخدمات المهنية"]]],
       ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/ar/contact", "تواصل معنا"]]],
     ] as readonly FootCol[],
     kicker: "تواصل معنا",

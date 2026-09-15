@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { GUIDES, getGuide } from "@/lib/guides";
 import { getArGuide } from "@/lib/guides-ar";
 import { langAlternates } from "@/lib/site-meta";
@@ -95,6 +96,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </main>
+      <CtaBand />
       <MgFooter />
     </>
   );

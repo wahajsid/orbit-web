@@ -1,6 +1,7 @@
 import "../../advert.css";
 import Image from "next/image";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
@@ -130,6 +131,7 @@ export default function Page() {
         </section>
       </main>
 
+      <CtaBand />
       <MgFooter />
     </>
   );

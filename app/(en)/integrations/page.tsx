@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 
 import { langAlternates } from "@/lib/site-meta";
 
@@ -84,6 +85,7 @@ export default function IntegrationsPage() {
           </div>
         </section>
       </main>
+      <CtaBand />
       <MgFooter />
     </>
   );
