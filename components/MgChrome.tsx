@@ -18,7 +18,7 @@ type Link = readonly [string, string];
 const NAV = {
   en: {
     home: [
-      ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#why", "Why"], ["#family", "Products"],
+      ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#ways", "Plans"], ["#why", "Why"], ["#family", "Products"],
     ] as readonly Link[],
     inner: [
       ["/product", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
@@ -43,7 +43,7 @@ const FOOT = {
     tag: <>AI accounting &amp; reporting<br />Built in Dubai for the Gulf</>,
     cols: [
       ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
-      ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#agents", "Agents"]]],
+      ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#ways", "Self-serve or managed"]]],
       ["Our products", [["/invoice", "Hysaab Invoice, invoice processing"], ["https://ibtidah.ae", "Ibtidah, hiring"], ["/firms", "Oblique OS, professional services"]]],
       ["Company", [["/about", "Why we built it"], ["/#contact", "Contact"], ["/#cohort", "Join the waitlist"]]],
     ] as readonly FootCol[],

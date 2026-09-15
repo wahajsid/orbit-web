@@ -124,7 +124,7 @@ export default function Page() {
         <section className="mg-prod-cta">
           <h2 className="mg-prod-cta-h">See it run on your own books.</h2>
           <div className="mg-poster-cta">
-            <a href="/#join" className="mg-cta mg-cta-on-green">Book a demo →</a>
+            <a href="/#cohort" className="mg-cta mg-cta-on-green">Book a demo →</a>
             <a href="/" className="mg-ghost mg-ghost-on-green">Back to home</a>
           </div>
         </section>

@@ -6,7 +6,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata: Metadata = {
   title: "Pricing — Hysaab",
   description:
-    "Three tiers — Starter AED 149/mo, Growth AED 499/mo, Scale AED 1,499/mo — sized by how much of the AI team you use, not by user seats. The first 100 companies get twelve months free.",
+    "Two ways to run Hysaab: self-serve automated workflows for small businesses (Starter AED 149/mo, Growth AED 499/mo) and a managed accounting and reporting service for CFOs (Scale, from AED 1,499/mo). Priced by the complexity of your books, not by seats. Founder pricing locked for the first 100 companies.",
   alternates: langAlternates("/pricing"),
 };
 
@@ -14,7 +14,7 @@ const TIERS: { name: string; price: string; who: string; feats: string[]; hero?:
   {
     name: "Starter",
     price: "AED 149",
-    who: "For a small business getting its books off WhatsApp and spreadsheets.",
+    who: "Self-serve. For a small business getting its books off WhatsApp and spreadsheets.",
     feats: [
       "The full agent team on your books",
       "Documents in by email and Telegram",
@@ -26,7 +26,7 @@ const TIERS: { name: string; price: string; who: string; feats: string[]; hero?:
   {
     name: "Growth",
     price: "AED 499",
-    who: "For a business that wants the team on speed dial.",
+    who: "Self-serve. For a business that wants the team on speed dial.",
     hero: true,
     feats: [
       "Everything in Starter",
@@ -38,11 +38,13 @@ const TIERS: { name: string; price: string; who: string; feats: string[]; hero?:
   {
     name: "Scale",
     price: "AED 1,499",
-    who: "For groups and busy books.",
+    who: "Managed service. For CFOs, groups and busy books: our accountants run the agents with you.",
     feats: [
       "Everything in Growth",
-      "The highest usage allowances",
-      "Room for multiple entities and heavy document volume",
+      "A named Hysaab accountant reviewing exceptions and correcting where necessary",
+      "The close prepared and run for you, reporting to you and your board",
+      "Multiple entities and heavy document volume",
+      "Improvements found on your books ship to you first",
     ],
   },
 ];
@@ -56,8 +58,11 @@ export default function PricingPage() {
           <div className="mg-kicker">PRICING</div>
           <h1 className="mg-page-h">Sized by the work, not the seats.</h1>
           <p className="mg-page-lede">
-            Every tier gets the whole agent team — pricing scales with how much of it you use, never
-            with how many people log in. No per-user maths, no feature ransom.
+            Two ways to run Hysaab. Starter and Growth are self-serve: automated workflows you operate
+            on your own, with the agents asking you the few questions they cannot settle. Scale is the
+            managed service: our accountants run the agents with you, review, correct and report, and a
+            person stays in the loop on every judgement call. Pricing follows the complexity of your
+            books, never how many people log in.
           </p>
         </section>
 
@@ -71,21 +76,20 @@ export default function PricingPage() {
                 <ul className="mg-price-feats">
                   {t.feats.map((f) => <li key={f}>{f}</li>)}
                 </ul>
-                <a href="/#join" className="mg-cta">Book a demo →</a>
+                <a href="/#cohort" className="mg-cta">Book a demo →</a>
               </div>
             ))}
           </div>
 
           <div className="mg-price-founding">
             <div className="mg-kicker">THE FOUNDING COHORT</div>
-            <h2 className="mg-prod-dh">The first {FOUNDING_SEATS} companies pay nothing for a year.</h2>
+            <h2 className="mg-prod-dh">The first {FOUNDING_SEATS} companies set the price.</h2>
             <p className="mg-prod-dp" style={{ maxWidth: "58ch" }}>
-              Twelve months free (fair-usage policy applies), founder pricing locked in afterwards,
-              and a direct line to the team building it. Work email only — a real person reads every
-              entry.
+              Founder pricing locked in for as long as you stay (fair-usage policy applies), and a
+              direct line to the team building it. Work email only. A real person reads every entry.
             </p>
             <div style={{ marginTop: 20 }}>
-              <a href="/#join" className="mg-cta">Claim a founding seat →</a>
+              <a href="/#cohort" className="mg-cta">Claim a founding seat →</a>
             </div>
           </div>
         </section>

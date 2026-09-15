@@ -44,8 +44,8 @@ const AGENTS: { h: string; p: React.ReactNode; tone?: "cream" | "navy" }[] = [
 ];
 
 const VOICES = [
-  { who: "The CFO", q: "“I moved the shared-service queue to agents. My team moved to the decisions.”", p: "Layla runs finance for a 40-person contractor. Intake, coding, matching and reminders now run without her. Her people review the exceptions, own the approvals and spend month-end on the numbers, not the entries.", wants: "Wants: accuracy, throughput, segregation of duties, a transition plan she can defend.", link: ["/firms", "Read the CFO case →"] },
-  { who: "The owner", q: "“I send a photo. In the morning I know where the money is.”", p: "Rashid runs a trading company and has never opened an accounting system. He WhatsApps receipts, glances at money in, money out and what is owed, and reads one plain report a month.", wants: "Wants: clean books, a simple report, no chasing, no spreadsheets.", link: ["/how-it-works", "See the owner's view →"] },
+  { who: "The CFO", q: "“I moved the shared-service queue to agents. My team moved to the decisions.”", p: "Layla runs finance for a 40-person contractor. Intake, coding, matching and reminders now run without her. Her people review the exceptions, own the approvals and spend month-end on the numbers, not the entries.", wants: "Wants: accuracy, throughput, segregation of duties, a transition plan she can defend.", link: ["#ways", "See the managed service →"] },
+  { who: "The owner", q: "“I send a photo. In the morning I know where the money is.”", p: "Rashid runs a trading company and has never opened an accounting system. He WhatsApps receipts, glances at money in, money out and what is owed, and reads one plain report a month.", wants: "Wants: clean books, a simple report, no chasing, no spreadsheets.", link: ["#ways", "See the self-serve workflows →"] },
   { who: "The accountant", q: "“I stopped keying and started checking. The work got better, and so did I.”", p: "Noor kept the books by hand for six years. Now she reviews what the agents propose, corrects the few that miss, and the corrections teach the coding agent for next time. Her month-end finishes on day two.", wants: "Wants: a clear queue, evidence on every line, credit for judgement.", link: ["#agents", "What changes day to day →"] },
 ];
 
@@ -167,6 +167,55 @@ export default async function Page() {
                   <a href={v.link[0]} className="hy-ulink">{v.link[1]}</a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 5b. Two ways to run Hysaab ── */}
+        <section id="ways" className="hy-ways hy-section hy-rule-b">
+          <div className="hy-wrap">
+            <div className="hy-ways-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <span className="hy-kicker">Two ways to run Hysaab</span>
+                <h2 className="hy-h2">Run it yourself, or have it run with you.</h2>
+              </div>
+              <p className="hy-ways-p">The same agents, the same ledger, two levels of involvement. Priced by the complexity of your books, not by seats. A person is in the loop either way: yours, ours, or both.</p>
+            </div>
+            <div className="hy-ways-grid">
+              <div className="hy-way">
+                <div className="hy-way-top">
+                  <span className="hy-way-for">For owners and small businesses</span>
+                  <span className="hy-way-chip">Use it on your own</span>
+                </div>
+                <span className="hy-way-h">Self-serve</span>
+                <span className="hy-way-tag">Automated workflows for your business.</span>
+                <p className="hy-way-p">Connect your ledger, send your documents, and the essential workflows run on their own: intake, coding, bank matching, reminders and one plain report a month. You approve the few calls that need you. Nobody else touches your books.</p>
+                <ul className="hy-way-list">
+                  <li><strong>Included</strong><span>The core workflows, one entity, standard reports, the decision queue.</span></li>
+                  <li><strong>Your part</strong><span>Send documents. Answer the two or three questions a week the agents cannot settle alone.</span></li>
+                  <li><strong>Limits</strong><span>Essential workflows only. When the books outgrow it, move up without moving out.</span></li>
+                </ul>
+                <a href="#cohort" className="hy-btn hy-btn--navy hy-btn--lg hy-way-cta">Join the waitlist →</a>
+              </div>
+              <div className="hy-way hy-way--navy">
+                <div className="hy-way-top">
+                  <span className="hy-way-for">For CFOs and finance teams</span>
+                  <span className="hy-way-chip hy-way-chip--blush">We run it with you</span>
+                </div>
+                <span className="hy-way-h">Managed service</span>
+                <span className="hy-way-tag">Your accounting and reporting, managed.</span>
+                <p className="hy-way-p">Everything in Self-serve, with our accountants running the agents on your books. We review the exceptions, correct where necessary, prepare the close and report to you and your board. Every judgement call passes a person before it reaches the ledger.</p>
+                <ul className="hy-way-list">
+                  <li><strong>Included</strong><span>Every workflow, multi-entity, custom reports, a named accountant, the close run for you.</span></li>
+                  <li><strong>Humans in the loop</strong><span>We manage, report and correct. You keep the approvals that are yours: limits, locks, sign-off.</span></li>
+                  <li><strong>Built together</strong><span>What we learn on your books becomes product. You see the improvement first, and it is yours to keep.</span></li>
+                </ul>
+                <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg hy-way-cta">Book a demo →</a>
+              </div>
+            </div>
+            <div className="hy-ways-foot">
+              <span><strong>Start small, grow into managed.</strong> Same workspace, same history. Nothing is re-keyed when you move.</span>
+              <span><strong>Complexity, not seats.</strong> Pricing follows the number of entities, banks and documents, never the number of people who log in.</span>
             </div>
           </div>
         </section>

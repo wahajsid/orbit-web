@@ -381,7 +381,7 @@ export default function HowItWorksPage() {
 
           {/* ── CTA ──────────────────────────────────────────────── */}
           <div className="mg-guide-cta">
-            <a href="/#join" className="mg-cta">Book a demo →</a>
+            <a href="/#cohort" className="mg-cta">Book a demo →</a>
             <a href="/product" className="mg-ghost">See the product screens</a>
           </div>
         </section>

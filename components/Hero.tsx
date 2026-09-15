@@ -84,7 +84,7 @@ export function Hero({ seat }: { seat: number }) {
           </div>
         ) : (
           <div className="hero-capture">
-            <div className="mono hero-capture-head">FOUNDING LEDGER · ENTRY {pad3(seat)} · 12 MO FREE</div>
+            <div className="mono hero-capture-head">FOUNDING LEDGER · ENTRY {pad3(seat)} · FOUNDER PRICING</div>
             <div className="hero-capture-row">
               <input placeholder="your name" value={f.name} autoComplete="name" aria-label="Your name"
                 onChange={(e) => setF({ ...f, name: e.target.value })} />

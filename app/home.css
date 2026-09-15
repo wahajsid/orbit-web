@@ -341,6 +341,35 @@
 .hy-ulink { font-size: 14px; font-weight: 600; color: var(--hy-navy); border-bottom: 2px solid var(--hy-blush); align-self: flex-start; padding-bottom: 2px; }
 @media (max-width: 400px) { .hy-voices-grid { grid-template-columns: 1fr; } .hy-voice { padding: 24px 20px; } }
 
+/* ── two ways to run it ───────────────────────────────────────────── */
+.hy-ways { background: var(--hy-white); }
+.hy-ways-head { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px 48px; align-items: end; }
+.hy-ways-p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--hy-body); max-width: 52ch; }
+.hy-ways-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: var(--hy-navy); border: 1px solid var(--hy-navy); margin-top: 32px; }
+.hy-way { background: var(--hy-cream); padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.hy-way--navy { background: var(--hy-navy); color: var(--hy-cream); }
+.hy-way-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hy-way-for { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); }
+.hy-way--navy .hy-way-for { color: var(--hy-blush); }
+.hy-way-chip { font-size: 11.5px; font-weight: 700; padding: 4px 9px; border: 1.5px solid var(--hy-navy); color: var(--hy-navy); }
+.hy-way-chip--blush { background: var(--hy-blush); border-color: var(--hy-blush); color: var(--hy-navy); }
+.hy-way-h { font-size: 30px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; color: var(--hy-navy); margin-top: 6px; }
+.hy-way--navy .hy-way-h { color: var(--hy-cream); }
+.hy-way-tag { font-size: 17px; font-weight: 600; color: var(--hy-navy); letter-spacing: -0.01em; }
+.hy-way--navy .hy-way-tag { color: var(--hy-blush); }
+.hy-way-p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--hy-body); }
+.hy-way--navy .hy-way-p { color: var(--hy-on-navy); }
+.hy-way-list { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--hy-rule); }
+.hy-way-list li { padding: 12px 0; border-bottom: 1px solid var(--hy-rule); font-size: 14px; line-height: 1.55; color: var(--hy-body); display: grid; grid-template-columns: 128px 1fr; gap: 14px; }
+.hy-way-list strong { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hy-navy); padding-top: 3px; }
+.hy-way--navy .hy-way-list, .hy-way--navy .hy-way-list li { border-color: var(--hy-navy-rule); }
+.hy-way--navy .hy-way-list li { color: var(--hy-on-navy); }
+.hy-way--navy .hy-way-list strong { color: var(--hy-cream); }
+.hy-way-cta { align-self: flex-start; margin-top: auto; }
+.hy-ways-foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; border-top: 2px solid var(--hy-ink); padding-top: 20px; margin-top: 32px; font-size: 14px; line-height: 1.55; color: var(--hy-body); }
+.hy-ways-foot strong { color: var(--hy-navy); font-weight: 600; }
+@media (max-width: 560px) { .hy-ways-foot { grid-template-columns: 1fr; } .hy-ways-grid { grid-template-columns: 1fr; } .hy-way { padding: 24px 20px; } .hy-way-list li { grid-template-columns: 1fr; gap: 4px; } }
+
 /* ── why ──────────────────────────────────────────────────────────── */
 .hy-whysec { background: var(--hy-navy); color: var(--hy-cream); padding: 96px 32px; }
 .hy-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 56px; }

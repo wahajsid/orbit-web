@@ -195,8 +195,8 @@ export default async function AccountingPage() {
         <section className="section wrap" id="ledger">
           <h2 className="section-head">Claim a founding seat.</h2>
           <p className="section-sub">
-            The first {FOUNDING_SEATS} companies get twelve months free, with founder pricing locked in
-            after. Work email only — a real person reads every entry.
+            The first {FOUNDING_SEATS} companies lock in founder pricing for as long as they stay.
+            Work email only. A real person reads every entry.
           </p>
           <div className="price-grid">
             <div>

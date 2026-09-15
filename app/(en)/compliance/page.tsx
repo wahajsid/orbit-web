@@ -80,7 +80,7 @@ export default function CompliancePage() {
             ))}
           </div>
           <div className="mg-guide-cta">
-            <a href="/#join" className="mg-cta">Book a demo →</a>
+            <a href="/#cohort" className="mg-cta">Book a demo →</a>
             <a href="/faq" className="mg-ghost">Straight answers in the FAQ</a>
           </div>
         </section>
