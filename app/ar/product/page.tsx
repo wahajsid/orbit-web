@@ -41,7 +41,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-payables.png" alt="الذمم الدائنة في Hysaab — المستحقات المفتوحة وطبقة الضريبة مدمجة في كل سطر" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-payables.png" alt="الذمم الدائنة في Hysaab — المستحقات المفتوحة وطبقة الضريبة مدمجة في كل سطر" width={1600} height={1256} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-ledger.png" alt="دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-ledger.png" alt="دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" width={1600} height={990} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card" dir="ltr">
-              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — جانب Hysaab منجز، ومهام دفترك مرتّبة، والقفل خلف بوابة" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — جانب Hysaab منجز، ومهام دفترك مرتّبة، والقفل خلف بوابة" width={1600} height={1170} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
