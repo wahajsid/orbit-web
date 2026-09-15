@@ -4,7 +4,7 @@ import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "الأدوات — Orbit",
+  title: "الأدوات — Hysaab",
   description:
     "حاسبات مالية خليجية مجانية: عقود الإيجار IFRS 16، ومكافأة نهاية الخدمة الاكتوارية IAS 19، واختبار الهبوط بالتدفقات المخصومة IAS 36، والضريبة المؤجلة IAS 12، والخسائر الائتمانية المتوقعة ومعدل الفائدة الفعلي IFRS 9، ومكافأة نهاية الخدمة الإماراتية، وضريبة القيمة المضافة وضريبة الشركات. تُحسب في متصفحك، ولا يُرفع أي شيء.",
   alternates: langAlternates("/tools"),

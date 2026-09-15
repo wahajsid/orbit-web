@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const g = getArGuide(params.slug);
   if (!g) return {};
   return {
-    title: `${g.title} — Orbit`,
+    title: `${g.title} — Hysaab`,
     description: g.description,
     alternates: langAlternates(`/guides/${g.slug}`),
   };
@@ -45,9 +45,9 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
     description: g.description,
     dateModified: g.updated,
     inLanguage: "ar",
-    author: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-    publisher: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-    mainEntityOfPage: `https://www.orbitgulf.com/ar/guides/${g.slug}`,
+    author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    mainEntityOfPage: `https://hysaab.ai/ar/guides/${g.slug}`,
   };
 
   return (
@@ -93,7 +93,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
             </p>
           )}
           <div className="mg-guide-cta">
-            <a href="/ar/product" className="mg-cta">شاهد كيف يدير Orbit ذلك ←</a>
+            <a href="/ar/product" className="mg-cta">شاهد كيف يدير Hysaab ذلك ←</a>
             <a href="/ar/guides" className="mg-ghost">كل الأدلة</a>
           </div>
         </section>

@@ -1,136 +1,247 @@
-/* Transactional email templates — modernist green design system.
-   Shared by /api/early-access (welcome) and /api/approve (account ready).
-   All emails: ink header, paper bg, accent CTA, zero radius, 2px rules. */
+/* Transactional + broadcast email templates, Hysaab brand (navy & blush).
+   Shared by /api/early-access (welcome), /api/approve (account ready),
+   /api/contact (enquiry to the team) and /api/broadcast (launch + updates).
+   All emails: navy header with the lockup, cream ground, white card with a
+   2px navy frame, navy CTA, zero radius. No em dashes anywhere. */
 
-const HEADER = `<tr><td style="background:#122940;padding:22px 32px;">
-  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-    <td style="vertical-align:middle;padding-right:10px;"><div style="width:22px;height:22px;border:2px solid #FAF6EE;border-radius:50%;"></div></td>
-    <td style="vertical-align:middle;"><span style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:18px;font-weight:800;color:#FAF6EE;letter-spacing:0.06em;">ORBIT</span></td>
-  </tr></table>
+export const SITE = "https://hysaab.ai";
+export const APP = "https://app.hysaab.ai";
+export const INFO = "info@hysaab.ai";
+
+const HEADER = `<tr><td style="background:#122940;padding:20px 32px;">
+  <a href="${SITE}" style="text-decoration:none;"><img src="${SITE}/brand/hysaab-lockup-reversed-navy.png" width="152" height="40" alt="hysaab.ai" style="display:block;border:0;width:152px;height:40px;" /></a>
 </td></tr>`;
 
-const FOOTER = `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #D9D2C6;">
-  <p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;color:#8A94A1;line-height:1.6;margin:10px 0 0 0;">Orbit &middot; Dubai, UAE<br /><a href="https://www.orbitgulf.com" style="color:#122940;text-decoration:none;">orbitgulf.com</a> &middot; <a href="mailto:info@orbitgulf.com" style="color:#122940;text-decoration:none;">info@orbitgulf.com</a><br />You're receiving this because you requested early access at orbitgulf.com.</p>
+const FOOTER = (reason: string) => `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #ddd6cb;">
+  <p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;color:#6B6560;line-height:1.6;margin:10px 0 0 0;">Hysaab &middot; Dubai, UAE<br /><a href="${SITE}" style="color:#122940;text-decoration:none;">hysaab.ai</a> &middot; <a href="mailto:${INFO}" style="color:#122940;text-decoration:none;">${INFO}</a><br />${reason}</p>
 </td></tr>`;
 
-function wrap(preheader: string, body: string): string {
+function wrap(preheader: string, body: string, reason = "You are receiving this because you joined the waitlist at hysaab.ai."): string {
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Orbit</title></head>
-<body style="margin:0;padding:0;background:#FAF6EE;color:#122940;">
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Hysaab</title></head>
+<body style="margin:0;padding:0;background:#FBF7F0;color:#201e1d;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${preheader}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FAF6EE;padding:30px 12px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F0;padding:30px 12px;">
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;overflow:hidden;border:2px solid #122940;">
         ${HEADER}
         <tr><td style="padding:32px 36px 8px 36px;font-family:Archivo,Arial,Helvetica,sans-serif;">
           ${body}
         </td></tr>
-        ${FOOTER}
+        ${FOOTER(reason)}
       </table>
     </td></tr>
   </table>
 </body></html>`;
 }
 
-function cta(href: string, label: string): string {
+function cta(href: string, label: string, blush = false): string {
+  const bg = blush ? "#E4A1A0" : "#122940";
+  const fg = blush ? "#122940" : "#FBF7F0";
   return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:18px 0;"><tr>
-    <td style="background:#122940;"><a href="${href}" style="display:inline-block;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#FAF6EE;text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
+    <td style="background:${bg};"><a href="${href}" style="display:inline-block;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:${fg};text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
   </tr></table>`;
 }
 
-function p(text: string, mb = 16): string {
-  return `<p style="font-size:15px;color:#46566A;line-height:1.7;margin:0 0 ${mb}px 0;">${text}</p>`;
+function h1(text: string): string {
+  return `<h1 style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:24px;font-weight:600;color:#122940;letter-spacing:-0.02em;line-height:1.15;margin:0 0 18px 0;">${text}</h1>`;
 }
 
-function signoff(name: string): string {
-  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#122940;line-height:1.7;margin:0 0 4px 0;">${name}<br /><span style="color:#122940;">&mdash; The Orbit team</span></p>`;
+function kicker(text: string): string {
+  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#9A5150;margin:0 0 12px 0;">${text}</p>`;
+}
+
+function p(text: string, mb = 16): string {
+  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#4a4746;line-height:1.7;margin:0 0 ${mb}px 0;">${text}</p>`;
+}
+
+function signoff(line: string): string {
+  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#122940;line-height:1.7;margin:0 0 4px 0;">${line}<br /><span style="color:#122940;">The Hysaab team</span></p>`;
 }
 
 function infobox(label: string, content: string): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 20px 0;">
-    <tr><td style="background:#FAF6EE;border:2px solid #D9D2C6;padding:16px 20px;">
-      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:#122940;margin-bottom:6px;">${label}</div>
-      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;color:#122940;line-height:1.6;">${content}</div>
+    <tr><td style="background:#FBF7F0;border:1px solid #ddd6cb;padding:16px 20px;">
+      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A5150;margin-bottom:6px;">${label}</div>
+      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;color:#201e1d;line-height:1.6;">${content}</div>
     </td></tr>
   </table>`;
 }
 
+function esc(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+const TEXT_FOOT = `The Hysaab team
+hysaab.ai · ${INFO}`;
+
 // ── Email 1: Welcome (waitlist signup) ───────────────────────────────
 
-export const WELCOME_HTML = wrap(
-  "You just joined the founding cohort &mdash; here's what Orbit does and what happens next.",
-  `<h1 style="font-size:22px;font-weight:800;color:#122940;letter-spacing:-0.01em;margin:0 0 18px 0;">Welcome to the founding cohort.</h1>
-  ${p("We built Orbit because we got tired of the ritual &mdash; chasing receipts over WhatsApp at midnight, reconciling the same bank statement in the same spreadsheet, filing VAT returns we'd already mentally computed, and watching good accountants burn out on work a machine should do.")}
-  ${p("You just joined a group of people who feel the same way. Welcome.")}
-  ${p('<strong style="color:#122940;">What you\'re getting:</strong> AI agents that read documents, code your ledger, test every invoice against FTA rules, reconcile the bank, run the close &mdash; and leave the real decisions to you. Not a replacement for your software (Xero, Zoho, QuickBooks &mdash; we post into what you already use), but a team that makes the month-end shorter and the numbers cleaner.', 8)}
-  ${p("We wrote down exactly how every piece works &mdash; no jargon, no marketing, just one accountant explaining the system to another:", 8)}
-  ${cta("https://www.orbitgulf.com/how-it-works", "Read the full walkthrough &rarr;")}
-  ${infobox("What happens next", "We're bringing the founding cohort in group by group. Your login is coming soon &mdash; <strong>twelve months free, founder pricing after</strong>. We'll email you the moment it's ready.")}
-  ${p("Reply to this email with what matters most to you &mdash; AP automation? VAT compliance? The close? We read every one, and it shapes what we build next.", 20)}
-  ${signoff("See you inside.")}`
-);
+export function welcomeEmail(seat: number, company: string) {
+  const who = company ? ` for ${esc(company)}` : "";
+  return {
+    subject: `You are number ${seat} on the Hysaab list`,
+    html: wrap(
+      `Entry ${seat} recorded${who}. Here is what Hysaab does and what happens next.`,
+      `${kicker("Founding cohort")}
+      ${h1(`You are number ${seat} on the list.`)}
+      ${p(`Entry ${seat} is recorded${who}. A real person reads every entry and replies within one working day, and this is the note that goes out first.`)}
+      ${p("We built Hysaab because we lived the close: twenty working days of a month, then five nights of catching up on them. Receipts in a drawer, a supplier invoice keyed three times, a bank line nobody could explain, carried forward because the deadline came first.")}
+      ${p('<strong style="color:#122940;">What you are getting:</strong> sixteen agents that read every document, code every entry, reconcile every bank line and rebuild your reports overnight, then bring you the two or three calls that are yours to make. They post into what you already use: Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.', 8)}
+      ${p("We wrote down how every piece works, one accountant explaining the system to another:", 8)}
+      ${cta(`${SITE}/how-it-works`, "Read the walkthrough &rarr;")}
+      ${infobox("What happens next", "The founding hundred come in group by group before the doors open. Your login arrives by email the moment your seat is ready, with <strong>founder pricing locked in for as long as you stay</strong>.")}
+      ${p("Reply to this email with what matters most to you: intake, VAT, the bank, the close. We read every one, and it shapes what we build next.", 20)}
+      ${signoff("See you inside.")}`,
+    ),
+    text: `You are number ${seat} on the list.
 
-export const WELCOME_TEXT = `Welcome to the founding cohort.
+Entry ${seat} is recorded${who}. A real person reads every entry and replies within one working day, and this is the note that goes out first.
 
-We built Orbit because we got tired of the ritual — chasing receipts over WhatsApp at midnight, reconciling the same bank statement in the same spreadsheet, filing VAT returns we'd already mentally computed, and watching good accountants burn out on work a machine should do.
+We built Hysaab because we lived the close: twenty working days of a month, then five nights of catching up on them.
 
-You just joined a group of people who feel the same way. Welcome.
+What you are getting: sixteen agents that read every document, code every entry, reconcile every bank line and rebuild your reports overnight, then bring you the two or three calls that are yours to make. They post into what you already use: Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.
 
-What you're getting: AI agents that read documents, code your ledger, test every invoice against FTA rules, reconcile the bank, run the close — and leave the real decisions to you. Not a replacement for your software (Xero, Zoho, QuickBooks — we post into what you already use), but a team that makes the month-end shorter and the numbers cleaner.
+How every piece works: ${SITE}/how-it-works
 
-We wrote down exactly how every piece works — no jargon, no marketing, just one accountant explaining the system to another:
-https://www.orbitgulf.com/how-it-works
+What happens next: the founding hundred come in group by group before the doors open. Your login arrives by email the moment your seat is ready, with founder pricing locked in for as long as you stay.
 
-What happens next: We're bringing the founding cohort in group by group. Your login is coming soon — twelve months free, founder pricing after. We'll email you the moment it's ready.
-
-Reply to this email with what matters most to you — AP automation? VAT compliance? The close? We read every one, and it shapes what we build next.
+Reply to this email with what matters most to you. We read every one.
 
 See you inside.
-— The Orbit team
-orbitgulf.com · info@orbitgulf.com`;
+${TEXT_FOOT}`,
+  };
+}
 
-export const WELCOME_SUBJECT = "Welcome to the founding cohort — your books are about to change";
+/* Back-compat names used by the early-access route before seats existed. */
+export const WELCOME_SUBJECT = "Welcome to the Hysaab founding cohort";
+export const WELCOME_HTML = welcomeEmail(0, "").html;
+export const WELCOME_TEXT = welcomeEmail(0, "").text;
 
-// ── Email 2: Account ready (login credentials) ──────────────────────
+// ── Email 2: Account ready (login) ───────────────────────────────────
+
+export const APPROVED_SUBJECT = "Your Hysaab workspace is live. Sign in and send a document";
 
 export const APPROVED_HTML = wrap(
-  "Your Orbit account is live — sign in and start sending documents.",
-  `<h1 style="font-size:22px;font-weight:800;color:#122940;letter-spacing:-0.01em;margin:0 0 18px 0;">Your account is ready.</h1>
-  ${p("The wait is over. Your Orbit account is live, and your founding-cohort year starts now &mdash; twelve months, full access, no card on file.")}
-  ${infobox("Your login", 'Sign in at <a href="https://app.orbitgulf.com" style="color:#122940;font-weight:700;text-decoration:none;">app.orbitgulf.com</a> with this email address. You\'ll set your password on first sign-in.')}
-  ${p('<strong style="color:#122940;">What to do first:</strong> Send a document. WhatsApp it, email it, or upload it &mdash; a supplier invoice, a receipt, a bank statement. The intake agent picks it up in under three minutes, classifies it, extracts the numbers, and codes it from your posting history. You\'ll see it appear on your dashboard with a confidence score and the evidence attached.', 8)}
-  ${p("From there, the system learns your patterns. The more documents you send, the better the coding gets. Within a week, most of your invoices will post without you touching them.", 8)}
-  ${p("If you haven't already, here's the full walkthrough of every screen &mdash; written by the accountants who built it:", 8)}
-  ${cta("https://www.orbitgulf.com/how-it-works", "How Orbit works &rarr;")}
-  ${infobox("Quick-start checklist", '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;"><tr><td style="padding:3px 0;color:#122940;">1. Sign in at app.orbitgulf.com</td></tr><tr><td style="padding:3px 0;color:#122940;">2. Connect your ledger (Xero, Zoho, QuickBooks &mdash; or skip to use Orbit\'s own books)</td></tr><tr><td style="padding:3px 0;color:#122940;">3. Send your first document (WhatsApp, email or upload)</td></tr><tr><td style="padding:3px 0;color:#122940;">4. Watch the intake agent code it in real time</td></tr></table>')}
-  ${cta("https://app.orbitgulf.com", "Sign in to Orbit &rarr;")}
-  ${p("We're here. Reply any time &mdash; same inbox, same humans.", 20)}
-  ${signoff("Let's go.")}`
+  "Your Hysaab workspace is live. Sign in and start sending documents.",
+  `${kicker("Founding cohort")}
+  ${h1("Your workspace is ready.")}
+  ${p("The wait is over. Your Hysaab workspace is live, and your founder pricing is locked from today.")}
+  ${infobox("Your login", `Sign in at <a href="${APP}" style="color:#122940;font-weight:700;text-decoration:none;">app.hysaab.ai</a> with this email address. You set your password on first sign-in.`)}
+  ${p('<strong style="color:#122940;">What to do first:</strong> send a document. WhatsApp it, email it or upload it: a supplier invoice, a receipt, a bank statement. The intake agent picks it up in minutes, reads it, checks it against the tax-invoice rules and codes it from your own posting history. It appears on your dashboard with a confidence score and the evidence attached.', 8)}
+  ${p("From there the agents learn your patterns. Within a week most invoices post without you touching them, and the few that need a human come to you as one plain question.", 8)}
+  ${infobox("Quick start", '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;"><tr><td style="padding:3px 0;color:#122940;">1. Sign in at app.hysaab.ai</td></tr><tr><td style="padding:3px 0;color:#122940;">2. Connect your ledger (Zoho Books, Xero, QuickBooks, or keep Hysaab\'s own books)</td></tr><tr><td style="padding:3px 0;color:#122940;">3. Send your first document by WhatsApp, email or upload</td></tr><tr><td style="padding:3px 0;color:#122940;">4. Watch the intake agent read and code it</td></tr></table>')}
+  ${cta(APP, "Sign in to Hysaab &rarr;")}
+  ${p("We are here. Reply any time: same inbox, same humans.", 20)}
+  ${signoff("Let us begin.")}`,
 );
 
-export const APPROVED_TEXT = `Your account is ready.
+export const APPROVED_TEXT = `Your workspace is ready.
 
-The wait is over. Your Orbit account is live, and your founding-cohort year starts now — twelve months, full access, no card on file.
+The wait is over. Your Hysaab workspace is live, and your founder pricing is locked from today.
 
-Sign in at app.orbitgulf.com with this email address. You'll set your password on first sign-in.
+Sign in at ${APP} with this email address. You set your password on first sign-in.
 
-What to do first: Send a document. WhatsApp it, email it, or upload it — a supplier invoice, a receipt, a bank statement. The intake agent picks it up in under three minutes, classifies it, extracts the numbers, and codes it from your posting history. You'll see it appear on your dashboard with a confidence score and the evidence attached.
+What to do first: send a document. WhatsApp it, email it or upload it. The intake agent picks it up in minutes, reads it, checks it against the tax-invoice rules and codes it from your own posting history.
 
-From there, the system learns your patterns. The more documents you send, the better the coding gets. Within a week, most of your invoices will post without you touching them.
+Quick start:
+1. Sign in at app.hysaab.ai
+2. Connect your ledger (Zoho Books, Xero, QuickBooks, or keep Hysaab's own books)
+3. Send your first document by WhatsApp, email or upload
+4. Watch the intake agent read and code it
 
-If you haven't already, here's the full walkthrough of every screen:
-https://www.orbitgulf.com/how-it-works
+We are here. Reply any time: same inbox, same humans.
 
-Quick-start checklist:
-1. Sign in at app.orbitgulf.com
-2. Connect your ledger (Xero, Zoho, QuickBooks — or skip to use Orbit's own books)
-3. Send your first document (WhatsApp, email or upload)
-4. Watch the intake agent code it in real time
+Let us begin.
+${TEXT_FOOT}`;
 
-We're here. Reply any time — same inbox, same humans.
+// ── Email 3: Launch day (broadcast to the whole list) ────────────────
 
-Let's go.
-— The Orbit team
-orbitgulf.com · info@orbitgulf.com`;
+export const LAUNCH_SUBJECT = "Doors are open. Hysaab is live";
 
-export const APPROVED_SUBJECT = "Your Orbit account is live — sign in and start";
+export const LAUNCH_HTML = wrap(
+  "Hysaab is live. Create your workspace and bring your ledger with you.",
+  `${kicker("Doors are open")}
+  ${h1("Hysaab is live.")}
+  ${p("Today the doors open. Every company on the founding list can create its workspace now, connect its ledger and send the first document tonight.")}
+  ${p("Sixteen agents read every document, code every entry, reconcile every bank line and rebuild your reports overnight. Then they bring you the two or three calls that are yours to make. Nothing crosses a period lock, changes an approval rule or claims tax you have not cleared.", 8)}
+  ${cta(`${APP}/signup`, "Create your workspace &rarr;", true)}
+  ${infobox("Founder pricing", "Your seat on the founding list carries founder pricing for as long as you stay. Use the same email address you joined with and it is applied automatically.")}
+  ${p("If you would rather see it on your own books first, reply to this email and a real person will walk your ledger through it.", 20)}
+  ${signoff("Welcome in.")}`,
+);
+
+export const LAUNCH_TEXT = `Hysaab is live.
+
+Today the doors open. Every company on the founding list can create its workspace now, connect its ledger and send the first document tonight.
+
+Create your workspace: ${APP}/signup
+
+Founder pricing: your seat on the founding list carries founder pricing for as long as you stay. Use the same email address you joined with and it is applied automatically.
+
+If you would rather see it on your own books first, reply to this email and a real person will walk your ledger through it.
+
+Welcome in.
+${TEXT_FOOT}`;
+
+// ── Email 4: New post / update (broadcast, parameterised) ────────────
+
+export function updateEmail(input: { title: string; intro: string; body?: string; href: string; cta?: string; kicker?: string }) {
+  const paragraphs = (input.body ?? "").split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+  return {
+    subject: input.title,
+    html: wrap(
+      esc(input.intro),
+      `${kicker(esc(input.kicker ?? "New from Hysaab"))}
+      ${h1(esc(input.title))}
+      ${p(esc(input.intro))}
+      ${paragraphs.map((t) => p(esc(t), 12)).join("\n")}
+      ${cta(input.href, `${esc(input.cta ?? "Read the post")} &rarr;`)}
+      ${signoff("Until next time.")}`,
+    ),
+    text: `${input.title}
+
+${input.intro}
+
+${paragraphs.join("\n\n")}
+
+${input.cta ?? "Read the post"}: ${input.href}
+
+Until next time.
+${TEXT_FOOT}`,
+  };
+}
+
+// ── Email 5: Enquiry (internal, from the footer contact form) ────────
+
+export function enquiryEmail(input: { name: string; email: string; system: string; notes: string }) {
+  const rows = [
+    ["Name", input.name],
+    ["Email", input.email],
+    ["Accounting system", input.system || "not given"],
+  ]
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-size:13px;color:#6B6560;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:4px 0;font-size:14px;color:#201e1d;">${esc(v)}</td></tr>`)
+    .join("");
+  return {
+    subject: `Enquiry from ${input.name} (${input.email})`,
+    html: wrap(
+      `${esc(input.name)} asked a question on hysaab.ai.`,
+      `${kicker("hysaab.ai enquiry")}
+      ${h1("Someone asked a question.")}
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px 0;font-family:Archivo,Arial,Helvetica,sans-serif;">${rows}</table>
+      ${infobox("Notes", esc(input.notes).replace(/\n/g, "<br />"))}
+      ${p("Reply to this email and it goes straight to them.", 4)}`,
+      "Sent by the enquiry form on hysaab.ai.",
+    ),
+    text: `Enquiry from hysaab.ai
+
+Name: ${input.name}
+Email: ${input.email}
+Accounting system: ${input.system || "not given"}
+
+Notes:
+${input.notes}
+
+Reply to this email and it goes straight to them.`,
+  };
+}

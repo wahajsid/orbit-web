@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { DesignatedZoneCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Designated zone VAT checker — Orbit",
+  title: "Designated zone VAT checker — Hysaab",
   description:
     "Free UAE designated zone VAT decision tool: goods vs services, movement vs consumption — outside the scope, standard-rated, or import VAT, per transaction.",
   alternates: langAlternates("/tools/uae-designated-zone-vat-checker"),

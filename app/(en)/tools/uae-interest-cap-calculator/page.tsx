@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { InterestCapCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "Interest deduction cap calculator (30% EBITDA) — Orbit",
+  title: "Interest deduction cap calculator (30% EBITDA) — Hysaab",
   description:
     "Free UAE interest limitation calculator: net interest vs the greater of 30% of adjusted EBITDA and AED 12m — deductible, disallowed, and the ten-period carry-forward.",
   alternates: langAlternates("/tools/uae-interest-cap-calculator"),

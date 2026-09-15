@@ -3,7 +3,7 @@ import { ToolPage } from "@/components/tools/ToolPage";
 import { ZakatCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "KSA Zakat estimator (ZATCA) — Orbit",
+  title: "KSA Zakat estimator (ZATCA) — Hysaab",
   description:
     "Free Saudi zakat calculator: build the zakat base from equity, provisions and long-term borrowing less fixed assets and long-term investments, floored at adjusted profit — Hijri 2.5% or Gregorian 2.5777%, with mixed Saudi/GCC ownership handled.",
 };

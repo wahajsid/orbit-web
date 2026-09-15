@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { EmployeeCostCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "UAE employee cost calculator — Orbit",
+  title: "UAE employee cost calculator — Hysaab",
   description:
     "Free UAE cost-of-hire calculator: gross salary plus the monthly EOSB gratuity provision on basic wage, or pension contributions for nationals — monthly and annual employer cost.",
   alternates: langAlternates("/tools/uae-employee-cost-calculator"),

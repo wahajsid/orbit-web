@@ -3,22 +3,22 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "كيف يعمل — Orbit",
+  title: "كيف يعمل — Hysaab",
   description:
-    "جولة بلغة واضحة في ما يفعله Orbit، شاشة بشاشة — كتبها المحاسبون الذين بنوه، للمحاسبين الذين سيستخدمونه.",
+    "جولة بلغة واضحة في ما يفعله Hysaab، شاشة بشاشة — كتبها المحاسبون الذين بنوه، للمحاسبين الذين سيستخدمونه.",
   alternates: langAlternates("/how-it-works"),
 };
 
 const ARTICLE_LD = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "كيف يعمل Orbit — دليل بلغة واضحة",
+  headline: "كيف يعمل Hysaab — دليل بلغة واضحة",
   description:
-    "جولة بلغة واضحة في ما يفعله Orbit، شاشة بشاشة — كتبها المحاسبون الذين بنوه.",
+    "جولة بلغة واضحة في ما يفعله Hysaab، شاشة بشاشة — كتبها المحاسبون الذين بنوه.",
   dateModified: "2026-08-16",
-  author: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-  publisher: { "@type": "Organization", name: "Orbit", url: "https://www.orbitgulf.com" },
-  mainEntityOfPage: "https://www.orbitgulf.com/ar/how-it-works",
+  author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+  publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+  mainEntityOfPage: "https://hysaab.ai/ar/how-it-works",
 };
 
 export default function HowItWorksPage() {
@@ -36,7 +36,7 @@ export default function HowItWorksPage() {
             النظام كاملًا، يشرحه أشخاص يقفلون الدفاتر مهنةً لا هوايةً.
           </h1>
           <p className="mg-page-lede">
-            نحن محاسبون. بنينا Orbit لأننا سئمنا أداء طقس نهاية الشهر نفسه يدويًا — ملاحقة
+            نحن محاسبون. بنينا Hysaab لأننا سئمنا أداء طقس نهاية الشهر نفسه يدويًا — ملاحقة
             المستندات، وتدقيق الفواتير، وتشغيل جدول الاستحقاقات ذاته، وتقديم إقرار ضريبة القيمة
             المضافة ذاته. هذه الصفحة تأخذك عبر ما يفعله النظام فعلًا، بالترتيب الذي ستستخدمه به.
           </p>
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">النسخة المختصرة</h2>
             <p className="mg-guide-p">
-              ‏Orbit فريق من وكلاء الذكاء الاصطناعي يجلس بين أعمالك ودفتر الأستاذ. المستندات
+              ‏Hysaab فريق من وكلاء الذكاء الاصطناعي يجلس بين أعمالك ودفتر الأستاذ. المستندات
               تصل (واتساب، البريد الإلكتروني، تيليغرام، تغذية بنكية — بالطريقة التي يرسلها بها
               موردوك وموظفوك فعلًا). يقرأ الوكلاء كل مستند، ويصنفونه، ويستخرجون الأرقام،
               ويرمّزونه من سجل ترحيلاتك أنت، ويختبرونه وفق قواعد الفاتورة الضريبية لدى الهيئة
@@ -62,7 +62,7 @@ export default function HowItWorksPage() {
               كل مكان.
             </p>
             <p className="mg-guide-p">
-              ‏Orbit يُرحِّل إلى الدفتر الذي تستخدمه اليوم — Xero أو Zoho Books أو QuickBooks أو
+              ‏Hysaab يُرحِّل إلى الدفتر الذي تستخدمه اليوم — Xero أو Zoho Books أو QuickBooks أو
               Odoo أو Wafeq أو ERPNext — أو يمسك دفاتر نظيفة بنفسه إن لم يكن لديك دفتر بعد.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function HowItWorksPage() {
             <h2 className="mg-guide-h">1. المستندات تصل</h2>
             <p className="mg-guide-p">
               موردوك لا يكترثون بنظام أرشفتك. يرسلون ملف PDF على واتساب في الحادية عشرة
-              ليلًا، وفاتورة ممسوحة بالبريد، وصورة إيصال عبر تيليغرام. ‏Orbit يراقب هذه القنوات
+              ليلًا، وفاتورة ممسوحة بالبريد، وصورة إيصال عبر تيليغرام. ‏Hysaab يراقب هذه القنوات
               كلها. حين يصل مستند، يصنفه وكيل الاستقبال (فاتورة مورد، إيصال، إشعار دائن، كشف
               بنكي، عقد، إذن استلام)، ويستخرج حقول الترويسة بالتعرف الضوئي، ويزيل تكراره
               ببصمة SHA مقابل كل ما في الخزنة أصلًا.
@@ -250,7 +250,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">10. القرارات — ما لا يحسمه أحد غيرك</h2>
             <p className="mg-guide-p">
-              ‏Orbit لا يدّعي أن بوسعه اتخاذ أحكامك المهنية. حين يحتاج أمر إنسانًا — شطب، أو
+              ‏Hysaab لا يدّعي أن بوسعه اتخاذ أحكامك المهنية. حين يحتاج أمر إنسانًا — شطب، أو
               تعليمات إعادة تبويب، أو انحراف لا يُفسَّر تلقائيًا، أو فاتورة مورد بلا رقم
               ضريبي — تظهر بطاقة قرار على نظرتك العامة. لكل بطاقة درجة خطورة (حرج، مراجعة،
               معلومة)، والوكيل الذي رفعها، ودرجة الثقة، وتفاصيل تكفي للتصرف دون حفر.
@@ -279,11 +279,11 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">12. دفترك الحالي يبقى</h2>
             <p className="mg-guide-p">
-              ‏Orbit ليس بديلًا لبرنامجك المحاسبي؛ بل يجلس فوقه. القيود تتزامن مع Xero
-              وZoho Books وQuickBooks وOdoo وWafeq وERPNext عبر موصلات ثنائية الاتجاه — ‏Orbit
-              يقترح ويُرحِّل، ودفترك يبقى نظام السجل. وقفل الفترة في Orbit يُفعِّل قفلها في
+              ‏Hysaab ليس بديلًا لبرنامجك المحاسبي؛ بل يجلس فوقه. القيود تتزامن مع Xero
+              وZoho Books وQuickBooks وOdoo وWafeq وERPNext عبر موصلات ثنائية الاتجاه — ‏Hysaab
+              يقترح ويُرحِّل، ودفترك يبقى نظام السجل. وقفل الفترة في Hysaab يُفعِّل قفلها في
               الدفتر. ودليل الحسابات مُطابَق بين الاثنين. وإن لم يكن لديك دفتر بعد، يمسك
-              Orbit الدفاتر بنفسه حتى تكون جاهزًا لاختيار واحد.
+              Hysaab الدفاتر بنفسه حتى تكون جاهزًا لاختيار واحد.
             </p>
           </div>
 
@@ -357,7 +357,7 @@ export default function HowItWorksPage() {
           <div className="mg-guide-sec">
             <h2 className="mg-guide-h">15. لمن بُني هذا</h2>
             <p className="mg-guide-p">
-              ‏Orbit مبني لأعمال الإمارات والسعودية التي لديها دفاتر حقيقية تُمسك: شركات
+              ‏Hysaab مبني لأعمال الإمارات والسعودية التي لديها دفاتر حقيقية تُمسك: شركات
               التجارة، ومكاتب الخدمات المهنية، ومشغلو اللوجستيات، ومديرو العقارات،
               والموزعون — كل من يدير إقفالًا شهريًا، ويقدّم إقرار ضريبة القيمة المضافة، ويدفع
               للموردين، ويلاحق العملاء، ويتمنى لو كانت العملية أقصر.

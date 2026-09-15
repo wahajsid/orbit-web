@@ -3,8 +3,8 @@ import { brandOg, OG_SIZE } from "@/lib/og";
 export const runtime = "edge";
 export const size = OG_SIZE;
 export const contentType = "image/png";
-export const alt = "Orbit — the close ran while you slept";
+export const alt = "Hysaab: close the month in days. Take your evenings back.";
 
 export default function Image() {
-  return brandOg("AI finance team — UAE & KSA", "The close ran while you slept.");
+  return brandOg("AI accounting & reporting · UAE & GCC", "Close the month in days. Take your evenings back.");
 }

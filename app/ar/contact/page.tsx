@@ -3,7 +3,7 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "تواصل معنا — Orbit",
+  title: "تواصل معنا — Hysaab",
   description: "الدعم والحلول المخصصة والشراكات — شخص حقيقي يقرأ كل رسالة.",
   alternates: langAlternates("/contact"),
 };
@@ -12,23 +12,23 @@ const CARDS: { kicker: string; title: string; detail: string; cta: string; mailt
   {
     kicker: "الدعم",
     title: "شيء يحتاج إلى إنسان",
-    detail: "أسئلة عن المنتج، أو مساعدة في الحساب، أو مستند قرأه أوربت خطأً — راسلنا ويتولاه شخص حقيقي (في منطقتك الزمنية). أعضاء الدفعة المؤسسة لهم الأولوية.",
+    detail: "أسئلة عن المنتج، أو مساعدة في الحساب، أو مستند قرأه Hysaab خطأً — راسلنا ويتولاه شخص حقيقي (في منطقتك الزمنية). أعضاء الدفعة المؤسسة لهم الأولوية.",
     cta: "راسل الدعم ←",
-    mailto: "mailto:info@orbitgulf.com?subject=Support",
+    mailto: "mailto:info@hysaab.ai?subject=Support",
   },
   {
     kicker: "حلول مخصصة",
     title: "منظومتك المالية، بقواعدك أنت",
     detail: "مجموعات متعددة الكيانات، أو مسارات عمل غير مألوفة، أو موصّل لا نملكه بعد، أو ترحيل من نظام قديم — أخبرنا كيف يبدو إقفالك الشهري فعلًا ونحدد نطاق الحل معك.",
     cta: "ناقش حلًا مخصصًا ←",
-    mailto: "mailto:info@orbitgulf.com?subject=Bespoke%20solution",
+    mailto: "mailto:info@hysaab.ai?subject=Bespoke%20solution",
   },
   {
     kicker: "الشراكات",
     title: "محاسبون ومستشارون ومنصات",
-    detail: "تدير مكتبًا وتريد أوربت تحت دفاتر عملائك؟ تبني منتجًا ينبغي أن يتحدث إلى منتجنا؟ نحن نبني سكك المالية في الخليج مع الشركاء، لا من حولهم.",
+    detail: "تدير مكتبًا وتريد Hysaab تحت دفاتر عملائك؟ تبني منتجًا ينبغي أن يتحدث إلى منتجنا؟ نحن نبني سكك المالية في الخليج مع الشركاء، لا من حولهم.",
     cta: "ابدأ شراكة ←",
-    mailto: "mailto:info@orbitgulf.com?subject=Partnership",
+    mailto: "mailto:info@hysaab.ai?subject=Partnership",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
             ))}
           </div>
           <p className="mg-page-lede" style={{ marginTop: 36 }}>
-            الخط المباشر: <a className="textlink" href="mailto:info@orbitgulf.com">info@orbitgulf.com</a> · دبي والرياض
+            الخط المباشر: <a className="textlink" href="mailto:info@hysaab.ai">info@hysaab.ai</a> · دبي والرياض
           </p>
         </section>
       </main>

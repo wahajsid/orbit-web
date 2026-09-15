@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { VdPenaltyCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "VAT voluntary disclosure penalty calculator — Orbit",
+  title: "VAT voluntary disclosure penalty calculator — Hysaab",
   description:
     "Free UAE Form 211 penalty calculator: the fixed AED 1,000/2,000 plus the 5%-40% ladder on the tax difference by years elapsed — and the cost of waiting another year.",
   alternates: langAlternates("/tools/uae-voluntary-disclosure-penalty-calculator"),

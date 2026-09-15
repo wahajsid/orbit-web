@@ -4,7 +4,7 @@ import { getGuide } from "@/lib/guides";
 export const runtime = "edge";
 export const size = OG_SIZE;
 export const contentType = "image/png";
-export const alt = "Orbit guide";
+export const alt = "Hysaab guide";
 
 export default function Image({ params }: { params: { slug: string } }) {
   const g = getGuide(params.slug);

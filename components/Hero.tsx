@@ -107,7 +107,7 @@ export function Hero({ seat }: { seat: number }) {
         )}
       </div>
       <div className="hero-shot shot arrive">
-        <Image src="/shots/morning-brief.png" alt="The Orbit Morning Brief — yesterday's postings and today's one thing, emailed at sunrise" width={660} height={880} priority />
+        <Image src="/shots/morning-brief.png" alt="The Hysaab Morning Brief — yesterday's postings and today's one thing, emailed at sunrise" width={660} height={880} priority />
       </div>
     </div>
   );

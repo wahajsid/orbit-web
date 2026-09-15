@@ -4,7 +4,7 @@ import { FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Pricing — Orbit",
+  title: "Pricing — Hysaab",
   description:
     "Three tiers — Starter AED 149/mo, Growth AED 499/mo, Scale AED 1,499/mo — sized by how much of the AI team you use, not by user seats. The first 100 companies get twelve months free.",
   alternates: langAlternates("/pricing"),
@@ -19,7 +19,7 @@ const TIERS: { name: string; price: string; who: string; feats: string[]; hero?:
       "The full agent team on your books",
       "Documents in by email and Telegram",
       "Decisions queue, month-end close and the board pack",
-      "One connected ledger — or Orbit keeps the books",
+      "One connected ledger — or Hysaab keeps the books",
       "Usage sized for a small business",
     ],
   },

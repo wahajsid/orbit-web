@@ -3,9 +3,9 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "من نحن — Orbit",
+  title: "من نحن — Hysaab",
   description:
-    "أوربت مبني في الخليج على يد محاسبين عاشوا الإقفال الشهري الذي يمحونه اليوم — معيار تصميم واحد، وأربعة منتجات، وحكم بشري يبقى حيث ينبغي أن يكون.",
+    "Hysaab مبني في الخليج على يد محاسبين عاشوا الإقفال الشهري الذي يمحونه اليوم — معيار تصميم واحد، وأربعة منتجات، وحكم بشري يبقى حيث ينبغي أن يكون.",
   alternates: langAlternates("/about"),
 };
 
@@ -18,14 +18,14 @@ export default function AboutPage() {
           <div className="mg-kicker">من نحن</div>
           <h1 className="mg-page-h">عشنا الإقفال الشهري الذي نمحوه اليوم.</h1>
           <p className="mg-page-lede">
-            أوربت مبني في دبي على يد محاسبين عاشوا هذه العمليات وسهروا عليها —
+            Hysaab مبني في دبي على يد محاسبين عاشوا هذه العمليات وسهروا عليها —
             الإقفال الشهري، وإقرارات ضريبة القيمة المضافة، واستفسارات الهيئة الاتحادية للضرائب — لا على يد مهندسين يخمّنونها.
           </p>
         </section>
 
         <section className="mg-page-body mg-guide-body">
           <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">من أين جاء أوربت</h2>
+            <h2 className="mg-guide-h">من أين جاء Hysaab</h2>
             <p className="mg-guide-p">
               في كل إقفال، الطقس نفسه: إيصالات تُلاحَق عبر واتساب، وفواتير تُدقَّق في
               منتصف الليل، وموعد ضريبة القيمة المضافة يلهث خلف الربع — والأرقام التي
@@ -55,11 +55,11 @@ export default function AboutPage() {
             <h2 className="mg-guide-h">العائلة</h2>
             <p className="mg-guide-p">
               مهمة واحدة — تغيير طريقة إنجاز الضرائب والمحاسبة والخدمات من حولهما في
-              الخليج — تحملها أربعة منتجات: <a className="textlink" href="/ar/product">Orbit</a> يدير
-              الدفاتر، و<a className="textlink" href="/ar/hire">Orbit Hire</a> يدير التوظيف، و{" "}
-              <a className="textlink" href="/ar/invoice">Orbit Invoice</a> يختبر كل فاتورة مورد
+              الخليج — تحملها أربعة منتجات: <a className="textlink" href="/ar/product">Hysaab</a> يدير
+              الدفاتر، و<a className="textlink" href="/ar/hire">Ibtidah</a> يدير التوظيف، و{" "}
+              <a className="textlink" href="/ar/invoice">Hysaab Invoice</a> يختبر كل فاتورة مورد
               وفق قواعد الهيئة الاتحادية للضرائب و«زاتكا»، و{" "}
-              <a className="textlink" href="/ar/firms">Orbit for Firms</a> يدير المكتب نفسه.
+              <a className="textlink" href="/ar/firms">Oblique OS</a> يدير المكتب نفسه.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <h2 className="mg-guide-h">أين نحن</h2>
             <p className="mg-guide-p">
               دبي، الإمارات — نعمل في أنحاء الإمارات والسعودية، بالإنجليزية والعربية. راسلنا
-              على <a className="textlink" href="mailto:info@orbitgulf.com">info@orbitgulf.com</a>؛
+              على <a className="textlink" href="mailto:info@hysaab.ai">info@hysaab.ai</a>؛
               شخص حقيقي يقرأ كل رسالة.
             </p>
           </div>

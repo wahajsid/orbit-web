@@ -1,248 +1,261 @@
-import "../advert.css";
-import Image from "next/image";
-import { LedgerForm } from "@/components/LedgerForm";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { NpEnhance } from "@/components/NpEnhance";
-import { AgentFeed } from "@/components/AgentFeed";
-import { Countdown } from "@/components/Countdown";
 import { MgNav, MgFooter } from "@/components/MgChrome";
-import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
+import { Wordmark } from "@/components/Wordmark";
+import { Demo } from "@/components/hysaab/Demo";
+import { CohortForm } from "@/components/hysaab/CohortForm";
+import { StickyBar } from "@/components/hysaab/StickyBar";
+import { getSeatsTaken, FOUNDING_SEATS, LAUNCH_DATE_SHORT } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Orbit — AI agents run your finance. You approve the calls.",
+  title: "Hysaab | AI Accounting & Reporting for Gulf Businesses",
   description:
-    "Sixteen agents read your invoices, code your ledger, watch your VAT and drive the close — and stop to ask you when it matters. Built in the Gulf, by accountants who lived every late night of it.",
+    "Your accounting and reporting team, always on. Sixteen AI agents read, code, reconcile and report, and bring you the decisions that are yours. Built in Dubai for the UAE and GCC.",
   alternates: langAlternates("/"),
 };
 
-/* ── The four steps ("How Orbit works") ─────────────────────────────
-   Kept in data rather than inline so the mobile stack and the desktop
-   4-col ruled grid read the same rows. */
-const STEPS: { n: string; h: string; p: string }[] = [
-  { n: "01", h: "Send anything, anyhow", p: "WhatsApp a photo, forward an email, drop a PDF. Orbit files it, de-duplicates it and starts reading." },
-  { n: "02", h: "Agents read and code",   p: "Extraction, account coding from your own history, VAT checks and duplicate detection — in minutes, not month-end." },
-  { n: "03", h: "You make the few calls", p: "Anything below your confidence threshold comes to you as a plain-language decision with the evidence attached." },
-  { n: "04", h: "The period locks itself", p: "Accruals, depreciation and schedules post on time. When the checklist is green, you close and lock — done in days." },
+/* ── Live ticker rows (hero, right column) ───────────────────────── */
+const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
+  { t: "21:00", who: "Intake agent", msg: "received a WhatsApp photo from Rashid. Gulf Technical Supplies, INV-4471." },
+  { t: "21:01", who: "Tax agent", msg: "tax-invoice criteria met · TRN valid · VAT 199.50 recoverable." },
+  { t: "21:02", who: "Coding agent", msg: "IT equipment · Dubai office, 96% from 31 similar entries. Posted J-2291 to Zoho Books." },
+  { t: "21:40", who: "Duplicate watch", msg: "INV-4471 arrived again by email. Merged, not posted twice." },
+  { t: "23:15", who: "Collections agent", msg: "reminder 2 of 3 sent to ELC Group. SI-1187, 12 days overdue." },
+  { t: "06:05", who: "Bank-match agent", msg: "312 of 314 lines matched to source overnight." },
+  { t: "06:06", who: "Decision for Layla", msg: "cheque 100421 · AED 250 cleared with no document. Asking you.", ask: true },
+  { t: "06:30", who: "Close agent", msg: "Knight Frank rent released · month 3 of 12. Checklist 68%." },
+  { t: "06:45", who: "Reporting agent", msg: "September pack rebuilt. Gross margin down 2.1 pts, explanation attached." },
 ];
 
-/* ── The agent roster ────────────────────────────────────────────────
-   Seven cells + one green cell that leads to the product page. */
-const AGENTS: { h: string; p: string; green?: boolean }[] = [
-  { h: "Coding agent", p: "Codes every line from your own posting history. Asks when it's less than sure." },
-  { h: "Tax agent", p: "Tests every invoice against UAE Article 59 before VAT is claimed." },
-  { h: "Accrual engine", p: "Learns each supplier's billing rhythm; proposes accruals when bills go missing." },
-  { h: "Anomaly agent", p: "Watches unit prices and cadence; flags creep before renewal dates." },
-  { h: "Bank-match agent", p: "Scores and matches every bank line to its document, to the decimal." },
-  { h: "Schedules agent", p: "Releases prepayments and recurring journals on schedule, with commentary." },
-  { h: "Collections agent", p: "Drafts and sends reminders on a cadence you approve once." },
-  { h: "…and nine more", p: "Duplicates, depreciation, variances, intake, dispatch.", green: true },
+const AGENTS: { h: string; p: React.ReactNode; tone?: "cream" | "navy" }[] = [
+  { h: "Document intake", p: "Reads invoices, receipts and statements from any channel, organises them and identifies duplicates." },
+  { h: "Coding", p: "Proposes accounts and classifications from your own history. Asks when it is less than sure." },
+  { h: "Reconciliation", p: "Matches bank and ledger lines to their documents and surfaces the differences that remain." },
+  { h: "Collections", p: "Prepares and sends reminders inside a cadence you approve once, and stops when a customer replies." },
+  { h: "Close preparation", p: "Accruals, recurring entries, schedules and the list of what is still outstanding." },
+  { h: "Reporting", p: "Produces supported reports and explains what moved, with every figure traceable to its source." },
+  { h: "Tax checks", p: "Tests every invoice against the tax-invoice rules and holds input VAT that would not survive an audit." },
+  { h: "Ask anything", p: "Answers plain questions about your own numbers, and shows the entries behind the answer." },
+  { h: "Where it stops", p: "No agent crosses a period lock, changes an approval rule or claims tax you have not cleared.", tone: "cream" },
+  { h: "Duplicate watch", p: "Catches the same bill twice: the supplier copy, the forwarded PDF and the WhatsApp photo." },
+  { h: "Variance watch", p: "Notices price creep and unit-cost drift before a renewal date passes." },
+  { h: "Sixteen in the roster", p: <>Depreciation, schedules, payment runs and more. <a href="/product">Meet the full team →</a></>, tone: "navy" },
 ];
 
-const COMPLIANCE: { h: string; p: string }[] = [
-  { h: "Article 59 tax-invoice test", p: "on every inbound invoice — TRN, rates, rounding." },
-  { h: "E-invoicing ready", p: "ahead of the UAE mandate." },
-  { h: "Period locks", p: "that agents cannot cross — locked means locked." },
-  { h: "Full audit trail", p: "every action, human or agent, logged with evidence." },
+const VOICES = [
+  { who: "The CFO", q: "“I moved the shared-service queue to agents. My team moved to the decisions.”", p: "Layla runs finance for a 40-person contractor. Intake, coding, matching and reminders now run without her. Her people review the exceptions, own the approvals and spend month-end on the numbers, not the entries.", wants: "Wants: accuracy, throughput, segregation of duties, a transition plan she can defend.", link: ["/firms", "Read the CFO case →"] },
+  { who: "The owner", q: "“I send a photo. In the morning I know where the money is.”", p: "Rashid runs a trading company and has never opened an accounting system. He WhatsApps receipts, glances at money in, money out and what is owed, and reads one plain report a month.", wants: "Wants: clean books, a simple report, no chasing, no spreadsheets.", link: ["/how-it-works", "See the owner's view →"] },
+  { who: "The accountant", q: "“I stopped keying and started checking. The work got better, and so did I.”", p: "Noor kept the books by hand for six years. Now she reviews what the agents propose, corrects the few that miss, and the corrections teach the coding agent for next time. Her month-end finishes on day two.", wants: "Wants: a clear queue, evidence on every line, credit for judgement.", link: ["#agents", "What changes day to day →"] },
 ];
 
 export default async function Page() {
-  const seat = await getNextSeat();
+  const taken = await getSeatsTaken();
+  const next = taken + 1;
+  const redact = (w: number) => <span className="hy-redact" style={{ width: `${w}em` }} aria-label="name withheld" />;
 
   return (
-    <>
-      <SmoothScroll />
-
-      {/* ══════════════════════════════════════════════════════════════
-          STICKY RULED NAV — shared modernist chrome (MgChrome). The
-          Product link now goes to the real /product page.
-          ══════════════════════════════════════════════════════════════ */}
-      <MgNav />
+    <div className="hy-page">
+      <MgNav home />
 
       <main>
-        {/* ══════════════════════════════════════════════════════════════
-            SPLIT HERO — headline + stats on paper (left); a paper mock of
-            the close cockpit with the 8px 8px 0 green offset shadow on an
-            80px-column paper-raised ground (right). Ruled everywhere.
-            On a phone the mock stacks below and the stats reflow.
-            ══════════════════════════════════════════════════════════════ */}
-        <section className="mg-hero">
-          <div className="mg-hero-copy">
-            <div className="mg-kicker">FINANCE OS · UAE &amp; GCC</div>
-            <h1 className="mg-hero-h">AI agents run your finance. You approve the calls.</h1>
-            <p className="mg-hero-p">Sixteen agents read your invoices, code your ledger, watch your VAT and drive the close — and stop to ask you when it matters. Plain answers, full evidence, every time.</p>
-            <div className="mg-hero-cta">
-              <a href="#join" className="mg-cta">Book a demo →</a>
-              <a href="#how" className="mg-ghost">See how it works</a>
-            </div>
-            <div className="mg-stats">
-              <div><div className="mg-stat-n">16</div><div className="mg-stat-l">agents on your books</div></div>
-              <div><div className="mg-stat-n">93%</div><div className="mg-stat-l">journals posted untouched</div></div>
-              <div><div className="mg-stat-n">3 days</div><div className="mg-stat-l">to a locked period</div></div>
-            </div>
-          </div>
-          <div className="mg-hero-mock-slot">
-            {/* The real product, not a mock — today's workspace from the live
-                demo dataset, in the framed card with the green offset shadow. */}
-            <div className="mg-mock">
-              <Image src="/shots/adv-overview.png" alt="The Orbit workspace — cash, decisions, the close and tax at a glance" width={1600} height={1376} sizes="(max-width: 900px) 100vw, 640px" priority />
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            LIVE FROM THE AGENTS — infinite marquee (kept in a client
-            component so the animation and reduced-motion rule fire).
-            ══════════════════════════════════════════════════════════════ */}
-        <AgentFeed />
-
-        {/* ══════════════════════════════════════════════════════════════
-            HOW ORBIT WORKS — 4-step ruled grid, top-lined 2px ink.
-            ══════════════════════════════════════════════════════════════ */}
-        <section id="how" className="mg-section">
-          <div className="mg-kicker">HOW ORBIT WORKS</div>
-          <h2 className="mg-h2">From a photo of an invoice to a locked period.</h2>
-          <div className="mg-steps">
-            {STEPS.map((s) => (
-              <div key={s.n} className="mg-step">
-                <div className="mg-step-n">{s.n}</div>
-                <div className="mg-step-h">{s.h}</div>
-                <div className="mg-step-p">{s.p}</div>
+        {/* ── 2. Split hero ── */}
+        <section id="top" className="hy-hero">
+          <div className="hy-wrap hy-hero-grid">
+            <div className="hy-hero-copy">
+              <span className="hy-kicker hy-kicker--blush">AI accounting &amp; reporting · UAE &amp; GCC</span>
+              <h1 className="hy-hero-h1">Close the month in days. Take your evenings back.</h1>
+              <p className="hy-hero-p">Your accounting and reporting team, always on. Sixteen agents read every document, code every entry, reconcile every bank line and rebuild your reports overnight. Then they bring you the two or three calls that are yours to make.</p>
+              <div className="hy-hero-cta">
+                <a href="#cohort" className="hy-btn hy-btn--blush hy-btn--lg">Join the waitlist →</a>
+                <a href="#demo" className="hy-btn hy-btn--outline-cream hy-btn--lg">Try the product</a>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            THE ROSTER — 4×2 grid, one green cell in the corner.
-            ══════════════════════════════════════════════════════════════ */}
-        <section id="agents" className="mg-section">
-          <div className="mg-roster-head">
-            <div>
-              <div className="mg-kicker">THE ROSTER</div>
-              <h2 className="mg-h2">Sixteen specialists. Zero headcount.</h2>
+              <div className="hy-stats">
+                <div className="hy-stat"><span className="hy-stat-n hy-num">16</span><span className="hy-stat-l">agents on your books</span></div>
+                <div className="hy-stat"><span className="hy-stat-n hy-num">2 days</span><span className="hy-stat-l">typical close in the cohort</span></div>
+                <div className="hy-stat"><span className="hy-stat-n hy-num">40k+</span><span className="hy-stat-l">documents a month, read and filed</span></div>
+              </div>
             </div>
-            <p className="mg-roster-lede">Each agent does one job, explains itself, and hands anything uncertain to you. A sample of the team:</p>
-          </div>
-          <div className="mg-roster">
-            {AGENTS.map((a) => (
-              <div key={a.h} className={a.green ? "mg-agent mg-agent-green" : "mg-agent"}>
-                <div className="mg-agent-h">{a.h}</div>
-                <div className="mg-agent-p">
-                  {a.p}{a.green && <> <a href="/accounting" className="mg-agent-cta">Meet the full team →</a></>}
+
+            <div className="hy-ticker" aria-label="Live from the agents">
+              <div className="hy-ticker-head">
+                <span className="hy-ticker-dot" aria-hidden="true" />
+                <span className="hy-ticker-kicker">Live from the agents</span>
+                <span className="hy-ticker-when">Tonight · Dubai</span>
+              </div>
+              <div className="hy-ticker-body">
+                <div className="hy-ticker-scroll">
+                  {[false, true].map((dup) => (
+                    <ul className="hy-ticker-list" key={String(dup)} aria-hidden={dup || undefined}>
+                      {TICKER.map((r) => (
+                        <li className={`hy-ticker-row${r.ask ? " hy-ticker-row--ask" : ""}`} key={r.t + r.who}>
+                          <span className="hy-ticker-t">{r.t}</span>
+                          <span className="hy-ticker-msg"><strong>{r.who}</strong> {r.msg}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
                 </div>
+                <div className="hy-ticker-fade" aria-hidden="true" />
               </div>
-            ))}
-          </div>
-          {/* The queue itself — agents propose with confidence and evidence;
-              a person resolves with the reason on the record. */}
-          <div className="mg-mock" style={{ marginTop: 32 }}>
-            <Image src="/shots/adv-decisions.png" alt="The Orbit decision queue — everything waiting on a human, each item with its agent, confidence and evidence" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
-          </div>
-          <p className="mg-stat-l" style={{ marginTop: 12 }}>The decision queue, live — engines propose, post and reconcile on their own, and stop here for anything below the confidence gate.</p>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            COMPLIANCE BAND — full-width ink, two columns. On a phone
-            each item stacks and the copy shrinks — nothing narrower.
-            ══════════════════════════════════════════════════════════════ */}
-        <section id="compliance" className="mg-compliance">
-          <div className="mg-compliance-copy">
-            <div className="mg-kicker mg-kicker-on-ink">BUILT FOR THE FTA</div>
-            <h2 className="mg-h2 mg-h2-on-ink">Compliance isn&rsquo;t a feature. It&rsquo;s the default.</h2>
-            <p className="mg-compliance-p">Every document is tested against UAE VAT rules before a dirham moves. Every journal carries its agent&rsquo;s commentary and the source evidence. When the auditor asks, you hand over the trail — not a shoebox.</p>
-          </div>
-          <ul className="mg-compliance-list">
-            {COMPLIANCE.map((c) => (
-              <li key={c.h}><span className="mg-check">✓</span><div><b>{c.h}</b> {c.p}</div></li>
-            ))}
-          </ul>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════
-            THE POSTER CTA — full-green wall, paper text, one primary
-            (paper) + one ghost (paper-outlined). On a phone the display
-            drops from 52 to 34 and the buttons stack.
-            ══════════════════════════════════════════════════════════════ */}
-        <section className="mg-poster">
-          <h2 className="mg-poster-h">The close ends in days. Your evenings come back.</h2>
-          <div className="mg-poster-cta">
-            <a href="#join" className="mg-cta mg-cta-on-green">Book a demo →</a>
-            <a href="/product" className="mg-ghost mg-ghost-on-green">Explore the product</a>
+            </div>
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════════════════════
-            THE FOUR PRODUCTS — moved to the page bottom so the homepage
-            tells one product's story start to finish; the family is the
-            coda, reachable from the header's "More products".
-            ══════════════════════════════════════════════════════════════ */}
-        <section id="products" className="mg-section">
-          <div className="mg-kicker">THE ORBIT FAMILY</div>
-          <h2 className="mg-h2">Four worlds. One universe.</h2>
-          <div className="mg-worlds">
-            <a href="/accounting" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">ACCOUNTING</div>
-              <div className="mg-world-h">Orbit</div>
-              <p>Aisha forwards a supplier invoice from WhatsApp at 9pm. By sunrise it&rsquo;s coded from her own history, tested against the FTA&rsquo;s rules, matched to the bank line, and posted to Zoho — she never touched it.</p>
-              <p className="mg-world-met">Month-end in 2 days, not 9 · 100% of lines VAT-tested · ~AED 4,200 of hidden VAT found a month.</p>
-              <span className="mg-world-go">See Orbit →</span>
-            </a>
-            <a href="/hire" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">HIRE</div>
-              <div className="mg-world-h">Orbit Hire</div>
-              <p>52 CVs land Tuesday morning. By lunch Orbit has read every one, scored them on your rubric, sealed the names and photos, and put three people on your desk to meet — Layla, Omar and Priya.</p>
-              <p className="mg-world-met">50 CVs read in minutes, not a week · every candidate a real first interview · scoring you can defend.</p>
-              <span className="mg-world-go">See Orbit Hire →</span>
-            </a>
-            <a href="/invoice" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">INVOICE · TAX COMPLIANCE</div>
-              <div className="mg-world-h">Orbit Invoice</div>
-              <p>A folder of 214 supplier invoices lands at 9am. By 9:20 every one is read, its arithmetic re-checked in code, tested against the FTA&rsquo;s and ZATCA&rsquo;s rules, and risk-ranked — the nine that would fail an audit are flagged before the return is filed.</p>
-              <p className="mg-world-met">Every invoice tax-tested · UAE &amp; KSA rules · risky VAT held before it&rsquo;s claimed.</p>
-              <span className="mg-world-go">See Orbit Invoice →</span>
-            </a>
-            <a href="/firms" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">FOR FIRMS · COMING SOON</div>
-              <div className="mg-world-h">Orbit for Firms</div>
-              <p>Every client, engagement and filing in one place. Rashid logs an hour to the ELC Group VAT engagement in a tap; the disbursement lands on the right client; realization per engagement, without a spreadsheet.</p>
-              <p className="mg-world-met">Timesheets, project &amp; expense tracking, and the whole practice — organized.</p>
-              <span className="mg-world-go">See Orbit for Firms →</span>
-            </a>
+        {/* ── 3. Story + interactive demo ── */}
+        <section id="story" className="hy-story hy-section hy-rule-b">
+          <div className="hy-wrap">
+            <div className="hy-story-head">
+              <div className="hy-story-title">
+                <span className="hy-kicker">One invoice, one night, one close</span>
+                <h2 className="hy-h2 hy-h2--wide">Follow a single invoice from a 9pm photo to a locked period.</h2>
+              </div>
+              <span className="hy-story-note">Illustrative scenario. Rashid runs a trading company; Layla is his CFO; Noor keeps the books. The numbers are examples, not results.</span>
+            </div>
+            <Demo />
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════════════════════
-            JOIN — the founding-cohort capture. Kept because it drives
-            every conversion on the site today.
-            ══════════════════════════════════════════════════════════════ */}
-        <section id="join" className="mg-section">
-          <div className="mg-kicker">JOIN THE FOUNDING COHORT</div>
-          <h2 className="mg-h2">Come build the universe with us.</h2>
-          <p className="mg-lede">
-            This is bigger than software — it&rsquo;s a bet on what people do with their time when the busywork is gone. The first {FOUNDING_SEATS} companies get twelve months free, with founder pricing locked in after. Work email only — a real person reads every entry.
-          </p>
-          <div className="mg-join">
-            <LedgerForm seat={seat} />
+        {/* ── 4. Agents ── */}
+        <section id="agents" className="hy-agents hy-section">
+          <div className="hy-wrap">
+            <div className="hy-agents-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <span className="hy-kicker hy-kicker--navy">Meet your agents</span>
+                <h2 className="hy-h2">Sixteen specialists. No new headcount.</h2>
+              </div>
+              <p className="hy-agents-p">One agent, one workflow, one set of limits you set. Each explains itself, shows its evidence, and hands you the call the moment judgement is needed. No black box, no surprises in the ledger.</p>
+            </div>
+            <div className="hy-agents-grid">
+              {AGENTS.map((a) => (
+                <div className={`hy-agent${a.tone ? ` hy-agent--${a.tone}` : ""}`} key={a.h}>
+                  <span className="hy-agent-h">{a.h}</span>
+                  <span className="hy-agent-p">{a.p}</span>
+                </div>
+              ))}
+            </div>
+            <div className="hy-contract">
+              {[
+                ["What work it handles", "One named workflow per agent. Never “everything”."],
+                ["What it produces", "An entry, a match, a reminder or a report, with commentary."],
+                ["When it asks for help", "Below your confidence threshold, or outside its approval limit."],
+                ["How you check it", "Every action logged, every figure traceable to its document."],
+              ].map(([h, p]) => (
+                <div className="hy-contract-cell" key={h}><span className="hy-contract-h">{h}</span><span className="hy-contract-p">{p}</span></div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════════════════════
-            THE CLOCK — the very last thing on the page: a ruled band
-            counting down to 14 October (LAUNCH_AT drives it, so the
-            timer and the copy can never disagree).
-            ══════════════════════════════════════════════════════════════ */}
-        <Countdown />
+        {/* ── 5. Voices ── */}
+        <section id="voices" className="hy-voices hy-section hy-rule-b">
+          <div className="hy-wrap">
+            <div className="hy-voices-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <span className="hy-kicker">Who it&apos;s for</span>
+                <h2 className="hy-h2">Three people, one set of books.</h2>
+              </div>
+              <span className="hy-note">Illustrative voices from the scenario above.</span>
+            </div>
+            <div className="hy-voices-grid">
+              {VOICES.map((v) => (
+                <div className="hy-voice" key={v.who}>
+                  <span className="hy-voice-who">{v.who}</span>
+                  <span className="hy-voice-q">{v.q}</span>
+                  <span className="hy-voice-p">{v.p}</span>
+                  <span className="hy-voice-wants">{v.wants}</span>
+                  <a href={v.link[0]} className="hy-ulink">{v.link[1]}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 6. Why we built Hysaab ── */}
+        <section id="why" className="hy-whysec">
+          <div className="hy-wrap hy-why-grid">
+            <div className="hy-why-copy">
+              <span className="hy-kicker hy-kicker--blush">Why we built Hysaab</span>
+              <h2 className="hy-h2 hy-h2--why">We lived the close. Then we decided nobody should have to.</h2>
+              <p>We spent years inside finance functions in Dubai: in shared-service centres, in the finance teams of contractors and traders, in the back offices of firms that closed the books for others. The pattern was the same everywhere. Twenty working days of a month, then five nights of catching up on them.</p>
+              <p>Receipts in a drawer. A supplier&apos;s invoice keyed three times by three people. A bank line nobody could explain, carried forward because the deadline came first. A VAT return filed with a knot in the stomach. Good accountants doing work that did not need an accountant, and no time left for the work that did.</p>
+              <p>Software did not fix it. Every system we used still waited for a person to type. So we built the person&apos;s shift instead: agents that read, code, match and prepare all month, and stop for a human exactly where a human should be. The name is the Arabic <span className="hy-ar" lang="ar">حساب</span>, account and reckoning. It is a Gulf company, built for how business is actually done here.</p>
+            </div>
+            <div className="hy-beliefs">
+              <div className="hy-belief"><span className="hy-belief-l">What we believe</span><span className="hy-belief-p">Accuracy is a design choice. Every number should be able to show its source.</span></div>
+              <div className="hy-belief"><span className="hy-belief-p">Control stays with people. Agents work inside limits; they do not set them.</span></div>
+              <div className="hy-belief"><span className="hy-belief-p">Speed is continuous. The close is a review, not an event.</span></div>
+              <div className="hy-belief hy-belief--promise"><span className="hy-belief-l">Our promise</span><span className="hy-belief-p">Clear, dependable, human accounting. We will only claim what we can show you in your own ledger.</span></div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 7. Product family ── */}
+        <section id="family" className="hy-family hy-section hy-rule-b">
+          <div className="hy-wrap" style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+            <span className="hy-kicker">Our products</span>
+            <h2 className="hy-h2">Four products. Each stands on its own.</h2>
+            <p className="hy-family-p">Hysaab is the accounting and reporting product. Hysaab Invoice reads and checks invoices on its own. Each has its own subscription and can be used on its own.</p>
+            <div className="hy-family-grid">
+              <div className="hy-product hy-product--navy">
+                <span className="hy-product-l">AI accounting &amp; reporting</span>
+                <Wordmark size={27} ground="navy" suffix={false} />
+                <span className="hy-product-p">Agents carry out the finance work, prepare the information and bring the decisions to you. <strong>Early access</strong>.</span>
+              </div>
+              <div className="hy-product">
+                <span className="hy-product-l">Invoice processing &amp; checks</span>
+                <a href="/invoice" className="hy-product-h">Hysaab Invoice</a>
+                <span className="hy-product-p">What happens to an invoice, what is checked, what is flagged and what you receive back. <strong>Available</strong>.</span>
+                <a href="/invoice" className="hy-ulink">See Hysaab Invoice →</a>
+              </div>
+              <div className="hy-product">
+                <span className="hy-product-l">Hiring platform</span>
+                <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-product-h">Ibtidah</a>
+                <span className="hy-product-p">Who it helps you hire, which recruitment stages it supports, and where hiring decisions stay with people. <strong>Available</strong>.</span>
+                <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-ulink">ibtidah.ae →</a>
+              </div>
+              <div className="hy-product">
+                <span className="hy-product-l">Professional services platform</span>
+                <span className="hy-product-h">Oblique OS</span>
+                <span className="hy-product-p">Client work, engagements and operational oversight for a professional services business. <strong>Coming soon</strong>.</span>
+              </div>
+            </div>
+            <div className="hy-family-qa">
+              <span><strong>Used independently?</strong> Yes. Each product stands alone.</span>
+              <span><strong>Separate subscriptions?</strong> Yes, priced per product.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 8. Founding cohort ── */}
+        <section id="cohort" className="hy-cohort hy-section">
+          <div className="hy-wrap hy-cohort-grid">
+            <div className="hy-cohort-copy">
+              <span className="hy-kicker">Founding cohort</span>
+              <h2 className="hy-h2">The first hundred set the pace.</h2>
+              <p className="hy-cohort-p">One hundred companies join before the doors open on {LAUNCH_DATE_SHORT}, with founder pricing locked in for as long as you stay. Work email only. A real person reads every entry and replies.</p>
+              <CohortForm seatsTaken={taken} />
+              <span className="hy-note">Or <a href="#contact" style={{ borderBottom: "1px solid var(--hy-blush)" }}>book a demo</a> and we will walk your own ledger through it.</span>
+            </div>
+            <div className="hy-ledger" id="ledger">
+              <span className="hy-label">Founding ledger · {taken} of {FOUNDING_SEATS} seats taken</span>
+              <div className="hy-ledger-rows">
+                <div className="hy-ledger-row"><span className="hy-ledger-n">{taken - 2}</span><span>{redact(6.5)} LLC · taken</span></div>
+                <div className="hy-ledger-row"><span className="hy-ledger-n">{taken - 1}</span><span>{redact(5)} Contracting · taken</span></div>
+                <div className="hy-ledger-row"><span className="hy-ledger-n">{taken}</span><span>{redact(4)} Group Advisory · taken</span></div>
+                <div className="hy-ledger-row"><span className="hy-ledger-n">{next}</span><a href="#cohort" className="hy-ledger-you">your entry?</a></div>
+                <div className="hy-ledger-row hy-ledger-row--faint"><span className="hy-ledger-n">{next + 1}</span><span>·</span></div>
+                <div className="hy-ledger-row hy-ledger-row--faint"><span className="hy-ledger-n">⋮</span><span /></div>
+                <div className="hy-ledger-row hy-ledger-row--faint"><span className="hy-ledger-n">{FOUNDING_SEATS}</span><span>doors open {LAUNCH_DATE_SHORT}</span></div>
+              </div>
+              <span className="hy-ledger-note">Founder pricing locked for the first hundred. Seats confirmed in the order accepted. Entries after the hundredth carry to the next cohort at standard pricing. Fair-usage policy applies.</span>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* ══════════════════════════════════════════════════════════════
-          FOOTER — flush strip: mark + wordmark, url, location, ©
-          ══════════════════════════════════════════════════════════════ */}
       <MgFooter />
-
-      <NpEnhance />
-    </>
+      <StickyBar seatsTaken={taken} />
+    </div>
   );
 }

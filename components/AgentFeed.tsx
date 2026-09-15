@@ -1,7 +1,7 @@
 "use client";
 
 /* The "LIVE FROM THE AGENTS" ticker from the rebrand reference — an
-   infinite marquee that tells the viewer, in one long band, what Orbit is
+   infinite marquee that tells the viewer, in one long band, what Hysaab is
    already doing to real books. The track is duplicated end-to-end and
    pushed with translateX(-50%), so the wrap is seamless; the tiny green
    square next to the label pulses in time with the reduced-motion rule in

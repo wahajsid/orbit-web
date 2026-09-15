@@ -4,7 +4,7 @@ import { SbrCheckerCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص أهلية تخفيف الأعمال الصغيرة — Orbit",
+  title: "فاحص أهلية تخفيف الأعمال الصغيرة — Hysaab",
   description:
     "فاحص مجاني لتخفيف الأعمال الصغيرة في ضريبة الشركات الإماراتية: اختبار إيرادات الـ 3 ملايين درهم، وشرط الفترات السابقة، واستثناءات المناطق الحرة والمجموعات الكبرى — والـ 9% التي سيوفرها الاختيار.",
   alternates: langAlternates("/tools/small-business-relief-checker"),

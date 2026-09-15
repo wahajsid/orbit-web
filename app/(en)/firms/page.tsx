@@ -7,7 +7,7 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit for Firms — the OS for professional-services firms",
+  title: "Oblique OS — the OS for professional-services firms",
   description:
     "Coming soon. The operating system for tax and accounting firms — clients, engagements, working papers, filings, tasks and your team, run as one, with AI woven through.",
   alternates: langAlternates("/firms"),
@@ -39,16 +39,16 @@ export default function FirmsPage() {
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
           <div style={{ paddingTop: 40 }}>
-            <div className="np-soon"><span className="dot" /> Orbit for Firms · Coming soon</div>
+            <div className="np-soon"><span className="dot" /> Oblique OS · Coming soon</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              Orbit for Firms is the operating system for tax and accounting practices — clients,
+              Oblique OS is the operating system for tax and accounting practices — clients,
               engagements, timesheets, filings, disbursements and your team, run as one, with agents
               doing the busywork. Built by a Gulf firm that lived the chaos.
             </p>
             <a className="np-scrollcue" href="#what" aria-label="See what it does">
               <span className="tri">▶</span>
-              <span className="lab">What Orbit for Firms does</span>
+              <span className="lab">What Oblique OS does</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
@@ -68,7 +68,7 @@ export default function FirmsPage() {
             <p className="np-say np-rise d1">
               Clients scattered across email and folders. Engagement letters chased by hand.
               Working papers on a shared drive nobody trusts. A filing calendar in three places.
-              The advice your clients pay for is the last thing anyone has time for. Orbit for
+              The advice your clients pay for is the last thing anyone has time for. Hysaab for
               Firms puts the whole practice in one place — so the busywork stops eating the work.
             </p>
           </div>
@@ -125,18 +125,18 @@ export default function FirmsPage() {
               <p>
                 We&rsquo;re changing how tax, accounting and the services around them get done in the
                 Gulf — built by accountants who lived every late night of it, not by engineers
-                guessing. Orbit runs the books. Orbit&nbsp;Hire runs the hiring. Orbit&nbsp;for&nbsp;Firms
+                guessing. Hysaab runs the books. Hysaab&nbsp;Hire runs the hiring. Hysaab&nbsp;for&nbsp;Firms
                 runs the practice itself.
               </p>
               <p>
                 One family, one design, one standard: the software does the busywork and shows its
-                evidence — the judgement, and the client relationship, stay yours. Orbit for Firms
+                evidence — the judgement, and the client relationship, stay yours. Oblique OS
                 is the newest of the three, and it&rsquo;s opening soon.
               </p>
             </div>
             <div className="hero-actions np-rise" style={{ marginTop: 26 }}>
-              <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Orbit — the finance OS →</a>
-              <a className="textlink" href="/hire" style={{ fontSize: 13.5 }}>Orbit Hire — the hiring OS →</a>
+              <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Hysaab — the finance OS →</a>
+              <a className="textlink" href="/hire" style={{ fontSize: 13.5 }}>Ibtidah — the hiring OS →</a>
             </div>
           </div>
         </section>
@@ -146,12 +146,12 @@ export default function FirmsPage() {
           <div className="np-soon" style={{ color: "var(--brass-deep)", borderColor: "var(--hairline)" }}><span className="dot" style={{ background: "var(--brass)", boxShadow: "none" }} /> Coming soon</div>
           <h2 className="section-head">Be first in the door.</h2>
           <p className="section-sub">
-            Orbit for Firms opens to a small first cohort of Gulf practices. Tell us about your firm
+            Oblique OS opens to a small first cohort of Gulf practices. Tell us about your firm
             and we&rsquo;ll bring you in early — with founder terms.
           </p>
           <div className="hero-actions" style={{ marginTop: 26 }}>
             <a className="cta" href="/contact">Request early access</a>
-            <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Looking for the finance OS? Orbit is here →</a>
+            <a className="textlink" href="/" style={{ fontSize: 13.5 }}>Looking for the finance OS? Hysaab is here →</a>
           </div>
         </section>
       </main>

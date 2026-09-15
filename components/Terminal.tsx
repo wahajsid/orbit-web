@@ -21,7 +21,7 @@ const SCENARIOS: Scenario[] = [
     key: "invoice",
     title: ["One invoice,", "start to finish."],
     sub: "A photo lands on WhatsApp. Agents read it, tax-test it against FTA rules, match it to the PO and the bank line, and post it — you approve only what matters.",
-    header: "ORBIT / ACTIVITY",
+    header: "HYSAAB / ACTIVITY",
     lines: [
       ["08:14", "INTAKE", "invoice.pdf via WhatsApp", false],
       ["08:14", "READER", "12 lines · supplier matched", false],
@@ -34,7 +34,7 @@ const SCENARIOS: Scenario[] = [
     key: "close",
     title: ["The close,", "closing itself."],
     sub: "Overnight, the period assembles its own evidence: accruals proposed, bank reconciled, variances flagged — by morning only the judgement calls are left for you.",
-    header: "ORBIT / MONTH-END",
+    header: "HYSAAB / MONTH-END",
     lines: [
       ["21:02", "ACCRUE", "2 recurring accruals proposed", false],
       ["21:04", "RECON", "bank ⟷ ledger · 41 lines matched", false],
@@ -47,7 +47,7 @@ const SCENARIOS: Scenario[] = [
     key: "collections",
     title: ["Cash, chased", "politely."],
     sub: "Overdue invoices get a reminder in your tone — drafted, gated by your approval, sent, and matched to the bank when the money lands. Relationships intact.",
-    header: "ORBIT / COLLECTIONS",
+    header: "HYSAAB / COLLECTIONS",
     lines: [
       ["09:00", "SCAN", "3 invoices overdue · AED 347k", false],
       ["09:01", "DRAFT", "reminder in your tone → Corniche LLC", false],

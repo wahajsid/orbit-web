@@ -12,13 +12,13 @@ export interface CaptureFields { name: string; email: string; company: string; w
 const MSG = {
   en: {
     invalid: "A valid email is required.",
-    personal: "Orbit is for companies — please use your work email, not a personal Gmail/Outlook-style account.",
-    generic: "Something went wrong — email us at info@orbitgulf.com.",
+    personal: "Hysaab is for companies — please use your work email, not a personal Gmail/Outlook-style account.",
+    generic: "Something went wrong — email us at info@hysaab.ai.",
   },
   ar: {
     invalid: "يلزم إدخال بريد إلكتروني صحيح.",
-    personal: "أوربت للشركات — يُرجى استخدام بريد العمل، وليس بريدًا شخصيًا مثل Gmail أو Outlook.",
-    generic: "حدث خطأ ما — راسلنا على info@orbitgulf.com.",
+    personal: "Hysaab للشركات — يُرجى استخدام بريد العمل، وليس بريدًا شخصيًا مثل Gmail أو Outlook.",
+    generic: "حدث خطأ ما — راسلنا على info@hysaab.ai.",
   },
 } as const;
 

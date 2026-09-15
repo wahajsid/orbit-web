@@ -4,7 +4,7 @@ import { ParticipationCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص إعفاء المساهمة (ضريبة الشركات) — Orbit",
+  title: "فاحص إعفاء المساهمة (ضريبة الشركات) — Hysaab",
   description:
     "فاحص مجاني لإعفاء المساهمة في الإمارات: اختبار الملكية 5% أو 4 ملايين درهم، ومدة الاثني عشر شهرًا، وشرط الخضوع للضريبة — معفى أم خاضع، مع الضريبة على المحك.",
   alternates: langAlternates("/tools/uae-participation-exemption-checker"),

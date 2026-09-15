@@ -4,7 +4,7 @@ import { DesignatedZoneCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص ضريبة المناطق المحددة — Orbit",
+  title: "فاحص ضريبة المناطق المحددة — Hysaab",
   description:
     "أداة مجانية لقرار ضريبة القيمة المضافة في المناطق المحددة الإماراتية: سلع أم خدمات، حركة أم استهلاك — خارج النطاق أو خاضع أو ضريبة استيراد، لكل معاملة.",
   alternates: langAlternates("/tools/uae-designated-zone-vat-checker"),

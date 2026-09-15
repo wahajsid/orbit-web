@@ -5,7 +5,7 @@ import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Tools — Orbit",
+  title: "Tools — Hysaab",
   description:
     "Free Gulf finance calculators: IFRS 16 leases, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL and EIR, UAE gratuity, VAT and Corporate Tax. Computed in your browser, nothing uploaded.",
   alternates: langAlternates("/tools"),

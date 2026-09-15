@@ -369,7 +369,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mg-h2 { font-size: 28px; }
 }
 
-/* ── How Orbit works — 4-step grid ────────────────────────────────── */
+/* ── How Hysaab works — 4-step grid ────────────────────────────────── */
 .mg-steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -859,7 +859,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
    ══════════════════════════════════════════════════════════════════ */
 
 /* Font pairing: Noto Sans Arabic first; its arabic subset has no Latin
-   glyphs, so ORBIT / Xero / AED figures fall through to Archivo. */
+   glyphs, so HYSAAB / Xero / AED figures fall through to Archivo. */
 html[lang="ar"] {
   --sans: var(--font-arabic), var(--font-archivo), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }

@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { AuditCheckCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "UAE audit requirement checker — Orbit",
+  title: "UAE audit requirement checker — Hysaab",
   description:
     "Free UAE audit checker: the AED 50m Corporate Tax threshold, the QFZP audit condition, and the company-law and free-zone rules — do you need audited financial statements?",
   alternates: langAlternates("/tools/uae-audit-requirement-checker"),

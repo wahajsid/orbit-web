@@ -1,110 +1,165 @@
-/* ── Modernist-green shared chrome ───────────────────────────────────
-   The sticky ruled nav, the framed mark and the flush footer — the one
-   chrome every page uses. Locale-aware: pass locale="ar" from the /ar
-   tree and every label, href and arrow flips; EN pages pass nothing. */
+"use client";
 
-import { LangSwitch, LangSwitchFooter } from "./LangSwitch";
+/* ── Hysaab shared chrome ────────────────────────────────────────────
+   The sticky 60px cream header with the 2px navy rule, and the cream
+   footer with four link columns, the enquiry form and the legal row.
+   One chrome for every page (EN and AR). The homepage passes home so
+   the nav becomes the design's section anchors; inner pages get the
+   site map. Styles live in app/home.css (hy-*). */
+
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { Wordmark } from "./Wordmark";
+import { ContactForm } from "./hysaab/ContactForm";
 
 type Locale = "en" | "ar";
+type Link = readonly [string, string];
 
 const NAV = {
   en: {
-    product: "Product",
-    agents: "Agents",
-    compliance: "Compliance",
-    pricing: "Pricing",
-    more: "More products",
-    signin: "Sign in",
-    demo: "Book a demo →",
-    home: "Orbit home",
+    home: [
+      ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#why", "Why"], ["#family", "Products"],
+    ] as readonly Link[],
+    inner: [
+      ["/product", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
+    ] as readonly Link[],
+    signin: "Sign in", demo: "Book a demo", join: "Join the waitlist →", menu: "Menu", close: "Close", brand: "hysaab.ai, home",
   },
   ar: {
-    product: "المنتج",
-    agents: "الوكلاء",
-    compliance: "الامتثال",
-    pricing: "الأسعار",
-    more: "منتجات أخرى",
-    signin: "تسجيل الدخول",
-    demo: "احجز عرضًا ←",
-    home: "أوربت — الصفحة الرئيسية",
+    home: [
+      ["/ar/product", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
+    ] as readonly Link[],
+    inner: [
+      ["/ar/product", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
+    ] as readonly Link[],
+    signin: "تسجيل الدخول", demo: "احجز عرضًا", join: "انضم إلى قائمة الانتظار ←", menu: "القائمة", close: "إغلاق", brand: "hysaab.ai، الصفحة الرئيسية",
   },
-} as const;
+};
+
+type FootCol = readonly [string, readonly Link[]];
 
 const FOOT = {
   en: {
-    product: "Product", pricing: "Pricing", integrations: "Integrations",
-    compliance: "Compliance",
-    how: "How it works", guides: "Guides", tools: "Tools",
-    faq: "FAQ", about: "About", contact: "Contact",
-    loc: "Dubai, UAE",
+    tag: <>AI accounting &amp; reporting<br />Built in Dubai for the Gulf</>,
+    cols: [
+      ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
+      ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#agents", "Agents"]]],
+      ["Our products", [["/invoice", "Hysaab Invoice, invoice processing"], ["https://ibtidah.ae", "Ibtidah, hiring"], ["/firms", "Oblique OS, professional services"]]],
+      ["Company", [["/about", "Why we built it"], ["/#contact", "Contact"], ["/#cohort", "Join the waitlist"]]],
+    ] as readonly FootCol[],
+    kicker: "Get in touch",
+    contactH: "Have a question? Ask a person.",
+    contactP: "Tell us about your books and what you would like to know. A real person from the Hysaab team replies within one working day.",
+    legal: "© 2026 Hysaab · hysaab.ai · Dubai, UAE",
+    disclaimer: "Screens and scenarios are illustrative. Figures are examples, not results.",
+    lang: <>EN / <a href="/ar"><bdi>العربية</bdi></a></>,
   },
   ar: {
-    product: "المنتج", pricing: "الأسعار", integrations: "التكاملات",
-    compliance: "الامتثال",
-    how: "كيف يعمل", guides: "الأدلة", tools: "الأدوات",
-    faq: "الأسئلة الشائعة", about: "من نحن", contact: "تواصل معنا",
-    loc: "دبي، الإمارات",
+    tag: <>محاسبة وتقارير بالذكاء الاصطناعي<br />صُنع في دبي للخليج</>,
+    cols: [
+      ["المنتج", [["/ar/product", "المنتج"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/pricing", "الأسعار"], ["/ar/integrations", "التكاملات"], ["/ar/compliance", "الامتثال"]]],
+      ["الموارد", [["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"], ["/ar/faq", "الأسئلة الشائعة"]]],
+      ["منتجاتنا", [["/ar/invoice", "Hysaab Invoice، معالجة الفواتير"], ["https://ibtidah.ae", "Ibtidah، التوظيف"], ["/ar/firms", "Oblique OS، الخدمات المهنية"]]],
+      ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/ar/contact", "تواصل معنا"]]],
+    ] as readonly FootCol[],
+    kicker: "تواصل معنا",
+    contactH: "لديك سؤال؟ اسأل شخصًا حقيقيًا.",
+    contactP: "أخبرنا عن دفاترك وما تود معرفته. يرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.",
+    legal: "© 2026 Hysaab · hysaab.ai · دبي، الإمارات",
+    disclaimer: "الشاشات والسيناريوهات توضيحية. الأرقام أمثلة وليست نتائج.",
+    lang: <><a href="/">EN</a> / <bdi>العربية</bdi></>,
   },
-} as const;
+};
 
-export function Mark({ size = 30, framed = true, ringOnly = false, strokeWidth = 2 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 30 30" aria-hidden="true" style={{ flexShrink: 0 }}>
-      {framed && !ringOnly && <rect x="1" y="1" width="28" height="28" fill="none" stroke="var(--ink)" strokeWidth="2" />}
-      <circle cx="15" cy="15" r="7" fill="none" stroke="var(--accent)" strokeWidth={strokeWidth} />
-      <circle cx="24" cy="8" r={ringOnly ? 4 : 3} fill="var(--accent)" />
-    </svg>
-  );
+/* Kept for callers that still import the old framed mark: the favicon
+   mark at a given size. */
+export function Mark({ size = 30 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/brand/favicon.svg" width={size} height={size} alt="" aria-hidden="true" style={{ flexShrink: 0 }} />;
 }
 
-export function MgNav({ active, locale = "en" }: { active?: "product"; locale?: Locale }) {
+function twinOf(path: string): { isAr: boolean; target: string } {
+  const isAr = path === "/ar" || path.startsWith("/ar/");
+  if (isAr) return { isAr, target: path === "/ar" ? "/" : path.slice(3) || "/" };
+  let p = path;
+  if (p.startsWith("/guides/")) p = "/guides";
+  if (p.startsWith("/tools/")) p = "/tools";
+  return { isAr, target: p === "/" ? "/ar" : `/ar${p}` };
+}
+
+export function MgNav({ locale = "en", home = false }: { active?: string; locale?: Locale; home?: boolean }) {
   const t = NAV[locale];
-  const p = locale === "ar" ? "/ar" : "";
-  const home = p || "/";
+  const [open, setOpen] = useState(false);
+  const path = usePathname() || "/";
+  const { isAr, target } = twinOf(path);
+  const root = locale === "ar" ? "/ar" : "/";
+  const links = home ? t.home : t.inner;
+  const cohort = locale === "ar" ? "/ar#ledger" : home ? "#cohort" : "/#cohort";
+  const contact = locale === "ar" ? "/ar/contact" : home ? "#contact" : "/#contact";
+
   return (
-    <header className="mg-nav" role="banner">
-      <div className="mg-nav-inner">
-        <a href={home} className="mg-brand" aria-label={t.home}>
-          <Mark size={30} />
-          <span className="mg-wordmark">ORBIT</span>
-        </a>
-        <nav className="mg-nav-links" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary"}>
-          <a href={`${p}/product`} className={active === "product" ? "mg-nav-active" : undefined} aria-current={active === "product" ? "page" : undefined}>{t.product}</a>
-          <a href={`${home}#agents`}>{t.agents}</a>
-          <a href={`${p}/compliance`}>{t.compliance}</a>
-          <a href={`${p}/pricing`}>{t.pricing}</a>
-          <a href={`${home}#products`} className="mg-hidden-narrow">{t.more}</a>
-        </nav>
-        <div className="mg-nav-right">
-          <LangSwitch />
-          <a href="https://app.orbitgulf.com" className="mg-signin">{t.signin}</a>
-          <a href={`${home}#join`} className="mg-cta">{t.demo}</a>
-        </div>
+    <header className="hy-header" role="banner" data-open={open}>
+      <a href={root} className="hy-header-brand" aria-label={t.brand} onClick={() => setOpen(false)}>
+        <Wordmark size={26} ground="light" />
+      </a>
+      <nav className="hy-nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary"}>
+        {links.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
+      </nav>
+      <div className="hy-header-right">
+        <span className="hy-lang">
+          {isAr ? <a href={target}>EN</a> : <span aria-current="true">EN</span>}
+          <span aria-hidden="true">·</span>
+          {isAr ? <span className="hy-ar" aria-current="true" lang="ar">ع</span> : <a href={target} className="hy-ar" lang="ar" aria-label="العربية">ع</a>}
+        </span>
+        <a href="https://app.hysaab.ai" className="hy-lang" style={{ fontWeight: 500 }}>{t.signin}</a>
+        <a href={contact} className="hy-btn hy-btn--outline hy-btn--sm">{t.demo}</a>
+        <a href={cohort} className="hy-btn hy-btn--navy hy-btn--sm">{t.join}</a>
+        <button type="button" className="hy-menu-btn" aria-expanded={open} aria-controls="hy-menu" onClick={() => setOpen((o) => !o)}>
+          {open ? t.close : t.menu}
+        </button>
       </div>
+      <nav className="hy-menu" id="hy-menu" aria-label={locale === "ar" ? "قائمة الهاتف" : "Mobile"}>
+        {links.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
+        <a href={contact} onClick={() => setOpen(false)}>{t.demo}</a>
+        <a href={target} onClick={() => setOpen(false)}>{isAr ? "English" : <span className="hy-ar" lang="ar">العربية</span>}</a>
+      </nav>
     </header>
   );
 }
 
 export function MgFooter({ locale = "en" }: { locale?: Locale }) {
   const t = FOOT[locale];
-  const p = locale === "ar" ? "/ar" : "";
   return (
-    <footer className="mg-footer">
-      <Mark size={18} />
-      <span className="mg-wordmark mg-wordmark-sm">ORBIT</span>
-      <nav className="mg-footer-links" aria-label={locale === "ar" ? "روابط أسفل الصفحة" : "Footer"}>
-        <a href={`${p}/product`}>{t.product}</a>
-        <a href={`${p}/pricing`}>{t.pricing}</a>
-        <a href={`${p}/integrations`}>{t.integrations}</a>
-        <a href={`${p}/compliance`}>{t.compliance}</a>
-        <a href={`${p}/how-it-works`}>{t.how}</a>
-        <a href={`${p}/guides`}>{t.guides}</a>
-        <a href={`${p}/tools`}>{t.tools}</a>
-        <a href={`${p}/faq`}>{t.faq}</a>
-        <a href={`${p}/about`}>{t.about}</a>
-        <a href={`${p}/contact`}>{t.contact}</a>
-      </nav>
-      <span className="mg-footer-loc">{t.loc} · <LangSwitchFooter /> · © 2026 Orbit</span>
+    <footer className="hy-footer" id="contact">
+      <div className="hy-wrap">
+        <div className="hy-footer-top">
+          <div className="hy-footer-brand">
+            <Wordmark size={24} ground="light" />
+            <span className="hy-footer-tag">{t.tag}</span>
+          </div>
+          {t.cols.map(([head, links]) => (
+            <div className="hy-footer-col" key={head}>
+              <span className="hy-label">{head}</span>
+              {links.map(([href, label]) => (
+                <a key={href} href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>{label}</a>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="hy-footer-contact">
+          <div className="hy-footer-contact-copy">
+            <span className="hy-label">{t.kicker}</span>
+            <h2 className="hy-footer-contact-h">{t.contactH}</h2>
+            <p className="hy-footer-contact-p">{t.contactP}</p>
+            <a href="mailto:info@hysaab.ai" className="hy-ulink">info@hysaab.ai</a>
+          </div>
+          <ContactForm />
+        </div>
+        <div className="hy-footer-legal">
+          <span>{t.legal} · {t.lang}</span>
+          <span>{t.disclaimer}</span>
+        </div>
+      </div>
     </footer>
   );
 }

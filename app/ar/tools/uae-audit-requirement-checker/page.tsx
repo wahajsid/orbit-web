@@ -4,7 +4,7 @@ import { AuditCheckCalculator } from "@/components/tools/calculators";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "فاحص وجوب التدقيق في الإمارات — Orbit",
+  title: "فاحص وجوب التدقيق في الإمارات — Hysaab",
   description:
     "فاحص مجاني لوجوب التدقيق في الإمارات: عتبة الـ 50 مليون درهم في ضريبة الشركات، وشرط الشخص المؤهل، وقواعد قانون الشركات والمناطق الحرة — هل تحتاج قوائم مدققة؟",
   alternates: langAlternates("/tools/uae-audit-requirement-checker"),

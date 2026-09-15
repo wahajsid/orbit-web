@@ -5,7 +5,7 @@ import { getArGuide } from "@/lib/guides-ar";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "الأدلة — Orbit",
+  title: "الأدلة — Hysaab",
   description:
     "أدلة عملية للمالية في الخليج: الفاتورة الضريبية الصحيحة في الإمارات، ومواعيد ضريبة القيمة المضافة وضريبة الشركات، والإقفال الشهري، والعمل مع دفتر الأستاذ الذي لديك بالفعل.",
   alternates: langAlternates("/guides"),
@@ -21,7 +21,7 @@ export default function GuidesPage() {
           <h1 className="mg-page-h">العمل الروتيني، مشروحًا ببساطة.</h1>
           <p className="mg-page-lede">
             إجابات قصيرة وعملية عن الأسئلة التي تتعامل معها فرق المالية في الخليج فعلًا —
-            كتبها المحاسبون الذين بنوا Orbit. بعض الأدلة متاح بالعربية والبقية بالإنجليزية
+            كتبها المحاسبون الذين بنوا Hysaab. بعض الأدلة متاح بالعربية والبقية بالإنجليزية
             حتى تكتمل الترجمة. لا بوابات، ولا جدار بريد إلكتروني.
           </p>
         </section>

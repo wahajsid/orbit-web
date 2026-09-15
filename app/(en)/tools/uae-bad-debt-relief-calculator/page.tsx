@@ -4,7 +4,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { BadDebtCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
-  title: "VAT bad-debt relief calculator (Article 64) — Orbit",
+  title: "VAT bad-debt relief calculator (Article 64) — Hysaab",
   description:
     "Free UAE VAT bad-debt relief calculator: test the four Article 64 conditions and compute the exact 5/105 output-tax adjustment on written-off receivables.",
   alternates: langAlternates("/tools/uae-bad-debt-relief-calculator"),

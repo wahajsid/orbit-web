@@ -4,7 +4,7 @@ import { MgNav, MgFooter } from "@/components/MgChrome";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Orbit — One system, six modules, every dirham accounted for.",
+  title: "Hysaab — One system, six modules, every dirham accounted for.",
   description:
     "Payables, receivables, the ledger, the close, documents and tax — each run by agents, each answerable to you.",
   alternates: langAlternates("/product"),
@@ -41,7 +41,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-payables.png" alt="Orbit Payables — open payables with the tax layer embedded in every row" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-payables.png" alt="Hysaab Payables — open payables with the tax layer embedded in every row" width={1600} height={1273} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -55,7 +55,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-receivables.png" alt="Orbit Receivables — the collections queue, DSO and ageing posture" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-receivables.png" alt="Hysaab Receivables — the collections queue, DSO and ageing posture" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-ledger.png" alt="Orbit general ledger — journal activity with agent commentary and evidence" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-ledger.png" alt="Hysaab general ledger — journal activity with agent commentary and evidence" width={1600} height={946} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-close.png" alt="Orbit close cockpit — Orbit's side done, your ledger's side listed, the lock gated" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — Hysaab's side done, your ledger's side listed, the lock gated" width={1600} height={1169} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -101,7 +101,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-documents.png" alt="Orbit Documents — the evidence vault, every file linked to its journal" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-documents.png" alt="Hysaab Documents — the evidence vault, every file linked to its journal" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
@@ -115,7 +115,7 @@ export default function Page() {
           </div>
           <div className="mg-prod-vig">
             <div className="mg-vig-card">
-              <Image src="/shots/adv-tax.png" alt="Orbit tax — VAT–CT reconciliation, deadlines and clearance in one place" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
+              <Image src="/shots/adv-tax.png" alt="Hysaab tax — VAT–CT reconciliation, deadlines and clearance in one place" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
             </div>
           </div>
         </section>
