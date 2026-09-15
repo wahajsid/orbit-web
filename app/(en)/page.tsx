@@ -37,7 +37,7 @@ const AGENTS: { h: string; p: React.ReactNode; tone?: "cream" | "navy" }[] = [
   { h: "Collections", p: "Prepares and sends reminders inside a cadence you approve once, and stops when a customer replies." },
   { h: "Close preparation", p: "Accruals, recurring entries, schedules and the list of what is still outstanding." },
   { h: "Reporting", p: "Produces supported reports and explains what moved, with every figure traceable to its source." },
-  { h: "Tax checks", p: "Tests every invoice against the tax-invoice rules and holds input VAT that would not survive an audit." },
+  { h: "Tax checks", p: <>Tests every invoice against the tax-invoice rules and the October 2026 recovery changes, and holds input VAT that would not survive an audit. <a href="/guides/uae-vat-cabinet-decision-149-2026-input-tax">What changed →</a></> },
   { h: "Ask anything", p: "Answers plain questions about your own numbers, and shows the entries behind the answer." },
   { h: "Where it stops", p: "No agent crosses a period lock, changes an approval rule or claims tax you have not cleared.", tone: "cream" },
   { h: "Duplicate watch", p: "Catches the same bill twice: the supplier copy, the forwarded PDF and the WhatsApp photo." },
@@ -246,35 +246,32 @@ export default async function Page() {
           <div className="hy-wrap" style={{ display: "flex", flexDirection: "column", gap: 28 }}>
             <span className="hy-kicker">Our products</span>
             <h2 className="hy-h2">Four products. Each stands on its own.</h2>
-            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own. hysaab services OS runs a professional services business. Each has its own subscription and can be used on its own.</p>
+            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own, hysaab services OS runs a professional services firm, and Ibtidah finds the finance people. All four are built in Dubai by the same team, with a person in the loop on every judgement call.</p>
             <div className="hy-family-grid">
               <div className="hy-product hy-product--navy">
                 <span className="hy-product-l">AI accounting &amp; reporting</span>
-                <Wordmark size={27} ground="navy" suffix={false} />
-                <span className="hy-product-p">Agents carry out the finance work, prepare the information and bring the decisions to you. <strong>Early access</strong>.</span>
+                <span className="hy-product-title"><Wordmark size={27} ground="navy" suffix={false} /></span>
+                <span className="hy-product-p">Sixteen agents read every document, code every entry, reconcile every bank line and rebuild your reports overnight, then bring you the two or three calls that are yours. The close takes days, not weeks, and every figure can show its source. <strong>Early access</strong>.</span>
+                <a href="#cohort" className="hy-ulink hy-ulink--cream">Join the waitlist →</a>
               </div>
               <div className="hy-product">
                 <span className="hy-product-l">Invoice processing &amp; checks</span>
-                <a href="/invoice" className="hy-product-h" style={{ fontWeight: 500 }}>hysaab invoice</a>
-                <span className="hy-product-p">What happens to an invoice, what is checked, what is flagged and what you receive back. <strong>Available</strong>.</span>
+                <span className="hy-product-title"><a href="/invoice" className="hy-product-h">hysaab invoice</a></span>
+                <span className="hy-product-p">Send a supplier invoice by WhatsApp, email or upload. It comes back read, coded and tested against the tax-invoice rules and the October 2026 recovery changes, with duplicates caught, the input VAT you can safely claim, and a stated reason for anything held. <strong>Available</strong>.</span>
                 <a href="/invoice" className="hy-ulink">See hysaab invoice →</a>
               </div>
               <div className="hy-product">
-                <span className="hy-product-l">Hiring platform</span>
-                <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-product-h">Ibtidah</a>
-                <span className="hy-product-p">Who it helps you hire, which recruitment stages it supports, and where hiring decisions stay with people. <strong>Available</strong>.</span>
-                <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-ulink">ibtidah.ae →</a>
-              </div>
-              <div className="hy-product">
                 <span className="hy-product-l">Professional services platform</span>
-                <a href="/firms" className="hy-product-h" style={{ fontWeight: 500 }}>hysaab services OS</a>
-                <span className="hy-product-p">Client work, engagements and oversight for a professional services firm, supercharged by AI so the people focus on the work that needs them. <strong>Coming soon</strong>.</span>
+                <span className="hy-product-title"><a href="/firms" className="hy-product-h">hysaab services OS</a></span>
+                <span className="hy-product-p">The operating system for a professional services firm: client work, engagements, deadlines and oversight in one place, supercharged by AI so partners and staff spend their hours on judgement and clients, not on admin. <strong>Coming soon</strong>.</span>
                 <a href="/firms" className="hy-ulink">See hysaab services OS →</a>
               </div>
-            </div>
-            <div className="hy-family-qa">
-              <span><strong>Used independently?</strong> Yes. Each product stands alone.</span>
-              <span><strong>Separate subscriptions?</strong> Yes, priced per product.</span>
+              <div className="hy-product">
+                <span className="hy-product-l">Hiring platform</span>
+                <span className="hy-product-title"><a href="/hire" className="hy-product-h">Ibtidah</a></span>
+                <span className="hy-product-p">Finance recruitment that tests the work, not the CV. AI reads and questions every candidate; finance professionals decide who reaches the shortlist. Three to five people you can trust, instead of thirty interviews. <strong>Available</strong>.</span>
+                <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-ulink">ibtidah.ae →</a>
+              </div>
             </div>
           </div>
         </section>
