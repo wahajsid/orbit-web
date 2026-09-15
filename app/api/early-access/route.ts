@@ -107,7 +107,9 @@ export async function POST(req: NextRequest) {
   // 2) Seat number = base + rows now in the table (the row just written
   //    included), capped at the last founding seat.
   const count = await countSignups();
-  const seat = Math.min(SEAT_BASE + (count ?? 1), FOUNDING_SEATS);
+  // Anon RLS is insert-only, so the count can read as 0; never hand out a seat
+  // the ledger already shows as taken.
+  const seat = Math.min(SEAT_BASE + Math.max(count ?? 0, 1), FOUNDING_SEATS);
   if (already) return NextResponse.json({ ok: true, already: true, seat });
 
   // 3) Welcome email — the signup is already saved, so a mail failure never
