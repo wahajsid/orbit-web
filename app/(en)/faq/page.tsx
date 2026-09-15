@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 import { LAUNCH_DATE_LONG } from "@/lib/launch";
 
 import { langAlternates } from "@/lib/site-meta";
@@ -87,6 +88,7 @@ export default function FaqPage() {
           ))}
         </section>
       </main>
+      <CtaBand />
       <MgFooter />
     </>
   );

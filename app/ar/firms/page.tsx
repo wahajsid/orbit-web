@@ -6,7 +6,7 @@ import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Oblique OS — نظام التشغيل لمكاتب الخدمات المهنية",
+  title: "hysaab services OS — نظام التشغيل لمكاتب الخدمات المهنية",
   description:
     "قريبًا. نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء، والارتباطات، وأوراق العمل، والإقرارات، والمهام، وفريقك، تُدار كوحدة واحدة، والذكاء الاصطناعي منسوج في كل جزء.",
   alternates: langAlternates("/firms"),
@@ -38,16 +38,16 @@ export default function FirmsPage() {
       <header className="hero-band on-ink np-hero" id="top">
         <div className="wrap">
           <div style={{ paddingTop: 40 }}>
-            <div className="np-soon"><span className="dot" /> ‏Oblique OS · قريبًا</div>
+            <div className="np-soon"><span className="dot" /> ‏hysaab services OS · قريبًا</div>
             <RotatingHeadline items={HEADLINES} />
             <p className="hero-sub" style={{ maxWidth: 600 }}>
-              ‏Oblique OS هو نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء،
+              ‏hysaab services OS هو نظام التشغيل لمكاتب الضرائب والمحاسبة — العملاء،
               والارتباطات، وسجلات الوقت، والإقرارات، والمصروفات، وفريقك، تُدار كوحدة واحدة،
               والوكلاء يتولون العمل الروتيني. بناه مكتب خليجي عاش الفوضى بنفسه.
             </p>
             <a className="np-scrollcue" href="#what" aria-label="شاهد ما يفعله">
               <span className="tri">▶</span>
-              <span className="lab">ماذا يفعل Oblique OS</span>
+              <span className="lab">ماذا يفعل hysaab services OS</span>
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
@@ -129,7 +129,7 @@ export default function FirmsPage() {
               </p>
               <p>
                 عائلة واحدة، وتصميم واحد، ومعيار واحد: البرنامج يؤدي العمل الروتيني ويُظهر
-                أدلته — ويبقى الحُكم المهني، وعلاقة العميل، لك أنت. ‏Oblique OS
+                أدلته — ويبقى الحُكم المهني، وعلاقة العميل، لك أنت. ‏hysaab services OS
                 هو الأحدث بين الثلاثة، وأبوابه تُفتح قريبًا.
               </p>
             </div>
@@ -145,7 +145,7 @@ export default function FirmsPage() {
           <div className="np-soon" style={{ color: "var(--brass-deep)", borderColor: "var(--hairline)" }}><span className="dot" style={{ background: "var(--brass)", boxShadow: "none" }} /> قريبًا</div>
           <h2 className="section-head">كن أول من يدخل.</h2>
           <p className="section-sub">
-            يفتح Oblique OS أبوابه لدفعة أولى صغيرة من مكاتب الخليج. حدّثنا عن مكتبك
+            يفتح hysaab services OS أبوابه لدفعة أولى صغيرة من مكاتب الخليج. حدّثنا عن مكتبك
             وسندخلك مبكرًا — بشروط المؤسسين.
           </p>
           <div className="hero-actions" style={{ marginTop: 26 }}>

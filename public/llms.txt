@@ -22,8 +22,8 @@ Key facts:
 - [FAQ](https://hysaab.ai/faq): straight answers on data safety, autonomy limits, pricing
 - [About](https://hysaab.ai/about): who builds Hysaab and what it believes
 - [Ibtidah](https://hysaab.ai/hire): the sister hiring product
-- [Hysaab Invoice](https://hysaab.ai/invoice): tax compliance and e-invoice validation
-- [Oblique OS](https://hysaab.ai/firms): Hysaab as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
+- [hysaab invoice](https://hysaab.ai/invoice): tax compliance and e-invoice validation
+- [hysaab services OS](https://hysaab.ai/firms): Hysaab as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
 - [Contact](https://hysaab.ai/contact): how to reach the team
 - [الموقع بالعربية](https://hysaab.ai/ar): the full marketing site in Arabic, right-to-left
 

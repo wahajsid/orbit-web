@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MgNav, MgFooter } from "@/components/MgChrome";
+import { CtaBand } from "@/components/hysaab/CtaBand";
 
 import { langAlternates } from "@/lib/site-meta";
 
@@ -58,9 +59,9 @@ export default function AboutPage() {
               One mission — changing how tax, accounting and the services around them get done in the
               Gulf — carried by four products: <a className="textlink" href="/product">Hysaab</a> runs
               the books, <a className="textlink" href="/hire">Ibtidah</a> runs the hiring,{" "}
-              <a className="textlink" href="/invoice">Hysaab Invoice</a> tests every supplier invoice
+              <a className="textlink" href="/invoice">hysaab invoice</a> tests every supplier invoice
               against the FTA&rsquo;s and ZATCA&rsquo;s rules, and{" "}
-              <a className="textlink" href="/firms">Oblique OS</a> runs the practice itself.
+              <a className="textlink" href="/firms">hysaab services OS</a> runs the practice itself.
             </p>
           </div>
 
@@ -79,6 +80,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
+      <CtaBand />
       <MgFooter />
     </>
   );
