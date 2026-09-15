@@ -1692,26 +1692,50 @@ export function PartialExemptionCalculator({ ar = false }: { ar?: boolean } = {}
   const [taxIn, setTaxIn] = useState("40000");
   const [exIn, setExIn] = useState("10000");
   const [resid, setResid] = useState("25000");
+  // Cabinet Decision 149 of 2026: turnover-based ratio from the first tax
+  // year commencing after 1 October 2027 (Article 55(6)).
+  const [method, setMethod] = useState<"input" | "turnover">("input");
+  const [recSup, setRecSup] = useState("900000");
+  const [exSup, setExSup] = useState("200000");
 
   const t = Math.max(0, num(taxIn));
   const e = Math.max(0, num(exIn));
   const r = Math.max(0, num(resid));
-  const ratio = t + e > 0 ? Math.round((t / (t + e)) * 100) : 100;
+  const rs = Math.max(0, num(recSup));
+  const es = Math.max(0, num(exSup));
+  const inputRatio = t + e > 0 ? Math.round((t / (t + e)) * 100) : 100;
+  const turnoverRatio = rs + es > 0 ? Math.round((rs / (rs + es)) * 100) : 100;
+  const ratio = method === "input" ? inputRatio : turnoverRatio;
   const residRec = (r * ratio) / 100;
   const total = t + residRec;
   const lost = e + (r - residRec);
+  const other = t + (r * (method === "input" ? turnoverRatio : inputRatio)) / 100;
+  const delta = method === "turnover" ? total - other : other - total; // 2028 minus today
 
   const L = ar
-    ? { t: "مدخلات منسوبة للتوريدات الخاضعة (درهم)", e: "مدخلات منسوبة للتوريدات المعفاة (درهم)", r: "المدخلات المتبقية — المصاريف العامة (درهم)", ratio: "نسبة الاسترداد", rec: "إجمالي المسترد", lost: "الضريبة الضائعة" }
-    : { t: "Input VAT attributed to taxable supplies (AED)", e: "Input VAT attributed to exempt supplies (AED)", r: "Residual input VAT — overheads (AED)", ratio: "Recovery ratio", rec: "Total recoverable", lost: "VAT lost" };
+    ? { t: "مدخلات منسوبة للتوريدات الخاضعة (درهم)", e: "مدخلات منسوبة للتوريدات المعفاة (درهم)", r: "المدخلات المتبقية — المصاريف العامة (درهم)", ratio: "نسبة الاسترداد", rec: "إجمالي المسترد", lost: "الضريبة الضائعة", method: "طريقة التوزيع", mIn: "الحالية: نسبة المدخلات", mTo: "من 2028: نسبة التوريدات", rs: "قيمة التوريدات التي تمنح حق الاسترداد (درهم)", es: "قيمة التوريدات المعفاة (درهم)", delta: "أثر طريقة 2028 على المسترد" }
+    : { t: "Input VAT attributed to taxable supplies (AED)", e: "Input VAT attributed to exempt supplies (AED)", r: "Residual input VAT — overheads (AED)", ratio: "Recovery ratio", rec: "Total recoverable", lost: "VAT lost", method: "Apportionment method", mIn: "Today: input tax ratio", mTo: "From 2028: turnover ratio", rs: "Value of supplies that carry recovery (AED)", es: "Value of exempt supplies (AED)", delta: "2028 method vs today" };
 
   return (
     <div className="mg-tool">
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.method}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          <button type="button" className={method === "input" ? "on" : ""} onClick={() => setMethod("input")}>{L.mIn}</button>
+          <button type="button" className={method === "turnover" ? "on" : ""} onClick={() => setMethod("turnover")}>{L.mTo}</button>
+        </div>
+      </div>
       <div className="mg-tool-fields">
         <Field label={L.t} value={taxIn} onChange={setTaxIn} width={290} />
         <Field label={L.e} value={exIn} onChange={setExIn} width={290} />
         <Field label={L.r} value={resid} onChange={setResid} width={290} />
       </div>
+      {method === "turnover" && (
+        <div className="mg-tool-fields">
+          <Field label={L.rs} value={recSup} onChange={setRecSup} width={290} />
+          <Field label={L.es} value={exSup} onChange={setExSup} width={290} />
+        </div>
+      )}
       <div className="mg-tool-result">
         <div>
           <div className="mg-tool-label">{L.ratio}</div>
@@ -1725,10 +1749,20 @@ export function PartialExemptionCalculator({ ar = false }: { ar?: boolean } = {}
           <div className="mg-tool-label">{L.lost}</div>
           <div className="mg-tool-big" style={{ color: lost > 0 ? "var(--bad)" : "var(--accent)" }}>{aed2(lost)}</div>
         </div>
+        {method === "turnover" && (
+          <div>
+            <div className="mg-tool-label">{L.delta}</div>
+            <div className="mg-tool-big" style={{ color: delta < 0 ? "var(--bad)" : "var(--accent)" }}>{delta >= 0 ? "+" : "−"}{aed2(Math.abs(delta))}</div>
+          </div>
+        )}
         <div className="mg-tool-note">
-          {ar
-            ? <>الطريقة القياسية: المدخلات المنسوبة للخاضع تُسترد كاملة، والمنسوبة للمعفى تضيع، والمتبقي يُسترد بنسبة المنسوب المسترد إلى إجمالي المنسوب ({ratio}% هنا، مقربة). ولا تنسَ التسوية السنوية — احسب السنة كلًا واحدًا وسوِّ الفرق في الفترة المقررة.</>
-            : <>The standard method: attributed-to-taxable recovers in full, attributed-to-exempt is lost, and the residual recovers at the ratio of recoverable attributed input tax to total attributed input tax ({ratio}% here, rounded). Don't skip the annual wash-up — recompute the year as a whole and adjust the difference in the prescribed period.</>}
+          {method === "input"
+            ? (ar
+              ? <>الطريقة القياسية: المدخلات المنسوبة للخاضع تُسترد كاملة، والمنسوبة للمعفى تضيع، والمتبقي يُسترد بنسبة المنسوب المسترد إلى إجمالي المنسوب ({ratio}% هنا، مقربة). ولا تنسَ التسوية السنوية — احسب السنة كلًا واحدًا وسوِّ الفرق في الفترة المقررة.</>
+              : <>The standard method: attributed-to-taxable recovers in full, attributed-to-exempt is lost, and the residual recovers at the ratio of recoverable attributed input tax to total attributed input tax ({ratio}% here, rounded). Don't skip the annual wash-up — recompute the year as a whole and adjust the difference in the prescribed period.</>)
+            : (ar
+              ? <>بموجب قرار مجلس الوزراء رقم 149 لسنة 2026، يُوزَّع المتبقي ابتداءً من أول سنة ضريبية تبدأ بعد 1 أكتوبر 2027 بنسبة قيمة التوريدات التي تمنح حق الاسترداد إلى قيمة جميع التوريدات ({turnoverRatio}% هنا، مقابل {inputRatio}% بالطريقة الحالية). استبعد من الحساب بيع أصولك الرأسمالية وتوريدات الاحتساب العكسي المستلمة. وتبقى الجهات الحكومية والخيرية على نسبة المدخلات، وتستمر التسوية السنوية.</>
+              : <>Under Cabinet Decision 149 of 2026, from the first tax year commencing after 1 October 2027 the residual pot recovers at the value of supplies that carry recovery over the value of all supplies ({turnoverRatio}% here, against {inputRatio}% on today&apos;s method). Leave disposals of your own capital assets and reverse-charge receipts of concerned goods and services out of both figures. Government entities and charities keep the input tax ratio, and the annual adjustment continues.</>)}
         </div>
       </div>
     </div>

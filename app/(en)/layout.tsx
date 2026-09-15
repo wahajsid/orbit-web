@@ -31,7 +31,9 @@ export const metadata: Metadata = {
   // https://hysaab.ai, and www redirects there at the edge.
   metadataBase: new URL("https://hysaab.ai"),
   alternates: { canonical: "./" },
-  title: { default: TITLE, template: "%s | Hysaab" },
+  // Page titles carry their own brand suffix; a "%s | Hysaab" template
+  // doubled it ("Pricing — Hysaab | Hysaab").
+  title: { default: TITLE, template: "%s" },
   description: DESC,
   applicationName: "Hysaab",
   openGraph: {

@@ -6,9 +6,9 @@ import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Tools — Hysaab",
+  title: "Free UAE & KSA Tax Calculators (VAT, CT, Zakat) | Hysaab",
   description:
-    "Free Gulf finance calculators: IFRS 16 leases, IAS 19 actuarial EOSB, IAS 36 impairment DCF, IAS 12 deferred tax, IFRS 9 ECL and EIR, UAE gratuity, VAT and Corporate Tax. Computed in your browser, nothing uploaded.",
+    "Free UAE and KSA tax and accounting calculators: VAT, Corporate Tax, Zakat, penalties, partial exemption, gratuity, IFRS 16, IAS 12 and more. Computed in your browser, nothing uploaded.",
   alternates: langAlternates("/tools"),
 };
 

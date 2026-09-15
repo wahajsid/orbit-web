@@ -357,9 +357,9 @@ export default function HowItWorksPage() {
               <li><b>Scale</b> — AED 1,499/month. Multi-entity, advanced integrations, priority support.</li>
             </ul>
             <p className="mg-guide-p">
-              The first 100 companies get a full year free — the founding cohort. No credit card, no
-              catch. We want businesses who&rsquo;ll tell us what&rsquo;s broken so we can fix it
-              before we charge anyone.{" "}
+              The first 100 companies are the founding cohort: founder pricing locked in for as long
+              as they stay. We want businesses who&rsquo;ll tell us what&rsquo;s broken so we can fix
+              it.{" "}
               <a className="textlink" href="/pricing">Full pricing details →</a>
             </p>
           </div>

@@ -4,11 +4,19 @@
    app/guides/[slug]. Tax-law guides carry the disclaimer and should be
    reviewed against the official text when regulations move. */
 
+import { CD149_GUIDES } from "./guides-cd149";
+
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
 /* faqs render as a question-and-answer block at the end of the guide and
    emit FAQPage JSON-LD — answer-shaped content aimed at the queries people
    actually type (and at AI answer engines). Optional per guide. */
 export type GuideFaq = { q: string; a: string };
+/* Internal links: section and FAQ text may carry [label](/path) links,
+   rendered as anchors (and stripped to plain text in JSON-LD). `related`
+   lists guide slugs for the "Keep reading" block, which also picks up
+   guides that list this one (links run both ways) and the tools whose
+   `guide` points here. `cta` swaps the closing /product button for the
+   product page that does this guide's work. */
 export type Guide = {
   slug: string;
   title: string;
@@ -18,6 +26,8 @@ export type Guide = {
   tax: boolean; // true → render the not-tax-advice disclaimer
   sections: GuideSection[];
   faqs?: GuideFaq[];
+  related?: string[];
+  cta?: { href: string; label: string };
 };
 
 export const GUIDES: Guide[] = [
@@ -41,7 +51,7 @@ export const GUIDES: Guide[] = [
         h: "1. Input tax is blocked on high-value supplies paid in cash (new Article 54(3))",
         ps: [
           "From 1 October 2026, input tax cannot be recovered on any supply whose value exceeds a threshold to be set by the Minister, where the consideration is paid, or intended to be paid, in cash. The threshold and the controls sit in a Ministerial Decision that had not been issued at the time of writing.",
-          "This is a standalone denial of recovery, not a timing rule. The drafting refers to the value of the supply rather than to the invoice or the payment, so on a literal reading a large supply that is partly settled in cash could lose recovery on the whole supply. It complements FTA Decision 13 of 2026 on supplier due diligence, which already pushes businesses toward electronic settlement.",
+          "This is a standalone denial of recovery, not a timing rule. The drafting refers to the value of the supply rather than to the invoice or the payment, so on a literal reading a large supply that is partly settled in cash could lose recovery on the whole supply. It complements FTA Decision 13 of 2026 on supplier due diligence, which already pushes businesses toward electronic settlement. The open questions on cheques, part-cash settlement and petty cash are worked through in our guide to [VAT on cash payments and petty cash](/guides/uae-vat-cash-payments-petty-cash-2026).",
         ],
         list: [
           "Map where cash settlement happens above any likely threshold: site petty cash, subcontractor payments, cash on delivery, retail and food and beverage purchasing.",
@@ -58,14 +68,14 @@ export const GUIDES: Guide[] = [
           "Legal obligation: recovery is allowed where provision is mandatory under the labour legislation of the State or of any free zone, financial or non-financial. The old wording said Designated Zone, which never matched the DIFC and ADGM employment regimes; this widens the exception.",
           "Accommodation is carved out of the legal-obligation route unless it is mandatory under decisions or directives of the Ministry of Human Resources and Emiratisation. Construction, hospitality, manufacturing and logistics businesses that recover VAT on labour accommodation and camp operating costs need to retest each cost against a MoHRE mandate rather than a general labour-law obligation.",
           "Contractual obligation or documented policy: recovery now depends on cases and conditions to be specified by the FTA. Until that decision is issued, an employment contract or HR policy on its own is not a safe basis for recovery, and positions taken from 1 October should be flagged internally.",
-          "Nothing in the amendment addresses utilities, furniture or maintenance around accommodation; those keep the existing treatment, and the FTA public clarification on residential versus serviced labour accommodation still applies.",
+          "Nothing in the amendment addresses utilities, furniture or maintenance around accommodation separately. The FTA public clarification on residential versus serviced labour accommodation (VATP003) still decides whether the rent carries VAT, and the cautious approach is to apply the same MoHRE test to running costs until the FTA says otherwise. The cost-by-cost test is in our guide to [recovering VAT on staff accommodation](/guides/uae-vat-staff-accommodation-recovery-2026).",
         ],
       },
       {
         h: "3. Bundled supplies: substance overrides form (new Article 4(6))",
         ps: [
           "A taxable person may no longer treat a multi-component supply as several supplies where the nature and economic substance of the supply show that the components are interconnected and cannot be separated. Such a supply is a single composite supply and follows the VAT treatment of its principal component.",
-          "Separate pricing on the invoice used to be enough to fall outside composite-supply treatment. It no longer is. If parts of a package carry different rates, standard, zero or exempt, you now need to show the parts are genuinely separable in practice. Bundled financial products, real estate with related services, education and healthcare packages, hospitality, telecoms and digital bundles are the obvious places to look.",
+          "Separate pricing on the invoice used to be enough to fall outside composite-supply treatment. It no longer is. If parts of a package carry different rates, standard, zero or exempt, you now need to show the parts are genuinely separable in practice. Bundled financial products, real estate with related services, education and healthcare packages, hospitality, telecoms and digital bundles are the obvious places to look. The test questions and a worked school-fee example are in our guide to [composite and bundled supplies](/guides/uae-vat-composite-bundled-supplies-2026).",
         ],
       },
       {
@@ -78,7 +88,7 @@ export const GUIDES: Guide[] = [
         h: "5. Apportionment moves to a turnover ratio from 2028 (Article 55(6), (7) and (19))",
         ps: [
           "For partially exempt businesses, residual input tax will be apportioned on the value of supplies that carry recovery over the value of all supplies, instead of the current ratio of recoverable input tax to total input tax. Disposals of the business's own capital assets and reverse-charge receipts of concerned goods and services are excluded from the calculation. Government entities and charities keep the input-tax ratio under new Clause 19.",
-          "This applies from the first tax year commencing after 1 October 2027: 1 January 2028 for calendar-year filers, and 1 February, 1 March or 1 April 2028 for quarterly filers depending on the tax year set under Article 55(1). The annual actual-use adjustment, including the AED 250,000 threshold, continues. Banks, insurers, residential landlords and holding companies with ancillary exempt income should model both methods on a full year of data now and consider applying for a special method well before the transition.",
+          "This applies from the first tax year commencing after 1 October 2027: 1 January 2028 for calendar-year filers, and 1 February, 1 March or 1 April 2028 for quarterly filers depending on the tax year set under Article 55(1). The annual actual-use adjustment, including the AED 250,000 threshold, continues. Banks, insurers, residential landlords and holding companies with ancillary exempt income should model both methods on a full year of data now, for example in our [partial exemption calculator](/tools/uae-partial-exemption-calculator), and consider applying for a special method well before the transition.",
         ],
       },
       {
@@ -93,10 +103,17 @@ export const GUIDES: Guide[] = [
       {
         h: "How Hysaab applies this",
         ps: [
-          "The tax agent already tests every inbound invoice against the Article 59 tax-invoice checklist before input VAT is claimed. From 1 October 2026 it also records the settlement method on every purchase and holds the input VAT on cash-settled supplies above the threshold once the Ministerial Decision sets it; tags employee-benefit and accommodation costs and holds recovery until the legal-obligation or FTA-condition basis is recorded; flags invoices where separately priced components carry different VAT rates so the composite-supply position is documented; and tests capitalised assets at AED 5 million and above for the Capital Asset Scheme. Partially exempt clients get the turnover-based apportionment modelled alongside the current method ahead of 2028. Every hold names the rule and the missing evidence, and a person makes the call.",
+          "The tax agent already tests every inbound invoice against the [Article 59 tax-invoice checklist](/guides/uae-tax-invoice-checklist) before input VAT is claimed. From 1 October 2026 it also records the settlement method on every purchase and holds the input VAT on cash-settled supplies above the threshold once the Ministerial Decision sets it; tags employee-benefit and accommodation costs and holds recovery until the legal-obligation or FTA-condition basis is recorded; flags invoices where separately priced components carry different VAT rates so the composite-supply position is documented; and tests capitalised assets at AED 5 million and above for the Capital Asset Scheme. Partially exempt clients get the turnover-based apportionment modelled alongside the current method ahead of 2028. Every hold names the rule and the missing evidence, and a person makes the call.",
         ],
       },
     ],
+    related: [
+      "uae-vat-staff-accommodation-recovery-2026",
+      "uae-vat-cash-payments-petty-cash-2026",
+      "uae-vat-composite-bundled-supplies-2026",
+      "uae-partial-exemption-input-vat",
+    ],
+    cta: { href: "/compliance", label: "See how Hysaab applies the October 2026 rules" },
     faqs: [
       {
         q: "When does Cabinet Decision 149 of 2026 take effect?",
@@ -116,6 +133,7 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  ...CD149_GUIDES,
   {
     slug: "uae-tax-invoice-checklist",
     title: "What makes a valid UAE tax invoice — the Article 59 checklist",
@@ -150,7 +168,7 @@ export const GUIDES: Guide[] = [
       {
         h: "When a simplified tax invoice is enough",
         ps: [
-          "For supplies under AED 10,000, or where the recipient is not registered for VAT, a simplified tax invoice is permitted. It still must show: the words “Tax Invoice”, the supplier's name, address and TRN, the date of issue, a description of the goods or services, and the total consideration with the tax amount charged.",
+          "Where the recipient is not registered for VAT, or is registered and the consideration does not exceed AED 10,000 (Article 59(5)), a simplified tax invoice is permitted. It still must show: the words “Tax Invoice”, the supplier's name, address and TRN, the date of issue, a description of the goods or services, and the total consideration with the tax amount charged.",
         ],
       },
       {
@@ -1353,8 +1371,8 @@ GUIDES.push(
     title: "Partial exemption in UAE VAT: apportioning input tax when you make exempt supplies",
     description:
       "Make any exempt supplies — residential rent, local passenger transport, certain financial services — and your input VAT splits three ways: recoverable, blocked, and the residual pot that needs a ratio.",
-    updated: "2026-09-01",
-    minutes: 5,
+    updated: "2026-09-15",
+    minutes: 6,
     tax: true,
     sections: [
       {
@@ -1376,6 +1394,13 @@ GUIDES.push(
         ps: [
           "The standard method computes the recoverable share of the residual pot from the ratio your attributed input tax already implies — recoverable attributed input tax over total attributed input tax — rounded per the regulations, applied return by return. Then once a year comes the wash-up: recompute the year as a whole, compare with what was actually recovered, and adjust the difference in the prescribed period. Businesses whose mix moves through the year routinely find the annual adjustment larger than any single quarter's residual claim.",
           "Where the standard method produces a result that doesn't fairly reflect actual use, the regulations allow a special method with FTA approval — sector-specific approaches exist, but the default assumption should be the standard method until the FTA agrees otherwise in writing.",
+        ],
+      },
+      {
+        h: "From 2028: the ratio moves to turnover",
+        ps: [
+          "Cabinet Decision No. 149 of 2026 rewrites Article 55(6) of the Executive Regulation. From the first tax year commencing after 1 October 2027 (1 January 2028 for calendar-year filers), the residual pot recovers at the value of supplies that carry recovery over the value of all supplies, instead of the ratio of attributed input tax. Disposals of the business's own capital assets and reverse-charge receipts of concerned goods and services stay out of the calculation. Government entities and charities keep the input tax ratio, and the annual adjustment with its AED 250,000 threshold continues.",
+          "The two methods can give very different answers. A business with large exempt revenue but little directly attributable exempt input tax, such as a residential landlord with a commercial portfolio, often recovers less on turnover. Run a full year of your own data through both methods in the partial exemption calculator now, and apply for a special method before the transition if the turnover ratio misstates actual use. The full list of changes is in our guide to Cabinet Decision 149 of 2026.",
         ],
       },
       {
@@ -1606,4 +1631,37 @@ GUIDES.push(
 
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
+}
+
+/* Related guides both ways: the guide's own list first, then every guide
+   that lists it. */
+export function relatedGuides(slug: string): Guide[] {
+  const own = getGuide(slug)?.related ?? [];
+  const back = GUIDES.filter((g) => g.related?.includes(slug)).map((g) => g.slug);
+  return Array.from(new Set([...own, ...back]))
+    .filter((s) => s !== slug)
+    .map((s) => getGuide(s))
+    .filter((g): g is Guide => Boolean(g));
+}
+
+const LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+
+/* Plain text for metadata and JSON-LD. */
+export function stripLinks(text: string): string {
+  return text.replace(LINK, "$1");
+}
+
+/* Splits text into strings and { label, href } link parts. */
+export function linkParts(text: string): (string | { label: string; href: string })[] {
+  const out: (string | { label: string; href: string })[] = [];
+  const re = new RegExp(LINK.source, "g");
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push({ label: m[1], href: m[2] });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
 }

@@ -5,7 +5,7 @@ import { FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Pricing — Hysaab",
+  title: "Accounting Software Pricing, from AED 149/month | Hysaab",
   description:
     "Two ways to run Hysaab: self-serve automated workflows for small businesses (Starter AED 149/mo, Growth AED 499/mo) and a managed accounting and reporting service for CFOs (Scale, from AED 1,499/mo). Priced by the complexity of your books, not by seats. Founder pricing locked for the first 100 companies.",
   alternates: langAlternates("/pricing"),
