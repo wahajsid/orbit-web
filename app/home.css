@@ -391,7 +391,7 @@
 .hy-product { background: var(--hy-cream); padding: 28px; display: flex; flex-direction: column; gap: 10px; }
 .hy-product--navy { background: var(--hy-navy); }
 .hy-product-l { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); min-height: 2.8em; line-height: 1.4; }
-.hy-product-title { display: flex; align-items: flex-end; height: 34px; }
+.hy-product-title { display: flex; align-items: flex-end; min-height: 34px; }
 .hy-product--navy .hy-product-l { color: var(--hy-blush); }
 .hy-product-h { font-size: 25px; font-weight: 500; color: var(--hy-navy); letter-spacing: 0.005em; line-height: 1; }
 .hy-product-p { font-size: 14.5px; line-height: 1.55; color: var(--hy-body); }
@@ -661,8 +661,16 @@ textarea.hy-input { resize: vertical; min-height: 96px; line-height: 1.5; }
 @media (max-width: 420px) { .hy-phases { grid-template-columns: 1fr; } }
 
 /* Five product cards need an explicit track count: auto-fit tops out at
-   four in the 1320px wrap and leaves the fifth orphaned on its own row. */
+   four in the 1320px wrap and leaves the fifth orphaned on its own row.
+   The column is 207px of content there, so the titles come down a step:
+   "hysaab services OS" needs 226px at 25px and would wrap. */
 .hy-family-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.hy-family-grid--5 .hy-product-h { font-size: 21px; }
+.hy-family-grid--5 .hy-product-title > span { font-size: 21px !important; }   /* the wordmark sets its size inline */
+@media (max-width: 1180px) {
+  .hy-family-grid--5 .hy-product-h { font-size: 25px; }
+  .hy-family-grid--5 .hy-product-title > span { font-size: 27px !important; }
+}
 @media (max-width: 1180px) { .hy-family-grid--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 840px) { .hy-family-grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .hy-family-grid--5 { grid-template-columns: 1fr; } }

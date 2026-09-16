@@ -245,8 +245,8 @@ export default async function Page() {
         <section id="family" className="hy-family hy-section hy-rule-b">
           <div className="hy-wrap" style={{ display: "flex", flexDirection: "column", gap: 28 }}>
             <span className="hy-kicker">Our products</span>
-            <h2 className="hy-h2">Five products. Each stands on its own.</h2>
-            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own, hysaab services OS runs a professional services firm with hysaab audit as its ISA audit file, and Ibtidah finds the finance people. All five are built in Dubai by the same team, with a person in the loop on every judgement call.</p>
+            <h2 className="hy-h2">Five products that make each other better.</h2>
+            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own, hysaab services OS runs a professional services firm with hysaab audit as its ISA audit file, and Ibtidah finds the finance people. Take any one on its own, or let them feed each other: the same ledger, the same documents, the same people in the loop. All five are built in Dubai by the same team.</p>
             <div className="hy-family-grid hy-family-grid--5">
               <div className="hy-product hy-product--navy">
                 <span className="hy-product-l">AI accounting &amp; reporting</span>
