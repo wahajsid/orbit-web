@@ -280,7 +280,7 @@ export default function AuditPage() {
               <div className="hy-product">
                 <span className="hy-product-l">For the client&apos;s books</span>
                 <span className="hy-product-title"><a href="/accounting" className="hy-product-h">Hysaab</a></span>
-                <span className="hy-product-p">When the client keeps its books on Hysaab the snapshot is <strong>one click and already complete</strong>. When it does not, the ledger connectors and file upload bring the population in.</span>
+                <span className="hy-product-p">When the client keeps its books on Hysaab the snapshot is <strong>one click and already complete</strong>. Pulling the population from a connected ledger or a file upload is the next stage of the build, so today the file starts from a Hysaab snapshot.</span>
                 <a href="/accounting" className="hy-ulink">See the accounting product →</a>
               </div>
               <div className="hy-product hy-product--navy">
