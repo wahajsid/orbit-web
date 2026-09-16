@@ -18,7 +18,7 @@ Key facts:
 - Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, humans approve past confidence thresholds.
 - Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
 - Two ways to run it: self-serve automated workflows for small businesses (Starter AED 149/month, Growth AED 499/month) and a managed accounting and reporting service for CFOs (Scale, from AED 1,499/month). Priced by the complexity of the books, not by seats. Founder pricing locked for the first 100 companies.
-- Products: Hysaab (accounting and reporting), hysaab invoice (tax compliance and e-invoice validation), hysaab services OS (for accounting and advisory firms), and the sister hiring product Ibtidah.
+- Products: Hysaab (accounting and reporting), hysaab invoice (tax compliance and e-invoice validation), hysaab services OS (for accounting and advisory firms) with hysaab audit as its ISA audit module, and the sister hiring product Ibtidah.
 - Company: built in Dubai, UAE by accountants; contact info@hysaab.ai; the app runs at app.hysaab.ai.
 - Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under ${BASE}/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.
 
@@ -37,6 +37,7 @@ Key facts:
 - [Ibtidah](${BASE}/hire): the sister hiring product
 - [hysaab invoice](${BASE}/invoice): tax compliance and e-invoice validation
 - [hysaab services OS](${BASE}/firms): Hysaab as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
+- [hysaab audit](${BASE}/audit): an AI-native ISA audit of IFRS statements for licensed Gulf audit firms; engines test a hashed snapshot (journal-entry testing on the whole population, monetary-unit sampling, tie-outs, confirmations, the misstatement register) and a licensed human concludes; Hysaab never signs an opinion (coming soon)
 - [Contact](${BASE}/contact): how to reach the team
 - [الموقع بالعربية](${BASE}/ar): the full marketing site in Arabic, right-to-left
 `;

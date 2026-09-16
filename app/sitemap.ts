@@ -8,13 +8,16 @@ const BASE = "https://hysaab.ai";
 /* Every indexable route on the site. Marketing pages are hand-listed —
    the set changes with deliberate launches, not file churn. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: { path: string; priority: number }[] = [
+  /* `enOnly` pages have no Arabic twin yet, so they are listed once with
+     no hreflang pair; a pair pointing at a 404 is worse than none. */
+  const pages: { path: string; priority: number; enOnly?: boolean }[] = [
     { path: "/", priority: 1 },
     { path: "/product", priority: 0.9 },
     { path: "/pricing", priority: 0.9 },
     { path: "/accounting", priority: 0.8 },
     { path: "/invoice", priority: 0.7 },
-    { path: "/hire", priority: 0.6 },
+    { path: "/hire", priority: 0.6, enOnly: true },
+    { path: "/audit", priority: 0.7, enOnly: true },
     { path: "/firms", priority: 0.6 },
     { path: "/how-it-works", priority: 0.8 },
     { path: "/integrations", priority: 0.7 },
@@ -37,9 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages.map((p) => ({
       url: `${BASE}${p.path}`, lastModified: now, priority: p.priority,
-      alternates: { languages: languages(p.path) },
+      ...(p.enOnly ? {} : { alternates: { languages: languages(p.path) } }),
     })),
-    ...pages.map((p) => ({
+    ...pages.filter((p) => !p.enOnly).map((p) => ({
       url: `${BASE}${arPath(p.path)}`, lastModified: now, priority: p.priority - 0.1,
       alternates: { languages: languages(p.path) },
     })),

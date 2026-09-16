@@ -44,7 +44,7 @@ const FOOT = {
     cols: [
       ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
       ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#ways", "Self-serve or managed"]]],
-      ["Our products", [["/invoice", "hysaab invoice, invoice processing"], ["/hire", "Ibtidah, hiring"], ["/firms", "hysaab services OS, professional services"]]],
+      ["Our products", [["/invoice", "hysaab invoice, invoice processing"], ["/hire", "Ibtidah, hiring"], ["/firms", "hysaab services OS, professional services"], ["/audit", "hysaab audit, ISA audits"]]],
       ["Company", [["/about", "Why we built it"], ["/#contact", "Contact"], ["/#cohort", "Join the waitlist"]]],
     ] as readonly FootCol[],
     kicker: "Get in touch",
@@ -59,7 +59,7 @@ const FOOT = {
     cols: [
       ["المنتج", [["/ar/product", "المنتج"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/pricing", "الأسعار"], ["/ar/integrations", "التكاملات"], ["/ar/compliance", "الامتثال"]]],
       ["الموارد", [["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"], ["/ar/faq", "الأسئلة الشائعة"]]],
-      ["منتجاتنا", [["/ar/invoice", "hysaab invoice، معالجة الفواتير"], ["/hire", "Ibtidah، التوظيف"], ["/ar/firms", "hysaab services OS، الخدمات المهنية"]]],
+      ["منتجاتنا", [["/ar/invoice", "hysaab invoice، معالجة الفواتير"], ["/hire", "Ibtidah، التوظيف"], ["/ar/firms", "hysaab services OS، الخدمات المهنية"], ["/audit", "hysaab audit، تدقيق الحسابات"]]],
       ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/ar/contact", "تواصل معنا"]]],
     ] as readonly FootCol[],
     kicker: "تواصل معنا",

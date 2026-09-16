@@ -8,7 +8,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "hysaab services OS, the operating system for tax and advisory firms",
   description:
-    "One system for a professional services firm: an AI-triaged inbox, meeting notes that become tasks, a filing workbench with red-team review, proposals and e-signature, AI-drafted timesheets, billing, capacity and people. The AI proposes, code computes, a named person confirms.",
+    "One system for a professional services firm: an AI-triaged inbox, meeting notes that become tasks, a filing workbench with red-team review, proposals and e-signature, AI-drafted timesheets, billing, capacity and people, and hysaab audit for firms that sign ISA opinions. The AI proposes, code computes, a named person confirms.",
   alternates: langAlternates("/firms"),
 };
 
@@ -76,7 +76,7 @@ export default function ServicesOsPage() {
               <span className="hy-soon-chip"><i aria-hidden="true" /> Coming soon · founding firms</span>
               <span className="hy-kicker hy-kicker--blush">hysaab services OS · for tax and advisory firms</span>
               <h1 className="hy-hero-h1">Your firm sells judgement. Let the admin run itself.</h1>
-              <p className="hy-hero-p">One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make.</p>
+              <p className="hy-hero-p">One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make. If you hold an audit licence, <a href="/audit" style={{ color: "var(--hy-blush)", borderBottom: "2px solid var(--hy-blush)" }}>hysaab audit</a> runs the ISA file inside the same system.</p>
               <div className="hy-hero-cta">
                 <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
                 <a href="#day" className="hy-btn hy-btn--outline-cream hy-btn--lg">Watch a day in the firm</a>
@@ -187,6 +187,51 @@ export default function ServicesOsPage() {
                   <ul>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── The audit module ── */}
+        <section className="hy-voices hy-section hy-rule-b" id="audit">
+          <div className="hy-wrap">
+            <div className="hy-voices-head">
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <span className="hy-kicker">The audit module</span>
+                <h2 className="hy-h2">If you sign audit opinions, the file runs here too.</h2>
+              </div>
+              <span className="hy-note" style={{ maxWidth: 400 }}>hysaab audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. It is sold on its own or with the rest of the OS.</span>
+            </div>
+            <div className="hy-agents-grid hy-grid-3" style={{ marginTop: 32 }}>
+              <div className="hy-mod">
+                <span className="hy-mod-k">Testing</span>
+                <span className="hy-agent-h">Every journal, not twenty-five</span>
+                <ul>
+                  <li><strong>Journal-entry testing</strong> scores the whole population against thirty ISA 240 criteria and strata it.</li>
+                  <li><strong>Monetary-unit sampling</strong> designed, selected on a seed and evaluated to an upper misstatement limit.</li>
+                  <li><strong>Fourteen tie-out engines</strong> set their own tick marks, from ageing to the lease schedule.</li>
+                </ul>
+              </div>
+              <div className="hy-mod">
+                <span className="hy-mod-k">The file</span>
+                <span className="hy-agent-h">Written as the work concludes</span>
+                <ul>
+                  <li><strong>Workpapers</strong> with purpose, source, procedure, results and a conclusion, cross-referenced.</li>
+                  <li><strong>Preparer, reviewer and partner</strong> sign in order; a partner signature locks the version.</li>
+                  <li><strong>Phase gates</strong> refuse to open while the conditions behind them are unmet.</li>
+                </ul>
+              </div>
+              <div className="hy-mod">
+                <span className="hy-mod-k">Independence</span>
+                <span className="hy-agent-h">A firewall, not a policy</span>
+                <ul>
+                  <li><strong>Audit records belong to the firm</strong>; the client grants read access for a fixed, revocable window.</li>
+                  <li><strong>Testing runs on a hashed snapshot</strong>, never the live ledger, and nothing in the module can write to one.</li>
+                  <li><strong>Hysaab never signs</strong> an opinion. The partner walks the decision tree and records it.</li>
+                </ul>
+              </div>
+            </div>
+            <div style={{ marginTop: 28 }}>
+              <a href="/audit" className="hy-btn hy-btn--navy hy-btn--lg">See hysaab audit, screen by screen →</a>
             </div>
           </div>
         </section>
