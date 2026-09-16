@@ -617,3 +617,45 @@ textarea.hy-input { resize: vertical; min-height: 96px; line-height: 1.5; }
 .hy-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 @media (max-width: 1000px) { .hy-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 @media (max-width: 620px) { .hy-grid-3 { grid-template-columns: 1fr !important; } }
+
+/* ── hysaab audit: product screenshots and the phase strip ─────────
+   A screenshot sits in the same frame as the built-in windows: navy
+   rule, blush offset shadow, navy bar on top, caption underneath. The
+   caption is part of the evidence, so it never gets dropped. */
+.hy-shot {
+  margin: 0; background: var(--hy-cream); border: 1px solid var(--hy-navy);
+  box-shadow: 14px 14px 0 var(--hy-blush); min-width: 0;
+}
+.hy-shot-bar { background: var(--hy-navy); color: var(--hy-cream); display: flex; align-items: center; gap: 12px; padding: 9px 13px; }
+.hy-shot-t { font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-on-navy-faint); }
+.hy-shot img { display: block; width: 100%; height: auto; }
+.hy-shot-cap { font-size: 11.5px; line-height: 1.5; color: var(--hy-muted); background: var(--hy-white); padding: 10px 13px; border-top: 1px solid var(--hy-rule-2); }
+.hy-hero-win .hy-shot--hero { box-shadow: 16px 16px 0 var(--hy-blush); width: 100%; }
+@media (max-width: 719px) { .hy-shot { box-shadow: 9px 9px 0 var(--hy-blush); margin-right: 9px; } }
+
+.hy-steps { margin-top: 36px; }
+.hy-step { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.35fr); gap: 48px; align-items: center; padding: 52px 0; border-top: 1px solid var(--hy-rule); }
+.hy-step:first-child { border-top: none; padding-top: 12px; }
+.hy-step--flip { grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr); }
+.hy-step--flip .hy-step-copy { order: 2; }
+.hy-step-copy { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.hy-step-n { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); font-variant-numeric: tabular-nums; }
+.hy-step-h { margin: 0; font-size: clamp(22px, 2.1vw, 29px); font-weight: 600; letter-spacing: -0.022em; line-height: 1.12; color: var(--hy-navy); }
+.hy-step-p { margin: 0; font-size: 15px; line-height: 1.62; color: var(--hy-body); }
+.hy-step-facts { list-style: none; margin: 6px 0 0; padding: 0; border-top: 1px solid var(--hy-rule); }
+.hy-step-facts li { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--hy-rule); font-size: 13.5px; line-height: 1.5; color: var(--hy-body); }
+.hy-step-facts strong { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hy-navy); padding-top: 2px; }
+@media (max-width: 900px) {
+  .hy-step, .hy-step--flip { grid-template-columns: 1fr; gap: 26px; padding: 40px 0; }
+  .hy-step--flip .hy-step-copy { order: 0; }
+}
+@media (max-width: 480px) { .hy-step-facts li { grid-template-columns: 1fr; gap: 3px; } }
+
+.hy-phases { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: var(--hy-rule); border: 1px solid var(--hy-rule); margin-top: 32px; }
+.hy-phase { background: var(--hy-white); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+.hy-phase-n { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); }
+.hy-phase-h { font-size: 15.5px; font-weight: 600; color: var(--hy-navy); }
+.hy-phase-p { font-size: 12.5px; line-height: 1.5; color: var(--hy-body); }
+@media (max-width: 1100px) { .hy-phases { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .hy-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .hy-phases { grid-template-columns: 1fr; } }

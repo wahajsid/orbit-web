@@ -246,7 +246,7 @@ export default async function Page() {
           <div className="hy-wrap" style={{ display: "flex", flexDirection: "column", gap: 28 }}>
             <span className="hy-kicker">Our products</span>
             <h2 className="hy-h2">Four products. Each stands on its own.</h2>
-            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own, hysaab services OS runs a professional services firm, and Ibtidah finds the finance people. All four are built in Dubai by the same team, with a person in the loop on every judgement call.</p>
+            <p className="hy-family-p">Hysaab is the accounting and reporting product. hysaab invoice reads and checks invoices on its own, hysaab services OS runs a professional services firm and carries hysaab audit, the ISA audit file, and Ibtidah finds the finance people. All four are built in Dubai by the same team, with a person in the loop on every judgement call.</p>
             <div className="hy-family-grid">
               <div className="hy-product hy-product--navy">
                 <span className="hy-product-l">AI accounting &amp; reporting</span>
@@ -263,7 +263,7 @@ export default async function Page() {
               <div className="hy-product">
                 <span className="hy-product-l">Professional services platform</span>
                 <span className="hy-product-title"><a href="/firms" className="hy-product-h">hysaab services OS</a></span>
-                <span className="hy-product-p">The operating system for a professional services firm: client work, engagements, deadlines and oversight in one place, supercharged by AI so partners and staff spend their hours on judgement and clients, not on admin. <strong>Coming soon</strong>.</span>
+                <span className="hy-product-p">The operating system for a professional services firm: client work, engagements, deadlines and oversight in one place, supercharged by AI so partners and staff spend their hours on judgement and clients, not on admin. Its audit module, <a href="/audit">hysaab audit</a>, runs a full ISA audit file. <strong>Coming soon</strong>.</span>
                 <a href="/firms" className="hy-ulink">See hysaab services OS →</a>
               </div>
               <div className="hy-product">
