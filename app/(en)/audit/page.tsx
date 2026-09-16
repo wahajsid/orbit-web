@@ -16,7 +16,7 @@ export const metadata = {
    never by hand for the picture. */
 const STEPS: {
   n: string; h: string; p: React.ReactNode; facts: [string, React.ReactNode][];
-  shot: { src: string; w: number; h: number; alt: string }; bar: string; cap: string; flip?: boolean;
+  shot: { src: string; w: number; h: number; alt: string }; bar: string; cap: string;
 }[] = [
   {
     n: "01 · The population",
@@ -27,7 +27,7 @@ const STEPS: {
       ["Sequence", <>Missing journal numbers are listed as gaps for the client to explain.</>],
       ["Hashed", <>SHA-256 on the snapshot. Every later figure cites the hash it came from.</>],
     ],
-    shot: { src: "/shots/audit-data.png", w: 2880, h: 1130, alt: "hysaab audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
+    shot: { src: "/shots/audit-data.png", w: 2560, h: 1256, alt: "hysaab audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
     bar: "Data · snapshots and integrity",
     cap: "The first snapshot stopped the file: the client's trial balance predated a journal in the ledger.",
   },
@@ -40,10 +40,9 @@ const STEPS: {
       ["Materiality", <>Computed from this year's figures, with every candidate benchmark shown and the choice explained.</>],
       ["The programme", <>Only the procedures that fit the chart are instantiated. No tax recompute where there is no tax account.</>],
     ],
-    shot: { src: "/shots/audit-planning.png", w: 2544, h: 2320, alt: "hysaab audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
+    shot: { src: "/shots/audit-planning.png", w: 2540, h: 2360, alt: "hysaab audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
     bar: "Planning · risk register and procedures",
     cap: "Nine significant risks, each with the factor that raised it. The gate stays shut until the partner approves.",
-    flip: true,
   },
   {
     n: "03 · Journal-entry testing",
@@ -54,7 +53,7 @@ const STEPS: {
       ["Thirty criteria", <>Post-close postings, round numbers, weekends and holidays, blank narratives, seldom-used accounts, keyword hits, duplicates, reversals, segregation conflicts, entries just below an approval threshold.</>],
       ["Auditable", <>Each row carries the criteria that flagged it. The selection is seeded, so it reproduces.</>],
     ],
-    shot: { src: "/shots/audit-jet.png", w: 2544, h: 2320, alt: "hysaab audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
+    shot: { src: "/shots/audit-jet.png", w: 2540, h: 2360, alt: "hysaab audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
     bar: "JET explorer · ISA 240 journal testing",
     cap: "The top rows are the planted ones: revenue booked after year-end, a suspense plug, a duplicate payment, a capitalised expense, a related-party fee.",
   },
@@ -67,10 +66,9 @@ const STEPS: {
       ["Attribute too", <>Control testing at ninety-five percent confidence with its own sample table.</>],
       ["Honest answer", <>An upper limit above performance materiality is reported as not accepted, not explained away.</>],
     ],
-    shot: { src: "/shots/audit-sampling.png", w: 2544, h: 2320, alt: "hysaab audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
+    shot: { src: "/shots/audit-sampling.png", w: 2540, h: 2360, alt: "hysaab audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
     bar: "Sampling · monetary-unit sample",
     cap: "Upper limit 563,355 against performance materiality 231,800. The engine calls it: not accepted.",
-    flip: true,
   },
   {
     n: "05 · Fieldwork",
@@ -81,7 +79,7 @@ const STEPS: {
       ["Reliability", <>Scored by route and sender domain. A forwarded reply is evidence of a different grade.</>],
       ["Sent by people", <>Letters leave the firm's own mailbox. The software drafts them and tracks them.</>],
     ],
-    shot: { src: "/shots/audit-fieldwork.png", w: 2544, h: 2320, alt: "hysaab audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
+    shot: { src: "/shots/audit-fieldwork.png", w: 2540, h: 2360, alt: "hysaab audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
     bar: "Fieldwork · confirmations and requests",
     cap: "One exception of 42,750, one reply routed through the client, one escalated to alternative procedures.",
   },
@@ -94,10 +92,9 @@ const STEPS: {
       ["Subsequent events", <>Post-period journals and minutes are scanned and classified adjusting or non-adjusting, with the IAS 10 reference.</>],
       ["File completion", <>Nine checks on the file itself. Two are still open on this engagement, and it says so.</>],
     ],
-    shot: { src: "/shots/audit-completion.png", w: 2544, h: 2400, alt: "hysaab audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
+    shot: { src: "/shots/audit-completion.png", w: 2540, h: 2460, alt: "hysaab audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
     bar: "Completion · the misstatement register",
     cap: "Five findings, four above clearly trivial, one aggregate the partner has to act on.",
-    flip: true,
   },
   {
     n: "07 · The file",
@@ -108,7 +105,7 @@ const STEPS: {
       ["Versions", <>Immutable. The reason for every new version is on the paper.</>],
       ["Conclusions", <>A reviewer cannot sign a judgement workpaper without recording a conclusion in their own words.</>],
     ],
-    shot: { src: "/shots/audit-workpapers.png", w: 2544, h: 1968, alt: "hysaab audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
+    shot: { src: "/shots/audit-workpapers.png", w: 2540, h: 2460, alt: "hysaab audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
     bar: "Workpapers · the audit file",
     cap: "The receivables lead is inconclusive because the sub-ledger is 15,000 short. It stays inconclusive until someone explains it.",
   },
@@ -153,7 +150,7 @@ export default function AuditPage() {
                   <Wordmark size={15} ground="navy" suffix={false} />
                   <span className="hy-shot-t">audit · materiality</span>
                 </figcaption>
-                <Image src="/shots/audit-materiality.png" width={2880} height={1701} sizes="(max-width: 1120px) 100vw, 760px" priority alt="hysaab audit materiality screen: overall, performance and clearly trivial materiality with every candidate benchmark and the rationale for the one chosen" />
+                <Image src="/shots/audit-materiality-card.png" width={1925} height={1231} sizes="(max-width: 1120px) 100vw, 780px" priority alt="hysaab audit materiality: overall 386,400, performance 231,800 and clearly trivial 19,300, with every candidate benchmark and the engine’s written rationale for the one chosen" />
                 <figcaption className="hy-shot-cap">Illustrative engagement. Helio Trading LLC is a fictional UAE trading company; every figure was computed by the audit engines on its seeded books.</figcaption>
               </figure>
             </div>
@@ -219,23 +216,27 @@ export default function AuditPage() {
               </div>
               <span className="hy-note" style={{ maxWidth: 400 }}>These are the real screens on a seeded engagement: a fictional UAE trading company with misstatements of known type planted in its books, so you can watch the engines find them.</span>
             </div>
-            <div className="hy-steps">
+            <div className="hy-walk">
               {STEPS.map((s) => (
-                <div className={`hy-step${s.flip ? " hy-step--flip" : ""}`} key={s.n}>
-                  <div className="hy-step-copy">
-                    <span className="hy-step-n">{s.n}</span>
-                    <h3 className="hy-step-h">{s.h}</h3>
-                    <p className="hy-step-p">{s.p}</p>
-                    <ul className="hy-step-facts">
-                      {s.facts.map(([k, v]) => <li key={k}><strong>{k}</strong><span>{v}</span></li>)}
-                    </ul>
+                <div className="hy-walk-item" key={s.n}>
+                  <div className="hy-walk-head">
+                    <div className="hy-walk-copy">
+                      <span className="hy-walk-n">{s.n}</span>
+                      <h3 className="hy-walk-h">{s.h}</h3>
+                    </div>
+                    <div className="hy-walk-body">
+                      <p className="hy-walk-p">{s.p}</p>
+                      <ul className="hy-walk-facts">
+                        {s.facts.map(([k, v]) => <li key={k}><strong>{k}</strong><span>{v}</span></li>)}
+                      </ul>
+                    </div>
                   </div>
                   <figure className="hy-shot">
                     <figcaption className="hy-shot-bar">
                       <Wordmark size={14} ground="navy" suffix={false} />
                       <span className="hy-shot-t">{s.bar}</span>
                     </figcaption>
-                    <Image src={s.shot.src} width={s.shot.w} height={s.shot.h} sizes="(max-width: 900px) 100vw, 780px" alt={s.shot.alt} />
+                    <Image src={s.shot.src} width={s.shot.w} height={s.shot.h} sizes="(max-width: 1320px) 100vw, 1256px" alt={s.shot.alt} />
                     <figcaption className="hy-shot-cap">{s.cap}</figcaption>
                   </figure>
                 </div>

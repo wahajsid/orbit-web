@@ -633,23 +633,25 @@ textarea.hy-input { resize: vertical; min-height: 96px; line-height: 1.5; }
 .hy-hero-win .hy-shot--hero { box-shadow: 16px 16px 0 var(--hy-blush); width: 100%; }
 @media (max-width: 719px) { .hy-shot { box-shadow: 9px 9px 0 var(--hy-blush); margin-right: 9px; } }
 
-.hy-steps { margin-top: 36px; }
-.hy-step { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.35fr); gap: 48px; align-items: center; padding: 52px 0; border-top: 1px solid var(--hy-rule); }
-.hy-step:first-child { border-top: none; padding-top: 12px; }
-.hy-step--flip { grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr); }
-.hy-step--flip .hy-step-copy { order: 2; }
-.hy-step-copy { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.hy-step-n { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); font-variant-numeric: tabular-nums; }
-.hy-step-h { margin: 0; font-size: clamp(22px, 2.1vw, 29px); font-weight: 600; letter-spacing: -0.022em; line-height: 1.12; color: var(--hy-navy); }
-.hy-step-p { margin: 0; font-size: 15px; line-height: 1.62; color: var(--hy-body); }
-.hy-step-facts { list-style: none; margin: 6px 0 0; padding: 0; border-top: 1px solid var(--hy-rule); }
-.hy-step-facts li { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--hy-rule); font-size: 13.5px; line-height: 1.5; color: var(--hy-body); }
-.hy-step-facts strong { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hy-navy); padding-top: 2px; }
-@media (max-width: 900px) {
-  .hy-step, .hy-step--flip { grid-template-columns: 1fr; gap: 26px; padding: 40px 0; }
-  .hy-step--flip .hy-step-copy { order: 0; }
-}
-@media (max-width: 480px) { .hy-step-facts li { grid-template-columns: 1fr; gap: 3px; } }
+/* Named hy-walk, not hy-step: .hy-step and .hy-steps already belong to the
+   homepage Demo component and a collision silently restyles it. */
+.hy-walk { margin-top: 36px; }
+/* The screenshots are the argument, so they get the full content width and
+   the app is captured at a viewport close to it: anything narrower renders
+   the app's 12.5px type at 6px and nobody can read the evidence. */
+.hy-walk-item { display: block; padding: 56px 0; border-top: 1px solid var(--hy-rule); }
+.hy-walk-item:first-child { border-top: none; padding-top: 8px; }
+.hy-walk-head { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr); gap: 28px 56px; align-items: start; margin-bottom: 30px; }
+.hy-walk-copy { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.hy-walk-body { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.hy-walk-n { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hy-blush-text); font-variant-numeric: tabular-nums; }
+.hy-walk-h { margin: 0; font-size: clamp(24px, 2.4vw, 33px); font-weight: 600; letter-spacing: -0.024em; line-height: 1.1; color: var(--hy-navy); }
+.hy-walk-p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--hy-body); }
+.hy-walk-facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hy-rule); }
+.hy-walk-facts li { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--hy-rule); font-size: 13.5px; line-height: 1.5; color: var(--hy-body); }
+.hy-walk-facts strong { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hy-navy); padding-top: 2px; }
+@media (max-width: 900px) { .hy-walk-head { grid-template-columns: 1fr; gap: 18px; } .hy-walk-item { padding: 40px 0; } }
+@media (max-width: 480px) { .hy-walk-facts li { grid-template-columns: 1fr; gap: 3px; } }
 
 .hy-phases { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: var(--hy-rule); border: 1px solid var(--hy-rule); margin-top: 32px; }
 .hy-phase { background: var(--hy-white); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
