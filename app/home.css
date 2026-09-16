@@ -659,3 +659,10 @@ textarea.hy-input { resize: vertical; min-height: 96px; line-height: 1.5; }
 @media (max-width: 1100px) { .hy-phases { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hy-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .hy-phases { grid-template-columns: 1fr; } }
+
+/* Five product cards need an explicit track count: auto-fit tops out at
+   four in the 1320px wrap and leaves the fifth orphaned on its own row. */
+.hy-family-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1180px) { .hy-family-grid--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 840px) { .hy-family-grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .hy-family-grid--5 { grid-template-columns: 1fr; } }
