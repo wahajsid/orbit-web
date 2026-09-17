@@ -11,6 +11,9 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "./Wordmark";
 import { ContactForm } from "./hysaab/ContactForm";
+import { FOOT, OwnerLine } from "./FooterData";
+import { SiteHeader } from "./home/HomeHeader";
+import { SiteFooter } from "./home/SiteFooter";
 
 type Locale = "en" | "ar";
 type Link = readonly [string, string];
@@ -36,41 +39,6 @@ const NAV = {
   },
 };
 
-type FootCol = readonly [string, readonly Link[]];
-
-const FOOT = {
-  en: {
-    tag: <>AI accounting &amp; reporting<br />Built in Dubai for the Gulf</>,
-    cols: [
-      ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
-      ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#ways", "Self-serve or managed"]]],
-      ["Our products", [["/invoice", "hysaab invoice, invoice processing"], ["/hire", "Ibtidah, hiring"], ["/firms", "hysaab services OS, professional services"], ["/audit", "hysaab audit, ISA audits"]]],
-      ["Company", [["/about", "Why we built it"], ["/#contact", "Contact"], ["/#cohort", "Join the waitlist"]]],
-    ] as readonly FootCol[],
-    kicker: "Get in touch",
-    contactH: "Have a question? Ask a person.",
-    contactP: "Tell us about your books and what you would like to know. A real person from the Hysaab team replies within one working day.",
-    legal: "© 2026 Hysaab · hysaab.ai · Dubai, UAE",
-    disclaimer: "Screens and scenarios are illustrative. Figures are examples, not results.",
-    lang: <>EN / <a href="/ar"><bdi>العربية</bdi></a></>,
-  },
-  ar: {
-    tag: <>محاسبة وتقارير بالذكاء الاصطناعي<br />صُنع في دبي للخليج</>,
-    cols: [
-      ["المنتج", [["/ar/product", "المنتج"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/pricing", "الأسعار"], ["/ar/integrations", "التكاملات"], ["/ar/compliance", "الامتثال"]]],
-      ["الموارد", [["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"], ["/ar/faq", "الأسئلة الشائعة"]]],
-      ["منتجاتنا", [["/ar/invoice", "hysaab invoice، معالجة الفواتير"], ["/hire", "Ibtidah، التوظيف"], ["/ar/firms", "hysaab services OS، الخدمات المهنية"], ["/audit", "hysaab audit، تدقيق الحسابات"]]],
-      ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/ar/contact", "تواصل معنا"]]],
-    ] as readonly FootCol[],
-    kicker: "تواصل معنا",
-    contactH: "لديك سؤال؟ اسأل شخصًا حقيقيًا.",
-    contactP: "أخبرنا عن دفاترك وما تود معرفته. يرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.",
-    legal: "© 2026 Hysaab · hysaab.ai · دبي، الإمارات",
-    disclaimer: "الشاشات والسيناريوهات توضيحية. الأرقام أمثلة وليست نتائج.",
-    lang: <><a href="/">EN</a> / <bdi>العربية</bdi></>,
-  },
-};
-
 /* Kept for callers that still import the old framed mark: the favicon
    mark at a given size. */
 export function Mark({ size = 30 }: { size?: number; framed?: boolean; ringOnly?: boolean; strokeWidth?: number }) {
@@ -87,7 +55,7 @@ function twinOf(path: string): { isAr: boolean; target: string } {
   return { isAr, target: p === "/" ? "/ar" : `/ar${p}` };
 }
 
-export function MgNav({ locale = "en", home = false }: { active?: string; locale?: Locale; home?: boolean }) {
+function MgNavLegacy({ locale = "en", home = false }: { active?: string; locale?: Locale; home?: boolean }) {
   const t = NAV[locale];
   const [open, setOpen] = useState(false);
   const path = usePathname() || "/";
@@ -127,7 +95,7 @@ export function MgNav({ locale = "en", home = false }: { active?: string; locale
   );
 }
 
-export function MgFooter({ locale = "en" }: { locale?: Locale }) {
+function MgFooterLegacy({ locale = "en" }: { locale?: Locale }) {
   const t = FOOT[locale];
   return (
     <footer className="hy-footer" id="contact">
@@ -155,6 +123,7 @@ export function MgFooter({ locale = "en" }: { locale?: Locale }) {
           </div>
           <ContactForm />
         </div>
+        <OwnerLine owner={t.owner} link={t.ownerLink} />
         <div className="hy-footer-legal">
           <span>{t.legal} · {t.lang}</span>
           <span>{t.disclaimer}</span>
@@ -162,4 +131,16 @@ export function MgFooter({ locale = "en" }: { locale?: Locale }) {
       </div>
     </footer>
   );
+}
+
+/* English pages now wear the navy header and the new footer (with the
+   launch countdown). Arabic keeps the previous chrome until its pass. */
+export function MgNav(props: { active?: string; locale?: Locale; home?: boolean }) {
+  if ((props.locale ?? "en") === "en") return <SiteHeader home={props.home} />;
+  return <MgNavLegacy {...props} />;
+}
+
+export function MgFooter({ locale = "en" }: { locale?: Locale }) {
+  if (locale === "en") return <SiteFooter />;
+  return <MgFooterLegacy locale={locale} />;
 }

@@ -26,7 +26,7 @@ Key facts:
 - [Home](${BASE}/): what Hysaab is, the agent roster, compliance posture
 - [Product](${BASE}/product): the six modules — payables, receivables, ledger, close, documents, tax
 - [Accounting](${BASE}/accounting): books kept and closed for you, self-serve or as a managed service
-- [Pricing](${BASE}/pricing): the three tiers and the founding-cohort offer
+- [Pricing](${BASE}/pricing): the three tiers
 - [Integrations](${BASE}/integrations): how the six ledger connections work
 - [Compliance](${BASE}/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
 - [How it works](${BASE}/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for

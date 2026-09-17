@@ -12,7 +12,7 @@
 
 :root {
   --ink: #122940;
-  --paper: #FAF6EE;
+  --paper: #faf7ef;
   --paper-raised: #F1ECE1;
   --surface: #ffffff;
   --text: #122940;
@@ -22,14 +22,14 @@
   --text-on-ink-muted: #C9D2DD;
   /* Deep Navy is the one action colour; Muted Blush is the warmth (tints,
      bars, the mark's dot). The legacy petrol/brass names point at navy. */
-  --blush: #E4A1A0;
-  --blush-tint: #F7E4E3;
+  --blush: #e4a18f;
+  --blush-tint: #f6e6df;
   --ok: #2F7A4F;
   --ok-tint: #E4F0E7;
   --accent: #122940;
   --accent-deep: #0B1B2C;
-  --accent-tint: #F7E4E3;
-  --accent-muted: #E4A1A0;
+  --accent-tint: #f6e6df;
+  --accent-muted: #e4a18f;
   --petrol: #122940;
   --petrol-bright: #122940;
   --brass: #122940;
@@ -37,7 +37,7 @@
   --warn: #9a6a10;
   --bad: #a3341c;
   --bad-tint: #f7ebe8;
-  --hairline: #D9D2C6;
+  --hairline: #d1d4cc;
   --hairline-on-ink: #46566A;
   --radius: 0px;
   /* type — populated by next/font variables in layout.tsx */

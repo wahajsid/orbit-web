@@ -135,7 +135,7 @@ export default function AuditPage() {
               <h1 className="hy-hero-h1">The audit file does the testing. You still sign it.</h1>
               <p className="hy-hero-p">An ISA audit of IFRS statements, run end to end on a hashed snapshot of the client&apos;s books. Engines test every journal, compute materiality, design and evaluate the samples, tie the schedules out, chase the confirmations and aggregate the misstatements. A licensed human concludes and signs. Hysaab never signs an opinion.</p>
               <div className="hy-hero-cta">
-                <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
+                <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
                 <a href="#walkthrough" className="hy-btn hy-btn--outline-cream hy-btn--lg">See the file, screen by screen</a>
               </div>
               <div className="hy-stats">
@@ -288,7 +288,7 @@ export default function AuditPage() {
                 <span className="hy-product-l">For an SME, not an audit</span>
                 <span className="hy-product-title"><span className="hy-product-h" style={{ color: "var(--hy-cream)" }}>Readiness review</span></span>
                 <span className="hy-product-p">The same engines over your own books, before the auditor arrives: <strong>completeness, journal testing, tie-outs and the differences you will be asked about</strong>. It is never called an audit, because it is not one.</span>
-                <a href="#contact" className="hy-ulink hy-ulink--cream">Ask for a readiness review →</a>
+                <a href="/contact" className="hy-ulink hy-ulink--cream">Ask for a readiness review →</a>
               </div>
             </div>
           </div>

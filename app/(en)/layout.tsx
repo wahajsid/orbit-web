@@ -1,17 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Noto_Kufi_Arabic } from "next/font/google";
+import { Archivo, DM_Mono, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import "../globals.css";
 import "../wire.css";
 import "../home.css";
+import "../hysaab-home.css";
 
 // Hysaab: Archivo everywhere (400–700), Noto Kufi Arabic for the Arabic
 // glyphs that appear inside English pages (the ع switch, the name's
 // origin in "Why we built Hysaab"). Both SIL OFL.
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  // Variable axis (100–900): the homepage headings sit at 550.
   variable: "--font-archivo",
+  display: "swap",
+});
+
+// Section numbers and small technical labels on the homepage.
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
@@ -67,7 +76,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${kufi.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${dmMono.variable} ${kufi.variable}`}>
       <body>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />
