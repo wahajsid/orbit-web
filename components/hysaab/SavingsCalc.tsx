@@ -85,7 +85,7 @@ export function SavingsCalc() {
           <div><strong className="hy-num">{fmt(r.perPersonWeek, 1)} h</strong><span>per person, every week, for client work</span></div>
         </div>
         <p className="hy-calc-note">An estimate from your inputs and our working assumptions, shown on the left. Not a measured result. Change any number.</p>
-        <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg" style={{ alignSelf: "flex-start" }}>Talk to us about your firm →</a>
+        <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg" style={{ alignSelf: "flex-start" }}>Talk to us about your firm →</a>
       </div>
     </div>
   );

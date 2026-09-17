@@ -34,6 +34,11 @@ export function Demo() {
   const playingRef = useRef(playing);
   playingRef.current = playing;
 
+  // Visitors who ask for reduced motion get the demo paused, controls in hand.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setPlaying(false);
+  }, []);
+
   useEffect(() => {
     if (!playing) return;
     const id = setInterval(() => {

@@ -144,7 +144,7 @@ export default function HirePage() {
               <p className="hy-cohort-p">Ibtidah has its own site, its own team and its own subscription. Hysaab customers are welcome, and nothing from your books is shared with the recruitment side. If you are hiring into finance, start there.</p>
               <div className="hy-hero-cta">
                 <a href="https://ibtidah.ae" target="_blank" rel="noopener" className="hy-btn hy-btn--navy hy-btn--lg">Go to ibtidah.ae →</a>
-                <a href="/#contact" className="hy-btn hy-btn--outline hy-btn--lg">Ask us first</a>
+                <a href="/contact" className="hy-btn hy-btn--outline hy-btn--lg">Ask us first</a>
               </div>
             </div>
             <div className="hy-ledger" style={{ alignItems: "center", justifyContent: "center", minHeight: 240 }}>

@@ -78,7 +78,7 @@ export default function ServicesOsPage() {
               <h1 className="hy-hero-h1">Your firm sells judgement. Let the admin run itself.</h1>
               <p className="hy-hero-p">One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make. If you hold an audit licence, <a href="/audit" style={{ color: "var(--hy-blush)", borderBottom: "2px solid var(--hy-blush)" }}>hysaab audit</a> runs the ISA file inside the same system.</p>
               <div className="hy-hero-cta">
-                <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
+                <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
                 <a href="#day" className="hy-btn hy-btn--outline-cream hy-btn--lg">Watch a day in the firm</a>
               </div>
               <div className="hy-stats">

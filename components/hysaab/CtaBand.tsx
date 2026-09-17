@@ -1,23 +1,23 @@
-/* ── The waitlist band ──────────────────────────────────────────────
-   A navy call-to-action that closes every inner page: founding cohort,
-   seat count, the waitlist button and the demo link. Server component;
-   seats come from the same source as the homepage so the numbers agree. */
+/* ── The closing band ───────────────────────────────────────────────
+   Closes every English inner page: the launch date, one line about the
+   first conversation and the enquiry button. It replaced the founding
+   cohort waitlist band (owner decision 2026-09-17): no seat counts, no
+   waitlist. Callers may still pass their own kicker, title and body. */
 
-import { getSeatsTaken, FOUNDING_SEATS, LAUNCH_DATE_SHORT } from "@/lib/launch";
+import { LAUNCH_DATE_LONG } from "@/lib/launch";
 
-export async function CtaBand({ kicker = "Founding cohort", title, body }: { kicker?: string; title?: string; body?: string }) {
-  const taken = await getSeatsTaken();
+export function CtaBand({ kicker, title, body }: { kicker?: string; title?: string; body?: string }) {
   return (
-    <section className="hy-cta-band" aria-label="Join the waitlist">
-      <div className="hy-wrap hy-cta-band-inner">
-        <div className="hy-cta-band-copy">
-          <span className="hy-kicker hy-kicker--blush">{kicker}</span>
-          <h2 className="hy-cta-band-h">{title ?? "Close the month in days. Take your evenings back."}</h2>
-          <p className="hy-cta-band-p">{body ?? `${taken} of ${FOUNDING_SEATS} founding seats are taken. Doors open ${LAUNCH_DATE_SHORT}, with founder pricing locked in for as long as you stay. Work email only; a real person reads every entry.`}</p>
+    <section className="hw-talk hw-chrome" aria-label="Talk to the Hysaab team">
+      <div className="hw-wrap hw-talk-in">
+        <div>
+          <p className="hw-eyebrow">{kicker ?? `Launching ${LAUNCH_DATE_LONG}`}</p>
+          <h2>{title ?? <>Let’s start<br />with your books.</>}</h2>
+          <p className="hw-talk-p">{body ?? "Tell us what takes too long. We will show you where Hysaab fits, confirm the scope and fees upfront, and agree a clear fit before any commitment."}</p>
         </div>
-        <div className="hy-cta-band-actions">
-          <a href="/#cohort" className="hy-btn hy-btn--blush hy-btn--lg">Join the waitlist →</a>
-          <a href="/#contact" className="hy-btn hy-btn--outline-cream hy-btn--lg">Book a demo</a>
+        <div className="hw-talk-actions">
+          <a href="/contact" className="hw-btn hw-btn--navy">Let’s talk <span aria-hidden="true">↗</span></a>
+          <a href="/how-it-works" className="hw-link hw-link--ruled">See how it works <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

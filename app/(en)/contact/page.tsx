@@ -1,70 +1,100 @@
-import type { Metadata } from "next";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
+/* ── /contact ────────────────────────────────────────────────────────
+   Rebuilt 2026-09 in the homepage design (PageShell + the hw-* kit in
+   app/hysaab-home.css). The enquiry is the homepage's own: the same
+   left column and the same EnquiryForm, which posts to /api/contact.
+   The three email routes the page has always listed sit below it. The
+   closing "Let's talk" band is switched off: this page is the enquiry. */
 
+import { PageShell, PageHero } from "@/components/home/PageShell";
+import { EnquiryForm } from "@/components/home/EnquiryForm";
 import { langAlternates } from "@/lib/site-meta";
 
-export const metadata: Metadata = {
-  title: "Contact — Hysaab",
-  description: "Support, bespoke solutions and partnerships — a real person reads every message.",
+export const metadata = {
+  title: "Contact Hysaab: Talk to the Team",
+  description:
+    "Request a conversation about your books, or write to us about support, a bespoke scope or a partnership. A real person reads every message.",
   alternates: langAlternates("/contact"),
 };
 
-const CARDS: { kicker: string; title: string; detail: string; cta: string; mailto: string }[] = [
+const ROUTES: { eyebrow: string; title: string; detail: string; cta: string; mailto: string }[] = [
   {
-    kicker: "SUPPORT",
-    title: "Something needs a human",
-    detail: "Product questions, account help, or a document Hysaab read wrong — write to us and a real person (in your timezone) picks it up. Founding-cohort members get priority.",
-    cta: "Email support →",
+    eyebrow: "Support",
+    title: "Something needs a person.",
+    detail: "Product questions, account help, or a document Hysaab read wrong. Write to us and a real person picks it up.",
+    cta: "Email support",
     mailto: "mailto:info@hysaab.ai?subject=Support",
   },
   {
-    kicker: "BESPOKE",
-    title: "Your finance stack, your rules",
-    detail: "Multi-entity groups, unusual workflows, a connector we don't have yet, or migration from a legacy system — tell us what your month-end actually looks like and we'll scope it with you.",
-    cta: "Discuss a bespoke build →",
+    eyebrow: "Bespoke",
+    title: "Your finance stack, your rules.",
+    detail: "Multi-entity groups, unusual workflows, a connector we do not have yet, or a move from a legacy system. Tell us what your month-end actually looks like and we will scope it with you.",
+    cta: "Discuss a bespoke scope",
     mailto: "mailto:info@hysaab.ai?subject=Bespoke%20solution",
   },
   {
-    kicker: "PARTNERSHIPS",
-    title: "Accountants, advisors, platforms",
-    detail: "Run a practice and want Hysaab under your clients' books? Build a product that should talk to ours? We're building the Gulf's finance rails with partners, not around them.",
-    cta: "Start a partnership →",
+    eyebrow: "Partnerships",
+    title: "Accountants, advisors, platforms.",
+    detail: "You run a practice and want Hysaab under your clients’ books, or you build a product that should talk to ours. We would rather work with partners than around them.",
+    cta: "Start a partnership",
     mailto: "mailto:info@hysaab.ai?subject=Partnership",
   },
 ];
 
 export default function ContactPage() {
   return (
-    <>
-      <MgNav />
-      <main>
-        <section className="mg-page-hero">
-          <div className="mg-kicker">CONTACT</div>
-          <h1 className="mg-page-h">A real person reads every message.</h1>
-          <p className="mg-page-lede">
-            No ticket deflection, no chatbot maze. Pick the lane that fits and write like you&rsquo;d
-            write to a colleague — because that&rsquo;s who answers.
-          </p>
-        </section>
-        <section className="mg-page-body">
-          <div className="mg-contact-grid">
-            {CARDS.map((c) => (
-              <div key={c.kicker} className="mg-contact-card">
-                <div className="mg-kicker">{c.kicker}</div>
-                <div className="mg-contact-title">{c.title}</div>
-                <p className="mg-contact-p">{c.detail}</p>
-                <a className="mg-cta" href={c.mailto}>{c.cta}</a>
-              </div>
+    <PageShell band={false}>
+      <PageHero
+        eyebrow="Contact"
+        title={<>A real person reads<br /><span>every message.</span></>}
+        lede="No ticket deflection and no chatbot maze. Write as you would to a colleague, because that is who answers."
+      />
+
+      <section className="hw-conversation" id="conversation">
+        <div className="hw-wrap hw-conversation-grid">
+          <div>
+            <p className="hw-eyebrow">A conversation, not a sales deck</p>
+            <h2>Let’s start<br />with your books.</h2>
+            <p>Tell us what takes too long.<br />We will show you where Hysaab fits.</p>
+            <div className="hw-agenda">
+              <span className="hw-mono">Your first conversation</span>
+              <ol>
+                <li><span className="hw-mono">01</span> Your current workflow</li>
+                <li><span className="hw-mono">02</span> A focused product walkthrough</li>
+                <li><span className="hw-mono">03</span> Fit, scope and next steps</li>
+              </ol>
+            </div>
+          </div>
+          <EnquiryForm source="Contact page" />
+        </div>
+      </section>
+
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Other ways to reach us</p>
+              <h2>Pick the lane<br /><span>that fits.</span></h2>
+            </div>
+            <p>Prefer email? Each route below opens a message to the same inbox, read by a person. The subject line helps it reach the right one.</p>
+          </div>
+          <div className="hw-cards">
+            {ROUTES.map((r) => (
+              <article key={r.eyebrow}>
+                <p className="hw-eyebrow">{r.eyebrow}</p>
+                <h3>{r.title}</h3>
+                <p>{r.detail}</p>
+                <a className="hw-link" href={r.mailto}>{r.cta} <span aria-hidden="true">↗</span></a>
+              </article>
             ))}
           </div>
-          <p className="mg-page-lede" style={{ marginTop: 36 }}>
-            Direct line: <a className="textlink" href="mailto:info@hysaab.ai">info@hysaab.ai</a> · Dubai &amp; Riyadh
-          </p>
-        </section>
-      </main>
-      <CtaBand />
-      <MgFooter />
-    </>
+          <div className="hw-note">
+            <span className="hw-mono">Direct line</span>
+            <p>
+              <a href="mailto:info@hysaab.ai" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>info@hysaab.ai</a>. We are in Dubai, working across the UAE and Saudi Arabia, in English and Arabic.
+            </p>
+          </div>
+        </div>
+      </section>
+    </PageShell>
   );
 }

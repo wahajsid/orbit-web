@@ -1,13 +1,11 @@
 import Image from "next/image";
 import "../../advert.css";
 import { Terminal } from "@/components/Terminal";
-import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { CtaBand } from "@/components/hysaab/CtaBand";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
-import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 
 export const revalidate = 60;
 
@@ -20,7 +18,6 @@ export const metadata = {
   alternates: langAlternates("/accounting"),
 };
 
-const pad3 = (n: number) => String(n).padStart(3, "0");
 
 type Chip = { k: string; v: string; tone?: "p" | "b" };
 function Act({
@@ -54,8 +51,7 @@ function Act({
   );
 }
 
-export default async function AccountingPage() {
-  const seat = await getNextSeat();
+export default function AccountingPage() {
   return (
     <>
       <SmoothScroll />
@@ -77,8 +73,7 @@ export default async function AccountingPage() {
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
-              <a className="cta" href="#ledger">Claim a founding seat</a>
-              <span className="mono hero-seat">SEAT {pad3(seat)}/{FOUNDING_SEATS} REMAINS</span>
+              <a className="cta" href="/contact">Let&rsquo;s talk</a>
             </div>
           </div>
 
@@ -193,23 +188,6 @@ export default async function AccountingPage() {
           </div>
         </section>
 
-        <section className="section wrap" id="ledger">
-          <h2 className="section-head">Claim a founding seat.</h2>
-          <p className="section-sub">
-            The first {FOUNDING_SEATS} companies lock in founder pricing for as long as they stay.
-            Work email only. A real person reads every entry.
-          </p>
-          <div className="price-grid">
-            <div>
-              <div className="np-chips" style={{ marginTop: 28 }}>
-                <span className="np-chip"><span className="k">Setup</span><span className="p">minutes, not a project</span></span>
-                <span className="np-chip"><span className="k">Books</span><span className="b">Zoho · Xero · QuickBooks · Odoo · Wafeq · ERPNext</span></span>
-                <span className="np-chip"><span className="k">Intake</span><span className="b">WhatsApp · Telegram · Email</span></span>
-              </div>
-            </div>
-            <LedgerForm seat={seat} />
-          </div>
-        </section>
       </main>
 
       <CtaBand />

@@ -45,7 +45,7 @@ export default function InvoicePage() {
               <h1 className="hy-hero-h1">Every supplier invoice, tested before you claim the VAT.</h1>
               <p className="hy-hero-p">Invoices arrive by email or a folder. hysaab invoice reads every field, redoes the arithmetic in code, tests the invoice against the UAE or KSA rules, gets a second opinion on anything risky, and chases the supplier for the fix. A person makes every call on what gets claimed.</p>
               <div className="hy-hero-cta">
-                <a href="#contact" className="hy-btn hy-btn--blush hy-btn--lg">Request access →</a>
+                <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg">Request access →</a>
                 <a href="#flow" className="hy-btn hy-btn--outline-cream hy-btn--lg">Follow an invoice</a>
               </div>
               <div className="hy-stats">

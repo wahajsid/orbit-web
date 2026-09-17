@@ -1,138 +1,130 @@
-import "../../advert.css";
-import Image from "next/image";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
+/* ── /product ────────────────────────────────────────────────────────
+   Rebuilt 2026-09 in the homepage design (PageShell + the hw-* kit in
+   app/hysaab-home.css). Six modules, each paired with a genuine capture
+   of the workspace running its sample dataset. Voice follows the
+   homepage: prepared work, human decisions, evidence you can inspect.
+   The old per-module statistics were removed: they could not be traced
+   to a measurement. */
+
+import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "Hysaab — One system, six modules, every dirham accounted for.",
+  title: "The Hysaab Product: Payables, Receivables, Ledger, Close, Documents and Tax",
   description:
-    "Payables, receivables, the ledger, the close, documents and tax — each run by agents, each answerable to you.",
+    "Six parts of one workspace: payables, receivables, the ledger, the month-end close, documents and tax. Hysaab prepares the work and shows its evidence; you keep the decisions.",
   alternates: langAlternates("/product"),
 };
 
-/* ── /product — 1:1 port of orbit-product.dc.html ────────────────────
-   Six module sections alternating copy and UI vignette in a 2-col ruled
-   grid. Copy always precedes its vignette in the DOM so a phone stacks
-   text-first; desktop alternation is done in CSS (mg-prod-row-flip). */
+const MODULES = [
+  {
+    n: "01", name: "Payables",
+    h: "Bills arrive coded, checked and ready for you.",
+    p: "Send a document by WhatsApp, email or upload. It is read, coded from your own history and tested against the tax-invoice rules before any VAT is claimed. Duplicates are held, not booked twice, and anything uncertain comes to you with the reason.",
+    ticks: ["Coding proposed with its confidence and the history behind it", "Input VAT held until the invoice qualifies", "Payment runs are prepared for you, never executed for you"],
+    file: "p-payables.png", title: "Payables",
+    alt: "Hysaab payables screen: report downloads, a payment-run panel, the open payables table with coding, tax-invoice result and VAT recovery for each bill, and totals owed by supplier.",
+    caption: "Payables, sample data: every open bill with its coding, tax-invoice result and recovery position.",
+  },
+  {
+    n: "02", name: "Receivables",
+    h: "Polite, persistent, and on a cadence you approve.",
+    p: "Reminders are drafted inside a collections cadence you set once, and nothing sends until you approve it. Ageing, promises to pay and provision exposure sit on one screen, measured against your own policy.",
+    ticks: ["Ageing and the next step for every open invoice", "Provisioning follows the ladder you set", "Customer statements are reconciled against your books"],
+    file: "p-receivables.png", title: "Receivables",
+    alt: "Hysaab receivables screen: tiles for open, due, past-due and at-risk receivables, an ageing chart, write-off risk and provisioning, and a table of invoices with ageing, status and next step.",
+    caption: "Receivables, sample data: ageing, provisioning and the next collection step for each invoice.",
+  },
+  {
+    n: "03", name: "Ledger",
+    h: "Every journal explains itself.",
+    p: "Each entry keeps who posted it, who confirmed it, the commentary and the documents behind it. Open any number and see why it is there. Mistakes are reversed in the open; nothing is deleted.",
+    ticks: ["Commentary and evidence attached to the entry", "Reversals are mirrored entries with their own reason", "Posts to the accounting system you already use"],
+    file: "04-app-journal-why.png", title: "Ledger",
+    alt: "Hysaab journal activity: posted journals with who posted or confirmed each, and one entry expanded to show its commentary, tie-out and attached documents.",
+    caption: "Journal activity, sample data: one entry opened to its commentary, tie-out and documents.",
+  },
+  {
+    n: "04", name: "The close",
+    h: "Month-end, run down to a short list.",
+    p: "The close cockpit shows what Hysaab has done, what is still open and what needs a person. Accruals are proposed with their basis for you to approve. When the gates are clear you lock the period, and the lock applies to everyone, Hysaab included.",
+    ticks: ["Accruals proposed with their basis, approved by you", "A checklist for Hysaab’s side and for your ledger’s side", "The period lock is yours to press"],
+    file: "p-close.png", title: "Close cockpit",
+    alt: "Hysaab close cockpit: proposed recurring accruals with basis and amount, a checklist of what Hysaab runs, a checklist for the ledger’s side, and the button to close and lock the period.",
+    caption: "The close cockpit, sample data: proposed accruals, both checklists and the gated lock.",
+  },
+  {
+    n: "05", name: "Documents",
+    h: "A record of everything that arrived.",
+    p: "Every document is filed with the channel it came by and what became of it: coded, matched, reconciled, or held with the reason. The evidence stays one click from the number it supports.",
+    ticks: ["Invoices, receipts, statements, purchase orders and approvals", "Duplicates recognised across channels", "Quotations and supporting papers attach to their transaction"],
+    file: "01-app-intake.png", title: "Documents",
+    alt: "Hysaab intake ledger: documents received by WhatsApp, email and bank feed, each with a category and an outcome. One email address is redacted.",
+    caption: "The intake ledger, sample data: each document with its category, channel and outcome.",
+  },
+  {
+    n: "06", name: "Tax",
+    h: "Checked before you file.",
+    p: "Invoices are tested against the UAE tax-invoice criteria as they arrive, and input VAT is held until a document qualifies. VAT and corporate tax turnover are reconciled to each other each month, with the difference explained, and filing deadlines are tracked.",
+    ticks: ["VAT to corporate tax reconciliation, with the difference explained", "Filing deadlines tracked for each regime", "You review and file; Hysaab does not submit returns for you"],
+    file: "p-tax.png", title: "Tax",
+    alt: "Hysaab tax screen: tiles for the VAT return, corporate tax, the VAT to corporate tax reconciliation and e-invoices, the reconciliation with its explained difference, and a table of filing deadlines.",
+    caption: "Tax, sample data: the VAT to corporate tax reconciliation and the filing calendar.",
+  },
+];
 
 export default function Page() {
   return (
-    <>
-      <MgNav active="product" />
+    <PageShell band={{ title: "See it on your own books.", body: "Bring one process that takes too long. We will walk it through the workspace with you, then confirm the scope and fees before any commitment." }}>
+      <PageHero
+        eyebrow="The product"
+        title={<>One workspace.<br /><span>Every figure accounted for.</span></>}
+        lede="Payables, receivables, the ledger, the close, documents and tax. Hysaab prepares the work in each and shows its evidence. The decisions stay with you."
+      >
+        <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
+      </PageHero>
 
-      <main>
-        {/* ── Page header ─────────────────────────────────────────── */}
-        <section className="mg-prod-hero">
-          <div className="mg-kicker">THE PRODUCT</div>
-          <h1 className="mg-prod-h">One system, six modules, every dirham accounted for.</h1>
-          <p className="mg-prod-lede">Payables, receivables, the ledger, the close, documents and tax — each run by agents, each answerable to you.</p>
-        </section>
-
-        {/* ── 01 · PAYABLES — copy left, intake vignette right ────── */}
-        <section className="mg-prod-row">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">01 · Payables</div>
-            <h2 className="mg-prod-mh">Invoices arrive. Bills get paid. Nothing slips.</h2>
-            <p className="mg-prod-mp">WhatsApp, email or Telegram a document and the intake line takes over: classified, extracted, coded from your history, tax-tested and checked for duplicates — usually before you&rsquo;ve put your phone down. Only the uncertain ones ask for you.</p>
-            <div className="mg-prod-metrics">
-              <span><b>≤ 3 min</b> intake to coded</span>
-              <span><b>100%</b> duplicate-guarded</span>
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Six parts, one set of books</p>
+              <h2>Prepared for you.<br /><span>Decided by you.</span></h2>
             </div>
+            <p>Each screen below is a capture of the Hysaab workspace running its sample dataset. Select any of them to see it in full.</p>
           </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-payables.png" alt="Hysaab Payables — open payables with the tax layer embedded in every row" width={1600} height={1256} sizes="(max-width: 900px) 100vw, 620px" />
-            </div>
-          </div>
-        </section>
 
-        {/* ── 02 · RECEIVABLES — vignette left, copy right ────────── */}
-        <section className="mg-prod-row mg-prod-row-flip">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">02 · Receivables</div>
-            <h2 className="mg-prod-mh">Polite, persistent, and never forgets to chase.</h2>
-            <p className="mg-prod-mp">Collection agents draft and dispatch reminders on a cadence you approve once. Incoming payments are matched to the bank automatically; write-off exposure is measured against your policy, not a guess.</p>
-          </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-receivables.png" alt="Hysaab Receivables — the collections queue, DSO and ageing posture" width={1600} height={1297} sizes="(max-width: 900px) 100vw, 620px" />
+          {MODULES.map((m, i) => (
+            <div className={`hw-feature${i % 2 ? " hw-feature--flip" : ""}`} key={m.n}>
+              <div className="hw-feature-copy">
+                <p className="hw-eyebrow">{m.n} / {m.name}</p>
+                <h3>{m.h}</h3>
+                <p>{m.p}</p>
+                <ul className="hw-ticks">{m.ticks.map((t) => <li key={t}>{t}</li>)}</ul>
+              </div>
+              <Shot file={m.file} title={m.title} alt={m.alt} caption={m.caption} priority={i === 0} />
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        {/* ── 03 · LEDGER — copy left, journal vignette right ─────── */}
-        <section className="mg-prod-row">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">03 · Ledger</div>
-            <h2 className="mg-prod-mh">Every journal explains itself.</h2>
-            <p className="mg-prod-mp">Each entry carries its agent&rsquo;s commentary and the full evidence bundle — the source document, the OCR corroboration, the confidence score. Open any number and see exactly why it&rsquo;s there.</p>
-          </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-ledger.png" alt="Hysaab general ledger — journal activity with agent commentary and evidence" width={1600} height={990} sizes="(max-width: 900px) 100vw, 620px" />
+      <section className="hw-block--dark">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Across every part</p>
+              <h2>Your judgement.<br /><span>Your boundaries.</span></h2>
             </div>
+            <p>The same three rules hold on every screen, whichever part of the books you are in.</p>
           </div>
-        </section>
-
-        {/* ── 04 · THE CLOSE — vignette left, copy right ──────────── */}
-        <section className="mg-prod-row mg-prod-row-flip">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">04 · The close</div>
-            <h2 className="mg-prod-mh">Month-end runs itself down to a short list.</h2>
-            <p className="mg-prod-mp">The cockpit shows what&rsquo;s done, what&rsquo;s posting and what needs a human. When every gate is green, you close and lock — and the lock is enforced everywhere, agents included.</p>
-            <div className="mg-prod-metrics">
-              <span><b>3 days</b> typical close</span>
-              <span><b>2</b> decisions this month</span>
-            </div>
+          <div className="hw-rows">
+            <article><span className="hw-mono">01</span><h3>Every answer, traceable.</h3><p>Inspect the entries and documents behind any figure. An explanation you can verify is worth more than one you are asked to trust.</p></article>
+            <article><span className="hw-mono">02</span><h3>Know where to stop.</h3><p>Approval gates, period locks and control accounts stay in place. A questionable instruction is challenged with the reason, and some are refused outright.</p></article>
+            <article><span className="hw-mono">03</span><h3>Leave a clear record.</h3><p>The recommendation, the decision taken and the reasoning behind it are stored with the books, not in a separate thread.</p></article>
           </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — Hysaab's side done, your ledger's side listed, the lock gated" width={1600} height={1170} sizes="(max-width: 900px) 100vw, 620px" />
-            </div>
-          </div>
-        </section>
-
-        {/* ── 05 · DOCUMENTS — copy left, vault screenshot right ──── */}
-        <section className="mg-prod-row">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">05 · Documents</div>
-            <h2 className="mg-prod-mh">A vault, not a shoebox.</h2>
-            <p className="mg-prod-mp">Every document sha-deduped, org-scoped and linked to its journal. Search by supplier, amount or period — the evidence is one click from the number.</p>
-          </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-documents.png" alt="Hysaab Documents — the evidence vault, every file linked to its journal" width={1600} height={1080} sizes="(max-width: 900px) 100vw, 620px" />
-            </div>
-          </div>
-        </section>
-
-        {/* ── 06 · TAX — screenshot left, copy right ───────────────── */}
-        <section className="mg-prod-row mg-prod-row-flip">
-          <div className="mg-prod-copy">
-            <div className="mg-kicker">06 · Tax &amp; compliance</div>
-            <h2 className="mg-prod-mh">FTA-grade, before you file.</h2>
-            <p className="mg-prod-mp">Article 59 tested on every invoice, input VAT held until documents qualify, e-invoicing ready ahead of the mandate. Your VAT return assembles itself as the month runs.</p>
-          </div>
-          <div className="mg-prod-vig">
-            <div className="mg-vig-card">
-              <Image src="/shots/adv-tax.png" alt="Hysaab tax — VAT–CT reconciliation, deadlines and clearance in one place" width={1600} height={1011} sizes="(max-width: 900px) 100vw, 620px" />
-            </div>
-          </div>
-        </section>
-
-        {/* ── Green CTA band ──────────────────────────────────────── */}
-        <section className="mg-prod-cta">
-          <h2 className="mg-prod-cta-h">See it run on your own books.</h2>
-          <div className="mg-poster-cta">
-            <a href="/#cohort" className="mg-cta mg-cta-on-green">Book a demo →</a>
-            <a href="/" className="mg-ghost mg-ghost-on-green">Back to home</a>
-          </div>
-        </section>
-      </main>
-
-      <CtaBand />
-      <MgFooter />
-    </>
+        </div>
+      </section>
+    </PageShell>
   );
 }
