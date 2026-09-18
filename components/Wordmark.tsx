@@ -1,17 +1,22 @@
 /* ── The hysaab wordmark ─────────────────────────────────────────────
-   Always lowercase. The pupils in the two `a` counters are part of the
-   logo: each `a` is a relative span with an absolutely positioned circle
-   at left 0.30em / bottom 0.33em, 0.075em across (0.078–0.085em under
-   26px). Below 22px the pupils are dropped. `.ai` sits at 0.30× the
-   wordmark size, weight 400, 55% opacity, baseline-aligned.
+   Instrument Serif, lowercase, with the y drawn as a pen tick: navy above
+   the baseline, a blush tail below it. Rendered from baked outlines
+   (lib/brand-paths.ts) so it needs no webfont and is identical everywhere.
+   `size` is the wordmark's em size in px, as before; the lockup is
+   ~1.10 em tall (ascender to tail) and ~3.0 em wide with the `.ai` suffix.
 
-   Pupil colour follows the ground: #B4706F on light, #E4A1A0 on navy,
-   cream on blush. Never use a different typeface; never uppercase. */
+   Ground decides the colours: navy ink on light and blush, cream ink on
+   navy. The tail is blush on light and navy, cream on blush. `.ai` is the
+   ink at 55–60 % opacity. Never recolour the tail to a state colour;
+   never set the name in another typeface. Source SVGs: public/brand. */
+
+import { LOCKUP, MARK } from "@/lib/brand-paths";
 
 type Ground = "light" | "navy" | "blush";
 
-const PUPIL: Record<Ground, string> = { light: "#B4706F", navy: "#E4A1A0", blush: "#FBF7F0" };
 const INK: Record<Ground, string> = { light: "#122940", navy: "#FBF7F0", blush: "#122940" };
+const TAIL: Record<Ground, string> = { light: "#E4A1A0", navy: "#E4A1A0", blush: "#FBF7F0" };
+const SUFFIX_OPACITY: Record<Ground, number> = { light: 0.55, navy: 0.6, blush: 0.55 };
 
 export function Wordmark({
   size = 26,
@@ -28,52 +33,39 @@ export function Wordmark({
   className?: string;
   ariaLabel?: string;
 }) {
-  const pupils = size >= 22;
-  const dot = size < 26 ? "0.082em" : "0.075em";
-  const A = () => (
-    <span style={{ position: "relative" }}>
-      a
-      {pupils && (
-        <span
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "0.30em",
-            bottom: "0.33em",
-            width: dot,
-            height: dot,
-            borderRadius: "50%",
-            background: PUPIL[ground],
-          }}
-        />
-      )}
-    </span>
-  );
+  const vb = suffix ? LOCKUP.viewBox : LOCKUP.wordViewBox;
+  const w = suffix ? LOCKUP.width : LOCKUP.wordWidth;
+  const h = suffix ? LOCKUP.height : LOCKUP.wordHeight;
+  const k = size / 1000;
   return (
     <Tag
       className={className}
+      role="img"
       aria-label={ariaLabel ?? (suffix ? "hysaab.ai" : "hysaab")}
-      style={{
-        display: "inline-flex",
-        alignItems: "flex-end",
-        fontFamily: "var(--sans)",
-        fontSize: size,
-        fontWeight: 500,
-        letterSpacing: "0.005em",
-        lineHeight: 1,
-        color: INK[ground],
-        whiteSpace: "nowrap",
-      }}
+      style={{ display: "inline-flex", alignItems: "center", lineHeight: 1, whiteSpace: "nowrap" }}
     >
-      <span aria-hidden="true">
-        hys<A />
-        <A />b
-      </span>
-      {suffix && (
-        <span aria-hidden="true" style={{ fontSize: "0.3em", fontWeight: 400, opacity: 0.55, paddingBottom: "0.32em" }}>
-          .ai
-        </span>
-      )}
+      <svg
+        viewBox={vb}
+        width={Math.round(w * k * 10) / 10}
+        height={Math.round(h * k * 10) / 10}
+        aria-hidden="true"
+        focusable="false"
+        style={{ display: "block", overflow: "visible" }}
+      >
+        <path fill={INK[ground]} d={LOCKUP.ink} />
+        <path fill={TAIL[ground]} d={LOCKUP.tail} />
+        {suffix && <path fill={INK[ground]} fillOpacity={SUFFIX_OPACITY[ground]} d={LOCKUP.suffix} />}
+      </svg>
     </Tag>
+  );
+}
+
+/* The mark alone: the pen tick in a 64-unit box. */
+export function Mark({ size = 24, ground = "light" }: { size?: number; ground?: Ground }) {
+  return (
+    <svg viewBox={MARK.viewBox} width={size} height={size} role="img" aria-label="hysaab" style={{ display: "block", flexShrink: 0 }}>
+      <path fill={INK[ground]} d={MARK.ink} />
+      <path fill={TAIL[ground]} d={MARK.tail} />
+    </svg>
   );
 }
