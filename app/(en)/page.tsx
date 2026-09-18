@@ -78,7 +78,7 @@ export default function Page() {
             <a href="#experience"><span className="hw-mono">01</span>The experience</a>
             <a href="#control"><span className="hw-mono">02</span>Your control</a>
             <a href="#ways"><span className="hw-mono">03</span>Ways to work</a>
-            <a href="#team"><span className="hw-mono">04</span>The people</a>
+            <a href="#team"><span className="hw-mono">04</span>The team</a>
             <a href="#products"><span className="hw-mono">05</span>Our products</a>
           </div>
         </nav>
@@ -264,10 +264,10 @@ export default function Page() {
           <div className="hw-wrap hw-section">
             <div className="hw-heading">
               <div>
-                <p className="hw-eyebrow">The people</p>
-                <h2>Who reviews the work.<br /><span>Named, not anonymous.</span></h2>
+                <p className="hw-eyebrow">The team</p>
+                <h2>The people behind Hysaab.<br /><span>Named, not anonymous.</span></h2>
               </div>
-              <p>Hysaab is built and run by the accountants of Oblique Consult and the engineers of Simpla. On the managed service, the people below and their teams review exceptions, prepare the close and sign off the reports with you.</p>
+              <p>Hysaab is built and run by Oblique Consult and Simpla. These are the people managing it. Behind them are the accountants and engineers of both firms, who do the day-to-day work on your books.</p>
             </div>
             <div className="hw-team-grid">
               {TEAM.map((p) => (
@@ -281,8 +281,8 @@ export default function Page() {
               ))}
             </div>
             <div className="hw-note">
-              <span className="hw-mono">How the review works</span>
-              <p>Hysaab prepares entries, accruals and reports. Under the managed service a named accountant reviews exceptions, corrects where necessary and prepares the close with you; you keep the approvals that are yours. Roles and prior experience above are as published by <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> and on the individuals’ public profiles.</p>
+              <span className="hw-mono">How the work is done</span>
+              <p>Hysaab prepares entries, accruals and reports. Under the managed service, accountants from the Oblique Consult team review exceptions, correct where necessary and prepare the close with you, with a named accountant as your point of contact; you keep the approvals that are yours. Roles and prior experience above are as published by <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> and on the individuals’ public profiles.</p>
             </div>
           </div>
         </section>
