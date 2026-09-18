@@ -261,6 +261,14 @@ html:has(.hw-page) { scroll-behavior: smooth; scroll-padding-top: 24px; }
 
 /* ── the people ───────────────────────────────────────────────────── */
 .hw-team { background: var(--hw-sage); border-block: 1px solid #c5d1bf; }
+.hw-team-orgs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; }
+.hw-team-orgs a { display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: center; background: var(--hw-cream); border-top: 3px solid var(--hw-navy); padding: 22px 24px; min-width: 0; }
+.hw-team-orgs a:hover { background: #fff; }
+.hw-team-orgs img { width: 100%; height: auto; max-height: 56px; object-fit: contain; object-position: left center; }
+.hw-team-orgs span { font-size: 14px; line-height: 1.6; color: #4c5b51; }
+.hw-team-orgs strong { display: block; font-size: 17px; font-weight: 550; letter-spacing: -0.3px; color: var(--hw-ink); margin-bottom: 4px; }
+html[lang="ar"] .hw-team-orgs img { object-position: right center; }
+@media (max-width: 760px) { .hw-team-orgs { grid-template-columns: 1fr; } .hw-team-orgs a { grid-template-columns: 120px 1fr; gap: 16px; padding: 18px; } }
 .hw-team-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .hw-team-grid article { background: var(--hw-cream); border-top: 3px solid var(--hw-proof); padding: 22px 20px; display: flex; flex-direction: column; min-width: 0; }
 .hw-team-initials { width: 44px; height: 44px; border-radius: 50%; background: var(--hw-navy); color: var(--hw-cream); display: grid; place-items: center; font: 500 13px var(--hw-mono); letter-spacing: 0.5px; margin-bottom: 18px; }
