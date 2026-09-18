@@ -1,209 +1,377 @@
-import "../advert.css";
-import { LedgerForm } from "@/components/LedgerForm";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { NpEnhance } from "@/components/NpEnhance";
-import { AgentFeed } from "@/components/AgentFeed";
-import { Countdown } from "@/components/Countdown";
-import Image from "next/image";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
-import { langAlternates } from "@/lib/site-meta";
+/* ── الصفحة الرئيسية العربية ──────────────────────────────────────────
+   Arabic twin of app/(en)/page.tsx in the same design (2026-09-18): the
+   same sections in the same order, translated, sharing the components,
+   the captures (lib/home-moments.ts, with Arabic captions here) and the
+   team data (lib/team.ts). Brand and system names stay Latin; digits
+   stay Latin; WhatsApp is واتساب in prose. */
 
-export const revalidate = 60;
+import { Wordmark } from "@/components/Wordmark";
+import { HomeHeader } from "@/components/home/HomeHeader";
+import { Capture } from "@/components/home/Capture";
+import { EnquiryForm } from "@/components/home/EnquiryForm";
+import { loadMoments, loadHeroCapture } from "@/lib/home-moments";
+import { langAlternates } from "@/lib/site-meta";
+import { Demo } from "@/components/hysaab/Demo";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { LaunchNotice } from "@/components/home/LaunchNotice";
+import { TEAM } from "@/lib/team";
 
 export const metadata = {
-  title: "Hysaab — وكلاء ذكاء اصطناعي يديرون ماليتك. وأنت توافق على القرارات.",
+  title: "برنامج محاسبة بالذكاء الاصطناعي للإمارات والسعودية | Hysaab",
   description:
-    "ستة عشر وكيلًا يقرؤون فواتيرك، ويرمّزون دفتر الأستاذ، ويراقبون ضريبة القيمة المضافة، ويقودون الإقفال الشهري — ويتوقفون ليسألوك عندما يلزم الأمر. بُني في الخليج، على يد محاسبين عاشوا كل ليلة متأخرة منه.",
+    "فريق محاسبة وتقارير لشركات الخليج: فواتير مرمّزة ومختبرة ضريبيًا، إقفال شهري مُعدّ، وقرارات تبقى بيدك. صُنع في دبي.",
   alternates: langAlternates("/"),
 };
 
-/* ── الخطوات الأربع ("كيف يعمل Hysaab") ─────────────────────────────── */
-const STEPS: { n: string; h: string; p: string }[] = [
-  { n: "01", h: "أرسل أي شيء، بأي طريقة", p: "صورة عبر واتساب، بريد مُعاد توجيهه، ملف PDF. Hysaab يؤرشفه، ويزيل التكرار، ويبدأ القراءة." },
-  { n: "02", h: "الوكلاء يقرؤون ويرمّزون", p: "استخراج البيانات، وترميز الحسابات من سجلّك أنت، وفحوص ضريبة القيمة المضافة، وكشف التكرار — في دقائق، لا في نهاية الشهر." },
-  { n: "03", h: "أنت تتخذ القرارات القليلة", p: "كل ما هو دون عتبة الثقة يصلك كقرار بلغة واضحة مع الأدلة مرفقة." },
-  { n: "04", h: "الفترة تُقفل نفسها", p: "الاستحقاقات والإهلاك والجداول تُرحَّل في موعدها. عندما تخضرّ القائمة، تُقفل الفترة وتُقيَّد — خلال أيام." },
+/* الشريط الحي: الصفوف نفسها التي في الصفحة الإنجليزية */
+const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
+  { t: "21:00", who: "وكيل الاستلام", msg: "استلم صورة عبر واتساب من راشد. Gulf Technical Supplies، INV-4471." },
+  { t: "21:01", who: "وكيل الضرائب", msg: "معايير الفاتورة الضريبية مستوفاة · رقم التسجيل الضريبي صحيح · ضريبة 199.50 قابلة للاسترداد." },
+  { t: "21:02", who: "وكيل الترميز", msg: "معدات تقنية · مكتب دبي، بثقة 96% من 31 قيدًا مشابهًا. رُحّل القيد J-2291 إلى Zoho Books." },
+  { t: "21:40", who: "مراقبة التكرار", msg: "وصلت INV-4471 مرة أخرى بالبريد. دُمجت ولم تُرحَّل مرتين." },
+  { t: "23:15", who: "وكيل التحصيل", msg: "أُرسل التذكير 2 من 3 إلى ELC Group. الفاتورة SI-1187 متأخرة 12 يومًا." },
+  { t: "06:05", who: "وكيل مطابقة البنك", msg: "طُوبق 312 من 314 سطرًا مع مستنداتها خلال الليل." },
+  { t: "06:06", who: "قرار لليلى", msg: "الشيك 100421 · 250 درهمًا صُرف بلا مستند. نسألك.", ask: true },
+  { t: "06:30", who: "وكيل الإقفال", msg: "حُرّر إيجار Knight Frank · الشهر 3 من 12. قائمة الإقفال 68%." },
+  { t: "06:45", who: "وكيل التقارير", msg: "أُعيد بناء حزمة سبتمبر. هامش الربح الإجمالي انخفض 2.1 نقطة، والتفسير مرفق." },
 ];
 
-/* ── فريق الوكلاء ──────────────────────────────────────────────────── */
-const AGENTS: { h: string; p: string; green?: boolean }[] = [
-  { h: "وكيل الترميز", p: "يرمّز كل سطر من سجل ترحيلاتك أنت. ويسأل عندما لا يكون متأكدًا." },
-  { h: "وكيل الضرائب", p: "يختبر كل فاتورة وفق المادة 59 الإماراتية قبل المطالبة بضريبة المدخلات." },
-  { h: "محرك الاستحقاقات", p: "يتعلم إيقاع فوترة كل مورد؛ ويقترح الاستحقاقات عندما تغيب الفواتير." },
-  { h: "وكيل الشذوذ", p: "يراقب أسعار الوحدات ووتيرتها؛ ويرصد الزيادات قبل مواعيد التجديد." },
-  { h: "وكيل مطابقة البنك", p: "يقيّم ويطابق كل سطر بنكي مع مستنده، حتى الكسور العشرية." },
-  { h: "وكيل الجداول", p: "يحرّر المدفوعات المسبقة والقيود الدورية في مواعيدها، مع التعليقات." },
-  { h: "وكيل التحصيل", p: "يصيغ التذكيرات ويرسلها بوتيرة توافق عليها مرة واحدة." },
-  { h: "…وتسعة آخرون", p: "التكرارات، والإهلاك، والانحرافات، والاستقبال، والإرسال.", green: true },
-];
+const AR_NOTICE: Record<string, string> = {
+  intake: "لاحظ عمود القناة، واتساب والبريد جنبًا إلى جنب، ونتيجة كل مستند، ومنها فاتورة أُوقفت لأنها لم تجتز اختبار الفاتورة الضريبية.",
+  coded: "لاحظ الحساب المقترح لكل فاتورة مع درجة الثقة والسجل، ونتيجة اختبار الفاتورة الضريبية بجانبه.",
+  challenge: "لاحظ ترميزًا جرى التشكيك فيه استنادًا إلى سجل المورد نفسه، وضريبة مدخلات أُوقفت حتى تُصحَّح الفاتورة.",
+  record: "لاحظ قيدًا مفتوحًا على تعليقه، والمطابقة مع إجمالي الفاتورة، والمستندات المرفقة.",
+  position: "لاحظ بطاقات المركز المالي: النقد ورأس المال العامل والإيراد والذمم الدائنة المستحقة، ولكل منها سطر سياق.",
+};
+const AR_TITLE: Record<string, string> = {
+  intake: "أرسله.",
+  coded: "مرمَّز ومفحوص عند الوصول.",
+  challenge: "توقّع رأيًا ثانيًا.",
+  record: "اتخذ القرار. واحتفظ بالسبب.",
+  position: "اعرف أين تقف.",
+};
 
-const COMPLIANCE: { h: string; p: string }[] = [
-  { h: "اختبار الفاتورة الضريبية وفق المادة 59", p: "على كل فاتورة واردة — الرقم الضريبي والنسب والتقريب." },
-  { h: "جاهز للفوترة الإلكترونية", p: "قبل موعد الإلزام في الإمارات." },
-  { h: "أقفال الفترات", p: "لا يستطيع الوكلاء تجاوزها — المقفل يبقى مقفلًا." },
-  { h: "سجل تدقيق كامل", p: "كل إجراء، بشريًا كان أم آليًا، مسجل مع أدلته." },
-];
-
-export default async function Page() {
-  const seat = await getNextSeat();
+export default function Page() {
+  const moments = loadMoments();
+  const hero = loadHeroCapture();
+  const pendingCount = moments.filter((m) => !m.ready).length;
 
   return (
-    <>
-      <SmoothScroll />
+    <div className="hw-page" id="top">
+      <a href="#main" className="hw-skip">تخطَّ إلى المحتوى</a>
+      <HomeHeader locale="ar" />
 
-      <MgNav locale="ar" />
-
-      <main>
-        {/* ══ البطل المنقسم — العنوان والإحصاءات على الورق؛ نموذج قمرة
-            الإقفال بظله الأخضر المزاح على الأرضية المخططة ══ */}
-        <section className="mg-hero">
-          <div className="mg-hero-copy">
-            <div className="mg-kicker">نظام التشغيل المالي · الإمارات والخليج</div>
-            <h1 className="mg-hero-h">وكلاء ذكاء اصطناعي يديرون ماليتك. وأنت توافق على القرارات.</h1>
-            <p className="mg-hero-p">ستة عشر وكيلًا يقرؤون فواتيرك، ويرمّزون دفتر الأستاذ، ويراقبون ضريبة القيمة المضافة، ويقودون الإقفال — ويتوقفون ليسألوك عندما يهم الأمر. إجابات واضحة، وأدلة كاملة، في كل مرة.</p>
-            <div className="mg-hero-cta">
-              <a href="#join" className="mg-cta">احجز عرضًا ←</a>
-              <a href="#how" className="mg-ghost">شاهد كيف يعمل</a>
-            </div>
-            <div className="mg-stats">
-              <div><div className="mg-stat-n">16</div><div className="mg-stat-l">وكيلًا على دفاترك</div></div>
-              <div><div className="mg-stat-n">93%</div><div className="mg-stat-l">من القيود تُرحَّل دون تدخل</div></div>
-              <div><div className="mg-stat-n">3 أيام</div><div className="mg-stat-l">حتى فترة مقفلة</div></div>
-            </div>
-          </div>
-          <div className="mg-hero-mock-slot">
-            {/* المنتج الحقيقي لا نموذج مرسوم — مساحة العمل العربية نفسها،
-                من اليمين إلى اليسار، في الإطار ذي الظل الأخضر. */}
-            <div className="mg-mock">
-              <Image src="/shots/adv-arabic.png" alt="مساحة عمل Hysaab بالعربية — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1360} sizes="(max-width: 900px) 100vw, 640px" priority />
-            </div>
-          </div>
-        </section>
-
-        {/* ══ مباشر من الوكلاء — الشريط المتحرك ══ */}
-        <AgentFeed locale="ar" />
-
-        {/* ══ كيف يعمل Hysaab ══ */}
-        <section id="how" className="mg-section">
-          <div className="mg-kicker">كيف يعمل Hysaab</div>
-          <h2 className="mg-h2">من صورة فاتورة إلى فترة مقفلة.</h2>
-          <div className="mg-steps">
-            {STEPS.map((s) => (
-              <div key={s.n} className="mg-step">
-                <div className="mg-step-n">{s.n}</div>
-                <div className="mg-step-h">{s.h}</div>
-                <div className="mg-step-p">{s.p}</div>
+      <main id="main">
+        {/* ── البطل ── */}
+        <section className="hw-hero">
+          <div className="hw-wrap hw-hero-grid">
+            <div className="hw-hero-copy">
+              <p className="hw-eyebrow hw-eyebrow--dot"><span className="hw-dot" aria-hidden="true" /> عناية هادئة، كل صباح</p>
+              <h1>دفاترك<br />في نصابها.<br /><span>وذهنك<br />فيما هو آت.</span></h1>
+              <p className="hw-intro">الدفاتر مُعدّة.<br />والقرارات لك.</p>
+              <p className="hw-hero-desc">تعرّف على Hysaab: فريق محاسبة وتقارير لشركات الخليج، مبني على الأدلة والحكم المهني والإشراف البشري الذي تستحقه دفاترك. أرسل مستندًا أو اطرح سؤالًا عبر واتساب، ويتولى Hysaab الباقي.</p>
+              <div className="hw-actions">
+                <a className="hw-btn hw-btn--peach" href="#conversation">احجز جولة تعريفية <span aria-hidden="true">↗</span></a>
+                <a className="hw-link hw-link--light" href="#experience"><span className="hw-play" aria-hidden="true">▷</span> شاهد كيف يعمل</a>
               </div>
-            ))}
+              <LaunchNotice locale="ar" />
+              <p className="hw-origin"><span aria-hidden="true">✳</span> صُنع في دبي. يفهم يوم عملك.</p>
+            </div>
+            <div className="hw-proof">
+              <p className="hw-eyebrow">فريقك المالي. على بُعد محادثة واحدة.</p>
+              <h2>يبدأ الأمر<br />برسالة واتساب.</h2>
+              <p className="hw-proof-p">أرسل الفاتورة. اطرح السؤال.<br />وواصل يومك.</p>
+              <Capture moment={hero} priority locale="ar" />
+              {hero.ready && <p className="hw-proof-note">استلام المستندات في مساحة العمل، بيانات تجريبية: ما وصل، والقناة التي وصل منها.</p>}
+            </div>
           </div>
         </section>
 
-        {/* ══ الفريق ══ */}
-        <section id="agents" className="mg-section">
-          <div className="mg-roster-head">
-            <div>
-              <div className="mg-kicker">الفريق</div>
-              <h2 className="mg-h2">ستة عشر متخصصًا. صفر موظفين إضافيين.</h2>
-            </div>
-            <p className="mg-roster-lede">كل وكيل يؤدي مهمة واحدة، ويشرح نفسه، ويحيل إليك كل ما هو غير مؤكد. عيّنة من الفريق:</p>
+        {/* ── في هذه الصفحة ── */}
+        <nav className="hw-subnav" aria-label="في هذه الصفحة">
+          <div className="hw-wrap hw-subnav-in">
+            <a href="#experience"><span className="hw-mono">01</span>التجربة</a>
+            <a href="#control"><span className="hw-mono">02</span>تحكّمك</a>
+            <a href="#ways"><span className="hw-mono">03</span>طرق العمل</a>
+            <a href="#team"><span className="hw-mono">04</span>الفريق</a>
+            <a href="#products"><span className="hw-mono">05</span>منتجاتنا</a>
           </div>
-          <div className="mg-roster">
-            {AGENTS.map((a) => (
-              <div key={a.h} className={a.green ? "mg-agent mg-agent-green" : "mg-agent"}>
-                <div className="mg-agent-h">{a.h}</div>
-                <div className="mg-agent-p">
-                  {a.p}{a.green && <> <a href="/ar/accounting" className="mg-agent-cta">تعرّف على الفريق كاملًا ←</a></>}
+        </nav>
+
+        {/* ── شريط العبارة ── */}
+        <div className="hw-band">
+          <div className="hw-wrap hw-band-in">
+            <p>نظامك المحاسبي يحفظ السجلات.<br /><strong>وHysaab يستخلص معناها.</strong></p>
+            <p className="hw-band-note">المستندات تصل.<br />والإجابات تتبعها.<br /><span>وأنت تبقى في موقع التحكم.</span></p>
+            <span className="hw-band-symbol" aria-hidden="true">↗</span>
+          </div>
+        </div>
+
+        {/* ── الشريط الحي ── */}
+        <section className="hw-live" id="live">
+          <div className="hw-wrap hw-live-grid">
+            <div className="hw-live-copy">
+              <p className="hw-eyebrow">بينما كنت بعيدًا</p>
+              <h2>ليلة واحدة<br />على مجموعة دفاتر.</h2>
+              <p>كل مستند قُرئ، وكل سطر طُوبق، وكل تذكير أُرسل. والقرار الوحيد الذي يخصك ينتظرك في الصباح.</p>
+              <p className="hw-live-note">ليلة توضيحية. الأسماء والأرقام أمثلة، لا نتائج.</p>
+            </div>
+            <div className="hy-ticker hw-live-ticker" aria-label="مباشرة من الوكلاء">
+              <div className="hy-ticker-head">
+                <span className="hy-ticker-dot" aria-hidden="true" />
+                <span className="hy-ticker-kicker">مباشرة من الوكلاء</span>
+                <span className="hy-ticker-when">الليلة · دبي</span>
+              </div>
+              <div className="hy-ticker-body">
+                <div className="hy-ticker-scroll">
+                  {[false, true].map((dup) => (
+                    <ul className="hy-ticker-list" key={String(dup)} aria-hidden={dup || undefined}>
+                      {TICKER.map((r) => (
+                        <li className={`hy-ticker-row${r.ask ? " hy-ticker-row--ask" : ""}`} key={r.t + r.who}>
+                          <span className="hy-ticker-t hy-num">{r.t}</span>
+                          <span className="hy-ticker-msg"><strong>{r.who}</strong> {r.msg}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
                 </div>
+                <div className="hy-ticker-fade" aria-hidden="true" />
               </div>
-            ))}
-          </div>
-          {/* قائمة القرارات نفسها — الوكلاء يقترحون مع درجة الثقة والأدلة،
-              والإنسان يحسم مع تسجيل السبب. */}
-          <div className="mg-mock" style={{ marginTop: 32 }} dir="ltr">
-            <Image src="/shots/adv-decisions.png" alt="قائمة القرارات في Hysaab — كل ما ينتظر إنسانًا، مع وكيله ودرجة ثقته وأدلته" width={1600} height={815} sizes="(max-width: 1120px) 100vw, 1344px" />
-          </div>
-          <p className="mg-stat-l" style={{ marginTop: 12 }}>قائمة القرارات، مباشرة — المحركات تقترح وتُرحِّل وتُطابق وحدها، وتتوقف هنا عند كل ما هو دون بوابة الثقة.</p>
-        </section>
-
-        {/* ══ شريط الامتثال ══ */}
-        <section id="compliance" className="mg-compliance">
-          <div className="mg-compliance-copy">
-            <div className="mg-kicker mg-kicker-on-ink">مصمم لهيئة الضرائب</div>
-            <h2 className="mg-h2 mg-h2-on-ink">الامتثال ليس ميزة. إنه الوضع الافتراضي.</h2>
-            <p className="mg-compliance-p">كل مستند يُختبر وفق قواعد ضريبة القيمة المضافة الإماراتية قبل أن يتحرك درهم واحد. كل قيد يحمل تعليق وكيله والدليل المصدر. وعندما يسأل المدقق، تسلّمه السجل الكامل — لا صندوق أوراق.</p>
-          </div>
-          <ul className="mg-compliance-list">
-            {COMPLIANCE.map((c) => (
-              <li key={c.h}><span className="mg-check">✓</span><div><b>{c.h}</b> {c.p}</div></li>
-            ))}
-          </ul>
-        </section>
-
-        {/* ══ الملصق ══ */}
-        <section className="mg-poster">
-          <h2 className="mg-poster-h">الإقفال ينتهي في أيام. وأمسياتك تعود إليك.</h2>
-          <div className="mg-poster-cta">
-            <a href="#join" className="mg-cta mg-cta-on-green">احجز عرضًا ←</a>
-            <a href="/ar/product" className="mg-ghost mg-ghost-on-green">استكشف المنتج</a>
+            </div>
           </div>
         </section>
 
-        {/* ══ عائلة Hysaab ══ */}
-        <section id="products" className="mg-section">
-          <div className="mg-kicker">عائلة Hysaab</div>
-          <h2 className="mg-h2">أربعة عوالم. كون واحد.</h2>
-          <div className="mg-worlds">
-            <a href="/ar/accounting" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">المحاسبة</div>
-              <div className="mg-world-h">Hysaab</div>
-              <p>تعيد عائشة توجيه فاتورة مورد من واتساب في التاسعة مساءً. ومع شروق الشمس تكون الفاتورة مرمّزة من سجلها هي، ومختبرة وفق قواعد الهيئة الاتحادية للضرائب، ومطابقة مع السطر البنكي، ومرحّلة إلى Zoho — دون أن تلمسها.</p>
-              <p className="mg-world-met">إقفال الشهر في يومين بدل 9 · 100% من السطور مُختبرة ضريبيًا · نحو 4,200 درهم من الضريبة المخفية تُكتشف شهريًا.</p>
-              <span className="mg-world-go">شاهد Hysaab ←</span>
-            </a>
-            <a href="/ar/hire" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">التوظيف</div>
-              <div className="mg-world-h">Ibtidah</div>
-              <p>‏52 سيرة ذاتية تصل صباح الثلاثاء. بحلول الغداء يكون Hysaab قد قرأها جميعًا، وقيّمها وفق معاييرك، وأخفى الأسماء والصور، ووضع ثلاثة أشخاص على مكتبك للمقابلة — ليلى وعمر وبريا.</p>
-              <p className="mg-world-met">‏50 سيرة تُقرأ في دقائق لا في أسبوع · لكل مرشح مقابلة أولى حقيقية · تقييم يمكنك الدفاع عنه.</p>
-              <span className="mg-world-go">شاهد Ibtidah ←</span>
-            </a>
-            <a href="/ar/invoice" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">الفواتير · الامتثال الضريبي</div>
-              <div className="mg-world-h">hysaab invoice</div>
-              <p>مجلد فيه 214 فاتورة مورد يصل في التاسعة صباحًا. وبحلول 9:20 تكون كل واحدة قد قُرئت، وأُعيد فحص حسابها برمجيًا، واختُبرت وفق قواعد الهيئة وهيئة الزكاة «زاتكا»، ورُتبت حسب المخاطر — والفواتير التسع التي سترسب في التدقيق مُعلَّمة قبل تقديم الإقرار.</p>
-              <p className="mg-world-met">كل فاتورة مختبرة ضريبيًا · قواعد الإمارات والسعودية · الضريبة الخطرة تُحجز قبل المطالبة بها.</p>
-              <span className="mg-world-go">شاهد hysaab invoice ←</span>
-            </a>
-            <a href="/ar/firms" className="mg-world">
-              <div className="mg-kicker mg-kicker-tight">للمكاتب · قريبًا</div>
-              <div className="mg-world-h">hysaab services OS</div>
-              <p>كل عميل وارتباط وإقرار في مكان واحد. يسجل راشد ساعة على ارتباط ضريبة ELC Group بنقرة واحدة؛ والمصروف يقع على العميل الصحيح؛ ونسبة التحقق لكل ارتباط — بلا جداول بيانات.</p>
-              <p className="mg-world-met">سجلات الوقت، وتتبع المشاريع والمصروفات، والمكتب كله — منظم.</p>
-              <span className="mg-world-go">شاهد hysaab services OS ←</span>
-            </a>
+        {/* ── كيف يعمل ── */}
+        <section className="hw-work" id="how-it-works">
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading">
+              <div>
+                <p className="hw-eyebrow">كيف يعمل</p>
+                <h2>فقط تحدّث.<br />وHysaab يباشر العمل.</h2>
+              </div>
+              <p>نساعدك على ربط دفاترك والاتفاق على قواعد الاعتماد. بعدها تصبح نقطة انطلاقك اليومية واتساب، ومساحة العمل حاضرة متى أردت النظر عن قرب.</p>
+            </div>
+            <div className="hw-workflow">
+              <article>
+                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">↳</span><span className="hw-mono">01</span></div>
+                <h3>ترسل رسالة.</h3>
+                <p>إيصال أو فاتورة أو سؤال عن أرقامك. لا حاجة لتعلّم أداة تقارير.</p>
+                <span className="hw-workflow-foot">واتساب ← Hysaab</span>
+              </article>
+              <article>
+                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">≋</span><span className="hw-mono">02</span></div>
+                <h3>Hysaab يُعدّ العمل.</h3>
+                <p>تُفحص المستندات، وتُعدّ القيود، وتُعاد الاستثناءات إليك مع تفسير واضح.</p>
+                <span className="hw-workflow-foot">الإعداد ← المراجعة</span>
+              </article>
+              <article>
+                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">↗</span><span className="hw-mono">03</span></div>
+                <h3>أنت تتخذ القرارات.</h3>
+                <p>تجيب عن سؤال أو تراجع اعتمادًا. حدودك تبقى سارية، والتعليل يبقى مع الدفاتر.</p>
+                <span className="hw-workflow-foot">قرارك ← سجل واضح</span>
+              </article>
+            </div>
           </div>
         </section>
 
-        {/* ══ الانضمام — نموذج الدفعة المؤسسة ══ */}
-        <section id="join" className="mg-section">
-          <div className="mg-kicker">انضم إلى الدفعة المؤسسة</div>
-          <h2 className="mg-h2">تعال ابنِ هذا الكون معنا.</h2>
-          <p className="mg-lede">
-            هذا أكبر من برنامج — إنه رهان على ما يفعله الناس بوقتهم حين يختفي العمل الروتيني. أول {FOUNDING_SEATS} شركة تحصل على اثني عشر شهرًا مجانًا، مع تثبيت سعر المؤسسين بعد ذلك. بريد العمل فقط — شخص حقيقي يقرأ كل قيد.
-          </p>
-          <div className="mg-join">
-            <LedgerForm seat={seat} locale="ar" />
+        {/* ── خمس لحظات: العرض التفاعلي ── */}
+        <section id="experience" className="hw-experience">
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading">
+              <div>
+                <p className="hw-eyebrow">خمس لحظات في يوم عملك</p>
+                <h2>محادثة واحدة.<br /><span>من الإيصال إلى التقرير.</span></h2>
+              </div>
+              <p>تابع فاتورة واحدة عبر خمس لحظات، من صورة في التاسعة مساءً إلى فترة مقفلة. يُعاد العرض تلقائيًا؛ انقر أي لحظة أو تبويب لتتولى التحكم.</p>
+            </div>
+            <Demo locale="ar" />
+            <p className="hw-disclosure">سيناريو توضيحي. راشد يدير شركة تجارية؛ ليلى مديرته المالية؛ نور تمسك الدفاتر. الأرقام أمثلة، لا نتائج.</p>
+
+            <div className="hw-shots">
+              <h3>داخل مساحة العمل الحقيقية.</h3>
+              <div className="hw-shots-grid">
+                {moments.map((m) => (
+                  <article key={m.key}>
+                    <Capture moment={m} focus locale="ar" />
+                    <h4><span className="hw-mono">{m.num}</span> {AR_TITLE[m.key] ?? m.tabTitle}</h4>
+                    <p>{m.ready ? <><strong>ما الذي تلاحظه.</strong> {AR_NOTICE[m.key] ?? m.caption}</> : "لقطة مساحة العمل قيد الإعداد."}</p>
+                  </article>
+                ))}
+                <aside className="hw-shots-note">
+                  <span className="hw-mono">عن هذه الشاشات</span>
+                  <p>{pendingCount > 0 ? `${pendingCount} من ${moments.length} لقطات ما زالت قيد الإعداد ومُعلَّمة كذلك. البقية لقطات` : "لقطات"} من مساحة عمل Hysaab وهي تعمل على بيانات تجريبية. كل صورة مصغرة هي الجزء من الشاشة الذي يخص الفكرة؛ اخترها لرؤية الشاشة كاملة.</p>
+                  <a className="hw-link hw-link--ruled" href="#conversation">تجوّل فيها معنا <span aria-hidden="true">↗</span></a>
+                </aside>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ══ الساعة — العد التنازلي ══ */}
-        <Countdown locale="ar" />
+        {/* ── تحكّمك ── */}
+        <section className="hw-control" id="control">
+          <div className="hw-wrap hw-section hw-control-grid">
+            <div>
+              <p className="hw-eyebrow">تحكّمك</p>
+              <h2>حكمك.<br />حدودك.<br /><span>دائمًا.</span></h2>
+              <p>الأدوات الجيدة تجعل الإشراف على المالية أسهل.<br />لا تفسيرها أصعب.</p>
+              <a className="hw-link hw-link--peach" href="#conversation">ناقش ضوابطك معنا <span aria-hidden="true">↗</span></a>
+            </div>
+            <div className="hw-principles">
+              <article>
+                <span className="hw-mono">01</span>
+                <div><h3>كل إجابة قابلة للتتبع.</h3><p>افحص القيود والمستندات وراء كل إجابة. التفسير الذي يمكنك التحقق منه أثمن من تفسير يُطلب منك تصديقه.</p></div>
+              </article>
+              <article>
+                <span className="hw-mono">02</span>
+                <div><h3>اعرف أين تتوقف.</h3><p>بوابات الاعتماد وأقفال الفترات والضوابط غير القابلة للتفاوض تبقى في مكانها. الراحة ليست سببًا لتجاوز ضمانة.</p></div>
+              </article>
+              <article>
+                <span className="hw-mono">03</span>
+                <div><h3>اترك سجلًا واضحًا.</h3><p>التوصية، والقرار المتخذ، والتعليل وراءه: كلها ظاهرة ومحفوظة. السياق مكانه مع الدفاتر، لا في محادثة منفصلة.</p></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* ── طرق العمل ── */}
+        <section id="ways" className="hw-ways">
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading">
+              <div>
+                <p className="hw-eyebrow">طرق العمل</p>
+                <h2>فريقك، موسَّعًا.</h2>
+              </div>
+              <p>أبقِ العمل داخل شركتك، أو استعن بفريقنا. ابدأ بالعملية التي تحتاج إلى أكبر قدر من الاهتمام.</p>
+            </div>
+            <div className="hw-ways-grid">
+              <article>
+                <p className="hw-eyebrow">لفريقك المالي الحالي</p>
+                <h3>شغّله مع فريقك.</h3>
+                <p>يستخدم فريقك المالي Hysaab لإعداد الدفاتر والتحقيق في الاستثناءات والبقاء قريبًا من الأرقام.</p>
+                <ul>
+                  <li>فريقك يراجع ويعتمد</li>
+                  <li>ابدأ بسير عمل محاسبي محدد</li>
+                  <li>أبقِ الحكم المهني داخل فريقك</li>
+                </ul>
+                <a href="#conversation" className="hw-link hw-link--ruled">ناقش سير عمل فريقك <span aria-hidden="true">↗</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">للشركات التي تريد دعمًا أكبر</p>
+                <h3>استعن بفريقنا.</h3>
+                <p>اعمل جنبًا إلى جنب مع محاسبين مؤهلين يديرون سير العمل ويراجعون الاستثناءات ويُعدّون كل إقفال معك.</p>
+                <ul>
+                  <li>جهة اتصال بشرية مسمّاة</li>
+                  <li>نتفق على النطاق والمسؤوليات معًا</li>
+                  <li>تحتفظ بالقرارات التي تخصك</li>
+                </ul>
+                <a href="#conversation" className="hw-link hw-link--ruled">ناقش الدعم المُدار <span aria-hidden="true">↗</span></a>
+              </article>
+            </div>
+            <div className="hw-fit">
+              <span className="hw-mono">قبل أن نبدأ</span>
+              <p>نؤكد نظامك المحاسبي ومنشآتك والنطاق والأتعاب مسبقًا. الملاءمة الواضحة تسبق أي التزام.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── الفريق ── */}
+        <section id="team" className="hw-team">
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading">
+              <div>
+                <p className="hw-eyebrow">الفريق</p>
+                <h2>من يراجع العمل.<br /><span>بأسمائهم، لا مجهولين.</span></h2>
+              </div>
+              <p>Hysaab يبنيه ويديره محاسبو Oblique Consult ومهندسو Simpla. في الخدمة المُدارة، يراجع الأشخاص أدناه وفرقهم الاستثناءات ويُعدّون الإقفال ويعتمدون التقارير معك.</p>
+            </div>
+            <div className="hw-team-grid">
+              {TEAM.map((p) => (
+                <article key={p.name}>
+                  <span className="hw-team-initials" aria-hidden="true">{p.initials}</span>
+                  <h3 lang="en">{p.name}</h3>
+                  <p className="hw-team-role">{p.ar.role} · {p.ar.org}</p>
+                  {p.ar.bio && <p>{p.ar.bio}</p>}
+                  <a href={p.href} target="_blank" rel="noopener">{p.linkLabel} <span aria-hidden="true">↗</span></a>
+                </article>
+              ))}
+            </div>
+            <div className="hw-note">
+              <span className="hw-mono">كيف تجري المراجعة</span>
+              <p>Hysaab يُعدّ القيود والاستحقاقات والتقارير. في الخدمة المُدارة يراجع محاسب مسمّى الاستثناءات ويصحح عند الحاجة ويُعدّ الإقفال معك، وتبقى الاعتمادات التي تخصك بيدك. الأدوار والخبرات أعلاه كما نشرتها <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> وكما تظهر في الملفات المهنية العامة للأفراد.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── عائلة Hysaab ── */}
+        <section id="products" className="hw-products">
+          <span id="family" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading">
+              <div>
+                <p className="hw-eyebrow">عائلة Hysaab</p>
+                <h2>أفضل معًا.<br /><span>ونافعة كلٌّ على حدة.</span></h2>
+              </div>
+              <p>المحاسبة، وفحص الفواتير، وتشغيل المكاتب المهنية، والتدقيق، والكفاءات المالية. منتجات متكاملة من الفريق نفسه، ولكل منها مهمة واضحة.</p>
+            </div>
+            <div className="hw-family">
+              <article className="hw-family-primary">
+                <p className="hw-eyebrow">المحاسبة والتقارير · وصول مبكر</p>
+                <h3><Wordmark size={50} ground="navy" /></h3>
+                <p>محاسبتك وتقاريرك اليومية، مع الحكم البشري حيث يهم.</p>
+                <a className="hw-link hw-link--peach" href="#experience">استكشف Hysaab <span aria-hidden="true">↗</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">معالجة الفواتير · متاح</p>
+                <h3>hysaab invoice</h3>
+                <p>يقرأ فواتير الموردين ويفحصها، مع كشف التكرار وذكر سبب إيقاف أي بند للمراجعة.</p>
+                <a className="hw-link" href="/ar/invoice">استكشف Invoice <span aria-hidden="true">↗</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">تشغيل المكاتب المهنية · قريبًا</p>
+                <h3>hysaab services OS</h3>
+                <p>ارتباطات العملاء والمواعيد النهائية والإشراف لمكاتب الخدمات المهنية، في مكان واحد.</p>
+                <a className="hw-link" href="/ar/firms">استكشف Services OS <span aria-hidden="true">↗</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">التدقيق · قريبًا</p>
+                <h3>hysaab audit</h3>
+                <p>إعداد التدقيق وأدلته داخل Services OS. المهنيون المرخصون يحتفظون بالاستنتاجات والرأي.</p>
+                <a className="hw-link" href="/audit">استكشف Audit <span aria-hidden="true">↗</span><span className="hw-sr"> (بالإنجليزية)</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">الكفاءات المالية · متاح</p>
+                <h3>Ibtidah</h3>
+                <p>اعثر على كفاءات مالية عبر تقييم قائم على العمل، ويتولى مهنيون ذوو خبرة إعداد القائمة المختصرة.</p>
+                <a className="hw-link" href="https://ibtidah.ae" target="_blank" rel="noopener">تعرّف على Ibtidah <span aria-hidden="true">↗</span><span className="hw-sr"> (يفتح في تبويب جديد)</span></a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* ── التواصل ── */}
+        <section className="hw-conversation" id="conversation">
+          <span id="contact" className="hw-anchor" aria-hidden="true" />
+          <span id="ledger" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap hw-conversation-grid">
+            <div>
+              <p className="hw-eyebrow">حوار، لا عرض مبيعات</p>
+              <h2>لنبدأ<br />بدفاترك.</h2>
+              <p>أخبرنا بما يستغرق وقتًا أطول مما ينبغي.<br />وسنريك أين يناسبك Hysaab.</p>
+              <div className="hw-agenda">
+                <span className="hw-mono">محادثتك الأولى</span>
+                <ol>
+                  <li><span className="hw-mono">01</span> سير عملك الحالي</li>
+                  <li><span className="hw-mono">02</span> جولة مركزة في المنتج</li>
+                  <li><span className="hw-mono">03</span> الملاءمة والنطاق والخطوات التالية</li>
+                </ol>
+              </div>
+            </div>
+            <EnquiryForm source="Arabic homepage" locale="ar" />
+          </div>
+        </section>
       </main>
 
-      <MgFooter locale="ar" />
-
-      <NpEnhance />
-    </>
+      <SiteFooter home locale="ar" />
+    </div>
   );
 }

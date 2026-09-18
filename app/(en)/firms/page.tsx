@@ -1,4 +1,4 @@
-import { MgNav, MgFooter } from "@/components/MgChrome";
+﻿import { MgNav, MgFooter } from "@/components/MgChrome";
 import { CtaBand } from "@/components/hysaab/CtaBand";
 import { ServicesDay } from "@/components/hysaab/ServicesDay";
 import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
@@ -6,9 +6,9 @@ import { Wordmark } from "@/components/Wordmark";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "hysaab services OS, the operating system for tax and advisory firms",
+  title: "hysaab services OS: Engagements, Deadlines & Oversight for Firms",
   description:
-    "One system for a professional services firm: an AI-triaged inbox, meeting notes that become tasks, a filing workbench with red-team review, proposals and e-signature, AI-drafted timesheets, billing, capacity and people, and hysaab audit for firms that sign ISA opinions. The AI proposes, code computes, a named person confirms.",
+    "The operating system for a professional services firm: client engagements, deadlines and oversight in one place, so partners spend their hours on judgement.",
   alternates: langAlternates("/firms"),
 };
 

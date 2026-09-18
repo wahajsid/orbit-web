@@ -17,7 +17,8 @@ Key facts:
 - Made for the Gulf: UAE VAT (5%) tested line-by-line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax accrued monthly and reconciled against VAT; KSA 15% VAT and ZATCA e-invoice clearance tracked.
 - Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, humans approve past confidence thresholds.
 - Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
-- Two ways to run it: self-serve automated workflows for small businesses (Starter AED 149/month, Growth AED 499/month) and a managed accounting and reporting service for CFOs (Scale, from AED 1,499/month). Priced by the complexity of the books, not by seats. Founder pricing locked for the first 100 companies.
+- Hysaab is a product of Oblique Consult (https://obliqueconsult.com), a Dubai tax and accounting advisory founded in 2018; the engineering is by Simpla.
+- Two ways to run it: self-serve at USD 199/month (your team reviews and approves; Hysaab prepares the work) and a managed accounting and reporting service from USD 899/month with a named accountant. Fees follow the complexity of the books, not seats, and are confirmed before you start.
 - Products: Hysaab (accounting and reporting), hysaab invoice (tax compliance and e-invoice validation), hysaab services OS (for accounting and advisory firms) with hysaab audit as its ISA audit module, and the sister hiring product Ibtidah.
 - Company: built in Dubai, UAE by accountants; contact info@hysaab.ai; the app runs at app.hysaab.ai.
 - Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under ${BASE}/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.

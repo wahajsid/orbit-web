@@ -14,7 +14,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "Automated Bookkeeping & Accounting for UAE and KSA | Hysaab",
   description:
-    "Automated bookkeeping for UAE and KSA businesses: payables, receivables, bank reconciliation, VAT and the month-end close, run by AI agents on your own ledger, with you approving what matters.",
+    "Accounting and reporting for UAE and Saudi businesses: documents read and coded, VAT tested, the close prepared, and the decisions kept with you.",
   alternates: langAlternates("/accounting"),
 };
 

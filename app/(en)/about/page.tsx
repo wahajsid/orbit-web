@@ -12,7 +12,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "About Hysaab: Why We Built It",
   description:
-    "Hysaab is built in Dubai by accountants who have worked through the month-end, the VAT filings and the FTA queries themselves. Prepared books, visible evidence, and human judgement kept where it belongs.",
+    "Hysaab is built in Dubai by accountants who worked through the month-end themselves. A product of Oblique Consult, engineered with Simpla.",
   alternates: langAlternates("/about"),
 };
 

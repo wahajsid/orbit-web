@@ -11,9 +11,9 @@ import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Integrations: Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext | Hysaab",
+  title: "Hysaab Integrations: Zoho Books, Xero, QuickBooks, Odoo & More",
   description:
-    "How Hysaab connects to Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext, and takes documents from WhatsApp, Telegram and email. Your ledger stays the system of record.",
+    "Connect Zoho Books, Xero, QuickBooks, Odoo, Wafeq or ERPNext once. Hysaab posts approved journals into your ledger; your ledger stays the record.",
   alternates: langAlternates("/integrations"),
 };
 

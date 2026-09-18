@@ -1,12 +1,10 @@
 import Image from "next/image";
 import "../../advert.css";
 import { Terminal } from "@/components/Terminal";
-import { LedgerForm } from "@/components/LedgerForm";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MgNav, MgFooter } from "@/components/MgChrome";
 import { RotatingHeadline } from "@/components/RotatingHeadline";
 import { NpEnhance } from "@/components/NpEnhance";
-import { getNextSeat, FOUNDING_SEATS } from "@/lib/launch";
 import { langAlternates } from "@/lib/site-meta";
 
 export const revalidate = 60;
@@ -18,7 +16,6 @@ export const metadata = {
   alternates: langAlternates("/accounting"),
 };
 
-const pad3 = (n: number) => String(n).padStart(3, "0");
 
 type Chip = { k: string; v: string; tone?: "p" | "b" };
 function Act({
@@ -52,8 +49,7 @@ function Act({
   );
 }
 
-export default async function AccountingPage() {
-  const seat = await getNextSeat();
+export default function AccountingPage() {
   return (
     <>
       <SmoothScroll />
@@ -81,8 +77,7 @@ export default async function AccountingPage() {
               <span className="chev" aria-hidden="true">↓</span>
             </a>
             <div className="hero-actions">
-              <a className="cta" href="#ledger">احجز مقعدًا في الدفعة المؤسسة</a>
-              <span className="mono hero-seat">المقعد {pad3(seat)}/{FOUNDING_SEATS} ما زال متاحًا</span>
+              <a className="cta" href="/ar/contact">لنتحدث</a>
             </div>
           </div>
 
@@ -197,24 +192,7 @@ export default async function AccountingPage() {
           </div>
         </section>
 
-        <section className="section wrap" id="ledger">
-          <h2 className="section-head">احجز مقعدًا في الدفعة المؤسسة.</h2>
-          <p className="section-sub">
-            أول {FOUNDING_SEATS} شركة تحصل على اثني عشر شهرًا مجانًا، مع تثبيت سعر المؤسسين
-            بعد ذلك. بريد العمل فقط — شخص حقيقي يقرأ كل قيد.
-          </p>
-          <div className="price-grid">
-            <div>
-              <div className="np-chips" style={{ marginTop: 28 }}>
-                <span className="np-chip"><span className="k">الإعداد</span><span className="p">دقائق، لا مشروع</span></span>
-                <span className="np-chip"><span className="k">الدفاتر</span><span className="b">Zoho · Xero · QuickBooks · Odoo · Wafeq · ERPNext</span></span>
-                <span className="np-chip"><span className="k">الاستقبال</span><span className="b">واتساب · تيليغرام · البريد الإلكتروني</span></span>
-              </div>
-            </div>
-            <LedgerForm seat={seat} locale="ar" />
-          </div>
-        </section>
-      </main>
+</main>
 
       <MgFooter locale="ar" />
       <NpEnhance />

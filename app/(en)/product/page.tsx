@@ -10,9 +10,9 @@ import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "The Hysaab Product: Payables, Receivables, Ledger, Close, Documents and Tax",
+  title: "Hysaab Product: Payables, Ledger, Close, Documents & Tax",
   description:
-    "Six parts of one workspace: payables, receivables, the ledger, the month-end close, documents and tax. Hysaab prepares the work and shows its evidence; you keep the decisions.",
+    "Six parts of one workspace: payables, receivables, the ledger, month-end close, documents and tax. Hysaab prepares the work; you keep the decisions.",
   alternates: langAlternates("/product"),
 };
 

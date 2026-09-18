@@ -42,3 +42,16 @@ Hysaab is "an accounting and reporting team for Gulf businesses, built on eviden
 ## Your report
 
 Finish with: files changed; every claim or number you removed or softened (quote the old wording); anything the kit lacked; the `tsc` result.
+
+## Arabic pages (added 2026-09-18)
+
+Each Arabic page is a translation of the CURRENT English rebuilt page (read the English file first; it is the source of truth for structure and claims), written to `app/ar/<page>/page.tsx`, using the same kit:
+
+- `<PageShell locale="ar" band={{ title, body }}>` and `<PageHero locale="ar" …>`; `<Shot … locale="ar" />`. The Arabic root layout already sets `dir="rtl"`, loads the kit stylesheet and the Arabic fonts; the kit uses logical properties, so no RTL CSS work is needed. Do not add CSS.
+- Metadata: an Arabic `title` and `description` carrying the page's search terms (for example برنامج محاسبة بالذكاء الاصطناعي، الإمارات، السعودية، ضريبة القيمة المضافة، ضريبة الشركات، الإقفال الشهري، فواتير الموردين), and keep `alternates: langAlternates("/<english-path>")` exactly as the English page has it. Keep any JSON-LD the English page emits, translated, and matching the visible Arabic content.
+- Conventions: the brand is written in Latin, "Hysaab", never transliterated; accounting-system names stay Latin (Zoho Books, Xero, QuickBooks, Odoo, Wafeq, ERPNext); WhatsApp is واتساب and Telegram is تيليغرام in prose; digits are Latin (USD 199, 5%); currency as the English page has it. Modern Standard Arabic, formal but plain, the same calm voice: prepared work, decisions with the person. No hype.
+- Internal links go to the Arabic twin where one exists (`/ar/product`, `/ar/how-it-works`, `/ar/pricing`, `/ar/compliance`, `/ar/integrations`, `/ar/faq`, `/ar/about`, `/ar/contact`, `/ar/guides`, `/ar/tools`, `/ar/invoice`, `/ar/firms`), and to the English page for `/hire`, `/audit`, `/privacy`, `/terms` and any guide or calculator that has no Arabic version (check `lib/guides-ar.ts` `getArGuide` and `lib/tools.ts` `arTitle` before linking a deep page in Arabic).
+- The Contact page uses `<EnquiryForm source="Arabic contact page" locale="ar" />`.
+- Prices are USD 199 (self-serve) and from USD 899 (managed service): the English pricing and FAQ pages are already updated; mirror them exactly.
+- Captions and alt text in Arabic must still say the screens show sample data (بيانات تجريبية).
+- Verify with `npx tsc --noEmit`. Do not run a build or dev server. Edit only your assigned files.

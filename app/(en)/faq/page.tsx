@@ -13,7 +13,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata: Metadata = {
   title: "FAQ: AI Accounting for UAE & Saudi Businesses | Hysaab",
   description:
-    "Straight answers about Hysaab, the accounting and reporting team for UAE and KSA businesses: your ledger, who approves what, VAT and corporate tax, data security, launch and pricing.",
+    "Straight answers on Hysaab: what it is, which accounting systems it works with, who approves, VAT and corporate tax, data safety, launch and pricing.",
   alternates: langAlternates("/faq"),
 };
 
@@ -81,7 +81,7 @@ const GROUPS: Group[] = [
       ],
       [
         "What does it cost?",
-        "There are three plans. Starter is AED 149 a month and Growth is AED 499 a month, both self-serve. Scale, the managed service, is from AED 1,499 a month. Pricing follows the complexity of your books, not the number of user seats. The plans are set out at hysaab.ai/pricing.",
+        "There are two ways to run Hysaab. Self-serve is USD 199 a month: your own team reviews, approves and closes, with Hysaab preparing the work. The managed service starts from USD 899 a month and adds a named Hysaab accountant who works the exceptions with you and prepares each close. Fees follow the complexity of your books, not the number of people who log in, and are confirmed with you before you start. See hysaab.ai/pricing.",
       ],
     ],
   },

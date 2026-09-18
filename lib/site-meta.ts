@@ -11,11 +11,13 @@ export const ORG_LD = {
   url: "https://hysaab.ai",
   logo: "https://hysaab.ai/brand/hysaab-avatar-navy-1024.png",
   description:
-    "AI accounting and reporting for Gulf businesses. Sixteen agents read documents, code the ledger, reconcile the bank, test tax and run the month-end close, with human approval on the calls that matter. Built in Dubai.",
+    "An accounting and reporting team for Gulf businesses, built on evidence, professional judgement and human oversight. Hysaab prepares the books, tests every invoice against the tax rules and runs the month-end close, with a person approving the calls that matter. Built in Dubai.",
   email: "info@hysaab.ai",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   areaServed: ["AE", "SA"],
   sameAs: ["https://www.linkedin.com/company/orbitgulf"],
+  parentOrganization: { "@type": "Organization", name: "Oblique Consult", url: "https://obliqueconsult.com" },
+  founder: { "@type": "Person", name: "Wahaj Siddiqui", url: "https://obliqueconsult.com/about-us" },
 };
 
 export const APP_LD = {
@@ -26,13 +28,13 @@ export const APP_LD = {
   operatingSystem: "Web",
   url: "https://hysaab.ai",
   description:
-    "An AI accounting and reporting team for UAE and GCC businesses: payables, receivables, the ledger, tax and the month-end close, run by agents and approved by you. Posts into Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.",
+    "An accounting and reporting workspace for UAE and Saudi businesses: payables, receivables, the ledger, tax and the month-end close, prepared by Hysaab and approved by you. Posts into Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.",
   offers: {
     "@type": "AggregateOffer",
-    priceCurrency: "AED",
-    lowPrice: "149",
-    highPrice: "1499",
-    offerCount: "3",
+    priceCurrency: "USD",
+    lowPrice: "199",
+    highPrice: "899",
+    offerCount: "2",
   },
 };
 

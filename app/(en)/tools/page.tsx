@@ -8,7 +8,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata: Metadata = {
   title: "Free UAE & KSA Tax Calculators (VAT, CT, Zakat) | Hysaab",
   description:
-    "Free UAE and KSA tax and accounting calculators: VAT, Corporate Tax, Zakat, penalties, partial exemption, gratuity, IFRS 16, IAS 12 and more. Computed in your browser, nothing uploaded.",
+    "Free UAE and KSA tax and accounting calculators that show their working: VAT, corporate tax, EOSB, IFRS 16, IFRS 9, Zakat and more. No sign-up.",
   alternates: langAlternates("/tools"),
 };
 

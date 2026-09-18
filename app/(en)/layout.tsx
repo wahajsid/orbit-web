@@ -33,7 +33,7 @@ const kufi = Noto_Kufi_Arabic({
 
 const TITLE = "Hysaab | AI Accounting & Reporting for Gulf Businesses";
 const DESC =
-  "Your accounting and reporting team, always on. Sixteen AI agents read, code, reconcile and report, and bring you the decisions that are yours. Built in Dubai for the UAE and GCC.";
+  "An accounting and reporting team for Gulf businesses, built on evidence, professional judgement and human oversight. Hysaab prepares the books and brings you the decisions that are yours. Built in Dubai for the UAE and Saudi Arabia.";
 
 export const metadata: Metadata = {
   // Canonical host is the apex: every absolute URL the site emits says
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   title: { default: TITLE, template: "%s" },
   description: DESC,
   applicationName: "Hysaab",
+  // No fixed openGraph/twitter title or description: each page's own
+  // title and description flow into its social card.
   openGraph: {
-    title: TITLE,
-    description: DESC,
     url: "https://hysaab.ai",
     siteName: "Hysaab",
     locale: "en_US",
@@ -56,8 +56,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: DESC,
     images: ["/brand/hysaab-social-card-1200x630.jpg"],
   },
   icons: {
