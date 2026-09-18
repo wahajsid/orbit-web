@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
+import { Archivo, DM_Mono, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import "../globals.css";
 import "../wire.css";
 import "../home.css";
+import "../hysaab-home.css";
 
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
 // Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
@@ -11,8 +12,14 @@ import "../home.css";
 // through to Archivo — the stack order in --sans does the pairing.
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-archivo",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
@@ -33,13 +40,11 @@ const kufi = Noto_Kufi_Arabic({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hysaab.ai"),
   alternates: { canonical: "./" },
-  title: "Hysaab | محاسبة وتقارير بالذكاء الاصطناعي لشركات الخليج",
+  title: "برنامج محاسبة بالذكاء الاصطناعي لشركات الإمارات والسعودية | Hysaab",
   description:
-    "فريق مالي يعمل بالذكاء الاصطناعي لشركات الإمارات والسعودية. المستندات تدخل، والدفاتر تُنجَز، وبريد واحد صادق مع شروق الشمس. يُرحِّل مباشرة إلى Zoho Books وXero وQuickBooks وOdoo وWafeq وERPNext.",
+    "فريق محاسبة وتقارير لشركات الخليج، مبني على الأدلة والحكم المهني والإشراف البشري. Hysaab يُعدّ الدفاتر ويعرض عليك القرارات التي تخصك. صُنع في دبي.",
+  // Each page's own title and description flow into its social card.
   openGraph: {
-    title: "Hysaab | محاسبة وتقارير بالذكاء الاصطناعي لشركات الخليج",
-    description:
-      "فريق مالي يعمل بالذكاء الاصطناعي لشركات الإمارات والسعودية. المستندات تدخل، والدفاتر تُنجَز، وبريد واحد صادق مع شروق الشمس.",
     url: "https://hysaab.ai/ar",
     siteName: "Hysaab",
     images: [{ url: "/brand/hysaab-social-card-1200x630.jpg", width: 1200, height: 630 }],
@@ -48,9 +53,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hysaab | محاسبة وتقارير بالذكاء الاصطناعي لشركات الخليج",
-    description:
-      "فريق مالي يعمل بالذكاء الاصطناعي لشركات الإمارات والسعودية. المستندات تدخل، والدفاتر تُنجَز، وبريد واحد صادق مع شروق الشمس.",
   },
   icons: {
     icon: [
@@ -68,7 +70,7 @@ export const viewport: Viewport = {
 
 export default function ArRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${archivo.variable} ${notoArabic.variable} ${kufi.variable}`}>
+    <html lang="ar" dir="rtl" className={`${archivo.variable} ${dmMono.variable} ${notoArabic.variable} ${kufi.variable}`}>
       <body>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />

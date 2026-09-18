@@ -11,9 +11,9 @@ import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
-  title: "How Hysaab Works: From a Document to a Posted, Evidenced Entry",
+  title: "How Hysaab Works: From Document to Locked Period",
   description:
-    "A plain-language walkthrough of how Hysaab works: a document arrives, is read, coded from your history and tax-tested, the uncertain items come to you, the entry posts with its evidence, and you lock the period.",
+    "How a document becomes a posted, evidenced entry: read, coded from your history, tax-tested, approved by a person, then closed and locked. Setup comes first.",
   alternates: langAlternates("/how-it-works"),
 };
 
@@ -346,7 +346,7 @@ export default function HowItWorksPage() {
             <article>
               <p className="hw-eyebrow">Pricing</p>
               <h3>Three plans, not priced by seats.</h3>
-              <p>Starter is AED 149/month, Growth is AED 499/month and Scale is AED 1,499/month. Every plan gives your whole team access.</p>
+              <p>Self-serve is USD 199 a month; the managed service, with a named accountant, starts from USD 899 a month. Every plan gives your whole team access, and the fee follows the complexity of the books rather than seats. See <a href="/pricing">pricing</a>.</p>
               <a className="hw-link" href="/pricing">Full pricing details <span aria-hidden="true">↗</span></a>
             </article>
           </div>

@@ -6,8 +6,8 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "Ibtidah, finance recruitment with humans in the loop",
   description:
-    "Ibtidah is where Hysaab's expertise went next: finance recruitment that tests whether a CFO, controller or accountant truly knows the work. AI reads and questions every candidate; experienced finance people make the call. ibtidah.ae.",
-  alternates: langAlternates("/hire"),
+    "Ibtidah finds finance people through work-based assessment: AI reads and questions every candidate, and finance professionals decide the shortlist.",
+  alternates: { canonical: "./" },
 };
 
 const STAGES: { n: string; h: string; p: string; who: string }[] = [

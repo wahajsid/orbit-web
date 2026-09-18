@@ -6,7 +6,7 @@ import { Wordmark } from "@/components/Wordmark";
 export const metadata = {
   title: "hysaab audit, an AI-native ISA audit file for Gulf audit firms",
   description:
-    "hysaab audit runs an ISA audit of IFRS statements on a hashed snapshot of the client's books: every journal scored, materiality computed, samples designed and evaluated, schedules tied out, confirmations chased, misstatements aggregated against materiality. Engines compute, a licensed human concludes. Hysaab never signs an opinion.",
+    "hysaab audit runs an ISA audit file on a hashed snapshot of the books: journals scored, samples designed, schedules tied out. A licensed person concludes.",
   alternates: { canonical: "./" },
 };
 

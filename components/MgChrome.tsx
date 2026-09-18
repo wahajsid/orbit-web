@@ -133,14 +133,14 @@ function MgFooterLegacy({ locale = "en" }: { locale?: Locale }) {
   );
 }
 
-/* English pages now wear the navy header and the new footer (with the
-   launch countdown). Arabic keeps the previous chrome until its pass. */
+/* Every page, in both languages, wears the navy header and the new footer. */
 export function MgNav(props: { active?: string; locale?: Locale; home?: boolean }) {
-  if ((props.locale ?? "en") === "en") return <SiteHeader home={props.home} />;
-  return <MgNavLegacy {...props} />;
+  return <SiteHeader home={props.home} locale={props.locale ?? "en"} />;
 }
 
 export function MgFooter({ locale = "en" }: { locale?: Locale }) {
-  if (locale === "en") return <SiteFooter />;
-  return <MgFooterLegacy locale={locale} />;
+  return <SiteFooter locale={locale} />;
 }
+
+/* The previous chrome, kept for reference until the Arabic pass is signed off. */
+export { MgNavLegacy, MgFooterLegacy };

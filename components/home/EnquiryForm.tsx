@@ -35,7 +35,13 @@ export function InterestLink({ interest, children }: { interest: Interest; child
   );
 }
 
-export function EnquiryForm({ source = "Homepage" }: { source?: string }) {
+const L = {
+  en: { heading: "Meet Hysaab.", asking: "Asking about:", clear: "Clear", clearLabel: "Clear the selected interest", name: "Your name", email: "Work email", system: "Your accounting system", pick: "Select your system", help: "What would you like help with?", optional: "(optional)", ph: "Month-end, supplier invoices, clearer reporting…", send: "Book a walkthrough", sending: "Sending…", note: <>Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list. <a href="/privacy">Privacy notice</a>.</>, failed: "We could not send that. Email info@hysaab.ai instead.", offline: "We could not send that. Check your connection, or email info@hysaab.ai instead.", received: "Received.", thanks: (n: string) => `Thank you, ${n || "and welcome"}. A real person from the Hysaab team will reply within one working day.` },
+  ar: { heading: "تعرّف على Hysaab.", asking: "الاستفسار عن:", clear: "مسح", clearLabel: "مسح الاهتمام المحدد", name: "اسمك", email: "بريد العمل", system: "نظامك المحاسبي", pick: "اختر نظامك", help: "بماذا تود أن نساعدك؟", optional: "(اختياري)", ph: "إقفال الشهر، فواتير الموردين، تقارير أوضح…", send: "احجز جولة تعريفية", sending: "جارٍ الإرسال…", note: <>تصل بياناتك إلى فريق Hysaab بالبريد ليرد عليك شخص حقيقي. لا يُضاف بريدك إلى أي قائمة بريدية. <a href="/privacy">إشعار الخصوصية</a>.</>, failed: "تعذّر الإرسال. راسلنا على info@hysaab.ai بدلًا من ذلك.", offline: "تعذّر الإرسال. تحقق من اتصالك، أو راسلنا على info@hysaab.ai.", received: "وصلتنا رسالتك.", thanks: (n: string) => `شكرًا${n ? ` يا ${n}` : ""}. سيرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.` },
+};
+
+export function EnquiryForm({ source = "Homepage", locale = "en" }: { source?: string; locale?: "en" | "ar" }) {
+  const t = L[locale];
   const loadedAt = useMemo(() => Date.now(), []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -72,10 +78,10 @@ export function EnquiryForm({ source = "Homepage" }: { source?: string }) {
         body: JSON.stringify({ name: name.trim(), email: email.trim(), accounting_system: system, notes, website, loadedAt }),
       });
       const data = await r.json().catch(() => ({}));
-      if (!r.ok) { setErr(data.error || "We could not send that. Email info@hysaab.ai instead."); return; }
+      if (!r.ok) { setErr(data.error || t.failed); return; }
       setDone(true);
     } catch {
-      setErr("We could not send that. Check your connection, or email info@hysaab.ai instead.");
+      setErr(t.offline);
     } finally {
       sending.current = false;
       setBusy(false);
@@ -85,8 +91,8 @@ export function EnquiryForm({ source = "Homepage" }: { source?: string }) {
   if (done) {
     return (
       <div className="hw-form hw-form--done" role="status">
-        <h3>Received.</h3>
-        <p>Thank you, {name.trim().split(/\s+/)[0] || "and welcome"}. A real person from the Hysaab team will reply within one working day.</p>
+        <h3>{t.received}</h3>
+        <p>{t.thanks(name.trim().split(/\s+/)[0])}</p>
       </div>
     );
   }
@@ -94,33 +100,33 @@ export function EnquiryForm({ source = "Homepage" }: { source?: string }) {
   return (
     <form className="hw-form" onSubmit={submit} aria-labelledby="hw-form-h">
       <div className="hw-form-head">
-        <h3 id="hw-form-h">Meet Hysaab.</h3>
+        <h3 id="hw-form-h">{t.heading}</h3>
       </div>
       <div className="hy-hp" aria-hidden="true">
         <label>Website<input name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
       </div>
       {interest && (
         <p className="hw-form-interest">
-          <span>Asking about: <strong>{INTEREST_LABEL[interest]}</strong></span>
-          <button type="button" onClick={() => setInterest(null)} aria-label="Clear the selected interest">Clear</button>
+          <span>{t.asking} <strong>{INTEREST_LABEL[interest]}</strong></span>
+          <button type="button" onClick={() => setInterest(null)} aria-label={t.clearLabel}>{t.clear}</button>
         </p>
       )}
-      <label htmlFor="hw-name">Your name</label>
+      <label htmlFor="hw-name">{t.name}</label>
       <input id="hw-name" name="name" autoComplete="name" placeholder="Layla Haddad" required maxLength={200} value={name} onChange={(e) => setName(e.target.value)} />
-      <label htmlFor="hw-email">Work email</label>
+      <label htmlFor="hw-email">{t.email}</label>
       <input id="hw-email" name="email" type="email" autoComplete="email" placeholder="layla@company.ae" required maxLength={320} value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label htmlFor="hw-system">Your accounting system</label>
+      <label htmlFor="hw-system">{t.system}</label>
       <select id="hw-system" name="system" required value={system} onChange={(e) => setSystem(e.target.value)}>
-        <option value="">Select your system</option>
+        <option value="">{t.pick}</option>
         {HOME_SYSTEMS.map((s) => <option key={s}>{s}</option>)}
       </select>
-      <label htmlFor="hw-help">What would you like help with? <span>(optional)</span></label>
-      <textarea id="hw-help" name="help" rows={2} placeholder="Month-end, supplier invoices, clearer reporting…" maxLength={3500} value={help} onChange={(e) => setHelp(e.target.value)} />
+      <label htmlFor="hw-help">{t.help} <span>{t.optional}</span></label>
+      <textarea id="hw-help" name="help" rows={2} placeholder={t.ph} maxLength={3500} value={help} onChange={(e) => setHelp(e.target.value)} />
       <button className="hw-btn hw-btn--navy" type="submit" disabled={busy} aria-disabled={busy}>
-        {busy ? "Sending…" : "Request a conversation"} <span aria-hidden="true">↗</span>
+        {busy ? t.sending : t.send} <span aria-hidden="true">↗</span>
       </button>
       {err && <p className="hw-form-err" role="alert">{err}</p>}
-      <p className="hw-form-note">Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list.</p>
+      <p className="hw-form-note">{t.note}</p>
     </form>
   );
 }

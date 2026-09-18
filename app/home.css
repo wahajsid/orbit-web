@@ -429,7 +429,7 @@ textarea.hy-input { resize: vertical; min-height: 96px; line-height: 1.5; }
 .hy-form-done { border: 1px solid var(--hy-navy); background: var(--hy-cream); padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; }
 .hy-form-done-h { font-size: 20px; font-weight: 600; color: var(--hy-navy); letter-spacing: -0.01em; }
 .hy-form-done-p { font-size: 14.5px; line-height: 1.55; color: var(--hy-body); }
-.hy-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.hy-hp { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 @media (max-width: 480px) { .hy-form { grid-template-columns: 1fr; } .hy-cohort-grid { grid-template-columns: 1fr; gap: 40px; } }
 
 .hy-ledger { border: 1px solid var(--hy-rule); background: var(--hy-cream); padding: 24px; display: flex; flex-direction: column; gap: 10px; }

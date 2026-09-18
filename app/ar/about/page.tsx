@@ -1,84 +1,170 @@
-import type { Metadata } from "next";
-import { MgNav, MgFooter } from "@/components/MgChrome";
+/* ── /ar/about ───────────────────────────────────────────────────────
+   الترجمة العربية لصفحة /about الحالية (PageShell + عدة hw-* في
+   app/hysaab-home.css). الصفحة الإنجليزية هي المرجع للبنية والادعاءات:
+   مبني في دبي على يد محاسبين، أولًا لفريقهم الضريبي ثم للشركات من
+   حولهم. المبادئ مقصورة على سلوك تملكه مساحة العمل فعلًا. الملكية
+   مذكورة بوضوح: أحد منتجات Oblique Consult. */
+
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
-export const metadata: Metadata = {
-  title: "من نحن — Hysaab",
+export const metadata = {
+  title: "عن Hysaab: لماذا بنيناه",
   description:
-    "Hysaab مبني في الخليج على يد محاسبين عاشوا الإقفال الشهري الذي يمحونه اليوم — معيار تصميم واحد، وأربعة منتجات، وحكم بشري يبقى حيث ينبغي أن يكون.",
+    "Hysaab بُني في دبي على يد محاسبين عاشوا الإقفال الشهري بأنفسهم. أحد منتجات Oblique Consult، وهندسته من Simpla.",
   alternates: langAlternates("/about"),
 };
 
+const PRINCIPLES = [
+  {
+    n: "01",
+    h: "كل رقم يعود إلى مستند.",
+    p: "الأدلة ليست خيارًا. كل قيد يحتفظ بتعليقه وبالمستندات التي وراءه، فيمكن فتح أي رقم والتحقق منه.",
+  },
+  {
+    n: "02",
+    h: "لا شيء يُحذف.",
+    p: "الأخطاء تُعكس في العلن، بقيود مرآتية لها سببها الخاص. ويبقى سجل ما حدث كاملًا.",
+  },
+  {
+    n: "03",
+    h: "Hysaab يُعدّ. والأشخاص يعتمدون.",
+    p: "العمل يُعدّ ويُعرض عليك مع منطقه. الاستحقاقات ودفعات السداد وقفل الفترة تنتظر شخصًا، والتجاوز يحتاج إلى سبب مكتوب يُحفظ مع الدفاتر.",
+  },
+  {
+    n: "04",
+    h: "الامتثال هو الوضع الافتراضي.",
+    p: "الفواتير تُختبر وفق قواعد الفاتورة الضريبية عند وصولها، وضريبة المدخلات تُحجز حتى يستوفي المستند الشروط. أنت تراجع وتقدّم الإقرار؛ Hysaab لا يقدّم الإقرارات عنك.",
+  },
+  {
+    n: "05",
+    h: "صريح فيما فعل.",
+    p: "ينبغي للبرنامج أن يقول بوضوح ما فعله وما لا يستطيع فعله. البنود غير المؤكدة تصلك مع سببها، والتعليمات المشكوك فيها تُعترض، وبعضها يُرفض.",
+  },
+];
+
 export default function AboutPage() {
   return (
-    <>
-      <MgNav locale="ar" />
-      <main>
-        <section className="mg-page-hero">
-          <div className="mg-kicker">من نحن</div>
-          <h1 className="mg-page-h">عشنا الإقفال الشهري الذي نمحوه اليوم.</h1>
-          <p className="mg-page-lede">
-            Hysaab مبني في دبي على يد محاسبين عاشوا هذه العمليات وسهروا عليها —
-            الإقفال الشهري، وإقرارات ضريبة القيمة المضافة، واستفسارات الهيئة الاتحادية للضرائب — لا على يد مهندسين يخمّنونها.
-          </p>
-        </section>
+    <PageShell locale="ar" band={{ title: "أخبرنا بما يستغرق وقتًا أطول مما ينبغي.", body: "أحضر عملية واحدة من إقفالك الشهري. سنريك أين يناسبك Hysaab، ثم نؤكد النطاق والرسوم قبل أي التزام." }}>
+      <PageHero
+        locale="ar"
+        eyebrow="لماذا بنيناه"
+        title={<>عشنا<br /><span>هذا الإقفال الشهري.</span></>}
+        lede="Hysaab مبني في دبي على يد محاسبين عاشوا هذه العمليات بأنفسهم: الإقفال الشهري، وإقرارات ضريبة القيمة المضافة، واستفسارات الهيئة الاتحادية للضرائب. لم يُصمَّم بالتخمين."
+      >
+        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
+        <a className="hw-link hw-link--light" href="/ar/product"><span className="hw-play" aria-hidden="true">▷</span> شاهد المنتج</a>
+      </PageHero>
 
-        <section className="mg-page-body mg-guide-body">
-          <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">من أين جاء Hysaab</h2>
-            <p className="mg-guide-p">
-              في كل إقفال، الطقس نفسه: إيصالات تُلاحَق عبر واتساب، وفواتير تُدقَّق في
-              منتصف الليل، وموعد ضريبة القيمة المضافة يلهث خلف الربع — والأرقام التي
-              تهم فعلًا، لا أحد يلمسها. رأينا فرقًا مالية لامعة تقضي لياليها في
-              عمل إداري وتغفل عن القيمة الحقيقية الجالسة أمامها: ما كانت البيانات
-              تقوله.
-            </p>
-            <p className="mg-guide-p">
-              فبنينا الزميل الذي تمنيناه دائمًا: زميل يؤدي العمل الروتيني، ويعرض
-              أدلته، ويترك الحكم لك. أولًا لفريقنا الضريبي، ثم للشركات من
-              حولنا، والآن للخليج كله.
-            </p>
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-split">
+            <div className="hw-heading" style={{ display: "block", marginBottom: 0 }}>
+              <div>
+                <p className="hw-eyebrow">من أين جاء Hysaab</p>
+                <h2>الطقس نفسه،<br /><span>في كل إقفال.</span></h2>
+              </div>
+            </div>
+            <div className="hw-prose">
+              <p>
+                إيصالات تُلاحَق عبر واتساب. فواتير تُدقَّق في منتصف الليل. موعد نهائي لضريبة القيمة
+                المضافة يقترب مع نهاية الربع. والأرقام التي تهم فعلًا، لم يمسّها أحد.
+              </p>
+              <p>
+                رأينا فرقًا مالية قادرة تقضي لياليها في عمل إداري وتفوّت القيمة الحقيقية الماثلة
+                أمامها: ما كانت البيانات تقوله.
+              </p>
+              <p>
+                فبنينا الزميل الذي طالما أردناه. زميل يُعدّ العمل، ويُظهر الأدلة، ويترك الحكم لك.
+                أولًا لفريقنا الضريبي، ثم للشركات من حولنا، والآن للخليج.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">ما نؤمن به</h2>
-            <ul className="mg-guide-list">
-              <li>كل رقم يقود إلى مستند — الدليل ليس اختياريًا</li>
-              <li>لا شيء يُحذف؛ الأخطاء تُعكس في العلن</li>
-              <li>الوكلاء يقترحون، والمحركات الحتمية تُرحِّل، والبشر يوافقون على القرارات المهمة</li>
-              <li>الامتثال ليس ميزة — إنه الوضع الافتراضي، يُختبر قبل أن يتحرك درهم واحد</li>
-              <li>على البرنامج أن يقول بصدق ما فعله، وأن يرفض بصدق ما لا يستطيعه</li>
-            </ul>
+      <section className="hw-block--sage">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">ما نؤمن به</p>
+              <h2>خمس قواعد.<br /><span>حاضرة في كل شاشة.</span></h2>
+            </div>
+            <p>هذه هي المعايير التي عملنا بها بصفتنا محاسبين. وHysaab مبني ليحافظ عليها.</p>
           </div>
+          <div className="hw-rows">
+            {PRINCIPLES.map((r) => (
+              <article key={r.n}>
+                <span className="hw-mono">{r.n}</span>
+                <h3>{r.h}</h3>
+                <p>{r.p}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">العائلة</h2>
-            <p className="mg-guide-p">
-              مهمة واحدة — تغيير طريقة إنجاز الضرائب والمحاسبة والخدمات من حولهما في
-              الخليج — تحملها أربعة منتجات: <a className="textlink" href="/ar/product">Hysaab</a> يدير
-              الدفاتر، و<a className="textlink" href="/ar/hire">Ibtidah</a> يدير التوظيف، و{" "}
-              <a className="textlink" href="/ar/invoice">hysaab invoice</a> يختبر كل فاتورة مورد
-              وفق قواعد الهيئة الاتحادية للضرائب و«زاتكا»، و{" "}
-              <a className="textlink" href="/ar/firms">hysaab services OS</a> يدير المكتب نفسه.
-            </p>
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">العائلة</p>
+              <h2>مهمة واحدة.<br /><span>منتجات متكاملة.</span></h2>
+            </div>
+            <p>تغيير طريقة إنجاز الضرائب والمحاسبة والخدمات المحيطة بها في الخليج. لكل منتج مهمة واضحة.</p>
           </div>
+          <div className="hw-cards hw-cards--4">
+            <article className="is-navy">
+              <p className="hw-eyebrow">المحاسبة والتقارير</p>
+              <h3>Hysaab</h3>
+              <p>محاسبتك وتقاريرك اليومية، مع حكم بشري حيث يهم.</p>
+              <a className="hw-link hw-link--peach" href="/ar/product">استكشف المنتج <span aria-hidden="true">↗</span></a>
+            </article>
+            <article>
+              <p className="hw-eyebrow">معالجة الفواتير</p>
+              <h3>hysaab invoice</h3>
+              <p>يختبر فواتير الموردين وفق قواعد الهيئة الاتحادية للضرائب وهيئة الزكاة والضريبة والجمارك (ZATCA)، مع ذكر السبب لكل ما يُحجز للمراجعة.</p>
+              <a className="hw-link" href="/ar/invoice">استكشف Invoice <span aria-hidden="true">↗</span></a>
+            </article>
+            <article>
+              <p className="hw-eyebrow">عمليات المكاتب</p>
+              <h3>hysaab services OS</h3>
+              <p>ارتباطات العملاء والمواعيد النهائية والإشراف لمكاتب الخدمات المهنية، معًا في مكان واحد.</p>
+              <a className="hw-link" href="/ar/firms">استكشف Services OS <span aria-hidden="true">↗</span></a>
+            </article>
+            <article>
+              <p className="hw-eyebrow">الكفاءات المالية</p>
+              <h3>Ibtidah</h3>
+              <p>اعثر على كفاءات مالية عبر تقييم قائم على العمل، مع محترفين ذوي خبرة يعدّون القائمة المختصرة.</p>
+              <a className="hw-link" href="/hire">تعرّف على Ibtidah <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div className="mg-guide-sec">
-            <h2 className="mg-guide-h">أين نحن</h2>
-            <p className="mg-guide-p">
-              دبي، الإمارات — نعمل في أنحاء الإمارات والسعودية، بالإنجليزية والعربية. راسلنا
-              على <a className="textlink" href="mailto:info@hysaab.ai">info@hysaab.ai</a>؛
-              شخص حقيقي يقرأ كل رسالة.
-            </p>
+      <section className="hw-block--rule">
+        <div className="hw-wrap hw-section">
+          <div className="hw-split">
+            <div className="hw-heading" style={{ display: "block", marginBottom: 0 }}>
+              <div>
+                <p className="hw-eyebrow">من يقف وراءه</p>
+                <h2>مبني في دبي.</h2>
+              </div>
+            </div>
+            <div className="hw-prose">
+              <p>
+                Hysaab أحد منتجات{" "}
+                <a href="https://obliqueconsult.com" target="_blank" rel="noopener">Oblique Consult</a>.
+              </p>
+              <p>
+                نحن في دبي، الإمارات العربية المتحدة، ونعمل في أنحاء الإمارات والسعودية، بالإنجليزية
+                والعربية. راسلنا على <a href="mailto:info@hysaab.ai">info@hysaab.ai</a>. شخص حقيقي
+                يقرأ كل رسالة.
+              </p>
+            </div>
           </div>
-
-          <div className="mg-guide-cta">
-            <a href="/ar/product" className="mg-cta">شاهد المنتج ←</a>
-            <a href="/ar/contact" className="mg-ghost">تحدث إلينا</a>
-          </div>
-        </section>
-      </main>
-      <MgFooter locale="ar" />
-    </>
+        </div>
+      </section>
+    </PageShell>
   );
 }

@@ -14,7 +14,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata: Metadata = {
   title: "UAE VAT, Corporate Tax & ZATCA Compliance Software | Hysaab",
   description:
-    "How Hysaab handles UAE VAT, Corporate Tax and KSA ZATCA rules: every document tax-tested before posting, period locks that apply to everyone, a full audit trail, and human approval past your thresholds. You review and file.",
+    "How Hysaab tests UAE VAT and corporate tax rules and ZATCA e-invoicing on every document, keeps periods locked, and leaves the return to you.",
   alternates: langAlternates("/compliance"),
 };
 
