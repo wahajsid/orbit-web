@@ -280,9 +280,21 @@ export default function Page() {
             <div className="hw-heading">
               <div>
                 <p className="hw-eyebrow">الفريق</p>
-                <h2>الفريق وراء Hysaab.<br /><span>بأسمائهم، لا مجهولين.</span></h2>
+                <h2>الفريق وراء Hysaab.</h2>
               </div>
-              <p>Hysaab تبنيه وتديره Oblique Consult وSimpla. هؤلاء هم الأشخاص الذين يديرونه. ووراءهم محاسبو ومهندسو الشركتين الذين يتولون العمل اليومي على دفاترك.</p>
+              <p>Hysaab يبنيه ويديره فريقان: محاسبو Oblique Consult ومهندسو Simpla. هؤلاء هم الأشخاص الذين يديرونه؛ وفرقهم تتولى العمل اليومي على دفاترك.</p>
+            </div>
+            <div className="hw-team-orgs">
+              <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
+                <span><strong>Oblique Consult</strong>استشارات ضريبية ومحاسبية. دبي، منذ 2018. المحاسبون وراء Hysaab.</span>
+              </a>
+              <a href="https://www.simpla.ai" target="_blank" rel="noopener">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/partners/simpla.png" alt="Simpla" width={1024} height={304} loading="lazy" />
+                <span><strong>Simpla</strong>ذكاء اصطناعي للضرائب والمحاسبة. دبي. المهندسون وراء Hysaab.</span>
+              </a>
             </div>
             <div className="hw-team-grid">
               {TEAM.map((p) => (
