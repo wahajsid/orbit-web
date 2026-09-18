@@ -1,9 +1,11 @@
 import { ImageResponse } from "next/og";
+import { LOCKUP } from "./brand-paths";
 
 /* ── Branded OpenGraph card ──────────────────────────────────────────
    Cream ground, 3px navy frame, blush kicker, big flush-left navy title,
-   wordmark footer. Uses ImageResponse's bundled sans — close
-   enough to Archivo at card sizes; the palette does the branding. */
+   wordmark footer drawn from the baked lockup outlines (lib/brand-paths).
+   Body text uses ImageResponse's bundled sans; the palette and the
+   wordmark do the branding. */
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
@@ -57,10 +59,11 @@ export function brandOg(kicker: string, title: string) {
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <div style={{ display: "flex", alignItems: "flex-end", color: "#122940" }}>
-              <div style={{ fontSize: 44, fontWeight: 500, letterSpacing: "0.005em", lineHeight: 1 }}>hysaab</div>
-              <div style={{ fontSize: 13, fontWeight: 400, opacity: 0.55, paddingBottom: 5 }}>.ai</div>
-            </div>
+            <svg viewBox={LOCKUP.viewBox} width={Math.round(LOCKUP.width * 0.048)} height={Math.round(LOCKUP.height * 0.048)}>
+              <path fill="#122940" d={LOCKUP.ink} />
+              <path fill="#E4A1A0" d={LOCKUP.tail} />
+              <path fill="#122940" fillOpacity={0.55} d={LOCKUP.suffix} />
+            </svg>
             <div style={{ fontSize: 22, color: "#6B6560", marginLeft: "auto" }}>AI accounting &amp; reporting · Dubai</div>
           </div>
         </div>
