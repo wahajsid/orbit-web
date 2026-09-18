@@ -280,9 +280,9 @@ export default function Page() {
             <div className="hw-heading">
               <div>
                 <p className="hw-eyebrow">الفريق</p>
-                <h2>من يراجع العمل.<br /><span>بأسمائهم، لا مجهولين.</span></h2>
+                <h2>الفريق وراء Hysaab.<br /><span>بأسمائهم، لا مجهولين.</span></h2>
               </div>
-              <p>Hysaab يبنيه ويديره محاسبو Oblique Consult ومهندسو Simpla. في الخدمة المُدارة، يراجع الأشخاص أدناه وفرقهم الاستثناءات ويُعدّون الإقفال ويعتمدون التقارير معك.</p>
+              <p>Hysaab تبنيه وتديره Oblique Consult وSimpla. هؤلاء هم الأشخاص الذين يديرونه. ووراءهم محاسبو ومهندسو الشركتين الذين يتولون العمل اليومي على دفاترك.</p>
             </div>
             <div className="hw-team-grid">
               {TEAM.map((p) => (
@@ -296,8 +296,8 @@ export default function Page() {
               ))}
             </div>
             <div className="hw-note">
-              <span className="hw-mono">كيف تجري المراجعة</span>
-              <p>Hysaab يُعدّ القيود والاستحقاقات والتقارير. في الخدمة المُدارة يراجع محاسب مسمّى الاستثناءات ويصحح عند الحاجة ويُعدّ الإقفال معك، وتبقى الاعتمادات التي تخصك بيدك. الأدوار والخبرات أعلاه كما نشرتها <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> وكما تظهر في الملفات المهنية العامة للأفراد.</p>
+              <span className="hw-mono">كيف يُنجز العمل</span>
+              <p>Hysaab يُعدّ القيود والاستحقاقات والتقارير. في الخدمة المُدارة يراجع محاسبون من فريق Oblique Consult الاستثناءات ويصححون عند الحاجة ويُعدّون الإقفال معك، مع محاسب مسمّى كجهة اتصالك، وتبقى الاعتمادات التي تخصك بيدك. الأدوار والخبرات أعلاه كما نشرتها <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> وكما تظهر في الملفات المهنية العامة للأفراد.</p>
             </div>
           </div>
         </section>
