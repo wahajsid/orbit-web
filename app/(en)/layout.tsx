@@ -11,6 +11,7 @@ import "../hysaab-home.css";
 // origin in "Why we built Hysaab"). Both SIL OFL.
 const archivo = Archivo({
   subsets: ["latin"],
+  style: ["normal", "italic"],
   // Variable axis (100–900): the homepage headings sit at 550.
   variable: "--font-archivo",
   display: "swap",

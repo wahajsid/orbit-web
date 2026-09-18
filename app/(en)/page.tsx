@@ -52,7 +52,7 @@ export default function Page() {
           <div className="hw-wrap hw-hero-grid">
             <div className="hw-hero-copy">
               <p className="hw-eyebrow hw-eyebrow--dot"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
-              <h1>Your books<br />in order.<br /><span>Your mind on<br />what’s next.</span></h1>
+              <h1>Your books<br />in order.<br /><span>Your mind on<br />what’s <em>next</em>.</span></h1>
               <p className="hw-intro">The books, prepared.<br />The decisions, yours.</p>
               <p className="hw-hero-desc">Meet Hysaab. An accounting and reporting team for Gulf businesses — built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. Hysaab takes it from there.</p>
               <div className="hw-actions">
