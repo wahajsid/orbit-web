@@ -9,3 +9,6 @@ next-env.d.ts
 
 # Build artifact — never committed
 tsconfig.tsbuildinfo
+
+# Working notes from other sessions; never part of the site
+output/
