@@ -1,15 +1,15 @@
+/* ── /accounting ─────────────────────────────────────────────────────
+   Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
+   all compliance claims and workspace screenshots. The old page used
+   np-* classes from advert.css; this version uses the hw-* inner-page
+   kit from hysaab-home.css. Interactive Terminal kept as-is. */
+
 import Image from "next/image";
-import "../../advert.css";
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { Terminal } from "@/components/Terminal";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
-import { RotatingHeadline } from "@/components/RotatingHeadline";
-import { NpEnhance } from "@/components/NpEnhance";
+import { langAlternates } from "@/lib/site-meta";
 
 export const revalidate = 60;
-
-import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
   title: "Automated Bookkeeping & Accounting for UAE and KSA | Hysaab",
@@ -18,34 +18,23 @@ export const metadata = {
   alternates: langAlternates("/accounting"),
 };
 
+type Shot = { src: string; w: number; h: number; alt: string };
 
-type Chip = { k: string; v: string; tone?: "p" | "b" };
-function Act({
-  ink, kicker, head, say, chips, shot, cap,
-}: {
-  ink?: boolean; kicker: string; head: React.ReactNode; say: React.ReactNode;
-  chips?: Chip[]; shot: { src: string; w: number; h: number; alt: string }; cap: string;
-}) {
+function Feature({ eyebrow, title, body, shot, cap, dark }: { eyebrow: string; title: React.ReactNode; body: React.ReactNode; shot: Shot; cap: string; dark?: boolean }) {
   return (
-    <section className={`np-act${ink ? " np-band-ink" : ""}`}>
-      <div className="wrap">
-        <div className="microlabel np-kicker np-rise">{kicker}</div>
-        <h2 className="np-head np-rise d1">{head}</h2>
-        <p className="np-say np-rise d1">{say}</p>
-        {chips && (
-          <div className="np-chips np-rise d2">
-            {chips.map((c) => (
-              <span key={c.k} className="np-chip">
-                <span className="k">{c.k}</span>
-                <span className={c.tone === "p" ? "p" : c.tone === "b" ? "b" : undefined}>{c.v}</span>
-              </span>
-            ))}
+    <section className={dark ? "hw-block--dark" : "hw-block--rule"}>
+      <div className="hw-wrap hw-section">
+        <div className="hw-feature">
+          <div className="hw-feature-copy">
+            <p className="hw-eyebrow">{eyebrow}</p>
+            <h3>{title}</h3>
+            <p>{body}</p>
           </div>
-        )}
-        <div className="np-shot np-rise d1">
-          <Image src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} sizes="(max-width: 1120px) 100vw, 1064px" />
+          <div className="hw-shot">
+            <Image src={shot.src} width={shot.w} height={shot.h} sizes="(max-width: 760px) 100vw, 55vw" alt={shot.alt} style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid var(--hw-hairline)" }} />
+            <p className="hw-shot-cap">{cap}</p>
+          </div>
         </div>
-        <div className="np-cap np-rise">{cap}</div>
       </div>
     </section>
   );
@@ -53,146 +42,87 @@ function Act({
 
 export default function AccountingPage() {
   return (
-    <>
-      <SmoothScroll />
+    <PageShell band={{ title: "We lived the month-end we're deleting.", body: "Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at midnight, a VAT deadline breathing down the quarter. We built the colleague we always wanted: one who does the busywork, shows its evidence, and leaves the judgement to you." }}>
+      <PageHero
+        eyebrow="An AI finance team for the UAE & KSA"
+        title={<>Accounting and reporting for Gulf businesses.<br /><span>Built on evidence.</span></>}
+        lede="Hysaab runs the busywork — AP, receivables, the ledger, tax and the month-end close — and leaves the judgement to you."
+      >
+        <a className="hw-btn hw-btn--peach" href="/contact">Let&rsquo;s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-link hw-link--light" href="#live">Seventy seconds of what it looks like</a>
+      </PageHero>
 
-      <MgNav />
+      {/* ── Terminal ── */}
+      <section id="live">
+        <div className="hw-wrap hw-section">
+          <Terminal />
+        </div>
+      </section>
 
-      <header className="hero-band on-ink np-hero" id="top">
-        <div className="wrap">
-          <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">AN AI FINANCE TEAM FOR THE UAE &amp; KSA</div>
-            <RotatingHeadline />
-            <p className="hero-sub" style={{ maxWidth: 560 }}>
-              Hysaab runs the busywork — AP, receivables, the ledger, tax and the month-end
-              close — and leaves the judgement to you.
-            </p>
-            <a className="np-scrollcue" href="#live" aria-label="Scroll to watch">
-              <span className="tri">▶</span>
-              <span className="lab">Seventy seconds of what it looks like</span>
-              <span className="chev" aria-hidden="true">↓</span>
-            </a>
-            <div className="hero-actions">
-              <a className="cta" href="/contact">Let&rsquo;s talk</a>
+      <Feature
+        dark
+        eyebrow="Money out"
+        title={<>Every invoice hides two questions: is it coded right, and is the tax deductible?</>}
+        body={<>Hysaab codes it on arrival from your own ledger&rsquo;s memory, then tax-tests it against UAE law. This one <strong>fails Article 59</strong> — the supplier TRN is missing — so the input VAT is held, not claimed. And a duplicate is stopped before it ever posts.</>}
+        shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "Hysaab Payables — the tax test embedded in the invoice row" }}
+        cap="Payables — the tax layer embedded in every row, with its evidence attached."
+      />
+
+      <Feature
+        eyebrow="The regional layer"
+        title={<>Your global tools don&rsquo;t know what the FTA or ZATCA want. This one was built here.</>}
+        body={<>VAT and Corporate Tax reconciled every month, each deadline tracked by a watchdog, e-invoices cleared and stored with proof. The AED 200,000 gap? Explained, and cited to the journal.</>}
+        shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Hysaab tax intelligence: VAT and CT reconciliation, filing watchdog, and the Cabinet Decision 149 of 2026 recovery checks" }}
+        cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
+      />
+
+      <Feature
+        dark
+        eyebrow="The permanent record"
+        title={<>Nothing is ever deleted. Mistakes are reversed in the open.</>}
+        body={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
+        shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "Hysaab general ledger — journal activity with agent commentary and evidence" }}
+        cap="Ledger — every entry explained, its evidence one click away."
+      />
+
+      <Feature
+        eyebrow="Money in"
+        title={<>Who owes you — and what to do about it, already chased.</>}
+        body={<>Collection reminders write themselves on a cadence you approve once; nothing sends without you. Write-off exposure is provisioned against your policy, automatically.</>}
+        shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "Hysaab Receivables — collections queue, DSO and the ageing posture" }}
+        cap="Receivables — the collections runbook, drafted, chased and reconciled."
+      />
+
+      {/* ── The close ── */}
+      <section className="hw-block--sage">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">The close</p>
+              <h2>Month-end used to be a few weeks.</h2>
             </div>
+            <p>Accruals proposed, variances flagged, bank reconciled, VAT drafted — Hysaab&rsquo;s side is done before you open it. What&rsquo;s left is your call. Then you seal the month in one tap, and it can never quietly change again.</p>
           </div>
-
-          <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.png" alt="The Hysaab workspace — cash, decisions, the close and tax at a glance" width={1600} height={1378} sizes="(max-width: 1120px) 100vw, 1064px" priority />
+          <div className="hw-feature">
+            <div className="hw-feature-copy">
+              <h3>78% done before you woke up.</h3>
+              <p>The illustrative close checklist, run on sample data.</p>
+            </div>
+            <div className="hw-shot">
+              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1170} sizes="(max-width: 760px) 100vw, 55vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid #3e6356" }} />
+              <p className="hw-shot-cap" style={{ color: "var(--hw-cream)" }}>Close cockpit — &ldquo;Hysaab runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</p>
+            </div>
           </div>
         </div>
-      </header>
+      </section>
 
-      <main>
-        <section className="section wrap np-after-hero" id="live">
-          <Terminal />
-        </section>
-
-        <Act
-          ink
-          kicker="MONEY OUT"
-          head={<>Every invoice hides two questions: <span className="np-accent">is it coded right, and is the tax deductible?</span></>}
-          say={<>Hysaab codes it on arrival from your own ledger&rsquo;s memory, then tax-tests it against UAE law. This one <strong>fails Article 59</strong> — the supplier TRN is missing — so the input VAT is held, not claimed. And a duplicate is stopped before it ever posts.</>}
-          chips={[
-            { k: "Tax test", v: "input VAT AED 1,036 held", tone: "b" },
-            { k: "Duplicate", v: "stopped before posting", tone: "b" },
-            { k: "Coding memory", v: "2,418 txns", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "Hysaab Payables — the tax test embedded in the invoice row" }}
-          cap="Payables — the tax layer embedded in every row, with its evidence attached."
-        />
-
-        <Act
-          kicker="THE REGIONAL LAYER"
-          head={<>Your global tools don&rsquo;t know what the FTA or ZATCA want. <span className="np-accent">This one was built here.</span></>}
-          say={<>VAT and Corporate Tax reconciled every month, each deadline tracked by a watchdog, e-invoices cleared and stored with proof. The AED 200,000 gap? Explained, and cited to the journal.</>}
-          chips={[
-            { k: "VAT ↔ CT", v: "Δ +200k · explained", tone: "p" },
-            { k: "Filing", v: "Q2 due 28 Jul · T-14", tone: "b" },
-            { k: "ZATCA", v: "142 cleared · 0 rejected", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "Hysaab tax intelligence: VAT and CT reconciliation, filing watchdog, and the Cabinet Decision 149 of 2026 recovery checks" }}
-          cap="Tax — the reconciliation, the deadlines and the clearance, in one place."
-        />
-
-        <Act
-          ink
-          kicker="THE PERMANENT RECORD"
-          head={<>Nothing is ever deleted. <span className="np-accent">Mistakes are reversed in the open.</span></>}
-          say={<>Every journal carries who made it, why, and the document behind it — each posted by a named agent with a confidence score. A close you could hand to an auditor without flinching.</>}
-          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "Hysaab general ledger — journal activity with agent commentary and evidence" }}
-          cap="Ledger — every entry explained, its evidence one click away."
-        />
-
-        <Act
-          kicker="MONEY IN"
-          head={<>Who owes you — and what to do about it, <span className="np-accent">already chased.</span></>}
-          say={<>Collection reminders write themselves on a cadence you approve once; nothing sends without you. Write-off exposure is provisioned against your policy, automatically.</>}
-          chips={[
-            { k: "DSO", v: "41 days · improving", tone: "p" },
-            { k: "Past due", v: "AED 346,700", tone: "b" },
-            { k: "Provisioned", v: "policy-driven" },
-          ]}
-          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "Hysaab Receivables — collections queue, DSO and the ageing posture" }}
-          cap="Receivables — the collections runbook, drafted, chased and reconciled."
-        />
-
-        <section className="np-act np-band-ink" id="close">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">THE CLOSE</div>
-            <h2 className="np-head np-rise d1">Month-end used to be a few weeks.</h2>
-            <div className="np-big np-rise d1">
-              <span data-np-count="78">0%</span>
-              <span className="sub">done before you woke up.</span>
-            </div>
-            <p className="np-say np-rise d2">
-              Accruals proposed, variances flagged, bank reconciled, VAT drafted — Hysaab&rsquo;s side is
-              done before you open it. What&rsquo;s left is your call. Then you seal the month in one
-              tap, and it can never quietly change again.
-            </p>
-            <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.png" alt="Hysaab close cockpit — the month-end checklist with engine-proposed accruals" width={1600} height={1170} sizes="(max-width: 1120px) 100vw, 1064px" />
-            </div>
-            <div className="np-cap np-rise">Close cockpit — &ldquo;Hysaab runs this&rdquo; on the left, your ledger&rsquo;s tasks on the right.</div>
-          </div>
-        </section>
-
-        <Act
-          kicker="ONE OS, ANY SHAPE"
-          head={<>One business or five. One currency or five. <span className="np-accent">One language or two.</span></>}
-          say={<>Switch entities, consolidate, and flip the whole workspace into Arabic — right-to-left, down to the numerals. The product bends. You don&rsquo;t.</>}
-          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Hysaab in Arabic — the full workspace, right to left" }}
-          cap="نفس النظام — the same Hysaab, in Arabic, right-to-left."
-        />
-
-        <section className="why-band on-ink" id="why" style={{ marginTop: 0 }}>
-          <div className="wrap">
-            <div className="microlabel hero-kicker np-rise">WHY WE BUILT THIS</div>
-            <h2 className="why-head np-rise d1">We lived the month-end<br />we&rsquo;re deleting.</h2>
-            <div className="why-cols np-rise d1">
-              <p>
-                Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at
-                midnight, a VAT deadline breathing down the quarter — and the numbers that actually
-                matter, untouched. We watched brilliant finance teams spend their nights on
-                administrative work and overlook the real value sitting in front of them: what the
-                data was saying.
-              </p>
-              <p>
-                Hysaab is one of the very few products in this space <strong>built by accountants who
-                have lived and slept through these processes</strong> — not by engineers guessing at
-                them. So we built the colleague we always wanted: one who does the busywork, shows
-                its evidence, and leaves the judgement to you.
-              </p>
-            </div>
-            <div className="why-sig np-rise">&mdash; SRW</div>
-          </div>
-        </section>
-
-      </main>
-
-      <CtaBand />
-      <MgFooter />
-      <NpEnhance />
-    </>
+      <Feature
+        eyebrow="One OS, any shape"
+        title={<>One business or five. One currency or five. One language or two.</>}
+        body={<>Switch entities, consolidate, and flip the whole workspace into Arabic — right-to-left, down to the numerals. The product bends. You don&rsquo;t.</>}
+        shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Hysaab in Arabic — the full workspace, right to left" }}
+        cap="نفس النظام — the same Hysaab, in Arabic, right-to-left."
+      />
+    </PageShell>
   );
 }

@@ -1,8 +1,11 @@
-﻿import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
+/* ── /firms ──────────────────────────────────────────────────────────
+   Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
+   the ServicesDay interactive walkthrough and SavingsCalc calculator.
+   Content and claims carried over unchanged. */
+
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { ServicesDay } from "@/components/hysaab/ServicesDay";
 import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
-import { Wordmark } from "@/components/Wordmark";
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata = {
@@ -66,212 +69,194 @@ const MODULES: { k: string; h: string; items: React.ReactNode[] }[] = [
 
 export default function ServicesOsPage() {
   return (
-    <div className="hy-page">
-      <MgNav />
-      <main>
-        {/* ── Hero ── */}
-        <section className="hy-hero" id="top">
-          <div className="hy-wrap hy-hero-grid">
-            <div className="hy-hero-copy">
-              <span className="hy-soon-chip"><i aria-hidden="true" /> Coming soon · founding firms</span>
-              <span className="hy-kicker hy-kicker--blush">hysaab services OS · for tax and advisory firms</span>
-              <h1 className="hy-hero-h1">Your firm sells judgement. Let the admin run itself.</h1>
-              <p className="hy-hero-p">One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make. If you hold an audit licence, <a href="/audit" style={{ color: "var(--hy-blush)", borderBottom: "2px solid var(--hy-blush)" }}>hysaab audit</a> runs the ISA file inside the same system.</p>
-              <div className="hy-hero-cta">
-                <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg">Join the founding firms →</a>
-                <a href="#day" className="hy-btn hy-btn--outline-cream hy-btn--lg">Watch a day in the firm</a>
-              </div>
-              <div className="hy-stats">
-                <div className="hy-stat"><span className="hy-stat-n hy-num">45+</span><span className="hy-stat-l">AI skills that propose and never decide</span></div>
-                <div className="hy-stat"><span className="hy-stat-n hy-num">250+</span><span className="hy-stat-l">VAT and CT checks on every filing</span></div>
-                <div className="hy-stat"><span className="hy-stat-n hy-num">8 → 1</span><span className="hy-stat-l">tools replaced by one system</span></div>
-              </div>
+    <PageShell band={{ kicker: "Founding firms", title: "Give your people their judgement back.", body: "hysaab services OS opens to a small group of tax and advisory firms first. Tell us about your firm and a real person will walk you through it within one working day." }}>
+      <PageHero
+        eyebrow="hysaab services OS · for tax and advisory firms"
+        title={<>Your firm sells judgement.<br />Let the admin run itself.</>}
+        lede={<>One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make. If you hold an audit licence, <a href="/audit" style={{ color: "var(--hw-blush)" }}>hysaab audit</a> runs the ISA file inside the same system.</>}
+      >
+        <a className="hw-btn hw-btn--peach" href="/contact">Join the founding firms <span aria-hidden="true">↗</span></a>
+        <a className="hw-link hw-link--light" href="#day">Watch a day in the firm</a>
+      </PageHero>
+
+      {/* ── What it replaces ── */}
+      <section className="hw-block--rule">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">The practice today</p>
+              <h2>A firm runs on judgement.<br /><span>It drowns in the tools around it.</span></h2>
             </div>
-            <div className="hy-hero-win">
-              <div className="hy-win">
-                <div className="hy-win-bar">
-                  <Wordmark size={15} ground="navy" suffix={false} />
-                  <span className="hy-win-org">services OS · firm brief</span>
-                  <span className="hy-win-user"><span className="hy-win-user-n">This week</span></span>
-                </div>
-                <div className="hy-pane" style={{ minHeight: 0 }}>
-                  <div className="hy-pane-head"><span className="hy-pane-title">Sahara Tax Advisory · 12 people</span><span className="hy-pane-status">illustrative</span></div>
-                  <div className="hy-tiles">
-                    <div className="hy-tile"><div className="hy-tile-l">Emails triaged</div><div className="hy-tile-n">412</div><div className="hy-tile-s">into 57 tasks</div></div>
-                    <div className="hy-tile"><div className="hy-tile-l">Realisation</div><div className="hy-tile-n">88%</div><div className="hy-tile-s">up from 79%</div></div>
-                    <div className="hy-tile"><div className="hy-tile-l">Filed on time</div><div className="hy-tile-n">31 / 31</div><div className="hy-tile-s">zero late</div></div>
-                  </div>
-                  <div className="hy-check">
-                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--bad" aria-hidden="true">!</span><span className="hy-check-l"><strong>2 FTA notices</strong> raised to urgent tasks within minutes</span></div>
-                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--ok" aria-hidden="true">✓</span><span className="hy-check-l"><strong>14 meetings</strong> became 38 tasks with owners and dates</span></div>
-                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--ok" aria-hidden="true">✓</span><span className="hy-check-l"><strong>3 engagement letters</strong> signed inside the OS</span></div>
-                    <div className="hy-check-row"><span className="hy-iv-mark hy-iv-mark--warn" aria-hidden="true">!</span><span className="hy-check-l"><strong>Omar at 118%</strong> capacity next week · rebalance proposed</span></div>
-                  </div>
-                  <div className="hy-pane-foot">All 412 emails matched to a client or ignored · 0 sent without a person</div>
-                </div>
-              </div>
+            <p>Client context lives in someone&apos;s inbox. Deadlines live in a spreadsheet. Time is logged on Friday from memory. The advice clients pay for gets whatever hours are left.</p>
+          </div>
+          <div className="hw-rows">
+            {[
+              ["Practice management tool", "Tasks and filings"],
+              ["Shared inbox", "AI-triaged inbox"],
+              ["Deadline spreadsheets", "Live obligations"],
+              ["Document portal", "Data room and portal"],
+              ["CRM", "Pipeline and proposals"],
+              ["E-signature app", "Built-in signing"],
+              ["Timesheet app", "Drafted timesheets"],
+              ["HR file", "People and payroll"],
+            ].map(([old, now], i) => (
+              <article key={old}>
+                <span className="hw-mono" style={{ textDecoration: "line-through", color: "var(--hw-supporting)" }}>{old}</span>
+                <h3>{now}</h3>
+                <p />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── A day in the firm ── */}
+      <section id="day">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">A day in the firm</p>
+              <h2>One Tuesday. Six moments the admin used to eat.</h2>
+            </div>
+            <p>Illustrative firm and clients. Press the buttons in the window: nothing the AI proposes counts until a person confirms it.</p>
+          </div>
+          <ServicesDay />
+        </div>
+      </section>
+
+      {/* ── Savings ── */}
+      <section className="hw-block--rule">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Time and cost</p>
+              <h2>What the admin is costing your firm.</h2>
+            </div>
+            <p>Put in your team and your hourly cost. Every assumption is on the page, so the number is yours to argue with.</p>
+          </div>
+          <SavingsCalc />
+        </div>
+      </section>
+
+      {/* ── Modules ── */}
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Everything in the OS</p>
+              <h2>Nine areas of the firm.<br /><span>One system underneath.</span></h2>
+            </div>
+            <p>Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
+          </div>
+          <div className="hw-cards">
+            {MODULES.map((m) => (
+              <article key={m.k}>
+                <p className="hw-eyebrow">{m.k}</p>
+                <h3>{m.h}</h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 8 }}>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── The audit module ── */}
+      <section className="hw-block--sage">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">The audit module</p>
+              <h2>If you sign audit opinions,<br /><span>the file runs here too.</span></h2>
+            </div>
+            <p>hysaab audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. It is sold on its own or with the rest of the OS.</p>
+          </div>
+          <div className="hw-cards">
+            <article>
+              <p className="hw-eyebrow">Testing</p>
+              <h3>Every journal, not twenty-five</h3>
+              <p>Journal-entry testing scores the whole population against thirty ISA 240 criteria. Monetary-unit sampling designed, selected on a seed and evaluated to an upper misstatement limit. Fourteen tie-out engines set their own tick marks.</p>
+            </article>
+            <article>
+              <p className="hw-eyebrow">The file</p>
+              <h3>Written as the work concludes</h3>
+              <p>Workpapers with purpose, source, procedure, results and a conclusion, cross-referenced. Preparer, reviewer and partner sign in order; a partner signature locks the version. Phase gates refuse to open while conditions are unmet.</p>
+            </article>
+            <article>
+              <p className="hw-eyebrow">Independence</p>
+              <h3>A firewall, not a policy</h3>
+              <p>Audit records belong to the firm; the client grants read access for a fixed, revocable window. Testing runs on a hashed snapshot, never the live ledger. Hysaab never signs an opinion.</p>
+            </article>
+          </div>
+          <div className="hw-note" style={{ borderColor: "#3e6356" }}>
+            <span className="hw-mono">Explore further</span>
+            <p><a href="/audit">See hysaab audit, screen by screen <span aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Humans in the loop ── */}
+      <section className="hw-block--dark">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">How the AI is allowed to work</p>
+              <h2>The model proposes. Code computes.<br /><span>A named person confirms.</span></h2>
             </div>
           </div>
-        </section>
+          <div className="hw-cards">
+            <article className="is-navy">
+              <p className="hw-eyebrow">Proposals, not actions</p>
+              <h3>Every AI suggestion is a card</h3>
+              <p>Tasks, timesheet lines, obligations and tax treatments arrive as proposals. Nothing is created until someone accepts it.</p>
+            </article>
+            <article className="is-navy">
+              <p className="hw-eyebrow">People send</p>
+              <h3>No email leaves on its own</h3>
+              <p>Replies are drafted, never sent automatically. Auto-send to a client is off by default and, when enabled, waits in a 24-hour hold.</p>
+            </article>
+            <article className="is-navy">
+              <p className="hw-eyebrow">Money is deterministic</p>
+              <h3>Code does the arithmetic</h3>
+              <p>Fees, WIP, realisation and every tax figure are computed in code. The AI writes words around numbers, never the numbers.</p>
+            </article>
+            <article className="is-navy">
+              <p className="hw-eyebrow">Accountable by design</p>
+              <h3>A ledger of AI decisions</h3>
+              <p>Every AI decision is logged with whether a person agreed, and governance reports show clients and regulators how AI is used.</p>
+            </article>
+            <article className="is-navy">
+              <p className="hw-eyebrow">Judgement stays human</p>
+              <h3>Some things AI cannot touch</h3>
+              <p>Appraisal ratings are human only. Automation rules ship switched off. Returns, invoices and payroll need a maker and a checker.</p>
+            </article>
+            <article className="is-navy">
+              <p className="hw-eyebrow">Built to be trusted</p>
+              <h3>Security from the first table</h3>
+              <p>Row-level security on every table, access by engagement team, mandatory two-factor sign-in, expiring links, malware-scanned uploads and daily backups.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        {/* ── What it replaces ── */}
-        <section className="hy-story hy-section hy-rule-b" id="replaces">
-          <div className="hy-wrap">
-            <div className="hy-story-head">
-              <div className="hy-story-title">
-                <span className="hy-kicker">The practice today</span>
-                <h2 className="hy-h2 hy-h2--wide">A firm runs on judgement. It drowns in the tools around it.</h2>
-              </div>
-              <span className="hy-story-note">Client context lives in someone&apos;s inbox. Deadlines live in a spreadsheet. Time is logged on Friday from memory. The advice clients pay for gets whatever hours are left.</span>
+      {/* ── Why ── */}
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-split">
+            <div>
+              <p className="hw-eyebrow">Why we built it</p>
+              <h2>Built inside a working Gulf tax firm.</h2>
             </div>
-            <div className="hy-replace">
-              {[
-                ["Practice management tool", "Tasks and filings"],
-                ["Shared inbox", "AI-triaged inbox"],
-                ["Deadline spreadsheets", "Live obligations"],
-                ["Document portal", "Data room and portal"],
-                ["CRM", "Pipeline and proposals"],
-                ["E-signature app", "Built-in signing"],
-                ["Timesheet app", "Drafted timesheets"],
-                ["HR file", "People and payroll"],
-              ].map(([old, now]) => (
-                <div key={old}><s>{old}</s><span>→ {now}</span></div>
-              ))}
+            <div className="hw-prose">
+              <p>hysaab services OS started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
+              <p>We are opening it to a small group of founding firms in the UAE and KSA. Founding firms shape what comes next and keep founder pricing for as long as they stay.</p>
             </div>
           </div>
-        </section>
-
-        {/* ── A day in the firm ── */}
-        <section className="hy-voices hy-section hy-rule-b" id="a-day">
-          <div className="hy-wrap">
-            <div className="hy-story-head">
-              <div className="hy-story-title">
-                <span className="hy-kicker">A day in the firm</span>
-                <h2 className="hy-h2 hy-h2--wide">One Tuesday. Six moments the admin used to eat.</h2>
-              </div>
-              <span className="hy-story-note">Illustrative firm and clients. Press the buttons in the window: nothing the AI proposes counts until a person confirms it.</span>
-            </div>
-            <ServicesDay />
+          <div className="hw-note">
+            <span className="hw-mono">Our promise</span>
+            <p>We will show you what works today, label what does not, and never let the AI make a call that belongs to your people.</p>
           </div>
-        </section>
-
-        {/* ── Savings ── */}
-        <section className="hy-cohort hy-section hy-rule-b" id="savings">
-          <div className="hy-wrap">
-            <div className="hy-voices-head">
-              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <span className="hy-kicker">Time and cost</span>
-                <h2 className="hy-h2">What the admin is costing your firm.</h2>
-              </div>
-              <span className="hy-note" style={{ maxWidth: 380 }}>Put in your team and your hourly cost. Every assumption is on the page, so the number is yours to argue with.</span>
-            </div>
-            <SavingsCalc />
-          </div>
-        </section>
-
-        {/* ── Modules ── */}
-        <section className="hy-agents hy-section" id="features">
-          <div className="hy-wrap">
-            <div className="hy-agents-head">
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <span className="hy-kicker hy-kicker--navy">Everything in the OS</span>
-                <h2 className="hy-h2">Nine areas of the firm. One system underneath.</h2>
-              </div>
-              <p className="hy-agents-p">Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
-            </div>
-            <div className="hy-agents-grid hy-grid-3">
-              {MODULES.map((m) => (
-                <div className="hy-mod" key={m.k}>
-                  <span className="hy-mod-k">{m.k}</span>
-                  <span className="hy-agent-h">{m.h}</span>
-                  <ul>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── The audit module ── */}
-        <section className="hy-voices hy-section hy-rule-b" id="audit">
-          <div className="hy-wrap">
-            <div className="hy-voices-head">
-              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <span className="hy-kicker">The audit module</span>
-                <h2 className="hy-h2">If you sign audit opinions, the file runs here too.</h2>
-              </div>
-              <span className="hy-note" style={{ maxWidth: 400 }}>hysaab audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. It is sold on its own or with the rest of the OS.</span>
-            </div>
-            <div className="hy-agents-grid hy-grid-3" style={{ marginTop: 32 }}>
-              <div className="hy-mod">
-                <span className="hy-mod-k">Testing</span>
-                <span className="hy-agent-h">Every journal, not twenty-five</span>
-                <ul>
-                  <li><strong>Journal-entry testing</strong> scores the whole population against thirty ISA 240 criteria and strata it.</li>
-                  <li><strong>Monetary-unit sampling</strong> designed, selected on a seed and evaluated to an upper misstatement limit.</li>
-                  <li><strong>Fourteen tie-out engines</strong> set their own tick marks, from ageing to the lease schedule.</li>
-                </ul>
-              </div>
-              <div className="hy-mod">
-                <span className="hy-mod-k">The file</span>
-                <span className="hy-agent-h">Written as the work concludes</span>
-                <ul>
-                  <li><strong>Workpapers</strong> with purpose, source, procedure, results and a conclusion, cross-referenced.</li>
-                  <li><strong>Preparer, reviewer and partner</strong> sign in order; a partner signature locks the version.</li>
-                  <li><strong>Phase gates</strong> refuse to open while the conditions behind them are unmet.</li>
-                </ul>
-              </div>
-              <div className="hy-mod">
-                <span className="hy-mod-k">Independence</span>
-                <span className="hy-agent-h">A firewall, not a policy</span>
-                <ul>
-                  <li><strong>Audit records belong to the firm</strong>; the client grants read access for a fixed, revocable window.</li>
-                  <li><strong>Testing runs on a hashed snapshot</strong>, never the live ledger, and nothing in the module can write to one.</li>
-                  <li><strong>Hysaab never signs</strong> an opinion. The partner walks the decision tree and records it.</li>
-                </ul>
-              </div>
-            </div>
-            <div style={{ marginTop: 28 }}>
-              <a href="/audit" className="hy-btn hy-btn--navy hy-btn--lg">See hysaab audit, screen by screen →</a>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Humans in the loop ── */}
-        <section className="hy-whysec" id="control">
-          <div className="hy-wrap">
-            <span className="hy-kicker hy-kicker--blush">How the AI is allowed to work</span>
-            <h2 className="hy-h2 hy-h2--why" style={{ marginTop: 18, maxWidth: "24ch" }}>The model proposes. Code computes. A named person confirms.</h2>
-            <div className="hy-guard hy-grid-3">
-              <div><span className="k">Proposals, not actions</span><h3>Every AI suggestion is a card</h3><p>Tasks, timesheet lines, obligations and tax treatments arrive as proposals. Nothing is created until someone accepts it.</p></div>
-              <div><span className="k">People send</span><h3>No email leaves on its own</h3><p>Replies are drafted, never sent automatically. Auto-send to a client is off by default and, when enabled, waits in a 24-hour hold.</p></div>
-              <div><span className="k">Money is deterministic</span><h3>Code does the arithmetic</h3><p>Fees, WIP, realisation and every tax figure are computed in code. The AI writes words around numbers, never the numbers.</p></div>
-              <div><span className="k">Accountable by design</span><h3>A ledger of AI decisions</h3><p>Every AI decision is logged with whether a person agreed, and governance reports show clients and regulators how AI is used.</p></div>
-              <div><span className="k">Judgement stays human</span><h3>Some things AI cannot touch</h3><p>Appraisal ratings are human only. Automation rules ship switched off. Returns, invoices and payroll need a maker and a checker.</p></div>
-              <div><span className="k">Built to be trusted</span><h3>Security from the first table</h3><p>Row-level security on every table, access by engagement team, mandatory two-factor sign-in, expiring links, malware-scanned uploads and daily backups.</p></div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Built by / coming ── */}
-        <section className="hy-family hy-section hy-rule-b">
-          <div className="hy-wrap hy-why-grid">
-            <div className="hy-why-copy">
-              <span className="hy-kicker">Why we built it</span>
-              <h2 className="hy-h2">Built inside a working Gulf tax firm.</h2>
-              <p style={{ color: "var(--hy-body)" }}>hysaab services OS started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
-              <p style={{ color: "var(--hy-body)" }}>We are opening it to a small group of founding firms in the UAE and KSA. Founding firms shape what comes next and keep founder pricing for as long as they stay.</p>
-            </div>
-            <div className="hy-beliefs">
-              <div className="hy-belief"><span className="hy-belief-l">On the roadmap</span><span className="hy-belief-p">Calendar and meeting-recorder connections, so notes arrive without pasting.</span></div>
-              <div className="hy-belief"><span className="hy-belief-p">Gmail and Outlook sync, sending replies from the inbox, and WhatsApp for client documents.</span></div>
-              <div className="hy-belief hy-belief--promise"><span className="hy-belief-l">Our promise</span><span className="hy-belief-p">We will show you what works today, label what does not, and never let the AI make a call that belongs to your people.</span></div>
-            </div>
-          </div>
-        </section>
-
-        <CtaBand kicker="Founding firms" title="Give your people their judgement back." body="hysaab services OS opens to a small group of tax and advisory firms first. Tell us about your firm and a real person will walk you through it within one working day." />
-      </main>
-      <MgFooter />
-    </div>
+        </div>
+      </section>
+    </PageShell>
   );
 }
