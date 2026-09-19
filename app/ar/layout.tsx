@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, DM_Mono, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
+import { Archivo, Instrument_Serif, DM_Mono, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import "../globals.css";
 import "../wire.css";
@@ -13,6 +13,14 @@ import "../hysaab-home.css";
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: "400",
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -70,7 +78,7 @@ export const viewport: Viewport = {
 
 export default function ArRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${archivo.variable} ${dmMono.variable} ${notoArabic.variable} ${kufi.variable}`}>
+    <html lang="ar" dir="rtl" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${notoArabic.variable} ${kufi.variable}`}>
       <body>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />

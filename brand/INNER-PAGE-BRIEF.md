@@ -1,3 +1,4 @@
+> **Website direction updated, 19 September 2026:** Read [Hysaab design philosophy v5](./DESIGN-PHILOSOPHY.md) first. It governs the new website wave, including existing Arabic pages, guides and calculators. Earlier visual-template restrictions below describe the prior rebuild and do not prevent the shared website styling changes required by v5. Preserve verified product behaviour, genuine captures, prices, SEO, accessibility and operational safeguards. App implementation is deferred until the owner requests it.
 # Inner-page rebuild brief (2026-09)
 
 Owner decisions this implements: rebuild the key inner pages in the new homepage design; align the voice with the homepage; remove the waitlist / founding seats / founder pricing; the only call to action is an enquiry ("Let's talk" → `/contact`). English only. Nothing is deployed.

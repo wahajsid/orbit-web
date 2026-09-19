@@ -1,9 +1,10 @@
-/* ── hysaab.ai homepage ──────────────────────────────────────────────
-   The navy, peach and sage design from the approved build pack
-   (CLAUDE-BUILD-PACK.md). Copy is the approved wording. Styles live in
-   app/hysaab-home.css (hw-*). The walkthrough and hero captures are
-   genuine workspace screens (sample dataset): see lib/home-moments.ts.
-   The previous homepage is kept at backups/home-v2-2026-09.page.tsx.bak. */
+/* ── hysaab.ai homepage — V4 editorial ──────────────────────────────
+   Cream-dominant editorial layout with Instrument Serif headings,
+   navy activity feed, animated peach scroller, and the completed-
+   close sage block. Copy is the approved V4 wording. Styles live
+   in app/hysaab-home.css (hw-*). The walkthrough captures are
+   genuine workspace screens: see lib/home-moments.ts.
+   Previous homepage kept at backups/home-v2-2026-09.page.tsx.bak. */
 
 import { Wordmark } from "@/components/Wordmark";
 import { HomeHeader } from "@/components/home/HomeHeader";
@@ -15,9 +16,11 @@ import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { LaunchNotice } from "@/components/home/LaunchNotice";
 import { TEAM } from "@/lib/team";
+import { ActivityFeed } from "@/components/home/ActivityFeed";
+import { PeachScroller } from "@/components/home/PeachScroller";
 
-/* ── Live ticker rows: kept from the previous homepage, unchanged ── */
-const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
+/* ── Activity feed rows ── */
+const FEED: { t: string; who: string; msg: string; ask?: boolean }[] = [
   { t: "21:00", who: "Intake agent", msg: "received a WhatsApp photo from Rashid. Gulf Technical Supplies, INV-4471." },
   { t: "21:01", who: "Tax agent", msg: "tax-invoice criteria met · TRN valid · VAT 199.50 recoverable." },
   { t: "21:02", who: "Coding agent", msg: "IT equipment · Dubai office, 96% from 31 similar entries. Posted J-2291 to Zoho Books." },
@@ -27,6 +30,16 @@ const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
   { t: "06:06", who: "Decision for Layla", msg: "cheque 100421 · AED 250 cleared with no document. Asking you.", ask: true },
   { t: "06:30", who: "Close agent", msg: "Knight Frank rent released · month 3 of 12. Checklist 68%." },
   { t: "06:45", who: "Reporting agent", msg: "September pack rebuilt. Gross margin down 2.1 pts, explanation attached." },
+];
+
+/* ── Statement scroller phrases ── */
+const STATEMENTS = [
+  "Your accounting system holds the records",
+  "Hysaab makes sense of them",
+  "Documents arrive · answers follow",
+  "You stay in control",
+  "Evidence first, judgement always",
+  "Built in Dubai for the Gulf",
 ];
 
 export const metadata = {
@@ -51,121 +64,60 @@ export default function Page() {
         <section className="hw-hero">
           <div className="hw-wrap hw-hero-grid">
             <div className="hw-hero-copy">
-              <p className="hw-eyebrow hw-eyebrow--dot"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
-              <h1>Your books<br />in order.<br /><span>Your mind on<br />what’s <em>next</em>.</span></h1>
-              <p className="hw-intro">The books, prepared.<br />The decisions, yours.</p>
+              <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
+              <h1>Your books<br />called. They'd<br />like less of<br />your <em>time</em>.</h1>
               <p className="hw-hero-desc">Meet Hysaab. An accounting and reporting team for Gulf businesses — built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. Hysaab takes it from there.</p>
               <div className="hw-actions">
-                <a className="hw-btn hw-btn--peach" href="#conversation">Book a walkthrough <span aria-hidden="true">↗</span></a>
-                <a className="hw-link hw-link--light" href="#experience"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
+                <a className="hw-btn hw-btn--blush" href="#conversation">Let's talk numbers <span aria-hidden="true">↗</span></a>
+                <a className="hw-link" href="#experience"><span aria-hidden="true">▷</span> See how it works</a>
               </div>
               <LaunchNotice />
               <p className="hw-origin"><span aria-hidden="true">✳</span> Built in Dubai. Fluent in your working day.</p>
             </div>
-            <div className="hw-proof">
-              <p className="hw-eyebrow">Your finance team. One conversation away.</p>
-              <h2>It starts with<br />a WhatsApp.</h2>
-              <p className="hw-proof-p">Send the invoice. Ask the question.<br />Keep moving.</p>
-              <Capture moment={hero} priority />
-              {hero.ready && <p className="hw-proof-note">{hero.caption}</p>}
-            </div>
+            <ActivityFeed rows={FEED} />
           </div>
         </section>
 
-        {/* ── On this page (secondary navigation; the header is global) ── */}
-        <nav className="hw-subnav" aria-label="On this page">
-          <div className="hw-wrap hw-subnav-in">
-            <a href="#experience"><span className="hw-mono">01</span>The experience</a>
-            <a href="#control"><span className="hw-mono">02</span>Your control</a>
-            <a href="#ways"><span className="hw-mono">03</span>Ways to work</a>
-            <a href="#team"><span className="hw-mono">04</span>The team</a>
-            <a href="#products"><span className="hw-mono">05</span>Our products</a>
-          </div>
-        </nav>
+        {/* ── Statement scroller (animated peach strip) ── */}
+        <PeachScroller phrases={STATEMENTS} />
 
-        {/* ── Statement strip ── */}
-        <div className="hw-band">
-          <div className="hw-wrap hw-band-in">
-            <p>Your accounting system holds the records.<br /><strong>Hysaab makes sense of them.</strong></p>
-            <p className="hw-band-note">Documents arrive.<br />Answers follow.<br /><span>You stay in control.</span></p>
-            <span className="hw-band-symbol" aria-hidden="true">↗</span>
-          </div>
-        </div>
-
-        {/* ── Live from the agents (unnumbered) ── */}
-        <section className="hw-live" id="live">
-          <div className="hw-wrap hw-live-grid">
-            <div className="hw-live-copy">
-              <p className="hw-eyebrow">While you were away</p>
-              <h2>One night<br />on a set of books.</h2>
-              <p>Every document read, every line matched, every reminder sent. And the one call that is yours, waiting for you in the morning.</p>
-              <p className="hw-live-note">An illustrative night. Names and figures are examples, not results.</p>
-            </div>
-            <div className="hy-ticker hw-live-ticker" aria-label="Live from the agents">
-              <div className="hy-ticker-head">
-                <span className="hy-ticker-dot" aria-hidden="true" />
-                <span className="hy-ticker-kicker">Live from the agents</span>
-                <span className="hy-ticker-when">Tonight · Dubai</span>
-              </div>
-              <div className="hy-ticker-body">
-                <div className="hy-ticker-scroll">
-                  {[false, true].map((dup) => (
-                    <ul className="hy-ticker-list" key={String(dup)} aria-hidden={dup || undefined}>
-                      {TICKER.map((r) => (
-                        <li className={`hy-ticker-row${r.ask ? " hy-ticker-row--ask" : ""}`} key={r.t + r.who}>
-                          <span className="hy-ticker-t">{r.t}</span>
-                          <span className="hy-ticker-msg"><strong>{r.who}</strong> {r.msg}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ))}
-                </div>
-                <div className="hy-ticker-fade" aria-hidden="true" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 01 How it works ── */}
+        {/* ── How it works ── */}
         <section className="hw-work" id="how-it-works">
           <div className="hw-wrap hw-section">
-            <div className="hw-heading">
-              <div>
+            <div className="hw-work-grid">
+              <div className="hw-heading">
                 <p className="hw-eyebrow">How it works</p>
-                <h2>Just chat.<br />Hysaab gets to work.</h2>
+                <h2>Just chat.<br />Hysaab gets<br />to work.</h2>
+                <p>We help connect your books and agree the approval rules. Then your everyday starting point is WhatsApp. The workspace is there when you want to look closer.</p>
               </div>
-              <p>We help connect your books and agree the approval rules. Then your everyday starting point is WhatsApp. The workspace is there when you want to look closer.</p>
-            </div>
-            <div className="hw-workflow">
-              <article>
-                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">↳</span><span className="hw-mono">01</span></div>
-                <h3>You send a message.</h3>
-                <p>A receipt, an invoice, or a question about your numbers. No report builder to learn.</p>
-                <span className="hw-workflow-foot">WhatsApp → Hysaab</span>
-              </article>
-              <article>
-                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">≋</span><span className="hw-mono">02</span></div>
-                <h3>Hysaab prepares the work.</h3>
-                <p>Documents are checked, entries prepared and exceptions brought back with a clear explanation.</p>
-                <span className="hw-workflow-foot">Preparation → Review</span>
-              </article>
-              <article>
-                <div className="hw-workflow-top"><span className="hw-icon" aria-hidden="true">↗</span><span className="hw-mono">03</span></div>
-                <h3>You make the decisions.</h3>
-                <p>Answer a question or review an approval. Your limits still apply, and the reasoning stays with the books.</p>
-                <span className="hw-workflow-foot">Your call → A clear record</span>
-              </article>
+              <div className="hw-workflow">
+                <article>
+                  <span className="hw-workflow-num" aria-hidden="true">01</span>
+                  <h3>You send a message.</h3>
+                  <p>A receipt, an invoice, or a question about your numbers. No report builder to learn.</p>
+                </article>
+                <article>
+                  <span className="hw-workflow-num" aria-hidden="true">02</span>
+                  <h3>Hysaab prepares the work.</h3>
+                  <p>Documents are checked, entries prepared and exceptions brought back with a clear explanation.</p>
+                </article>
+                <article>
+                  <span className="hw-workflow-num" aria-hidden="true">03</span>
+                  <h3>You make the decisions.</h3>
+                  <p>Answer a question or review an approval. Your limits still apply, and the reasoning stays with the books.</p>
+                </article>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── 02 Five moments: the interactive demo, as on the previous homepage ── */}
+        {/* ── Five ways Hysaab helps ── */}
         <section id="experience" className="hw-experience">
           <div className="hw-wrap hw-section">
             <div className="hw-heading">
               <div>
-                <p className="hw-eyebrow">Five moments in your working day</p>
-                <h2>One conversation.<br /><span>From receipt to report.</span></h2>
+                <p className="hw-eyebrow">Five ways Hysaab helps</p>
+                <h2>From &ldquo;where's that<br />receipt?&rdquo; to &ldquo;here's<br />your report.&rdquo;</h2>
               </div>
               <p>Follow one invoice through five moments, from a photo at 9pm to a locked period. It replays on its own; click any moment or tab to take the controls.</p>
             </div>
@@ -192,114 +144,102 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── 03 Your control ── */}
+        {/* ── Completed close (inset sage block) ── */}
+        <section className="hw-zero-section" aria-labelledby="hw-zero-h">
+          <div className="hw-wrap">
+            <div className="hw-zero-layout">
+              <div>
+                <div className="hw-zero" aria-hidden="true">0</div>
+                <p className="hw-zero-label">ALL SQUARE.</p>
+              </div>
+              <div>
+                <p className="hw-eyebrow">September close / loose ends</p>
+                <h2 id="hw-zero-h">A rare occasion<br />when zero is the<br />number you want.</h2>
+                <p>The receipts are in. The bank matches. Every item on September's close checklist is complete.</p>
+                <div className="hw-zero-detail">
+                  <a className="hw-btn" href="#conversation">Show me the proof <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </div>
+            <div className="hw-zero-meta">
+              <span>43 / 43 checks complete</span>
+              <span>Illustrative completed close · Sample data</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Your control (navy) ── */}
         <section className="hw-control" id="control">
-          <div className="hw-wrap hw-section hw-control-grid">
+          <div className="hw-wrap hw-control-grid">
             <div>
               <p className="hw-eyebrow">Your control</p>
-              <h2>Your judgement.<br />Your boundaries.<br /><span>Always.</span></h2>
-              <p>Good tools make finance easier to oversee.<br />Not harder to explain.</p>
-              <a className="hw-link hw-link--peach" href="#conversation">Talk through your controls <span aria-hidden="true">↗</span></a>
+              <h2>A good colleague<br />doesn't just<br />say yes.</h2>
+              <p>When an instruction looks wrong, Hysaab explains why. You get the concern, the recommendation and the evidence to make the call.</p>
+              <a className="hw-textlink" href="#conversation">See how the controls work <span aria-hidden="true">↗</span></a>
             </div>
             <div className="hw-principles">
               <article>
-                <span className="hw-mono">01</span>
-                <div><h3>Every answer, traceable.</h3><p>Inspect the entries and documents behind every answer. An explanation you can verify is worth more than one you are asked to trust.</p></div>
+                <div><h3>Every answer has a trail.</h3><p>Open the entries and documents behind it. The working is there to inspect.</p></div>
               </article>
               <article>
-                <span className="hw-mono">02</span>
-                <div><h3>Know where to stop.</h3><p>Approval gates, period locks and non-negotiable controls remain in place. Convenience is never a reason to bypass a safeguard.</p></div>
+                <div><h3>Your boundaries stay put.</h3><p>Approval limits, period locks and non-negotiable controls remain in place.</p></div>
               </article>
               <article>
-                <span className="hw-mono">03</span>
-                <div><h3>Leave a clear record.</h3><p>The recommendation, the decision taken and the reasoning behind it — all visible, all stored. Context belongs with the books, not in a separate thread.</p></div>
+                <div><h3>The why stays with the what.</h3><p>A permitted override needs a reason. The recommendation and your decision stay on the record.</p></div>
               </article>
             </div>
           </div>
         </section>
 
-        {/* ── 04 Ways to work ── */}
+        {/* ── Ways to work (cream) ── */}
         <section id="ways" className="hw-ways">
           <div className="hw-wrap hw-section">
             <div className="hw-heading">
               <div>
                 <p className="hw-eyebrow">Ways to work</p>
-                <h2>Your team, extended.</h2>
+                <h2>Your people. Or ours,<br />alongside.</h2>
               </div>
-              <p>Keep the work in-house, or bring our people in. Begin with the process that needs the most attention.</p>
+              <p>Begin with the work that needs attention. We'll agree the scope before we start.</p>
             </div>
             <div className="hw-ways-grid">
               <article>
-                <p className="hw-eyebrow">For your existing finance team</p>
-                <h3>Run it with your people.</h3>
-                <p>Your finance team uses Hysaab to prepare the books, investigate exceptions and stay close to the numbers.</p>
-                <ul>
-                  <li>Your people review and approve</li>
-                  <li>Start with a defined accounting workflow</li>
-                  <li>Keep judgement inside your team</li>
-                </ul>
-                <InterestLink interest="Own team">Discuss your team’s workflow <span aria-hidden="true">↗</span></InterestLink>
+                <p className="hw-eyebrow">For your finance team</p>
+                <h3>Give your people a head start.</h3>
+                <p>Hysaab prepares the work. Your team investigates exceptions, reviews the numbers and keeps the decisions in-house.</p>
+                <InterestLink interest="Own team">Discuss your team's workflow <span aria-hidden="true">↗</span></InterestLink>
               </article>
               <article>
-                <p className="hw-eyebrow">For businesses that want more support</p>
-                <h3>Bring our people in.</h3>
-                <p>Work alongside qualified accountants who manage the workflows, review exceptions and prepare each close with you.</p>
-                <ul>
-                  <li>A named human point of contact</li>
-                  <li>Agree the scope and responsibilities together</li>
-                  <li>You retain the decisions that are yours</li>
-                </ul>
+                <p className="hw-eyebrow">For more hands-on support</p>
+                <h3>Put a name to your accountant.</h3>
+                <p>Work with qualified accountants who manage the workflows and prepare each close with you. A named person to speak to.</p>
                 <InterestLink interest="Managed support">Discuss managed support <span aria-hidden="true">↗</span></InterestLink>
               </article>
-            </div>
-            <div className="hw-fit">
-              <span className="hw-mono">Before we start</span>
-              <p>We confirm your accounting system, entities, scope and fees upfront. A clear fit comes before any commitment.</p>
             </div>
           </div>
         </section>
 
-        {/* ── The people (unnumbered) ── */}
+        {/* ── The people (sage) ── */}
         <section id="team" className="hw-team">
           <div className="hw-wrap hw-section">
             <div className="hw-heading">
               <div>
-                <p className="hw-eyebrow">The team</p>
-                <h2>The people behind Hysaab.</h2>
+                <p className="hw-eyebrow">The people behind the work</p>
+                <h2>Accountants and engineers.<br />At the same table.</h2>
               </div>
-              <p>Hysaab is built and run by two teams: the accountants of Oblique Consult and the engineers of Simpla. These are the people managing it; their teams do the day-to-day work on your books.</p>
-            </div>
-            <div className="hw-team-orgs">
-              <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
-                <span><strong>Oblique Consult</strong>Tax, accounting and advisory. Dubai, since 2018. The accountants behind Hysaab.</span>
-              </a>
-              <a href="https://www.simpla.ai" target="_blank" rel="noopener">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/brand/partners/simpla.png" alt="Simpla" width={1024} height={304} loading="lazy" />
-                <span><strong>Simpla</strong>Tax and accounting AI. Dubai. The engineers behind Hysaab.</span>
-              </a>
+              <p>Built and run by Oblique Consult and Simpla. Finance experience and product engineering, working together in Dubai.</p>
             </div>
             <div className="hw-team-grid">
               {TEAM.map((p) => (
                 <article key={p.name}>
-                  <span className="hw-team-initials" aria-hidden="true">{p.initials}</span>
                   <h3>{p.name}</h3>
                   <p className="hw-team-role">{p.role} · {p.org}</p>
-                  {p.bio && <p>{p.bio}</p>}
-                  <a href={p.href} target="_blank" rel="noopener">{p.linkLabel} <span aria-hidden="true">↗</span></a>
                 </article>
               ))}
-            </div>
-            <div className="hw-note">
-              <span className="hw-mono">How the work is done</span>
-              <p>Hysaab prepares entries, accruals and reports. Under the managed service, accountants from the Oblique Consult team review exceptions, correct where necessary and prepare the close with you, with a named accountant as your point of contact; you keep the approvals that are yours. Roles and prior experience above are as published by <a href="https://obliqueconsult.com/about-us" target="_blank" rel="noopener">Oblique Consult</a> and on the individuals’ public profiles.</p>
             </div>
           </div>
         </section>
 
-        {/* ── 05 The Hysaab family ── */}
+        {/* ── The Hysaab family ── */}
         <section id="products" className="hw-products">
           <span id="family" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap hw-section">
@@ -347,13 +287,12 @@ export default function Page() {
 
         {/* ── Enquiry ── */}
         <section className="hw-conversation" id="conversation">
-          {/* Inner pages still link to /#contact and /#cohort. */}
           <span id="contact" className="hw-anchor" aria-hidden="true" />
           <span id="cohort" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap hw-conversation-grid">
             <div>
               <p className="hw-eyebrow">A conversation, not a sales deck</p>
-              <h2>Let’s start<br />with your books.</h2>
+              <h2>Let's start<br />with your books.</h2>
               <p>Tell us what takes too long.<br />We will show you where Hysaab fits.</p>
               <div className="hw-agenda">
                 <span className="hw-mono">Your first conversation</span>

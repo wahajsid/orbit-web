@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, DM_Mono, Noto_Kufi_Arabic } from "next/font/google";
+import { Archivo, Instrument_Serif, DM_Mono, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import "../globals.css";
 import "../wire.css";
@@ -17,7 +17,14 @@ const archivo = Archivo({
   display: "swap",
 });
 
-// Section numbers and small technical labels on the homepage.
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: "400",
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
 const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -75,7 +82,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${dmMono.variable} ${kufi.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${kufi.variable}`}>
       <body>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />
