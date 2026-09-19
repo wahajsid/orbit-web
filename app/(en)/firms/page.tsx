@@ -89,7 +89,7 @@ export default function ServicesOsPage() {
             </div>
             <p>Client context lives in someone&apos;s inbox. Deadlines live in a spreadsheet. Time is logged on Friday from memory. The advice clients pay for gets whatever hours are left.</p>
           </div>
-          <div className="hw-rows">
+          <div className="hw-cards hw-cards--2">
             {[
               ["Practice management tool", "Tasks and filings"],
               ["Shared inbox", "AI-triaged inbox"],
@@ -99,11 +99,10 @@ export default function ServicesOsPage() {
               ["E-signature app", "Built-in signing"],
               ["Timesheet app", "Drafted timesheets"],
               ["HR file", "People and payroll"],
-            ].map(([old, now], i) => (
+            ].map(([old, now]) => (
               <article key={old}>
-                <span className="hw-mono" style={{ textDecoration: "line-through", color: "var(--hw-supporting)" }}>{old}</span>
+                <p className="hw-eyebrow" style={{ textDecoration: "line-through" }}>{old}</p>
                 <h3>{now}</h3>
-                <p />
               </article>
             ))}
           </div>

@@ -14,7 +14,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "Automated Bookkeeping & Accounting for UAE and KSA | Hysaab",
   description:
-    "Accounting and reporting for UAE and Saudi businesses: documents read and coded, VAT tested, the close prepared, and the decisions kept with you.",
+    "AI agents for UAE and Saudi accounting: a coding agent, tax agent, collections agent and reporting agent that plug into your books and run the busywork overnight.",
   alternates: langAlternates("/accounting"),
 };
 
@@ -42,11 +42,11 @@ function Feature({ eyebrow, title, body, shot, cap, dark }: { eyebrow: string; t
 
 export default function AccountingPage() {
   return (
-    <PageShell band={{ title: "We lived the month-end we're deleting.", body: "Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at midnight, a VAT deadline breathing down the quarter. We built the colleague we always wanted: one who does the busywork, shows its evidence, and leaves the judgement to you." }}>
+    <PageShell band={{ title: "We lived the month-end we're deleting.", body: "Every close, the same ritual: receipts chased over WhatsApp, invoices vouched at midnight, a VAT deadline breathing down the quarter. We built the team of agents we always wanted: one for payables, one for tax, one for the close — each doing the busywork, showing its evidence, and leaving the judgement to you." }}>
       <PageHero
-        eyebrow="An AI finance team for the UAE & KSA"
-        title={<>Accounting and reporting for Gulf businesses.<br /><span>Built on evidence.</span></>}
-        lede="Hysaab runs the busywork — AP, receivables, the ledger, tax and the month-end close — and leaves the judgement to you."
+        eyebrow="AI agents for accounting, tax and reporting"
+        title={<>A team of agents for your books.<br /><span>Built on evidence.</span></>}
+        lede="Accounting, tax, collections, reporting — each agent handles its domain, runs the busywork overnight, and leaves the judgement to you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let&rsquo;s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#live">Seventy seconds of what it looks like</a>
