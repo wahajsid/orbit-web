@@ -1629,6 +1629,278 @@ GUIDES.push(
   },
 );
 
+/* Batch of 2026-09-20 — three SEO gap-fillers: scenario-driven content
+   aimed at high-intent searches the existing regulation guides miss
+   (SaaS reverse charge, FTA audit anxiety, freelancer CT). */
+GUIDES.push(
+  {
+    slug: "uae-vat-saas-digital-services",
+    title:
+      "VAT on Google Ads, AWS, Microsoft 365 and every SaaS subscription in the UAE",
+    description:
+      "Every foreign digital service you buy carries a reverse charge obligation — the same 5% as a local purchase, accounted by you. The services, the return boxes, the FX rule, and the mistake that triggers voluntary disclosures.",
+    updated: "2026-09-20",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The rule, applied to the invoices on your desk",
+        ps: [
+          "When a UAE-registered business buys a service from a supplier with no UAE presence — Google, Amazon Web Services, Microsoft, Adobe, Slack, Zoom, Shopify, HubSpot, or any other foreign SaaS provider — it must account for 5% VAT on the purchase itself, through the reverse charge mechanism. No VAT appears on the supplier's invoice; the obligation is yours, and missing it is the most common error the FTA finds in routine audits.",
+          "The reverse charge applies to services received from non-resident suppliers who do not have a tax registration in the UAE. It does not matter that the supplier is a household name, that the invoice arrives in USD, or that the service is delivered electronically — the analysis is the same for a Google Ads spend of AED 500 and a cloud-hosting contract of AED 500,000.",
+        ],
+      },
+      {
+        h: "What you actually do, return by return",
+        list: [
+          "Identify every foreign-supplier invoice in the period — Google, AWS, Microsoft, Adobe, Atlassian, Zoom, Canva, Mailchimp, Stripe fees, domain registrars, any SaaS or cloud service billed from outside the UAE",
+          "Convert each invoice to AED at the exchange rate applicable on the date of supply (the Central Bank rate on the invoice date is the safe default)",
+          "Account for 5% output VAT on the AED value — this goes in Box 3 of the VAT return, in the line for supplies subject to the reverse charge",
+          "Recover the same 5% as input VAT in Box 9 — but only to the extent you are entitled to recovery, which for a fully taxable business is 100%",
+          "The two entries cancel: no cash moves to the FTA. But both boxes must be filled — an empty reverse-charge line is a finding",
+        ],
+      },
+      {
+        h: "The services people miss",
+        list: [
+          "Advertising platforms: Google Ads, Meta (Facebook/Instagram) Ads, LinkedIn Ads, TikTok Ads, X Ads — all billed from outside the UAE",
+          "Cloud and hosting: AWS, Google Cloud, Microsoft Azure, DigitalOcean, Cloudflare, Vercel, Netlify",
+          "Productivity: Microsoft 365, Google Workspace, Slack, Notion, Asana, Monday.com, Figma",
+          "Developer tools: GitHub, GitLab, Atlassian (Jira, Confluence), JetBrains, Docker",
+          "Marketing and sales: HubSpot, Mailchimp, Intercom, Zendesk, Salesforce, Shopify",
+          "Finance: Stripe processing fees, PayPal fees, Wise fees — the fee component of payment processing from a non-resident",
+          "AI services: OpenAI, Anthropic, Midjourney — newer but growing fast in UAE business spend",
+        ],
+      },
+      {
+        h: "When the reverse charge is not a wash",
+        ps: [
+          "For a fully taxable business, the output and input entries cancel and the reverse charge is paperwork, not cost. But for a [partially exempt](/guides/uae-partial-exemption-input-vat) business — a landlord with residential property, a company with exempt financial income — the input side only recovers in proportion to the recovery rate. The output VAT is always due in full. A partially exempt business with a 60% recovery rate buying AED 100,000 of SaaS pays a real AED 2,000 of VAT on services that felt free of tax.",
+          "This is why reverse charge compliance matters even when it looks like a zero-sum exercise: the FTA tests the output side independently from the input side, and a missing output entry is an understatement whether or not the input entry would have offset it.",
+        ],
+      },
+      {
+        h: "The voluntary disclosure pattern",
+        ps: [
+          "The single most common [voluntary disclosure](/guides/uae-vat-voluntary-disclosure) trigger is discovering, often years into operations, that reverse charge was never applied to foreign digital services. A business spending AED 50,000 a month on SaaS has AED 30,000 of undeclared output VAT per year — fully offset by input VAT it never claimed either, but the disclosure is still mandatory, and the fixed penalty and the percentage ladder still apply. The earlier you find it, the cheaper it is: 5% of the tax difference in year one, climbing to 40% after year four.",
+        ],
+      },
+      {
+        h: "How Hysaab applies this",
+        ps: [
+          "Hysaab flags non-resident suppliers as documents arrive — by TRN absence, by currency, by the supplier database — computes both sides of the reverse charge per invoice line, converts at the applicable rate, and fills both boxes of the return. The reverse charge happens because a supplier is foreign, not because someone remembered.",
+        ],
+      },
+    ],
+    related: [
+      "uae-vat-reverse-charge",
+      "uae-vat-voluntary-disclosure",
+      "uae-partial-exemption-input-vat",
+      "uae-tax-deadlines",
+    ],
+    faqs: [
+      {
+        q: "Do I need to pay VAT on Google Ads in the UAE?",
+        a: "Yes — through the reverse charge. Google does not charge UAE VAT on its invoice, but a UAE-registered business must account for 5% output VAT on the spend and recover the same amount as input VAT in the same return. Both entries are required; missing the output side is a common audit finding.",
+      },
+      {
+        q: "Is there VAT on AWS and cloud hosting in the UAE?",
+        a: "Yes. AWS, Azure, Google Cloud and similar foreign cloud providers are non-resident suppliers of services. The UAE buyer accounts for 5% VAT via the reverse charge mechanism — output VAT in Box 3 and input VAT recovery in Box 9 of the return.",
+      },
+      {
+        q: "What happens if I never applied the reverse charge on SaaS subscriptions?",
+        a: "You need to file a voluntary disclosure for each affected VAT period where the net tax effect exceeds AED 10,000. The penalty is AED 1,000 fixed plus a percentage that rises from 5% in the first year to 40% after four years. Disclose before an FTA audit notice to keep the percentage at its lowest.",
+      },
+      {
+        q: "Does the reverse charge cost me money if I am fully taxable?",
+        a: "No cash cost — the output and input entries offset. But both boxes must be filled. A partially exempt business recovers only part of the input side, so the reverse charge becomes a real cost proportional to the exempt fraction.",
+      },
+    ],
+  },
+  {
+    slug: "uae-fta-vat-audit-preparation",
+    title:
+      "FTA VAT audit: what actually happens, and how to prepare your records",
+    description:
+      "The FTA audit notice has arrived. What documents they request, the reconciliation they build, the timeline, the penalties for findings — and the one thing that changes the outcome more than anything else.",
+    updated: "2026-09-20",
+    minutes: 7,
+    tax: true,
+    sections: [
+      {
+        h: "The audit notice",
+        ps: [
+          "An FTA tax audit begins with formal notification: a letter identifying the taxable person, the tax type (VAT, excise or Corporate Tax), and the periods under review. The FTA may audit any period within the statutory limitation — five years from the end of the relevant tax period, extended to fifteen years for fraud, tax evasion or failure to file. Most first-time audits cover two to four VAT periods.",
+          "You are required to cooperate and provide the records the FTA requests within the timeframes stated. Obstruction — refusing access, withholding records, delaying unreasonably — is itself a penalisable offence and changes the tone of everything that follows.",
+        ],
+      },
+      {
+        h: "What they ask for",
+        list: [
+          "VAT returns filed for the audit periods, with the working papers that produced the numbers in each box",
+          "The general ledger and trial balance for the same periods — they will reconcile your return to your books",
+          "Bank statements for all business accounts — they will reconcile your books to your bank",
+          "Sales invoices (output tax): a sample or full set, tested for correct VAT rate, invoice validity under [Article 59](/guides/uae-tax-invoice-checklist), and completeness against the ledger",
+          "Purchase invoices (input tax): every invoice behind an input VAT claim, tested against the tax invoice checklist — TRN validity, correct rate, arithmetic, no duplicates",
+          "Import and export documents: customs declarations, shipping evidence for zero-rated exports, reverse charge workings for imported services",
+          "Contracts, agreements and supporting documents for transactions the auditor selects — especially related-party transactions, large one-off items, and supplies with unusual VAT treatment",
+          "Credit notes and adjustments: what changed after the original invoice, and the paper behind each change",
+        ],
+      },
+      {
+        h: "The reconciliation they build",
+        ps: [
+          "The core of every VAT audit is a three-way reconciliation: the VAT return, the ledger, and the bank. Revenue declared in the return should match output tax in the ledger, which should reconcile to cash received plus outstanding receivables. Purchases and input VAT should follow the same logic. Every gap is a question — and the FTA will ask it.",
+          "The second layer is transactional testing. The auditor samples invoices and traces each one from document to ledger to return. A tax invoice that fails Article 59 — missing TRN, wrong rate, no \"Tax Invoice\" heading — means the input VAT claimed on it is disallowed. A [reverse charge](/guides/uae-vat-reverse-charge) that was never accounted for is undeclared output tax. A zero-rated export with no customs evidence is reclassified to 5%.",
+        ],
+      },
+      {
+        h: "The findings that come up most",
+        list: [
+          "Input VAT claimed on invoices that fail the [Article 59 checklist](/guides/uae-tax-invoice-checklist) — the single most frequent finding",
+          "Reverse charge never applied to [foreign digital services](/guides/uae-vat-saas-digital-services) — SaaS, cloud and advertising spend from non-resident suppliers",
+          "Zero-rated exports without adequate shipping or customs evidence",
+          "[Blocked input VAT](/guides/uae-blocked-input-vat) claimed — entertainment, personal-use vehicles, employee benefits",
+          "Duplicate invoices claimed — the same document arriving via email and a supplier portal, booked twice",
+          "Output VAT understated on deemed supplies — goods given away, assets taken out of the business",
+          "Timing errors — invoices posted in the wrong period, shifting VAT between returns",
+        ],
+      },
+      {
+        h: "The timeline",
+        ps: [
+          "There is no fixed statutory duration for an FTA audit. Simple audits can conclude in weeks; complex ones with multiple entities, large transaction volumes, or uncooperative records run for months. The FTA issues a draft assessment with its findings, and you have the opportunity to respond — with evidence, not arguments — before the final assessment. If you disagree with the final assessment, the formal route is a reconsideration request to the FTA, then the Tax Disputes Resolution Committee, then the courts.",
+          "The most important thing to know about timing: cooperating early and providing clean, reconciled records shortens everything. An audit that takes six months because records are scattered is the same audit that takes six weeks when the documents are organised.",
+        ],
+      },
+      {
+        h: "The penalties",
+        ps: [
+          "Audit findings that result in additional tax carry a penalty — typically a percentage of the underpaid tax, which escalates with the number of offences within a 24-month window. [Voluntary disclosure](/guides/uae-vat-voluntary-disclosure) before the audit notice arrives carries materially lower penalties than the same correction discovered by the auditor. This is the single biggest lever you have: review your own returns now, and disclose anything you find before the audit starts.",
+        ],
+      },
+      {
+        h: "What changes the outcome",
+        ps: [
+          "One thing matters more than everything else: the state of your records on the day the notice arrives. An audit against a business with matched bank lines, valid tax invoices on every claim, reverse charges accounted, and a ledger that reconciles to the return is a review, not an investigation. An audit against a shoebox of invoices and a return built from estimates is an exercise in reconstruction — and reconstruction always finds more than the actual errors, because the auditor must treat the unknowable as adverse.",
+          "The time to prepare for an FTA audit is every month, not the week after the letter arrives.",
+        ],
+      },
+      {
+        h: "How Hysaab applies this",
+        ps: [
+          "Hysaab keeps the books audit-ready by construction: every input VAT claim is tested against Article 59 on arrival, reverse charges are applied automatically, bank reconciliation runs monthly, and the three-way reconciliation — return, ledger, bank — exists as a standing report. When the audit letter arrives, the evidence is already organised by period — the preparation happened in real time, not in a rush.",
+        ],
+      },
+    ],
+    related: [
+      "uae-tax-invoice-checklist",
+      "uae-blocked-input-vat",
+      "uae-vat-reverse-charge",
+      "uae-vat-voluntary-disclosure",
+      "uae-vat-saas-digital-services",
+    ],
+    faqs: [
+      {
+        q: "How long does an FTA VAT audit take?",
+        a: "There is no fixed duration. Simple audits with clean records can conclude in weeks; complex cases with scattered documentation run for months. The biggest factor in audit length is the state of your records — organised books shorten everything.",
+      },
+      {
+        q: "What documents does the FTA request in a VAT audit?",
+        a: "VAT returns and working papers, the general ledger and trial balance, bank statements, all purchase and sales invoices for the audit periods, import and export documentation, contracts for unusual transactions, and credit notes with supporting evidence.",
+      },
+      {
+        q: "What are the most common FTA audit findings?",
+        a: "Input VAT claimed on invalid tax invoices (missing TRN, wrong rate), reverse charge not applied to foreign services, zero-rated exports without customs evidence, blocked input VAT claimed on entertainment or personal vehicles, and duplicate invoice claims.",
+      },
+      {
+        q: "Should I file a voluntary disclosure before an FTA audit?",
+        a: "Yes, if you find any errors. Disclosing before the FTA notifies you of an audit carries materially lower penalties — 5% of the tax difference in year one versus the higher rates and additional penalties an auditor-discovered error attracts.",
+      },
+    ],
+  },
+  {
+    slug: "uae-corporate-tax-freelancers-sole-establishments",
+    title:
+      "UAE Corporate Tax for freelancers and sole establishments: who must register, what counts as business income, and the AED 1 million line",
+    description:
+      "A natural person carrying on business in the UAE is taxable above AED 1 million of turnover — but which income counts, how a sole establishment fits, and whether Small Business Relief applies are the questions nobody answers straight.",
+    updated: "2026-09-20",
+    minutes: 6,
+    tax: true,
+    sections: [
+      {
+        h: "The starting point most people get wrong",
+        ps: [
+          "Corporate Tax in the UAE applies to natural persons — individuals — who carry on a business or business activity, but only where total turnover from that activity exceeds AED 1,000,000 in a Gregorian calendar year. Below that line, you are not a taxable person and do not need to register. Above it, you register, file, and pay 9% on taxable income above AED 375,000 — exactly like a company.",
+          "The confusion starts because investment returns and employment income are explicitly excluded from this test: salary and wages, dividends, capital gains on personal investments, interest, rental income from property held in a personal capacity, and other investment returns are not business income and do not count toward the AED 1 million threshold. A salaried employee with a side consultancy earning AED 800,000 is not taxable. The same person earning AED 1,200,000 from the consultancy is.",
+        ],
+      },
+      {
+        h: "Sole establishment: same person, same rules",
+        ps: [
+          "A sole establishment (also called sole proprietorship or sole trader licence) in the UAE is not a separate legal person — it is a licence held by a natural person to trade under a business name. For Corporate Tax purposes, the sole establishment and the individual behind it are the same taxable person. Revenue from the sole establishment counts toward the AED 1 million threshold alongside any other business activity the individual carries on.",
+          "This catches freelancers who hold a freelance permit in a free zone, consultants operating under a professional licence on the mainland, and sole traders with a commercial or industrial licence — all of them are natural persons carrying on business, and the AED 1 million test applies to their combined business turnover.",
+        ],
+      },
+      {
+        h: "The questions that decide your position",
+        list: [
+          "Is the activity a business or an investment? A freelance designer billing clients is carrying on business. A person collecting rent on an apartment they own is earning investment income. The line is substance — active, regular engagement with customers for a fee, versus passive returns on capital",
+          "Does total business turnover cross AED 1 million in a calendar year? All business activities aggregate — a consulting practice and a separate e-commerce store under the same person add up",
+          "Is the income employment income? If you hold a labour card and your income is salary, wages and statutory benefits from an employer, it is employment income and excluded. A director's fee that is genuine remuneration for an employment relationship is employment income; a management charge from a company you own is business income",
+          "Free zone freelancer: a natural person in a free zone cannot be a Qualifying Free Zone Person — the [0% regime](/guides/free-zone-corporate-tax-0-percent) is only for juridical persons (companies). A free zone freelancer above AED 1 million is taxable at 9% on the same basis as a mainland freelancer",
+        ],
+      },
+      {
+        h: "Small Business Relief and the AED 3 million question",
+        ps: [
+          "A natural person who is a taxable person (turnover above AED 1 million) can elect [Small Business Relief](/guides/uae-small-business-relief) if revenue is at or below AED 3 million in the period and in every previous period ending on or before 31 December 2026 — the same conditions as a company. The relief treats taxable income as zero: no 9% to pay. But the obligation to register, file a return and keep records remains.",
+          "For many freelancers in the AED 1–3 million band, this is the practical answer: register, elect the relief, file, and pay nothing — while keeping the books clean enough to survive a question. The catch is losses: a tax loss in a relief period cannot be carried forward, and electing in a loss year gives up something real if income is expected to rise.",
+        ],
+      },
+      {
+        h: "LLC vs sole establishment: when to incorporate",
+        ps: [
+          "A sole establishment is simpler and cheaper to set up — but liability is unlimited, and for Corporate Tax purposes the individual carries the registration and filing obligation personally. An LLC is a separate juridical person: it has its own CT registration, its own return, its own liability boundary, and it can participate in group relief. Dividends from a UAE company to its UAE-resident individual shareholder are exempt from CT in the shareholder's hands.",
+          "The tax motivation to incorporate is usually about structuring rather than rate: separating business income from personal affairs, accessing the free zone 0% regime (which requires a juridical person), or simply keeping the filings clean when the business grows. There is no rate advantage — 9% is 9% either way — but the administrative and liability differences matter as revenue scales.",
+        ],
+      },
+      {
+        h: "How Hysaab applies this",
+        ps: [
+          "Hysaab tracks a sole establishment's revenue against both the AED 1 million registration threshold and the AED 3 million Small Business Relief ceiling as the year runs, keeps business income separated from excluded categories, and produces the CT return from the same books the business already uses — so the freelancer or sole trader who crossed the line last year files from a ledger, not a reconstruction.",
+        ],
+      },
+    ],
+    related: [
+      "uae-small-business-relief",
+      "free-zone-corporate-tax-0-percent",
+      "uae-cash-vs-accrual-corporate-tax",
+      "uae-corporate-tax-penalties",
+      "uae-director-owner-remuneration",
+    ],
+    faqs: [
+      {
+        q: "Do freelancers need to register for Corporate Tax in the UAE?",
+        a: "Only if total turnover from business activities exceeds AED 1,000,000 in a calendar year. Employment income, investment returns and rental income from personally held property are excluded from the threshold. Below AED 1 million, no registration is required.",
+      },
+      {
+        q: "Is a sole establishment taxed separately from its owner?",
+        a: "No — a sole establishment is not a separate legal person. For Corporate Tax, the individual and the sole establishment are the same taxable person. Revenue from the sole establishment counts toward the AED 1 million threshold alongside any other business activity.",
+      },
+      {
+        q: "Can a freelancer in a UAE free zone get the 0% Corporate Tax rate?",
+        a: "No. The Qualifying Free Zone Person regime is available only to juridical persons (companies), not natural persons. A free zone freelancer above AED 1 million is taxable at 9% on the same basis as a mainland freelancer. To access 0%, the freelancer would need to incorporate a free zone company.",
+      },
+      {
+        q: "Does Small Business Relief apply to freelancers?",
+        a: "Yes, if the freelancer is a taxable person (above AED 1M) with revenue at or below AED 3 million. The relief treats taxable income as zero, but the obligation to register and file remains. It is available for periods ending on or before 31 December 2026.",
+      },
+    ],
+  },
+);
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
