@@ -13,7 +13,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "How Hysaab Works: From Document to Locked Period",
   description:
-    "How a document becomes a posted, evidenced entry: read, coded from your history, tax-tested, approved by a person, then closed and locked. Setup comes first.",
+    "How Hysaab's AI agents turn a document into a posted, evidenced entry: the intake agent reads it, the coding agent proposes the account, the tax agent checks it, and you make every call.",
   alternates: langAlternates("/how-it-works"),
 };
 
@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
       <PageHero
         eyebrow="How it works"
         title={<>How Hysaab works.<br /><span>From a document to a locked period.</span></>}
-        lede="Hysaab sits between your business and your ledger. Documents come in, the work is prepared with its evidence, and the decisions that need a person come to you. This page follows that path in the order you would use it."
+        lede="Hysaab puts a team of AI agents between your business and your ledger. Documents come in, each agent handles its domain — intake, coding, tax, collections, close — and the decisions that need a person come to you. This page follows that path."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/product"><span className="hw-play" aria-hidden="true">▷</span> See the product screens</a>

@@ -20,7 +20,7 @@ const TIERS: { name: string; mode: string; price: string; from?: boolean; who: s
     name: "Self-serve",
     mode: "Your team runs it",
     price: "USD 199",
-    who: "For a business whose own people keep the books. Hysaab prepares the work; your team reviews, approves and closes.",
+    who: "For a business whose own people keep the books. The agents prepare the work; your team reviews, approves and closes.",
     feats: [
       "Documents in by WhatsApp, email or upload, read and coded from your own history",
       "Every invoice tested against the tax-invoice rules before VAT is claimed",
@@ -35,7 +35,7 @@ const TIERS: { name: string; mode: string; price: string; from?: boolean; who: s
     price: "USD 899",
     from: true,
     hero: true,
-    who: "For CFOs, groups and busy books. A named Hysaab accountant works the queue with you and prepares each close.",
+    who: "For CFOs, groups and busy books. The agents run alongside a named Hysaab accountant who works the queue with you and prepares each close.",
     feats: [
       "Everything in Self-serve",
       "A named accountant reviewing exceptions and correcting where necessary",
@@ -61,7 +61,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title={<>Sized by the work,<br /><span>not the seats.</span></>}
-        lede="Two ways to run Hysaab. Self-serve: your own team operates the workspace, and Hysaab brings you the few questions it cannot settle. Managed service: our accountants run the work with you, and a person stays on every judgement call. The fee follows the complexity of your books, never how many people log in."
+        lede="Two ways to bring the agents to your books. Self-serve: you run the workspace, and the agents handle accounting, tax, collections and reporting. Managed service: our accountants run the agents with you, and a person stays on every judgement call. The fee follows the complexity of your books, never how many people log in."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Book a walkthrough <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>

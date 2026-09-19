@@ -12,7 +12,7 @@ import { langAlternates } from "@/lib/site-meta";
 export const metadata = {
   title: "Hysaab Product: Payables, Ledger, Close, Documents & Tax",
   description:
-    "Six parts of one workspace: payables, receivables, the ledger, month-end close, documents and tax. Hysaab prepares the work; you keep the decisions.",
+    "Six AI agents, one workspace: payables, receivables, ledger, close, documents and tax. Each agent handles its domain and leaves the decisions with you.",
   alternates: langAlternates("/product"),
 };
 
@@ -79,7 +79,7 @@ export default function Page() {
       <PageHero
         eyebrow="The product"
         title={<>One workspace.<br /><span>Every figure accounted for.</span></>}
-        lede="Payables, receivables, the ledger, the close, documents and tax. Hysaab prepares the work in each and shows its evidence. The decisions stay with you."
+        lede="Six agents — payables, receivables, ledger, close, documents and tax — each handling its domain, showing its evidence and leaving the decisions with you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>

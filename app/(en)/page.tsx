@@ -36,16 +36,16 @@ const FEED: { t: string; who: string; msg: string; ask?: boolean }[] = [
 const STATEMENTS = [
   "Your accounting system holds the records",
   "Hysaab makes sense of them",
-  "Documents arrive · answers follow",
+  "Documents arrive · agents follow",
   "You stay in control",
-  "Evidence first, judgement always",
+  "Evidence first · judgement always",
   "Built in Dubai for the Gulf",
 ];
 
 export const metadata = {
   title: "AI Accounting Software for UAE & Saudi Businesses | Hysaab",
   description:
-    "An accounting and reporting team for Gulf businesses: invoices coded and tax-tested, the close prepared, decisions kept with you. Built in Dubai.",
+    "A team of AI agents for Gulf businesses: accounting, tax, collections and reporting agents that plug into your books, run the busywork and leave the decisions with you.",
   alternates: langAlternates("/"),
 };
 
@@ -66,7 +66,7 @@ export default function Page() {
             <div className="hw-hero-copy">
               <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
               <h1>Your books<br />called. They'd<br />like less of<br />your <em>time</em>.</h1>
-              <p className="hw-hero-desc">Meet Hysaab. An accounting and reporting team for Gulf businesses — built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. Hysaab takes it from there.</p>
+              <p className="hw-hero-desc">Meet Hysaab. A team of AI agents — accounting, tax, collections, reporting — that plugs into your books and runs the busywork overnight. Built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. The agents take it from there.</p>
               <div className="hw-actions">
                 <a className="hw-btn hw-btn--blush" href="#conversation">Let's talk numbers <span aria-hidden="true">↗</span></a>
                 <a className="hw-link" href="#experience"><span aria-hidden="true">▷</span> See how it works</a>
@@ -87,8 +87,8 @@ export default function Page() {
             <div className="hw-work-grid">
               <div className="hw-heading">
                 <p className="hw-eyebrow">How it works</p>
-                <h2>Just chat.<br />Hysaab gets<br />to work.</h2>
-                <p>We help connect your books and agree the approval rules. Then your everyday starting point is WhatsApp. The workspace is there when you want to look closer.</p>
+                <h2>Just chat.<br />The agents get<br />to work.</h2>
+                <p>We connect your books and agree the approval rules. Then you send a message. Each agent — intake, tax, coding, collections, close — picks up its part. The workspace is there when you want to look closer.</p>
               </div>
               <div className="hw-workflow">
                 <article>
@@ -98,8 +98,8 @@ export default function Page() {
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">02</span>
-                  <h3>Hysaab prepares the work.</h3>
-                  <p>Documents are checked, entries prepared and exceptions brought back with a clear explanation.</p>
+                  <h3>Agents prepare the work.</h3>
+                  <p>Each agent handles its domain — tax checks, coding, bank matching, collections — and brings exceptions back with a clear explanation.</p>
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">03</span>
@@ -253,8 +253,8 @@ export default function Page() {
             <div className="hw-family">
               <article className="hw-family-primary">
                 <p className="hw-eyebrow">Accounting &amp; reporting · Early access</p>
-                <h3><Wordmark size={50} ground="navy" /></h3>
-                <p>Your day-to-day accounting and reporting, with human judgement where it matters.</p>
+                <h3><Wordmark size={50} ground="light" /></h3>
+                <p>A team of AI agents for your day-to-day accounting and reporting, with human judgement where it matters.</p>
                 <a className="hw-link hw-link--peach" href="#experience">Explore Hysaab <span aria-hidden="true">↗</span></a>
               </article>
               <article>

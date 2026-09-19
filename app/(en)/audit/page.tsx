@@ -144,7 +144,7 @@ export default function AuditPage() {
             </div>
             <p>Sampling by eye, tick marks in a spreadsheet, materiality carried over from last year&apos;s file, confirmations chased from memory, the file assembled in the week before the deadline. The judgement your licence is for gets whatever hours are left.</p>
           </div>
-          <div className="hw-rows">
+          <div className="hw-cards hw-cards--2">
             {[
               ["25 journals picked by eye", "Every journal scored"],
               ["Tick marks typed in", "Tick marks set by the engine"],
@@ -154,11 +154,10 @@ export default function AuditPage() {
               ["Findings on a whiteboard", "One evaluated register"],
               ["The file built at the end", "Written as work concludes"],
               ["Review notes in email", "Sign-offs on the paper"],
-            ].map(([old, now], i) => (
+            ].map(([old, now]) => (
               <article key={old}>
-                <span className="hw-mono" style={{ textDecoration: "line-through", color: "var(--hw-supporting)" }}>{old}</span>
+                <p className="hw-eyebrow" style={{ textDecoration: "line-through" }}>{old}</p>
                 <h3>{now}</h3>
-                <p />
               </article>
             ))}
           </div>
