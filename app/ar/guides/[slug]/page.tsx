@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MgNav, MgFooter } from "@/components/MgChrome";
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { AR_GUIDES, getArGuide } from "@/lib/guides-ar";
 import { langAlternates } from "@/lib/site-meta";
-
-/* Arabic guide pages exist only for translated slugs (lib/guides-ar);
-   everything else 404s and the AR index links to the English page. */
 
 export function generateStaticParams() {
   return AR_GUIDES.map((g) => ({ slug: g.slug }));
@@ -50,55 +47,60 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
     mainEntityOfPage: `https://hysaab.ai/ar/guides/${g.slug}`,
   };
 
+  const [y, m, d] = g.updated.split("-");
+  const MON_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+  const dateStr = `${Number(d)} ${MON_AR[Number(m) - 1]} ${y}`;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       {FAQ_LD && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />}
-      <MgNav locale="ar" />
-      <main>
-        <section className="mg-page-hero">
-          <div className="mg-kicker">
-            <a href="/ar/guides" style={{ textDecoration: "none" }}>الأدلة</a> · {g.minutes} دقائق
-          </div>
-          <h1 className="mg-page-h">{g.title}</h1>
-          <p className="mg-page-lede">{g.description}</p>
-        </section>
-        <section className="mg-page-body mg-guide-body">
-          {g.sections.map((s) => (
-            <div key={s.h} className="mg-guide-sec">
-              <h2 className="mg-guide-h">{s.h}</h2>
-              {s.ps?.map((p, i) => <p key={i} className="mg-guide-p">{p}</p>)}
-              {s.list && (
-                <ul className="mg-guide-list">
-                  {s.list.map((li) => <li key={li}>{li}</li>)}
-                </ul>
-              )}
-            </div>
-          ))}
-          {g.faqs && g.faqs.length > 0 && (
-            <div className="mg-guide-sec">
-              <h2 className="mg-guide-h">أسئلة يطرحها الناس فعلًا</h2>
-              {g.faqs.map((f) => (
-                <div key={f.q}>
-                  <p className="mg-guide-p"><strong>{f.q}</strong></p>
-                  <p className="mg-guide-p">{f.a}</p>
+      <PageShell locale="ar">
+        <PageHero
+          eyebrow={`الأدلة · ${g.minutes} دقائق · تحديث ${dateStr}`}
+          title={<>{g.title}</>}
+          lede={g.description}
+          locale="ar"
+        />
+        <section>
+          <div className="hw-wrap hw-section">
+            <div className="hw-prose">
+              {g.sections.map((s) => (
+                <div key={s.h}>
+                  <h2>{s.h}</h2>
+                  {s.ps?.map((p, i) => <p key={i}>{p}</p>)}
+                  {s.list && (
+                    <ul>
+                      {s.list.map((li) => <li key={li}>{li}</li>)}
+                    </ul>
+                  )}
                 </div>
               ))}
+              {g.faqs && g.faqs.length > 0 && (
+                <div>
+                  <h2>أسئلة يطرحها الناس فعلًا</h2>
+                  {g.faqs.map((f) => (
+                    <div key={f.q}>
+                      <p><strong>{f.q}</strong></p>
+                      <p>{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {g.tax && (
+                <div className="hw-note" style={{ marginTop: "40px" }}>
+                  <span className="hw-mono">تنويه</span>
+                  <p>معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير — تحقق من النص الرسمي للهيئة الاتحادية للضرائب أو زاتكا أو من مستشارك قبل التصرف.</p>
+                </div>
+              )}
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>
+                <a className="hw-btn hw-btn--peach" href="/ar/product">شاهد كيف يدير Hysaab ذلك <span aria-hidden="true">←</span></a>
+                <a className="hw-link hw-link--ruled" href="/ar/guides">كل الأدلة <span aria-hidden="true">←</span></a>
+              </div>
             </div>
-          )}
-          {g.tax && (
-            <p className="mg-guide-disclaimer">
-              معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير — تحقق من النص
-              الرسمي للهيئة الاتحادية للضرائب أو زاتكا أو من مستشارك قبل التصرف.
-            </p>
-          )}
-          <div className="mg-guide-cta">
-            <a href="/ar/product" className="mg-cta">شاهد كيف يدير Hysaab ذلك ←</a>
-            <a href="/ar/guides" className="mg-ghost">كل الأدلة</a>
           </div>
         </section>
-      </main>
-      <MgFooter locale="ar" />
+      </PageShell>
     </>
   );
 }
