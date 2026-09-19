@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { GUIDES } from "@/lib/guides";
-
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
@@ -14,31 +12,27 @@ export const metadata: Metadata = {
 
 export default function GuidesPage() {
   return (
-    <>
-      <MgNav />
-      <main>
-        <section className="mg-page-hero">
-          <div className="mg-kicker">GUIDES</div>
-          <h1 className="mg-page-h">The busywork, explained plainly.</h1>
-          <p className="mg-page-lede">
-            Short, practical answers to the questions Gulf finance teams actually deal with — written
-            by the accountants who built Hysaab. No gate, no email wall.
-          </p>
-        </section>
-        <section className="mg-page-body">
-          {GUIDES.map((g) => (
-            <a key={g.slug} href={`/guides/${g.slug}`} className="mg-guide-row">
-              <div>
-                <div className="mg-guide-title">{g.title}</div>
-                <p className="mg-guide-desc">{g.description}</p>
-              </div>
-              <span className="mg-guide-meta">{g.minutes} min</span>
-            </a>
-          ))}
-        </section>
-      </main>
-      <CtaBand />
-      <MgFooter />
-    </>
+    <PageShell>
+      <PageHero
+        eyebrow="Guides"
+        title={<>The busywork,<br /><span>explained plainly.</span></>}
+        lede="Short, practical answers to the questions Gulf finance teams actually deal with — written by the accountants who built Hysaab. No gate, no email wall."
+      />
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-index">
+            {GUIDES.map((g) => (
+              <a key={g.slug} href={`/guides/${g.slug}`}>
+                <div>
+                  <h3>{g.title}</h3>
+                  <p>{g.description}</p>
+                </div>
+                <span className="hw-mono">{g.minutes} min</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageShell>
   );
 }

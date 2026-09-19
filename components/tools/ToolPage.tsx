@@ -1,13 +1,8 @@
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { CtaBand } from "@/components/hysaab/CtaBand";
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { getGuide } from "@/lib/guides";
 import { getArGuide } from "@/lib/guides-ar";
 import { getTool } from "@/lib/tools";
 
-/* Shared scaffold for every calculator page: ruled header, the tool,
-   the disclaimer, and a cross-link to the matching guide. locale="ar"
-   renders the Arabic chrome and prefers the Arabic guide/registry
-   strings when they exist. */
 export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
   slug: string; kicker: string; lede: string; locale?: "en" | "ar"; children: React.ReactNode;
 }) {
@@ -45,33 +40,39 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }} />
-      <MgNav locale={locale} />
-      <main>
-        <section className="mg-page-hero">
-          <div className="mg-kicker">
-            <a href={ar ? "/ar/tools" : "/tools"} style={{ textDecoration: "none" }}>{ar ? "الأدوات" : "TOOLS"}</a> · {kicker}
+      <PageShell locale={locale}>
+        <PageHero
+          eyebrow={`${ar ? "الأدوات" : "Tools"} · ${kicker}`}
+          title={<>{title}</>}
+          lede={lede}
+          locale={locale}
+        />
+        <section>
+          <div className="hw-wrap hw-section">
+            <div className="hw-prose">
+              {children}
+              <div className="hw-note" style={{ marginTop: "40px" }}>
+                <span className="hw-mono">{ar ? "تنويه" : "Disclaimer"}</span>
+                <p>
+                  {ar
+                    ? "أرقام توضيحية تُحسب في متصفحك — لا يُرفع أو يُخزَّن أو يُرسل شيء إلى أي مكان. ليست استشارة محاسبية أو ضريبية؛ تحقق من المعالجة مع مستشارك."
+                    : "Illustrative figures computed in your browser — nothing is uploaded, stored or sent anywhere. Not accounting or tax advice; verify treatment with your advisor."}
+                </p>
+              </div>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>
+                {guide && guideHref && (
+                  <a className="hw-btn hw-btn--peach" href={guideHref}>
+                    {ar ? <>اقرأ الدليل <span aria-hidden="true">←</span></> : <>Read the guide <span aria-hidden="true">↗</span></>}
+                  </a>
+                )}
+                <a className="hw-link hw-link--ruled" href={ar ? "/ar/product" : "/product"}>
+                  {ar ? "شاهد Hysaab يديرها فعليًا" : "See Hysaab run it for real"} <span aria-hidden="true">{ar ? "←" : "↗"}</span>
+                </a>
+              </div>
+            </div>
           </div>
-          <h1 className="mg-page-h">{title}</h1>
-          <p className="mg-page-lede">{lede}</p>
         </section>
-        <section className="mg-page-body mg-guide-body">
-          {children}
-          <p className="mg-guide-disclaimer">
-            {ar
-              ? "أرقام توضيحية تُحسب في متصفحك — لا يُرفع أو يُخزَّن أو يُرسل شيء إلى أي مكان. ليست استشارة محاسبية أو ضريبية؛ تحقق من المعالجة مع مستشارك."
-              : "Illustrative figures computed in your browser — nothing is uploaded, stored or sent anywhere. Not accounting or tax advice; verify treatment with your advisor."}
-          </p>
-          <div className="mg-guide-cta">
-            {guide && guideHref && (
-              <a href={guideHref} className="mg-cta">
-                {ar ? <>اقرأ الدليل: {guide.title.split(" — ")[0]} ←</> : <>Read the guide: {guide.title.split(" — ")[0]} →</>}
-              </a>
-            )}
-            <a href={ar ? "/ar/product" : "/product"} className="mg-ghost">{ar ? "شاهد Hysaab يديرها فعليًا" : "See Hysaab run it for real"}</a>
-          </div>
-        </section>
-      </main>
-      <MgFooter locale={locale} />
+      </PageShell>
     </>
   );
 }
