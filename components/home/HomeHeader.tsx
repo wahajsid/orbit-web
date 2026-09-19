@@ -64,7 +64,7 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
     <header className={`hw-header hw-chrome${home ? "" : " hw-header--inner"}`} role="banner" data-open={open}>
       <div className="hw-header-in">
         <a href={t.home} className="hw-brand" aria-label={t.brand} onClick={close}>
-          <Wordmark size={36} ground="navy" />
+          <Wordmark size={36} ground="light" />
         </a>
         <nav className="hw-nav" aria-label={t.nav}>
           {NAV[locale].map(([href, label]) => <a key={href} href={href} aria-current={current(href)}>{label}</a>)}
