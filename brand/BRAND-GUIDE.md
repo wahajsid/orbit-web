@@ -1,3 +1,4 @@
+> **Website direction updated, 19 September 2026:** [Hysaab design philosophy v5](./DESIGN-PHILOSOPHY.md) controls Wave 1 across all public website pages. It establishes the cream editorial default and selective bold completion treatment, and requires preservation of the scrollers and five-way product demonstration. Website rules below apply only where compatible with v5. The approved pen-tick logo specifications remain in force. Existing app rules remain unchanged; the owner will initiate Wave 2 separately.
 # Orbit brand guide
 
 _v3 · 15 September 2026 · replaces "Modernist green" (v2). Applies to the app (app.orbitgulf.com), the site (orbitgulf.com), emails, social images and print._
