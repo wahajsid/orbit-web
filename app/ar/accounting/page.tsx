@@ -1,10 +1,6 @@
 import Image from "next/image";
-import "../../advert.css";
+import { PageShell, PageHero } from "@/components/home/PageShell";
 import { Terminal } from "@/components/Terminal";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { MgNav, MgFooter } from "@/components/MgChrome";
-import { RotatingHeadline } from "@/components/RotatingHeadline";
-import { NpEnhance } from "@/components/NpEnhance";
 import { langAlternates } from "@/lib/site-meta";
 
 export const revalidate = 60;
@@ -16,34 +12,23 @@ export const metadata = {
   alternates: langAlternates("/accounting"),
 };
 
+type Shot = { src: string; w: number; h: number; alt: string };
 
-type Chip = { k: string; v: string; tone?: "p" | "b" };
-function Act({
-  ink, kicker, head, say, chips, shot, cap,
-}: {
-  ink?: boolean; kicker: string; head: React.ReactNode; say: React.ReactNode;
-  chips?: Chip[]; shot: { src: string; w: number; h: number; alt: string }; cap: string;
-}) {
+function Feature({ eyebrow, title, body, shot, cap, dark }: { eyebrow: string; title: React.ReactNode; body: React.ReactNode; shot: Shot; cap: string; dark?: boolean }) {
   return (
-    <section className={`np-act${ink ? " np-band-ink" : ""}`}>
-      <div className="wrap">
-        <div className="microlabel np-kicker np-rise">{kicker}</div>
-        <h2 className="np-head np-rise d1">{head}</h2>
-        <p className="np-say np-rise d1">{say}</p>
-        {chips && (
-          <div className="np-chips np-rise d2">
-            {chips.map((c) => (
-              <span key={c.k} className="np-chip">
-                <span className="k">{c.k}</span>
-                <span className={c.tone === "p" ? "p" : c.tone === "b" ? "b" : undefined}>{c.v}</span>
-              </span>
-            ))}
+    <section className={dark ? "hw-block--dark" : "hw-block--rule"}>
+      <div className="hw-wrap hw-section">
+        <div className="hw-feature">
+          <div className="hw-feature-copy">
+            <p className="hw-eyebrow">{eyebrow}</p>
+            <h3>{title}</h3>
+            <p>{body}</p>
           </div>
-        )}
-        <div className="np-shot np-rise d1">
-          <Image src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} sizes="(max-width: 1120px) 100vw, 1064px" />
+          <div className="hw-shot">
+            <Image src={shot.src} width={shot.w} height={shot.h} sizes="(max-width: 760px) 100vw, 55vw" alt={shot.alt} style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid var(--hw-hairline)" }} />
+            <p className="hw-shot-cap">{cap}</p>
+          </div>
         </div>
-        <div className="np-cap np-rise">{cap}</div>
       </div>
     </section>
   );
@@ -51,151 +36,88 @@ function Act({
 
 export default function AccountingPage() {
   return (
-    <>
-      <SmoothScroll />
+    <PageShell locale="ar" band={{ title: "عشنا الإقفال الشهري الذي نحذفه اليوم.", body: "في كل إقفال، الطقس نفسه: إيصالات تُلاحَق على واتساب، وفواتير تُدقَّق في منتصف الليل، وموعد ضريبة القيمة المضافة يلهث خلف الربع. بنينا الزميل الذي طالما تمنيناه: زميل يؤدي العمل الروتيني ويعرض أدلته ويترك القرار لك." }}>
+      <PageHero
+        eyebrow="فريق مالي بالذكاء الاصطناعي للإمارات والسعودية"
+        title={<>دفاترك، مُنجزة سلفًا.<br /><span>والقرار لك.</span></>}
+        lede="الذمم الدائنة والمدينة ودفتر الأستاذ والضرائب والإقفال الشهري — يديرها فريق من الوكلاء، ويترك القرار لك."
+        locale="ar"
+      >
+        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">←</span></a>
+        <a className="hw-link hw-link--light" href="#live">سبعون ثانية ترى فيها كيف يبدو</a>
+      </PageHero>
 
-      <MgNav locale="ar" />
-
-      <header className="hero-band on-ink np-hero" id="top">
-        <div className="wrap">
-          <div style={{ paddingTop: 40 }}>
-            <div className="microlabel hero-kicker">فريق مالي بالذكاء الاصطناعي للإمارات والسعودية</div>
-            <RotatingHeadline
-              items={[
-                ["لم تؤسس شركتك", "لتطابق جداول البيانات."],
-                ["لم تبنِ عملك", "‏لتلاحق الإيصالات على واتساب."],
-                ["لم توظّف فريقك", "ليغرق في التسويات وقيود التعديل."],
-              ]}
-            />
-            <p className="hero-sub" style={{ maxWidth: 560 }}>
-              ‏Hysaab يدير العمل الروتيني — الذمم الدائنة والمدينة ودفتر الأستاذ والضرائب
-              والإقفال الشهري — ويترك القرار لك.
-            </p>
-            <a className="np-scrollcue" href="#live" aria-label="انزل لتشاهد">
-              <span className="tri">▶</span>
-              <span className="lab">سبعون ثانية ترى فيها كيف يبدو</span>
-              <span className="chev" aria-hidden="true">↓</span>
-            </a>
-            <div className="hero-actions">
-              <a className="cta" href="/ar/contact">لنتحدث</a>
-            </div>
-          </div>
-
-          <div className="np-hero-shot">
-            <Image src="/shots/adv-overview.png" alt="مساحة عمل Hysaab — النقد والقرارات والإقفال والضرائب في لمحة" width={1600} height={1378} sizes="(max-width: 1120px) 100vw, 1064px" priority />
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <section className="section wrap np-after-hero" id="live">
-          <div dir="ltr" className="ltr-embed">
+      <section id="live">
+        <div className="hw-wrap hw-section">
+          <div dir="ltr">
             <Terminal />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Act
-          ink
-          kicker="الأموال الصادرة"
-          head={<>كل فاتورة تخفي سؤالين: <span className="np-accent">هل رُمِّزت صحيحًا؟ وهل الضريبة قابلة للخصم؟</span></>}
-          say={<>يرمّزها Hysaab فور وصولها من ذاكرة دفتر أستاذك أنت، ثم يختبرها ضريبيًا وفق القانون الإماراتي. هذه الفاتورة <strong>ترسب في اختبار المادة 59</strong> — الرقم الضريبي للمورد مفقود — فتُحجز ضريبة المدخلات ولا تُطالَب. ونسخة مكررة أُوقفت قبل أن تُرحَّل أصلًا.</>}
-          chips={[
-            { k: "اختبار الضريبة", v: "ضريبة مدخلات 1,036 درهمًا محجوزة", tone: "b" },
-            { k: "التكرار", v: "أُوقف قبل الترحيل", tone: "b" },
-            { k: "ذاكرة الترميز", v: "2,418 معاملة", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "الذمم الدائنة في Hysaab — اختبار الضريبة مدمج في سطر الفاتورة" }}
-          cap="الذمم الدائنة — طبقة الضريبة مدمجة في كل سطر، وأدلتها مرفقة."
-        />
+      <Feature
+        dark
+        eyebrow="الأموال الصادرة"
+        title={<>كل فاتورة تخفي سؤالين: هل رُمِّزت صحيحًا، وهل الضريبة قابلة للخصم؟</>}
+        body={<>يرمّزها Hysaab فور وصولها من ذاكرة دفتر أستاذك أنت، ثم يختبرها ضريبيًا وفق القانون الإماراتي. هذه الفاتورة <strong>ترسب في اختبار المادة 59</strong> — الرقم الضريبي للمورد مفقود — فتُحجز ضريبة المدخلات ولا تُطالَب. ونسخة مكررة أُوقفت قبل أن تُرحَّل أصلًا.</>}
+        shot={{ src: "/shots/adv-payables.png", w: 1600, h: 1256, alt: "الذمم الدائنة في Hysaab — اختبار الضريبة مدمج في سطر الفاتورة" }}
+        cap="الذمم الدائنة — طبقة الضريبة مدمجة في كل سطر، وأدلتها مرفقة."
+      />
 
-        <Act
-          kicker="الطبقة الإقليمية"
-          head={<>أدواتك العالمية لا تعرف ما تطلبه الهيئة الاتحادية للضرائب أو «زاتكا». <span className="np-accent">هذا النظام بُني هنا.</span></>}
-          say={<>ضريبة القيمة المضافة وضريبة الشركات تُسوَّيان كل شهر، وكل موعد نهائي يتعقبه حارس، والفواتير الإلكترونية تُخلَّص وتُحفظ مع إثباتها. وفجوة الـ200,000 درهم؟ مُفسَّرة، ومُسندة إلى القيد.</>}
-          chips={[
-            { k: "القيمة المضافة ↔ ضريبة الشركات", v: "الفرق +200 ألف · مُفسَّر", tone: "p" },
-            { k: "الإقرار", v: "الربع الثاني يُستحق 28 يوليو · باقي 14 يومًا", tone: "b" },
-            { k: "زاتكا", v: "142 مخلَّصة · 0 مرفوضة", tone: "p" },
-          ]}
-          shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "ذكاء الضرائب الخليجي في Hysaab — تسوية القيمة المضافة مع ضريبة الشركات وحارس الإقرارات" }}
-          cap="الضرائب — التسوية والمواعيد والتخليص، في مكان واحد."
-        />
+      <Feature
+        eyebrow="الطبقة الإقليمية"
+        title={<>أدواتك العالمية لا تعرف ما تطلبه الهيئة الاتحادية للضرائب أو «زاتكا». هذا النظام بُني هنا.</>}
+        body={<>ضريبة القيمة المضافة وضريبة الشركات تُسوَّيان كل شهر، وكل موعد نهائي يتعقبه حارس، والفواتير الإلكترونية تُخلَّص وتُحفظ مع إثباتها. وفجوة الـ200,000 درهم؟ مُفسَّرة، ومُسندة إلى القيد.</>}
+        shot={{ src: "/shots/adv-tax.png", w: 1600, h: 1011, alt: "ذكاء الضرائب الخليجي في Hysaab — تسوية القيمة المضافة مع ضريبة الشركات وحارس الإقرارات" }}
+        cap="الضرائب — التسوية والمواعيد والتخليص، في مكان واحد."
+      />
 
-        <Act
-          ink
-          kicker="السجل الدائم"
-          head={<>لا شيء يُحذف أبدًا. <span className="np-accent">والأخطاء تُعكس على المكشوف.</span></>}
-          say={<>كل قيد يحمل مَن أنشأه، ولماذا، والمستند الذي خلفه — وكلٌّ منها يُرحِّله وكيل مُسمّى بدرجة ثقة معلنة. إقفالٌ تسلّمه للمدقق دون أن يرفّ لك جفن.</>}
-          shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" }}
-          cap="دفتر الأستاذ — كل قيد مُفسَّر، ودليله على بعد نقرة."
-        />
+      <Feature
+        dark
+        eyebrow="السجل الدائم"
+        title={<>لا شيء يُحذف أبدًا. والأخطاء تُعكس على المكشوف.</>}
+        body={<>كل قيد يحمل مَن أنشأه، ولماذا، والمستند الذي خلفه — وكلٌّ منها يُرحِّله وكيل مُسمّى بدرجة ثقة معلنة. إقفالٌ تسلّمه للمدقق دون أن يرفّ لك جفن.</>}
+        shot={{ src: "/shots/adv-ledger.png", w: 1600, h: 990, alt: "دفتر الأستاذ العام في Hysaab — حركة القيود مع تعليقات الوكلاء والأدلة" }}
+        cap="دفتر الأستاذ — كل قيد مُفسَّر، ودليله على بعد نقرة."
+      />
 
-        <Act
-          kicker="الأموال الواردة"
-          head={<>من يدين لك — وما العمل حياله، <span className="np-accent">وقد لوحق بالفعل.</span></>}
-          say={<>تذكيرات التحصيل تكتب نفسها بوتيرة توافق عليها مرة واحدة؛ لا شيء يُرسل من دونك. ومخاطر الشطب تُرصد لها مخصصات وفق سياستك، تلقائيًا.</>}
-          chips={[
-            { k: "فترة التحصيل", v: "41 يومًا · في تحسّن", tone: "p" },
-            { k: "متأخرات", v: "346,700 درهم", tone: "b" },
-            { k: "المخصصات", v: "وفق السياسة" },
-          ]}
-          shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "الذمم المدينة في Hysaab — طابور التحصيل وفترة التحصيل وأعمار الذمم" }}
-          cap="الذمم المدينة — دليل التحصيل، مُصاغًا ومُلاحَقًا ومُسوًّى."
-        />
+      <Feature
+        eyebrow="الأموال الواردة"
+        title={<>من يدين لك — وما العمل حياله، وقد لوحق بالفعل.</>}
+        body={<>تذكيرات التحصيل تكتب نفسها بوتيرة توافق عليها مرة واحدة؛ لا شيء يُرسل من دونك. ومخاطر الشطب تُرصد لها مخصصات وفق سياستك، تلقائيًا.</>}
+        shot={{ src: "/shots/adv-receivables.png", w: 1600, h: 1297, alt: "الذمم المدينة في Hysaab — طابور التحصيل وفترة التحصيل وأعمار الذمم" }}
+        cap="الذمم المدينة — دليل التحصيل، مُصاغًا ومُلاحَقًا ومُسوًّى."
+      />
 
-        <section className="np-act np-band-ink" id="close">
-          <div className="wrap">
-            <div className="microlabel np-kicker np-rise">الإقفال الشهري</div>
-            <h2 className="np-head np-rise d1">كان الإقفال الشهري يستغرق أسابيع.</h2>
-            <div className="np-big np-rise d1">
-              <span data-np-count="78">0%</span>
-              <span className="sub">مُنجز قبل أن تستيقظ.</span>
+      <section className="hw-block--sage">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">الإقفال الشهري</p>
+              <h2>كان الإقفال الشهري يستغرق أسابيع.</h2>
             </div>
-            <p className="np-say np-rise d2">
-              الاستحقاقات مقترحة، والانحرافات معلَّمة، والبنك مُطابَق، وإقرار ضريبة القيمة
-              المضافة مُسوَّد — جانب Hysaab منجز قبل أن تفتح الشاشة. ما تبقى قرارك أنت. ثم
-              تختم الشهر بلمسة واحدة، فلا يتغير بعدها في الخفاء أبدًا.
-            </p>
-            <div className="np-shot np-rise d1">
-              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — قائمة نهاية الشهر مع استحقاقات مقترحة من المحرك" width={1600} height={1170} sizes="(max-width: 1120px) 100vw, 1064px" />
-            </div>
-            <div className="np-cap np-rise">قمرة الإقفال — «هذا يديره Hysaab» في جهة، ومهام دفترك أنت في الجهة الأخرى.</div>
+            <p>الاستحقاقات مقترحة، والانحرافات معلَّمة، والبنك مُطابَق، وإقرار ضريبة القيمة المضافة مُسوَّد — جانب Hysaab منجز قبل أن تفتح الشاشة. ما تبقى قرارك أنت. ثم تختم الشهر بلمسة واحدة، فلا يتغير بعدها في الخفاء أبدًا.</p>
           </div>
-        </section>
-
-        <Act
-          kicker="نظام واحد، بأي شكل"
-          head={<>شركة واحدة أو خمس. عملة واحدة أو خمس. <span className="np-accent">لغة واحدة أو اثنتان.</span></>}
-          say={<>بدّل بين الكيانات، ووحّد القوائم، واعمل بالعربية كاملة — من اليمين إلى اليسار حتى الأرقام — وبالإنجليزية متى احتجتها. المنتج هو الذي ينحني لك، لا أنت.</>}
-          shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Hysaab بالعربية — مساحة العمل كاملة، من اليمين إلى اليسار" }}
-          cap="نفس النظام — Hysaab نفسه بالعربية، من اليمين إلى اليسار."
-        />
-
-        <section className="why-band on-ink" id="why" style={{ marginTop: 0 }}>
-          <div className="wrap">
-            <div className="microlabel hero-kicker np-rise">لماذا بنينا هذا</div>
-            <h2 className="why-head np-rise d1">عشنا الإقفال الشهري<br />الذي نحذفه اليوم.</h2>
-            <div className="why-cols np-rise d1">
-              <p>
-                ‏في كل إقفال، الطقس نفسه: إيصالات تُلاحَق على واتساب، وفواتير تُدقَّق في
-                منتصف الليل، وموعد ضريبة القيمة المضافة يلهث خلف الربع — بينما الأرقام التي
-                تهم فعلًا لا يلمسها أحد. رأينا فرقًا مالية لامعة تُنفق لياليها على عمل إداري
-                وتغفل عن القيمة الحقيقية الجالسة أمامها: ما كانت البيانات تقوله.
-              </p>
-              <p>
-                ‏Hysaab من المنتجات القليلة جدًا في هذا المجال <strong>التي بناها محاسبون عاشوا
-                هذه العمليات وسهروا لياليها</strong> — لا مهندسون يخمّنونها. فبنينا الزميل الذي
-                طالما تمنيناه: زميل يؤدي العمل الروتيني، ويعرض أدلته، ويترك القرار لك.
-              </p>
+          <div className="hw-feature">
+            <div className="hw-feature-copy">
+              <h3>‏78% مُنجز قبل أن تستيقظ.</h3>
+              <p>قائمة إقفال توضيحية أُنجزت على بيانات تجريبية.</p>
             </div>
-            <div className="why-sig np-rise">&mdash; SRW</div>
+            <div className="hw-shot">
+              <Image src="/shots/adv-close.png" alt="قمرة الإقفال في Hysaab — قائمة نهاية الشهر مع استحقاقات مقترحة من المحرك" width={1600} height={1170} sizes="(max-width: 760px) 100vw, 55vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid #3e6356" }} />
+              <p className="hw-shot-cap" style={{ color: "var(--hw-cream)" }}>قمرة الإقفال — «هذا يديره Hysaab» في جهة، ومهام دفترك أنت في الجهة الأخرى.</p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-</main>
-
-      <MgFooter locale="ar" />
-      <NpEnhance />
-    </>
+      <Feature
+        eyebrow="نظام واحد، بأي شكل"
+        title={<>شركة واحدة أو خمس. عملة واحدة أو خمس. لغة واحدة أو اثنتان.</>}
+        body={<>بدّل بين الكيانات، ووحّد القوائم، واعمل بالعربية كاملة — من اليمين إلى اليسار حتى الأرقام — وبالإنجليزية متى احتجتها. المنتج هو الذي ينحني لك، لا أنت.</>}
+        shot={{ src: "/shots/adv-arabic.png", w: 1600, h: 1360, alt: "Hysaab بالعربية — مساحة العمل كاملة، من اليمين إلى اليسار" }}
+        cap="نفس النظام — Hysaab نفسه بالعربية، من اليمين إلى اليسار."
+      />
+    </PageShell>
   );
 }
