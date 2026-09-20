@@ -13,10 +13,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const g = getGuide(params.slug);
   if (!g) return {};
+  const hasAr = !!getArGuide(g.slug);
   return {
     title: `${g.title} — Hysaab`,
     description: g.description,
-    ...(getArGuide(g.slug) ? { alternates: langAlternates(`/guides/${g.slug}`) } : {}),
+    alternates: hasAr
+      ? langAlternates(`/guides/${g.slug}`)
+      : { canonical: "./" },
   };
 }
 

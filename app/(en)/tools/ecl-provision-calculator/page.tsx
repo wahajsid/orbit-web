@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "IFRS 9 ECL provision calculator — Hysaab",
   description:
     "Free expected credit loss calculator for trade receivables: ageing buckets, editable loss rates, and a forward-looking scenario slider. Watch the provision reprice as you drag.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

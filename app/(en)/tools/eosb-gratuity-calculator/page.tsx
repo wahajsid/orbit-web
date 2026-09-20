@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "UAE gratuity (EOSB) calculator — Hysaab",
   description:
     "Free UAE end-of-service gratuity calculator: 21 days of basic wage per year for the first five years, 30 after, capped at two years' wage — with the working shown.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "IAS 12 deferred tax schedule — Hysaab",
   description:
     "Free IAS 12 deferred tax calculator: enter carrying amounts and tax bases for each balance-sheet item — get the temporary differences, DTL, DTA and net position at any tax rate.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

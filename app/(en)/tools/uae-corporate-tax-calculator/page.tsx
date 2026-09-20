@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "UAE Corporate Tax estimator — Hysaab",
   description:
     "Free UAE Corporate Tax calculator: 0% on the first AED 375,000 of taxable income, 9% above it, with the Small Business Relief election handled.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

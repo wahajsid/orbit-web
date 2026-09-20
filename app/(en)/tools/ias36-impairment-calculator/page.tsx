@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "IAS 36 impairment test — value-in-use DCF — Hysaab",
   description:
     "Free IAS 36 impairment calculator: enter five years of projected cash flows, WACC and terminal growth — see the value in use, headroom or impairment loss for your CGU.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

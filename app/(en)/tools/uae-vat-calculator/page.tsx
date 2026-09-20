@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "VAT calculator — UAE 5% & KSA 15% — Hysaab",
   description:
     "Free VAT calculator for the Gulf: add VAT to a net amount or extract it from a gross one, at the UAE 5% or KSA 15% rate.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "IFRS 16 lease liability & ROU asset calculator — Hysaab",
   description:
     "Free IFRS 16 calculator: enter your lease payments, term and discount rate — get the day-1 lease liability, right-of-use asset, and the full amortisation schedule with interest and depreciation.",
+  alternates: { canonical: "./" },
 };
 
 export default function Page() {
