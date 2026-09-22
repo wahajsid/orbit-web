@@ -47,13 +47,13 @@ const STEPS: [string, string, string][] = [
 
 export default function CheckPage() {
   return (
-    <PageShell band={{ kicker: "Books Check", title: "Your first check is on us.", body: "Tell us which ledger you use and a person will send you the connect link as soon as your slot opens. No card, no commitment, and nothing is written to your books." }}>
+    <PageShell band={{ kicker: "Books Check", title: "Your first check is on us.", body: "Sign in with your email, connect Xero or QuickBooks read-only, and the first report is yours in about a minute. No card, no commitment, and nothing is written to your books." }}>
       <PageHero
         eyebrow="Books Check · the free front door to Hysaab"
         title={<>Connect QuickBooks.<br /><span>We tell you what is wrong and how to fix it.</span></>}
         lede="Five minutes, read-only, under a dollar. Hysaab reads every line of the year, runs the checks an auditor would run, and hands you the ten things to fix ranked by the money at stake. Xero, Zoho Books and Wafeq too. Built for the UAE and Saudi Arabia, so the VAT and corporate tax checks are the real ones."
       >
-        <a className="hw-btn hw-btn--peach" href="#conversation">Get your free check <span aria-hidden="true">↓</span></a>
+        <a className="hw-btn hw-btn--peach" href="https://app.hysaab.ai/check">Start your free check <span aria-hidden="true">→</span></a>
         <a className="hw-link hw-link--light" href="#sample">See what a report says</a>
       </PageHero>
 
@@ -239,10 +239,10 @@ export default function CheckPage() {
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
-              <p className="hw-eyebrow">Get your free check</p>
-              <h2>Tell us your ledger. We send the connect link.</h2>
+              <p className="hw-eyebrow">Prefer a person?</p>
+              <h2>Tell us your ledger. We run the first check with you.</h2>
             </div>
-            <p>The connect flow opens to a few companies at a time so a person can read every first report with you. Leave your work email and which system you use; we reply within one working day with your link.</p>
+            <p>Zoho Books or Wafeq, a ledger that is not on the list, or a report you would rather read with an accountant on the call: leave your work email and which system you use, and we reply within one working day.</p>
           </div>
           <EnquiryForm source="Books Check" />
         </div>
