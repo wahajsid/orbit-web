@@ -9,7 +9,7 @@ export function ActivityFeed({ rows }: { rows: FeedRow[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="hw-feed">
+    <div className="hw-feed m-enter-block">
       <div className="hw-feed-head">
         <span className="hw-eyebrow">Live from the agents</span>
         <button

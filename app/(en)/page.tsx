@@ -63,7 +63,7 @@ export default function Page() {
         {/* ── Hero ── */}
         <section className="hw-hero">
           <div className="hw-wrap hw-hero-grid">
-            <div className="hw-hero-copy">
+            <div className="hw-hero-copy m-enter">
               <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
               <h1>Your books<br />called. They'd<br />like less of<br />your <em>time</em>.</h1>
               <p className="hw-hero-desc">Meet Hysaab. A team of AI agents — accounting, tax, collections, reporting — that plugs into your books and runs the busywork overnight. Built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. The agents take it from there.</p>
@@ -85,12 +85,12 @@ export default function Page() {
         <section className="hw-work" id="how-it-works">
           <div className="hw-wrap hw-section">
             <div className="hw-work-grid">
-              <div className="hw-heading">
+              <div className="hw-heading" data-reveal="">
                 <p className="hw-eyebrow">How it works</p>
                 <h2>Just chat.<br />The agents get<br />to work.</h2>
                 <p>We connect your books and agree the approval rules. Then you send a message. Each agent — intake, tax, coding, collections, close — picks up its part. The workspace is there when you want to look closer.</p>
               </div>
-              <div className="hw-workflow">
+              <div className="hw-workflow" data-reveal="stagger-lg">
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">01</span>
                   <h3>You send a message.</h3>
@@ -114,7 +114,7 @@ export default function Page() {
         {/* ── Five ways Hysaab helps ── */}
         <section id="experience" className="hw-experience">
           <div className="hw-wrap hw-section">
-            <div className="hw-heading">
+            <div className="hw-heading" data-reveal="">
               <div>
                 <p className="hw-eyebrow">Five ways Hysaab helps</p>
                 <h2>From &ldquo;where's that<br />receipt?&rdquo; to &ldquo;here's<br />your report.&rdquo;</h2>
@@ -125,8 +125,8 @@ export default function Page() {
             <p className="hw-disclosure">Illustrative scenario. Rashid runs a trading company; Layla is his CFO; Noor keeps the books. The numbers are examples, not results.</p>
 
             <div className="hw-shots">
-              <h3>Inside the real workspace.</h3>
-              <div className="hw-shots-grid">
+              <h3 data-reveal="">Inside the real workspace.</h3>
+              <div className="hw-shots-grid" data-reveal="stagger-lg">
                 {moments.map((m) => (
                   <article key={m.key}>
                     <Capture moment={m} focus />
@@ -147,9 +147,9 @@ export default function Page() {
         {/* ── Completed close (inset sage block) ── */}
         <section className="hw-zero-section" aria-labelledby="hw-zero-h">
           <div className="hw-wrap">
-            <div className="hw-zero-layout">
+            <div className="hw-zero-layout" data-reveal="stagger-lg">
               <div>
-                <div className="hw-zero" aria-hidden="true">0</div>
+                <div className="hw-zero" aria-hidden="true" data-count="" data-count-from="43">0</div>
                 <p className="hw-zero-label">ALL SQUARE.</p>
               </div>
               <div>
@@ -162,7 +162,7 @@ export default function Page() {
               </div>
             </div>
             <div className="hw-zero-meta">
-              <span>43 / 43 checks complete</span>
+              <span><span data-count="">43</span> / 43 checks complete</span>
               <span>Illustrative completed close · Sample data</span>
             </div>
           </div>
@@ -171,13 +171,13 @@ export default function Page() {
         {/* ── Your control (navy) ── */}
         <section className="hw-control" id="control">
           <div className="hw-wrap hw-control-grid">
-            <div>
+            <div data-reveal="">
               <p className="hw-eyebrow">Your control</p>
               <h2>A good colleague<br />doesn't just<br />say yes.</h2>
               <p>When an instruction looks wrong, Hysaab explains why. You get the concern, the recommendation and the evidence to make the call.</p>
               <a className="hw-textlink" href="#conversation">See how the controls work <span aria-hidden="true">↗</span></a>
             </div>
-            <div className="hw-principles">
+            <div className="hw-principles" data-reveal="stagger-lg">
               <article>
                 <div><h3>Every answer has a trail.</h3><p>Open the entries and documents behind it. The working is there to inspect.</p></div>
               </article>
@@ -194,14 +194,14 @@ export default function Page() {
         {/* ── Ways to work (cream) ── */}
         <section id="ways" className="hw-ways">
           <div className="hw-wrap hw-section">
-            <div className="hw-heading">
+            <div className="hw-heading" data-reveal="">
               <div>
                 <p className="hw-eyebrow">Ways to work</p>
                 <h2>Your people. Or ours,<br />alongside.</h2>
               </div>
               <p>Begin with the work that needs attention. We'll agree the scope before we start.</p>
             </div>
-            <div className="hw-ways-grid">
+            <div className="hw-ways-grid" data-reveal="stagger-lg">
               <article>
                 <p className="hw-eyebrow">For your finance team</p>
                 <h3>Give your people a head start.</h3>
@@ -221,14 +221,14 @@ export default function Page() {
         {/* ── The people (sage) ── */}
         <section id="team" className="hw-team">
           <div className="hw-wrap hw-section">
-            <div className="hw-heading">
+            <div className="hw-heading" data-reveal="">
               <div>
                 <p className="hw-eyebrow">The people behind the work</p>
                 <h2>Accountants and engineers.<br />At the same table.</h2>
               </div>
               <p>Built and run by Oblique Consult and Simpla. Finance experience and product engineering, working together in Dubai.</p>
             </div>
-            <div className="hw-team-grid">
+            <div className="hw-team-grid" data-reveal="stagger">
               {TEAM.map((p) => (
                 <article key={p.name}>
                   <h3>{p.name}</h3>
@@ -243,39 +243,39 @@ export default function Page() {
         <section id="products" className="hw-products">
           <span id="family" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap hw-section">
-            <div className="hw-heading">
+            <div className="hw-heading" data-reveal="">
               <div>
                 <p className="hw-eyebrow">The Hysaab family</p>
                 <h2>Better together.<br /><span>Useful on their own.</span></h2>
               </div>
               <p>Accounting, invoice checks, firm operations, audit and finance talent. Complementary products from the same team, each with a clear job to do.</p>
             </div>
-            <div className="hw-family">
-              <article className="hw-family-primary">
+            <div className="hw-family" data-reveal="stagger">
+              <article className="hw-family-primary m-sweep">
                 <p className="hw-eyebrow">Accounting &amp; reporting · Early access</p>
                 <h3><Wordmark size={50} ground="light" /></h3>
                 <p>A team of AI agents for your day-to-day accounting and reporting, with human judgement where it matters.</p>
                 <a className="hw-link hw-link--peach" href="#experience">Explore Hysaab <span aria-hidden="true">↗</span></a>
               </article>
-              <article>
+              <article className="m-sweep">
                 <p className="hw-eyebrow">Invoice processing · Available</p>
                 <h3>hysaab invoice</h3>
                 <p>Read and check supplier invoices, with duplicate detection and reasons for items held for review.</p>
                 <a className="hw-link" href="/invoice">Explore Invoice <span aria-hidden="true">↗</span></a>
               </article>
-              <article>
+              <article className="m-sweep">
                 <p className="hw-eyebrow">Firm operations · Coming soon</p>
                 <h3>hysaab services OS</h3>
                 <p>Client engagements, deadlines and oversight for professional services firms, together in one place.</p>
                 <a className="hw-link" href="/firms">Explore Services OS <span aria-hidden="true">↗</span></a>
               </article>
-              <article>
+              <article className="m-sweep">
                 <p className="hw-eyebrow">Audit · Coming soon</p>
                 <h3>hysaab audit</h3>
                 <p>Audit preparation and evidence inside Services OS. Licensed professionals retain the conclusions and opinion.</p>
                 <a className="hw-link" href="/audit">Explore Audit <span aria-hidden="true">↗</span></a>
               </article>
-              <article>
+              <article className="m-sweep">
                 <p className="hw-eyebrow">Finance talent · Available</p>
                 <h3>Ibtidah</h3>
                 <p>Find finance people through work-based assessment, with experienced professionals making the shortlist.</p>
@@ -289,7 +289,7 @@ export default function Page() {
         <section className="hw-conversation" id="conversation">
           <span id="contact" className="hw-anchor" aria-hidden="true" />
           <span id="cohort" className="hw-anchor" aria-hidden="true" />
-          <div className="hw-wrap hw-conversation-grid">
+          <div className="hw-wrap hw-conversation-grid" data-reveal="stagger-lg">
             <div>
               <p className="hw-eyebrow">A conversation, not a sales deck</p>
               <h2>Let's start<br />with your books.</h2>

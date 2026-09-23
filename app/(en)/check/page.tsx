@@ -6,6 +6,8 @@
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { EnquiryForm } from "@/components/home/EnquiryForm";
+import { CheckRun } from "@/components/hysaab/CheckRun";
+import { MotionPage } from "@/components/motion/MotionPage";
 
 export const metadata = {
   title: "How clean are your books, really? Books Check by Hysaab",
@@ -27,6 +29,10 @@ export default function CheckPage() {
         <a className="hw-btn hw-btn--peach" href={APP}>Check my books <span aria-hidden="true">→</span></a>
         <span className="hw-link hw-link--light" style={{ cursor: "default" }}>Free in preview · Read-only · Xero &amp; QuickBooks · No sign-up, no credit card</span>
       </PageHero>
+
+      {/* ── Motion: hero entrance + kit reveals (brand/MOTION.md), a check running ── */}
+      <MotionPage />
+      <CheckRun />
 
       {/* ── Found something? ── */}
       <section className="hw-block--rule">

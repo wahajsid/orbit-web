@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Serif, DM_Mono, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
+import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
 import "../wire.css";
 import "../home.css";
 import "../hysaab-home.css";
+import "../motion.css";
 
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
 // Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
@@ -81,6 +83,7 @@ export default function ArRootLayout({ children }: { children: React.ReactNode }
     <html lang="ar" dir="rtl" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${notoArabic.variable} ${kufi.variable}`}>
       <body>
         {children}
+        <MotionEnhancer />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
       </body>

@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Serif, DM_Mono, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
+import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
 import "../wire.css";
 import "../home.css";
 import "../hysaab-home.css";
+import "../motion.css";
 
 // Hysaab: Archivo everywhere (400–700), Noto Kufi Arabic for the Arabic
 // glyphs that appear inside English pages (the ع switch, the name's
@@ -85,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${kufi.variable}`}>
       <body>
         {children}
+        <MotionEnhancer />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
       </body>

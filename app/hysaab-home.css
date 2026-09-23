@@ -564,6 +564,19 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-index p { font-size: 13.5px; line-height: 1.6; color: var(--hw-muted); margin: 8px 0 0; max-width: 72ch; }
 .hw-split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
 
+/* ── a check running: the navy foot under a PageHero (/check) ────── */
+.hw-checkrun { background: var(--hw-navy); color: var(--hw-cream); }
+.hw-phero:has(~ .hw-checkrun) .hw-phero-in { padding-bottom: 56px; }
+.hw-checkrun-in { border-top: 1px solid #354b5d; padding-block: 34px 64px; }
+.hw-checkrun .hw-eyebrow { color: #ddbbb0; margin-bottom: 26px; }
+.hw-checkrun .hw-mono { display: block; color: var(--hw-blush); }
+.hw-checkrun strong { display: block; font-size: 17px; font-weight: 550; letter-spacing: -0.3px; line-height: 1.3; margin-block: 8px 6px; }
+.hw-checkrun-p { display: block; font-size: 13.5px; line-height: 1.6; color: #c0ccd4; }
+@media (max-width: 760px) {
+  .hw-checkrun-in { padding-block: 28px 48px; }
+  .hw-checkrun strong { margin-block: 4px; }
+}
+
 @media (max-width: 1100px) {
   .hw-feature { gap: 40px; }
   .hw-cards, .hw-cards--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }

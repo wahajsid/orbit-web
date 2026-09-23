@@ -91,6 +91,7 @@ export function EnquiryForm({ source = "Homepage", locale = "en" }: { source?: s
   if (done) {
     return (
       <div className="hw-form hw-form--done" role="status">
+        <svg className="m-check" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" /><path pathLength={1} d="M11 18.5l5 5 9-11" /></svg>
         <h3>{t.received}</h3>
         <p>{t.thanks(name.trim().split(/\s+/)[0])}</p>
       </div>
