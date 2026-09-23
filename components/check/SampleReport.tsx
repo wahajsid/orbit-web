@@ -101,7 +101,7 @@ export function SampleReport() {
           <span>P&amp;L reconciled</span>
         </div>
 
-        <p className="ck-r-foot">Sample report · invented figures</p>
+        <p className="ck-r-foot" aria-hidden="true">&nbsp;</p>
       </figure>
       <button type="button" className="ck-replay" data-replay="ck-report">
         <span aria-hidden="true">↻</span> Replay
