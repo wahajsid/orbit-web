@@ -8,12 +8,12 @@ type FootCol = readonly [string, readonly Link[]];
 
 export const FOOT = {
   en: {
-    tag: <>AI accounting &amp; reporting<br />Built in Dubai for the Gulf</>,
+    tag: <>AI agents for finance teams and firms<br />Built in Dubai for the Gulf</>,
     cols: [
-      ["Product", [["/product", "Product"], ["/how-it-works", "How it works"], ["/pricing", "Pricing"], ["/integrations", "Integrations"], ["/compliance", "Compliance"]]],
+      ["Hysaab Finance", [["/accounting", "Overview"], ["/invoice", "Invoice checks"], ["/how-it-works", "How it works"], ["/integrations", "Integrations"], ["/pricing", "Pricing"], ["/check", "Books Check, free"]]],
       ["Resources", [["/guides", "Guides"], ["/tools", "Tools"], ["/faq", "FAQ"], ["/#ways", "Self-serve or managed"]]],
-      ["Our products", [["/invoice", "hysaab invoice, invoice processing"], ["/hire", "Ibtidah, hiring"], ["/firms", "hysaab services OS, professional services"], ["/audit", "hysaab audit, ISA audits"]]],
-      ["Company", [["/about", "Why we built it"], ["/contact", "Contact"], ["/privacy", "Privacy notice"], ["/terms", "Website terms"], ["https://app.hysaab.ai", "Sign in"]]],
+      ["For firms", [["/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit"]]],
+      ["Company", [["/about", "Why we built it"], ["/hire", "Ibtidah, finance hiring"], ["/trust", "Trust"], ["/compliance", "Compliance"], ["/contact", "Contact"], ["/privacy", "Privacy notice"], ["/terms", "Website terms"], ["https://app.hysaab.ai", "Sign in"]]],
     ] as readonly FootCol[],
     kicker: "Get in touch",
     contactH: "Have a question? Ask a person.",
@@ -21,16 +21,17 @@ export const FOOT = {
     legal: "© 2026 Hysaab · hysaab.ai · Dubai, UAE",
     disclaimer: "Screens and scenarios are illustrative. Figures are examples, not results.",
     lang: <>EN / <a href="/ar"><bdi>العربية</bdi></a></>,
-    owner: "A product of Oblique Consult.",
-    ownerLink: "Built by Oblique Consult",
+    owner: "Built by the team behind Oblique Consult.",
+    ownerLink: "Visit Oblique Consult",
   },
   ar: {
-    tag: <>محاسبة وتقارير بالذكاء الاصطناعي<br />صُنع في دبي للخليج</>,
+    /* AR-REVIEW: the tag line, the column heads and the new links below. */
+    tag: <>وكلاء ذكاء اصطناعي للفرق المالية والمكاتب المهنية<br />صُنع في دبي للخليج</>,
     cols: [
-      ["المنتج", [["/ar/product", "المنتج"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/pricing", "الأسعار"], ["/ar/integrations", "التكاملات"], ["/ar/compliance", "الامتثال"]]],
+      ["Hysaab Finance", [["/ar/accounting", "نظرة عامة"], ["/ar/invoice", "فحص الفواتير"], ["/ar/how-it-works", "كيف يعمل"], ["/ar/integrations", "التكاملات"], ["/ar/pricing", "الأسعار"], ["/check", "فحص الدفاتر مجانًا (بالإنجليزية)"]]],
       ["الموارد", [["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"], ["/ar/faq", "الأسئلة الشائعة"]]],
-      ["منتجاتنا", [["/ar/invoice", "hysaab invoice، معالجة الفواتير"], ["/hire", "Ibtidah، التوظيف"], ["/ar/firms", "hysaab services OS، الخدمات المهنية"], ["/audit", "hysaab audit، تدقيق الحسابات"]]],
-      ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/ar/contact", "تواصل معنا"], ["/privacy", "إشعار الخصوصية (بالإنجليزية)"], ["/terms", "شروط الموقع (بالإنجليزية)"], ["https://app.hysaab.ai", "تسجيل الدخول"]]],
+      ["للمكاتب المهنية", [["/ar/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit (بالإنجليزية)"]]],
+      ["الشركة", [["/ar/about", "لماذا بنيناه"], ["/hire", "Ibtidah، التوظيف في المالية (بالإنجليزية)"], ["/ar/trust", "الثقة"], ["/ar/compliance", "الامتثال"], ["/ar/contact", "تواصل معنا"], ["/privacy", "إشعار الخصوصية (بالإنجليزية)"], ["/terms", "شروط الموقع (بالإنجليزية)"], ["https://app.hysaab.ai", "تسجيل الدخول"]]],
     ] as readonly FootCol[],
     kicker: "تواصل معنا",
     contactH: "لديك سؤال؟ اسأل شخصًا حقيقيًا.",
@@ -38,12 +39,12 @@ export const FOOT = {
     legal: "© 2026 Hysaab · hysaab.ai · دبي، الإمارات",
     disclaimer: "الشاشات والسيناريوهات توضيحية. الأرقام أمثلة وليست نتائج.",
     lang: <><a href="/">EN</a> / <bdi>العربية</bdi></>,
-    owner: "أحد منتجات Oblique Consult.",
-    ownerLink: "من تطوير Oblique Consult",
+    owner: "بناه الفريق الذي يقف وراء Oblique Consult.",
+    ownerLink: "زيارة Oblique Consult",
   },
 };
 
-/* Hysaab is an Oblique Consult product. A plain crawlable anchor, opened
+/* Built by the team behind Oblique Consult. A plain crawlable anchor, opened
    the way the site opens every external link. */
 export function OwnerLine({ owner, link, className = "hy-footer-owner" }: { owner: string; link: string; className?: string }) {
   return (

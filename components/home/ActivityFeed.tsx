@@ -11,7 +11,9 @@ const T = {
   ar: { live: "مباشرة من الوكلاء", resume: "تشغيل الإعادة", pause: "إيقاف الإعادة مؤقتًا", play: "▶", stop: "❚❚", h: <>ليلة واحدة<br />على مجموعة دفاتر.</> },
 };
 
-export function ActivityFeed({ rows, locale = "en" }: { rows: FeedRow[]; locale?: "en" | "ar" }) {
+/* `title` replaces the feed's own heading; pass null when the section
+   around the feed already carries the heading (homepage, 2026-09-23). */
+export function ActivityFeed({ rows, locale = "en", title }: { rows: FeedRow[]; locale?: "en" | "ar"; title?: React.ReactNode | null }) {
   const t = T[locale];
   const [paused, setPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export function ActivityFeed({ rows, locale = "en" }: { rows: FeedRow[]; locale?
           {paused ? t.play : t.stop}
         </button>
       </div>
-      <h2>{t.h}</h2>
+      {title !== null && <h2>{title ?? t.h}</h2>}
       <div className="hw-feed-window">
         <div className="hw-feed-track" ref={trackRef}>
           {[false, true].map((dup) => (

@@ -221,10 +221,11 @@ ${TEXT_FOOT}`,
 
 // ── Email 5: Enquiry (internal, from the footer contact form) ────────
 
-export function enquiryEmail(input: { name: string; email: string; system: string; notes: string }) {
+export function enquiryEmail(input: { name: string; email: string; role?: string; system: string; notes: string }) {
   const rows = [
     ["Name", input.name],
     ["Email", input.email],
+    ["I am a", input.role || "not given"],
     ["Accounting system", input.system || "not given"],
   ]
     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-size:13px;color:#6B6560;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:4px 0;font-size:14px;color:#201e1d;">${esc(v)}</td></tr>`)
@@ -244,6 +245,7 @@ export function enquiryEmail(input: { name: string; email: string; system: strin
 
 Name: ${input.name}
 Email: ${input.email}
+I am a: ${input.role || "not given"}
 Accounting system: ${input.system || "not given"}
 
 Notes:

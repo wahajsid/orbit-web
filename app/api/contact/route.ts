@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
   const name = String(body?.name ?? "").trim().slice(0, 200);
   const email = String(body?.email ?? "").trim().slice(0, 320);
   const system = String(body?.accounting_system ?? "").trim().slice(0, 60);
+  const role = String(body?.role ?? "").trim().slice(0, 60);
   const notes = String(body?.notes ?? "").trim().slice(0, 4000);
   const website = String(body?.website ?? "");
   const loadedAt = Number(body?.loadedAt);
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
   }
   if (!notes) return NextResponse.json({ error: "Please add a note so we know what to answer." }, { status: 400 });
 
-  const mail = enquiryEmail({ name, email, system, notes });
+  const mail = enquiryEmail({ name, email, role, system, notes });
   const sent = await sendMail({ to: CONTACT_TO, cc: SIGNUP_CC, reply_to: email, unsubscribe: false, ...mail });
   if (!sent.ok) {
     console.error("[contact] send failed:", sent.error);

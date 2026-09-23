@@ -15,6 +15,10 @@ const nextConfig = {
       })),
       // The Arabic hire page is retired; the English one explains Ibtidah.
       { source: "/ar/hire", destination: "/hire", permanent: true },
+      // Website change plan 2026-09-23: /product is merged into
+      // /accounting (Hysaab Finance). A literal 301, like the host moves.
+      { source: "/product", destination: "/accounting", statusCode: 301 },
+      { source: "/ar/product", destination: "/ar/accounting", statusCode: 301 },
     ];
   },
 };

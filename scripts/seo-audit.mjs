@@ -5,8 +5,8 @@
    titles across pages. Exit 1 on any hard problem. */
 
 const ORIGIN = process.argv[2] || "http://localhost:3200";
-const EN = ["/", "/product", "/how-it-works", "/pricing", "/faq", "/about", "/contact", "/compliance", "/integrations", "/invoice", "/firms", "/audit", "/hire", "/accounting", "/guides", "/tools", "/privacy", "/terms", "/tools/uae-vat-calculator", "/guides/uae-tax-invoice-checklist"];
-const AR = ["/ar", "/ar/product", "/ar/how-it-works", "/ar/pricing", "/ar/faq", "/ar/about", "/ar/contact", "/ar/compliance", "/ar/integrations", "/ar/invoice", "/ar/firms", "/ar/accounting", "/ar/guides", "/ar/tools", "/ar/tools/uae-vat-penalty-calculator"];
+const EN = ["/", "/trust", "/how-it-works", "/pricing", "/faq", "/about", "/contact", "/compliance", "/integrations", "/invoice", "/firms", "/audit", "/hire", "/accounting", "/guides", "/tools", "/privacy", "/terms", "/tools/uae-vat-calculator", "/guides/uae-tax-invoice-checklist"];
+const AR = ["/ar", "/ar/trust", "/ar/how-it-works", "/ar/pricing", "/ar/faq", "/ar/about", "/ar/contact", "/ar/compliance", "/ar/integrations", "/ar/invoice", "/ar/firms", "/ar/accounting", "/ar/guides", "/ar/tools", "/ar/tools/uae-vat-penalty-calculator"];
 
 const get = (re, s) => { const m = s.match(re); return m ? m[1] : null; };
 const all = (re, s) => [...s.matchAll(re)].map((m) => m[1]);

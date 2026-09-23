@@ -24,16 +24,16 @@ const NAV = {
       ["#story", "Story"], ["#demo", "Product"], ["#agents", "Agents"], ["#voices", "Who it's for"], ["#ways", "Plans"], ["#family", "Products"], ["#resources", "Guides"],
     ] as readonly Link[],
     inner: [
-      ["/product", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
+      ["/accounting", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
     ] as readonly Link[],
     signin: "Sign in", demo: "Book a demo", join: "Join the waitlist →", menu: "Menu", close: "Close", brand: "hysaab.ai, home",
   },
   ar: {
     home: [
-      ["/ar/product", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
+      ["/ar/accounting", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
     ] as readonly Link[],
     inner: [
-      ["/ar/product", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
+      ["/ar/accounting", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
     ] as readonly Link[],
     signin: "تسجيل الدخول", demo: "احجز عرضًا", join: "انضم إلى قائمة الانتظار ←", menu: "القائمة", close: "إغلاق", brand: "hysaab.ai، الصفحة الرئيسية",
   },

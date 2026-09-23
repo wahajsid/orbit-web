@@ -2,16 +2,19 @@
    Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
    all ISA walkthrough content and screenshots. Every figure in the
    screenshots was produced by the audit engines on a seeded engagement
-   (Helio Trading LLC), never by hand. */
+   (Helio Trading LLC), never by hand.
+   2026-09-23 (website change plan): the product is Hysaab Audit, sold on
+   its own or with Hysaab Practice; the CTAs book a demo. */
 
 import Image from "next/image";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { Wordmark } from "@/components/Wordmark";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
-  title: "hysaab audit, an AI-native ISA audit file for Gulf audit firms",
+  title: "Hysaab Audit: an AI-native ISA Audit File for Gulf Audit Firms",
   description:
-    "hysaab audit runs an ISA audit file on a hashed snapshot of the books: journals scored, samples designed, schedules tied out. A licensed person concludes.",
+    "Hysaab Audit runs an ISA audit file on a hashed snapshot of the books: journals scored, samples designed, schedules tied out. A licensed person concludes.",
   alternates: { canonical: "./" },
 };
 
@@ -28,7 +31,7 @@ const STEPS: {
       ["Sequence", <>Missing journal numbers are listed as gaps for the client to explain.</>],
       ["Hashed", <>SHA-256 on the snapshot. Every later figure cites the hash it came from.</>],
     ],
-    shot: { src: "/shots/audit-data.png", w: 2560, h: 1256, alt: "hysaab audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
+    shot: { src: "/shots/audit-data.png", w: 2560, h: 1256, alt: "Hysaab Audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
     bar: "Data · snapshots and integrity",
     cap: "The first snapshot stopped the file: the client's trial balance predated a journal in the ledger.",
   },
@@ -41,7 +44,7 @@ const STEPS: {
       ["Materiality", <>Computed from this year's figures, with every candidate benchmark shown and the choice explained.</>],
       ["The programme", <>Only the procedures that fit the chart are instantiated. No tax recompute where there is no tax account.</>],
     ],
-    shot: { src: "/shots/audit-planning.png", w: 2540, h: 2360, alt: "hysaab audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
+    shot: { src: "/shots/audit-planning.png", w: 2540, h: 2360, alt: "Hysaab Audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
     bar: "Planning · risk register and procedures",
     cap: "Nine significant risks, each with the factor that raised it. The gate stays shut until the partner approves.",
   },
@@ -54,7 +57,7 @@ const STEPS: {
       ["Thirty criteria", <>Post-close postings, round numbers, weekends and holidays, blank narratives, seldom-used accounts, keyword hits, duplicates, reversals, segregation conflicts, entries just below an approval threshold.</>],
       ["Auditable", <>Each row carries the criteria that flagged it. The selection is seeded, so it reproduces.</>],
     ],
-    shot: { src: "/shots/audit-jet.png", w: 2540, h: 2360, alt: "hysaab audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
+    shot: { src: "/shots/audit-jet.png", w: 2540, h: 2360, alt: "Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
     bar: "JET explorer · ISA 240 journal testing",
     cap: "The top rows are the planted ones: revenue booked after year-end, a suspense plug, a duplicate payment, a capitalised expense, a related-party fee.",
   },
@@ -67,7 +70,7 @@ const STEPS: {
       ["Attribute too", <>Control testing at ninety-five percent confidence with its own sample table.</>],
       ["Honest answer", <>An upper limit above performance materiality is reported as not accepted, not explained away.</>],
     ],
-    shot: { src: "/shots/audit-sampling.png", w: 2540, h: 2360, alt: "hysaab audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
+    shot: { src: "/shots/audit-sampling.png", w: 2540, h: 2360, alt: "Hysaab Audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
     bar: "Sampling · monetary-unit sample",
     cap: "Upper limit 563,355 against performance materiality 231,800. The engine calls it: not accepted.",
   },
@@ -80,7 +83,7 @@ const STEPS: {
       ["Reliability", <>Scored by route and sender domain. A forwarded reply is evidence of a different grade.</>],
       ["Sent by people", <>Letters leave the firm's own mailbox. The software drafts them and tracks them.</>],
     ],
-    shot: { src: "/shots/audit-fieldwork.png", w: 2540, h: 2360, alt: "hysaab audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
+    shot: { src: "/shots/audit-fieldwork.png", w: 2540, h: 2360, alt: "Hysaab Audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
     bar: "Fieldwork · confirmations and requests",
     cap: "One exception of 42,750, one reply routed through the client, one escalated to alternative procedures.",
   },
@@ -93,7 +96,7 @@ const STEPS: {
       ["Subsequent events", <>Post-period journals and minutes are scanned and classified adjusting or non-adjusting, with the IAS 10 reference.</>],
       ["File completion", <>Nine checks on the file itself. Two are still open on this engagement, and it says so.</>],
     ],
-    shot: { src: "/shots/audit-completion.png", w: 2540, h: 2460, alt: "hysaab audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
+    shot: { src: "/shots/audit-completion.png", w: 2540, h: 2460, alt: "Hysaab Audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
     bar: "Completion · the misstatement register",
     cap: "Five findings, four above clearly trivial, one aggregate the partner has to act on.",
   },
@@ -106,7 +109,7 @@ const STEPS: {
       ["Versions", <>Immutable. The reason for every new version is on the paper.</>],
       ["Conclusions", <>A reviewer cannot sign a judgement workpaper without recording a conclusion in their own words.</>],
     ],
-    shot: { src: "/shots/audit-workpapers.png", w: 2540, h: 2460, alt: "hysaab audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
+    shot: { src: "/shots/audit-workpapers.png", w: 2540, h: 2460, alt: "Hysaab Audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
     bar: "Workpapers · the audit file",
     cap: "The receivables lead is inconclusive because the sub-ledger is 15,000 short. It stays inconclusive until someone explains it.",
   },
@@ -124,13 +127,13 @@ const PHASES: [string, string, string][] = [
 
 export default function AuditPage() {
   return (
-    <PageShell band={{ kicker: "Founding firms", title: "Bring us a file and we will run it.", body: "hysaab audit opens to a small group of licensed audit firms first. Tell us about your practice and a real person will walk you through an engagement within one working day." }}>
+    <PageShell band={{ kicker: "Founding firms", title: "Bring us a file and we will run it.", body: "Hysaab Audit opens to a small group of licensed audit firms first. Tell us about your practice and a real person will walk you through an engagement within one working day." }}>
       <PageHero
-        eyebrow="hysaab audit · part of hysaab services OS"
-        title={<>The audit file does the testing.<br />You still sign it.</>}
-        lede="An ISA audit file that tests every journal. A licensed human concludes and signs; Hysaab never signs an opinion."
+        eyebrow="For licensed audit firms"
+        title={<>Hysaab Audit.<br /><span>The ISA file, run by engines, concluded by your partners.</span></>}
+        lede="An ISA audit file that tests every journal. A licensed human concludes and signs; Hysaab never signs an opinion. Buy it on its own, or with Hysaab Practice."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Join the founding firms <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="#walkthrough">See the file, screen by screen</a>
       </PageHero>
 
@@ -267,20 +270,20 @@ export default function AuditPage() {
               <p className="hw-eyebrow">Where it sits</p>
               <h2>Part of the professional services stack.</h2>
             </div>
-            <p>hysaab audit is the audit module of <a href="/firms">hysaab services OS</a>, the operating system we build for tax and advisory firms. Same clients, same file room, same rule that the AI proposes and a person decides. Take it on its own or with the rest of the practice.</p>
+            <p>Hysaab Audit can be bought on its own, or with <a href="/firms">Hysaab Practice</a>, our product for tax and advisory firms. Together they share the same clients, the same file room and the same rule that the AI proposes and a person decides.</p>
           </div>
           <div className="hw-cards">
             <article>
               <p className="hw-eyebrow">For the firm</p>
-              <h3>hysaab services OS</h3>
+              <h3>Hysaab Practice</h3>
               <p>The practice around the audit: clients, engagement letters, the filing workbench, time, billing, capacity and people. A signed letter creates the obligations, and the obligations create the work.</p>
-              <a className="hw-link" href="/firms">See hysaab services OS <span aria-hidden="true">→</span></a>
+              <a className="hw-link" href="/firms">See Hysaab Practice <span aria-hidden="true">→</span></a>
             </article>
             <article>
               <p className="hw-eyebrow">For the client&apos;s books</p>
-              <h3>Hysaab</h3>
-              <p>When the client keeps its books on Hysaab the snapshot is one click and already complete. Pulling the population from a connected ledger or a file upload is the next stage of the build.</p>
-              <a className="hw-link" href="/accounting">See the accounting product <span aria-hidden="true">→</span></a>
+              <h3>Hysaab Finance</h3>
+              <p>When the client keeps its books on Hysaab Finance the snapshot is one click and already complete. Pulling the population from a connected ledger or a file upload is the next stage of the build.</p>
+              <a className="hw-link" href="/accounting">See Hysaab Finance <span aria-hidden="true">→</span></a>
             </article>
             <article className="is-navy">
               <p className="hw-eyebrow">For an SME, not an audit</p>
@@ -301,7 +304,7 @@ export default function AuditPage() {
               <h2>Built against a working methodology, in the open.</h2>
             </div>
             <div className="hw-prose">
-              <p>hysaab audit was written from a clean-sheet ISA methodology rather than a template pack: acceptance through to archive, with the engines proved against a seeded engagement whose misstatements are known in advance. Every release re-runs it and scores what was found, what was missed and what was flagged in error.</p>
+              <p>Hysaab Audit was written from a clean-sheet ISA methodology rather than a template pack: acceptance through to archive, with the engines proved against a seeded engagement whose misstatements are known in advance. Every release re-runs it and scores what was found, what was missed and what was flagged in error.</p>
               <p>We are opening it to a small group of licensed firms in the UAE and KSA. Founding firms shape the methodology and keep founder pricing for as long as they stay.</p>
             </div>
           </div>

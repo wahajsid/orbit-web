@@ -731,3 +731,139 @@ html[lang="ar"] .hw-band-track { animation-direction: reverse; }
    no empty half) while each phrase keeps its right-to-left reading. */
 html[dir="rtl"] :is(.hw-band-clip, .m-ticker) { direction: ltr; }
 html[dir="rtl"] :is(.hw-band-track > span, .m-ticker li) { direction: rtl; unicode-bidi: isolate; }
+
+
+/* ══════════════════════════════════════════════════════════════════
+   SITE V5 — website change plan (2026-09-23)
+   Header dropdowns, the two-door hero, the proof strip, the three
+   product cards, one night on a group's books, the For firms band, the
+   origin story and the demo form line. Built from the same tokens and
+   motion utilities; content stays visible with no JS and under reduced
+   motion (before hydration the dropdowns open on hover and focus; the
+   phone menu and the footer list every link they hold).
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── header dropdowns ── */
+.hw-drop { position: relative; display: inline-flex; align-items: center; }
+.hw-nav .hw-drop-btn { background: none; border: 0; padding: 12px 0; font-size: 11px; line-height: 1.5; color: var(--hw-navy); display: inline-flex; align-items: center; gap: 7px; min-height: 44px; }
+.hw-drop-btn[data-current] { font-weight: 600; }
+.hw-drop-caret { width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform var(--m-dur-fast, 250ms) var(--m-ease-out, ease-out); }
+.hw-drop[data-open="true"] .hw-drop-caret { transform: translateY(1px) rotate(225deg); }
+.hw-drop-panel { position: absolute; top: calc(100% - 4px); inset-inline-start: -18px; z-index: 40; min-width: 220px; list-style: none; margin: 0; padding: 8px 0; background: var(--hw-cream); border: 1px solid var(--hw-navy); box-shadow: 6px 6px 0 var(--hw-blush); display: none; }
+.hw-drop[data-open="true"] .hw-drop-panel { display: block; animation: m-drop var(--m-dur-fast, 250ms) var(--m-ease-out, ease-out); }
+.hw-header:not([data-ready]) .hw-drop:is(:hover, :focus-within) .hw-drop-panel { display: block; }
+.hw-nav .hw-drop-panel a { display: block; padding: 11px 18px; font-size: 13px; line-height: 1.4; white-space: nowrap; }
+.hw-nav .hw-drop-panel a::after { content: none; }
+.hw-nav .hw-drop-panel a:is(:hover, :focus-visible) { background: var(--hw-navy); color: var(--hw-cream) !important; }
+:is(.hw-page, .hw-chrome) .hw-drop-panel a:focus-visible { outline-offset: -3px; }
+.hw-nav .hw-drop-panel a[aria-current="page"] { font-weight: 600; }
+.hw-menu-group { display: grid; }
+.hw-menu-head { font: 500 11px/1.6 var(--sans); letter-spacing: 1px; text-transform: uppercase; color: #c7d0d8; padding: 16px 0 4px; }
+.hw-menu .hw-menu-group a { padding-inline-start: 14px; }
+html[lang="ar"] .hw-nav .hw-drop-btn { font-size: 15px; }
+html[lang="ar"] .hw-menu-head { letter-spacing: 0; font-size: 12px; }
+
+/* ── 1. hero: one promise, two doors ── */
+.hw-hero-v5 { padding-block: 64px 56px; }
+.hw-hero--doors h1 { font-size: clamp(40px, 5.8vw, 80px); line-height: 1; letter-spacing: -0.025em; margin-block: 22px 20px; }
+.hw-hero--doors .hw-hero-desc { max-width: 52ch; margin-bottom: 0; }
+.hw-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+.hw-door { padding: 32px 32px 28px; display: flex; flex-direction: column; min-width: 0; }
+.hw-door--navy { background: var(--hw-navy); color: var(--hw-cream); }
+.hw-door--blush { background: var(--hw-blush); color: var(--hw-navy); }
+.hw-door .hw-eyebrow { font-size: 12px; font-weight: 600; }
+.hw-door--navy .hw-eyebrow { color: var(--hw-blush); }
+.hw-door--blush .hw-eyebrow { color: #4e3832; }
+.hw-page .hw-door h2 { font: 400 clamp(30px, 3vw, 42px)/1.05 var(--hw-serif); letter-spacing: -0.01em; margin: 14px 0; color: inherit; }
+.hw-door p:not(.hw-eyebrow) { font-size: 16px; line-height: 1.65; max-width: 44ch; }
+.hw-door--navy p:not(.hw-eyebrow) { color: var(--hw-dark-supporting); }
+.hw-door--blush p:not(.hw-eyebrow) { color: #3a2f2c; }
+.hw-door-actions { margin-top: auto; padding-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.hw-door--navy .hw-link { color: var(--hw-cream) !important; border-bottom-color: #4a5b6c; }
+.hw-door--navy .hw-link:hover { color: var(--hw-blush) !important; }
+.hw-door--blush .hw-link { color: var(--hw-navy) !important; border-bottom-color: #7d4431; }
+.hw-hero .hw-hero-trust { margin-top: 26px; }
+/* A product name kept on one line inside Arabic copy. */
+.hw-nowrap { white-space: nowrap; }
+
+/* ── 2. proof strip (blush) ── */
+.hw-proof { background: var(--hw-blush); color: var(--hw-navy); }
+.hw-proof-in { list-style: none; padding: 14px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 0; font: 500 12px/1.6 var(--sans); letter-spacing: 1px; text-transform: uppercase; text-align: center; }
+.hw-proof-in li + li::before { content: "·"; margin-inline: 16px; }
+html[lang="ar"] .hw-proof-in { letter-spacing: 0; font-size: 14px; font-weight: 600; }
+
+/* ── 3. the three products ── */
+.hw-products--v5 .hw-heading h2 { font: 400 48px/1.05 var(--hw-serif); }
+.hw-products--v5 .hw-heading h2 span { color: var(--hw-sage); }
+.hw-pcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.hw-pcards article { background: #fff; border: 1px solid var(--hw-hairline); border-top: 3px solid var(--hw-navy); padding: 28px; display: flex; flex-direction: column; min-width: 0; }
+.hw-pcards .hw-eyebrow { color: var(--hw-sage); font-weight: 600; }
+.hw-pcards h3 { font: 400 38px/1.05 var(--hw-serif); letter-spacing: -0.01em; color: var(--hw-navy); margin: 16px 0 8px; }
+.hw-pcards .hw-pcard-desc { font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--hw-navy); margin-bottom: 12px; }
+.hw-pcards p:not(.hw-eyebrow):not(.hw-pcard-desc) { font-size: 14px; line-height: 1.7; color: var(--hw-supporting); margin-bottom: 22px; }
+.hw-pcards .hw-link { margin-top: auto; align-self: flex-start; }
+.hw-products .hw-pcards-more { margin-top: 26px; font-size: 15px; color: var(--hw-supporting); display: flex; align-items: center; flex-wrap: wrap; gap: 4px 14px; }
+
+/* ── 5. one night on a group's books ── */
+.hw-night { background: var(--hw-cream); border-top: 1px solid var(--hw-hairline); }
+.hw-night-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+.hw-night .hw-heading { display: block; margin: 0; }
+.hw-night .hw-heading > p { max-width: 38ch; margin-top: 20px; }
+.hw-night .hw-feed-window { margin-top: 18px; }
+
+/* ── 9. for firms ── */
+.hw-firms { background: #E4EAF0; border-top: 1px solid var(--hw-hairline); }
+.hw-firms .hw-heading h2 span { color: var(--hw-sage); }
+.hw-firms-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.hw-firms-grid > article { border-top: 2px solid var(--hw-navy); padding-top: 22px; min-width: 0; display: flex; flex-direction: column; }
+.hw-firms-grid .hw-eyebrow { color: var(--hw-supporting); }
+.hw-firms-grid h3 { font: 400 38px/1.05 var(--hw-serif); color: var(--hw-navy); margin: 10px 0 20px; }
+.hw-firms-grid .hw-shot .hw-capture { margin: 0 0 12px; box-shadow: none; }
+.hw-firms-grid .hw-capture img { aspect-ratio: 1.55; object-fit: cover; object-position: left top; }
+.hw-firms-grid .hw-capture-pending { min-height: 0; aspect-ratio: 1.55; padding: 24px; }
+.hw-firms-grid .hw-ticks { margin: 18px 0 22px; }
+.hw-firms-grid .hw-link { margin-top: auto; align-self: flex-start; }
+.hw-firms .hw-firms-trust { margin-top: 38px; font: 400 28px/1.25 var(--hw-serif); color: var(--hw-navy); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.hw-firms-trust .hw-link { font-family: var(--sans); }
+html[lang="ar"] :is(.hw-firms-grid h3, .hw-pcards h3, .hw-firms-trust, .hw-page .hw-door h2) { font-family: var(--sans); font-weight: 600; letter-spacing: 0; line-height: 1.3; }
+
+/* ── 11. origin story ── */
+.hw-origin-story .hw-heading h2 { max-width: 16ch; }
+.hw-team-grid--founders { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hw-team .hw-origin-more { margin-top: 30px; }
+
+/* ── 13. demo form ── */
+.hw-conversation-grid > div > p.hw-demo-direct { margin-top: 18px; max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+
+@media (max-width: 1100px) {
+  .hw-pcards { grid-template-columns: 1fr 1fr; }
+  .hw-pcards article:last-child { grid-column: span 2; }
+}
+@media (max-width: 860px) {
+  .hw-doors { grid-template-columns: 1fr; }
+  .hw-night-grid, .hw-firms-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+@media (max-width: 760px) {
+  .hw-pcards { grid-template-columns: 1fr; }
+  .hw-pcards article:last-child { grid-column: auto; }
+}
+@media (max-width: 580px) {
+  .hw-hero-v5 { padding-block: 40px 40px; }
+  .hw-door { padding: 24px 22px 22px; }
+  .hw-doors { margin-top: 30px; }
+  .hw-proof-in { flex-direction: column; align-items: center; }
+  .hw-proof-in li + li::before { content: none; }
+  .hw-products--v5 .hw-heading h2 { font-size: 40px; }
+  .hw-pcards article { padding: 24px 22px; }
+  .hw-pcards h3, .hw-firms-grid h3 { font-size: 34px; }
+  .hw-firms .hw-firms-trust { font-size: 24px; }
+  .hw-team-grid--founders { grid-template-columns: 1fr; }
+}
+
+/* pricing: a card priced in words, not a figure (2026-09-23) */
+.hw-plans .hw-plan-price--text { font-size: 28px; letter-spacing: -0.6px; line-height: 1.2; }
+html[lang="ar"] .hw-plans .hw-plan-price--text { font-size: 24px; letter-spacing: 0; }
+
+/* the "Free" tag on Books Check in the Products dropdown and phone menu */
+.hw-drop-tag { display: inline-block; margin-inline-start: 10px; padding: 2px 7px; background: var(--hw-sage); color: var(--hw-cream); font: 600 10px/1.4 var(--sans); letter-spacing: 0.8px; text-transform: uppercase; vertical-align: 1px; }
+html[lang="ar"] .hw-drop-tag { letter-spacing: 0; font-size: 11px; }

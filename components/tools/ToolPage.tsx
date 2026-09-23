@@ -65,7 +65,7 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
                     {ar ? <>اقرأ الدليل <span aria-hidden="true">←</span></> : <>Read the guide <span aria-hidden="true">↗</span></>}
                   </a>
                 )}
-                <a className="hw-link hw-link--ruled" href={ar ? "/ar/product" : "/product"}>
+                <a className="hw-link hw-link--ruled" href={ar ? "/ar/accounting" : "/accounting"}>
                   {ar ? "شاهد Hysaab يديرها فعليًا" : "See Hysaab run it for real"} <span aria-hidden="true">{ar ? "←" : "↗"}</span>
                 </a>
               </div>

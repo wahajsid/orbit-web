@@ -1,7 +1,10 @@
 /* ── Structured data (GEO/SEO) ───────────────────────────────────────
    Organization + SoftwareApplication, site-wide. Prices mirror the FAQ
-   and /pricing exactly — one public source of truth. Shared by the EN
-   and AR root layouts so the entity stays identical across locales. */
+   and /pricing exactly: one public source of truth. Shared by the EN
+   and AR root layouts so the entity stays identical across locales.
+   Owner 2026-09-23: no parent organisation (Hysaab is a separate
+   company), both founders named, and the only published price is the
+   self-serve plan, from USD 199 a month. */
 
 export const ORG_LD = {
   "@context": "https://schema.org",
@@ -11,13 +14,15 @@ export const ORG_LD = {
   url: "https://hysaab.ai",
   logo: "https://hysaab.ai/brand/hysaab-avatar-navy-1024.png",
   description:
-    "An accounting and reporting team for Gulf businesses, built on evidence, professional judgement and human oversight. Hysaab prepares the books, tests every invoice against the tax rules and runs the month-end close, with a person approving the calls that matter. Built in Dubai.",
+    "AI agents for finance teams and the firms that serve them in the UAE and Saudi Arabia. Hysaab Finance prepares the books and the close, Hysaab Practice runs the tax work for advisory firms and Hysaab Audit runs the ISA file, with a person approving every decision that matters. Built in Dubai.",
   email: "info@hysaab.ai",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   areaServed: ["AE", "SA"],
   sameAs: ["https://www.linkedin.com/company/hysaab-ai/", "https://x.com/hysaabai", "https://www.instagram.com/hysaabai/"],
-  parentOrganization: { "@type": "Organization", name: "Oblique Consult", url: "https://obliqueconsult.com" },
-  founder: { "@type": "Person", name: "Wahaj Siddiqui", url: "https://obliqueconsult.com/about-us" },
+  founder: [
+    { "@type": "Person", name: "Wahaj Siddiqui", url: "https://obliqueconsult.com/about-us" },
+    { "@type": "Person", name: "Saad Zafar", url: "https://www.linkedin.com/in/saad-zafar-b156894a/" },
+  ],
 };
 
 export const APP_LD = {
@@ -28,13 +33,14 @@ export const APP_LD = {
   operatingSystem: "Web",
   url: "https://hysaab.ai",
   description:
-    "An accounting and reporting workspace for UAE and Saudi businesses: payables, receivables, the ledger, tax and the month-end close, prepared by Hysaab and approved by you. Posts into Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.",
+    "Hysaab Finance: AI agents for accounting and reporting in the UAE and Saudi Arabia. Payables, receivables, the ledger, tax and the month-end close, prepared by agents and approved by your people. Works with Xero and QuickBooks today, with more ledgers connecting.",
   offers: {
-    "@type": "AggregateOffer",
+    "@type": "Offer",
+    name: "Self-serve",
+    description: "Hysaab Finance, self-serve: from USD 199 a month.",
+    price: "199",
     priceCurrency: "USD",
-    lowPrice: "199",
-    highPrice: "899",
-    offerCount: "2",
+    priceSpecification: { "@type": "UnitPriceSpecification", minPrice: "199", priceCurrency: "USD", unitText: "MONTH" },
   },
 };
 

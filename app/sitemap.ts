@@ -12,9 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
      no hreflang pair; a pair pointing at a 404 is worse than none. */
   const pages: { path: string; priority: number; enOnly?: boolean }[] = [
     { path: "/", priority: 1 },
-    { path: "/product", priority: 0.9 },
     { path: "/pricing", priority: 0.9 },
-    { path: "/accounting", priority: 0.8 },
+    { path: "/accounting", priority: 0.9 },
     { path: "/invoice", priority: 0.7 },
     { path: "/hire", priority: 0.6, enOnly: true },
     { path: "/audit", priority: 0.7, enOnly: true },
@@ -23,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/how-it-works", priority: 0.8 },
     { path: "/integrations", priority: 0.7 },
     { path: "/compliance", priority: 0.7 },
+    { path: "/trust", priority: 0.7 },
     { path: "/guides", priority: 0.7 },
     { path: "/tools", priority: 0.7 },
     { path: "/faq", priority: 0.6 },

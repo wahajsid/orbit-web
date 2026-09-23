@@ -27,7 +27,7 @@ export default function HirePage() {
       <PageHero
         eyebrow="Hiring · from the Hysaab family"
         title={<>We knew what good finance people look like. So we built the way to find them.</>}
-        lede="Ibtidah: finance recruitment that tests whether a candidate truly knows the work. Experienced finance people make every call."
+        lede="When agents do the work, you need fewer, stronger reviewers. Ibtidah finds them: finance recruitment that tests whether a candidate truly knows the work, with experienced finance people making every call."
       >
         <a className="hw-btn hw-btn--peach" href="https://ibtidah.ae" target="_blank" rel="noopener">Visit ibtidah.ae <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#how">How it works</a>

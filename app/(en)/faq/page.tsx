@@ -7,7 +7,7 @@
 
 import type { Metadata } from "next";
 import { PageShell, PageHero } from "@/components/home/PageShell";
-import { LAUNCH_DATE_LONG } from "@/lib/launch";
+// Launch date deliberately not shown (owner, 2026-09-23).
 import { langAlternates } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
@@ -77,11 +77,11 @@ const GROUPS: Group[] = [
     items: [
       [
         "When does Hysaab launch?",
-        `Hysaab launches on ${LAUNCH_DATE_LONG}. You do not have to wait until then to talk to us: tell the team about your books now at hysaab.ai/contact, and we will confirm your accounting system, entities, scope and fees upfront.`,
+        `Hysaab opens to new customers shortly. You do not have to wait to talk to us: book a demo or tell the team about your books now at hysaab.ai/contact, and we will confirm your accounting system, entities, scope and fees upfront.`,
       ],
       [
         "What does it cost?",
-        "There are two ways to run Hysaab. Self-serve is USD 199 a month: your own team reviews, approves and closes, with Hysaab preparing the work. The managed service starts from USD 899 a month and adds a named Hysaab accountant who works the exceptions with you and prepares each close. Fees follow the complexity of your books, not the number of people who log in, and are confirmed with you before you start. See hysaab.ai/pricing.",
+        "There are two ways to run Hysaab. Self-serve is USD 199 a month: your own team reviews, approves and closes, with Hysaab preparing the work. The managed service is scoped to your books: Oblique’s accountants work the exceptions with you and prepare each close, using Hysaab every day. Fees follow the complexity of your books, not the number of people who log in, and are confirmed with you before you start. See hysaab.ai/pricing.",
       ],
     ],
   },

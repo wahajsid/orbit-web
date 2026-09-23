@@ -1,6 +1,6 @@
 "use client";
 
-/* ── hysaab services OS: what the admin costs you ───────────────────
+/* ── Hysaab Practice: what the admin costs you ───────────────────
    A transparent estimate, not a measured result: the product does not
    compute time saved, so this calculator shows its assumptions and lets
    the visitor change every input. Minutes per item are our working

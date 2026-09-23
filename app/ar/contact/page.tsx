@@ -66,7 +66,7 @@ export default function ContactPage() {
               </ol>
             </div>
           </div>
-          <EnquiryForm source="Arabic contact page" locale="ar" />
+          <EnquiryForm source="Arabic contact page" locale="ar" demo />
         </div>
       </section>
 

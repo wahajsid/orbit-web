@@ -1,6 +1,6 @@
 "use client";
 
-/* ── hysaab invoice: one invoice, seven stages ──────────────────────
+/* ── Hysaab Finance invoice checks: one invoice, seven stages ──────────────────────
    The left column lists the pipeline the real module runs (inbound →
    extract → reconcile → match + rules → second read → verdict → chase
    and report); the product window on the right shows INV-2107 at that

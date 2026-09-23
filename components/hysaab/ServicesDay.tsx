@@ -1,6 +1,6 @@
 "use client";
 
-/* ── hysaab services OS: a day in the firm ──────────────────────────
+/* ── Hysaab Practice: a day in the firm ──────────────────────────
    Six beats of one working day, each driving a product window. Every
    capability shown exists in the product (Oblique OS inventory,
    2026-09-15): inbox triage, meeting notes to actions, filing workbench
@@ -62,7 +62,7 @@ export function ServicesDay() {
       <div className="hy-win" aria-live="polite">
         <div className="hy-win-bar">
           <Wordmark size={15} ground="navy" suffix={false} />
-          <span className="hy-win-org">services OS · Sahara Tax Advisory</span>
+          <span className="hy-win-org">Hysaab Practice · Sahara Tax Advisory</span>
           <span className="hy-win-user"><span className="hy-win-user-n">Mariam A., Partner</span><span className="hy-win-avatar" aria-hidden="true">MA</span></span>
         </div>
         <div className="hy-tabs" role="tablist" aria-label="Areas">

@@ -138,7 +138,7 @@ export default function HowItWorksPage() {
         lede="يقف Hysaab بين شركتك ودفتر أستاذك. تدخل المستندات، ويُعدّ العمل مع أدلته، وتأتيك القرارات التي تحتاج إلى شخص. تتبع هذه الصفحة ذلك المسار بالترتيب الذي ستستخدمه به."
       >
         <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
-        <a className="hw-link hw-link--light" href="/ar/product"><span className="hw-play" aria-hidden="true">▷</span> شاهد شاشات المنتج</a>
+        <a className="hw-link hw-link--light" href="/ar/accounting"><span className="hw-play" aria-hidden="true">▷</span> شاهد شاشات المنتج</a>
       </PageHero>
 
       {/* ── المسار: من الوصول إلى فترة مقفلة ── */}
@@ -288,7 +288,7 @@ export default function HowItWorksPage() {
             <article>
               <span className="hw-mono">04</span>
               <h3>ثم اليوم العادي.</h3>
-              <p>أرسل المستندات عبر واتساب أو البريد الإلكتروني أو الرفع المباشر، وأجب عن القرارات التي تعود إليك. و<a href="/ar/product">مساحة العمل</a> موجودة حين تريد النظر عن قرب.</p>
+              <p>أرسل المستندات عبر واتساب أو البريد الإلكتروني أو الرفع المباشر، وأجب عن القرارات التي تعود إليك. و<a href="/ar/accounting">مساحة العمل</a> موجودة حين تريد النظر عن قرب.</p>
             </article>
           </div>
           <div className="hw-note">
@@ -334,7 +334,7 @@ export default function HowItWorksPage() {
               <p className="hw-eyebrow">المنتج</p>
               <h3>ستة أجزاء في مساحة عمل واحدة.</h3>
               <p>الذمم الدائنة والذمم المدينة ودفتر الأستاذ والإقفال والمستندات والضرائب، كل منها مع لقطة من شاشته.</p>
-              <a className="hw-link" href="/ar/product">شاهد المنتج <span aria-hidden="true">↗</span></a>
+              <a className="hw-link" href="/ar/accounting">شاهد المنتج <span aria-hidden="true">↗</span></a>
             </article>
             <article>
               <p className="hw-eyebrow">التكاملات</p>
@@ -351,7 +351,7 @@ export default function HowItWorksPage() {
             <article>
               <p className="hw-eyebrow">الأسعار</p>
               <h3>ثلاث خطط، لا تُسعَّر بعدد المقاعد.</h3>
-              <p>الخدمة الذاتية بـ USD 199 شهريًا؛ والخدمة المُدارة، مع محاسب مسمّى، تبدأ من USD 899 شهريًا. كل خطة تمنح فريقك كله الوصول، والأتعاب تتبع تعقيد الدفاتر لا عدد المقاعد. انظر <a href="/ar/pricing">الأسعار</a>.</p>
+              <p>الخدمة الذاتية بـ USD 199 شهريًا؛ والخدمة المُدارة، مع محاسبي Oblique، تُسعَّر وفق نطاق دفاترك. كل خطة تمنح فريقك كله الوصول، والأتعاب تتبع تعقيد الدفاتر لا عدد المقاعد. انظر <a href="/ar/pricing">الأسعار</a>.</p>
               <a className="hw-link" href="/ar/pricing">تفاصيل الأسعار كاملة <span aria-hidden="true">↗</span></a>
             </article>
           </div>

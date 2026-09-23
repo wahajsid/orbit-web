@@ -54,8 +54,9 @@ function ctaMotion(children: React.ReactNode) {
 }
 
 /** A genuine workspace capture from public/home/screens, enlargeable. */
-export function Shot({ file, title, alt, caption, priority, locale = "en" }: { file: string; title: string; alt: string; caption: string; priority?: boolean; locale?: "en" | "ar" }) {
-  const m = capture(file, title, alt, caption);
+export function Shot({ file, title, alt, caption, priority, locale = "en", pending }: { file: string; title: string; alt: string; caption: string; priority?: boolean; locale?: "en" | "ar"; pending?: string }) {
+  /* `pending` replaces the English "capture pending" line (Arabic pages). */
+  const m = { ...capture(file, title, alt, caption), ...(pending ? { pending } : {}) };
   return (
     <div className="hw-shot">
       <Capture moment={m} priority={priority} locale={locale} />

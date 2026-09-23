@@ -190,6 +190,10 @@ export default function CompliancePage() {
             <article><span className="hw-mono">02</span><h3>It does not give tax advice.</h3><p>Hysaab tests documents against the rules described on this page and shows the result with its reason. It does not issue or sign tax opinions. A position that needs judgement goes to you or your adviser.</p></article>
             <article><span className="hw-mono">03</span><h3>It does not decide for you.</h3><p>A failed test is held and flagged, not resolved on your behalf. An override needs a written reason, and the reason is recorded with the entry.</p></article>
           </div>
+          <div className="hw-note" style={{ borderColor: "#536477" }}>
+            <span className="hw-mono">Your data</span>
+            <p>How we look after your data, and where we draw the line with firms and their clients, is set out on our <a href="/trust">trust page</a>.</p>
+          </div>
         </div>
       </section>
     </PageShell>

@@ -1,33 +1,42 @@
 /* ── الصفحة الرئيسية العربية ──────────────────────────────────────────
-   Arabic twin of app/(en)/page.tsx in the same design (2026-09-18): the
-   same sections in the same order, translated, sharing the components,
-   the captures (lib/home-moments.ts, with Arabic captions here) and the
-   team data (lib/team.ts). Brand and system names stay Latin; digits
-   stay Latin; WhatsApp is واتساب in prose. */
+   Arabic twin of app/(en)/page.tsx, rebuilt 2026-09-23 with the website
+   change plan: one promise and two doors, the proof strip, the three
+   products, how it works, one night on a group's books, five ways, the
+   close verification, your control, for firms, ways to work, the origin
+   story, Books Check and the demo form, in the English order. Shares
+   the components, the captures (lib/home-moments.ts, Arabic captions
+   here) and the founders (lib/team.ts). Brand and system names stay
+   Latin; digits stay Latin; WhatsApp is واتساب in prose.
+   AR-REVIEW: every string marked below is a new draft for the native
+   reviewer (brand/AR-REVIEW.md). Strings carried over unchanged from
+   the previous Arabic homepage are not marked. */
 
-import { Wordmark } from "@/components/Wordmark";
+import Image from "next/image";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { Capture } from "@/components/home/Capture";
+import { Shot } from "@/components/home/PageShell";
 import { EnquiryForm } from "@/components/home/EnquiryForm";
 import { loadMoments } from "@/lib/home-moments";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { TEAM } from "@/lib/team";
 import { KineticLines, Mark, SwapLabel } from "@/components/motion/Kinetic";
 import { ActivityFeed } from "@/components/home/ActivityFeed";
-import { PeachScroller } from "@/components/home/PeachScroller";
 
+/* AR-REVIEW: title and description */
 export const metadata = {
-  title: "برنامج محاسبة بالذكاء الاصطناعي للإمارات والسعودية | Hysaab",
+  title: "وكلاء ذكاء اصطناعي للفرق المالية والمكاتب المهنية | Hysaab",
   description:
-    "فريق محاسبة وتقارير لشركات الخليج: فواتير مرمّزة ومختبرة ضريبيًا، إقفال شهري مُعدّ، وقرارات تبقى بيدك. صُنع في دبي.",
+    "وكلاء الذكاء الاصطناعي يؤدون العمل المالي وفريقك يراجع ويعتمد. Hysaab Finance للفرق المالية، وHysaab Practice وHysaab Audit للمكاتب المهنية.",
   alternates: langAlternates("/"),
 };
 
-/* الشريط الحي: الصفوف نفسها التي في الصفحة الإنجليزية */
+/* الشريط الحي: الصفوف نفسها التي في الصفحة الإنجليزية
+   (AR-REVIEW: the first row now names the Dubai entity). */
 const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
-  { t: "21:00", who: "وكيل الاستلام", msg: "استلم صورة عبر واتساب من راشد. Gulf Technical Supplies، INV-4471." },
+  { t: "21:00", who: "وكيل الاستلام", msg: "استلم صورة عبر واتساب من راشد، كيان دبي. Gulf Technical Supplies، INV-4471." },
   { t: "21:01", who: "وكيل الضرائب", msg: "معايير الفاتورة الضريبية مستوفاة · رقم التسجيل الضريبي صحيح · ضريبة 199.50 قابلة للاسترداد." },
   { t: "21:02", who: "وكيل الترميز", msg: "معدات تقنية · مكتب دبي، بثقة 96% من 31 قيدًا مشابهًا. رُحّل القيد J-2291 إلى Zoho Books." },
   { t: "21:40", who: "مراقبة التكرار", msg: "وصلت INV-4471 مرة أخرى بالبريد. دُمجت ولم تُرحَّل مرتين." },
@@ -38,13 +47,30 @@ const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
   { t: "06:45", who: "وكيل التقارير", msg: "أُعيد بناء حزمة سبتمبر. هامش الربح الإجمالي انخفض 2.1 نقطة، والتفسير مرفق." },
 ];
 
-/* شريط العبارات: the old band's own lines, now on the peach scroller */
-const STATEMENTS = [
-  "نظامك المحاسبي يحفظ السجلات.",
-  "وHysaab يستخلص معناها.",
-  "المستندات تصل.",
-  "والإجابات تتبعها.",
-  "وأنت تبقى في موقع التحكم.",
+/* AR-REVIEW: the proof strip */
+const PROOF = [
+  "مبني على عمل Oblique الحي مع العملاء منذ 2018",
+  "Xero وQuickBooks اليوم، وأنظمة أخرى قيد الربط",
+  "بالإنجليزية والعربية",
+];
+
+/* AR-REVIEW: the three product cards */
+const PRODUCTS: { status: string; name: string; desc: string; line: string; href: string; cta: string }[] = [
+  {
+    status: "للفرق المالية · وصول مبكر", name: "Hysaab Finance", desc: "وكلاء ذكاء اصطناعي للمحاسبة والتقارير.",
+    line: "الذمم الدائنة والمطابقات والإقفال وحزمة التقارير، تُعدّ داخل النظام المحاسبي الذي تستخدمه بالفعل. وفريقك يراجع ويعتمد.",
+    href: "/ar/accounting", cta: "استكشف Hysaab Finance",
+  },
+  {
+    status: "لمكاتب الضرائب والاستشارات · قريبًا", name: "Hysaab Practice", desc: "وكلاء ذكاء اصطناعي لمكاتب الضرائب والاستشارات.",
+    line: "مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات في كل إقرار، ومعالجات مستمدة من سوابقك، والأعمال الإدارية للمكتب تدير نفسها من حول العمل.",
+    href: "/ar/firms", cta: "استكشف Hysaab Practice",
+  },
+  {
+    status: "لمكاتب التدقيق المرخّصة · قريبًا", name: "Hysaab Audit", desc: "ملف التدقيق وفق معايير ISA، تديره المحركات ويستنتجه شركاؤك.",
+    line: "كل قيد مُقيَّم، والعينات مصممة ومُقيَّمة، والجداول مطابَقة. يستنتج شريك مرخّص ويوقّع؛ ولا يوقّع Hysaab أبدًا.",
+    href: "/audit", cta: "استكشف Hysaab Audit (بالإنجليزية)",
+  },
 ];
 
 const AR_NOTICE: Record<string, string> = {
@@ -62,6 +88,8 @@ const AR_TITLE: Record<string, string> = {
   position: "اعرف أين تقف.",
 };
 
+const newTab = <span className="hw-sr">{DEMO_NEW_TAB.ar}</span>;
+
 export default function Page() {
   const moments = loadMoments();
   const pendingCount = moments.filter((m) => !m.ready).length;
@@ -73,38 +101,84 @@ export default function Page() {
       <HomeHeader locale="ar" />
 
       <main id="main">
-        {/* ── البطل: same structure as the English homepage ── */}
-        <section className="hw-hero">
-          <div className="hw-wrap hw-hero-grid">
+        {/* ── 1. البطل: وعد واحد وبابان (AR-REVIEW: all hero strings) ── */}
+        <section className="hw-hero hw-hero--doors">
+          <div className="hw-wrap hw-hero-v5">
             <div className="hw-hero-copy m-enter">
-              <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> عناية هادئة، كل صباح</p>
-              <h1><KineticLines delay={120} lines={[<>دفاترك</>, <>في نصابها.</>, <><Mark at={900}>وذهنك</Mark></>, <>فيما هو آت.</>]} /></h1>
-              <p className="hw-hero-desc">الدفاتر مُعدّة. والقرارات لك.</p>
-              <div className="hw-actions">
-                <a className="hw-btn hw-btn--blush m-cta m-magnetic" href="#conversation"><SwapLabel text="احجز جولة تعريفية" whole /> <span aria-hidden="true">↗</span></a>
-                <a className="hw-link hw-link--ruled" href="#experience">شاهد كيف يعمل <span aria-hidden="true">←</span></a>
-              </div>
-              <p className="hw-origin"><span aria-hidden="true">✳</span> صُنع في دبي. يفهم يوم عملك.</p>
+              <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> وكلاء ذكاء اصطناعي للفرق المالية وللمكاتب التي تخدمها</p>
+              <h1><KineticLines delay={120} lines={[<>وكلاء الذكاء الاصطناعي يؤدون العمل المالي.</>, <>وفريقك <Mark at={1000}>يراجع ويعتمد</Mark>.</>]} /></h1>
+              <p className="hw-hero-desc">بناه محاسبون أدّوا العمل بأنفسهم أولًا. للإمارات والسعودية.</p>
             </div>
-            <ActivityFeed rows={TICKER} locale="ar" />
+
+            <div className="hw-doors m-enter-block">
+              <article className="hw-door hw-door--navy" aria-labelledby="door-finance">
+                <p className="hw-eyebrow">أدير فريقًا ماليًا</p>
+                <h2 id="door-finance">Hysaab Finance</h2>
+                <p>يتولى الوكلاء الذمم الدائنة والمطابقات والإقفال والتقارير داخل النظام المحاسبي الذي تستخدمه بالفعل.</p>
+                <div className="hw-door-actions">
+                  <a {...DEMO} className="hw-btn hw-btn--blush m-cta m-cta--on-navy m-magnetic"><SwapLabel text="احجز عرضًا تجريبيًا" whole /> <span aria-hidden="true">↗</span>{newTab}</a>
+                  <a className="hw-link hw-link--ruled" href="/check">افحص دفاترك مجانًا <span aria-hidden="true">←</span><span className="hw-sr"> (بالإنجليزية)</span></a>
+                </div>
+              </article>
+              <article className="hw-door hw-door--blush" aria-labelledby="door-firm">
+                <p className="hw-eyebrow">أدير مكتبًا مهنيًا</p>
+                <h2 id="door-firm"><bdi className="hw-nowrap">Hysaab Practice</bdi> و<bdi className="hw-nowrap">Hysaab Audit</bdi></h2>
+                <p>يتولى الوكلاء الفحوص الضريبية وارتباطات العملاء وملف التدقيق وفق معايير ISA. والقرار لشركائك.</p>
+                <div className="hw-door-actions">
+                  <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-cta--on-blush m-magnetic"><SwapLabel text="احجز عرضًا تجريبيًا" whole /> <span aria-hidden="true">↗</span>{newTab}</a>
+                  <a className="hw-link hw-link--ruled" href="/ar/firms">شاهد كيف تستخدمه المكاتب <span aria-hidden="true">←</span></a>
+                </div>
+              </article>
+            </div>
+            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> دليل على كل رقم. واعتماد على كل قرار مهم. صُنع في دبي.</p>
           </div>
         </section>
 
-        {/* ── في هذه الصفحة ── */}
+        {/* ── 2. شريط الإثبات ── */}
+        <section className="hw-proof" aria-label="عن Hysaab">
+          <ul className="hw-wrap hw-proof-in">
+            {PROOF.map((p) => <li key={p}>{p}</li>)}
+          </ul>
+        </section>
+
+        {/* ── في هذه الصفحة (AR-REVIEW: labels 01, 03 and 05) ── */}
         <nav className="hw-subnav" aria-label="في هذه الصفحة">
           <div className="hw-wrap hw-subnav-in">
-            <a href="#experience"><span className="hw-mono">01</span><span>التجربة</span></a>
-            <a href="#control"><span className="hw-mono">02</span><span>تحكّمك</span></a>
-            <a href="#ways"><span className="hw-mono">03</span><span>طرق العمل</span></a>
-            <a href="#team"><span className="hw-mono">04</span><span>الفريق</span></a>
-            <a href="#products"><span className="hw-mono">05</span><span>منتجاتنا</span></a>
+            <a href="#products"><span className="hw-mono">01</span><span>المنتجات</span></a>
+            <a href="#experience"><span className="hw-mono">02</span><span>التجربة</span></a>
+            <a href="#firms"><span className="hw-mono">03</span><span>للمكاتب المهنية</span></a>
+            <a href="#ways"><span className="hw-mono">04</span><span>طرق العمل</span></a>
+            <a href="#team"><span className="hw-mono">05</span><span>قصتنا</span></a>
           </div>
         </nav>
 
-        {/* ── شريط العبارة ── */}
-        <PeachScroller phrases={STATEMENTS} />
+        {/* ── 3. المنتجات الثلاثة (AR-REVIEW) ── */}
+        <section id="products" className="hw-products hw-products--v5">
+          <span id="family" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading" data-reveal="">
+              <div>
+                <p className="hw-eyebrow">المنتجات</p>
+                <h2>ثلاثة منتجات.<br /><span>وطريقة عمل واحدة.</span></h2>
+              </div>
+              <p>كل منتج يعمل وحده. والثلاثة تلتزم القاعدة نفسها: الوكلاء يُعدّون العمل، وشخص يتخذ القرار.</p>
+            </div>
+            <div className="hw-pcards" data-reveal="stagger-lg">
+              {PRODUCTS.map((p) => (
+                <article key={p.name} className="m-sweep">
+                  <p className="hw-eyebrow">{p.status}</p>
+                  <h3 lang="en">{p.name}</h3>
+                  <p className="hw-pcard-desc">{p.desc}</p>
+                  <p>{p.line}</p>
+                  <a className="hw-link hw-link--ruled" href={p.href}>{p.cta} <span aria-hidden="true">←</span></a>
+                </article>
+              ))}
+            </div>
+            <p className="hw-pcards-more" data-reveal="">توظّف في المالية؟ <a className="hw-link hw-link--ruled" href="/hire">تعرّف على Ibtidah <span aria-hidden="true">←</span><span className="hw-sr"> (بالإنجليزية)</span></a></p>
+          </div>
+        </section>
 
-        {/* ── كيف يعمل ── */}
+        {/* ── 4. كيف يعمل ── */}
         <section className="hw-work" id="how-it-works">
           <div className="hw-wrap hw-section">
             <div className="hw-work-grid">
@@ -116,8 +190,9 @@ export default function Page() {
               <div className="hw-workflow" data-reveal="stagger-lg">
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">01</span>
-                  <h3>ترسل رسالة.</h3>
-                  <p>إيصال أو فاتورة أو سؤال عن أرقامك. لا حاجة لتعلّم أداة تقارير.</p>
+                  {/* AR-REVIEW: step 1 */}
+                  <h3>المستندات والبيانات تصل.</h3>
+                  <p>فواتير وإيصالات وأسطر بنكية وأسئلة، عبر واتساب أو البريد أو الرفع. لا حاجة لتعلّم أداة تقارير.</p>
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">02</span>
@@ -134,7 +209,19 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── خمس لحظات: العرض التفاعلي ── */}
+        {/* ── 5. ليلة واحدة على دفاتر مجموعة (AR-REVIEW: heading and body) ── */}
+        <section className="hw-night" aria-labelledby="hw-night-h">
+          <div className="hw-wrap hw-section hw-night-grid">
+            <div className="hw-heading" data-reveal="">
+              <p className="hw-eyebrow">Hysaab Finance</p>
+              <h2 id="hw-night-h">ليلة واحدة<br />على دفاتر مجموعة.</h2>
+              <p>ما فعله الوكلاء بين التاسعة مساءً والسابعة إلا ربعًا صباحًا، والسؤال الوحيد الذي تركوه لليلى. بيانات توضيحية.</p>
+            </div>
+            <ActivityFeed rows={TICKER} locale="ar" title={null} />
+          </div>
+        </section>
+
+        {/* ── 6. خمس لحظات: العرض التفاعلي ── */}
         <section id="experience" className="hw-experience">
           <div className="hw-wrap hw-section">
             <div className="hw-heading" data-reveal="">
@@ -145,7 +232,8 @@ export default function Page() {
               <p>تابع فاتورة واحدة عبر خمس لحظات، من صورة في التاسعة مساءً إلى فترة مقفلة.</p>
             </div>
             <Demo locale="ar" />
-            <p className="hw-disclosure">سيناريو توضيحي. راشد يدير شركة تجارية؛ ليلى مديرته المالية؛ نور تمسك الدفاتر. الأرقام أمثلة، لا نتائج.</p>
+            {/* AR-REVIEW: the group scenario disclosure */}
+            <p className="hw-disclosure">سيناريو توضيحي. تدير مجموعة النور أربعة كيانات بين دبي والرياض. ليلى المديرة المالية للمجموعة، ويُقفل فريقها المكوّن من اثني عشر شخصًا الدفاتر كل شهر. السيناريو والأرقام أمثلة، لا نتائج.</p>
 
             <div className="hw-shots">
               <h3 data-reveal="">داخل مساحة العمل الحقيقية.</h3>
@@ -160,21 +248,46 @@ export default function Page() {
                 <aside className="hw-shots-note">
                   <span className="hw-mono">عن هذه الشاشات</span>
                   <p>{pendingCount > 0 ? `${pendingCount} من ${moments.length} لقطات ما زالت قيد الإعداد ومُعلَّمة كذلك. البقية لقطات` : "لقطات"} من مساحة عمل Hysaab وهي تعمل على بيانات تجريبية. كل صورة مصغرة هي الجزء من الشاشة الذي يخص الفكرة؛ اخترها لرؤية الشاشة كاملة.</p>
-                  <a className="hw-link hw-link--ruled" href="#conversation">تجوّل فيها معنا <span aria-hidden="true">↗</span></a>
+                  <a className="hw-link hw-link--ruled" {...DEMO}>تجوّل فيها معنا <span aria-hidden="true">↗</span>{newTab}</a>
                 </aside>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── تحكّمك (navy) ── */}
+        {/* ── 7. الإقفال المكتمل (AR-REVIEW: new to the Arabic page) ── */}
+        <section className="hw-zero-section" aria-labelledby="hw-zero-h">
+          <div className="hw-wrap">
+            <div className="hw-zero-layout" data-reveal="stagger-lg">
+              <div>
+                <div className="hw-zero" aria-hidden="true" data-count="" data-count-from="43">0</div>
+                <p className="hw-zero-label">كل شيء مُسوّى.</p>
+              </div>
+              <div>
+                <p className="hw-eyebrow">إقفال سبتمبر / البنود المعلّقة</p>
+                <h2 id="hw-zero-h">مناسبة نادرة<br />يكون فيها الصفر<br />هو الرقم الذي تريده.</h2>
+                <p>الإيصالات وصلت. والبنك مطابَق. وكل بند في قائمة إقفال سبتمبر مكتمل.</p>
+                <div className="hw-zero-detail">
+                  <a className="hw-btn" href="#experience">أرني الدليل <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </div>
+            <div className="hw-zero-meta">
+              <span><span data-count="">43</span> / 43 فحصًا مكتملًا</span>
+              <span>إقفال مكتمل توضيحي · بيانات تجريبية</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 8. تحكّمك (navy) ── */}
         <section className="hw-control" id="control">
           <div className="hw-wrap hw-control-grid">
             <div data-reveal="">
               <p className="hw-eyebrow">تحكّمك</p>
               <h2>حكمك.<br />حدودك.<br />دائمًا.</h2>
               <p>الأدوات الجيدة تجعل الإشراف على المالية أسهل، لا تفسيرها أصعب.</p>
-              <a className="hw-textlink" href="#conversation">ناقش ضوابطك معنا <span aria-hidden="true">↗</span></a>
+              {/* AR-REVIEW: link to the trust page */}
+              <a className="hw-textlink" href="/ar/trust">اقرأ التزاماتنا بشأن البيانات والتحكم <span aria-hidden="true">←</span></a>
             </div>
             <div className="hw-principles" data-reveal="stagger-lg">
               <article>
@@ -190,7 +303,50 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── طرق العمل ── */}
+        {/* ── 9. للمكاتب المهنية (AR-REVIEW) ── */}
+        <section id="firms" className="hw-firms">
+          <div className="hw-wrap hw-section">
+            <div className="hw-heading" data-reveal="">
+              <div>
+                <p className="hw-eyebrow">للمكاتب المهنية</p>
+                <h2>مكتبك يبيع الحكم المهني.<br /><span>والوكلاء يحملون الملف.</span></h2>
+              </div>
+              <p>لمكاتب الضرائب والاستشارات، ولمكاتب التدقيق المرخّصة. استخدم أيًّا من المنتجين وحده، أو كليهما معًا.</p>
+            </div>
+            <div className="hw-firms-grid" data-reveal="stagger-lg">
+              <article>
+                <p className="hw-eyebrow">لمكاتب الضرائب والاستشارات</p>
+                <h3 lang="en">Hysaab Practice</h3>
+                <Shot file="p-practice.png" title="منصة الإقرارات في Hysaab Practice" alt="منصة الإقرارات في Hysaab Practice مع الفحوص على إقرار ضريبة القيمة المضافة." caption="منصة الإقرارات في Hysaab Practice، بيانات تجريبية." pending="لقطة منصة الإقرارات في Hysaab Practice قيد الإعداد." locale="ar" />
+                <ul className="hw-ticks">
+                  <li>مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات في كل إقرار</li>
+                  <li>معالجات مقترحة من سوابق مكتبك</li>
+                  <li>مراجعة نقدية قبل أن يعتمد الشريك</li>
+                </ul>
+                <a className="hw-link hw-link--ruled" href="/ar/firms">شاهد Hysaab Practice <span aria-hidden="true">←</span></a>
+              </article>
+              <article>
+                <p className="hw-eyebrow">لمكاتب التدقيق المرخّصة</p>
+                <h3 lang="en">Hysaab Audit</h3>
+                <div className="hw-shot">
+                  <div className="hw-capture">
+                    <Image src="/shots/audit-jet.png" width={2540} height={2360} sizes="(max-width: 760px) 100vw, 45vw" alt="اختبار قيود اليومية في Hysaab Audit: كل قيد مُقيَّم وفق ثلاثين معيارًا، مع المعايير التي انطبقت على كل قيد. بيانات تجريبية." style={{ width: "100%", height: "auto", display: "block" }} />
+                  </div>
+                  <p className="hw-shot-cap">اختبار قيود اليومية على ارتباط تجريبي، بيانات تجريبية.</p>
+                </div>
+                <ul className="hw-ticks">
+                  <li>كل قيد مُقيَّم، لا عينة تُختار بالنظر</li>
+                  <li>العينات تُصمَّم وتُختار وتُقيَّم بالشيفرة</li>
+                  <li>يستنتج شريك مرخّص ويوقّع. ولا يوقّع Hysaab أبدًا.</li>
+                </ul>
+                <a className="hw-link hw-link--ruled" href="/audit">شاهد Hysaab Audit (بالإنجليزية) <span aria-hidden="true">←</span></a>
+              </article>
+            </div>
+            <p className="hw-firms-trust" data-reveal="">عملاؤك يبقون عملاءك. <a className="hw-link hw-link--ruled" href="/ar/trust">اقرأ التزاماتنا تجاه المكاتب <span aria-hidden="true">←</span></a></p>
+          </div>
+        </section>
+
+        {/* ── 10. طرق العمل ── */}
         <section id="ways" className="hw-ways">
           <div className="hw-wrap hw-section">
             <div className="hw-heading" data-reveal="">
@@ -209,90 +365,76 @@ export default function Page() {
               </article>
               <article>
                 <p className="hw-eyebrow">للشركات التي تريد دعمًا أكبر</p>
-                <h3>استعن بفريقنا.</h3>
-                <p>اعمل جنبًا إلى جنب مع محاسبين مؤهلين يديرون سير العمل ويراجعون الاستثناءات ويُعدّون كل إقفال معك.</p>
+                {/* AR-REVIEW: "We run it with you" */}
+                <h3>ندير العمل معك.</h3>
+                <p>يدير محاسبو Oblique قائمة العمل ويجهّزون الإقفال معك، مستخدمين Hysaab كل يوم. للشركات المتوسطة والكبيرة.</p>
                 <a href="#conversation" className="hw-link hw-link--ruled">ناقش الدعم المُدار <span aria-hidden="true">↗</span></a>
               </article>
             </div>
           </div>
         </section>
 
-        {/* ── الفريق ── */}
-        <section id="team" className="hw-team">
+        {/* ── 11. قصتنا (AR-REVIEW: replaces the team section) ── */}
+        <section id="team" className="hw-team hw-origin-story">
+          <span id="origin" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap hw-section">
             <div className="hw-heading" data-reveal="">
               <div>
-                <p className="hw-eyebrow">الفريق</p>
-                <h2>الفريق وراء Hysaab.</h2>
+                <p className="hw-eyebrow">من أين جاء Hysaab</p>
+                <h2>أدّينا العمل<br />قبل أن نبني المنتج.</h2>
               </div>
-              <p>Hysaab يبنيه ويديره فريقان: محاسبو Oblique Consult ومهندسو Simpla.</p>
+              <p>نشأ Hysaab من أعمال الضرائب والمحاسبة التي تؤديها Oblique Consult لشركات الخليج منذ 2018، وهندسته Simpla. بنينا الوكلاء للعمل الذي كنا نؤديه بأيدينا.</p>
             </div>
-            <div className="hw-team-grid" data-reveal="stagger">
+            <div className="hw-team-orgs">
+              <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
+                <span><strong>Oblique Consult</strong>ضرائب ومحاسبة واستشارات. دبي، منذ 2018. محاسبوها يديرون الخدمة المُدارة.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
+              </a>
+              <a href="https://www.simpla.ai" target="_blank" rel="noopener">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/partners/simpla.png" alt="Simpla" width={1024} height={304} loading="lazy" />
+                <span><strong>Simpla</strong>ذكاء اصطناعي للضرائب والمحاسبة. دبي. المهندسون وراء Hysaab.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
+              </a>
+            </div>
+            <div className="hw-team-grid hw-team-grid--founders" data-reveal="stagger">
               {TEAM.map((p) => (
                 <article key={p.name}>
+                  <span className="hw-team-initials" aria-hidden="true">{p.initials}</span>
                   <h3 lang="en">{p.name}</h3>
                   <p className="hw-team-role">{p.ar.role} · {p.ar.org}</p>
+                  {p.ar.bio && <p>{p.ar.bio}</p>}
                 </article>
               ))}
             </div>
+            <p className="hw-origin-more" data-reveal=""><a className="hw-link hw-link--ruled" href="/ar/about">اقرأ القصة كاملة <span aria-hidden="true">←</span></a></p>
           </div>
         </section>
 
-        {/* ── عائلة Hysaab ── */}
-        <section id="products" className="hw-products">
-          <span id="family" className="hw-anchor" aria-hidden="true" />
-          <div className="hw-wrap hw-section">
-            <div className="hw-heading" data-reveal="">
-              <div>
-                <p className="hw-eyebrow">عائلة Hysaab</p>
-                <h2>أفضل معًا.<br /><span>ونافعة كلٌّ على حدة.</span></h2>
-              </div>
-              <p>المحاسبة، وفحص الفواتير، وتشغيل المكاتب المهنية، والتدقيق، والكفاءات المالية. منتجات متكاملة من الفريق نفسه، ولكل منها مهمة واضحة.</p>
+        {/* ── 12. فحص الدفاتر (AR-REVIEW) ── */}
+        <section className="hw-trycheck" aria-labelledby="hw-trycheck-h">
+          <div className="hw-wrap hw-trycheck-grid">
+            <div data-reveal="">
+              <p className="hw-eyebrow">لست مستعدًا لعرض تجريبي؟</p>
+              <h2 id="hw-trycheck-h">افحص <em>دفاترك</em> مجانًا.</h2>
             </div>
-            <div className="hw-family" data-reveal="stagger">
-              <article className="hw-family-primary m-sweep">
-                <p className="hw-eyebrow">المحاسبة والتقارير · وصول مبكر</p>
-                <h3><Wordmark size={50} ground="light" /></h3>
-                <p>محاسبتك وتقاريرك اليومية، مع الحكم البشري حيث يهم.</p>
-                <a className="hw-link hw-link--peach" href="#experience">استكشف Hysaab <span aria-hidden="true">↗</span></a>
-              </article>
-              <article className="m-sweep">
-                <p className="hw-eyebrow">معالجة الفواتير · متاح</p>
-                <h3>hysaab invoice</h3>
-                <p>يقرأ فواتير الموردين ويفحصها، مع كشف التكرار وذكر سبب إيقاف أي بند للمراجعة.</p>
-                <a className="hw-link" href="/ar/invoice">استكشف Invoice <span aria-hidden="true">↗</span></a>
-              </article>
-              <article className="m-sweep">
-                <p className="hw-eyebrow">تشغيل المكاتب المهنية · قريبًا</p>
-                <h3>hysaab services OS</h3>
-                <p>ارتباطات العملاء والمواعيد النهائية والإشراف لمكاتب الخدمات المهنية، في مكان واحد.</p>
-                <a className="hw-link" href="/ar/firms">استكشف Services OS <span aria-hidden="true">↗</span></a>
-              </article>
-              <article className="m-sweep">
-                <p className="hw-eyebrow">التدقيق · قريبًا</p>
-                <h3>hysaab audit</h3>
-                <p>إعداد التدقيق وأدلته داخل Services OS. المهنيون المرخصون يحتفظون بالاستنتاجات والرأي.</p>
-                <a className="hw-link" href="/audit">استكشف Audit <span aria-hidden="true">↗</span><span className="hw-sr"> (بالإنجليزية)</span></a>
-              </article>
-              <article className="m-sweep">
-                <p className="hw-eyebrow">الكفاءات المالية · متاح</p>
-                <h3>Ibtidah</h3>
-                <p>اعثر على كفاءات مالية عبر تقييم قائم على العمل، ويتولى مهنيون ذوو خبرة إعداد القائمة المختصرة.</p>
-                <a className="hw-link" href="https://ibtidah.ae" target="_blank" rel="noopener">تعرّف على Ibtidah <span aria-hidden="true">↗</span><span className="hw-sr"> (يفتح في تبويب جديد)</span></a>
-              </article>
+            <div className="hw-trycheck-side" data-reveal="stagger-lg">
+              <p>اربط Xero أو QuickBooks، وشاهد ما يجده Hysaab في دقيقة تقريبًا. للقراءة فقط. الأداة بالإنجليزية.</p>
+              <a className="hw-btn hw-btn--navy m-cta m-cta--sage m-magnetic" href="/check"><SwapLabel text="افحص دفاتري" whole /> <span aria-hidden="true">←</span></a>
             </div>
           </div>
         </section>
 
-        {/* ── التواصل ── */}
+        {/* ── 13. احجز عرضًا تجريبيًا (AR-REVIEW: heading, body, direct link) ── */}
         <section className="hw-conversation" id="conversation">
           <span id="contact" className="hw-anchor" aria-hidden="true" />
           <span id="ledger" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap hw-conversation-grid" data-reveal="stagger-lg">
             <div>
               <p className="hw-eyebrow">حوار، لا عرض مبيعات</p>
-              <h2>لنبدأ<br />بدفاترك.</h2>
-              <p>أخبرنا بما يستغرق وقتًا أطول مما ينبغي.<br />وسنريك أين يناسبك Hysaab.</p>
+              <h2>احجز عرضًا<br />تجريبيًا.</h2>
+              <p>أخبرنا من أنت وما الذي يستغرق وقتًا أطول مما ينبغي.<br />وسنريك أين يناسبك Hysaab.</p>
+              <p className="hw-demo-direct">تفضّل أن تختار الموعد بنفسك؟ <a className="hw-link hw-link--ruled" {...DEMO}>اختر موعدًا في تقويمنا <span aria-hidden="true">↗</span>{newTab}</a></p>
               <div className="hw-agenda">
                 <span className="hw-mono">محادثتك الأولى</span>
                 <ol>
@@ -302,7 +444,7 @@ export default function Page() {
                 </ol>
               </div>
             </div>
-            <EnquiryForm source="Arabic homepage" locale="ar" />
+            <EnquiryForm source="Arabic homepage" locale="ar" demo />
           </div>
         </section>
       </main>

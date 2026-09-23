@@ -11,36 +11,36 @@ const BASE = "https://hysaab.ai";
 
 const HEADER = `# Hysaab
 
-> Hysaab is an AI finance team for UAE and KSA businesses. Documents arrive by WhatsApp, Telegram or email; specialist agents read them, code them from the business's own posting history, test them against FTA and ZATCA tax rules, match them to purchase orders and bank lines, and post them to the ledger — with human approval on every decision that matters. Hysaab sits on top of the ledger a business already uses (Zoho Books, Xero, QuickBooks, Odoo, Wafeq, ERPNext) rather than replacing it, or keeps clean books itself when there is no ledger.
+> Hysaab builds AI agents for finance teams and the firms that serve them in the UAE and Saudi Arabia. The agents do the finance work; people review and approve. Three products: Hysaab Finance for finance teams, and Hysaab Practice and Hysaab Audit for tax, advisory and audit firms. Evidence on every number, and a person's approval on every decision that matters.
 
 Key facts:
-- Made for the Gulf: UAE VAT (5%) tested line-by-line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax accrued monthly and reconciled against VAT; KSA 15% VAT and ZATCA e-invoice clearance tracked.
-- Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, humans approve past confidence thresholds.
-- Month-end close runs as a checklist: accruals proposed, variances flagged, bank reconciled, VAT drafted — then the period locks and agents cannot cross the lock.
-- Hysaab is a product of Oblique Consult (https://obliqueconsult.com), a Dubai tax and accounting advisory founded in 2018; the engineering is by Simpla.
-- Two ways to run it: self-serve at USD 199/month (your team reviews and approves; Hysaab prepares the work) and a managed accounting and reporting service from USD 899/month with a named accountant. Fees follow the complexity of the books, not seats, and are confirmed before you start.
-- Products: Hysaab (accounting and reporting), hysaab invoice (tax compliance and e-invoice validation), hysaab services OS (for accounting and advisory firms) with hysaab audit as its ISA audit module, and the sister hiring product Ibtidah.
-- Company: built in Dubai, UAE by accountants; contact info@hysaab.ai; the app runs at app.hysaab.ai.
-- Languages: the site is bilingual — every marketing page has an Arabic (RTL) twin under ${BASE}/ar (e.g. /ar, /ar/product, /ar/pricing); the product workspace itself also runs in Arabic, right-to-left.
+- Products: Hysaab Finance (AI agents for accounting and reporting: payables, receivables, the ledger, invoice checks, the month-end close and the reporting pack, inside the ledger a business already uses); Hysaab Practice (AI agents for tax and advisory firms: hundreds of VAT and CT checks per return, treatments proposed from the firm's own precedents, a red-team review before approval, and the firm's admin around it); Hysaab Audit (an ISA audit file for licensed audit firms: engines test a hashed snapshot and a licensed partner concludes; Hysaab never signs an opinion). The sister product Ibtidah is finance hiring through work-based assessment (https://ibtidah.ae).
+- Two ways to work with Hysaab Finance: self-serve, from USD 199 a month (your team reviews and approves; the agents prepare the work), or the managed service, priced by scope, in which Oblique Consult's accountants run the queue and prepare the close with you, using Hysaab every day. Firms pay a setup fee plus a monthly subscription for Hysaab Practice and Hysaab Audit. Fees are confirmed in writing before you start; there is no charge per user.
+- Made for the Gulf: UAE VAT (5%) tested line by line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax reconciled against VAT; KSA 15% VAT and ZATCA e-invoicing rules.
+- Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, people approve; the period lock is pressed by a person. Hysaab does not file returns.
+- Ledgers: works with Xero and QuickBooks today, with more ledgers connecting.
+- Company: Hysaab is a separate company, built in Dubai by the team behind Oblique Consult (https://obliqueconsult.com, a Dubai tax and accounting advisory founded in 2018); the engineering is by Simpla. Founders: Wahaj Siddiqui and Saad Zafar. Contact info@hysaab.ai; the app runs at app.hysaab.ai.
+- Languages: English and Arabic. Marketing pages have Arabic (RTL) twins under ${BASE}/ar (for example /ar, /ar/accounting, /ar/pricing, /ar/trust).
 
 ## Pages
-- [Home](${BASE}/): what Hysaab is, the agent roster, compliance posture
-- [Product](${BASE}/product): the six modules — payables, receivables, ledger, close, documents, tax
-- [Accounting](${BASE}/accounting): books kept and closed for you, self-serve or as a managed service
-- [Pricing](${BASE}/pricing): the three tiers
-- [Integrations](${BASE}/integrations): how the six ledger connections work
+- [Home](${BASE}/): what Hysaab is, for finance teams and for firms
+- [Hysaab Finance](${BASE}/accounting): AI agents for accounting and reporting; the six parts of the workspace, multi-entity close and group reporting
+- [Invoice checks](${BASE}/invoice): how Hysaab Finance tests every supplier invoice against the UAE and KSA tax-invoice rules
+- [Hysaab Practice](${BASE}/firms): AI agents for tax and advisory firms, and the five questions firms ask
+- [Hysaab Audit](${BASE}/audit): an AI-native ISA audit file for licensed Gulf audit firms; a licensed human concludes
+- [Pricing](${BASE}/pricing): self-serve from USD 199 a month, managed priced by scope, and firms
+- [Trust](${BASE}/trust): commercial boundaries with firms and the data controls (separate tenants, logged agent actions, no training on customer data, encrypted credentials, staff access only with written permission)
 - [Compliance](${BASE}/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
-- [How it works](${BASE}/how-it-works): plain-English product walkthrough — documents, payables, receivables, ledger, bank recon, fixed assets, close, tax, payroll, decisions, money finder, integrations, tools, pricing, who it's for
+- [How it works](${BASE}/how-it-works): plain-English walkthrough from a document arriving to a locked period
+- [Integrations](${BASE}/integrations): how the ledger connections work
+- [Books Check](${BASE}/check): a free, read-only check of Xero or QuickBooks books
 - [Guides](${BASE}/guides): practical UAE and KSA tax and close guides
 - [Tools](${BASE}/tools): free UAE and KSA tax and IFRS calculators
 - [FAQ](${BASE}/faq): straight answers on data safety, autonomy limits, pricing
-- [About](${BASE}/about): who builds Hysaab and what it believes
+- [About](${BASE}/about): who builds Hysaab and why
 - [Ibtidah](${BASE}/hire): the sister hiring product
-- [hysaab invoice](${BASE}/invoice): tax compliance and e-invoice validation
-- [hysaab services OS](${BASE}/firms): Hysaab as leverage for accounting and advisory firms — multi-client workspaces (coming soon)
-- [hysaab audit](${BASE}/audit): an AI-native ISA audit of IFRS statements for licensed Gulf audit firms; engines test a hashed snapshot (journal-entry testing on the whole population, monetary-unit sampling, tie-outs, confirmations, the misstatement register) and a licensed human concludes; Hysaab never signs an opinion (coming soon)
 - [Contact](${BASE}/contact): how to reach the team
-- [الموقع بالعربية](${BASE}/ar): the full marketing site in Arabic, right-to-left
+- [الموقع بالعربية](${BASE}/ar): the marketing site in Arabic, right to left
 `;
 
 export function GET() {

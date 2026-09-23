@@ -1,49 +1,59 @@
-/* ── /firms ──────────────────────────────────────────────────────────
+/* ── /firms: Hysaab Practice ─────────────────────────────────────────
    Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
    the ServicesDay interactive walkthrough and SavingsCalc calculator.
-   Content and claims carried over unchanged. */
+   Website change plan 2026-09-23: the product is Hysaab Practice. The
+   page leads with the tax work (hundreds of VAT and CT checks, treatments
+   from the firm's own precedents, red-team review); the admin moves
+   lower as "and the firm runs itself around it"; the areas list is cut
+   from 31 items to 9 areas of 3; the five questions firms ask are
+   answered (DRAFT: owner review, lib/trust.ts) with a link to /trust;
+   every CTA books a demo. */
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { ServicesDay } from "@/components/hysaab/ServicesDay";
 import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { FIRM_QUESTIONS } from "@/lib/trust";
 
 export const metadata = {
-  title: "hysaab services OS: Engagements, Deadlines & Oversight for Firms",
+  title: "Hysaab Practice: AI Agents for Tax and Advisory Firms",
   description:
-    "The operating system for a professional services firm: client engagements, deadlines and oversight in one place, so partners spend their hours on judgement.",
+    "Hysaab Practice runs the tax work for tax and advisory firms: hundreds of VAT and CT checks, treatments from your precedents and a review before filing.",
   alternates: langAlternates("/firms"),
 };
 
-const MODULES: { k: string; h: string; items: React.ReactNode[] }[] = [
-  { k: "Daily", h: "My Day, inbox and tasks", items: [
-    <><strong>My Day</strong> lists only what needs you: overdue tasks, approvals, unsent drafts and deadlines.</>,
-    <><strong>AI inbox</strong> matches every email to a client, files attachments, sets urgency and drafts the reply.</>,
-    <><strong>Tax-authority notices</strong> from the FTA, ZATCA or MoF are forced to an urgent task.</>,
-    <><strong>Team chat</strong> with an assistant that answers from a client&apos;s own documents.</>,
+/* Nine areas, three items each (the tax work first). */
+const AREAS: { k: string; h: string; items: React.ReactNode[] }[] = [
+  { k: "Filings", h: "A workbench for every return", items: [
+    <><strong>Hundreds of VAT and CT checks</strong> across completeness, treatment and examination.</>,
+    <><strong>Tax treatments proposed</strong> from the firm&apos;s own precedents first.</>,
+    <><strong>Red-team review</strong> before approval; filed versions are permanent.</>,
+  ] },
+  { k: "Knowledge", h: "The firm's memory", items: [
+    <><strong>Ask</strong> answers from your library and positions, with sources.</>,
+    <><strong>Firm positions</strong> drafted, published and retired with approval.</>,
+    <><strong>Academy</strong> quizzes and deterministic VAT, CT, penalty and WHT calculators.</>,
   ] },
   { k: "Clients", h: "Every client, in one file", items: [
     <><strong>Onboarding and KYC</strong> with trade licences and VAT certificates read into the profile.</>,
     <><strong>Data room and client portal</strong> with secure, expiring upload links.</>,
     <><strong>Health score</strong> from filing quality, responsiveness, engagement and risk.</>,
-    <><strong>Relationship sweep</strong> surfaces dormant clients and drafts the check-in.</>,
+  ] },
+  { k: "Daily", h: "My Day, inbox and tasks", items: [
+    <><strong>My Day</strong> lists only what needs you: overdue tasks, approvals and deadlines.</>,
+    <><strong>AI inbox</strong> matches every email to a client, files attachments and drafts the reply.</>,
+    <><strong>Tax-authority notices</strong> from the FTA, ZATCA or MoF are forced to an urgent task.</>,
   ] },
   { k: "Meetings", h: "Before, during and after", items: [
     <><strong>Prep brief</strong>: one page on the client, open work and recent correspondence.</>,
-    <><strong>Notes to actions</strong>: attendees, decisions and action items with owners and dates.</>,
+    <><strong>Notes to actions</strong>: decisions and action items with owners and dates.</>,
     <><strong>Proposed tasks</strong> land in the queue; nothing is created until you confirm.</>,
-  ] },
-  { k: "Filings", h: "A workbench for every return", items: [
-    <><strong>250+ VAT and CT checks</strong> across completeness, treatment and examination.</>,
-    <><strong>Tax treatments proposed</strong> from the firm&apos;s own precedents first.</>,
-    <><strong>Red-team review</strong> before approval, variance narratives and transmittal letters.</>,
-    <><strong>Filed versions are permanent</strong>: corrections supersede, never overwrite.</>,
   ] },
   { k: "Growth", h: "Pipeline to signed letter", items: [
     <><strong>Pipeline</strong> from lead to won, with cross-sell gaps across your client base.</>,
     <><strong>Proposals and engagement letters</strong> drafted from the scope you choose.</>,
     <><strong>Built-in e-signature</strong> sealed with a SHA-256 audit certificate.</>,
-    <><strong>Regulatory radar</strong> drafts impact letters when the law moves.</>,
   ] },
   { k: "Time and billing", h: "Hours that become invoices", items: [
     <><strong>AI-drafted timesheets</strong> from the day&apos;s work; it may lower an estimate, never raise it.</>,
@@ -55,11 +65,6 @@ const MODULES: { k: string; h: string; items: React.ReactNode[] }[] = [
     <><strong>Capacity</strong> eight weeks ahead: who is idle, who is running hot.</>,
     <><strong>Firm brief</strong> and weekly digest for the partners.</>,
   ] },
-  { k: "Knowledge", h: "The firm's memory", items: [
-    <><strong>Ask</strong> answers from your library and positions, with sources.</>,
-    <><strong>Firm positions</strong> drafted, published and retired with approval.</>,
-    <><strong>Academy</strong> quizzes and deterministic VAT, CT, penalty and WHT calculators.</>,
-  ] },
   { k: "People", h: "HR without the spreadsheet", items: [
     <><strong>Leave, letters and documents</strong> in self-service.</>,
     <><strong>Appraisals</strong> where only a person can give a rating.</>,
@@ -67,50 +72,40 @@ const MODULES: { k: string; h: string; items: React.ReactNode[] }[] = [
   ] },
 ];
 
-export default function ServicesOsPage() {
+const newTab = <span className="hw-sr">{DEMO_NEW_TAB.en}</span>;
+
+export default function PracticePage() {
   return (
-    <PageShell band={{ kicker: "Founding firms", title: "Give your people their judgement back.", body: "hysaab services OS opens to a small group of tax and advisory firms first. Tell us about your firm and a real person will walk you through it within one working day." }}>
+    <PageShell band={{ kicker: "Book a demo", title: "Give your people their judgement back.", body: "Hysaab Practice opens to a small group of tax and advisory firms first. Book a demo and a real person will walk you through it on your own kind of return." }}>
       <PageHero
-        eyebrow="hysaab services OS · for tax and advisory firms"
-        title={<>Your firm sells judgement.<br />Let the admin run itself.</>}
-        lede={<>One operating system for your firm, with agents on the admin. <a href="/audit" style={{ color: "var(--hw-blush)" }}>hysaab audit</a> runs the ISA file inside it.</>}
+        eyebrow="For tax and advisory firms"
+        title={<>Hysaab Practice.<br /><span>AI agents for tax and advisory firms.</span></>}
+        lede={<>Agents run the tax work: hundreds of VAT and CT checks, treatments drawn from your own precedents and a red-team review before anything is filed. Your partners make the calls. <a href="/audit" style={{ color: "var(--hw-blush)" }}>Hysaab Audit</a> runs the ISA file alongside it.</>}
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Join the founding firms <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
         <a className="hw-link hw-link--light" href="#day">Watch a day in the firm</a>
       </PageHero>
 
-      {/* ── What it replaces ── */}
-      <section className="hw-block--rule">
+      {/* ── The tax work, first ── */}
+      <section id="tax-work">
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
-              <p className="hw-eyebrow">The practice today</p>
-              <h2>A firm runs on judgement.<br /><span>It drowns in the tools around it.</span></h2>
+              <p className="hw-eyebrow">The tax work first</p>
+              <h2>Every return checked<br /><span>before a partner signs it.</span></h2>
             </div>
-            <p>Client context lives in someone&apos;s inbox. Deadlines live in a spreadsheet. Time is logged on Friday from memory. The advice clients pay for gets whatever hours are left.</p>
+            <p>The work clients pay your firm for is judgement on their tax. Hysaab Practice prepares and tests that work, so your people spend their hours on the calls.</p>
           </div>
-          <div className="hw-cards hw-cards--2">
-            {[
-              ["Practice management tool", "Tasks and filings"],
-              ["Shared inbox", "AI-triaged inbox"],
-              ["Deadline spreadsheets", "Live obligations"],
-              ["Document portal", "Data room and portal"],
-              ["CRM", "Pipeline and proposals"],
-              ["E-signature app", "Built-in signing"],
-              ["Timesheet app", "Drafted timesheets"],
-              ["HR file", "People and payroll"],
-            ].map(([old, now]) => (
-              <article key={old}>
-                <p className="hw-eyebrow" style={{ textDecoration: "line-through" }}>{old}</p>
-                <h3>{now}</h3>
-              </article>
-            ))}
+          <div className="hw-rows">
+            <article><span className="hw-mono">01</span><h3>Hundreds of VAT and CT checks.</h3><p>Every return runs through hundreds of checks across completeness, treatment and examination before anyone is asked to review it. Each finding names the rule and the figure it concerns.</p></article>
+            <article><span className="hw-mono">02</span><h3>Treatments from your own precedents.</h3><p>Tax treatments are proposed from the firm’s own precedents first, with the source shown, so the answer is the one your firm would give.</p></article>
+            <article><span className="hw-mono">03</span><h3>A red-team review before approval.</h3><p>A red-team review challenges the return before a partner approves it, and variance narratives and transmittal letters are drafted for the reviewer. Filed versions are permanent: corrections supersede, never overwrite.</p></article>
           </div>
         </div>
       </section>
 
       {/* ── A day in the firm ── */}
-      <section id="day">
+      <section id="day" className="hw-block--rule">
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
@@ -123,8 +118,34 @@ export default function ServicesOsPage() {
         </div>
       </section>
 
+      {/* ── And the firm runs itself around it ── */}
+      <section className="hw-block--family">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">And the firm runs itself around it</p>
+              <h2>Nine areas of the firm.<br /><span>One system underneath.</span></h2>
+            </div>
+            <p>Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
+          </div>
+          <div className="hw-cards">
+            {AREAS.map((m) => (
+              <article key={m.k}>
+                <p className="hw-eyebrow">{m.k}</p>
+                <h3>{m.h}</h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 8 }}>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+          <div className="hw-note">
+            <span className="hw-mono">What it replaces</span>
+            <p>The practice management tool, the shared inbox, the deadline spreadsheets, the document portal, the CRM, the e-signature app, the timesheet app and the HR file.</p>
+          </div>
+        </div>
+      </section>
+
       {/* ── Savings ── */}
-      <section className="hw-block--rule">
+      <section>
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
@@ -137,37 +158,15 @@ export default function ServicesOsPage() {
         </div>
       </section>
 
-      {/* ── Modules ── */}
-      <section>
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Everything in the OS</p>
-              <h2>Nine areas of the firm.<br /><span>One system underneath.</span></h2>
-            </div>
-            <p>Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
-          </div>
-          <div className="hw-cards">
-            {MODULES.map((m) => (
-              <article key={m.k}>
-                <p className="hw-eyebrow">{m.k}</p>
-                <h3>{m.h}</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 8 }}>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── The audit module ── */}
+      {/* ── Hysaab Audit ── */}
       <section className="hw-block--sage">
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
-              <p className="hw-eyebrow">The audit module</p>
+              <p className="hw-eyebrow">Hysaab Audit</p>
               <h2>If you sign audit opinions,<br /><span>the file runs here too.</span></h2>
             </div>
-            <p>hysaab audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. It is sold on its own or with the rest of the OS.</p>
+            <p>Hysaab Audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. Buy it on its own or with Hysaab Practice.</p>
           </div>
           <div className="hw-cards">
             <article>
@@ -188,7 +187,7 @@ export default function ServicesOsPage() {
           </div>
           <div className="hw-note" style={{ borderColor: "#3e6356" }}>
             <span className="hw-mono">Explore further</span>
-            <p><a href="/audit">See hysaab audit, screen by screen <span aria-hidden="true">→</span></a></p>
+            <p><a href="/audit">See Hysaab Audit, screen by screen <span aria-hidden="true">→</span></a></p>
           </div>
         </div>
       </section>
@@ -237,8 +236,33 @@ export default function ServicesOsPage() {
         </div>
       </section>
 
+      {/* ── Five questions firms ask (DRAFT: owner review, lib/trust.ts) ── */}
+      <section id="questions">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">Five questions firms ask</p>
+              <h2>Your clients stay yours.<br /><span>Here is where we draw the line.</span></h2>
+            </div>
+            <p>Straight answers on the commercial boundaries. The full set of commitments, including how we look after your data, is on our <a href="/trust">trust page</a>.</p>
+          </div>
+          <div className="hw-faq">
+            {FIRM_QUESTIONS.en.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <div className="hw-faq-a"><p>{f.a}</p></div>
+              </details>
+            ))}
+          </div>
+          <div className="hw-note">
+            <span className="hw-mono">Read further</span>
+            <p><a href="/trust">Our commitments to firms and finance teams</a></p>
+          </div>
+        </div>
+      </section>
+
       {/* ── Why ── */}
-      <section>
+      <section className="hw-block--rule">
         <div className="hw-wrap hw-section">
           <div className="hw-split">
             <div>
@@ -246,7 +270,7 @@ export default function ServicesOsPage() {
               <h2>Built inside a working Gulf tax firm.</h2>
             </div>
             <div className="hw-prose">
-              <p>hysaab services OS started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
+              <p>Hysaab Practice started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
               <p>We are opening it to a small group of founding firms in the UAE and KSA. Founding firms shape what comes next and keep founder pricing for as long as they stay.</p>
             </div>
           </div>

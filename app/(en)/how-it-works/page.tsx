@@ -133,7 +133,7 @@ export default function HowItWorksPage() {
         lede="Documents come in, each agent does its part, and the decisions that need a person come to you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
-        <a className="hw-link hw-link--light" href="/product"><span className="hw-play" aria-hidden="true">▷</span> See the product screens</a>
+        <a className="hw-link hw-link--light" href="/accounting"><span className="hw-play" aria-hidden="true">▷</span> See the product screens</a>
       </PageHero>
 
       {/* ── The walk: arrival to locked period ── */}
@@ -283,7 +283,7 @@ export default function HowItWorksPage() {
             <article>
               <span className="hw-mono">04</span>
               <h3>Then the everyday.</h3>
-              <p>Send documents by WhatsApp, email or upload, and answer the decisions that come back. The <a href="/product">workspace</a> is there when you want to look closer.</p>
+              <p>Send documents by WhatsApp, email or upload, and answer the decisions that come back. The <a href="/accounting">workspace</a> is there when you want to look closer.</p>
             </article>
           </div>
           <div className="hw-note">
@@ -329,7 +329,7 @@ export default function HowItWorksPage() {
               <p className="hw-eyebrow">The product</p>
               <h3>Six parts of one workspace.</h3>
               <p>Payables, receivables, the ledger, the close, documents and tax, each with a capture of the screen.</p>
-              <a className="hw-link" href="/product">See the product <span aria-hidden="true">↗</span></a>
+              <a className="hw-link" href="/accounting">See the product <span aria-hidden="true">↗</span></a>
             </article>
             <article>
               <p className="hw-eyebrow">Integrations</p>
@@ -346,7 +346,7 @@ export default function HowItWorksPage() {
             <article>
               <p className="hw-eyebrow">Pricing</p>
               <h3>Three plans, not priced by seats.</h3>
-              <p>Self-serve is USD 199 a month; the managed service, with a named accountant, starts from USD 899 a month. Every plan gives your whole team access, and the fee follows the complexity of the books rather than seats. See <a href="/pricing">pricing</a>.</p>
+              <p>Self-serve is USD 199 a month; the managed service, run with Oblique’s accountants, is scoped to your books. Every plan gives your whole team access, and the fee follows the complexity of the books rather than seats. See <a href="/pricing">pricing</a>.</p>
               <a className="hw-link" href="/pricing">Full pricing details <span aria-hidden="true">↗</span></a>
             </article>
           </div>

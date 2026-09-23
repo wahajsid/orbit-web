@@ -1,26 +1,31 @@
 /* ── /pricing ────────────────────────────────────────────────────────
-   Two ways to run Hysaab (owner 2026-09-18): self-serve at USD 199 a
-   month, and the managed service from USD 899 a month. Built on the
-   homepage kit. The review of 2026-09-18 asked for practical allowance
-   detail; the figures that exist are stated, and what is scoped per
-   customer is named as such rather than invented. */
+   Website change plan 2026-09-23: three cards. Self-serve "From USD 199
+   a month"; the managed service "Scoped to your books" (no published
+   price); and a card for firms (Hysaab Practice and Hysaab Audit: a
+   setup fee plus a monthly subscription). Every card books a demo on
+   the team's Calendly. The scoping rows are unchanged: the figures that
+   exist are stated, and what is scoped per customer is named as such
+   rather than invented. */
 
 import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
-  title: "Hysaab Pricing: USD 199 Self-serve, from USD 899 Managed",
+  title: "Hysaab Pricing: Self-serve from USD 199, Managed and Firms",
   description:
-    "Self-serve at USD 199 a month, or a managed accounting service from USD 899 a month with a named accountant. Fees follow your books, not seats.",
+    "Self-serve from USD 199 a month. A managed service scoped to your books. Hysaab Practice and Hysaab Audit for firms: a setup fee plus a monthly subscription.",
   alternates: langAlternates("/pricing"),
 };
 
-const TIERS: { name: string; mode: string; price: string; from?: boolean; who: string; feats: string[]; hero?: boolean }[] = [
+type Tier = { name: string; mode: string; price?: string; priceText?: string; who: string; feats: React.ReactNode[]; hero?: boolean };
+
+const TIERS: Tier[] = [
   {
     name: "Self-serve",
     mode: "Your team runs it",
-    price: "USD 199",
+    price: "199",
     who: "For a business whose own people keep the books. The agents prepare the work; your team reviews, approves and closes.",
     feats: [
       "Documents in by WhatsApp, email or upload, read and coded from your own history",
@@ -32,17 +37,28 @@ const TIERS: { name: string; mode: string; price: string; from?: boolean; who: s
   },
   {
     name: "Managed service",
-    mode: "Our accountants run it with you",
-    price: "USD 899",
-    from: true,
+    mode: "We run it with you",
+    priceText: "Scoped to your books",
     hero: true,
-    who: "For CFOs, groups and busy books. The agents run alongside a named Hysaab accountant who works the queue with you and prepares each close.",
+    who: "For mid-sized and larger companies and groups. Oblique’s accountants run the queue and prepare the close with you, using Hysaab every day.",
     feats: [
       "Everything in Self-serve",
       "A named accountant reviewing exceptions and correcting where necessary",
       "The close prepared and run with you, reporting to you and your board",
       "Multiple entities and heavier document volume, scoped upfront",
       "A monthly review of what changed and why",
+    ],
+  },
+  {
+    name: "Hysaab Practice and Hysaab Audit",
+    mode: "For firms",
+    priceText: "Setup fee plus a monthly subscription",
+    who: "For tax and advisory firms and licensed audit firms. Take either product on its own, or both together.",
+    feats: [
+      "Hysaab Practice: the tax workbench, client engagements and the firm’s admin",
+      "Hysaab Audit: the ISA file, from acceptance to archive",
+      "Setup scoped to your firm, then one monthly subscription",
+      <>Your clients stay yours: <a href="/trust">read our commitments</a></>,
     ],
   },
 ];
@@ -56,15 +72,17 @@ const SCOPED = [
   ["VAT on the fee", "Quotes state the fee and whether VAT applies to it, so the number you approve is the number you pay."],
 ];
 
+const newTab = <span className="hw-sr">{DEMO_NEW_TAB.en}</span>;
+
 export default function PricingPage() {
   return (
-    <PageShell band={{ title: "Not sure which way fits?", body: "Tell us about your books: the accounting system, the entities and the process that takes too long. We will confirm the scope and the fee in writing before any commitment." }}>
+    <PageShell band={{ title: "Not sure which way fits?", body: "Tell us about your books or your firm: the systems, the entities and the work that takes too long. We will confirm the scope and the fee in writing before any commitment." }}>
       <PageHero
         eyebrow="Pricing"
         title={<>Sized by the work,<br /><span>not the seats.</span></>}
-        lede="Self-serve or managed. The fee follows your books, never the number of logins."
+        lede="Self-serve, managed, or for firms. The fee follows the work, never the number of logins."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Book a walkthrough <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
       </PageHero>
 
@@ -72,26 +90,26 @@ export default function PricingPage() {
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
-              <p className="hw-eyebrow">Two plans</p>
+              <p className="hw-eyebrow">Three ways in</p>
               <h2>One monthly fee.<br /><span>No charge per user.</span></h2>
             </div>
-            <p>Prices are in US dollars, per month. The fee follows the work on your books, not the number of people who log in.</p>
+            <p>Prices are in US dollars. The fee follows the work on your books, not the number of people who log in.</p>
           </div>
 
-          <div className="hw-plans hw-plans--2" data-play="">
+          <div className="hw-plans" data-play="">
             {TIERS.map((t) => (
               <article key={t.name} className={t.hero ? "is-featured" : undefined}>
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
-                <p className="hw-plan-price">
-                  {t.from && <small>from</small>} {t.price.split(" ")[0]} <DigitRoll value={t.price.split(" ")[1]} delay={200} /><small>/month</small>
-                </p>
+                {t.price
+                  ? <p className="hw-plan-price"><small>From</small> USD <DigitRoll value={t.price} delay={200} /><small>a month</small></p>
+                  : <p className="hw-plan-price hw-plan-price--text">{t.priceText}</p>}
                 <p>{t.who}</p>
                 <ul className="hw-ticks">
-                  {t.feats.map((f) => <li key={f}>{f}</li>)}
+                  {t.feats.map((f, i) => <li key={i}>{f}</li>)}
                 </ul>
-                <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} href="/contact">
-                  {t.hero ? "Discuss managed support" : "Book a walkthrough"} <span aria-hidden="true">↗</span>
+                <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} {...DEMO}>
+                  Book a demo <span aria-hidden="true">↗</span>{newTab}
                 </a>
               </article>
             ))}
@@ -111,7 +129,7 @@ export default function PricingPage() {
               <p className="hw-eyebrow">What the fee covers</p>
               <h2>What you pay for.<br /><span>And what is scoped with you.</span></h2>
             </div>
-            <p>The plans differ in who runs the work and how much of it there is. The controls are the same on both.</p>
+            <p>For finance teams, the plans differ in who runs the work and how much of it there is. The controls are the same on both.</p>
           </div>
           <div className="hw-rows">
             {SCOPED.map(([h, p], i) => (
@@ -124,7 +142,7 @@ export default function PricingPage() {
           </div>
           <div className="hw-note">
             <span className="hw-mono">Your ledger</span>
-            <p>Both plans work with one connected accounting system. See the <a href="/integrations">systems Hysaab connects to</a>, <a href="/product">what the workspace covers</a>, and the <a href="/faq">questions people ask first</a>.</p>
+            <p>Both plans work with one connected accounting system. See the <a href="/integrations">systems Hysaab connects to</a>, <a href="/accounting">what the workspace covers</a>, and the <a href="/faq">questions people ask first</a>.</p>
           </div>
         </div>
       </section>

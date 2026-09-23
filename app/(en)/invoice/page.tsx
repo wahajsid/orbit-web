@@ -2,16 +2,19 @@
    Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
    the InvoiceFlow interactive walkthrough and all compliance claims
    from the V2 page. Register kept as a table; findings as cards.
-   Previous version at backups/ if needed. */
+   Previous version at backups/ if needed.
+   2026-09-23: invoice checks are part of Hysaab Finance ("hysaab
+   invoice" is retired as a name); the CTA books a demo. */
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { InvoiceFlow } from "@/components/hysaab/InvoiceFlow";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
-  title: "Supplier Invoice VAT Checker for UAE & KSA | hysaab invoice",
+  title: "Supplier Invoice VAT Checks for UAE & KSA | Hysaab Finance",
   description:
-    "hysaab invoice reads every supplier invoice, checks it against the UAE and KSA tax-invoice rules, catches duplicates and tells you what is safe to claim.",
+    "Hysaab Finance reads every supplier invoice, checks it against the UAE and KSA tax-invoice rules, catches duplicates and tells you what is safe to claim.",
   alternates: langAlternates("/invoice"),
 };
 
@@ -38,13 +41,13 @@ const REGISTER: { sup: string; no: string; date: string; vat: string; band: stri
 
 export default function InvoicePage() {
   return (
-    <PageShell band={{ kicker: "hysaab invoice", title: "Put your supplier invoices to the test.", body: "hysaab invoice runs today inside working tax teams in the UAE and KSA. Tell us your invoice volume and jurisdiction and a real person will set you up within one working day." }}>
+    <PageShell band={{ kicker: "Hysaab Finance · Invoice checks", title: "Put your supplier invoices to the test.", body: "The invoice checks run today inside working tax teams in the UAE and KSA. Tell us your invoice volume and jurisdiction and a real person will set you up within one working day." }}>
       <PageHero
-        eyebrow="hysaab invoice · tax compliance for supplier invoices"
+        eyebrow="Hysaab Finance · Invoice checks"
         title={<>Every supplier invoice, tested before you claim the VAT.</>}
         lede="Every field read, every sum redone, every rule tested. A person decides what gets claimed."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Request access <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="#flow">Follow an invoice</a>
       </PageHero>
 

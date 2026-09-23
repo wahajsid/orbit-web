@@ -94,7 +94,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
                 </div>
               )}
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>
-                <a className="hw-btn hw-btn--peach" href="/ar/product">شاهد كيف يدير Hysaab ذلك <span aria-hidden="true">←</span></a>
+                <a className="hw-btn hw-btn--peach" href="/ar/accounting">شاهد كيف يدير Hysaab ذلك <span aria-hidden="true">←</span></a>
                 <a className="hw-link hw-link--ruled" href="/ar/guides">كل الأدلة <span aria-hidden="true">←</span></a>
               </div>
             </div>

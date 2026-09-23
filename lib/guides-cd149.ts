@@ -111,7 +111,7 @@ const cash: Guide = {
     "uae-tax-invoice-checklist",
     "uae-blocked-input-vat",
   ],
-  cta: { href: "/invoice", label: "See how hysaab invoice checks every purchase" },
+  cta: { href: "/invoice", label: "See how Hysaab Finance checks every purchase invoice" },
   faqs: [
     {
       q: "Can I claim VAT on cash purchases in the UAE after 1 October 2026?",

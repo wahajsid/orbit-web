@@ -2,25 +2,30 @@ import Image from "next/image";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { InvoiceTerminal } from "@/components/InvoiceTerminal";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+
+/* 2026-09-23: invoice checks are part of Hysaab Finance ("hysaab invoice"
+   is retired as a name); the CTA books a demo. AR-REVIEW: the title,
+   description, band, eyebrow, button and alt texts changed here. */
 
 export const metadata = {
-  title: "hysaab invoice — كل فاتورة مورد، مختبرة ضريبيًا قبل المطالبة",
+  title: "فحص فواتير الموردين قبل المطالبة بالضريبة | Hysaab Finance",
   description:
-    "hysaab invoice يقرأ كل فاتورة مورد، ويفحصها وفق قواعد الفاتورة الضريبية في الإمارات والسعودية، ويكشف التكرار، ويخبرك بما يمكنك المطالبة به بأمان.",
+    "يقرأ Hysaab Finance كل فاتورة مورد، ويفحصها وفق قواعد الفاتورة الضريبية في الإمارات والسعودية، ويكشف التكرار، ويخبرك بما يمكنك المطالبة به بأمان.",
   alternates: langAlternates("/invoice"),
 };
 
 export default function InvoicePage() {
   return (
-    <PageShell locale="ar" band={{ kicker: "hysaab invoice", title: "ضع فواتيرك على المحك.", body: "يعمل hysaab invoice اليوم داخل فرق ضريبية عاملة، ونحن نفتحه لمزيد منها. أخبرنا عن حجم فواتيرك ونطاقك — الإمارات أو السعودية أو كليهما — وسنجهّز لك كل شيء." }}>
+    <PageShell locale="ar" band={{ kicker: "Hysaab Finance · فحص الفواتير", title: "ضع فواتيرك على المحك.", body: "يعمل فحص الفواتير اليوم داخل فرق ضريبية عاملة في الإمارات والسعودية. أخبرنا عن حجم فواتيرك ونطاقك، الإمارات أو السعودية أو كليهما، وسيجهّز لك شخص حقيقي كل شيء خلال يوم عمل واحد." }}>
       <PageHero
-        eyebrow="hysaab invoice · الامتثال الضريبي والتحقق من الفوترة الإلكترونية"
+        eyebrow="Hysaab Finance · فحص الفواتير"
         title={<>كل فاتورة مورد،<br /><span>مختبرة قبل المطالبة.</span></>}
-        lede="أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ hysaab invoice كل سطر، ويعيد فحص الحساب بنفسه، ويختبر كل فاتورة وفق قواعد الهيئة الاتحادية للضرائب وهيئة الزكاة والضريبة والجمارك «زاتكا»، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر — قبل تقديم الإقرار، لا بعد التدقيق."
+        lede="أسقط مجلدًا من فواتير الموردين — أو أرسلها بالبريد. يقرأ Hysaab Finance كل سطر، ويعيد فحص الحساب بنفسه، ويختبر كل فاتورة وفق قواعد الهيئة الاتحادية للضرائب وهيئة الزكاة والضريبة والجمارك «زاتكا»، ويرتّب ضريبة القيمة المضافة التي توشك على المطالبة بها حسب المخاطر — قبل تقديم الإقرار، لا بعد التدقيق."
         locale="ar"
       >
-        <a className="hw-btn hw-btn--peach" href="/ar/contact">اطلب الوصول <span aria-hidden="true">←</span></a>
-        <a className="hw-link hw-link--light" href="#live">كيف يعمل hysaab invoice</a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span></a>
+        <a className="hw-link hw-link--light" href="#live">كيف يعمل فحص الفواتير</a>
       </PageHero>
 
       <section id="live">
@@ -107,7 +112,7 @@ export default function InvoicePage() {
             <article><span className="hw-mono">09:13</span><h3>إيقاف 600 درهم ضريبة مدخلات · طُلب التصحيح</h3></article>
           </div>
           <div dir="ltr" style={{ marginTop: 40 }}>
-            <Image src="/shots/adv-ocr-review.png" alt="مراجعة hysaab invoice — قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59" width={1600} height={651} sizes="(max-width: 760px) 100vw, 100vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid rgba(255,255,255,0.1)" }} />
+            <Image src="/shots/adv-ocr-review.png" alt="مراجعة فحص الفواتير في Hysaab Finance: قراءة OCR، وإعادة فحص الحساب، واختبار المادة 59" width={1600} height={651} sizes="(max-width: 760px) 100vw, 100vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid rgba(255,255,255,0.1)" }} />
           </div>
           <p className="hw-shot-cap" style={{ color: "var(--hw-cream)" }}>المراجعة — ما قرأه OCR في جهة، ومعايير المادة 59 التسعة في الجهة الأخرى، والحكم في الأعلى.</p>
         </div>
@@ -123,7 +128,7 @@ export default function InvoicePage() {
             <p>كل فاتورة وحكم ومطالبة تستقر في سجل واحد — منظم حسب فترة الإقرار الضريبي، مع ما طُولب به وما أُوقف. نقرة واحدة تصدّر السجل كاملًا إلى Excel بتنسيق جاهز للملف الضريبي.</p>
           </div>
           <div dir="ltr" style={{ marginTop: 24 }}>
-            <Image src="/shots/adv-ocr-register.png" alt="سجل مخاطر hysaab invoice — كل فاتورة مقروءة ومرتبة حسب المخاطر" width={1600} height={875} sizes="(max-width: 760px) 100vw, 100vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid var(--hw-hairline)" }} />
+            <Image src="/shots/adv-ocr-register.png" alt="سجل المخاطر في Hysaab Finance: كل فاتورة مقروءة ومرتبة حسب المخاطر" width={1600} height={875} sizes="(max-width: 760px) 100vw, 100vw" style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid var(--hw-hairline)" }} />
           </div>
           <p className="hw-shot-cap">سجل المخاطر — مرتّب حسب مخاطر التدقيق، مع الموقوف والمُلاحَق والجاهز للمطالبة.</p>
           <div className="hw-note" style={{ marginTop: 32 }}>

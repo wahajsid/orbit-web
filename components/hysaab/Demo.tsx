@@ -5,7 +5,11 @@
    State machine per the design handoff (README "Demo state machine"):
    beat 1..5, playing, tab, chq (null|'petty'|'ask'), acc[3], locked.
    Autoplay advances every 5.2s while playing; any click takes control.
-   Nothing persists; the demo resets on reload. */
+   Nothing persists; the demo resets on reload.
+   Website change plan 2026-09-23: the scenario is a group. Al Noor
+   Group runs four entities across Dubai and Riyadh; Layla is Group
+   CFO; Rashid runs a site in the Dubai entity; Omar keeps petty cash
+   (renamed from Noor so the person and the group do not share a name). */
 
 import { useEffect, useRef, useState } from "react";
 import { Wordmark } from "../Wordmark";
@@ -23,18 +27,18 @@ const AUTOPLAY_MS = 5200;
    supplier name inside the invoice image stay Latin in both languages. */
 const EN = {
   beats: [
-    { t: "21:00", h: "An invoice lands on WhatsApp.", p: <>Rashid photographs a supplier invoice from his car. That is the whole job on his side. No app to open, no fields to fill.</> },
+    { t: "21:00", h: "An invoice lands on WhatsApp.", p: <>Rashid, a site manager in the Dubai entity, photographs a supplier invoice from his car. That is the whole job on his side. No app to open, no fields to fill.</> },
     { t: "21:02", h: "Read, checked, coded, posted.", p: <>Two minutes later the entry is in Zoho Books at 96% confidence, tax-tested, with the photo attached. Nobody was asked anything.</> },
     { t: "06:06", h: "One line needs a human.", p: <>Overnight, 312 of 314 bank lines matched themselves. A cheque for AED 250 has no document. Layla gets one plain question, not a spreadsheet. <strong>Resolve it in the window →</strong></> },
     { t: "Day 2", h: "Three approvals between Layla and a lock.", p: <>The close ran all month. What is left is a checklist with three accruals on it. <strong>Approve them and lock the period.</strong></> },
-    { t: "Day 2", h: "The report says what moved, and why.", p: <>Gross margin down 2.1 points, explained in a sentence and traced to a document. Rashid reads it on his phone. Layla sends it to the board.</> },
+    { t: "Day 2", h: "The report says what moved, and why.", p: <>Gross margin down 2.1 points, explained in a sentence and traced to a document. Rashid reads his entity’s numbers on his phone. Layla sends the group pack to the board.</> },
   ],
   pauseReplay: "Pause replay",
   playReplay: "Play replay",
   modeReplaying: "Replaying the night. Click anything to take control.",
   modeControls: "You have the controls. Click a beat or a tab.",
   beatOf: (n: number) => `Beat ${n} of 5`,
-  org: "Al Hamra Trading LLC",
+  org: "Al Noor Group · Dubai entity",
   user: "Layla H.",
   productAreas: "Product areas",
   tabDocs: "Documents",
@@ -85,7 +89,7 @@ const EN = {
   ln4Desc: "CHQ 100421 · 250.00",
   ln4NoDoc: "No document found",
   ln4Petty: "Petty cash · Layla H.",
-  ln4Slip: "Slip requested from Noor",
+  ln4Slip: "Slip requested from Omar",
   ln5Desc: "BANK CHARGES",
   ln5Ref: "Rule · bank charges",
   stMatched: "Matched",
@@ -98,11 +102,11 @@ const EN = {
   decTitle: "Waiting on you",
   decStatus: (n: number) => `${n} open · assigned to Layla`,
   d124h: "Cheque 100421 cleared with no document",
-  d124p: "AED 250.00 left the account on 10 Sep. No invoice, receipt or approval matches it. Nearest pattern: petty-cash top-ups by Noor on the 10th of each month (AED 250, 4 of the last 6 months).",
+  d124p: "AED 250.00 left the account on 10 Sep. No invoice, receipt or approval matches it. Nearest pattern: petty-cash top-ups by Omar on the 10th of each month (AED 250, 4 of the last 6 months).",
   postPetty: "Post as petty cash",
-  askNoor: "Ask Noor for the slip",
+  askNoor: "Ask Omar for the slip",
   resolvedPetty: "posted as petty cash",
-  resolvedSlip: "slip requested from Noor",
+  resolvedSlip: "slip requested from Omar",
   d124Resolved: (how: string) => `D-124 resolved · ${how}`,
   d124ResolvedP: "Reason recorded by Layla H. at 06:11. The bank now reconciles to the dirham.",
   d118h: "Coding below confidence threshold · 74%",
@@ -144,7 +148,7 @@ const EN = {
   chip1: "Trace: J-2314 accrual",
   chip2: "Trace: SUB-0917 invoice",
   chip3: "Open job ledger",
-  forRashid: <><strong>For Rashid:</strong> money in 1.84m, money out 1.52m, owed to you 1.96m. Two customers are late; reminders are out.</>,
+  forRashid: <><strong>For Rashid, Dubai entity:</strong> money in 1.84m, money out 1.52m, owed to the entity 1.96m. Two customers are late; reminders are out.</>,
   forBoard: <><strong>For the board:</strong> pack exported to PDF, every figure linked to its source. Sent by Layla at 09:40.</>,
 };
 
@@ -152,18 +156,19 @@ type Strings = typeof EN;
 
 const AR: Strings = {
   beats: [
-    { t: "21:00", h: "فاتورة تصل على واتساب.", p: <>يصوّر راشد فاتورة مورّد من سيارته. هذا كل ما عليه فعله. لا تطبيق يفتحه ولا حقول يملؤها.</> },
+    { t: "21:00", h: "فاتورة تصل على واتساب.", p: <>يصوّر راشد، مدير موقع في كيان دبي، فاتورة مورّد من سيارته. هذا كل ما عليه فعله. لا تطبيق يفتحه ولا حقول يملؤها.</> },
     { t: "21:02", h: "قُرئت، وفُحصت، ورُمّزت، ورُحِّلت.", p: <>بعد دقيقتين يكون القيد في Zoho Books بثقة 96%، مختبَرًا ضريبيًا، والصورة مرفقة به. لم يُسأل أحد عن شيء.</> },
     { t: "06:06", h: "سطر واحد يحتاج إلى إنسان.", p: <>خلال الليل، تطابق 312 من 314 سطرًا بنكيًا من تلقاء نفسها. شيك بقيمة 250 درهمًا لا مستند له. تصل ليلى سؤالًا واحدًا واضحًا، لا جدول بيانات. <strong>حلّ الأمر في النافذة ←</strong></> },
     { t: "اليوم 2", h: "ثلاث موافقات تفصل ليلى عن القفل.", p: <>كان الإقفال يعمل طوال الشهر. ما تبقى قائمة تحقق عليها ثلاثة استحقاقات. <strong>اعتمدها وأقفل الفترة.</strong></> },
-    { t: "اليوم 2", h: "التقرير يقول ما الذي تغيّر، ولماذا.", p: <>هامش الربح الإجمالي تراجع 2.1 نقطة، مشروحًا في جملة ومتتبَّعًا إلى مستند. يقرؤه راشد على هاتفه. وترسله ليلى إلى مجلس الإدارة.</> },
+    { t: "اليوم 2", h: "التقرير يقول ما الذي تغيّر، ولماذا.", p: <>هامش الربح الإجمالي تراجع 2.1 نقطة، مشروحًا في جملة ومتتبَّعًا إلى مستند. يقرأ راشد أرقام كيانه على هاتفه. وترسل ليلى حزمة المجموعة إلى مجلس الإدارة.</> },
   ],
   pauseReplay: "إيقاف الإعادة مؤقتًا",
   playReplay: "تشغيل الإعادة",
   modeReplaying: "إعادة تشغيل الليلة. انقر أي شيء لتتولى التحكم.",
   modeControls: "التحكم بيدك. انقر مشهدًا أو تبويبًا.",
   beatOf: (n: number) => `المشهد ${n} من 5`,
-  org: "الحمراء للتجارة ذ.م.م",
+  /* AR-REVIEW: the group scenario lines in this table (org, beats 1 and 5, عمر, forRashid). */
+  org: "مجموعة النور · كيان دبي",
   user: "ليلى ح.",
   productAreas: "أقسام المنتج",
   tabDocs: "المستندات",
@@ -214,7 +219,7 @@ const AR: Strings = {
   ln4Desc: "شيك 100421 · 250.00",
   ln4NoDoc: "لا مستند",
   ln4Petty: "نثرية · ليلى ح.",
-  ln4Slip: "طُلب الإيصال من نور",
+  ln4Slip: "طُلب الإيصال من عمر",
   ln5Desc: "رسوم بنكية",
   ln5Ref: "قاعدة · رسوم بنكية",
   stMatched: "مطابَق",
@@ -227,11 +232,11 @@ const AR: Strings = {
   decTitle: "بانتظارك",
   decStatus: (n: number) => `${n} مفتوحة · مسندة إلى ليلى`,
   d124h: "شيك 100421 صُرف دون مستند",
-  d124p: "خرج 250.00 درهم من الحساب في 10 سبتمبر. لا فاتورة ولا إيصال ولا موافقة تطابقه. أقرب نمط: تعبئة النثرية من نور في العاشر من كل شهر (250 درهمًا، 4 من آخر 6 أشهر).",
+  d124p: "خرج 250.00 درهم من الحساب في 10 سبتمبر. لا فاتورة ولا إيصال ولا موافقة تطابقه. أقرب نمط: تعبئة النثرية من عمر في العاشر من كل شهر (250 درهمًا، 4 من آخر 6 أشهر).",
   postPetty: "ترحيل كنثرية",
-  askNoor: "اطلب الإيصال من نور",
+  askNoor: "اطلب الإيصال من عمر",
   resolvedPetty: "رُحِّل كنثرية",
-  resolvedSlip: "طُلب الإيصال من نور",
+  resolvedSlip: "طُلب الإيصال من عمر",
   d124Resolved: (how: string) => `D-124 محلول · ${how}`,
   d124ResolvedP: "سُجّل السبب بواسطة ليلى ح. في 06:11. البنك الآن مُسوّى حتى الدرهم.",
   d118h: "ترميز دون عتبة الثقة · 74%",
@@ -273,7 +278,7 @@ const AR: Strings = {
   chip1: "تتبّع: استحقاق J-2314",
   chip2: "تتبّع: فاتورة SUB-0917",
   chip3: "فتح دفتر المشروع",
-  forRashid: <><strong>لراشد:</strong> المقبوضات 1.84m، المدفوعات 1.52m، المستحق لك 1.96m. عميلان متأخران؛ وأُرسلت التذكيرات.</>,
+  forRashid: <><strong>لراشد، كيان دبي:</strong> المقبوضات 1.84m، المدفوعات 1.52m، المستحق للكيان 1.96m. عميلان متأخران؛ وأُرسلت التذكيرات.</>,
   forBoard: <><strong>لمجلس الإدارة:</strong> الحزمة مصدَّرة إلى PDF، وكل رقم مربوط بمصدره. أرسلتها ليلى في 09:40.</>,
 };
 

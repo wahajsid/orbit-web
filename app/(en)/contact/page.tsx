@@ -64,7 +64,7 @@ export default function ContactPage() {
               </ol>
             </div>
           </div>
-          <EnquiryForm source="Contact page" />
+          <EnquiryForm source="Contact page" demo />
         </div>
       </section>
 

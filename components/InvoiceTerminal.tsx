@@ -1,6 +1,6 @@
 "use client";
 
-/* hysaab invoice — the live validation terminal. Same motion as the hire one:
+/* Hysaab Finance invoice checks: the live validation terminal. Same motion as the hire one:
    three scenarios (read the pile, test against the law, protect the claim)
    cycling, feed lines typing on one-by-one. Starts on scroll-in; reduced-motion
    shows the first scenario fully. Reuses the .term-* styles from wire.css. */
@@ -20,7 +20,7 @@ const SCENARIOS: Scenario[] = [
     key: "read",
     title: ["A folder of invoices,", "read before your coffee."],
     sub: "Drop a month of supplier invoices — or email them in. Hysaab reads every line, then re-checks the arithmetic itself, in code. Nothing is taken on trust, including its own reading.",
-    header: "HYSAAB INVOICE / INTAKE",
+    header: "INVOICE CHECKS / INTAKE",
     lines: [
       ["09:02", "INTAKE", "214 invoices · drop + inbox", false],
       ["09:04", "READ", "supplier · TRN · lines · VAT", false],
@@ -33,7 +33,7 @@ const SCENARIOS: Scenario[] = [
     key: "test",
     title: ["Tested against the law,", "invoice by invoice."],
     sub: "Every invoice is tested against the rules the FTA and ZATCA actually enforce — the required words, the TRN, the VAT shown properly, the dates. A failed field is named, not waved through.",
-    header: "HYSAAB INVOICE / RULES",
+    header: "INVOICE CHECKS / RULES",
     lines: [
       ["09:11", "UAE", "Art. 59 tax-invoice fields", false],
       ["09:11", "KSA", "ZATCA e-invoice checks", false],
@@ -46,7 +46,7 @@ const SCENARIOS: Scenario[] = [
     key: "claim",
     title: ["The claim, protected", "before the return is filed."],
     sub: "Recoverability is risk-ranked per invoice — claim, correct first, or don't claim. The register tracks every filing period and what was claimed in it, and exports to Excel your auditor will accept.",
-    header: "HYSAAB INVOICE / CLAIM",
+    header: "INVOICE CHECKS / CLAIM",
     lines: [
       ["09:15", "RISK", "input VAT ranked per invoice", false],
       ["09:15", "HOLD", "AED 3,180 held pending correction", false],

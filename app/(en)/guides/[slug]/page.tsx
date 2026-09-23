@@ -134,7 +134,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                 </div>
               )}
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>
-                <a className="hw-btn hw-btn--peach" href={g.cta?.href ?? "/product"}>{g.cta?.label ?? "See how Hysaab runs this"} <span aria-hidden="true">↗</span></a>
+                <a className="hw-btn hw-btn--peach" href={g.cta?.href ?? "/accounting"}>{g.cta?.label ?? "See how Hysaab runs this"} <span aria-hidden="true">↗</span></a>
                 <a className="hw-link hw-link--ruled" href="/guides">All guides <span aria-hidden="true">↗</span></a>
               </div>
             </div>
