@@ -254,7 +254,6 @@ export default function Page() {
               <p className="hw-eyebrow">Your control</p>
               <h2>A good colleague<br />doesn't just<br />say yes.</h2>
               <p>When an instruction looks wrong, Hysaab explains why. You get the concern, the recommendation and the evidence to make the call.</p>
-              <a className="hw-textlink" href="/trust">Read our commitments on data and control <span aria-hidden="true">→</span></a>
             </div>
             <div className="hw-principles" data-reveal="stagger-lg">
               <article>
@@ -266,6 +265,7 @@ export default function Page() {
               <article>
                 <div><h3>The why stays with the what.</h3><p>A permitted override needs a reason. The recommendation and your decision stay on the record.</p></div>
               </article>
+              <p className="hw-control-more"><a className="hw-textlink" href="/trust">Read our commitments on data and control <span aria-hidden="true">→</span></a></p>
             </div>
           </div>
         </section>

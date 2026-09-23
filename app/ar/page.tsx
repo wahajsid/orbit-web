@@ -286,8 +286,6 @@ export default function Page() {
               <p className="hw-eyebrow">تحكّمك</p>
               <h2>حكمك.<br />حدودك.<br />دائمًا.</h2>
               <p>الأدوات الجيدة تجعل الإشراف على المالية أسهل، لا تفسيرها أصعب.</p>
-              {/* AR-REVIEW: link to the trust page */}
-              <a className="hw-textlink" href="/ar/trust">اقرأ التزاماتنا بشأن البيانات والتحكم <span aria-hidden="true">←</span></a>
             </div>
             <div className="hw-principles" data-reveal="stagger-lg">
               <article>
@@ -299,6 +297,8 @@ export default function Page() {
               <article>
                 <div><h3>اترك سجلًا واضحًا.</h3><p>التوصية، والقرار المتخذ، والتعليل وراءه: كلها ظاهرة ومحفوظة.</p></div>
               </article>
+              <p className="hw-control-more">{/* AR-REVIEW: link to the trust page */}
+              <a className="hw-textlink" href="/ar/trust">اقرأ التزاماتنا بشأن البيانات والتحكم <span aria-hidden="true">←</span></a></p>
             </div>
           </div>
         </section>
