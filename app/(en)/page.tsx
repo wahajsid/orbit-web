@@ -11,7 +11,6 @@
    Previous homepage kept in git history (main before site-v5). */
 
 import { PeachScroller } from "@/components/home/PeachScroller";
-import Image from "next/image";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { Capture } from "@/components/home/Capture";
 import { Shot } from "@/components/home/PageShell";
@@ -312,12 +311,7 @@ export default function Page() {
               <article>
                 <p className="hw-eyebrow">For licensed audit firms</p>
                 <h3>Hysaab Audit</h3>
-                <div className="hw-shot">
-                  <div className="hw-capture">
-                    <Image src="/shots/audit-jet.png" width={2540} height={2360} sizes="(max-width: 760px) 100vw, 45vw" alt="Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, with the criteria hits for each entry." style={{ width: "100%", height: "auto", display: "block" }} />
-                  </div>
-                  <p className="hw-shot-cap">Journal-entry testing on a seeded engagement, sample data.</p>
-                </div>
+                <Shot file="p-audit-jet.png" title="Hysaab Audit journal-entry testing" alt="Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, with the criteria hits for each entry." caption="Journal-entry testing on a seeded engagement, sample data." />
                 <ul className="hw-ticks">
                   <li>Every journal scored, not a sample picked by eye</li>
                   <li>Samples designed, selected and evaluated in code</li>

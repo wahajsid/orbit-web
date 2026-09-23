@@ -12,7 +12,6 @@
    the previous Arabic homepage are not marked. */
 
 import { PeachScroller } from "@/components/home/PeachScroller";
-import Image from "next/image";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { Capture } from "@/components/home/Capture";
 import { Shot } from "@/components/home/PageShell";
@@ -327,12 +326,7 @@ export default function Page() {
               <article>
                 <p className="hw-eyebrow">لمكاتب التدقيق المرخّصة</p>
                 <h3 lang="en">Hysaab Audit</h3>
-                <div className="hw-shot">
-                  <div className="hw-capture">
-                    <Image src="/shots/audit-jet.png" width={2540} height={2360} sizes="(max-width: 760px) 100vw, 45vw" alt="اختبار قيود اليومية في Hysaab Audit: كل قيد مُقيَّم وفق ثلاثين معيارًا، مع المعايير التي انطبقت على كل قيد. بيانات تجريبية." style={{ width: "100%", height: "auto", display: "block" }} />
-                  </div>
-                  <p className="hw-shot-cap">اختبار قيود اليومية على ارتباط تجريبي، بيانات تجريبية.</p>
-                </div>
+                <Shot file="p-audit-jet.png" title="اختبار قيود اليومية في Hysaab Audit" alt="اختبار قيود اليومية في Hysaab Audit: كل قيد مُقيَّم وفق ثلاثين معيارًا، مع المعايير التي انطبقت على كل قيد. بيانات تجريبية." caption="اختبار قيود اليومية على ارتباط تجريبي، بيانات تجريبية." locale="ar" />
                 <ul className="hw-ticks">
                   <li>كل قيد مُقيَّم، لا عينة تُختار بالنظر</li>
                   <li>العينات تُصمَّم وتُختار وتُقيَّم بالشيفرة</li>
