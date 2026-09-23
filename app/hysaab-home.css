@@ -367,6 +367,7 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 
 /* ── product family (cream, compact links with rules) ────────────── */
 .hw-products { background: var(--hw-cream); border-top: 1px solid var(--hw-hairline); }
+.hw-products--v5 { background: #E4EAF0; border-top: 0; }
 .hw-products .hw-heading h2 { font: 400 35px/1.1 var(--hw-serif); }
 .hw-family { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 27px; }
 .hw-family article { border-top: 1px solid var(--hw-hairline); padding-top: 16px; display: block; }
@@ -807,7 +808,7 @@ html[lang="ar"] .hw-proof-in { letter-spacing: 0; font-size: 14px; font-weight: 
 .hw-products .hw-pcards-more { margin-top: 26px; font-size: 15px; color: var(--hw-supporting); display: flex; align-items: center; flex-wrap: wrap; gap: 4px 14px; }
 
 /* ── 5. one night on a group's books ── */
-.hw-night { background: var(--hw-cream); border-top: 1px solid var(--hw-hairline); }
+.hw-night { background: #DCE4D6; border-top: 0; }
 .hw-night-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
 .hw-night .hw-heading { display: block; margin: 0; }
 .hw-night .hw-heading > p { max-width: 38ch; margin-top: 20px; }

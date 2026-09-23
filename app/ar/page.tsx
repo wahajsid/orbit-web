@@ -11,6 +11,7 @@
    reviewer (brand/AR-REVIEW.md). Strings carried over unchanged from
    the previous Arabic homepage are not marked. */
 
+import { PeachScroller } from "@/components/home/PeachScroller";
 import Image from "next/image";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { Capture } from "@/components/home/Capture";
@@ -48,10 +49,12 @@ const TICKER: { t: string; who: string; msg: string; ask?: boolean }[] = [
 ];
 
 /* AR-REVIEW: the proof strip */
-const PROOF = [
-  "مبني على عمل Oblique الحي مع العملاء منذ 2018",
-  "Xero وQuickBooks اليوم، وأنظمة أخرى قيد الربط",
-  "بالإنجليزية والعربية",
+const STATEMENTS = [
+  "نظامك المحاسبي يحفظ السجلات.",
+  "وHysaab يستخلص معناها.",
+  "المستندات تصل.",
+  "والإجابات تتبعها.",
+  "وأنت تبقى في موقع التحكم.",
 ];
 
 /* AR-REVIEW: the three product cards */
@@ -135,11 +138,7 @@ export default function Page() {
         </section>
 
         {/* ── 2. شريط الإثبات ── */}
-        <section className="hw-proof" aria-label="عن Hysaab">
-          <ul className="hw-wrap hw-proof-in">
-            {PROOF.map((p) => <li key={p}>{p}</li>)}
-          </ul>
-        </section>
+        <PeachScroller phrases={STATEMENTS} />
 
         {/* ── في هذه الصفحة (AR-REVIEW: labels 01, 03 and 05) ── */}
         <nav className="hw-subnav" aria-label="في هذه الصفحة">

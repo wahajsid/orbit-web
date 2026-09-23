@@ -10,6 +10,7 @@
    genuine workspace screens: see lib/home-moments.ts.
    Previous homepage kept in git history (main before site-v5). */
 
+import { PeachScroller } from "@/components/home/PeachScroller";
 import Image from "next/image";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { Capture } from "@/components/home/Capture";
@@ -38,10 +39,15 @@ const FEED: { t: string; who: string; msg: string; ask?: boolean }[] = [
 ];
 
 /* ── Proof strip: provable facts only (owner, 2026-09-23) ── */
-const PROOF = [
+const STATEMENTS = [
   "Built on Oblique’s live client work since 2018",
+  "Your accounting system holds the records",
+  "Hysaab makes sense of them",
   "Xero and QuickBooks today, more ledgers connecting",
+  "Agents prepare · people decide",
+  "Evidence first · judgement always",
   "English and Arabic",
+  "Built in Dubai for the Gulf",
 ];
 
 const PRODUCTS: { status: string; name: string; desc: string; line: string; href: string; cta: string }[] = [
@@ -116,11 +122,7 @@ export default function Page() {
         </section>
 
         {/* ── 2. Proof strip ── */}
-        <section className="hw-proof" aria-label="About Hysaab">
-          <ul className="hw-wrap hw-proof-in">
-            {PROOF.map((p) => <li key={p}>{p}</li>)}
-          </ul>
-        </section>
+        <PeachScroller phrases={STATEMENTS} />
 
         {/* ── 3. The three products ── */}
         <section id="products" className="hw-products hw-products--v5">
