@@ -301,6 +301,99 @@ html[dir="rtl"] .m-steps::after { transform-origin: right center; }
 .hw-menu:not([hidden]) { animation: m-drop var(--m-dur-fast) var(--m-ease-out); }
 .hw-faq summary { transition: color var(--m-dur-quick) var(--m-ease-out); }
 
+/* ══════════════════════════════════════════════════════════════════
+   ROUND 2 (owner, 2026-09-24): louder, still tasteful. Kinetic type,
+   a marker highlight, magnetic fill buttons with a letter swap, digit
+   reels, scroll-lit words, a marquee, a sticky step reveal and the
+   pen-tick draw-on. Components: components/motion/Kinetic.tsx.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --m-dur-kin: 820ms;       /* one headline line rising out of its mask */
+  --m-kin-stagger: 110ms;   /* between headline lines */
+  --m-ease-snap: cubic-bezier(0.65, 0, 0.35, 1); /* marker sweeps, reel stops */
+  --m-ease-stamp: cubic-bezier(0.55, 0, 0.8, 0.2); /* accelerates into impact */
+}
+
+/* ── Kinetic lines (after SmoothUI MaskRevealUp, no blur) ── */
+.m-kin-line { display: block; overflow-x: visible; overflow-y: clip; padding-bottom: 0.16em; margin-bottom: -0.16em; }
+.m-kin-in { display: inline-block; animation: m-kin-up var(--m-dur-kin) var(--m-ease-out) backwards; animation-delay: calc(var(--m-kin-delay, 0ms) + var(--i, 0) * var(--m-kin-stagger)); }
+@keyframes m-kin-up { from { transform: translate3d(0, 115%, 0) rotate(3deg); transform-origin: left bottom; } }
+
+/* ── Marker highlight: blush sweeps in, the word turns to ink ── */
+.m-mark { position: relative; display: inline-block; isolation: isolate; padding-inline: 0.1em; margin-inline: -0.1em; color: var(--m-mark-ink, var(--hw-navy)) !important; animation: m-mark-ink 380ms var(--m-ease-out) var(--m-mark-at, 700ms) backwards; }
+.m-mark::before { content: ""; position: absolute; z-index: -1; inset: 0.2em 0 0.04em; background: var(--m-mark-bg, var(--hw-blush)); transform-origin: left center; animation: m-grow-x 560ms var(--m-ease-snap) var(--m-mark-at, 700ms) backwards; }
+html[dir="rtl"] .m-mark::before { transform-origin: right center; }
+@keyframes m-mark-ink { from { color: var(--m-mark-from, currentColor); } }
+
+/* ── Magnetic fill CTA (after MicroKit Magnetic Fill Button) ──
+   Fill rises from the foot; MotionEnhancer feeds --mx/--my with a
+   radius falloff (after SmoothUI MagneticButton). */
+.m-cta { --m-fill: var(--hw-navy); --m-fill-ink: var(--hw-cream); min-height: 54px; padding: 16px 22px; font-size: 14px; gap: 36px; }
+.m-cta::before { transform: scaleY(0); transform-origin: center bottom; }
+.m-cta--on-navy { --m-fill: var(--hw-cream); --m-fill-ink: var(--hw-navy); }
+.m-magnetic, .hw-btn.m-magnetic:hover { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0); }
+.m-magnetic { transition: transform 420ms var(--m-ease-out), color var(--m-dur-quick) var(--m-ease-out); }
+.m-magnetic > :is(.m-swap, .m-arrow) { transition: transform 420ms var(--m-ease-out); transform: translate3d(calc(var(--mx, 0px) * 0.35), calc(var(--my, 0px) * 0.35), 0); }
+.hw-btn.m-magnetic:active:not([disabled]) { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) scale(var(--m-press)); }
+@media (hover: hover) and (pointer: fine) {
+  .m-cta:hover::before { transform: scaleY(1); transform-origin: center bottom; }
+  .m-cta:hover { color: var(--m-fill-ink) !important; }
+  .hw-btn--peach.m-cta:hover, .hw-btn--blush.m-cta:hover { background: var(--hw-blush); }
+}
+.m-cta:focus-visible::before { transform: scaleY(1); }
+.m-cta:focus-visible { color: var(--m-fill-ink) !important; }
+
+/* ── Letter swap label (after MicroKit Staggered Letter Text Swap) ── */
+.m-swap { display: inline-flex; }
+.m-swap-row { display: inline-flex; }
+.m-swap-l { display: inline-grid; overflow: clip; height: 1.3em; line-height: 1.3em; }
+.m-swap-l > span { grid-area: 1 / 1; transition: transform 460ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i) * 18ms); }
+.m-swap-l > span:last-child { transform: translateY(115%); }
+:is(a, button):focus-visible .m-swap-l > span:first-child { transform: translateY(-115%); }
+:is(a, button):focus-visible .m-swap-l > span:last-child { transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  :is(a, button):hover .m-swap-l > span:first-child { transform: translateY(-115%); }
+  :is(a, button):hover .m-swap-l > span:last-child { transform: none; }
+}
+
+/* ── Digit reels (after SmoothUI NumberFlow; pure CSS, lands on the value) ── */
+.m-roll { font-variant-numeric: tabular-nums; line-height: 1.1; display: inline-block; }
+.m-roll-row { display: inline-flex; }
+.m-roll-reel { position: relative; display: inline-block; overflow: hidden; height: 1.1em; }
+.m-roll-sizer { visibility: hidden; display: block; }
+.m-roll-col { position: absolute; inset: 0 0 auto; text-align: center; transform: translateY(calc((10 + var(--d)) * -1.1em)); animation: m-roll calc(1100ms + var(--k) * 140ms) cubic-bezier(0.2, 0.75, 0.15, 1) var(--m-roll-delay, 0ms) backwards; }
+.m-roll-col > span { display: block; height: 1.1em; }
+@keyframes m-roll { from { transform: translateY(0); } }
+
+/* ── Scroll-lit words (after SmoothUI ScrollRevealParagraph) ── */
+.m-words span { opacity: clamp(0.16, calc(var(--p, 1) * (var(--n) + 2) - var(--i)), 1); transition: opacity 140ms linear; }
+
+/* ── Marquee ── */
+.m-ticker { overflow: hidden; }
+.m-ticker-track { display: flex; width: max-content; animation: m-marquee var(--m-ticker-dur, 48s) linear infinite; }
+.m-ticker ul { display: flex; list-style: none; margin: 0; padding: 0; }
+.m-ticker li { white-space: nowrap; display: inline-flex; align-items: center; }
+.m-ticker li::after { content: "\2733"; font-size: 0.5em; margin-inline: 0.9em; opacity: 0.8; }
+.m-ticker:hover .m-ticker-track, .hw-page[data-paused="true"] .m-ticker-track { animation-play-state: paused; }
+html[dir="rtl"] .m-ticker-track { animation-direction: reverse; }
+@keyframes m-marquee { to { transform: translateX(-50%); } }
+
+/* ── Pen-tick draw-on: the logo's blush tail writes itself on load
+      and again on hover or focus (DESIGN-PHILOSOPHY, logo motion) ── */
+.hw-brand svg path:nth-of-type(2) { animation: m-tick-a 760ms var(--m-ease-snap) 300ms backwards; }
+.hw-brand:is(:hover, :focus-visible) svg path:nth-of-type(2) { animation-name: m-tick-b; animation-delay: 0ms; }
+@keyframes m-tick-a { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes m-tick-b { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+
+/* ── Parallax on product shots (MotionEnhancer feeds --py) ── */
+html.m-ready [data-parallax] .hw-capture-open > img { transform: translate3d(0, var(--py, 0px), 0) scale(1.08); will-change: transform; }
+
+/* ── Sticky step reveal (after Amicro StickyReveal) ──
+   [data-steps] holds [data-step] items; MotionEnhancer marks the one
+   crossing the middle of the viewport .is-active, earlier ones .is-past. */
+html.m-ready [data-steps] [data-step] { opacity: 0.28; transition: opacity var(--m-dur-medium) var(--m-ease-out); }
+html.m-ready [data-steps] [data-step]:is(.is-active, .is-past) { opacity: 1; }
+
 /* ══ 10. Safety nets ════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   html.m-ready [data-reveal], html.m-ready [data-reveal] > * { opacity: 1 !important; }
@@ -313,7 +406,23 @@ html[dir="rtl"] .m-steps::after { transform-origin: right center; }
   :is(.hw-btn, .hw-nav-cta, .m-btn, .m-lift, .m-sweep, .m-underline, .hw-nav a, .hw-signin, .hw-link--ruled, .hw-textlink)::after { transition: none !important; }
   :is(.hw-btn, .hw-nav-cta, .m-btn, .m-lift):is(:hover, :active) { transform: none !important; }
   .hw-btn[aria-disabled="true"]::after { animation: none !important; width: 100%; opacity: 0.3; }
+  .m-kin-in, .m-mark, .m-mark::before, .m-roll-col, .m-ticker-track, .hw-brand svg path, [class*="ck-"], [class*="ck-"]::before, [class*="ck-"]::after { animation: none !important; }
+  .m-swap-l > span, .m-magnetic, .m-magnetic > *, .m-words span { transition: none !important; }
+  .m-magnetic { transform: none !important; }
+  .m-words span { opacity: 1 !important; }
+  .m-ticker-track { width: auto; }
+  .m-ticker-track > ul { flex-wrap: wrap; }
+  .m-ticker-track > ul[aria-hidden="true"] { display: none; }
+  .m-ticker li { white-space: normal; }
+  [data-steps] [data-step] { opacity: 1 !important; }
+  [data-parallax] .hw-capture-open > img { transform: none !important; }
 }
 @media print {
   [data-reveal], [data-reveal] > * { opacity: 1 !important; animation: none !important; }
 }
+
+/* Sticky fix: globals.css sets overflow-x: hidden on html AND body, which
+   turns body into its own (never-scrolling) scroll container, so no
+   position: sticky ever stuck (the demo window's sticky was dead too).
+   clip keeps the horizontal guard without creating a scroll container. */
+html:has(.hw-page), body:has(.hw-page) { overflow-x: clip; }

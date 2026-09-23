@@ -2,81 +2,134 @@
    The Books Check landing page (2026-09-24, owner's copy): one question,
    one button, three facts. The button opens the app's magic-link flow at
    app.hysaab.ai/check — no sign-up, no card. The form at the foot is the
-   human path (Zoho Books, Wafeq, or a walk-through). */
+   human path (Zoho Books, Wafeq, or a walk-through).
+   Round 2 (2026-09-24, owner): less copy, more design. Kinetic hero with
+   the sample report assembling, a marquee of the checks, a sticky step
+   reveal, a sage verdict, oversized numerals, a giant closing link.
+   Styles: app/check.css (ck-*) on top of the motion system (MOTION.md). */
 
-import { PageShell, PageHero } from "@/components/home/PageShell";
+import "../../check.css";
+import { PageShell } from "@/components/home/PageShell";
 import { EnquiryForm } from "@/components/home/EnquiryForm";
-import { CheckRun } from "@/components/hysaab/CheckRun";
-import { MotionPage } from "@/components/motion/MotionPage";
+import { SampleReport } from "@/components/check/SampleReport";
+import { CheckSteps } from "@/components/check/CheckSteps";
+import { KineticLines, Mark, SwapLabel, DigitRoll, ScrollWords, Ticker } from "@/components/motion/Kinetic";
 
 export const metadata = {
   title: "How clean are your books, really? Books Check by Hysaab",
   description:
-    "Connect Xero or QuickBooks with view-only access. Hysaab spots potential mistakes, money at risk, and what needs fixing first. Free in preview, no sign-up, no credit card.",
+    "Connect Xero or QuickBooks with view-only access. Hysaab spots potential mistakes, money at risk, and what needs fixing first. Free, no sign-up, no credit card.",
   alternates: { canonical: "./" },
 };
 
 const APP = "https://app.hysaab.ai/check";
+const OFFER = "Free. No sign-up, no credit card.";
+
+/* The tests a check runs (SPEC §6), in the ledger's own words. */
+const CHECKS = [
+  "Possible duplicate bills",
+  "Re-posted journals",
+  "Suspense balances",
+  "Receivables over 60 days",
+  "Unreconciled bank lines",
+  "Missed and doubled months",
+  "Round-sum journals",
+  "Payments with no description",
+  "Invoice number gaps",
+  "Related-party balances",
+  "VAT at the wrong rate",
+  "Corporate tax add-backs",
+  "Your P&L, reconciled",
+];
 
 export default function CheckPage() {
   return (
-    <PageShell band={{ kicker: "Books Check", title: "How clean are your books, really?", body: "Connect your accounting system with view-only access. In about a minute Hysaab shows what needs attention and what to do first. No sign-up, no credit card." }}>
-      <PageHero
-        eyebrow="See Hysaab in action"
-        title={<>How clean are your books,<br /><span>really?</span></>}
-        lede="Connect your accounting system. Hysaab spots potential mistakes, money at risk, and what needs fixing first."
-      >
-        <a className="hw-btn hw-btn--peach" href={APP}>Check my books <span aria-hidden="true">→</span></a>
-        <span className="hw-link hw-link--light" style={{ cursor: "default" }}>Free in preview · Read-only · Xero &amp; QuickBooks · No sign-up, no credit card</span>
-      </PageHero>
-
-      {/* ── Motion: hero entrance + kit reveals (brand/MOTION.md), a check running ── */}
-      <MotionPage />
-      <CheckRun />
-
-      {/* ── Found something? ── */}
-      <section className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Found something? Let&rsquo;s fix it.</p>
-              <h2>Get your findings, understand the next steps, and ask Hysaab to help.</h2>
+    <PageShell band={false}>
+      {/* ── Hero: kinetic headline + the sample report assembling ── */}
+      <section className="ck-hero">
+        <div className="hw-wrap ck-hero-grid">
+          <div className="ck-hero-copy">
+            <p className="ck-eyebrow"><span className="ck-pulse" aria-hidden="true" /> Books Check for Xero &amp; QuickBooks</p>
+            <h1 className="ck-h1">
+              <KineticLines lines={[<>Find out what&rsquo;s</>, <><Mark at={820}>really</Mark> going on</>, <>in your books.</>]} />
+            </h1>
+            <p className="ck-lede">Connect your ledger. Get a ranked report in about a minute.</p>
+            <div className="ck-actions">
+              <a className="hw-btn hw-btn--peach m-cta m-cta--on-navy m-magnetic" href={APP}>
+                <SwapLabel text="Check my books" /> <span aria-hidden="true">→</span>
+              </a>
+              <p className="ck-offer">{OFFER}<br />Read-only access.</p>
             </div>
           </div>
-          <div className="hw-cards">
-            <article>
-              <p className="hw-eyebrow">1 · Your findings</p>
-              <h3>Ranked by what matters, with the documents behind each.</h3>
-              <p>Cash, performance and the reliability of the books in a minute, then every finding with its evidence and the entries to open.</p>
-            </article>
-            <article>
-              <p className="hw-eyebrow">2 · The next steps</p>
-              <h3>What to check, what to correct, what to change.</h3>
-              <p>Each finding says what we saw, what it means for you, and the next step. Nothing is changed in your ledger.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">3 · Ask Hysaab to help</p>
-              <h3>Tick the items you want us to look into.</h3>
-              <p>We investigate the supporting records and propose the next steps for your approval.</p>
-            </article>
+          <SampleReport />
+        </div>
+      </section>
+
+      {/* ── What every check looks for ── */}
+      <Ticker className="ck-ticker" label="What a Books Check looks for" items={CHECKS} />
+
+      {/* ── How it runs ── */}
+      <section className="ck-how" aria-labelledby="ck-how-h">
+        <div className="hw-wrap">
+          <div className="ck-how-head" data-reveal="">
+            <p className="hw-eyebrow">How it works</p>
+            <h2 id="ck-how-h">About a <em>minute</em>.</h2>
           </div>
-          <div className="hw-actions" style={{ marginTop: 34 }}>
-            <a className="hw-btn hw-btn--peach" href={APP}>Check my books <span aria-hidden="true">→</span></a>
+          <CheckSteps />
+        </div>
+      </section>
+
+      {/* ── The verdict: what the report gives you ── */}
+      <section className="ck-verdict" aria-label="What you get">
+        <div className="hw-wrap">
+          <p className="hw-eyebrow">What you get</p>
+          <ScrollWords className="ck-verdict-words" text="Your business in a minute. What needs attention first. The evidence behind every finding. And what we could not check." />
+        </div>
+      </section>
+
+      {/* ── Oversized numerals: the promises ── */}
+      <section className="ck-facts" aria-label="Your data">
+        <div className="hw-wrap ck-facts-grid" data-play="">
+          <div><strong><DigitRoll value="0" /></strong><span className="ck-fact-l">Entries written to your books</span></div>
+          <div><strong><DigitRoll value="30" delay={120} /></strong><span className="ck-fact-l">Days, then your report is deleted</span></div>
+          <div><strong><DigitRoll value="2" delay={240} /></strong><span className="ck-fact-l">Systems today: Xero and QuickBooks</span></div>
+        </div>
+      </section>
+
+      {/* ── Found something? ── */}
+      <section className="ck-fix" aria-labelledby="ck-fix-h">
+        <div className="hw-wrap ck-fix-grid">
+          <div data-reveal="">
+            <p className="hw-eyebrow">Found something?</p>
+            <h2 id="ck-fix-h">We&rsquo;ll help <em>fix</em> it.</h2>
           </div>
+          <ol className="ck-fix-steps" data-reveal="stagger-lg">
+            <li><span>01</span>Tick the findings</li>
+            <li><span>02</span>We dig into the records</li>
+            <li><span>03</span>You approve every step</li>
+          </ol>
         </div>
       </section>
 
       {/* ── Prefer a person ── */}
-      <section id="conversation">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Zoho Books, Wafeq, or prefer a person?</p>
-              <h2>Leave your email and we run the first check with you.</h2>
-            </div>
-            <p>Which system you use is enough. We reply within one working day.</p>
+      <section id="conversation" className="ck-person">
+        <div className="hw-wrap ck-person-grid">
+          <div data-reveal="">
+            <p className="hw-eyebrow">Zoho Books, Wafeq, or prefer a person?</p>
+            <h2>We&rsquo;ll run the check <em>with you</em>.</h2>
+            <p>A person replies within one working day.</p>
           </div>
           <EnquiryForm source="Books Check" />
+        </div>
+      </section>
+
+      {/* ── Closing: one giant link ── */}
+      <section className="ck-end" aria-label="Start a Books Check">
+        <div className="hw-wrap">
+          <p className="ck-end-offer">{OFFER}</p>
+          <a className="ck-end-link m-magnetic" href={APP}>
+            <SwapLabel text="Check my books" /> <span aria-hidden="true">→</span>
+          </a>
         </div>
       </section>
     </PageShell>

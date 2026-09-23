@@ -564,19 +564,6 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-index p { font-size: 13.5px; line-height: 1.6; color: var(--hw-muted); margin: 8px 0 0; max-width: 72ch; }
 .hw-split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
 
-/* ── a check running: the navy foot under a PageHero (/check) ────── */
-.hw-checkrun { background: var(--hw-navy); color: var(--hw-cream); }
-.hw-phero:has(~ .hw-checkrun) .hw-phero-in { padding-bottom: 56px; }
-.hw-checkrun-in { border-top: 1px solid #354b5d; padding-block: 34px 64px; }
-.hw-checkrun .hw-eyebrow { color: #ddbbb0; margin-bottom: 26px; }
-.hw-checkrun .hw-mono { display: block; color: var(--hw-blush); }
-.hw-checkrun strong { display: block; font-size: 17px; font-weight: 550; letter-spacing: -0.3px; line-height: 1.3; margin-block: 8px 6px; }
-.hw-checkrun-p { display: block; font-size: 13.5px; line-height: 1.6; color: #c0ccd4; }
-@media (max-width: 760px) {
-  .hw-checkrun-in { padding-block: 28px 48px; }
-  .hw-checkrun strong { margin-block: 4px; }
-}
-
 @media (max-width: 1100px) {
   .hw-feature { gap: 40px; }
   .hw-cards, .hw-cards--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -708,3 +695,23 @@ html[lang="ar"] :is(.hw-heading h2, .hw-control h2, .hw-conversation h2, .hw-tal
 html[lang="ar"] :is(.hw-eyebrow, .hw-mono, .hw-label) { letter-spacing: 0; font-family: var(--sans); font-weight: 600; font-size: 12px; }
 html[lang="ar"] .hw-nav a, html[lang="ar"] .hw-signin, html[lang="ar"] .hw-nav-cta, html[lang="ar"] .hw-btn, html[lang="ar"] .hw-link { font-size: 15px; }
 html[lang="ar"] .hw-band-track { animation-direction: reverse; }
+
+/* ── round 2 (2026-09-24): bigger kinetic hero + the Books Check band ── */
+.hw-hero h1 { font-size: clamp(58px, 7.2vw, 108px); line-height: 0.97; letter-spacing: -0.03em; }
+.hw-hero h1 .m-mark em { color: inherit; }
+.hw-hero-desc { font-size: 17px; line-height: 1.6; max-width: 34ch; }
+.m-enter > :has(.m-kin-line) { animation: none; }
+.hw-trycheck { background: var(--hw-sage); color: var(--hw-cream); }
+.hw-trycheck-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; align-items: end; padding-block: 88px 92px; }
+.hw-trycheck .hw-eyebrow { color: #e3ece6; }
+.hw-trycheck h2 { font: 400 clamp(56px, 8.4vw, 132px)/0.92 var(--hw-serif); letter-spacing: -0.035em; margin-top: 16px; }
+.hw-trycheck h2 em { font-style: italic; color: var(--hw-navy); }
+.hw-trycheck-side p { font-size: 17px; line-height: 1.6; color: #eef3ef; max-width: 32ch; margin-bottom: 26px; }
+.m-cta--sage { --m-fill: var(--hw-blush); --m-fill-ink: var(--hw-navy); }
+@media (max-width: 780px) {
+  .hw-trycheck-grid { grid-template-columns: 1fr; gap: 26px; padding-block: 60px 64px; }
+}
+@media (max-width: 580px) {
+  .hw-hero h1 { font-size: clamp(50px, 14vw, 64px); }
+}
+.hw-hero .hw-hero-desc { margin-bottom: 30px; }

@@ -68,5 +68,36 @@ Buttons, links, the nav, the mobile menu and the enquiry form states are shared 
 ## Adopted so far
 
 - **Homepage** (`app/(en)/page.tsx`): hero stagger and feed entrance, section reveals, workflow, principles, ways, team and product-family staggers, product-card top-rule sweep, 43 to 0 count-down on the close block with the matching 43 count-up.
-- **/check**: `<MotionPage />` plus `<CheckRun />`, the four-beat illustration of a check running under the hero.
+- **/check**: rebuilt in round 2 (below): kinetic hero, the sample report assembling, a marquee, a sticky step reveal, a sage verdict, oversized numerals and a giant closing link. Styles in `app/check.css`.
 - **Everywhere**: button fill sweep, lift and press; arrow slide; nav, ruled-link and text-link underline sweeps; form focus, validation, busy and success states; mobile menu drop.
+
+## Round 2: louder, still tasteful (owner, 24 September 2026)
+
+The owner asked for motion you notice above the fold, bold use of the palette and less copy. For /check and the homepage this overrides "calm, never playful". Neon, glows, blurs and bounce are still out, and so is anything that costs readability, accessibility or reduced motion.
+
+| You want | Write |
+|---|---|
+| Headline lines rising out of a mask | `<KineticLines lines={[...]} />` inside the `h1` |
+| A blush marker sweeping behind a word | `<Mark at={820}>really</Mark>`; `--m-mark-from` is the word's colour before the sweep |
+| A magnetic CTA whose fill rises from the foot | `hw-btn m-cta m-magnetic`; `m-cta--on-navy` or `m-cta--sage` for other grounds |
+| Letters that roll to a fresh copy on hover | `<SwapLabel text="Check my books" />` |
+| A figure on spinning digit reels | `<DigitRoll value="4.82" delay={650} />`, pure CSS, lands on the real value |
+| Words that light up as you scroll | `<ScrollWords text="..." />` |
+| A marquee | `<Ticker items={[...]} label="..." />`, pauses on hover, wraps still under reduced motion |
+| A sticky step reveal | `data-steps` on the wrapper, `data-step` on each step; the panel reads `data-active`. See `components/check/CheckSteps.tsx` |
+| Parallax on product shots | `data-parallax` on the grid of captures |
+| A sequence with a replay button | `<button data-replay="element-id">` |
+
+Also new: the logo's pen tick draws itself on load and again on hover or focus, and `html, body` now use `overflow-x: clip` on hysaab pages. `hidden` had made body its own scroll container, so no `position: sticky` ever stuck, including the demo window on the homepage.
+
+Every first-paint sequence is written so that its resting CSS is the finished state. `animation: none` (reduced motion) and no-JS therefore both show the complete page.
+
+### Credits
+
+Ideas and techniques ported to plain CSS and React without their dependencies (no `motion`, no Tailwind):
+
+- **SmoothUI** by Eduardo Calvo, MIT, github.com/educlopez/smoothui: MaskRevealUp (kinetic lines), MagneticButton (radius falloff), NumberFlow (digit reels), ScrollRevealParagraph (scroll-lit words).
+- **MicroKit** by henriquegpb, MIT, github.com/henriquegpb/microkit: Magnetic Fill Button (fill from the foot plus pointer pull), Staggered Letter Text Swap.
+- **Amicro** by Subhan, MIT, github.com/Subhan-code/Amicro--Micro-transitions-: StickyReveal (sticky step panel).
+- **Bencho** (bencho.dev): the licence is not published, so no code was used. The progress-tick idea in the step panel was drawn from scratch.
+- **transitions.dev** skills: token scale, stagger and open/close rules.

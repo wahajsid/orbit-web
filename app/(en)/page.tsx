@@ -18,6 +18,7 @@ import { LaunchNotice } from "@/components/home/LaunchNotice";
 import { TEAM } from "@/lib/team";
 import { ActivityFeed } from "@/components/home/ActivityFeed";
 import { PeachScroller } from "@/components/home/PeachScroller";
+import { KineticLines, Mark, SwapLabel } from "@/components/motion/Kinetic";
 
 /* ── Activity feed rows ── */
 const FEED: { t: string; who: string; msg: string; ask?: boolean }[] = [
@@ -64,12 +65,12 @@ export default function Page() {
         <section className="hw-hero">
           <div className="hw-wrap hw-hero-grid">
             <div className="hw-hero-copy m-enter">
-              <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> Quiet diligence, every morning</p>
-              <h1>Your books<br />called. They'd<br />like less of<br />your <em>time</em>.</h1>
-              <p className="hw-hero-desc">Meet Hysaab. A team of AI agents — accounting, tax, collections, reporting — that plugs into your books and runs the busywork overnight. Built on evidence, professional judgement and the human oversight your books deserve. Send a document or ask a question on WhatsApp. The agents take it from there.</p>
+              <p className="hw-eyebrow"><span className="hw-dot" aria-hidden="true" /> AI accounting for the UAE and Saudi Arabia</p>
+              <h1><KineticLines delay={120} lines={[<>Your books,</>, <>handled while</>, <>you <Mark at={900}><em>sleep</em></Mark>.</>]} /></h1>
+              <p className="hw-hero-desc">AI agents for accounting, tax, collections and reporting. They do the busywork. You make the calls.</p>
               <div className="hw-actions">
-                <a className="hw-btn hw-btn--blush" href="#conversation">Let's talk numbers <span aria-hidden="true">↗</span></a>
-                <a className="hw-link" href="#experience"><span aria-hidden="true">▷</span> See how it works</a>
+                <a className="hw-btn hw-btn--blush m-cta m-magnetic" href="#conversation"><SwapLabel text="Book a walkthrough" /> <span aria-hidden="true">↗</span></a>
+                <a className="hw-link hw-link--ruled" href="/check">Check your books free <span aria-hidden="true">→</span></a>
               </div>
               <LaunchNotice />
               <p className="hw-origin"><span aria-hidden="true">✳</span> Built in Dubai. Fluent in your working day.</p>
@@ -81,6 +82,20 @@ export default function Page() {
         {/* ── Statement scroller (animated peach strip) ── */}
         <PeachScroller phrases={STATEMENTS} />
 
+        {/* ── Books Check: try it on your books (sage) ── */}
+        <section className="hw-trycheck" aria-labelledby="hw-trycheck-h">
+          <div className="hw-wrap hw-trycheck-grid">
+            <div data-reveal="">
+              <p className="hw-eyebrow">Books Check · Free</p>
+              <h2 id="hw-trycheck-h">Try it on your <em>books</em>.</h2>
+            </div>
+            <div className="hw-trycheck-side" data-reveal="stagger-lg">
+              <p>Connect Xero or QuickBooks. See what Hysaab finds in about a minute. Read‑only.</p>
+              <a className="hw-btn hw-btn--navy m-cta m-cta--sage m-magnetic" href="/check"><SwapLabel text="Check my books" /> <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </section>
+
         {/* ── How it works ── */}
         <section className="hw-work" id="how-it-works">
           <div className="hw-wrap hw-section">
@@ -88,7 +103,7 @@ export default function Page() {
               <div className="hw-heading" data-reveal="">
                 <p className="hw-eyebrow">How it works</p>
                 <h2>Just chat.<br />The agents get<br />to work.</h2>
-                <p>We connect your books and agree the approval rules. Then you send a message. Each agent — intake, tax, coding, collections, close — picks up its part. The workspace is there when you want to look closer.</p>
+                <p>Send a receipt, an invoice or a question. Each agent picks up its part and brings back only what needs you.</p>
               </div>
               <div className="hw-workflow" data-reveal="stagger-lg">
                 <article>
@@ -99,7 +114,7 @@ export default function Page() {
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">02</span>
                   <h3>Agents prepare the work.</h3>
-                  <p>Each agent handles its domain — tax checks, coding, bank matching, collections — and brings exceptions back with a clear explanation.</p>
+                  <p>Tax checks, coding, bank matching and collections. Exceptions come back explained.</p>
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">03</span>
@@ -119,14 +134,14 @@ export default function Page() {
                 <p className="hw-eyebrow">Five ways Hysaab helps</p>
                 <h2>From &ldquo;where's that<br />receipt?&rdquo; to &ldquo;here's<br />your report.&rdquo;</h2>
               </div>
-              <p>Follow one invoice through five moments, from a photo at 9pm to a locked period. It replays on its own; click any moment or tab to take the controls.</p>
+              <p>One invoice, from a 9pm photo to a locked period. Click any moment to take the controls.</p>
             </div>
             <Demo />
             <p className="hw-disclosure">Illustrative scenario. Rashid runs a trading company; Layla is his CFO; Noor keeps the books. The numbers are examples, not results.</p>
 
             <div className="hw-shots">
               <h3 data-reveal="">Inside the real workspace.</h3>
-              <div className="hw-shots-grid" data-reveal="stagger-lg">
+              <div className="hw-shots-grid" data-reveal="stagger-lg" data-parallax="">
                 {moments.map((m) => (
                   <article key={m.key}>
                     <Capture moment={m} focus />
