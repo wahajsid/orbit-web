@@ -83,7 +83,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }} />
       {FAQ_LD && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />}
-      <PageShell>
+      <PageShell motion="hero">
         <PageHero
           eyebrow={`Guides · ${g.minutes} min · Updated ${dateStr}`}
           title={<>{g.title}</>}

@@ -5,6 +5,7 @@
    USD 899 شهريًا. مبنية على عدّة الصفحة الرئيسية. الأرقام الموجودة
    تُذكر كما هي، وما يُحدَّد نطاقه لكل عميل يُسمّى كذلك لا يُخترع. */
 
+import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -78,13 +79,13 @@ export default function PricingPage() {
             <p>الأسعار بالدولار الأمريكي، شهريًا. الرسوم تتبع العمل على دفاترك، لا عدد من يسجّلون الدخول.</p>
           </div>
 
-          <div className="hw-plans hw-plans--2">
+          <div className="hw-plans hw-plans--2" data-play="">
             {TIERS.map((t) => (
               <article key={t.name} className={t.hero ? "is-featured" : undefined}>
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
                 <p className="hw-plan-price">
-                  {t.from && <small>من</small>} {t.price}<small>/شهريًا</small>
+                  {t.from && <small>من</small>} {t.price.split(" ")[0]} <DigitRoll value={t.price.split(" ")[1]} delay={200} /><small>/شهريًا</small>
                 </p>
                 <p>{t.who}</p>
                 <ul className="hw-ticks">

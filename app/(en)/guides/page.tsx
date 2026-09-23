@@ -16,7 +16,7 @@ export default function GuidesPage() {
       <PageHero
         eyebrow="Guides"
         title={<>The busywork,<br /><span>explained plainly.</span></>}
-        lede="Short, practical answers to the questions Gulf finance teams actually deal with — written by the accountants who built Hysaab. No gate, no email wall."
+        lede="Practical answers for Gulf finance teams, written by accountants. No email wall."
       />
       <section>
         <div className="hw-wrap hw-section">

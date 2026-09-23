@@ -55,7 +55,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       {FAQ_LD && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />}
-      <PageShell locale="ar">
+      <PageShell locale="ar" motion="hero">
         <PageHero
           eyebrow={`الأدلة · ${g.minutes} دقائق · تحديث ${dateStr}`}
           title={<>{g.title}</>}

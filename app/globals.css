@@ -156,10 +156,10 @@ img { max-width: 100%; display: block; }
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.arrive { animation: wire-arrive 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) 0.15s both; }
+.arrive { animation: wire-arrive var(--m-dur-reveal, 0.5s) var(--m-ease-out, cubic-bezier(0.22, 1, 0.36, 1)) 0.15s both; }
 
 /* 2 · terminal feed — lines revealed by JS as the panel scrolls in */
-.feedline { opacity: 0; transform: translateY(4px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.feedline { opacity: 0; transform: translateY(var(--m-d-micro, 4px)); transition: opacity var(--m-dur-fast, 0.25s) var(--m-ease-out, ease), transform var(--m-dur-fast, 0.25s) var(--m-ease-out, ease); }
 .feedline.on { opacity: 1; transform: translateY(0); }
 
 /* 3 · logo orbit — one slow revolution, ~8s, defined in OrbitLogo.tsx */
@@ -170,7 +170,7 @@ img { max-width: 100%; display: block; }
    seamless: as the tail of copy A leaves, the head of copy B is already
    in position. The green square next to the label pulses at 1.6s. */
 @keyframes orbit-feed { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.orbit-feed { animation: orbit-feed 36s linear infinite; }
+.orbit-feed { animation: orbit-feed 36s var(--m-ease-linear, linear) infinite; }
 @keyframes orbit-square-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 .orbit-square-pulse { display: inline-block; animation: orbit-square-pulse 1.6s ease-in-out infinite; }
 

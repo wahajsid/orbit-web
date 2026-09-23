@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
       <PageHero
         eyebrow="How it works"
         title={<>How Hysaab works.<br /><span>From a document to a locked period.</span></>}
-        lede="Hysaab puts a team of AI agents between your business and your ledger. Documents come in, each agent handles its domain — intake, coding, tax, collections, close — and the decisions that need a person come to you. This page follows that path."
+        lede="Documents come in, each agent does its part, and the decisions that need a person come to you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/product"><span className="hw-play" aria-hidden="true">▷</span> See the product screens</a>

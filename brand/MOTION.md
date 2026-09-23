@@ -101,3 +101,14 @@ Ideas and techniques ported to plain CSS and React without their dependencies (n
 - **Amicro** by Subhan, MIT, github.com/Subhan-code/Amicro--Micro-transitions-: StickyReveal (sticky step panel).
 - **Bencho** (bencho.dev): the licence is not published, so no code was used. The progress-tick idea in the step panel was drawn from scratch.
 - **transitions.dev** skills: token scale, stagger and open/close rules.
+
+## Phase 3: every page, English and Arabic (24 September 2026)
+
+- **Every `PageShell` page is in.** The shell renders the motion marker, so there is nothing to add per page. Its `PageHero` title becomes kinetic lines, split at the `<br />`s. The first accent `<span>` short enough not to wrap (16 characters in English, 12 in Arabic) gets the marker sweep. Hero buttons become magnetic fill CTAs on the server, so nothing arrives late and nothing shifts. The kit reveals on scroll, and so do the footer columns.
+- **`motion="hero"`** on `PageShell` keeps long reading pages (every guide article, EN and AR) calm: the hero only, no reveals in the text.
+- **`CtaBand`**: its title runs as kinetic lines once it scrolls into view (`data-kin-on-view`), and its button is magnetic.
+- **Index rows** (`.hw-index`, guides and tools): a blush rule grows at the start edge, the row slides toward the reader and the badge fills. This is the list form of `m-lift`: an offset block under a ruled list looked broken.
+- **Sage bands** (`.hw-block--sage`): display-size headings for the outcome moments.
+- **Genuine figures**: pricing (EN and AR) runs its plan prices on digit reels when they come into view.
+- **Arabic**: lines only, never letters, so letter joining is never broken. `SwapLabel whole` slides the whole label. The marker sweeps from the right, lines tilt in from the right, button fills start at the right, and digit reels stay left to right.
+- **Legacy components**: Terminal (`.feedline`, `.term-dot`), the rotating headline (`.hero-rotate`, 350ms fade) and the old agent feed now read the tokens.

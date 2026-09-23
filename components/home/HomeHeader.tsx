@@ -76,7 +76,7 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
             {isAr ? <span className="hy-ar" aria-current="true" lang="ar">ع</span> : <a href={twin} className="hy-ar" lang="ar" aria-label="العربية">ع</a>}
           </span>
           <a href="https://app.hysaab.ai" className="hw-signin">{t.signin}</a>
-          <a href={talk} className="hw-nav-cta" onClick={close}>{t.talk} <span aria-hidden="true">↗</span></a>
+          <a href={talk} className="hw-nav-cta m-magnetic" onClick={close}>{t.talk} <span aria-hidden="true">↗</span></a>
           <button ref={btn} type="button" className="hw-menu-btn" aria-expanded={open} aria-controls="hw-menu" onClick={() => setOpen((o) => !o)}>
             {open ? t.close : t.menu}
           </button>

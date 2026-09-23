@@ -57,6 +57,7 @@ export default function Page() {
   return (
     <div className="hw-page" id="top">
       <a href="#main" className="hw-skip">Skip to the content</a>
+      <span data-motion-page="full" hidden />
       <HomeHeader />
 
       <main id="main">

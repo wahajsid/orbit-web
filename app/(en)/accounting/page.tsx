@@ -46,7 +46,7 @@ export default function AccountingPage() {
       <PageHero
         eyebrow="AI agents for accounting, tax and reporting"
         title={<>A team of agents for your books.<br /><span>Built on evidence.</span></>}
-        lede="Accounting, tax, collections, reporting — each agent handles its domain, runs the busywork overnight, and leaves the judgement to you."
+        lede="Agents for accounting, tax, collections and reporting. The busywork runs overnight; the judgement stays with you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let&rsquo;s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#live">Seventy seconds of what it looks like</a>

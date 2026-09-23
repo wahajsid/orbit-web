@@ -173,7 +173,6 @@ html.m-ready [data-play]:not(.is-in) *::after { animation-play-state: paused; }
 :is(a, button):focus-visible > .m-arrow--e { animation: m-arrow-e var(--m-dur-slow) both; }
 :is(a, button):focus-visible > .m-arrow--w { animation: m-arrow-w var(--m-dur-slow) both; }
 :is(a, button):focus-visible > .m-arrow--ne { animation: m-arrow-ne var(--m-dur-slow) both; }
-html[dir="rtl"] .m-arrow--e, html[dir="rtl"] .m-arrow--w { animation-direction: reverse; }
 
 /* ══ 5. Underline sweep ═════════════════════════════════════════════
    Draws in from the start edge, retracts toward the end edge. */
@@ -426,3 +425,76 @@ html.m-ready [data-steps] [data-step]:is(.is-active, .is-past) { opacity: 1; }
    position: sticky ever stuck (the demo window's sticky was dead too).
    clip keeps the horizontal guard without creating a scroll container. */
 html:has(.hw-page), body:has(.hw-page) { overflow-x: clip; }
+
+/* ══════════════════════════════════════════════════════════════════
+   PHASE 3 (2026-09-24): every page, English and Arabic.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Kinetic heroes from PageHero: the line wrappers keep the h1 colour
+   (the accent rule `.hw-phero h1 span` must only reach the accent). */
+:is(.hw-phero, .hw-hero, .hw-talk) h1 :is(.m-kin-line, .m-kin-in),
+.hw-talk h2 :is(.m-kin-line, .m-kin-in) { color: inherit; }
+.hw-phero h1 { --m-mark-from: var(--hw-blush); }
+.hw-page:has([data-motion-page]) .hw-phero-in > h1 { animation: none; }
+/* Bands further down run their kinetic lines when they come into view. */
+[data-kin-on-view]:not(.is-in) .m-kin-in { animation: none; }
+
+/* RTL: lines tilt in from the reading edge; fills and sweeps start at the
+   right; digit reels stay left to right (the numerals are Latin). */
+html[dir="rtl"] .m-kin-in { animation-name: m-kin-up-rtl; }
+@keyframes m-kin-up-rtl { from { transform: translate3d(0, 115%, 0) rotate(-3deg); transform-origin: right bottom; } }
+.m-roll { direction: ltr; unicode-bidi: isolate; }
+html[dir="rtl"] :is(.hw-btn, .hw-nav-cta, .m-btn)::before { transform-origin: left center; }
+html[dir="rtl"] :is(.hw-btn, .hw-nav-cta, .m-btn):active:not([disabled])::before { transform-origin: right center; }
+@media (hover: hover) and (pointer: fine) {
+  html[dir="rtl"] :is(.hw-btn, .hw-nav-cta, .m-btn):hover::before { transform-origin: right center; }
+}
+html[dir="rtl"] .m-cta::before { transform-origin: center bottom !important; }
+/* Whole-label swap (Arabic): the label slides as one piece. */
+.m-swap--whole .m-swap-l { height: 1.6em; line-height: 1.6em; }
+
+.m-cta--on-blush { --m-fill: var(--hw-cream); --m-fill-ink: var(--hw-navy); }
+.m-cta--on-blush:is(:hover, :focus-visible) { background: var(--hw-navy); }
+
+/* Index rows (guides, tools): a blush rule grows at the start edge, the
+   row slides toward the reader and the badge fills. Whole row clickable. */
+.hw-index a { position: relative; }
+.hw-index a::before { content: ""; position: absolute; inset-block: -1px; inset-inline-start: 0; width: 3px; background: var(--hw-blush); transform: scaleY(0); transform-origin: center top; transition: transform var(--m-dur-medium) var(--m-ease-out); }
+.hw-index a > div { transition: transform var(--m-dur-medium) var(--m-ease-out); }
+.hw-index a .hw-mono { padding: 5px 8px; box-shadow: inset 0 0 0 1px var(--hw-hairline); transition: background-color var(--m-dur-quick) var(--m-ease-out), color var(--m-dur-quick) var(--m-ease-out), box-shadow var(--m-dur-quick) var(--m-ease-out); white-space: nowrap; }
+.hw-index a:focus-visible::before { transform: scaleY(1); }
+@media (hover: hover) and (pointer: fine) {
+  .hw-index a:hover::before { transform: scaleY(1); transition-duration: var(--m-dur-fast); }
+  .hw-index a:hover > div { transform: translate3d(18px, 0, 0); transition-duration: var(--m-dur-fast); }
+  html[dir="rtl"] .hw-index a:hover > div { transform: translate3d(-18px, 0, 0); }
+  .hw-index a:hover .hw-mono { background: var(--hw-navy); color: var(--hw-cream); box-shadow: inset 0 0 0 1px var(--hw-navy); }
+}
+.hw-index a:active > div { transform: translate3d(10px, 0, 0); }
+html[dir="rtl"] .hw-index a:active > div { transform: translate3d(-10px, 0, 0); }
+
+/* Sage verdict bands: display-size headings. */
+.hw-block--sage .hw-heading h2 { font: 400 clamp(46px, 6vw, 92px)/0.98 var(--hw-serif); letter-spacing: -0.03em; }
+html[lang="ar"] .hw-block--sage .hw-heading h2 { font-size: clamp(34px, 4.4vw, 60px); letter-spacing: 0; }
+
+/* Header: the mobile menu links stagger in. */
+.hw-menu:not([hidden]) > a { animation: m-rise var(--m-dur-fast) var(--m-ease-out) backwards; animation-delay: calc(var(--m-i, 0) * var(--m-dur-stagger)); }
+.hw-menu > a:nth-child(2) { --m-i: 1; } .hw-menu > a:nth-child(3) { --m-i: 2; } .hw-menu > a:nth-child(4) { --m-i: 3; }
+.hw-menu > a:nth-child(5) { --m-i: 4; } .hw-menu > a:nth-child(n+6) { --m-i: 5; }
+
+/* Footer: link underlines, the pen tick on hover, lifting social icons. */
+:is(.hw-footer-cols a, .hw-footer-bottom a, .hw-footer-mail) { position: relative; }
+:is(.hw-footer-cols a, .hw-footer-bottom a)::after { content: ""; position: absolute; inset-inline: 0; bottom: 3px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right center; transition: transform var(--m-dur-medium) var(--m-ease-out); }
+:is(.hw-footer-cols a, .hw-footer-bottom a):focus-visible::after { transform: scaleX(1); }
+.hw-footer-main > a:is(:hover, :focus-visible) svg path:nth-of-type(2) { animation: m-tick-b 760ms var(--m-ease-snap); }
+.hw-social a { transition: transform var(--m-dur-medium) var(--m-ease-out), background-color var(--m-dur-quick) var(--m-ease-out), color var(--m-dur-quick) var(--m-ease-out), border-color var(--m-dur-quick) var(--m-ease-out) !important; }
+.hw-social a:active { transform: scale(0.94); }
+@media (hover: hover) and (pointer: fine) {
+  :is(.hw-footer-cols a, .hw-footer-bottom a):hover::after { transform: scaleX(1); transform-origin: left center; transition-duration: var(--m-dur-fast); }
+  html[dir="rtl"] :is(.hw-footer-cols a, .hw-footer-bottom a):hover::after { transform-origin: right center; }
+  .hw-social a:hover { transform: translate3d(0, -3px, 0); transition-duration: var(--m-dur-fast) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[dir="rtl"] .m-kin-in { animation: none !important; }
+  .hw-index a > div, .hw-social a, .hw-menu > a { transform: none !important; animation: none !important; }
+}

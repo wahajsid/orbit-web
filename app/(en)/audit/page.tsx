@@ -128,7 +128,7 @@ export default function AuditPage() {
       <PageHero
         eyebrow="hysaab audit · part of hysaab services OS"
         title={<>The audit file does the testing.<br />You still sign it.</>}
-        lede="An ISA audit of IFRS statements, run end to end on a hashed snapshot of the client's books. Engines test every journal, compute materiality, design and evaluate the samples, tie the schedules out, chase the confirmations and aggregate the misstatements. A licensed human concludes and signs. Hysaab never signs an opinion."
+        lede="An ISA audit file that tests every journal. A licensed human concludes and signs; Hysaab never signs an opinion."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Join the founding firms <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#walkthrough">See the file, screen by screen</a>

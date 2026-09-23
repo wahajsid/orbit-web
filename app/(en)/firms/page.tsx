@@ -73,7 +73,7 @@ export default function ServicesOsPage() {
       <PageHero
         eyebrow="hysaab services OS · for tax and advisory firms"
         title={<>Your firm sells judgement.<br />Let the admin run itself.</>}
-        lede={<>One operating system for a professional services firm, supercharged by AI. Agents sort the inbox, turn meetings into tasks, check every return, draft the letters and write the timesheet. Your people spend their day on clients and the calls only they can make. If you hold an audit licence, <a href="/audit" style={{ color: "var(--hw-blush)" }}>hysaab audit</a> runs the ISA file inside the same system.</>}
+        lede={<>One operating system for your firm, with agents on the admin. <a href="/audit" style={{ color: "var(--hw-blush)" }}>hysaab audit</a> runs the ISA file inside it.</>}
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Join the founding firms <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#day">Watch a day in the firm</a>

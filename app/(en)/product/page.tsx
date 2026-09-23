@@ -79,7 +79,7 @@ export default function Page() {
       <PageHero
         eyebrow="The product"
         title={<>One workspace.<br /><span>Every figure accounted for.</span></>}
-        lede="Six agents — payables, receivables, ledger, close, documents and tax — each handling its domain, showing its evidence and leaving the decisions with you."
+        lede="Six agents, each showing its evidence and leaving the decisions with you."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>

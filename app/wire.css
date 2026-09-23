@@ -157,8 +157,8 @@
 
 /* rotating headline — cross-fade with a slight rise; a fixed min-height keeps
    the band from reflowing between lines of different width */
-.hero-rotate { min-height: 2.06em; transition: opacity 0.38s ease, transform 0.38s ease; }
-.hero-rotate.fading { opacity: 0; transform: translateY(6px); }
+.hero-rotate { min-height: 2.06em; transition: opacity var(--m-dur-medium, 0.35s) var(--m-ease-out, ease), transform var(--m-dur-medium, 0.35s) var(--m-ease-out, ease); }
+.hero-rotate.fading { opacity: 0; transform: translateY(var(--m-d-base, 8px)); }
 @media (prefers-reduced-motion: reduce) {
   .hero-rotate { transition: none; }
   .hero-rotate.fading { opacity: 1; transform: none; }
@@ -166,7 +166,7 @@
 
 /* terminal scenario progress dots */
 .term-dots { display: flex; gap: 7px; margin-top: 18px; }
-.term-dot { width: 7px; height: 7px; border-radius: 0; border: 1.5px solid var(--text-faint); transition: background 0.3s ease; }
+.term-dot { width: 7px; height: 7px; border-radius: 0; border: 1.5px solid var(--text-faint); transition: background var(--m-dur-fast, 0.25s) var(--m-ease-out, ease); }
 .term-dot.on { background: var(--petrol); border-color: var(--petrol); }
 
 /* one-click capture — unfolds in place of the CTA */

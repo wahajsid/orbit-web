@@ -16,7 +16,7 @@ export default function ToolsPage() {
       <PageHero
         eyebrow="Tools"
         title={<>Calculators that show<br /><span>their working.</span></>}
-        lede="Free, fast, and computed entirely in your browser — the numbers Gulf finance teams reach for weekly, each with the rule behind it spelled out."
+        lede="Free calculators, computed in your browser, each with the rule spelled out."
       />
       <section>
         <div className="hw-wrap hw-section">

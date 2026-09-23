@@ -5,6 +5,7 @@
    detail; the figures that exist are stated, and what is scoped per
    customer is named as such rather than invented. */
 
+import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 
@@ -61,7 +62,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title={<>Sized by the work,<br /><span>not the seats.</span></>}
-        lede="Two ways to bring the agents to your books. Self-serve: you run the workspace, and the agents handle accounting, tax, collections and reporting. Managed service: our accountants run the agents with you, and a person stays on every judgement call. The fee follows the complexity of your books, never how many people log in."
+        lede="Self-serve or managed. The fee follows your books, never the number of logins."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Book a walkthrough <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
@@ -77,13 +78,13 @@ export default function PricingPage() {
             <p>Prices are in US dollars, per month. The fee follows the work on your books, not the number of people who log in.</p>
           </div>
 
-          <div className="hw-plans hw-plans--2">
+          <div className="hw-plans hw-plans--2" data-play="">
             {TIERS.map((t) => (
               <article key={t.name} className={t.hero ? "is-featured" : undefined}>
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
                 <p className="hw-plan-price">
-                  {t.from && <small>from</small>} {t.price}<small>/month</small>
+                  {t.from && <small>from</small>} {t.price.split(" ")[0]} <DigitRoll value={t.price.split(" ")[1]} delay={200} /><small>/month</small>
                 </p>
                 <p>{t.who}</p>
                 <ul className="hw-ticks">

@@ -12,6 +12,9 @@ const HEADLINES: [string, string][] = [
   ["You didn't hire your team", "to be buried in reconciliations and adjusting entries."],
 ];
 
+/* Fade matches --m-dur-medium (app/motion.css); dwell stays 5.2s. */
+const FADE_MS = 350;
+
 export function RotatingHeadline({ items = HEADLINES }: { items?: [string, string][] }) {
   const [i, setI] = useState(0);
   const [fading, setFading] = useState(false);
@@ -20,7 +23,7 @@ export function RotatingHeadline({ items = HEADLINES }: { items?: [string, strin
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setInterval(() => {
       setFading(true);
-      setTimeout(() => { setI((n) => (n + 1) % items.length); setFading(false); }, 380);
+      setTimeout(() => { setI((n) => (n + 1) % items.length); setFading(false); }, FADE_MS);
     }, 5200);
     return () => clearInterval(t);
   }, [items.length]);

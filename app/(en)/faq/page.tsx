@@ -123,7 +123,7 @@ export default function FaqPage() {
       <PageHero
         eyebrow="FAQ"
         title={<>Straight answers.<br /><span>Before you ask.</span></>}
-        lede="The questions founders and finance leads ask us about Hysaab. If yours is missing, ask a real person: the team reads every enquiry."
+        lede="The questions founders and finance leads ask us, answered plainly."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>

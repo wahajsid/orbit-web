@@ -42,7 +42,7 @@ export default function InvoicePage() {
       <PageHero
         eyebrow="hysaab invoice · tax compliance for supplier invoices"
         title={<>Every supplier invoice, tested before you claim the VAT.</>}
-        lede="Invoices arrive by email or a folder. hysaab invoice reads every field, redoes the arithmetic in code, tests the invoice against the UAE or KSA rules, gets a second opinion on anything risky, and chases the supplier for the fix. A person makes every call on what gets claimed."
+        lede="Every field read, every sum redone, every rule tested. A person decides what gets claimed."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Request access <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="#flow">Follow an invoice</a>

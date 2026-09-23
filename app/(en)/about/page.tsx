@@ -50,7 +50,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Why we built it"
         title={<>We have lived<br /><span>this month-end.</span></>}
-        lede="Hysaab is built in Dubai by accountants who have worked through these processes themselves: the month-end, the VAT filings, the FTA queries. It was not designed by guessing at them."
+        lede="Built in Dubai by accountants who have run the month-end, the VAT filings and the FTA queries themselves."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/product"><span className="hw-play" aria-hidden="true">▷</span> See the product</a>

@@ -46,7 +46,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title={<>A real person reads<br /><span>every message.</span></>}
-        lede="No ticket deflection and no chatbot maze. Write as you would to a colleague, because that is who answers."
+        lede="Write as you would to a colleague, because that is who answers."
       />
 
       <section className="hw-conversation" id="conversation">

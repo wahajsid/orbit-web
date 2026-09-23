@@ -14,6 +14,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { TEAM } from "@/lib/team";
+import { KineticLines, Mark, SwapLabel } from "@/components/motion/Kinetic";
 
 export const metadata = {
   title: "برنامج محاسبة بالذكاء الاصطناعي للإمارات والسعودية | Hysaab",
@@ -58,24 +59,25 @@ export default function Page() {
   return (
     <div className="hw-page" id="top">
       <a href="#main" className="hw-skip">تخطَّ إلى المحتوى</a>
+      <span data-motion-page="full" hidden />
       <HomeHeader locale="ar" />
 
       <main id="main">
         {/* ── البطل ── */}
         <section className="hw-hero">
           <div className="hw-wrap hw-hero-grid">
-            <div className="hw-hero-copy">
+            <div className="hw-hero-copy m-enter">
               <p className="hw-eyebrow hw-eyebrow--dot"><span className="hw-dot" aria-hidden="true" /> عناية هادئة، كل صباح</p>
-              <h1>دفاترك<br />في نصابها.<br /><span>وذهنك<br />فيما هو آت.</span></h1>
+              <h1><KineticLines delay={120} lines={[<>دفاترك</>, <>في نصابها.</>, <><Mark at={900}>وذهنك</Mark></>, <>فيما هو آت.</>]} /></h1>
               <p className="hw-intro">الدفاتر مُعدّة.<br />والقرارات لك.</p>
-              <p className="hw-hero-desc">تعرّف على Hysaab: فريق محاسبة وتقارير لشركات الخليج، مبني على الأدلة والحكم المهني والإشراف البشري الذي تستحقه دفاترك. أرسل مستندًا أو اطرح سؤالًا عبر واتساب، ويتولى Hysaab الباقي.</p>
+              <p className="hw-hero-desc">تعرّف على Hysaab: فريق محاسبة وتقارير لشركات الخليج، مبني على الأدلة والحكم المهني والإشراف البشري الذي تستحقه دفاترك.</p>
               <div className="hw-actions">
-                <a className="hw-btn hw-btn--peach" href="#conversation">احجز جولة تعريفية <span aria-hidden="true">↗</span></a>
+                <a className="hw-btn hw-btn--peach m-cta m-magnetic" href="#conversation"><SwapLabel text="احجز جولة تعريفية" whole /> <span aria-hidden="true">↗</span></a>
                 <a className="hw-link hw-link--light" href="#experience"><span className="hw-play" aria-hidden="true">▷</span> شاهد كيف يعمل</a>
               </div>
               <p className="hw-origin"><span aria-hidden="true">✳</span> صُنع في دبي. يفهم يوم عملك.</p>
             </div>
-            <div className="hw-proof">
+            <div className="hw-proof m-enter-block">
               <p className="hw-eyebrow">فريقك المالي. على بُعد محادثة واحدة.</p>
               <h2>يبدأ الأمر<br />برسالة واتساب.</h2>
               <p className="hw-proof-p">أرسل الفاتورة. اطرح السؤال.<br />وواصل يومك.</p>
@@ -186,7 +188,7 @@ export default function Page() {
 
             <div className="hw-shots">
               <h3>داخل مساحة العمل الحقيقية.</h3>
-              <div className="hw-shots-grid">
+              <div className="hw-shots-grid" data-parallax="">
                 {moments.map((m) => (
                   <article key={m.key}>
                     <Capture moment={m} focus locale="ar" />

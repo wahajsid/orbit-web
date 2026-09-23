@@ -56,7 +56,7 @@ export default function IntegrationsPage() {
       <PageHero
         eyebrow="Integrations"
         title={<>Your ledger<br /><span>stays the ledger.</span></>}
-        lede="Hysaab does not replace your accounting system. It does the work inside it. Connect one ledger, one at a time so there is a single source of truth, or connect nothing and let Hysaab keep the books itself."
+        lede="Hysaab does not replace your accounting system. It does the work inside it."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>

@@ -5,21 +5,23 @@
    counts, no waitlist. Callers may pass their own kicker, title, body. */
 
 
+import { KineticTitle } from "../motion/Kinetic";
+
 export function CtaBand({ kicker, title, body, locale = "en" }: { kicker?: string; title?: React.ReactNode; body?: string; locale?: "en" | "ar" }) {
   const ar = locale === "ar";
   const t = ar
     ? { label: "تحدث إلى فريق Hysaab", kicker: "تحدث إلينا", title: <>لنبدأ<br />بدفاترك.</>, body: "أخبرنا بما يستغرق وقتًا أطول مما ينبغي. سنريك أين يناسبك Hysaab، ونؤكد النطاق والأتعاب مسبقًا، ونتفق على الملاءمة قبل أي التزام.", talk: "احجز جولة تعريفية", how: "شاهد كيف يعمل", talkHref: "/ar/contact", howHref: "/ar/how-it-works" }
     : { label: "Talk to the Hysaab team", kicker: "Let’s talk", title: <>Let’s start<br />with your books.</>, body: "Tell us what takes too long. We will show you where Hysaab fits, confirm the scope and fees upfront, and agree a clear fit before any commitment.", talk: "Book a walkthrough", how: "See how it works", talkHref: "/contact", howHref: "/how-it-works" };
   return (
-    <section className="hw-talk hw-chrome" aria-label={t.label}>
+    <section className="hw-talk hw-chrome" aria-label={t.label} data-kin-on-view="">
       <div className="hw-wrap hw-talk-in">
         <div>
           <p className="hw-eyebrow">{kicker ?? t.kicker}</p>
-          <h2>{title ?? t.title}</h2>
+          <h2><KineticTitle title={title ?? t.title} maxMark={0} /></h2>
           <p className="hw-talk-p">{body ?? t.body}</p>
         </div>
         <div className="hw-talk-actions">
-          <a href={t.talkHref} className="hw-btn hw-btn--navy">{t.talk} <span aria-hidden="true">↗</span></a>
+          <a href={t.talkHref} className="hw-btn hw-btn--navy m-cta m-cta--on-blush m-magnetic">{t.talk} <span aria-hidden="true">↗</span></a>
           <a href={t.howHref} className="hw-link hw-link--ruled">{t.how} <span aria-hidden="true">↗</span></a>
         </div>
       </div>

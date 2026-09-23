@@ -6,7 +6,7 @@
    Staggered Letter Text Swap (MicroKit, henriquegpb), NumberFlow digit
    reels (SmoothUI). */
 
-import type { CSSProperties, ReactNode } from "react";
+import { Children, Fragment, cloneElement, isValidElement, type CSSProperties, type ReactElement, type ReactNode } from "react";
 
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
@@ -15,9 +15,12 @@ export function KineticLines({ lines, delay = 0 }: { lines: ReactNode[]; delay?:
   return (
     <>
       {lines.map((line, i) => (
-        <span className="m-kin-line" key={i} style={{ "--i": i, "--m-kin-delay": `${delay}ms` } as Vars}>
-          <span className="m-kin-in">{line}</span>
-        </span>
+        <Fragment key={i}>
+          {i > 0 && " "}
+          <span className="m-kin-line" style={{ "--i": i, "--m-kin-delay": `${delay}ms` } as Vars}>
+            <span className="m-kin-in">{line}</span>
+          </span>
+        </Fragment>
       ))}
     </>
   );
@@ -28,8 +31,20 @@ export function Mark({ children, at = 700 }: { children: ReactNode; at?: number 
   return <span className="m-mark" style={{ "--m-mark-at": `${at}ms` } as Vars}>{children}</span>;
 }
 
-/** A button label whose letters roll to a fresh copy on hover. */
-export function SwapLabel({ text }: { text: string }) {
+/** A button label whose letters roll to a fresh copy on hover. `whole`
+    rolls the label as one piece: required for Arabic, whose letters must
+    never be split apart (it would break their joining). */
+export function SwapLabel({ text, whole = false }: { text: string; whole?: boolean }) {
+  if (whole) {
+    return (
+      <span className="m-swap m-swap--whole">
+        <span className="hw-sr">{text}</span>
+        <span className="m-swap-row" aria-hidden="true">
+          <span className="m-swap-l" style={{ "--i": 0 } as Vars}><span>{text}</span><span>{text}</span></span>
+        </span>
+      </span>
+    );
+  }
   const letters = Array.from(text);
   return (
     <span className="m-swap">
@@ -98,4 +113,55 @@ export function Ticker({ items, label, className }: { items: string[]; label: st
       </div>
     </div>
   );
+}
+
+/* ── Titles written as <>line one<br /><span>line two</span></> ──────── */
+
+type El = ReactElement<{ children?: ReactNode }>;
+
+/** Plain text of a node, for length checks. */
+export function textOf(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(textOf).join("");
+  if (isValidElement(node)) return textOf((node as El).props.children);
+  return "";
+}
+
+/** Split a title at its <br /> elements into lines, including a <br />
+    inside an accent <span> (the span is cloned onto each piece). Lines are
+    whole: words and Arabic letter joining are never broken. */
+export function titleLines(title: ReactNode): ReactNode[][] {
+  const kids = isValidElement(title) && title.type === Fragment ? Children.toArray((title as El).props.children) : Children.toArray(title);
+  const lines: ReactNode[][] = [[]];
+  kids.forEach((k, i) => {
+    if (isValidElement(k) && k.type === "br") { lines.push([]); return; }
+    if (isValidElement(k) && typeof k.type === "string" && Children.toArray((k as El).props.children).some((c) => isValidElement(c) && c.type === "br")) {
+      let part: ReactNode[] = [];
+      let n = 0;
+      const flush = () => { if (part.length) lines[lines.length - 1].push(cloneElement(k as El, { key: `${i}-${n++}` }, ...part)); part = []; };
+      Children.toArray((k as El).props.children).forEach((c) => {
+        if (isValidElement(c) && c.type === "br") { flush(); lines.push([]); } else part.push(c);
+      });
+      flush();
+      return;
+    }
+    lines[lines.length - 1].push(k);
+  });
+  return lines.filter((l) => l.length > 0);
+}
+
+/** A title as kinetic lines. The first line that is only a short accent
+    <span> becomes a marker sweep (short, so it never has to wrap). */
+export function KineticTitle({ title, maxMark = 16, markAt = 760, delay = 0 }: { title: ReactNode; maxMark?: number; markAt?: number; delay?: number }) {
+  let marked = false;
+  const lines = titleLines(title).map((line) => {
+    const only = line.length === 1 ? line[0] : null;
+    if (!marked && isValidElement(only) && only.type === "span" && textOf(only).trim().length <= maxMark) {
+      marked = true;
+      return <Mark at={markAt}>{(only as El).props.children}</Mark>;
+    }
+    return <>{line}</>;
+  });
+  return <KineticLines lines={lines} delay={delay} />;
 }

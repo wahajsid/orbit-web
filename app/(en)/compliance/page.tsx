@@ -96,7 +96,7 @@ export default function CompliancePage() {
       <PageHero
         eyebrow="Compliance"
         title={<>UAE VAT, corporate tax and ZATCA.<br /><span>Tested before it posts.</span></>}
-        lede="Every document is tested against the tax rules before it is posted. Every journal carries its evidence. A closed period stays closed. This page is the plain-language map of what Hysaab checks, in the UAE and in Saudi Arabia, and of what it leaves to you."
+        lede="Every document tested against the UAE and Saudi tax rules before it posts. Every journal carries its evidence."
       >
         <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <a className="hw-link hw-link--light" href="/faq">Straight answers in the FAQ</a>
