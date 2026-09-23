@@ -15,7 +15,7 @@ export const ORG_LD = {
   email: "info@hysaab.ai",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   areaServed: ["AE", "SA"],
-  sameAs: ["https://www.linkedin.com/company/orbitgulf"],
+  sameAs: ["https://www.linkedin.com/company/hysaab-ai/", "https://x.com/hysaabai", "https://www.instagram.com/hysaabai/"],
   parentOrganization: { "@type": "Organization", name: "Oblique Consult", url: "https://obliqueconsult.com" },
   founder: { "@type": "Person", name: "Wahaj Siddiqui", url: "https://obliqueconsult.com/about-us" },
 };
