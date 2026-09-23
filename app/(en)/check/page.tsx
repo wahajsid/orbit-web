@@ -1,7 +1,10 @@
 /* ── /check ──────────────────────────────────────────────────────────
    The Books Check landing page (2026-09-24, owner's copy): one question,
-   one button, three facts. The button opens the app's magic-link flow at
-   app.hysaab.ai/check — no sign-up, no card. The form at the foot is the
+   one button, three facts. The offer (app HANDOFF §76): the first check is
+   free; sharing Hysaab on LinkedIn from the report unlocks one more check
+   and 10 questions — merge this only once the app with §76 is deployed.
+   The button opens the app's magic-link flow at app.hysaab.ai/check — no
+   sign-up, no card. The form at the foot is the
    human path (Zoho Books, Wafeq, or a walk-through). */
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
@@ -10,7 +13,7 @@ import { EnquiryForm } from "@/components/home/EnquiryForm";
 export const metadata = {
   title: "How clean are your books, really? Books Check by Hysaab",
   description:
-    "Connect Xero or QuickBooks with view-only access. Hysaab spots potential mistakes, money at risk, and what needs fixing first. Free in preview, no sign-up, no credit card.",
+    "Connect Xero or QuickBooks with view-only access. Hysaab spots potential mistakes, money at risk, and what needs fixing first. Your first check is free, no sign-up, no credit card.",
   alternates: { canonical: "./" },
 };
 
@@ -25,7 +28,7 @@ export default function CheckPage() {
         lede="Connect your accounting system. Hysaab spots potential mistakes, money at risk, and what needs fixing first."
       >
         <a className="hw-btn hw-btn--peach" href={APP}>Check my books <span aria-hidden="true">→</span></a>
-        <span className="hw-link hw-link--light" style={{ cursor: "default" }}>Free in preview · Read-only · Xero &amp; QuickBooks · No sign-up, no credit card</span>
+        <span className="hw-link hw-link--light" style={{ cursor: "default" }}>First check free · Read-only · Xero &amp; QuickBooks · No sign-up, no credit card</span>
       </PageHero>
 
       {/* ── Found something? ── */}
@@ -54,7 +57,10 @@ export default function CheckPage() {
               <p>We investigate the supporting records and propose the next steps for your approval.</p>
             </article>
           </div>
-          <div className="hw-actions" style={{ marginTop: 34 }}>
+          <p style={{ marginTop: 28, maxWidth: "62ch" }}>
+            Found it useful? From your report you can share Hysaab on LinkedIn to unlock one more free check and 10 questions about your books. You write or edit the post and approve it before anything is published; it links here, never to your report or your numbers.
+          </p>
+          <div className="hw-actions" style={{ marginTop: 20 }}>
             <a className="hw-btn hw-btn--peach" href={APP}>Check my books <span aria-hidden="true">→</span></a>
           </div>
         </div>
