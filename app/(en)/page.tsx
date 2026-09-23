@@ -301,7 +301,7 @@ export default function Page() {
               <article>
                 <p className="hw-eyebrow">For tax and advisory firms</p>
                 <h3>Hysaab Practice</h3>
-                <Shot file="p-practice.png" title="Hysaab Practice filing workbench" alt="Hysaab Practice filing workbench with the checks on a VAT return." caption="Hysaab Practice filing workbench, sample data." />
+                <Shot file="p-practice.png" title="Hysaab Practice firm overview" alt="Hysaab Practice firm overview: fees, filings delivered, open work and risk at a glance, the Friday close checklist, and overdue and due-soon work." caption="Hysaab Practice firm overview, sample data." />
                 <ul className="hw-ticks">
                   <li>Hundreds of VAT and CT checks on every return</li>
                   <li>Treatments proposed from your firm’s own precedents</li>

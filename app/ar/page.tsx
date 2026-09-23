@@ -316,7 +316,7 @@ export default function Page() {
               <article>
                 <p className="hw-eyebrow">لمكاتب الضرائب والاستشارات</p>
                 <h3 lang="en">Hysaab Practice</h3>
-                <Shot file="p-practice.png" title="منصة الإقرارات في Hysaab Practice" alt="منصة الإقرارات في Hysaab Practice مع الفحوص على إقرار ضريبة القيمة المضافة." caption="منصة الإقرارات في Hysaab Practice، بيانات تجريبية." pending="لقطة منصة الإقرارات في Hysaab Practice قيد الإعداد." locale="ar" />
+                <Shot file="p-practice.png" title="نظرة عامة على المكتب في Hysaab Practice" alt="نظرة عامة على المكتب في Hysaab Practice: الأتعاب والإقرارات المنجزة والعمل المفتوح والمخاطر في لمحة واحدة. بيانات تجريبية." caption="نظرة عامة على المكتب في Hysaab Practice، بيانات تجريبية." pending="لقطة منصة الإقرارات في Hysaab Practice قيد الإعداد." locale="ar" />
                 <ul className="hw-ticks">
                   <li>مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات في كل إقرار</li>
                   <li>معالجات مقترحة من سوابق مكتبك</li>

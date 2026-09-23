@@ -287,3 +287,5 @@ Glossary choices to confirm: "red-team review" → مراجعة نقدية; "pre
 - **`app/ar/compliance/page.tsx`**: new note بياناتك: كيف نرعى بياناتك، وأين نرسم الحدود مع المكاتب المهنية وعملائها، مبيّن في صفحة الثقة.
 - **`app/ar/faq/page.tsx`**: the launch answer no longer shows a date: يفتح Hysaab أبوابه لعملاء جدد قريبًا. لا تحتاج إلى الانتظار لتتحدث إلينا: احجز عرضًا تجريبيًا أو أخبر الفريق عن دفاترك الآن…; the pricing answer: والخدمة المُدارة تُسعَّر وفق نطاق دفاترك: يعمل محاسبو Oblique على الاستثناءات معك ويجهّزون كل إقفال، مستخدمين Hysaab كل يوم.
 - **`app/ar/how-it-works/page.tsx`**: والخدمة المُدارة، مع محاسبي Oblique، تُسعَّر وفق نطاق دفاترك.
+
+- Homepage For firms band, Practice capture: title "نظرة عامة على المكتب في Hysaab Practice", caption "نظرة عامة على المكتب في Hysaab Practice، بيانات تجريبية." (EN: Hysaab Practice firm overview, sample data)
