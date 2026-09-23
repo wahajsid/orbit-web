@@ -137,11 +137,11 @@ html.m-ready .ck-replay { visibility: visible; animation: m-fade 400ms var(--m-e
 .ck-scene--3 .ck-chip--line { color: var(--hw-cream); }
 
 /* ── verdict (sage) ───────────────────────────────────────────────── */
-.ck-verdict { background: var(--hw-sage); color: var(--hw-cream); padding-block: 110px 116px; }
+.ck-verdict { background: var(--hw-sage); color: var(--hw-cream); padding-block: 150px 160px; }
 .ck-verdict .hw-eyebrow { color: var(--hw-cream); letter-spacing: 1.4px; margin-bottom: 26px !important; }
-.ck-verdict-words { font: 400 clamp(32px, 4vw, 52px)/1.18 var(--hw-serif); letter-spacing: -0.5px; max-width: 32ch; }
+.ck-verdict-words { font: 400 clamp(44px, 6.4vw, 92px)/1.02 var(--hw-serif); letter-spacing: -0.02em; max-width: 20ch; }
 .ck-verdict-words > span { display: block; }
-.ck-verdict-words > span + span { margin-top: 0.42em; }
+.ck-verdict-words > span + span { margin-top: 0.34em; }
 
 /* ── oversized numerals ───────────────────────────────────────────── */
 .ck-facts { background: var(--hw-cream); padding-block: 76px; }
@@ -218,7 +218,7 @@ html.m-ready .ck-replay { visibility: visible; animation: m-fade 400ms var(--m-e
   .ck-r-amt { display: none; }
   .ck-r-stamp { inset-inline-end: 12px; bottom: 10px; font-size: 11px; padding: 7px 10px; }
   .ck-how, .ck-fix, .ck-person, .ck-facts, .ck-end { padding-block: 46px; }
-  .ck-verdict { padding-block: 72px; }
+  .ck-verdict { padding-block: 96px; }
   .ck-how-head h2, .ck-fix h2 { font-size: 40px; }
   .ck-person h2 { font-size: 47px; }
   .ck-facts-grid { grid-template-columns: 1fr; gap: 34px; }
