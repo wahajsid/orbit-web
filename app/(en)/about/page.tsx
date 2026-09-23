@@ -74,7 +74,7 @@ export default function AboutPage() {
                 on the quarter. And the numbers that actually matter, untouched.
               </p>
               <p>
-                Oblique Consult has done tax and accounting work for Gulf businesses since 2018. We
+                Oblique Consult does tax and accounting work for Gulf businesses. We
                 watched capable finance teams, our own included, spend their nights on administrative
                 work and miss what the data was saying.
               </p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
-              <span><strong>Oblique Consult</strong>Tax, accounting and advisory. Dubai, since 2018. Its accountants run the managed service.<span className="hw-sr"> (opens in a new tab)</span></span>
+              <span><strong>Oblique Consult</strong>Tax, accounting and advisory. Dubai. Its accountants run the managed service.<span className="hw-sr"> (opens in a new tab)</span></span>
             </a>
             <a href="https://www.simpla.ai" target="_blank" rel="noopener">
               {/* eslint-disable-next-line @next/next/no-img-element */}

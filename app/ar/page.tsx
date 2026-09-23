@@ -382,13 +382,13 @@ export default function Page() {
                 <p className="hw-eyebrow">من أين جاء Hysaab</p>
                 <h2>أدّينا العمل<br />قبل أن نبني المنتج.</h2>
               </div>
-              <p>نشأ Hysaab من أعمال الضرائب والمحاسبة التي تؤديها Oblique Consult لشركات الخليج منذ 2018، وهندسته Simpla. بنينا الوكلاء للعمل الذي كنا نؤديه بأيدينا.</p>
+              <p>نشأ Hysaab من أعمال الضرائب والمحاسبة التي تؤديها Oblique Consult لشركات الخليج، وهندسته Simpla. بنينا الوكلاء للعمل الذي كنا نؤديه بأيدينا.</p>
             </div>
             <div className="hw-team-orgs">
               <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
-                <span><strong>Oblique Consult</strong>ضرائب ومحاسبة واستشارات. دبي، منذ 2018. محاسبوها يديرون الخدمة المُدارة.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
+                <span><strong>Oblique Consult</strong>ضرائب ومحاسبة واستشارات. دبي. محاسبوها يديرون الخدمة المُدارة.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
               </a>
               <a href="https://www.simpla.ai" target="_blank" rel="noopener">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

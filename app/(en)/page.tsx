@@ -40,19 +40,28 @@ const FEED: { t: string; who: string; msg: string; ask?: boolean }[] = [
 
 /* ── Proof strip: provable facts only (owner, 2026-09-23) ── */
 const STATEMENTS = [
-  "Built on Oblique’s live client work since 2018",
+  "Moved AED 14,200 of laptops from Marketing to Capital assets",
+  "Human managed",
+  "Queried journal JE-0098: no supporting document attached",
+  "Matched 212 bank lines to invoices overnight",
+  "AI fast-tracks decision making",
+  "Held a bill charging 5% VAT on a zero-rated export",
+  "Flagged the same supplier bill entered twice in March",
   "Your accounting system holds the records",
-  "Hysaab makes sense of them",
-  "Hundreds of VAT and CT checks on every return",
-  "Xero and QuickBooks today, more ledgers connecting",
-  "Treatments drawn from your firm’s own precedents",
+  "Chased three invoices past 60 days, statements attached",
+  "Recoded the electricity bill from Office supplies to Utilities",
+  "Asked for the tenancy contract behind a rent accrual",
   "Agents prepare · people decide",
-  "Every journal tested, not a sample of them",
-  "Samples designed and evaluated to ISA",
-  "Your partners conclude and sign",
+  "Payroll missed in January, doubled in February: flagged",
+  "Reversed a December accrual that was never unwound",
+  "Ran a client VAT return through every check before partner review",
   "Evidence first · judgement always",
-  "Tax, advisory and audit firms, in one workspace",
-  "English and Arabic",
+  "Drafted the CT add-backs from the firm’s own precedents",
+  "Scored every journal in the population for the audit file",
+  "Designed the sample and listed the items to vouch",
+  "Human managed",
+  "Tied the trial balance to the draft financial statements",
+  "Found a related-party balance with no agreement on file",
   "Built in Dubai for the Gulf",
 ];
 
@@ -357,13 +366,13 @@ export default function Page() {
                 <p className="hw-eyebrow">Where Hysaab comes from</p>
                 <h2>We ran the work<br />before we built the product.</h2>
               </div>
-              <p>Hysaab grew out of the tax and accounting work Oblique Consult has done for Gulf businesses since 2018, and is engineered with Simpla. We built the agents for the work we used to do by hand.</p>
+              <p>Hysaab grew out of the tax and accounting work Oblique Consult does for Gulf businesses, and is engineered with Simpla. We built the agents for the work we used to do by hand.</p>
             </div>
             <div className="hw-team-orgs">
               <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
-                <span><strong>Oblique Consult</strong>Tax, accounting and advisory. Dubai, since 2018. Its accountants run the managed service.<span className="hw-sr"> (opens in a new tab)</span></span>
+                <span><strong>Oblique Consult</strong>Tax, accounting and advisory. Dubai. Its accountants run the managed service.<span className="hw-sr"> (opens in a new tab)</span></span>
               </a>
               <a href="https://www.simpla.ai" target="_blank" rel="noopener">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

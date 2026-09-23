@@ -19,7 +19,7 @@ Key facts:
 - Made for the Gulf: UAE VAT (5%) tested line by line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax reconciled against VAT; KSA 15% VAT and ZATCA e-invoicing rules.
 - Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, people approve; the period lock is pressed by a person. Hysaab does not file returns.
 - Ledgers: works with Xero and QuickBooks today, with more ledgers connecting.
-- Company: Hysaab is a separate company, built in Dubai by the team behind Oblique Consult (https://obliqueconsult.com, a Dubai tax and accounting advisory founded in 2018); the engineering is by Simpla. Founders: Wahaj Siddiqui and Saad Zafar. Contact info@hysaab.ai; the app runs at app.hysaab.ai.
+- Company: Hysaab is a separate company, built in Dubai by the team behind Oblique Consult (https://obliqueconsult.com, a Dubai tax and accounting advisory); the engineering is by Simpla. Founders: Wahaj Siddiqui and Saad Zafar. Contact info@hysaab.ai; the app runs at app.hysaab.ai.
 - Languages: English and Arabic. Marketing pages have Arabic (RTL) twins under ${BASE}/ar (for example /ar, /ar/accounting, /ar/pricing, /ar/trust).
 
 ## Pages

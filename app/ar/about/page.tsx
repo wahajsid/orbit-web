@@ -75,7 +75,7 @@ export default function AboutPage() {
             </div>
             <div className="hw-prose">
               <p>إيصالات تُلاحَق على واتساب. فواتير تُدقَّق في منتصف الليل. موعد ضريبة القيمة المضافة يقترب مع نهاية الربع. والأرقام المهمة فعلًا لا يلمسها أحد.</p>
-              <p>تؤدي Oblique Consult أعمال الضرائب والمحاسبة لشركات الخليج منذ 2018. رأينا فرقًا مالية قديرة، ومنها فريقنا، تقضي لياليها في العمل الإداري وتفوّت ما تقوله البيانات.</p>
+              <p>تؤدي Oblique Consult أعمال الضرائب والمحاسبة لشركات الخليج. رأينا فرقًا مالية قديرة، ومنها فريقنا، تقضي لياليها في العمل الإداري وتفوّت ما تقوله البيانات.</p>
               <p>فدوّنّا طريقة عملنا الفعلية: الفحوص التي نجريها على كل فاتورة، وطريقة إقفالنا للشهر، والأسئلة التي يطرحها المراجع قبل التوقيع. ثم بنينا وكلاء يؤدون ذلك العمل، ويعرضون أدلتهم، ويتركون الحكم لشخص. أولًا لفريقنا الضريبي، ثم للشركات من حولنا، والآن للفرق المالية والمكاتب المهنية في أنحاء الخليج.</p>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
             <a href="https://obliqueconsult.com" target="_blank" rel="noopener">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/partners/oblique-consult.svg" alt="Oblique Consult" width={1011} height={386} loading="lazy" />
-              <span><strong>Oblique Consult</strong>ضرائب ومحاسبة واستشارات. دبي، منذ 2018. محاسبوها يديرون الخدمة المُدارة.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
+              <span><strong>Oblique Consult</strong>ضرائب ومحاسبة واستشارات. دبي. محاسبوها يديرون الخدمة المُدارة.<span className="hw-sr"> (يفتح في تبويب جديد)</span></span>
             </a>
             <a href="https://www.simpla.ai" target="_blank" rel="noopener">
               {/* eslint-disable-next-line @next/next/no-img-element */}
