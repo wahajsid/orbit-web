@@ -719,3 +719,15 @@ html[lang="ar"] .hw-band-track { animation-direction: reverse; }
   .hw-hero h1 { font-size: clamp(50px, 14vw, 64px); }
 }
 .hw-hero .hw-hero-desc { margin-bottom: 30px; }
+
+/* ── in-page section nav (Arabic homepage) ── */
+.hw-subnav { background: var(--hw-cream); border-block: 1px solid var(--hw-hairline); }
+.hw-subnav-in { display: flex; flex-wrap: wrap; gap: 4px 34px; padding-block: 8px; }
+.hw-subnav a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 500; color: var(--hw-navy) !important; position: relative; }
+.hw-subnav .hw-mono { color: var(--hw-supporting); font-size: 11px; direction: ltr; unicode-bidi: isolate; }
+.hw-subnav a:hover span:last-child { text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 580px) { .hw-subnav-in { gap: 0 22px; } .hw-subnav a { font-size: 13px; } }
+/* RTL marquees: run the strip as a left-to-right track (so the loop has
+   no empty half) while each phrase keeps its right-to-left reading. */
+html[dir="rtl"] :is(.hw-band-clip, .m-ticker) { direction: ltr; }
+html[dir="rtl"] :is(.hw-band-track > span, .m-ticker li) { direction: rtl; unicode-bidi: isolate; }
