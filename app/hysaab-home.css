@@ -424,6 +424,10 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-footer-main p { font-size: 15px; line-height: 1.5; color: var(--hw-dark-supporting); }
 .hw-footer-mail { margin-inline-start: auto; font-size: 14px; font-weight: 500; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; color: var(--hw-cream) !important; }
 .hw-footer-mail:hover { color: var(--hw-blush) !important; }
+.hw-social { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; }
+.hw-social a { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #425569; color: var(--hw-cream) !important; transition: background 150ms ease, color 150ms ease, border-color 150ms ease; }
+.hw-social a:hover, .hw-social a:focus-visible { background: var(--hw-blush); border-color: var(--hw-blush); color: var(--hw-navy) !important; }
+@media (prefers-reduced-motion: reduce) { .hw-social a { transition: none; } }
 .hw-footer-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; border-top: 1px solid #425569; padding-block: 30px; }
 .hw-footer-cols .hw-mono { color: #c7d0d8; }
 .hw-footer-cols ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 4px; }
