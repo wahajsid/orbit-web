@@ -451,7 +451,7 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-phero { background: var(--hw-navy); color: var(--hw-cream); }
 .hw-phero-in { padding-block: 80px 90px; }
 .hw-phero .hw-eyebrow { color: #ddbbb0; display: flex; align-items: center; gap: 10px; }
-.hw-phero h1 { font-size: clamp(42px, 5vw, 70px); line-height: 1.04; letter-spacing: -0.05em; font-weight: 550; margin-block: 26px 24px; color: var(--hw-cream); max-width: 17ch; }
+.hw-phero h1 { font-size: clamp(42px, 5vw, 70px); line-height: 1.04; letter-spacing: -0.02em; font-weight: 400; margin-block: 26px 24px; color: var(--hw-cream); max-width: 17ch; }
 .hw-phero h1 span { color: var(--hw-blush); }
 .hw-phero-lede { font-size: 18px; line-height: 1.7; color: #c0ccd4; max-width: 620px; }
 .hw-phero .hw-actions { margin-top: 32px; }
