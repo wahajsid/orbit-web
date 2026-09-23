@@ -11,7 +11,7 @@ import { EnquiryForm } from "@/components/home/EnquiryForm";
 export const metadata = {
   title: "Books Check by Hysaab: connect your books, see what we catch",
   description:
-    "Connect Xero or QuickBooks read-only. In a minute Hysaab reads every line of the year and tells you what to fix, ranked by the money at stake. UAE and KSA VAT and corporate tax checks. First check free.",
+    "Connect Xero or QuickBooks with view-only access. In a minute Hysaab reads every line of the year and tells you what to fix, ranked by the money at stake. UAE and KSA VAT and corporate tax checks. Free while in preview.",
   alternates: { canonical: "./" },
 };
 
@@ -33,9 +33,9 @@ const SAMPLE: { money: string; what: string; fix: string }[] = [
 
 export default function CheckPage() {
   return (
-    <PageShell band={{ kicker: "Books Check", title: "Your first check is free.", body: "Connect Xero or QuickBooks read-only. The report is yours in about a minute. Nothing is written to your books." }}>
+    <PageShell band={{ kicker: "Books Check", title: "Free while in preview.", body: "Connect Xero or QuickBooks with view-only access. The report is yours in about a minute. Nothing is written to your books." }}>
       <PageHero
-        eyebrow="Books Check · free · read-only"
+        eyebrow="Books Check · free in preview · view-only"
         title={<>Connect your books.<br /><span>See what Hysaab catches.</span></>}
         lede="One minute. Every line of the year read. What to fix, ranked by the money at stake, with the fix in one sentence."
       >
@@ -89,20 +89,20 @@ export default function CheckPage() {
         </div>
       </section>
 
-      {/* ── Price ── */}
+      {/* ── The deal ── */}
       <section className="hw-block--dark">
         <div className="hw-wrap hw-section">
           <div className="hw-heading">
             <div>
               <p className="hw-eyebrow">The deal</p>
-              <h2>Free the first time. AED 5 a check after.<br /><span>Read-only, always.</span></h2>
+              <h2>Free while in preview.<br /><span>View-only, always.</span></h2>
             </div>
           </div>
           <div className="hw-cards hw-cards--4">
-            <article className="is-navy"><p className="hw-eyebrow">First check</p><h3>Free</h3><p>No card. No commitment.</p></article>
-            <article className="is-navy"><p className="hw-eyebrow">Every check after</p><h3>AED 5</h3><p>Under a dollar, every time.</p></article>
-            <article className="is-navy"><p className="hw-eyebrow">The watch</p><h3>AED 59 a month</h3><p>A check every week, emailed.</p></article>
-            <article className="is-navy"><p className="hw-eyebrow">Your data</p><h3>Deleted after 30 days</h3><p>Nothing is ever written to your ledger.</p></article>
+            <article className="is-navy"><p className="hw-eyebrow">Price</p><h3>Free</h3><p>Three checks per organisation, on us. No card.</p></article>
+            <article className="is-navy"><p className="hw-eyebrow">Access</p><h3>View-only</h3><p>The connection can read your ledger and cannot write to it.</p></article>
+            <article className="is-navy"><p className="hw-eyebrow">Your data</p><h3>Deleted after 30 days</h3><p>The report stays yours; the lines we read do not stay with us.</p></article>
+            <article className="is-navy"><p className="hw-eyebrow">Then</p><h3>Email us</h3><p>Want more than three? Write to hello@hysaab.ai and we run the next one with you.</p></article>
           </div>
           <div className="hw-actions" style={{ marginTop: 34 }}>
             <a className="hw-btn hw-btn--peach" href={APP}>Connect your books <span aria-hidden="true">→</span></a>
