@@ -14,7 +14,6 @@ import { loadMoments, loadHeroCapture } from "@/lib/home-moments";
 import { langAlternates } from "@/lib/site-meta";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
-import { LaunchNotice } from "@/components/home/LaunchNotice";
 import { TEAM } from "@/lib/team";
 import { ActivityFeed } from "@/components/home/ActivityFeed";
 import { PeachScroller } from "@/components/home/PeachScroller";
@@ -72,7 +71,6 @@ export default function Page() {
                 <a className="hw-btn hw-btn--blush m-cta m-magnetic" href="#conversation"><SwapLabel text="Book a walkthrough" /> <span aria-hidden="true">↗</span></a>
                 <a className="hw-link hw-link--ruled" href="/check">Check your books free <span aria-hidden="true">→</span></a>
               </div>
-              <LaunchNotice />
               <p className="hw-origin"><span aria-hidden="true">✳</span> Built in Dubai. Fluent in your working day.</p>
             </div>
             <ActivityFeed rows={FEED} />

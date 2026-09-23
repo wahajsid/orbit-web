@@ -4,13 +4,12 @@
    the founding cohort waitlist band (owner decision 2026-09-17): no seat
    counts, no waitlist. Callers may pass their own kicker, title, body. */
 
-import { LAUNCH_DATE_LONG, LAUNCH_DATE_LONG_AR } from "@/lib/launch";
 
 export function CtaBand({ kicker, title, body, locale = "en" }: { kicker?: string; title?: React.ReactNode; body?: string; locale?: "en" | "ar" }) {
   const ar = locale === "ar";
   const t = ar
-    ? { label: "تحدث إلى فريق Hysaab", kicker: `الإطلاق في ${LAUNCH_DATE_LONG_AR}`, title: <>لنبدأ<br />بدفاترك.</>, body: "أخبرنا بما يستغرق وقتًا أطول مما ينبغي. سنريك أين يناسبك Hysaab، ونؤكد النطاق والأتعاب مسبقًا، ونتفق على الملاءمة قبل أي التزام.", talk: "احجز جولة تعريفية", how: "شاهد كيف يعمل", talkHref: "/ar/contact", howHref: "/ar/how-it-works" }
-    : { label: "Talk to the Hysaab team", kicker: `Launching ${LAUNCH_DATE_LONG}`, title: <>Let’s start<br />with your books.</>, body: "Tell us what takes too long. We will show you where Hysaab fits, confirm the scope and fees upfront, and agree a clear fit before any commitment.", talk: "Book a walkthrough", how: "See how it works", talkHref: "/contact", howHref: "/how-it-works" };
+    ? { label: "تحدث إلى فريق Hysaab", kicker: "تحدث إلينا", title: <>لنبدأ<br />بدفاترك.</>, body: "أخبرنا بما يستغرق وقتًا أطول مما ينبغي. سنريك أين يناسبك Hysaab، ونؤكد النطاق والأتعاب مسبقًا، ونتفق على الملاءمة قبل أي التزام.", talk: "احجز جولة تعريفية", how: "شاهد كيف يعمل", talkHref: "/ar/contact", howHref: "/ar/how-it-works" }
+    : { label: "Talk to the Hysaab team", kicker: "Let’s talk", title: <>Let’s start<br />with your books.</>, body: "Tell us what takes too long. We will show you where Hysaab fits, confirm the scope and fees upfront, and agree a clear fit before any commitment.", talk: "Book a walkthrough", how: "See how it works", talkHref: "/contact", howHref: "/how-it-works" };
   return (
     <section className="hw-talk hw-chrome" aria-label={t.label}>
       <div className="hw-wrap hw-talk-in">

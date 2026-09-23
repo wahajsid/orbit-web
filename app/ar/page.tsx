@@ -13,7 +13,6 @@ import { loadMoments, loadHeroCapture } from "@/lib/home-moments";
 import { langAlternates } from "@/lib/site-meta";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
-import { LaunchNotice } from "@/components/home/LaunchNotice";
 import { TEAM } from "@/lib/team";
 
 export const metadata = {
@@ -74,7 +73,6 @@ export default function Page() {
                 <a className="hw-btn hw-btn--peach" href="#conversation">احجز جولة تعريفية <span aria-hidden="true">↗</span></a>
                 <a className="hw-link hw-link--light" href="#experience"><span className="hw-play" aria-hidden="true">▷</span> شاهد كيف يعمل</a>
               </div>
-              <LaunchNotice locale="ar" />
               <p className="hw-origin"><span aria-hidden="true">✳</span> صُنع في دبي. يفهم يوم عملك.</p>
             </div>
             <div className="hw-proof">

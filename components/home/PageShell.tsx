@@ -23,7 +23,7 @@ export function PageShell({ children, band, locale = "en" }: { children: React.R
   );
 }
 
-export function PageHero({ eyebrow, title, lede, children, locale = "en", notice = true }: { eyebrow: string; title: React.ReactNode; lede?: React.ReactNode; children?: React.ReactNode; locale?: "en" | "ar"; notice?: boolean }) {
+export function PageHero({ eyebrow, title, lede, children, locale = "en", notice = false }: { eyebrow: string; title: React.ReactNode; lede?: React.ReactNode; children?: React.ReactNode; locale?: "en" | "ar"; notice?: boolean }) {
   return (
     <section className="hw-phero">
       <div className="hw-wrap hw-phero-in">
