@@ -44,7 +44,6 @@ export function ActivityFeed({ rows }: { rows: FeedRow[] }) {
           ))}
         </div>
       </div>
-      <p className="hw-feed-note">An illustrative night. Names and figures are examples.</p>
     </div>
   );
 }

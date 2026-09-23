@@ -112,7 +112,6 @@ export default function Page() {
               <p className="hw-eyebrow">بينما كنت بعيدًا</p>
               <h2>ليلة واحدة<br />على مجموعة دفاتر.</h2>
               <p>كل مستند قُرئ، وكل سطر طُوبق، وكل تذكير أُرسل. والقرار الوحيد الذي يخصك ينتظرك في الصباح.</p>
-              <p className="hw-live-note">ليلة توضيحية. الأسماء والأرقام أمثلة، لا نتائج.</p>
             </div>
             <div className="hy-ticker hw-live-ticker" aria-label="مباشرة من الوكلاء">
               <div className="hy-ticker-head">
