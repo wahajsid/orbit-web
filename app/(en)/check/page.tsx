@@ -13,7 +13,8 @@ import { PageShell } from "@/components/home/PageShell";
 import { EnquiryForm } from "@/components/home/EnquiryForm";
 import { SampleReport } from "@/components/check/SampleReport";
 import { CheckSteps } from "@/components/check/CheckSteps";
-import { KineticLines, Mark, SwapLabel, DigitRoll, ScrollWords, Ticker } from "@/components/motion/Kinetic";
+import { KineticLines, Mark, SwapLabel, DigitRoll, ScrollWords } from "@/components/motion/Kinetic";
+import { PeachScroller } from "@/components/home/PeachScroller";
 
 export const metadata = {
   title: "How clean are your books, really? Books Check by Hysaab",
@@ -66,7 +67,7 @@ export default function CheckPage() {
       </section>
 
       {/* ── What every check looks for ── */}
-      <Ticker className="ck-ticker" label="What a Books Check looks for" items={CHECKS} />
+      <PeachScroller phrases={CHECKS} />
 
       {/* ── How it runs ── */}
       <section className="ck-how" aria-labelledby="ck-how-h">
@@ -83,7 +84,7 @@ export default function CheckPage() {
       <section className="ck-verdict" aria-label="What you get">
         <div className="hw-wrap">
           <p className="hw-eyebrow">What you get</p>
-          <ScrollWords className="ck-verdict-words" text="Your business in a minute. What needs attention first. The evidence behind every finding. And what we could not check." />
+          <ScrollWords className="ck-verdict-words" lines={["Your business in a minute.", "What needs attention first.", "The evidence behind every finding.", "And what we could not check."]} />
         </div>
       </section>
 

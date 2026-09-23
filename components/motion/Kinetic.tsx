@@ -87,14 +87,16 @@ export function DigitRoll({ value, delay = 0 }: { value: string; delay?: number 
   );
 }
 
-/** A statement whose words light up as it scrolls through the viewport. */
-export function ScrollWords({ text, className }: { text: string; className?: string }) {
-  const words = text.split(/\s+/);
+/** A statement whose words light up as it scrolls through the viewport.
+    Pass `lines` to set each sentence on its own line (one index across). */
+export function ScrollWords({ text, lines, className }: { text?: string; lines?: string[]; className?: string }) {
+  const groups = (lines ?? [text ?? ""]).map((l) => l.split(/\s+/));
+  const n = groups.reduce((a, g) => a + g.length, 0);
+  let i = 0;
+  const word = (w: string) => { const k = i++; return <span key={k} style={{ "--i": k } as Vars}>{w} </span>; };
   return (
-    <p className={`m-words ${className ?? ""}`} data-scrollwords="" style={{ "--n": words.length } as Vars}>
-      {words.map((w, i) => (
-        <span key={i} style={{ "--i": i } as Vars}>{w} </span>
-      ))}
+    <p className={`m-words ${className ?? ""}`} data-scrollwords="" style={{ "--n": n } as Vars}>
+      {lines ? groups.map((g, j) => <span className="m-words-line" key={`l${j}`}>{g.map(word)}</span>) : groups[0].map(word)}
     </p>
   );
 }

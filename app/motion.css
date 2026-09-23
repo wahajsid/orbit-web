@@ -365,7 +365,7 @@ html[dir="rtl"] .m-mark::before { transform-origin: right center; }
 @keyframes m-roll { from { transform: translateY(0); } }
 
 /* ── Scroll-lit words (after SmoothUI ScrollRevealParagraph) ── */
-.m-words span { opacity: clamp(0.16, calc(var(--p, 1) * (var(--n) + 2) - var(--i)), 1); transition: opacity 140ms linear; }
+.m-words span:not(.m-words-line) { opacity: clamp(0.16, calc(var(--p, 1) * (var(--n) + 2) - var(--i)), 1); transition: opacity 140ms linear; }
 
 /* ── Marquee ── */
 .m-ticker { overflow: hidden; }
