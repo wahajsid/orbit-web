@@ -37,7 +37,7 @@ export function SampleReport() {
       >
         <div className="ck-r-top">
           <span className="ck-r-brand">Books Check</span>
-          <span className="ck-r-tag">Sample report</span>
+          <span className="ck-r-tag">Sample · invented figures</span>
         </div>
 
         <div className="ck-r-head">
