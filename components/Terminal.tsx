@@ -20,7 +20,7 @@ const SCENARIOS: Scenario[] = [
   {
     key: "invoice",
     title: ["One invoice,", "start to finish."],
-    sub: "A photo lands on WhatsApp. Agents read it, tax-test it against FTA rules, match it to the PO and the bank line, and post it — you approve only what matters.",
+    sub: "A photo lands on WhatsApp. Agents read it, tax-test it against FTA rules, match it to the PO and the bank line, and post it. You approve only what matters.",
     header: "HYSAAB / ACTIVITY",
     lines: [
       ["08:14", "INTAKE", "invoice.pdf via WhatsApp", false],
@@ -33,20 +33,20 @@ const SCENARIOS: Scenario[] = [
   {
     key: "close",
     title: ["The close,", "closing itself."],
-    sub: "Overnight, the period assembles its own evidence: accruals proposed, bank reconciled, variances flagged — by morning only the judgement calls are left for you.",
+    sub: "Overnight, the period assembles its own evidence: accruals proposed, bank reconciled, variances flagged. By morning, only the judgement calls are left for you.",
     header: "HYSAAB / MONTH-END",
     lines: [
       ["21:02", "ACCRUE", "2 recurring accruals proposed", false],
       ["21:04", "RECON", "bank ⟷ ledger · 41 lines matched", false],
-      ["21:07", "VARIANCE", "utilities +8.2% — flagged", false],
+      ["21:07", "VARIANCE", "utilities +8.2%, flagged", false],
       ["21:09", "CHECKS", "sheet balances ✓ VAT↔CT aligned", false],
-      ["21:10", "READY", "close 92% — 2 approvals await you", true],
+      ["21:10", "READY", "close 92% · 2 approvals await you", true],
     ],
   },
   {
     key: "collections",
     title: ["Cash, chased", "politely."],
-    sub: "Overdue invoices get a reminder in your tone — drafted, gated by your approval, sent, and matched to the bank when the money lands. Relationships intact.",
+    sub: "Overdue invoices get a reminder in your tone: drafted, gated by your approval, sent, and matched to the bank when the money lands. Relationships intact.",
     header: "HYSAAB / COLLECTIONS",
     lines: [
       ["09:00", "SCAN", "3 invoices overdue · AED 347k", false],
@@ -118,7 +118,7 @@ export function Terminal() {
       <div className="term-panel">
         <div className="term-header">
           <span>{s.header}</span>
-          <span className="term-live">— LIVE</span>
+          <span className="term-live">· LIVE</span>
         </div>
         <div className="term-feed" style={{ minHeight: "11.5em" }}>
           {s.lines.map(([time, agent, rest, brass], i) => (

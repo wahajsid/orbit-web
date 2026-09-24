@@ -90,7 +90,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
               {g.tax && (
                 <div className="hw-note" style={{ marginTop: "40px" }}>
                   <span className="hw-mono">تنويه</span>
-                  <p>معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير — تحقق من النص الرسمي للهيئة الاتحادية للضرائب أو زاتكا أو من مستشارك قبل التصرف.</p>
+                  <p>معلومات عامة لشركات الخليج، وليست استشارة ضريبية. اللوائح تتغير؛ تحقق من النص الرسمي للهيئة الاتحادية للضرائب أو زاتكا أو من مستشارك قبل التصرف.</p>
                 </div>
               )}
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>

@@ -101,7 +101,7 @@ export default function PricingPage() {
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
                 {t.price
-                  ? <p className="hw-plan-price"><small>من</small> USD <DigitRoll value={t.price} delay={200} /><small>شهريًا</small></p>
+                  ? <p className="hw-plan-price"><small>من</small> <span dir="ltr">USD <DigitRoll value={t.price} delay={200} /></span><small>شهريًا</small></p>
                   : <p className="hw-plan-price hw-plan-price--text">{t.priceText}</p>}
                 <p>{t.who}</p>
                 <ul className="hw-ticks">

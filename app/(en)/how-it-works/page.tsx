@@ -9,6 +9,7 @@
 import type { ReactNode } from "react";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
   title: "How Hysaab Works: From Document to Locked Period",
@@ -132,7 +133,7 @@ export default function HowItWorksPage() {
         title={<>How Hysaab works.<br /><span>From a document to a locked period.</span></>}
         lede="Documents come in, each agent does its part, and the decisions that need a person come to you."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="/accounting"><span className="hw-play" aria-hidden="true">▷</span> See the product screens</a>
       </PageHero>
 

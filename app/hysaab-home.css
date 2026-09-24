@@ -870,3 +870,104 @@ html[lang="ar"] .hw-plans .hw-plan-price--text { font-size: 24px; letter-spacing
 /* the "Free" tag on Books Check in the Products dropdown and phone menu */
 .hw-drop-tag { display: inline-block; margin-inline-start: 10px; padding: 2px 7px; background: var(--hw-sage); color: var(--hw-cream); font: 600 10px/1.4 var(--sans); letter-spacing: 0.8px; text-transform: uppercase; vertical-align: 1px; }
 html[lang="ar"] .hw-drop-tag { letter-spacing: 0; font-size: 11px; }
+
+/* ══════════════════════════════════════════════════════════════════
+   DESIGN QA (2026-09-24): inner pages brought in line with the homepage
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Sage bands: every piece of text reads in cream, as on the homepage's
+   Books Check band (the kit's cream-ground greys were unreadable on sage). */
+.hw-block--sage .hw-heading .hw-eyebrow,
+.hw-block--sage .hw-heading > p,
+.hw-block--sage .hw-heading h2 { color: var(--hw-cream); }
+.hw-block--sage .hw-heading h2 span { color: var(--hw-navy); }
+.hw-block--sage .hw-rows article { border-color: #86a192; }
+.hw-block--sage .hw-rows article:first-child { border-top-color: var(--hw-cream); }
+.hw-block--sage :is(.hw-rows h3, .hw-rows p, .hw-rows .hw-mono) { color: var(--hw-cream); }
+.hw-block--sage .hw-note { border-top-color: #86a192; }
+.hw-block--sage :is(.hw-note .hw-mono, .hw-note p) { color: var(--hw-cream); }
+.hw-block--sage :is(.hw-note, .hw-rows, .hw-ticks) a { color: var(--hw-cream) !important; }
+.hw-block--sage .hw-feature { border-top-color: #86a192; }
+.hw-block--sage .hw-feature:first-of-type { border-top-color: var(--hw-cream); }
+.hw-block--sage :is(.hw-feature .hw-eyebrow, .hw-feature h3, .hw-feature-copy > p:not(.hw-eyebrow), .hw-ticks, .hw-ticks li::before, .hw-shot-cap) { color: var(--hw-cream); }
+.hw-block--sage .hw-shot .hw-capture { box-shadow: 9px 9px 0 #3e6356; }
+/* A blush link only reads on navy: on a cream card it turns navy. */
+.hw-cards > article:not(.is-navy) .hw-link--peach { color: var(--hw-navy) !important; }
+.hw-cards > article:not(.is-navy) .hw-link--peach:hover { color: #a65e4e !important; }
+
+/* Tick lists: the tick sits in the start gutter, so a line that mixes
+   bold, a link and plain text flows as one paragraph (as a grid, every
+   loose text run became its own 22px cell, one word per line). */
+.hw-ticks li { display: block; position: relative; padding-inline-start: 22px; }
+.hw-ticks li::before { position: absolute; inset-inline-start: 0; top: 0; }
+
+/* Split sections (heading beside prose): the heading takes the kit's
+   section-heading scale instead of falling back to body size. */
+.hw-split > div:not(.hw-heading) > .hw-eyebrow { color: var(--hw-supporting); }
+.hw-split > div:not(.hw-heading) > h2:not([style]) { font: 400 48px/1.05 var(--hw-serif); letter-spacing: -0.8px; margin-top: 12px; color: var(--hw-navy); }
+html[lang="ar"] .hw-split > div:not(.hw-heading) > h2:not([style]) { font-family: var(--sans); font-weight: 600; letter-spacing: 0; line-height: 1.25; font-size: 40px; }
+@media (max-width: 1100px) { .hw-split > div:not(.hw-heading) > h2:not([style]) { font-size: 43px; } }
+@media (max-width: 580px) { .hw-split > div:not(.hw-heading) > h2:not([style]), html[lang="ar"] .hw-split > div:not(.hw-heading) > h2:not([style]) { font-size: 36px; } }
+
+/* Navy bands: the closing note row reads in the band's own greys. */
+.hw-block--dark .hw-note { border-top-color: #536477; }
+.hw-block--dark .hw-note .hw-mono { color: #a9b8c1; }
+.hw-block--dark .hw-note p { color: #c5d1da; }
+
+/* Headings never leave one word alone on the last line. The kinetic
+   hero and band lines are inline blocks, so they balance on their own. */
+.hw-inner :is(h1, h2, h3, .m-kin-in) { text-wrap: balance; }
+.hw-block--dark .hw-split > div:not(.hw-heading) > .hw-eyebrow { color: #a9b8c1; }
+.hw-block--dark .hw-split > div:not(.hw-heading) > h2:not([style]) { color: #f9f6ec; }
+/* Tick lists inside a navy card read light, with blush ticks. */
+.hw-cards > article.is-navy .hw-ticks { color: #dbe4ea; }
+.hw-cards > article.is-navy .hw-ticks li::before { color: var(--hw-blush); }
+.hw-cards > article.is-navy .hw-ticks strong { color: var(--hw-cream); }
+/* The phone menu button never breaks its label (Arabic letters would
+   lose their joining across the break). */
+.hw-menu-btn { white-space: nowrap; }
+
+/* Reading pages (guides, calculators): each prose block opens with its
+   own h2, so the kit's first-child reset zeroed every heading's space. */
+.hw-prose > div:not(:first-child) > h2:first-child { margin-block-start: 48px; }
+@media (max-width: 760px) { .hw-prose > div:not(:first-child) > h2:first-child { margin-block-start: 36px; } }
+/* Buttons and ruled links inside prose keep the kit's look. */
+.hw-prose :is(.hw-btn, .hw-link) { text-decoration: none !important; }
+.hw-prose .hw-note p { font-size: 14px; line-height: 1.65; color: var(--hw-muted); }
+
+/* The activity terminal (/accounting, /ar/invoice): brand v3 mapped the
+   old "petrol" token to navy, so the agent names and the live mark had
+   gone navy on navy. They read in blush now; posted lines in cream. */
+.hw-page .term-live, .hw-page .term-feed .agent { color: var(--hw-blush); }
+.hw-page .term-feed .posted { color: var(--hw-cream); }
+/* Terminal lines wait for the script only once it has run: with no JS
+   they are all on show (brand/MOTION.md rule 1). */
+html:not(.m-ready) .hw-page .feedline { opacity: 1; transform: none; }
+
+/* Calculator labels, table heads and slider ends: the legacy faint grey
+   fell under 3:1 on cream. They take the kit's supporting navy-grey. */
+.hw-page :is(.mg-tool-label, .mg-tool-table th, .mg-tool-slider-ends, .mg-tool-schedule-h) { color: var(--hw-supporting); }
+
+/* FAQ in a sage band. */
+.hw-block--sage .hw-faq { border-top-color: var(--hw-cream); }
+.hw-block--sage .hw-faq details { border-bottom-color: #86a192; }
+.hw-block--sage :is(.hw-faq summary, .hw-faq summary::after, .hw-faq-a) { color: var(--hw-cream); }
+.hw-block--sage .hw-faq-a a { color: var(--hw-cream) !important; }
+.hw-block--sage .hw-faq summary:hover { color: var(--hw-cream); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Phone header: logo, "Book a demo" and Menu must share one row, in
+   Arabic too (its longer label pushed Menu off the screen at 375px). */
+@media (max-width: 480px) {
+  html[lang="ar"] .hw-header-in, html[lang="ar"] .hw-header-right { gap: 8px; }
+  html[lang="ar"] .hw-nav-cta { padding: 12px 11px; }
+  html[lang="ar"] .hw-nav-cta > span[aria-hidden="true"] { display: none; }
+  html[lang="ar"] .hw-menu-btn { padding-inline: 10px; }
+}
+@media (max-width: 360px) {
+  .hw-header-in, .hw-header-right { gap: 8px; }
+  .hw-brand svg { width: 84px; height: auto; }
+  .hw-nav-cta { padding: 12px 10px; }
+  .hw-nav-cta > span[aria-hidden="true"] { display: none; }
+  .hw-menu-btn { padding-inline: 8px; font-size: 13px; }
+  html[lang="ar"] .hw-nav-cta { padding-inline: 8px; font-size: 12px; }
+}

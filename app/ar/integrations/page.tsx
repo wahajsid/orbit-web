@@ -9,6 +9,7 @@
 import type { Metadata } from "next";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "تكاملات Hysaab: Zoho Books وXero وQuickBooks وOdoo",
@@ -59,7 +60,7 @@ export default function IntegrationsPage() {
         title={<>دفتر أستاذك<br /><span>يبقى دفتر الأستاذ.</span></>}
         lede="Hysaab لا يحل محل نظامك المحاسبي، بل ينجز العمل داخله. اربط دفتر أستاذ واحدًا، واحدًا في كل مرة ليكون هناك مصدر واحد للحقيقة، أو لا تربط شيئًا ودع Hysaab يمسك الدفاتر بنفسه."
       >
-        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span></a>
         <a className="hw-link hw-link--light" href="/ar/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> شاهد كيف يعمل</a>
       </PageHero>
 

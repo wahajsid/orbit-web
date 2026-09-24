@@ -55,8 +55,8 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
                 <span className="hw-mono">{ar ? "تنويه" : "Disclaimer"}</span>
                 <p>
                   {ar
-                    ? "أرقام توضيحية تُحسب في متصفحك — لا يُرفع أو يُخزَّن أو يُرسل شيء إلى أي مكان. ليست استشارة محاسبية أو ضريبية؛ تحقق من المعالجة مع مستشارك."
-                    : "Illustrative figures computed in your browser — nothing is uploaded, stored or sent anywhere. Not accounting or tax advice; verify treatment with your advisor."}
+                    ? "أرقام توضيحية تُحسب في متصفحك؛ لا يُرفع أو يُخزَّن أو يُرسل شيء إلى أي مكان. ليست استشارة محاسبية أو ضريبية؛ تحقق من المعالجة مع مستشارك."
+                    : "Illustrative figures computed in your browser. Nothing is uploaded, stored or sent anywhere. Not accounting or tax advice; verify treatment with your advisor."}
                 </p>
               </div>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>

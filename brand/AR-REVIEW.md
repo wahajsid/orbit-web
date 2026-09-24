@@ -289,3 +289,19 @@ Glossary choices to confirm: "red-team review" → مراجعة نقدية; "pre
 - **`app/ar/how-it-works/page.tsx`**: والخدمة المُدارة، مع محاسبي Oblique، تُسعَّر وفق نطاق دفاترك.
 
 - Homepage For firms band, Practice capture: title "نظرة عامة على المكتب في Hysaab Practice", caption "نظرة عامة على المكتب في Hysaab Practice، بيانات تجريبية." (EN: Hysaab Practice firm overview, sample data)
+
+## 12. Design QA, 24 September 2026 (AR-REVIEW)
+
+Punctuation only, no new wording: em dashes taken out of visible Arabic copy.
+
+- **`app/ar/guides/[slug]/page.tsx`**, disclaimer: اللوائح تتغير؛ تحقق من النص الرسمي… (was "تتغير — تحقق").
+- **`components/tools/ToolPage.tsx`**, disclaimer: أرقام توضيحية تُحسب في متصفحك؛ لا يُرفع أو يُخزَّن… (was "متصفحك — لا").
+- **`app/ar/guides/page.tsx`**, lede: …في الخليج فعلًا، كتبها المحاسبون الذين بنوا Hysaab… (was "فعلًا — كتبها").
+- **`app/ar/tools/page.tsx`**, lede: …بالكامل في متصفحك: الأرقام التي… (was "متصفحك — الأرقام").
+- **Hero buttons** on `app/ar/compliance`, `app/ar/faq`, `app/ar/how-it-works`, `app/ar/integrations`: "لنتحدث" (to /ar/contact) is now "احجز عرضًا تجريبيًا", opening the Calendly booking page like every other hero, the header and the closing band.
+
+Still to translate (left in English, listed for the reviewer, not drafted):
+
+- **`app/ar/accounting/page.tsx`**: the activity terminal (`components/Terminal.tsx`) runs its three scenarios in English: the title ("One invoice, start to finish." and the other two), the line under it and every feed line.
+- **`app/ar/invoice/page.tsx`**: the two captures (`/shots/adv-ocr-review.png`, `/shots/adv-ocr-register.png`) still show the old "ORBIT INVOICE" header and green theme, and the page body predates the rebuilt English /invoice (17 em dashes in its copy).
+- Guide and calculator titles and descriptions in `lib/guides-ar.ts` and `lib/tools.ts` carry em dashes (for example "…وفق IFRS 15 — وما تتوقعه…"). Left for the owner with the English ones: they are page titles in search.

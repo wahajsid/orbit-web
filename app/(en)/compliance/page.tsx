@@ -10,6 +10,7 @@
 import type { Metadata } from "next";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "UAE VAT, Corporate Tax & ZATCA Compliance Software | Hysaab",
@@ -98,7 +99,7 @@ export default function CompliancePage() {
         title={<>UAE VAT, corporate tax and ZATCA.<br /><span>Tested before it posts.</span></>}
         lede="Every document tested against the UAE and Saudi tax rules before it posts. Every journal carries its evidence."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="/faq">Straight answers in the FAQ</a>
       </PageHero>
 

@@ -130,7 +130,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
               {g.tax && (
                 <div className="hw-note" style={{ marginTop: "40px" }}>
                   <span className="hw-mono">Disclaimer</span>
-                  <p>General information for Gulf businesses, not tax advice. Regulations move — verify against the official FTA/ZATCA text or your advisor before acting.</p>
+                  <p>General information for Gulf businesses, not tax advice. Regulations move: verify against the official FTA/ZATCA text or your advisor before acting.</p>
                 </div>
               )}
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "32px" }}>

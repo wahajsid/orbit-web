@@ -9,6 +9,7 @@
 import type { ReactNode } from "react";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
   title: "كيف يعمل Hysaab: من المستند إلى قيد مرحّل بأدلته",
@@ -137,7 +138,7 @@ export default function HowItWorksPage() {
         title={<>كيف يعمل Hysaab.<br /><span>من المستند إلى فترة مقفلة.</span></>}
         lede="يقف Hysaab بين شركتك ودفتر أستاذك. تدخل المستندات، ويُعدّ العمل مع أدلته، وتأتيك القرارات التي تحتاج إلى شخص. تتبع هذه الصفحة ذلك المسار بالترتيب الذي ستستخدمه به."
       >
-        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span></a>
         <a className="hw-link hw-link--light" href="/ar/accounting"><span className="hw-play" aria-hidden="true">▷</span> شاهد شاشات المنتج</a>
       </PageHero>
 

@@ -49,9 +49,9 @@ export default function HirePage() {
               <h3>A resume and a call.</h3>
               <p>Most recruiters judge finance experience from a CV and a short phone screen. Both can be shaped: a title inflated, a system name dropped in, a close described that someone else ran. The hiring manager finds out in month three.</p>
               <ul className="hw-ticks">
-                <li><strong>Evidence</strong> — claimed, not shown</li>
-                <li><strong>Judgement</strong> — a generalist recruiter, on volume</li>
-                <li><strong>Outcome</strong> — thirty interviews to find one</li>
+                <li><strong>Evidence</strong>: claimed, not shown</li>
+                <li><strong>Judgement</strong>: a generalist recruiter, on volume</li>
+                <li><strong>Outcome</strong>: thirty interviews to find one</li>
               </ul>
             </article>
             <article className="is-navy">
@@ -59,9 +59,9 @@ export default function HirePage() {
               <h3>The work, then a person who knows it.</h3>
               <p>Every candidate works through real finance scenarios and is questioned on their answers by AI that does not tire or skim. Then a finance professional reads the evidence and decides.</p>
               <ul className="hw-ticks">
-                <li><strong>Evidence</strong> — demonstrated in a test, transcripts attached</li>
-                <li><strong>Judgement</strong> — a finance professional who has run the close</li>
-                <li><strong>Outcome</strong> — three to five people worth your hour</li>
+                <li><strong>Evidence</strong>: demonstrated in a test, transcripts attached</li>
+                <li><strong>Judgement</strong>: a finance professional who has run the close</li>
+                <li><strong>Outcome</strong>: three to five people worth your hour</li>
               </ul>
               <a className="hw-link" href="https://ibtidah.ae" target="_blank" rel="noopener">Start a search at ibtidah.ae <span aria-hidden="true">↗</span></a>
             </article>
@@ -134,7 +134,7 @@ export default function HirePage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 200 }}>
               <a href="https://ibtidah.ae" target="_blank" rel="noopener" aria-label="ibtidah.ae" style={{ display: "block", width: "min(320px, 80%)" }}>
-                <Image src="/brand/partners/ibtidah-by-oblique-dark.png" alt="ibtidah by oblique" width={1391} height={725} style={{ width: "100%", height: "auto" }} />
+                <Image src="/brand/partners/ibtidah-by-oblique-light.png" alt="ibtidah by oblique" width={1391} height={725} style={{ width: "100%", height: "auto" }} />
               </a>
             </div>
           </div>

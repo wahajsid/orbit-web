@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 // Launch date deliberately not shown (owner, 2026-09-23).
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "FAQ: AI Accounting for UAE & Saudi Businesses | Hysaab",
@@ -125,7 +126,7 @@ export default function FaqPage() {
         title={<>Straight answers.<br /><span>Before you ask.</span></>}
         lede="The questions founders and finance leads ask us, answered plainly."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
       </PageHero>
 

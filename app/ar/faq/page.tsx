@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 // Launch date deliberately not shown (owner, 2026-09-23).
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "الأسئلة الشائعة: محاسبة بالذكاء الاصطناعي في الخليج | Hysaab",
@@ -129,7 +130,7 @@ export default function FaqPage() {
         title={<>إجابات واضحة.<br /><span>قبل أن تسأل.</span></>}
         lede="الأسئلة التي يطرحها علينا المؤسسون والمسؤولون الماليون عن Hysaab. إن لم تجد سؤالك، اسأل شخصًا حقيقيًا: الفريق يقرأ كل استفسار."
       >
-        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span></a>
         <a className="hw-link hw-link--light" href="/ar/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> شاهد كيف يعمل</a>
       </PageHero>
 

@@ -9,6 +9,7 @@
 import type { Metadata } from "next";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "Hysaab Integrations: Zoho Books, Xero, QuickBooks, Odoo & More",
@@ -58,7 +59,7 @@ export default function IntegrationsPage() {
         title={<>Your ledger<br /><span>stays the ledger.</span></>}
         lede="Hysaab does not replace your accounting system. It does the work inside it."
       >
-        <a className="hw-btn hw-btn--peach" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="/how-it-works"><span className="hw-play" aria-hidden="true">▷</span> See how it works</a>
       </PageHero>
 

@@ -10,6 +10,7 @@
 import type { Metadata } from "next";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
+import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
   title: "الامتثال الضريبي في الإمارات والسعودية مع Hysaab",
@@ -99,7 +100,7 @@ export default function CompliancePage() {
         title={<>ضريبة القيمة المضافة وضريبة الشركات في الإمارات وZATCA.<br /><span>مختبرة قبل الترحيل.</span></>}
         lede="كل مستند يُختبر وفق القواعد الضريبية قبل ترحيله. كل قيد يحمل أدلته. والفترة المقفلة تبقى مقفلة. هذه الصفحة خريطة بلغة واضحة لما يفحصه Hysaab، في الإمارات وفي السعودية، ولما يتركه لك."
       >
-        <a className="hw-btn hw-btn--peach" href="/ar/contact">لنتحدث <span aria-hidden="true">↗</span></a>
+        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span></a>
         <a className="hw-link hw-link--light" href="/ar/faq">إجابات مباشرة في الأسئلة الشائعة</a>
       </PageHero>
 
