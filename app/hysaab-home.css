@@ -571,6 +571,25 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-index p { font-size: 13.5px; line-height: 1.6; color: var(--hw-muted); margin: 8px 0 0; max-width: 72ch; }
 .hw-split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
 
+/* The trust ladder (components/home/TrustLadder.tsx): three steps that
+   rise left to right (right to left in Arabic), bottoms aligned, each a
+   shade deeper than the last. The top step is navy. */
+.hw-ladder { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: end; }
+.hw-ladder > li { background: #fff; border: 1px solid var(--hw-hairline); border-top: 3px solid var(--hw-sage); padding: 28px; display: flex; flex-direction: column; min-width: 0; min-height: 280px; }
+.hw-ladder > li:nth-child(2) { border-top-color: var(--hw-proof); min-height: 330px; }
+.hw-ladder > li:nth-child(3) { background: var(--hw-navy); border-color: var(--hw-navy); color: var(--hw-cream); min-height: 380px; }
+.hw-ladder-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0; }
+.hw-ladder-top .hw-mono { font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--hw-supporting); }
+.hw-ladder-mode { font-size: 11px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; border: 1px solid var(--hw-hairline); padding: 4px 9px; color: var(--hw-navy); }
+.hw-ladder h3 { font: 400 44px/1 var(--hw-serif); letter-spacing: -0.8px; margin-block: auto 12px; padding-top: 36px; color: var(--hw-navy); }
+.hw-ladder li > p:not(.hw-ladder-top) { font-size: 15px; line-height: 1.7; color: #56635b; margin: 0; }
+.hw-ladder .hw-link { padding-top: 16px; font-weight: 500; }
+.hw-ladder > li:nth-child(3) h3 { color: var(--hw-cream); }
+.hw-ladder > li:nth-child(3) .hw-ladder-top .hw-mono, .hw-ladder > li:nth-child(3) > p:not(.hw-ladder-top) { color: #c5d8cb; }
+.hw-ladder > li:nth-child(3) .hw-ladder-mode { color: var(--hw-blush); border-color: #536477; }
+.hw-acts { margin-top: 72px; }
+.hw-section > .hw-acts:first-child { margin-top: 0; }
+
 @media (max-width: 1100px) {
   .hw-feature { gap: 40px; }
   .hw-cards, .hw-cards--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -586,6 +605,10 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
   .hw-feature--flip > :first-child { order: 0; }
   .hw-feature h3 { font-size: 28px; }
   .hw-cards, .hw-cards--2, .hw-cards--4 { grid-template-columns: 1fr; }
+  .hw-ladder { grid-template-columns: 1fr; gap: 12px; }
+  .hw-ladder > li, .hw-ladder > li:nth-child(2), .hw-ladder > li:nth-child(3) { min-height: 0; padding: 24px; }
+  .hw-ladder h3 { font-size: 36px; padding-top: 22px; margin-top: 0; }
+  .hw-acts { margin-top: 48px; }
   .hw-rows article { grid-template-columns: 40px 1fr; gap: 8px 14px; padding: 22px 0; }
   .hw-rows article > :last-child { grid-column: 2; }
   .hw-faq summary { font-size: 18px; padding: 20px 0; }

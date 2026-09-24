@@ -6,7 +6,10 @@
    Round 2 (2026-09-24, owner): less copy, more design. Kinetic hero with
    the sample report assembling, a marquee of the checks, a sticky step
    reveal, a sage verdict, oversized numerals, a giant closing link.
-   Styles: app/check.css (ck-*) on top of the motion system (MOTION.md). */
+   Styles: app/check.css (ck-*) on top of the motion system (MOTION.md).
+   2026-09-24 (owner): "read-only" stays here as Books Check fine print;
+   it links to the trust ladder, and one line pairs the check with
+   Hysaab Finance ("Books Check reads. Hysaab Finance fixes."). */
 
 import "../../check.css";
 import { PageShell } from "@/components/home/PageShell";
@@ -59,7 +62,7 @@ export default function CheckPage() {
               <a className="hw-btn hw-btn--peach m-cta m-cta--on-navy m-magnetic" href={APP}>
                 <SwapLabel text="Check my books" /> <span aria-hidden="true">→</span>
               </a>
-              <p className="ck-offer">{OFFER}<br />Read-only access.</p>
+              <p className="ck-offer">{OFFER}<br />Read-only access. <a href="/trust#ladder">How write access is earned</a></p>
             </div>
           </div>
           <SampleReport />
@@ -103,6 +106,7 @@ export default function CheckPage() {
           <div data-reveal="">
             <p className="hw-eyebrow">Found something?</p>
             <h2 id="ck-fix-h">We&rsquo;ll help <em>fix</em> it.</h2>
+            <p className="ck-pair"><strong>Books Check reads. Hysaab Finance fixes.</strong> <a href="/accounting">See Hysaab Finance</a></p>
           </div>
           <ol className="ck-fix-steps" data-reveal="stagger-lg">
             <li><span>01</span>Tick the findings</li>

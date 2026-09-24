@@ -131,7 +131,7 @@ export default function Page() {
                 </div>
               </article>
             </div>
-            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> Evidence on every number. Approval on every decision that matters. Built in Dubai.</p>
+            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> Evidence on every number. Nothing posts without your approval. Built in Dubai.</p>
           </div>
         </section>
 
@@ -171,7 +171,7 @@ export default function Page() {
               <div className="hw-heading" data-reveal="">
                 <p className="hw-eyebrow">How it works</p>
                 <h2>Just chat.<br />The agents get<br />to work.</h2>
-                <p>Send a receipt, an invoice or a question. Each agent picks up its part and brings back only what needs you.</p>
+                <p>It reads your books, writes the entries and chases what’s missing. You approve. Send a receipt, an invoice or a question, and each agent picks up its part.</p>
               </div>
               <div className="hw-workflow" data-reveal="stagger-lg">
                 <article>
@@ -182,7 +182,7 @@ export default function Page() {
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">02</span>
                   <h3>Agents prepare the work.</h3>
-                  <p>Tax checks, coding, bank matching and collections. Exceptions come back explained.</p>
+                  <p>Coding, tax checks and bank matching. Journals drafted, overdue invoices and missing receipts chased. Exceptions come back explained.</p>
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">03</span>

@@ -9,6 +9,8 @@
 import Image from "next/image";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { Terminal } from "@/components/Terminal";
+import { TrustLadder } from "@/components/home/TrustLadder";
+import { AgentsAct } from "@/components/home/AgentsAct";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
@@ -183,8 +185,13 @@ export default function AccountingPage() {
           <div dir="ltr">
             <Terminal />
           </div>
+          {/* AR-REVIEW: what the agents send, and the trust ladder (2026-09-24);
+              strings in components/home/AgentsAct.tsx and TrustLadder.tsx */}
+          <AgentsAct locale="ar" />
         </div>
       </section>
+
+      <TrustLadder locale="ar" />
 
       <section className="hw-block--dark">
         <div className="hw-wrap hw-section">

@@ -8,6 +8,7 @@ import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 import { FIRM_QUESTIONS, DATA_CONTROLS } from "@/lib/trust";
+import { TrustLadder } from "@/components/home/TrustLadder";
 
 /* AR-REVIEW */
 export const metadata = {
@@ -50,6 +51,9 @@ export default function TrustPage() {
           </div>
         </div>
       </section>
+
+      {/* AR-REVIEW: the trust ladder (2026-09-24), strings in components/home/TrustLadder.tsx */}
+      <TrustLadder locale="ar" />
 
       <section id="controls" className="hw-block--dark">
         <div className="hw-wrap hw-section">

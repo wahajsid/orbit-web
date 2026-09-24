@@ -2,12 +2,15 @@
    New 2026-09-23 (website change plan). Two parts: the commercial
    boundaries firms ask about (DRAFT: owner review, see lib/trust.ts)
    and the data controls, worded as commitments, never as audited
-   certifications. Built from the PageShell + hw-* kit. */
+   certifications. Built from the PageShell + hw-* kit.
+   2026-09-24: the trust ladder (reads, drafts, posts) sits between the
+   two parts; /check and /how-it-works link to #ladder. */
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 import { FIRM_QUESTIONS, DATA_CONTROLS } from "@/lib/trust";
+import { TrustLadder } from "@/components/home/TrustLadder";
 
 export const metadata = {
   title: "Trust: Hysaab’s Commitments to Firms and Finance Teams",
@@ -47,6 +50,8 @@ export default function TrustPage() {
           </div>
         </div>
       </section>
+
+      <TrustLadder />
 
       <section id="controls" className="hw-block--dark">
         <div className="hw-wrap hw-section">

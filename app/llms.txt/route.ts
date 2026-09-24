@@ -19,6 +19,8 @@ Key facts:
 - Made for the Gulf: UAE VAT (5%) tested line by line against FTA tax-invoice criteria (Article 59) before input VAT is claimed; 9% UAE Corporate Tax reconciled against VAT; KSA 15% VAT and ZATCA e-invoicing rules.
 - Every number traces to a document; nothing is deleted (voids are mirrored reversals); agents propose, deterministic engines post, people approve; the period lock is pressed by a person. Hysaab does not file returns.
 - Ledgers: works with Xero and QuickBooks today, with more ledgers connecting.
+- Approval, not read-only, is the promise: nothing posts without the customer's approval. Each ledger connection climbs a trust ladder the customer controls: it starts read-only and earns write access. Observe (reads): Hysaab reads and compares and writes nothing; the free Books Check never goes past this step. Propose (drafts): fixes are prepared as drafts and nothing is sent to Xero or QuickBooks until a person approves. Execute (posts): routine entries post to the ledger directly, inside the approval rules agreed at setup, each one recorded; anything below the confidence gate still goes to a person.
+- The agents communicate as well as write: they chase overdue customer invoices on the collections cadence the customer sets (with a statement of account from the second reminder; reminders wait for approval unless auto-send for routine ones is switched on, and escalations always go to a person), ask for the receipt behind a bank payment with no document, answer the team's questions and tasks on WhatsApp or by email, and draft journals (accruals, reclassifications, corrections) for approval. In short: it reads the books, writes the entries and chases what is missing; the customer approves.
 - Company: Hysaab is a separate company, built in Dubai by the team behind Oblique Consult (https://obliqueconsult.com, a Dubai tax and accounting advisory); the engineering is by Simpla. Founders: Wahaj Siddiqui and Saad Zafar. Contact info@hysaab.ai; the app runs at app.hysaab.ai.
 - Languages: English and Arabic. Marketing pages have Arabic (RTL) twins under ${BASE}/ar (for example /ar, /ar/accounting, /ar/pricing, /ar/trust).
 
@@ -29,7 +31,7 @@ Key facts:
 - [Hysaab Practice](${BASE}/firms): AI agents for tax and advisory firms, and the five questions firms ask
 - [Hysaab Audit](${BASE}/audit): an AI-native ISA audit file for licensed Gulf audit firms; a licensed human concludes
 - [Pricing](${BASE}/pricing): self-serve from USD 199 a month, managed priced by scope, and firms
-- [Trust](${BASE}/trust): commercial boundaries with firms and the data controls (separate tenants, logged agent actions, no training on customer data, encrypted credentials, staff access only with written permission)
+- [Trust](${BASE}/trust): commercial boundaries with firms, the trust ladder of connection modes (reads, drafts, posts), and the data controls (separate tenants, logged agent actions, no training on customer data, encrypted credentials, staff access only with written permission)
 - [Compliance](${BASE}/compliance): how UAE VAT (Article 59), Corporate Tax, KSA ZATCA rules, period locks, audit trails and approval gates are enforced by default
 - [How it works](${BASE}/how-it-works): plain-English walkthrough from a document arriving to a locked period
 - [Integrations](${BASE}/integrations): how the ledger connections work

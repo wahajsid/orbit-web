@@ -8,6 +8,7 @@
 
 import type { ReactNode } from "react";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
+import { AgentsAct } from "@/components/home/AgentsAct";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
@@ -234,6 +235,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* ── يتواصل (2026-09-24; AR-REVIEW: strings in components/home/AgentsAct.tsx) ── */}
+      <section>
+        <div className="hw-wrap hw-section">
+          <AgentsAct locale="ar" />
+        </div>
+      </section>
+
       {/* ── أين يتوقف ── */}
       <section className="hw-block--dark">
         <div className="hw-wrap hw-section">
@@ -279,6 +287,8 @@ export default function HowItWorksPage() {
               <div>
                 <p>نساعدك على وصل Hysaab بالنظام المحاسبي الذي تستخدمه بالفعل: Xero أو Zoho Books أو QuickBooks أو Odoo أو Wafeq أو ERPNext. يُنقل دليل حساباتك، ويمنح سجل ترحيلاتك الترميزَ سياقه.</p>
                 <p>لا نظام محاسبي بعد؟ أخبرنا. يستطيع Hysaab مسك الدفاتر حتى تكون مستعدًا لاختيار واحد. وتفاصيل كل نظام في <a href="/ar/integrations">صفحة التكاملات</a>.</p>
+                {/* AR-REVIEW: 2026-09-24 the three connection modes */}
+                <p>يبدأ كل ربط في وضع المراقبة، حيث يقرأ Hysaab ولا يكتب شيئًا. ثم تنقله أنت إلى الاقتراح، حيث تنتظر التصحيحات موافقتك مسوداتٍ، أو إلى التنفيذ، حيث تُرحَّل القيود الروتينية مباشرة. و<a href="/ar/trust#ladder">سلّم الثقة</a> يشرح كل درجة.</p>
               </div>
             </article>
             <article>

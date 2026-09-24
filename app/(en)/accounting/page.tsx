@@ -7,11 +7,16 @@
    stays with you, what does it cost.
    The six modules and their genuine workspace captures come from the
    old /product page; the interactive Terminal and the Arabic capture
-   from the old /accounting page. */
+   from the old /accounting page.
+   2026-09-24 (owner): approval, not read-only, is the promise. Section 04
+   adds what the agents send (AgentsAct), and the trust ladder
+   (TrustLadder: reads, drafts, posts) sits before section 05. */
 
 import Image from "next/image";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
 import { Terminal } from "@/components/Terminal";
+import { TrustLadder } from "@/components/home/TrustLadder";
+import { AgentsAct } from "@/components/home/AgentsAct";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
@@ -181,8 +186,11 @@ export default function AccountingPage() {
             <p>Seventy seconds of the agents at work, below. The <a href="/how-it-works">full walkthrough</a> goes from a document arriving to a locked period.</p>
           </div>
           <Terminal />
+          <AgentsAct />
         </div>
       </section>
+
+      <TrustLadder />
 
       {/* ── 5. What stays with you? ── */}
       <section className="hw-block--dark">

@@ -21,6 +21,10 @@
 .ck-lede { font-size: 17px; line-height: 1.6; color: #c9d3da; max-width: 34ch; animation: m-rise var(--m-dur-reveal) var(--m-ease-out) 420ms backwards; }
 .ck-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px 26px; margin-top: 36px; animation: m-rise var(--m-dur-reveal) var(--m-ease-out) 540ms backwards; }
 .ck-offer { font-size: 13px; line-height: 1.55; color: #c0ccd4; }
+.ck-offer a, .ck-pair a { color: inherit !important; text-decoration: underline !important; text-underline-offset: 3px; }
+.ck-offer a:hover, .ck-pair a:hover { color: var(--hw-blush) !important; }
+.ck-pair { font-size: 15px; line-height: 1.6; color: #c0ccd4; margin-top: 22px !important; }
+.ck-pair strong { color: var(--hw-cream); font-weight: 600; }
 
 /* ── sample report ────────────────────────────────────────────────── */
 .ck-stage { position: relative; min-width: 0; }

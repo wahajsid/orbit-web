@@ -8,6 +8,7 @@
 
 import type { ReactNode } from "react";
 import { PageShell, PageHero, Shot } from "@/components/home/PageShell";
+import { AgentsAct } from "@/components/home/AgentsAct";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
@@ -229,6 +230,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* ── It communicates (2026-09-24) ── */}
+      <section>
+        <div className="hw-wrap hw-section">
+          <AgentsAct />
+        </div>
+      </section>
+
       {/* ── Where it stops ── */}
       <section className="hw-block--dark">
         <div className="hw-wrap hw-section">
@@ -274,6 +282,7 @@ export default function HowItWorksPage() {
               <div>
                 <p>We help connect Hysaab to the accounting system you already use: Xero, Zoho Books, QuickBooks, Odoo, Wafeq or ERPNext. Your chart of accounts is mapped across, and your posting history gives the coding its context.</p>
                 <p>No accounting system yet? Tell us. Hysaab can keep the books until you are ready to choose one. The detail for each system is on the <a href="/integrations">integrations page</a>.</p>
+                <p>Every connection starts in Observe, where Hysaab reads and writes nothing. You move it to Propose, where fixes wait as drafts for your approval, or to Execute, where routine entries post directly. The <a href="/trust#ladder">trust ladder</a> sets out each step.</p>
               </div>
             </article>
             <article>

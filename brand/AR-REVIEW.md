@@ -305,3 +305,49 @@ Still to translate (left in English, listed for the reviewer, not drafted):
 - **`app/ar/accounting/page.tsx`**: the activity terminal (`components/Terminal.tsx`) runs its three scenarios in English: the title ("One invoice, start to finish." and the other two), the line under it and every feed line.
 - **`app/ar/invoice/page.tsx`**: the two captures (`/shots/adv-ocr-review.png`, `/shots/adv-ocr-register.png`) still show the old "ORBIT INVOICE" header and green theme, and the page body predates the rebuilt English /invoice (17 em dashes in its copy).
 - Guide and calculator titles and descriptions in `lib/guides-ar.ts` and `lib/tools.ts` carry em dashes (for example "…وفق IFRS 15 — وما تتوقعه…"). Left for the owner with the English ones: they are page titles in search.
+
+## 13. Approval, not read-only, 24 September 2026 (AR-REVIEW)
+
+Owner direction: the promise is approval ("nothing posts without your approval"), not "read-only", which stays only as Books Check fine print. New drafts, each marked `AR-REVIEW` in the source.
+
+**The trust ladder**, `components/home/TrustLadder.tsx` (on `/ar/trust` and `/ar/accounting`). The three step names are the app's connection modes (Observe, Propose, Execute).
+
+| English source | Arabic draft |
+|---|---|
+| The trust ladder | سلّم الثقة |
+| Starts read-only. / Earns write access. | يبدأ بالقراءة فقط. / ويكسب صلاحية الكتابة. |
+| Every connection to your ledger sits on one of three steps. Nothing posts without your approval until you move it up a step, and you can move it back down whenever you like. | كل ربط مع دفتر الأستاذ يقف على واحدة من ثلاث درجات. لا يُرحَّل شيء دون موافقتك حتى ترفعه أنت درجة، ويمكنك إنزاله متى شئت. |
+| Step 01 · Observe · Reads. | الدرجة 01 · المراقبة · يقرأ. |
+| Where every connection starts, and as far as the free Books Check ever goes. Hysaab reads the ledger and compares; nothing is written back. | هنا يبدأ كل ربط، وعندها يتوقف فحص الدفاتر المجاني دائمًا. يقرأ Hysaab دفتر الأستاذ ويقارن، ولا يُكتب فيه شيء. |
+| Check your books free | افحص دفاترك مجانًا (بالإنجليزية) |
+| Step 02 · Propose · Drafts. | الدرجة 02 · الاقتراح · يُعدّ المسودات. |
+| Fixes are prepared as drafts: the journal, the reclassification, the bill to post. Nothing reaches Xero or QuickBooks until you approve it. | تُعدّ التصحيحات مسوداتٍ: القيد، وإعادة التصنيف، والفاتورة المراد ترحيلها. ولا يصل شيء إلى Xero أو QuickBooks حتى توافق عليه. |
+| Step 03 · Execute · Posts. | الدرجة 03 · التنفيذ · يُرحِّل. |
+| Routine entries post to your ledger directly, inside the approval rules you agreed at setup. Each one is recorded, and anything below the confidence gate still comes to you. | تُرحَّل القيود الروتينية إلى دفترك مباشرة، ضمن قواعد الموافقة التي اتُّفق عليها عند الإعداد. تُسجَّل كل عملية، وما يقع دون بوابة الثقة يبقى يأتي إليك. |
+
+**It writes, and it communicates**, `components/home/AgentsAct.tsx` (on `/ar/accounting` and `/ar/how-it-works`).
+
+| English source | Arabic draft |
+|---|---|
+| It writes, and it communicates | يكتب، ويتواصل |
+| It reads your books, writes the entries / and chases what’s missing. You approve. | يقرأ دفاترك، ويكتب القيود، / ويلاحق ما ينقص. وأنت توافق. |
+| The agents do more than prepare work on a screen. They write to the people the work depends on, on the channels you already use. | لا يكتفي الوكلاء بإعداد العمل على الشاشة. يراسلون الأشخاص الذين يتوقف عليهم العمل، عبر القنوات التي تستخدمها بالفعل. |
+| Customers · Chases overdue invoices. | العملاء · يلاحق الفواتير المتأخرة. |
+| Reminders follow the collections cadence you set, with a statement of account from the second reminder. They wait for your approval unless you switch on auto-send for routine ones; escalations always come to you. | تتبع رسائل التذكير وتيرة التحصيل التي تحددها، ومعها كشف حساب ابتداءً من التذكير الثاني. تنتظر موافقتك ما لم تفعّل الإرسال التلقائي للرسائل الروتينية، والتصعيد يأتي إليك دائمًا. |
+| Missing documents · Asks for the receipt. | المستندات الناقصة · يطلب الإيصال. |
+| Money that left the bank with no bill behind it gets one friendly ask, on WhatsApp or by email. Reply with a photo and it goes straight into intake. | المبالغ التي خرجت من البنك دون فاتورة وراءها تُرسل بشأنها رسالة لطيفة واحدة عبر واتساب أو البريد. ردّ بصورة، فتدخل مباشرة إلى استلام المستندات. |
+| Your team · Answers on WhatsApp or email. | فريقك · يجيب عبر واتساب أو البريد. |
+| Send a question or a task. The agents work it against your books and reply on the same channel, with the figures and the entries behind them. | أرسل سؤالًا أو مهمة. يعالجها الوكلاء على دفاترك ويردّون على القناة نفسها، بالأرقام والقيود التي تقف خلفها. |
+| The ledger · Drafts the journal. | دفتر الأستاذ · يُعدّ القيد. |
+| Accruals, reclassifications and corrections arrive as drafted journals with their basis. You approve, and they post to the ledger you already use. | الاستحقاقات وإعادات التصنيف والتصحيحات تصل قيودًا مُعدّة مع أساسها. توافق أنت، فتُرحَّل إلى النظام المحاسبي الذي تستخدمه بالفعل. |
+
+**Page lines**
+
+| Where | English source | Arabic draft |
+|---|---|---|
+| `app/ar/page.tsx`, hero trust line | Evidence on every number. Nothing posts without your approval. Built in Dubai. | دليل على كل رقم. ولا يُرحَّل شيء دون موافقتك. صُنع في دبي. |
+| `app/ar/page.tsx`, How it works intro | It reads your books, writes the entries and chases what’s missing. You approve. | يقرأ دفاترك، ويكتب القيود، ويلاحق ما ينقص. وأنت توافق. |
+| `app/ar/page.tsx`, How it works step 02 | Coding, tax checks and bank matching. Journals drafted, overdue invoices and missing receipts chased. Exceptions come back explained. | تُفحص المستندات، وتُعدّ القيود، وتُلاحَق الفواتير المتأخرة والإيصالات الناقصة، وتُعاد الاستثناءات إليك مع تفسير واضح. |
+| `app/ar/how-it-works/page.tsx`, Connect the books | Every connection starts in Observe, where Hysaab reads and writes nothing. You move it to Propose, where fixes wait as drafts for your approval, or to Execute, where routine entries post directly. The trust ladder sets out each step. | يبدأ كل ربط في وضع المراقبة، حيث يقرأ Hysaab ولا يكتب شيئًا. ثم تنقله أنت إلى الاقتراح، حيث تنتظر التصحيحات موافقتك مسوداتٍ، أو إلى التنفيذ، حيث تُرحَّل القيود الروتينية مباشرة. وسلّم الثقة يشرح كل درجة. |
+
+Kept as is: the Arabic Books Check line on the homepage (للقراءة فقط) is Books Check fine print and stays.

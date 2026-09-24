@@ -132,7 +132,7 @@ export default function Page() {
                 </div>
               </article>
             </div>
-            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> دليل على كل رقم. واعتماد على كل قرار مهم. صُنع في دبي.</p>
+            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> دليل على كل رقم. ولا يُرحَّل شيء دون موافقتك. صُنع في دبي.</p>{/* AR-REVIEW: 2026-09-24 approval line */}
           </div>
         </section>
 
@@ -183,7 +183,8 @@ export default function Page() {
               <div className="hw-heading" data-reveal="">
                 <p className="hw-eyebrow">كيف يعمل</p>
                 <h2>فقط تحدّث.<br />وHysaab يباشر العمل.</h2>
-                <p>نساعدك على ربط دفاترك والاتفاق على قواعد الاعتماد.</p>
+                {/* AR-REVIEW: 2026-09-24 intro and step 2 */}
+                <p>يقرأ دفاترك، ويكتب القيود، ويلاحق ما ينقص. وأنت توافق.</p>
               </div>
               <div className="hw-workflow" data-reveal="stagger-lg">
                 <article>
@@ -195,7 +196,7 @@ export default function Page() {
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">02</span>
                   <h3>Hysaab يُعدّ العمل.</h3>
-                  <p>تُفحص المستندات، وتُعدّ القيود، وتُعاد الاستثناءات إليك مع تفسير واضح.</p>
+                  <p>تُفحص المستندات، وتُعدّ القيود، وتُلاحَق الفواتير المتأخرة والإيصالات الناقصة، وتُعاد الاستثناءات إليك مع تفسير واضح.</p>
                 </article>
                 <article>
                   <span className="hw-workflow-num" aria-hidden="true">03</span>
