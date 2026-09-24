@@ -132,7 +132,7 @@ export default function Page() {
                 </div>
               </article>
             </div>
-            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> دليل على كل رقم. ولا يُرحَّل شيء دون موافقتك. صُنع في دبي.</p>{/* AR-REVIEW: 2026-09-24 approval line */}
+            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> دليل على كل رقم. ولا يُرحَّل شيء خارج القواعد التي توافق عليها. صُنع في دبي.</p>{/* AR-REVIEW: 2026-09-24 approval line */}
           </div>
         </section>
 

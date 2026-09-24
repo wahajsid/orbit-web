@@ -355,3 +355,7 @@ Kept as is: the Arabic Books Check line on the homepage (للقراءة فقط) 
 ## 14. Integrations: custom connection (2026-09-24)
 - H2: "ستة دفاتر أستاذ جاهزة. / وأي نظام آخر نربطه لك." (EN: Six ledgers ready. / Anything else, connected for you.)
 - Card "نظامك" / "اتصال مخصص · نحدده معك" and its detail and three ticks (EN: Your system / Custom connection · scoped with you)
+
+## 15. Trust ladder: the trial, then posting (2026-09-24)
+- Ladder lede, step 02 and 03 texts and the mode labels "الاقتراح · فترة التجربة" / "التنفيذ · بعد التجربة" in components/home/TrustLadder.tsx
+- Homepage trust line: "ولا يُرحَّل شيء خارج القواعد التي توافق عليها." (EN: Nothing posts outside the rules you approve.)

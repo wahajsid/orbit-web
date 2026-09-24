@@ -3,9 +3,11 @@
    The three steps are the app's connection write modes (app repo,
    lib/ledger/write-mode.ts): observe reads only and every push refuses;
    propose records each write as a draft that leaves Hysaab only once a
-   person approves it; execute writes directly, each one recorded as an
-   operation. Keep the copy true to that: drafts wait in Hysaab (not in
-   the ledger), and nothing here claims an entry can be undone.
+   person approves it (Books Check fix drafts sit in Xero as unposted
+   drafts); execute writes directly, each one recorded as an operation.
+   Owner 2026-09-24: approval is not forever. The ideal state is a
+   trial on drafts, then routine journals post on their own. Nothing
+   here claims an entry can be undone.
    Used on /trust and /accounting, EN and AR (#ladder, linked from
    /check and /how-it-works). Styles: .hw-ladder in app/hysaab-home.css.
    AR-REVIEW: every Arabic string below is a new draft. */
@@ -18,7 +20,7 @@ const COPY: Record<Locale, { eyebrow: string; h: [string, string]; lede: string;
   en: {
     eyebrow: "The trust ladder",
     h: ["Starts read-only.", "Earns write access."],
-    lede: "Every connection to your ledger sits on one of three steps. Nothing posts without your approval until you move it up a step, and you can move it back down whenever you like.",
+    lede: "Every connection to your ledger sits on one of three steps. You decide when it moves up, and you can move it back down whenever you like. Most teams trial on drafts, then let routine journals post.",
     arrow: "→",
     steps: [
       {
@@ -27,19 +29,19 @@ const COPY: Record<Locale, { eyebrow: string; h: [string, string]; lede: string;
         link: { href: "/check", label: "Check your books free" },
       },
       {
-        n: "Step 02", mode: "Propose", h: "Drafts.",
-        p: "Fixes are prepared as drafts: the journal, the reclassification, the bill to post. Nothing reaches Xero or QuickBooks until you approve it.",
+        n: "Step 02", mode: "Propose · the trial", h: "Drafts.",
+        p: "During the trial, fixes are prepared as drafts: the journal, the reclassification, the bill to post. They wait in Hysaab, or as unposted drafts in your ledger, until you approve each one. You see exactly how Hysaab works before it posts anything.",
       },
       {
-        n: "Step 03", mode: "Execute", h: "Posts.",
-        p: "Routine entries post to your ledger directly, inside the approval rules you agreed at setup. Each one is recorded, and anything below the confidence gate still comes to you.",
+        n: "Step 03", mode: "Execute · after the trial", h: "Posts.",
+        p: "Once the trial has earned it, routine journals post on their own, inside the rules you agreed. You stop approving every entry. Each one is recorded, and anything unusual or below the confidence gate still comes to you.",
       },
     ],
   },
   ar: {
     eyebrow: "سلّم الثقة",
     h: ["يبدأ بالقراءة فقط.", "ويكسب صلاحية الكتابة."],
-    lede: "كل ربط مع دفتر الأستاذ يقف على واحدة من ثلاث درجات. لا يُرحَّل شيء دون موافقتك حتى ترفعه أنت درجة، ويمكنك إنزاله متى شئت.",
+    lede: "كل ربط مع دفتر الأستاذ يقف على واحدة من ثلاث درجات. أنت تقرر متى يرتفع درجة، ويمكنك إنزاله متى شئت. تبدأ معظم الفرق بفترة تجربة على المسودات، ثم تسمح بترحيل القيود الروتينية.",
     arrow: "←",
     steps: [
       {
@@ -48,12 +50,12 @@ const COPY: Record<Locale, { eyebrow: string; h: [string, string]; lede: string;
         link: { href: "/check", label: "افحص دفاترك مجانًا (بالإنجليزية)" },
       },
       {
-        n: "الدرجة 02", mode: "الاقتراح", h: "يُعدّ المسودات.",
-        p: "تُعدّ التصحيحات مسوداتٍ: القيد، وإعادة التصنيف، والفاتورة المراد ترحيلها. ولا يصل شيء إلى Xero أو QuickBooks حتى توافق عليه.",
+        n: "الدرجة 02", mode: "الاقتراح · فترة التجربة", h: "يُعدّ المسودات.",
+        p: "خلال فترة التجربة تُعدّ التصحيحات مسوداتٍ: القيد، وإعادة التصنيف، والفاتورة المراد ترحيلها. وتنتظر في Hysaab، أو مسوداتٍ غير مُرحَّلة في دفترك، حتى توافق على كل منها، فترى بالضبط كيف يعمل Hysaab قبل أن يُرحِّل أي شيء.",
       },
       {
-        n: "الدرجة 03", mode: "التنفيذ", h: "يُرحِّل.",
-        p: "تُرحَّل القيود الروتينية إلى دفترك مباشرة، ضمن قواعد الموافقة التي اتُّفق عليها عند الإعداد. تُسجَّل كل عملية، وما يقع دون بوابة الثقة يبقى يأتي إليك.",
+        n: "الدرجة 03", mode: "التنفيذ · بعد التجربة", h: "يُرحِّل.",
+        p: "بعد أن تثبت التجربة جدارتها، تُرحَّل القيود الروتينية تلقائيًا ضمن القواعد التي اتفقتم عليها، فلا تعود بحاجة إلى اعتماد كل قيد. تُسجَّل كل عملية، ويبقى ما هو غير معتاد أو دون بوابة الثقة يأتي إليك.",
       },
     ],
   },

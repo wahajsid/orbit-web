@@ -131,7 +131,7 @@ export default function Page() {
                 </div>
               </article>
             </div>
-            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> Evidence on every number. Nothing posts without your approval. Built in Dubai.</p>
+            <p className="hw-origin hw-hero-trust"><span aria-hidden="true">✳</span> Evidence on every number. Nothing posts outside the rules you approve. Built in Dubai.</p>
           </div>
         </section>
 
