@@ -271,7 +271,7 @@ export default function PracticePage() {
             </div>
             <div className="hw-prose">
               <p>Hysaab Practice started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
-              <p>We are opening it to a small group of founding firms in the UAE and KSA. Founding firms shape what comes next and keep founder pricing for as long as they stay.</p>
+              <p>We are opening it to a small group of firms in the UAE and KSA first.</p>
             </div>
           </div>
           <div className="hw-note">

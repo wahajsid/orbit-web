@@ -127,7 +127,7 @@ const PHASES: [string, string, string][] = [
 
 export default function AuditPage() {
   return (
-    <PageShell band={{ kicker: "Founding firms", title: "Bring us a file and we will run it.", body: "Hysaab Audit opens to a small group of licensed audit firms first. Tell us about your practice and a real person will walk you through an engagement within one working day." }}>
+    <PageShell band={{ kicker: "For licensed audit firms", title: "Bring us a file and we will run it.", body: "Hysaab Audit opens to a small group of licensed audit firms first. Tell us about your practice and a real person will walk you through an engagement within one working day." }}>
       <PageHero
         eyebrow="For licensed audit firms"
         title={<>Hysaab Audit.<br /><span>The ISA file, run by engines, concluded by your partners.</span></>}
@@ -305,7 +305,7 @@ export default function AuditPage() {
             </div>
             <div className="hw-prose">
               <p>Hysaab Audit was written from a clean-sheet ISA methodology rather than a template pack: acceptance through to archive, with the engines proved against a seeded engagement whose misstatements are known in advance. Every release re-runs it and scores what was found, what was missed and what was flagged in error.</p>
-              <p>We are opening it to a small group of licensed firms in the UAE and KSA. Founding firms shape the methodology and keep founder pricing for as long as they stay.</p>
+              <p>We are opening it to a small group of licensed firms in the UAE and KSA first.</p>
             </div>
           </div>
           <div className="hw-note">
