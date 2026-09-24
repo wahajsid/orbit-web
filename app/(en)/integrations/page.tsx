@@ -49,6 +49,11 @@ const LEDGERS: { name: string; how: string; detail: string; extras: string[] }[]
     detail: "Point Hysaab at your ERPNext instance with an API key pair. The connection is tested before it is saved, and your general ledger history can come in as clearly marked legacy data.",
     extras: ["Two-way journal sync", "Legacy-history import", "Suits self-hosted instances"],
   },
+  {
+    name: "Your system", how: "Custom connection · scoped with you",
+    detail: "Using something else? We connect Hysaab to your accounting software, whatever it is. The connection is scoped with you in writing before any commitment, and works to the same approval rules as every ledger above.",
+    extras: ["Any accounting software", "Scoped in writing first", "Same approval rules"],
+  },
 ];
 
 export default function IntegrationsPage() {
@@ -68,9 +73,9 @@ export default function IntegrationsPage() {
           <div className="hw-heading">
             <div>
               <p className="hw-eyebrow">Accounting systems</p>
-              <h2>Six ledgers.<br /><span>One connected at a time.</span></h2>
+              <h2>Six ledgers ready.<br /><span>Anything else, connected for you.</span></h2>
             </div>
-            <p>Each card says how the connection is made and what passes across it. What is listed for one system is not implied for the others.</p>
+            <p>One system is connected at a time. Each card says how the connection is made and what passes across it. What is listed for one system is not implied for the others.</p>
           </div>
           <div className="hw-cards">
             {LEDGERS.map((l) => (

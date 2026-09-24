@@ -351,3 +351,7 @@ Owner direction: the promise is approval ("nothing posts without your approval")
 | `app/ar/how-it-works/page.tsx`, Connect the books | Every connection starts in Observe, where Hysaab reads and writes nothing. You move it to Propose, where fixes wait as drafts for your approval, or to Execute, where routine entries post directly. The trust ladder sets out each step. | يبدأ كل ربط في وضع المراقبة، حيث يقرأ Hysaab ولا يكتب شيئًا. ثم تنقله أنت إلى الاقتراح، حيث تنتظر التصحيحات موافقتك مسوداتٍ، أو إلى التنفيذ، حيث تُرحَّل القيود الروتينية مباشرة. وسلّم الثقة يشرح كل درجة. |
 
 Kept as is: the Arabic Books Check line on the homepage (للقراءة فقط) is Books Check fine print and stays.
+
+## 14. Integrations: custom connection (2026-09-24)
+- H2: "ستة دفاتر أستاذ جاهزة. / وأي نظام آخر نربطه لك." (EN: Six ledgers ready. / Anything else, connected for you.)
+- Card "نظامك" / "اتصال مخصص · نحدده معك" and its detail and three ticks (EN: Your system / Custom connection · scoped with you)

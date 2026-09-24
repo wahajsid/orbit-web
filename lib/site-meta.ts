@@ -33,7 +33,7 @@ export const APP_LD = {
   operatingSystem: "Web",
   url: "https://hysaab.ai",
   description:
-    "Hysaab Finance: AI agents for accounting and reporting in the UAE and Saudi Arabia. Payables, receivables, the ledger, tax and the month-end close, prepared by agents and approved by your people. Works with Xero and QuickBooks today, with more ledgers connecting.",
+    "Hysaab Finance: AI agents for accounting and reporting in the UAE and Saudi Arabia. Payables, receivables, the ledger, tax and the month-end close, prepared by agents and approved by your people. Works with Xero, QuickBooks, Wafeq, Odoo, Zoho Books and ERPNext, with a custom connection for any other accounting software.",
   offers: {
     "@type": "Offer",
     name: "Self-serve",
