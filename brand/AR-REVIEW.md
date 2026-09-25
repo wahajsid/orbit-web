@@ -359,3 +359,9 @@ Kept as is: the Arabic Books Check line on the homepage (للقراءة فقط) 
 ## 15. Trust ladder: the trial, then posting (2026-09-24)
 - Ladder lede, step 02 and 03 texts and the mode labels "الاقتراح · فترة التجربة" / "التنفيذ · بعد التجربة" in components/home/TrustLadder.tsx
 - Homepage trust line: "ولا يُرحَّل شيء خارج القواعد التي توافق عليها." (EN: Nothing posts outside the rules you approve.)
+
+## 16. Enquiry form: which accounting system (2026-09-26)
+`components/home/EnquiryForm.tsx`, demo mode (Arabic homepage and Arabic contact page). System names stay in English (product names).
+- Field label: "أي نظام محاسبي تستخدم؟" (EN: Which accounting system do you use?)
+- The "Other" option: "أخرى" (EN: Other)
+- The free-text box that opens for Other: label "ما هو؟", placeholder "اسم نظامك" (EN: Which one? / The name of your system)

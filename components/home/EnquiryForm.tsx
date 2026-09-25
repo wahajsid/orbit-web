@@ -12,9 +12,15 @@
    "Explore the workspace" and "Discuss managed support" preselect an
    interest. It travels as its own line ahead of the visitor's note, so
    it never overwrites anything they have typed. Success is shown only
-   on a confirmed 200; on failure every field keeps its content. */
+   on a confirmed 200; on failure every field keeps its content.
+
+   Demo-intake (2026-09-26): in `demo` mode the system field asks "Which
+   accounting system do you use?" over a longer list (lib/systems.ts) and
+   "Other" opens a free-text box. The route forwards the enquiry to the
+   app's demo-intake agent after emailing the team. */
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { DEMO_SYSTEMS } from "@/lib/systems";
 
 export const HOME_SYSTEMS = ["Xero", "Zoho Books", "QuickBooks", "Wafeq", "Odoo", "ERPNext", "Spreadsheets / other"] as const;
 
@@ -50,9 +56,10 @@ export function InterestLink({ interest, children }: { interest: Interest; child
 }
 
 const L = {
-  en: { heading: "Meet Hysaab.", demoHeading: "Tell us about you.", asking: "Asking about:", clear: "Clear", clearLabel: "Clear the selected interest", name: "Your name", email: "Work email", role: "I am a…", rolePick: "Select one", system: "Your accounting system", pick: "Select your system", help: "What would you like help with?", optional: "(optional)", ph: "Month-end, supplier invoices, clearer reporting…", send: "Book a walkthrough", demoSend: "Request a demo", sending: "Sending…", note: <>Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list. <a href="/privacy">Privacy notice</a>.</>, failed: "We could not send that. Email info@hysaab.ai instead.", offline: "We could not send that. Check your connection, or email info@hysaab.ai instead.", received: "Received.", thanks: (n: string) => `Thank you, ${n || "and welcome"}. A real person from the Hysaab team will reply within one working day.` },
-  /* AR-REVIEW: demoHeading "أخبرنا عنك."، role "أنا…"، rolePick "اختر واحدًا"، demoSend "اطلب عرضًا تجريبيًا". */
-  ar: { heading: "تعرّف على Hysaab.", demoHeading: "أخبرنا عنك.", asking: "الاستفسار عن:", clear: "مسح", clearLabel: "مسح الاهتمام المحدد", name: "اسمك", email: "بريد العمل", role: "أنا…", rolePick: "اختر واحدًا", system: "نظامك المحاسبي", pick: "اختر نظامك", help: "بماذا تود أن نساعدك؟", optional: "(اختياري)", ph: "إقفال الشهر، فواتير الموردين، تقارير أوضح…", send: "احجز جولة تعريفية", demoSend: "اطلب عرضًا تجريبيًا", sending: "جارٍ الإرسال…", note: <>تصل بياناتك إلى فريق Hysaab بالبريد ليرد عليك شخص حقيقي. لا يُضاف بريدك إلى أي قائمة بريدية. <a href="/privacy">إشعار الخصوصية</a>.</>, failed: "تعذّر الإرسال. راسلنا على info@hysaab.ai بدلًا من ذلك.", offline: "تعذّر الإرسال. تحقق من اتصالك، أو راسلنا على info@hysaab.ai.", received: "وصلتنا رسالتك.", thanks: (n: string) => `شكرًا${n ? ` يا ${n}` : ""}. سيرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.` },
+  en: { heading: "Meet Hysaab.", demoHeading: "Tell us about you.", asking: "Asking about:", clear: "Clear", clearLabel: "Clear the selected interest", name: "Your name", email: "Work email", role: "I am a…", rolePick: "Select one", system: "Your accounting system", demoSystem: "Which accounting system do you use?", other: "Which one?", otherPh: "The name of your system", otherLabel: "Other", pick: "Select your system", help: "What would you like help with?", optional: "(optional)", ph: "Month-end, supplier invoices, clearer reporting…", send: "Book a walkthrough", demoSend: "Request a demo", sending: "Sending…", note: <>Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list. <a href="/privacy">Privacy notice</a>.</>, failed: "We could not send that. Email info@hysaab.ai instead.", offline: "We could not send that. Check your connection, or email info@hysaab.ai instead.", received: "Received.", thanks: (n: string) => `Thank you, ${n || "and welcome"}. A real person from the Hysaab team will reply within one working day.` },
+  /* AR-REVIEW: demoHeading "أخبرنا عنك."، role "أنا…"، rolePick "اختر واحدًا"، demoSend "اطلب عرضًا تجريبيًا".
+     AR-REVIEW (2026-09-26): demoSystem "أي نظام محاسبي تستخدم؟"، other "ما هو؟"، otherPh "اسم نظامك"، otherLabel "أخرى". */
+  ar: { heading: "تعرّف على Hysaab.", demoHeading: "أخبرنا عنك.", asking: "الاستفسار عن:", clear: "مسح", clearLabel: "مسح الاهتمام المحدد", name: "اسمك", email: "بريد العمل", role: "أنا…", rolePick: "اختر واحدًا", system: "نظامك المحاسبي", demoSystem: "أي نظام محاسبي تستخدم؟", other: "ما هو؟", otherPh: "اسم نظامك", otherLabel: "أخرى", pick: "اختر نظامك", help: "بماذا تود أن نساعدك؟", optional: "(اختياري)", ph: "إقفال الشهر، فواتير الموردين، تقارير أوضح…", send: "احجز جولة تعريفية", demoSend: "اطلب عرضًا تجريبيًا", sending: "جارٍ الإرسال…", note: <>تصل بياناتك إلى فريق Hysaab بالبريد ليرد عليك شخص حقيقي. لا يُضاف بريدك إلى أي قائمة بريدية. <a href="/privacy">إشعار الخصوصية</a>.</>, failed: "تعذّر الإرسال. راسلنا على info@hysaab.ai بدلًا من ذلك.", offline: "تعذّر الإرسال. تحقق من اتصالك، أو راسلنا على info@hysaab.ai.", received: "وصلتنا رسالتك.", thanks: (n: string) => `شكرًا${n ? ` يا ${n}` : ""}. سيرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.` },
 };
 
 /* `demo` (the homepages and contact pages, 2026-09-23) adds the "I am a…"
@@ -64,6 +71,7 @@ export function EnquiryForm({ source = "Homepage", locale = "en", demo = false }
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [system, setSystem] = useState("");
+  const [systemOther, setSystemOther] = useState("");
   const [role, setRole] = useState("");
   const [help, setHelp] = useState("");
   const [interest, setInterest] = useState<Interest | null>(null);
@@ -94,7 +102,7 @@ export function EnquiryForm({ source = "Homepage", locale = "en", demo = false }
       const r = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), role, accounting_system: system, notes, website, loadedAt }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), role, accounting_system: system, system_other: system === "Other" ? systemOther.trim() : "", source, locale, notes, website, loadedAt }),
       });
       const data = await r.json().catch(() => ({}));
       if (!r.ok) { setErr(data.error || t.failed); return; }
@@ -142,11 +150,17 @@ export function EnquiryForm({ source = "Homepage", locale = "en", demo = false }
           {ROLES.map((r) => <option key={r} value={r}>{locale === "ar" ? ROLES_AR[r] : r}</option>)}
         </select>
       </>}
-      <label htmlFor="hw-system">{t.system}</label>
+      <label htmlFor="hw-system">{demo ? t.demoSystem : t.system}</label>
       <select id="hw-system" name="system" required={!demo || role === "" || role === "Finance team"} value={system} onChange={(e) => setSystem(e.target.value)}>
         <option value="">{t.pick}</option>
-        {HOME_SYSTEMS.map((s) => <option key={s}>{s}</option>)}
+        {demo
+          ? DEMO_SYSTEMS.map((s) => <option key={s} value={s}>{s === "Other" ? t.otherLabel : s}</option>)
+          : HOME_SYSTEMS.map((s) => <option key={s}>{s}</option>)}
       </select>
+      {demo && system === "Other" && <>
+        <label htmlFor="hw-system-other">{t.other}</label>
+        <input id="hw-system-other" name="system_other" placeholder={t.otherPh} required maxLength={120} value={systemOther} onChange={(e) => setSystemOther(e.target.value)} />
+      </>}
       <label htmlFor="hw-help">{t.help} <span>{t.optional}</span></label>
       <textarea id="hw-help" name="help" rows={2} placeholder={t.ph} maxLength={3500} value={help} onChange={(e) => setHelp(e.target.value)} />
       <button className="hw-btn hw-btn--navy" type="submit" disabled={busy} aria-disabled={busy}>
