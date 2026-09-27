@@ -254,3 +254,39 @@ ${input.notes}
 Reply to this email and it goes straight to them.`,
   };
 }
+
+// ── Enquiry welcome (the visitor's own copy, 2026-09-27) ─────────────
+// Sent by the site only when the app's demo-intake agent could not be
+// reached; normally the app sends the welcome, with the connection note
+// and the questionnaire. Fixed words only: nothing the visitor typed is
+// echoed back except their first name and the system they chose.
+
+export function enquiryWelcomeEmail(input: { name: string; system?: string }) {
+  const first = input.name.trim().split(/\s+/)[0] || "";
+  const hello = first ? `Thank you, ${esc(first)}. We are glad you are here.` : "Thank you. We are glad you are here.";
+  const sys = input.system?.trim();
+  return {
+    subject: "Thank you for reaching out to Hysaab",
+    html: wrap(
+      "Your message reached the Hysaab team. A real person will reply within one working day.",
+      `${kicker("Welcome to Hysaab")}
+      ${h1(hello)}
+      ${p("Your message has reached the Hysaab team. A real person will reply within one working day to find a time that suits you.")}
+      ${p("Hysaab is a shared service team of finance agents. They do the routine work of the books, your people review and approve, and nothing posts outside the rules you agree.")}
+      ${sys ? infobox("Your accounting system", `${esc(sys)}. We will talk through how Hysaab connects to it when we speak.`) : ""}
+      ${p("If anything else comes to mind before then, simply reply to this email.")}
+      ${signoff("We look forward to working with you.")}`,
+      "You are receiving this because you sent an enquiry at hysaab.ai. Nothing has been added to a mailing list.",
+    ),
+    text: `${first ? `Thank you, ${first}.` : "Thank you."} We are glad you are here.
+
+Your message has reached the Hysaab team. A real person will reply within one working day to find a time that suits you.
+
+Hysaab is a shared service team of finance agents. They do the routine work of the books, your people review and approve, and nothing posts outside the rules you agree.
+${sys ? `\nYour accounting system: ${sys}. We will talk through how Hysaab connects to it when we speak.\n` : ""}
+If anything else comes to mind before then, simply reply to this email.
+
+We look forward to working with you.
+${TEXT_FOOT}`,
+  };
+}

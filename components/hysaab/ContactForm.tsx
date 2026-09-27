@@ -6,13 +6,14 @@
    sender as reply-to. Same honeypot + timing guards as the waitlist. */
 
 import { useMemo, useState } from "react";
-import { ACCOUNTING_SYSTEMS } from "./CohortForm";
+import { DEMO_SYSTEMS } from "@/lib/systems";
 
 export function ContactForm() {
   const loadedAt = useMemo(() => Date.now(), []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [system, setSystem] = useState("");
+  const [systemOther, setSystemOther] = useState("");
   const [notes, setNotes] = useState("");
   const [website, setWebsite] = useState("");
   const [busy, setBusy] = useState(false);
@@ -27,7 +28,7 @@ export function ContactForm() {
       const r = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), accounting_system: system, notes: notes.trim(), website, loadedAt }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), accounting_system: system, system_other: system === "Other" ? systemOther.trim() : "", source: "Footer", notes: notes.trim(), website, loadedAt }),
       });
       const data = await r.json().catch(() => ({}));
       if (!r.ok) { setErr(data.error || "Something went wrong. Email us at info@hysaab.ai instead."); return; }
@@ -62,9 +63,14 @@ export function ContactForm() {
       <label className="hy-field hy-field--full">Accounting system used
         <select className="hy-input" value={system} onChange={(e) => setSystem(e.target.value)}>
           <option value="">Choose one</option>
-          {ACCOUNTING_SYSTEMS.map((s) => <option key={s}>{s}</option>)}
+          {DEMO_SYSTEMS.map((s) => <option key={s} value={s}>{s === "Other" ? "Other (not listed)" : s}</option>)}
         </select>
       </label>
+      {system === "Other" && (
+        <label className="hy-field hy-field--full">Which one?
+          <input className="hy-input" type="text" required maxLength={120} placeholder="The name of your system" value={systemOther} onChange={(e) => setSystemOther(e.target.value)} />
+        </label>
+      )}
       <label className="hy-field hy-field--full">Notes
         <textarea className="hy-input" required placeholder="What would you like to know?" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={4000} />
       </label>

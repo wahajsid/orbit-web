@@ -2,11 +2,12 @@
    maham@obliqueconsult.com) with the sender as reply-to, plus a copy to the
    owner. Same honeypot + timing guards as the waitlist; nothing is stored.
    After a successful send the enquiry also goes to the app's demo-intake
-   agent (lib/intake.ts), best effort: the visitor's result never depends
-   on it. */
+   agent (lib/intake.ts), which sends the visitor a warm welcome. That hand-off
+   runs AFTER the response (owner, 2026-09-27: the visitor never waits on the
+   app); if the app cannot be reached the site sends the welcome itself. */
 
 import { NextRequest, NextResponse } from "next/server";
-import { enquiryEmail } from "@/lib/emails";
+import { enquiryEmail, enquiryWelcomeEmail } from "@/lib/emails";
 import { sendMail, CONTACT_TO, SIGNUP_CC } from "@/lib/mail";
 import { forwardToIntake } from "@/lib/intake";
 import { systemLabel } from "@/lib/systems";
@@ -14,6 +15,15 @@ import { systemLabel } from "@/lib/systems";
 export const runtime = "nodejs";
 
 const MIN_SUBMIT_MS = 1500;
+
+/** Keep work alive after the response. Vercel hands every request a
+    waitUntil (what @vercel/functions wraps); elsewhere the promise simply
+    runs on in the long-lived server. */
+function waitUntil(p: Promise<unknown>): void {
+  const ctx = (globalThis as { [k: symbol]: { get?: () => { waitUntil?: (p: Promise<unknown>) => void } } | undefined })[Symbol.for("@vercel/request-context")]?.get?.();
+  if (ctx?.waitUntil) ctx.waitUntil(p);
+  else void p;
+}
 
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown> = {};
@@ -45,10 +55,14 @@ export async function POST(req: NextRequest) {
     console.error("[contact] send failed:", sent.error);
     return NextResponse.json({ error: "We could not send that. Email info@hysaab.ai instead." }, { status: 502 });
   }
-  const intake = await forwardToIntake(
-    { name, email, role, system, systemOther, notes, source, locale },
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null,
-  );
-  if (!intake.ok) console.warn("[contact] demo intake not reached:", intake.status ?? intake.skipped);
+  const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null;
+  waitUntil((async () => {
+    const intake = await forwardToIntake({ name, email, role, system, systemOther, notes, source, locale }, clientIp);
+    if (intake.ok) return; // the app welcomes the visitor (or has judged it spam)
+    console.warn("[contact] demo intake not reached:", intake.status ?? intake.skipped);
+    if (intake.status === 429) return; // the app is rate-limiting this sender: no extra mail
+    const welcome = await sendMail({ to: email, unsubscribe: false, ...enquiryWelcomeEmail({ name, system: systemLabel(system, systemOther) }) });
+    if (!welcome.ok) console.error("[contact] welcome send failed:", welcome.error);
+  })().catch((e) => console.error("[contact] after-response work failed:", e)));
   return NextResponse.json({ ok: true });
 }

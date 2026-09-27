@@ -16,13 +16,14 @@
 
    Demo-intake (2026-09-26): in `demo` mode the system field asks "Which
    accounting system do you use?" over a longer list (lib/systems.ts) and
-   "Other" opens a free-text box. The route forwards the enquiry to the
+   "Other" opens a free-text box (every form, 2026-09-27: some systems are
+   not on any list). The route forwards the enquiry to the
    app's demo-intake agent after emailing the team. */
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { DEMO_SYSTEMS } from "@/lib/systems";
 
-export const HOME_SYSTEMS = ["Xero", "Zoho Books", "QuickBooks", "Wafeq", "Odoo", "ERPNext", "Spreadsheets / other"] as const;
+export const HOME_SYSTEMS = ["Xero", "Zoho Books", "QuickBooks", "Wafeq", "Odoo", "ERPNext", "Spreadsheets", "Other"] as const;
 
 /** "I am a…": the value sent is always the English label, so the team's
     email reads the same whichever language the visitor used. */
@@ -56,10 +57,11 @@ export function InterestLink({ interest, children }: { interest: Interest; child
 }
 
 const L = {
-  en: { heading: "Meet Hysaab.", demoHeading: "Tell us about you.", asking: "Asking about:", clear: "Clear", clearLabel: "Clear the selected interest", name: "Your name", email: "Work email", role: "I am a…", rolePick: "Select one", system: "Your accounting system", demoSystem: "Which accounting system do you use?", other: "Which one?", otherPh: "The name of your system", otherLabel: "Other", pick: "Select your system", help: "What would you like help with?", optional: "(optional)", ph: "Month-end, supplier invoices, clearer reporting…", send: "Book a walkthrough", demoSend: "Request a demo", sending: "Sending…", note: <>Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list. <a href="/privacy">Privacy notice</a>.</>, failed: "We could not send that. Email info@hysaab.ai instead.", offline: "We could not send that. Check your connection, or email info@hysaab.ai instead.", received: "Received.", thanks: (n: string) => `Thank you, ${n || "and welcome"}. A real person from the Hysaab team will reply within one working day.` },
+  en: { heading: "Meet Hysaab.", demoHeading: "Tell us about you.", asking: "Asking about:", clear: "Clear", clearLabel: "Clear the selected interest", name: "Your name", email: "Work email", role: "I am a…", rolePick: "Select one", system: "Your accounting system", demoSystem: "Which accounting system do you use?", other: "Which one?", otherPh: "The name of your system", otherLabel: "Other (not listed)", pick: "Select your system", help: "What would you like help with?", optional: "(optional)", ph: "Month-end, supplier invoices, clearer reporting…", send: "Book a walkthrough", demoSend: "Request a demo", sending: "Sending…", note: <>Your details go to the Hysaab team by email so a person can reply. Nothing is added to a mailing list. <a href="/privacy">Privacy notice</a>.</>, failed: "We could not send that. Email info@hysaab.ai instead.", offline: "We could not send that. Check your connection, or email info@hysaab.ai instead.", received: "Received.", thanks: (n: string) => `Thank you, ${n || "and welcome"}. A real person from the Hysaab team will reply within one working day.` },
   /* AR-REVIEW: demoHeading "أخبرنا عنك."، role "أنا…"، rolePick "اختر واحدًا"، demoSend "اطلب عرضًا تجريبيًا".
-     AR-REVIEW (2026-09-26): demoSystem "أي نظام محاسبي تستخدم؟"، other "ما هو؟"، otherPh "اسم نظامك"، otherLabel "أخرى". */
-  ar: { heading: "تعرّف على Hysaab.", demoHeading: "أخبرنا عنك.", asking: "الاستفسار عن:", clear: "مسح", clearLabel: "مسح الاهتمام المحدد", name: "اسمك", email: "بريد العمل", role: "أنا…", rolePick: "اختر واحدًا", system: "نظامك المحاسبي", demoSystem: "أي نظام محاسبي تستخدم؟", other: "ما هو؟", otherPh: "اسم نظامك", otherLabel: "أخرى", pick: "اختر نظامك", help: "بماذا تود أن نساعدك؟", optional: "(اختياري)", ph: "إقفال الشهر، فواتير الموردين، تقارير أوضح…", send: "احجز جولة تعريفية", demoSend: "اطلب عرضًا تجريبيًا", sending: "جارٍ الإرسال…", note: <>تصل بياناتك إلى فريق Hysaab بالبريد ليرد عليك شخص حقيقي. لا يُضاف بريدك إلى أي قائمة بريدية. <a href="/privacy">إشعار الخصوصية</a>.</>, failed: "تعذّر الإرسال. راسلنا على info@hysaab.ai بدلًا من ذلك.", offline: "تعذّر الإرسال. تحقق من اتصالك، أو راسلنا على info@hysaab.ai.", received: "وصلتنا رسالتك.", thanks: (n: string) => `شكرًا${n ? ` يا ${n}` : ""}. سيرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.` },
+     AR-REVIEW (2026-09-26): demoSystem "أي نظام محاسبي تستخدم؟"، other "ما هو؟"، otherPh "اسم نظامك"، otherLabel "أخرى".
+     AR-REVIEW (2026-09-27): otherLabel now "أخرى (غير مدرجة)". */
+  ar: { heading: "تعرّف على Hysaab.", demoHeading: "أخبرنا عنك.", asking: "الاستفسار عن:", clear: "مسح", clearLabel: "مسح الاهتمام المحدد", name: "اسمك", email: "بريد العمل", role: "أنا…", rolePick: "اختر واحدًا", system: "نظامك المحاسبي", demoSystem: "أي نظام محاسبي تستخدم؟", other: "ما هو؟", otherPh: "اسم نظامك", otherLabel: "أخرى (غير مدرجة)", pick: "اختر نظامك", help: "بماذا تود أن نساعدك؟", optional: "(اختياري)", ph: "إقفال الشهر، فواتير الموردين، تقارير أوضح…", send: "احجز جولة تعريفية", demoSend: "اطلب عرضًا تجريبيًا", sending: "جارٍ الإرسال…", note: <>تصل بياناتك إلى فريق Hysaab بالبريد ليرد عليك شخص حقيقي. لا يُضاف بريدك إلى أي قائمة بريدية. <a href="/privacy">إشعار الخصوصية</a>.</>, failed: "تعذّر الإرسال. راسلنا على info@hysaab.ai بدلًا من ذلك.", offline: "تعذّر الإرسال. تحقق من اتصالك، أو راسلنا على info@hysaab.ai.", received: "وصلتنا رسالتك.", thanks: (n: string) => `شكرًا${n ? ` يا ${n}` : ""}. سيرد عليك شخص حقيقي من فريق Hysaab خلال يوم عمل واحد.` },
 };
 
 /* `demo` (the homepages and contact pages, 2026-09-23) adds the "I am a…"
@@ -155,9 +157,9 @@ export function EnquiryForm({ source = "Homepage", locale = "en", demo = false }
         <option value="">{t.pick}</option>
         {demo
           ? DEMO_SYSTEMS.map((s) => <option key={s} value={s}>{s === "Other" ? t.otherLabel : s}</option>)
-          : HOME_SYSTEMS.map((s) => <option key={s}>{s}</option>)}
+          : HOME_SYSTEMS.map((s) => <option key={s} value={s}>{s === "Other" ? t.otherLabel : s}</option>)}
       </select>
-      {demo && system === "Other" && <>
+      {system === "Other" && <>
         <label htmlFor="hw-system-other">{t.other}</label>
         <input id="hw-system-other" name="system_other" placeholder={t.otherPh} required maxLength={120} value={systemOther} onChange={(e) => setSystemOther(e.target.value)} />
       </>}
