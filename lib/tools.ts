@@ -2,12 +2,15 @@
 
 /* arTitle/arDescription mark a calculator whose UI is translated — the AR
    index links to /ar/tools/<slug> when they exist, and the sitemap emits
-   the hreflang pair. */
-export type Tool = { slug: string; title: string; description: string; guide?: string; arTitle?: string; arDescription?: string };
+   the hreflang pair.
+   `updated` (ISO date) is the sitemap's lastmod — bump it when the
+   calculator's logic or copy changes, not for site-wide restyles. */
+export type Tool = { slug: string; updated: string; title: string; description: string; guide?: string; arTitle?: string; arDescription?: string };
 
 export const TOOLS: Tool[] = [
   {
     slug: "ecl-provision-calculator",
+    updated: "2026-09-23",
     title: "IFRS 9 ECL provision calculator",
     description:
       "A provision-matrix calculator for trade receivables: your ageing balances, your loss rates, and a forward-looking scenario slider — watch the provision reprice as you drag.",
@@ -15,6 +18,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "eosb-gratuity-calculator",
+    updated: "2026-09-23",
     title: "UAE gratuity (EOSB) calculator",
     description:
       "End-of-service gratuity under the 21/30-day rule: basic wage, years of service, the two-year cap — with the working shown.",
@@ -22,12 +26,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-calculator",
+    updated: "2026-09-23",
     title: "VAT calculator — UAE 5% & KSA 15%",
     description: "Add VAT to a net amount or extract it from a gross one, at the UAE or KSA rate.",
     guide: "uae-blocked-input-vat",
   },
   {
     slug: "uae-corporate-tax-calculator",
+    updated: "2026-09-23",
     title: "UAE Corporate Tax estimator",
     description:
       "0% to AED 375,000, 9% above — with the Small Business Relief election handled.",
@@ -35,6 +41,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ifrs16-lease-calculator",
+    updated: "2026-09-23",
     title: "IFRS 16 lease liability & ROU asset calculator",
     description:
       "Compute the day-1 lease liability and right-of-use asset, then generate the full amortisation schedule — interest unwinding and straight-line depreciation, period by period.",
@@ -42,6 +49,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ias19-actuarial-eosb-calculator",
+    updated: "2026-09-23",
     title: "IAS 19 actuarial EOSB valuation",
     description:
       "A simplified projected unit credit estimate for UAE end-of-service benefits: discount rate, salary escalation, attrition — the inputs an actuary uses, in your browser.",
@@ -49,6 +57,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ias36-impairment-calculator",
+    updated: "2026-09-23",
     title: "IAS 36 impairment test — value-in-use DCF",
     description:
       "Five-year cash-flow projection, WACC discount, terminal value — determine whether a CGU is impaired and by how much.",
@@ -56,6 +65,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ias12-deferred-tax-calculator",
+    updated: "2026-09-23",
     title: "IAS 12 deferred tax schedule",
     description:
       "Add your balance-sheet items, their carrying amounts and tax bases — get the temporary differences and the resulting DTL/DTA positions at any tax rate.",
@@ -63,6 +73,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ifrs9-eir-calculator",
+    updated: "2026-09-23",
     title: "IFRS 9 effective interest rate (EIR) calculator",
     description:
       "Solve for the EIR on a financial instrument with origination fees or a premium/discount, and produce the full amortised-cost schedule.",
@@ -70,12 +81,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ksa-zakat-calculator",
+    updated: "2026-09-23",
     title: "KSA Zakat estimator (ZATCA)",
     description:
       "Build the zakat base the way ZATCA does — equity, provisions and long-term borrowing in, fixed assets and long-term investments out, floored at the year's adjusted profit — at the Hijri 2.5% or Gregorian 2.5777% rate, with mixed Saudi/GCC ownership handled.",
   },
   {
     slug: "freezone-de-minimis-calculator",
+    updated: "2026-09-15",
     title: "Free zone de minimis calculator (QFZP)",
     description:
       "Test your non-qualifying revenue against the lower of AED 5m and 5% of total revenue — with the headroom shown, because breaching it costs the 0% rate for five years.",
@@ -86,6 +99,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "small-business-relief-checker",
+    updated: "2026-09-15",
     title: "Small Business Relief eligibility checker",
     description:
       "The AED 3m revenue test, the prior-period condition, the QFZP and MNE exclusions — a yes/no on the election, with the 9% it would save.",
@@ -96,6 +110,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-penalty-calculator",
+    updated: "2026-09-15",
     title: "UAE VAT penalty estimator",
     description:
       "What a late return and late payment actually cost: the fixed filing penalties plus 2% immediately and 4% monthly on unpaid tax, capped at 300% — computed from days late.",
@@ -106,6 +121,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "loyalty-points-calculator",
+    updated: "2026-09-15",
     title: "Loyalty points deferred revenue calculator (IFRS 15)",
     description:
       "Split a sale between today's revenue and the points liability using breakage-weighted standalone value, then watch the release as redemptions come in.",
@@ -116,6 +132,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ksa-withholding-tax-calculator",
+    updated: "2026-09-15",
     title: "KSA withholding tax (WHT) calculator",
     description:
       "Domestic WHT on payments to non-residents by category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
@@ -126,6 +143,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-corporate-tax-penalty-calculator",
+    updated: "2026-09-15",
     title: "UAE Corporate Tax penalty calculator",
     description:
       "Late registration, monthly filing penalties (AED 500 rising to 1,000) and 14% p.a. on unpaid tax — enter months late and see the full exposure.",
@@ -136,6 +154,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-registration-checker",
+    updated: "2026-09-15",
     title: "UAE VAT registration checker",
     description:
       "The AED 375,000 mandatory and AED 187,500 voluntary thresholds, tested the way the FTA tests them — rolling 12 months plus the next-30-days rule.",
@@ -146,6 +165,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-bad-debt-relief-calculator",
+    updated: "2026-09-15",
     title: "VAT bad-debt relief calculator (Article 64)",
     description:
       "Check the four conditions, count the six months, and get the exact 5/105 output-tax adjustment on the written-off amount.",
@@ -156,6 +176,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-designated-zone-vat-checker",
+    updated: "2026-09-15",
     title: "Designated zone VAT checker",
     description:
       "Pick what's being supplied and where it's going — get the treatment: outside the scope, standard 5%, or import VAT on entry to the mainland.",
@@ -166,6 +187,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-ecommerce-vat-checker",
+    updated: "2026-09-15",
     title: "E-commerce VAT checker (UAE)",
     description:
       "Goods or electronic services, domestic or abroad, evidence or not — the rate, the VAT and the total per order, with the zero-rating documentation rule enforced.",
@@ -176,6 +198,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-employee-cost-calculator",
+    updated: "2026-09-15",
     title: "UAE employee cost calculator",
     description:
       "What a hire really costs per month: gross salary plus the monthly EOSB provision on basic wage — or pension contributions for nationals — with the annual total.",
@@ -186,6 +209,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-participation-exemption-checker",
+    updated: "2026-09-15",
     title: "Participation exemption checker (UAE CT)",
     description:
       "Ownership, holding period and subject-to-tax — the three tests that decide whether a dividend or exit gain is exempt, with the 9% at stake shown.",
@@ -196,6 +220,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-reverse-charge-calculator",
+    updated: "2026-09-15",
     title: "Reverse charge VAT calculator (UAE)",
     description:
       "Imported services and goods: the output VAT to account, the input VAT you recover, and the net cash effect at your actual recovery rate.",
@@ -206,6 +231,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-audit-requirement-checker",
+    updated: "2026-09-15",
     title: "UAE audit requirement checker",
     description:
       "The AED 50m Corporate Tax test, the QFZP condition, and the company-law and free-zone rules that stack on top — a straight answer on whether you need audited statements.",
@@ -216,6 +242,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-tax-loss-carry-forward-calculator",
+    updated: "2026-09-15",
     title: "Tax loss carry-forward calculator (UAE CT)",
     description:
       "Brought-forward losses against this year's income with the 75% offset cap applied — losses used, tax payable, and what carries onward.",
@@ -226,6 +253,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-partial-exemption-calculator",
+    updated: "2026-09-16",
     title: "Partial exemption calculator (input VAT apportionment)",
     description:
       "The three pots — taxable, exempt, residual — with today's recovery ratio, the 2028 turnover ratio from Cabinet Decision 149, and the VAT you actually lose.",
@@ -236,6 +264,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-real-estate-vat-checker",
+    updated: "2026-09-15",
     title: "UAE real estate VAT checker",
     description:
       "New residential, later residential, commercial, bare land, serviced apartments — the treatment, the VAT, and whether your input VAT survives.",
@@ -246,6 +275,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-voluntary-disclosure-penalty-calculator",
+    updated: "2026-09-15",
     title: "VAT voluntary disclosure penalty calculator",
     description:
       "The Form 211 cost by year: the fixed penalty plus the 5%-to-40% ladder on the tax difference — and what waiting one more year adds.",
@@ -256,6 +286,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-interest-cap-calculator",
+    updated: "2026-09-15",
     title: "Interest deduction cap calculator (30% EBITDA)",
     description:
       "Net interest against the greater of 30% of adjusted EBITDA and the AED 12m safe harbour — deductible now, disallowed and carried, and which prong binds.",
