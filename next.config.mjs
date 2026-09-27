@@ -7,8 +7,10 @@ const nextConfig = {
       // preserved, so every indexed orbitgulf.com URL lands on its twin.
       // One hop, 301: the Vercel domain-level apex→www redirect on orbitgulf.com
       // was removed so Google sees orbitgulf.com → hysaab.ai directly.
+      // The old shop's paths (/collections, /products, ...) are left out so
+      // middleware.ts can answer 410 Gone instead of a 301 into a 404.
       ...["orbitgulf.com", "www.orbitgulf.com", "www.hysaab.ai"].map((host) => ({
-        source: "/:path*",
+        source: "/:path((?!(?:collections|products|cart|checkouts|account|policies|pages|blogs)(?:/|$)).*)",
         has: [{ type: "host", value: host }],
         destination: "https://hysaab.ai/:path*",
         statusCode: 301,      // Search Console's Change of Address validator wants a literal 301, not 308
