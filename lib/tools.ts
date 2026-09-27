@@ -302,6 +302,9 @@ export const TOOLS: Tool[] = [
     description:
       "5% of the agreed price or fair market value, whichever is higher, with the first-home relief on the first SAR 1 million and the 2%-a-month late-payment fine capped at 50%.",
     guide: "ksa-real-estate-transaction-tax",
+    arTitle: "حاسبة ضريبة التصرفات العقارية في السعودية (5%)",
+    arDescription:
+      "5% من السعر المتفق عليه أو القيمة السوقية أيهما أعلى، مع دعم المسكن الأول على أول مليون ريال، وغرامة التأخر 2% شهريًا بحد أقصى 50%.",
   },
   {
     slug: "ksa-rett-share-transfer-checker",
@@ -310,6 +313,9 @@ export const TOOLS: Tool[] = [
     description:
       "Is the company a real estate company (50% of assets at market value)? Does the transfer reach 30% in three years? Then the tax base: the higher of market value × stake and the allocated price.",
     guide: "ksa-rett-share-transfers-real-estate-companies",
+    arTitle: "فحص ضريبة التصرفات العقارية على نقل الحصص (الشركات العقارية)",
+    arDescription:
+      "هل الكيان شركة عقارية (50% من الأصول بالقيمة السوقية)؟ هل يبلغ النقل 30% خلال ثلاث سنوات؟ ثم الوعاء: الأعلى بين القيمة السوقية × الحصة والثمن المخصص.",
   },
 ];
 

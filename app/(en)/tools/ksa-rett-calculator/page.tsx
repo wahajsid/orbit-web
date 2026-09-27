@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { RettCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "Saudi RETT calculator (5% Real Estate Transaction Tax) — Hysaab",
   description:
     "Free KSA Real Estate Transaction Tax calculator: 5% of the agreed price or fair market value, the first-home relief on the first SAR 1 million, and the 2%-a-month late-payment fine capped at 50%.",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/ksa-rett-calculator"),
 };
 
 export default function Page() {

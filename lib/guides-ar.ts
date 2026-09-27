@@ -7,6 +7,7 @@
    Western digits. Native-speaker review pending (owner list). */
 
 import type { Guide } from "@/lib/guides";
+import { RETT_AR_GUIDES } from "@/lib/guides-rett-ar";
 
 export const AR_GUIDES: Guide[] = [
   {
@@ -1231,6 +1232,8 @@ AR_GUIDES.push(
     ],
   },
 );
+
+AR_GUIDES.push(...RETT_AR_GUIDES);
 
 export function getArGuide(slug: string): Guide | undefined {
   return AR_GUIDES.find((g) => g.slug === slug);

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { RettShareCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "RETT share-transfer checker: Saudi real estate company test — Hysaab",
   description:
     "Free checker for Saudi RETT on share deals: the 50% real estate company test, the 30%-in-three-years threshold, and the tax base (higher of market value × stake and the allocated price).",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/ksa-rett-share-transfer-checker"),
 };
 
 export default function Page() {

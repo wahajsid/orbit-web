@@ -1949,7 +1949,7 @@ export function InterestCapCalculator({ ar = false }: { ar?: boolean } = {}) {
 
 /* ── 30 · KSA Real Estate Transaction Tax (RETT) ──────────────────── */
 
-export function RettCalculator() {
+export function RettCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [price, setPrice] = useState("1300000");
   const [fmv, setFmv] = useState("");
   const [firstHome, setFirstHome] = useState(false);
@@ -1966,42 +1966,48 @@ export function RettCalculator() {
   const finePct = Math.min(50, 2 * months);
   const fine = (payable * finePct) / 100;
 
+  const L = ar
+    ? { price: "السعر المتفق عليه (ريال)", fmv: "القيمة السوقية العادلة إن كانت أعلى (ريال)", days: "أيام التأخر في السداد", first: "المشتري يحمل شهادة المسكن الأول (مواطن سعودي، مسكن أول)", base: "وعاء الضريبة", pay: "الضريبة المستحقة (5%)", state: "تتحملها الدولة", fine: `غرامة التأخر (${finePct}%)` }
+    : { price: "Agreed price (SAR)", fmv: "Fair market value, if higher (SAR)", days: "Days paid late", first: "Buyer holds a First Home certificate (Saudi citizen, first home)", base: "Tax base", pay: "RETT payable (5%)", state: "Borne by the state", fine: `Late-payment fine (${finePct}%)` };
+
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
-        <Field label="Agreed price (SAR)" value={price} onChange={setPrice} width={220} />
-        <Field label="Fair market value, if higher (SAR)" value={fmv} onChange={setFmv} width={260} />
-        <Field label="Days paid late" value={days} onChange={setDays} width={160} />
+        <Field label={L.price} value={price} onChange={setPrice} width={220} />
+        <Field label={L.fmv} value={fmv} onChange={setFmv} width={260} />
+        <Field label={L.days} value={days} onChange={setDays} width={160} />
       </div>
       <div className="mg-tool-fields">
         <label className="mg-tool-check">
           <input type="checkbox" checked={firstHome} onChange={(e) => setFirstHome(e.target.checked)} />
-          <span>Buyer holds a First Home certificate (Saudi citizen, first home)</span>
+          <span>{L.first}</span>
         </label>
       </div>
       <div className="mg-tool-result">
         <div>
-          <div className="mg-tool-label">Tax base</div>
+          <div className="mg-tool-label">{L.base}</div>
           <div className="mg-tool-big">{sar(base)}</div>
         </div>
         <div>
-          <div className="mg-tool-label">RETT payable (5%)</div>
+          <div className="mg-tool-label">{L.pay}</div>
           <div className="mg-tool-big">{sar2(payable)}</div>
         </div>
         {firstHome && (
           <div>
-            <div className="mg-tool-label">Borne by the state</div>
+            <div className="mg-tool-label">{L.state}</div>
             <div className="mg-tool-big">{sar2(stateBears)}</div>
           </div>
         )}
         {d > 0 && (
           <div>
-            <div className="mg-tool-label">{`Late-payment fine (${finePct}%)`}</div>
+            <div className="mg-tool-label">{L.fine}</div>
             <div className="mg-tool-big">{sar2(fine)}</div>
           </div>
         )}
         <div className="mg-tool-note">
-          The base is the agreed price or fair market value, whichever is higher; the profit in a financing arrangement is excluded. The seller is liable even if the buyer agrees to bear the tax. For a notarised sale it is paid before notarisation, so lateness mainly arises on unnotarised transfers, share deals and usufructs over 50 years (30 days to pay). The fine is 2% for each month or part of a month late ({months} {months === 1 ? "month" : "months"} counted here, at 30 days each), capped at 50%. A further 1% a month applies where ZATCA amends the tax, which is not modelled.
+          {ar
+            ? <>الوعاء هو السعر المتفق عليه أو القيمة السوقية العادلة أيهما أعلى، ويُستبعد ربح التمويل. البائع هو الملتزم حتى لو اتفق المشتري على تحمل الضريبة. في البيع الموثق تُسدَّد قبل التوثيق، فيقع التأخر غالبًا في التصرفات غير الموثقة ونقل الحصص وحقوق الانتفاع لأكثر من 50 سنة (مهلة السداد 30 يومًا). الغرامة 2% عن كل شهر أو جزء منه ({months} {months === 1 ? "شهر" : "أشهر"} محسوبة هنا، 30 يومًا لكل شهر)، بحد أقصى 50%. وتُضاف 1% شهريًا إذا عدّلت الهيئة مبلغ الضريبة، وهي غير محسوبة هنا.</>
+            : <>The base is the agreed price or fair market value, whichever is higher; the profit in a financing arrangement is excluded. The seller is liable even if the buyer agrees to bear the tax. For a notarised sale it is paid before notarisation, so lateness mainly arises on unnotarised transfers, share deals and usufructs over 50 years (30 days to pay). The fine is 2% for each month or part of a month late ({months} {months === 1 ? "month" : "months"} counted here, at 30 days each), capped at 50%. A further 1% a month applies where ZATCA amends the tax, which is not modelled.</>}
         </div>
       </div>
     </div>
@@ -2010,7 +2016,7 @@ export function RettCalculator() {
 
 /* ── 31 · KSA RETT on share transfers: the real estate company test ── */
 
-export function RettShareCalculator() {
+export function RettShareCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [re, setRe] = useState("80000000");
   const [assets, setAssets] = useState("120000000");
   const [pct, setPct] = useState("40");
@@ -2030,51 +2036,67 @@ export function RettShareCalculator() {
   const base = Math.max(byValue, byPrice);
   const tax = taxable ? base * 0.05 : 0;
 
-  const verdict = listed
-    ? "Exempt: trading in shares listed on the Saudi Exchange."
-    : !revenue
-      ? "Outside scope: the real estate is not held to earn revenue through sale or lease, so the entity is not a real estate company."
-      : !isRec
-        ? `Outside scope on these figures: real estate is ${pct2(ratio)} of total assets, below 50%. Check the previous 365 days too.`
-        : !reaches
-          ? `Real estate company (${pct2(ratio)}), but ${share}% is below the 30% threshold. Add every related transfer in the last three years.`
-          : `Taxable: a real estate company (${pct2(ratio)}) and ${share}% transferred. Due on the earlier of transfer or unconditional agreement; pay within 30 days.`;
+  const verdict = ar
+    ? listed
+      ? "معفى: تداول أسهم مدرجة في السوق المالية السعودية."
+      : !revenue
+        ? "خارج النطاق: العقار غير محتفظ به لتحقيق إيراد بالبيع أو التأجير، فالكيان ليس شركة عقارية."
+        : !isRec
+          ? `خارج النطاق بهذه الأرقام: العقار ${pct2(ratio)} من إجمالي الأصول، دون 50%. افحص الـ 365 يومًا السابقة أيضًا.`
+          : !reaches
+            ? `شركة عقارية (${pct2(ratio)})، لكن ${share}% دون حد الـ 30%. أضف كل نقل مرتبط خلال السنوات الثلاث الماضية.`
+            : `خاضع: شركة عقارية (${pct2(ratio)}) ونُقل ${share}%. تُستحق في تاريخ النقل أو الاتفاق غير المشروط أيهما أسبق، وتُسدَّد خلال 30 يومًا.`
+    : listed
+      ? "Exempt: trading in shares listed on the Saudi Exchange."
+      : !revenue
+        ? "Outside scope: the real estate is not held to earn revenue through sale or lease, so the entity is not a real estate company."
+        : !isRec
+          ? `Outside scope on these figures: real estate is ${pct2(ratio)} of total assets, below 50%. Check the previous 365 days too.`
+          : !reaches
+            ? `Real estate company (${pct2(ratio)}), but ${share}% is below the 30% threshold. Add every related transfer in the last three years.`
+            : `Taxable: a real estate company (${pct2(ratio)}) and ${share}% transferred. Due on the earlier of transfer or unconditional agreement; pay within 30 days.`;
+
+  const L = ar
+    ? { re: "القيمة السوقية للعقارات في المملكة (ريال)", assets: "القيمة السوقية لإجمالي الأصول (ريال)", pct: "الحصص المنقولة خلال 3 سنوات", alloc: "الثمن المخصص للعقار (ريال)", rev: "العقار محتفظ به لتحقيق إيراد بالبيع أو التأجير (لا يشغله الكيان بنفسه)", listed: "الأسهم مدرجة في السوق المالية السعودية", ratio: "العقار / إجمالي الأصول", base: "وعاء الضريبة (الأعلى من الاثنين)", tax: "الضريبة (5%)" }
+    : { re: "Market value of Saudi real estate held (SAR)", assets: "Market value of total assets (SAR)", pct: "Interests transferred in 3 years", alloc: "Price allocated to the real estate (SAR)", rev: "Real estate is held to earn revenue by sale or lease (not owner-occupied)", listed: "Shares are listed on the Saudi Exchange", ratio: "Real estate / total assets", base: "Tax base (higher of the two)", tax: "RETT (5%)" };
 
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
-        <Field label="Market value of Saudi real estate held (SAR)" value={re} onChange={setRe} width={300} />
-        <Field label="Market value of total assets (SAR)" value={assets} onChange={setAssets} width={260} />
+        <Field label={L.re} value={re} onChange={setRe} width={300} />
+        <Field label={L.assets} value={assets} onChange={setAssets} width={260} />
       </div>
       <div className="mg-tool-fields">
-        <Field label="Interests transferred in 3 years" value={pct} onChange={setPct} suffix="%" width={220} />
-        <Field label="Price allocated to the real estate (SAR)" value={alloc} onChange={setAlloc} width={280} />
+        <Field label={L.pct} value={pct} onChange={setPct} suffix="%" width={220} />
+        <Field label={L.alloc} value={alloc} onChange={setAlloc} width={280} />
       </div>
       <div className="mg-tool-fields">
         <label className="mg-tool-check">
           <input type="checkbox" checked={revenue} onChange={(e) => setRevenue(e.target.checked)} />
-          <span>Real estate is held to earn revenue by sale or lease (not owner-occupied)</span>
+          <span>{L.rev}</span>
         </label>
         <label className="mg-tool-check">
           <input type="checkbox" checked={listed} onChange={(e) => setListed(e.target.checked)} />
-          <span>Shares are listed on the Saudi Exchange</span>
+          <span>{L.listed}</span>
         </label>
       </div>
       <div className="mg-tool-result">
         <div>
-          <div className="mg-tool-label">Real estate / total assets</div>
+          <div className="mg-tool-label">{L.ratio}</div>
           <div className="mg-tool-big">{pct2(ratio)}</div>
         </div>
         <div>
-          <div className="mg-tool-label">Tax base (higher of the two)</div>
+          <div className="mg-tool-label">{L.base}</div>
           <div className="mg-tool-big">{sar(base)}</div>
         </div>
         <div>
-          <div className="mg-tool-label">RETT (5%)</div>
+          <div className="mg-tool-label">{L.tax}</div>
           <div className="mg-tool-big">{sar2(tax)}</div>
         </div>
         <div className="mg-tool-note">
-          {verdict} The base is the higher of the market value of all the company&rsquo;s real estate &times; the percentage transferred ({sar(byValue)}) and the price allocated to the real estate ({sar(byPrice)}). Group, in-kind contribution and share-for-share M&amp;A exemptions can apply, each with a five-year holding condition.
+          {ar
+            ? <>{verdict} الوعاء هو الأعلى بين القيمة السوقية لجميع عقارات الشركة &times; نسبة الحصص المنقولة ({sar(byValue)}) والثمن المخصص للعقار ({sar(byPrice)}). وقد تنطبق إعفاءات المجموعة والحصة العينية والاندماج والاستحواذ مقابل حصص، ولكل منها شرط احتفاظ خمس سنوات.</>
+            : <>{verdict} The base is the higher of the market value of all the company&rsquo;s real estate &times; the percentage transferred ({sar(byValue)}) and the price allocated to the real estate ({sar(byPrice)}). Group, in-kind contribution and share-for-share M&amp;A exemptions can apply, each with a five-year holding condition.</>}
         </div>
       </div>
     </div>
