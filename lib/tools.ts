@@ -295,6 +295,22 @@ export const TOOLS: Tool[] = [
     arDescription:
       "صافي الفائدة مقابل الأعلى من 30% من الأرباح المعدلة وملاذ الـ 12 مليون درهم — المخصوم الآن والممنوع المرحَّل وأي الشقّين يلزِم.",
   },
+  {
+    slug: "ksa-rett-calculator",
+    updated: "2026-09-27",
+    title: "Saudi RETT calculator (5% Real Estate Transaction Tax)",
+    description:
+      "5% of the agreed price or fair market value, whichever is higher, with the first-home relief on the first SAR 1 million and the 2%-a-month late-payment fine capped at 50%.",
+    guide: "ksa-real-estate-transaction-tax",
+  },
+  {
+    slug: "ksa-rett-share-transfer-checker",
+    updated: "2026-09-27",
+    title: "RETT share-transfer checker (Saudi real estate companies)",
+    description:
+      "Is the company a real estate company (50% of assets at market value)? Does the transfer reach 30% in three years? Then the tax base: the higher of market value × stake and the allocated price.",
+    guide: "ksa-rett-share-transfers-real-estate-companies",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
