@@ -1,3 +1,5 @@
+> **Superseded 29 September 2026** by the Tick & Tie brand, [`brand/tick-and-tie/BRAND.md`](./tick-and-tie/BRAND.md). Kept for history.
+
 # Hysaab design philosophy
 
 Version 5 · 19 September 2026 · Website first

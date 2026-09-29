@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "../Wordmark";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { OpenPoints } from "./tt/OpenPoints";
 
 type Link = readonly [string, string];
 /* A dropdown row: href, label and an optional small tag ("Free"). */
@@ -150,6 +151,7 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
           )}
         </nav>
         <div className="hw-header-right">
+          {home && !isAr && <OpenPoints />}
           <span className="hw-lang">
             {isAr ? <a href={twin} lang="en" aria-label="English">EN</a> : <span aria-current="true">EN</span>}
             <span aria-hidden="true">·</span>

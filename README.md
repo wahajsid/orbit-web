@@ -5,11 +5,13 @@ finance team for UAE/KSA SMEs. **Isolated** from the Hysaab app repo and from
 Oblique OS (separate repo, separate Vercel project); both share the single
 OrbitFinance Supabase project.
 
-Next.js 14 (App Router), no Tailwind. Design system: **"Navy & blush"** (v3, `brand/BRAND-GUIDE.md`) —
-cream `#FAF6EE`, Deep Navy `#122940` (ink + the one action colour), Muted Blush `#E4A1A0` for tints and bars, Archivo, zero
-radius, 2px rules (tokens in `app/globals.css` `:root`; the legacy
-petrol/brass token names are aliased to navy). No gradients, glows, pills
-or starfields.
+Next.js 14 (App Router), no Tailwind. Design system: **Tick & Tie** (v4,
+`brand/tick-and-tie/BRAND.md`): white paper, Ink `#111418`, Highlighter
+`#FFE55C`, Review Red `#D1322A`; Schibsted Grotesk, JetBrains Mono for
+figures, Caveat for red review marks only; zero radius, ruled lines. The
+logo is the tick-y wordmark (`lib/brand-paths.ts`, generated). Tokens live
+in `app/globals.css` and `app/hysaab-home.css` `:root`; the homepage adds
+`app/tick-tie.css`.
 
 ## Layout
 - `app/page.tsx` — the whole page: ink hero band (nav + Morning Brief bleed),

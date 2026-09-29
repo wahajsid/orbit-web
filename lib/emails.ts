@@ -1,4 +1,4 @@
-/* Transactional + broadcast email templates, Hysaab brand (navy & blush).
+/* Transactional + broadcast email templates, Hysaab brand (Tick & Tie: ink, paper, highlighter, review red).
    Shared by /api/early-access (welcome), /api/approve (account ready),
    /api/contact (enquiry to the team) and /api/broadcast (launch + updates).
    All emails: navy header with the lockup, cream ground, white card with a
@@ -15,24 +15,24 @@ export const INFO = "info@hysaab.ai";
 export const EMAIL_HEADER_IMG = `${SITE}/brand/hysaab-email-header-1152x416.png`;
 export const EMAIL_HEADER_ALT = "hysaab.ai. Your shared service team of finance agents.";
 
-const HEADER = `<tr><td style="background:#122940;padding:0;line-height:0;font-size:0;">
-  <a href="${SITE}" style="text-decoration:none;display:block;"><img src="${EMAIL_HEADER_IMG}" width="576" alt="${EMAIL_HEADER_ALT}" style="display:block;border:0;width:100%;max-width:576px;height:auto;background:#122940;color:#FBF7F0;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:18px;font-weight:500;line-height:1.3;" /></a>
+const HEADER = `<tr><td style="background:#111418;padding:0;line-height:0;font-size:0;">
+  <a href="${SITE}" style="text-decoration:none;display:block;"><img src="${EMAIL_HEADER_IMG}" width="576" alt="${EMAIL_HEADER_ALT}" style="display:block;border:0;width:100%;max-width:576px;height:auto;background:#111418;color:#F4F4F1;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:500;line-height:1.3;" /></a>
 </td></tr>`;
 
-const FOOTER = (reason: string) => `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #ddd6cb;">
-  <p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;color:#6B6560;line-height:1.6;margin:10px 0 0 0;">Hysaab &middot; Dubai, UAE<br /><a href="${SITE}" style="color:#122940;text-decoration:none;">hysaab.ai</a> &middot; <a href="mailto:${INFO}" style="color:#122940;text-decoration:none;">${INFO}</a><br />${reason}</p>
+const FOOTER = (reason: string) => `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #E3E3DE;">
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#4E545D;line-height:1.6;margin:10px 0 0 0;">Hysaab &middot; Dubai, UAE<br /><a href="${SITE}" style="color:#111418;text-decoration:none;">hysaab.ai</a> &middot; <a href="mailto:${INFO}" style="color:#111418;text-decoration:none;">${INFO}</a><br />${reason}</p>
 </td></tr>`;
 
 function wrap(preheader: string, body: string, reason = "You are receiving this because you joined the waitlist at hysaab.ai."): string {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Hysaab</title></head>
-<body style="margin:0;padding:0;background:#FBF7F0;color:#201e1d;">
+<body style="margin:0;padding:0;background:#F4F4F1;color:#111418;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${preheader}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F0;padding:30px 12px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F4F4F1;padding:30px 12px;">
     <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;overflow:hidden;border:2px solid #122940;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;overflow:hidden;border:2px solid #111418;">
         ${HEADER}
-        <tr><td style="padding:32px 36px 8px 36px;font-family:Archivo,Arial,Helvetica,sans-serif;">
+        <tr><td style="padding:32px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;">
           ${body}
         </td></tr>
         ${FOOTER(reason)}
@@ -43,34 +43,34 @@ function wrap(preheader: string, body: string, reason = "You are receiving this 
 }
 
 function cta(href: string, label: string, blush = false): string {
-  const bg = blush ? "#E4A1A0" : "#122940";
-  const fg = blush ? "#122940" : "#FBF7F0";
+  const bg = blush ? "#FFE55C" : "#111418";
+  const fg = blush ? "#111418" : "#F4F4F1";
   return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:18px 0;"><tr>
-    <td style="background:${bg};"><a href="${href}" style="display:inline-block;font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:${fg};text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
+    <td style="background:${bg};"><a href="${href}" style="display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:${fg};text-decoration:none;padding:12px 24px;letter-spacing:0.02em;">${label}</a></td>
   </tr></table>`;
 }
 
 function h1(text: string): string {
-  return `<h1 style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:24px;font-weight:600;color:#122940;letter-spacing:-0.02em;line-height:1.15;margin:0 0 18px 0;">${text}</h1>`;
+  return `<h1 style="font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:600;color:#111418;letter-spacing:-0.02em;line-height:1.15;margin:0 0 18px 0;">${text}</h1>`;
 }
 
 function kicker(text: string): string {
-  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#9A5150;margin:0 0 12px 0;">${text}</p>`;
+  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#B32720;margin:0 0 12px 0;">${text}</p>`;
 }
 
 function p(text: string, mb = 16): string {
-  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#4a4746;line-height:1.7;margin:0 0 ${mb}px 0;">${text}</p>`;
+  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#4E545D;line-height:1.7;margin:0 0 ${mb}px 0;">${text}</p>`;
 }
 
 function signoff(line: string): string {
-  return `<p style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:15px;color:#122940;line-height:1.7;margin:0 0 4px 0;">${line}<br /><span style="color:#122940;">The Hysaab team</span></p>`;
+  return `<p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#111418;line-height:1.7;margin:0 0 4px 0;">${line}<br /><span style="color:#111418;">The Hysaab team</span></p>`;
 }
 
 function infobox(label: string, content: string): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 20px 0;">
-    <tr><td style="background:#FBF7F0;border:1px solid #ddd6cb;padding:16px 20px;">
-      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A5150;margin-bottom:6px;">${label}</div>
-      <div style="font-family:Archivo,Arial,Helvetica,sans-serif;font-size:14px;color:#201e1d;line-height:1.6;">${content}</div>
+    <tr><td style="background:#F4F4F1;border:1px solid #E3E3DE;padding:16px 20px;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B32720;margin-bottom:6px;">${label}</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#111418;line-height:1.6;">${content}</div>
     </td></tr>
   </table>`;
 }
@@ -94,7 +94,7 @@ export function welcomeEmail(seat: number, company: string) {
       ${h1(`You are number ${seat} on the list.`)}
       ${p(`Entry ${seat} is recorded${who}. A real person reads every entry and replies within one working day, and this is the note that goes out first.`)}
       ${p("We built Hysaab because we lived the close: twenty working days of a month, then five nights of catching up on them. Receipts in a drawer, a supplier invoice keyed three times, a bank line nobody could explain, carried forward because the deadline came first.")}
-      ${p('<strong style="color:#122940;">What you are getting:</strong> sixteen agents that read every document, code every entry, reconcile every bank line and rebuild your reports overnight, then bring you the two or three calls that are yours to make. They post into what you already use: Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.', 8)}
+      ${p('<strong style="color:#111418;">What you are getting:</strong> sixteen agents that read every document, code every entry, reconcile every bank line and rebuild your reports overnight, then bring you the two or three calls that are yours to make. They post into what you already use: Zoho Books, Xero, QuickBooks, Odoo, Wafeq and ERPNext.', 8)}
       ${p("We wrote down how every piece works, one accountant explaining the system to another:", 8)}
       ${cta(`${SITE}/how-it-works`, "Read the walkthrough &rarr;")}
       ${infobox("What happens next", "The founding hundred come in group by group before the doors open. Your login arrives by email the moment your seat is ready, with <strong>founder pricing locked in for as long as you stay</strong>.")}
@@ -134,10 +134,10 @@ export const APPROVED_HTML = wrap(
   `${kicker("Founding cohort")}
   ${h1("Your workspace is ready.")}
   ${p("The wait is over. Your Hysaab workspace is live, and your founder pricing is locked from today.")}
-  ${infobox("Your login", `Sign in at <a href="${APP}" style="color:#122940;font-weight:700;text-decoration:none;">app.hysaab.ai</a> with this email address. You set your password on first sign-in.`)}
-  ${p('<strong style="color:#122940;">What to do first:</strong> send a document. WhatsApp it, email it or upload it: a supplier invoice, a receipt, a bank statement. The intake agent picks it up in minutes, reads it, checks it against the tax-invoice rules and codes it from your own posting history. It appears on your dashboard with a confidence score and the evidence attached.', 8)}
+  ${infobox("Your login", `Sign in at <a href="${APP}" style="color:#111418;font-weight:700;text-decoration:none;">app.hysaab.ai</a> with this email address. You set your password on first sign-in.`)}
+  ${p('<strong style="color:#111418;">What to do first:</strong> send a document. WhatsApp it, email it or upload it: a supplier invoice, a receipt, a bank statement. The intake agent picks it up in minutes, reads it, checks it against the tax-invoice rules and codes it from your own posting history. It appears on your dashboard with a confidence score and the evidence attached.', 8)}
   ${p("From there the agents learn your patterns. Within a week most invoices post without you touching them, and the few that need a human come to you as one plain question.", 8)}
-  ${infobox("Quick start", '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;"><tr><td style="padding:3px 0;color:#122940;">1. Sign in at app.hysaab.ai</td></tr><tr><td style="padding:3px 0;color:#122940;">2. Connect your ledger (Zoho Books, Xero, QuickBooks, or keep Hysaab\'s own books)</td></tr><tr><td style="padding:3px 0;color:#122940;">3. Send your first document by WhatsApp, email or upload</td></tr><tr><td style="padding:3px 0;color:#122940;">4. Watch the intake agent read and code it</td></tr></table>')}
+  ${infobox("Quick start", '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;"><tr><td style="padding:3px 0;color:#111418;">1. Sign in at app.hysaab.ai</td></tr><tr><td style="padding:3px 0;color:#111418;">2. Connect your ledger (Zoho Books, Xero, QuickBooks, or keep Hysaab\'s own books)</td></tr><tr><td style="padding:3px 0;color:#111418;">3. Send your first document by WhatsApp, email or upload</td></tr><tr><td style="padding:3px 0;color:#111418;">4. Watch the intake agent read and code it</td></tr></table>')}
   ${cta(APP, "Sign in to Hysaab &rarr;")}
   ${p("We are here. Reply any time: same inbox, same humans.", 20)}
   ${signoff("Let us begin.")}`,
@@ -228,7 +228,7 @@ export function enquiryEmail(input: { name: string; email: string; role?: string
     ["I am a", input.role || "not given"],
     ["Accounting system", input.system || "not given"],
   ]
-    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-size:13px;color:#6B6560;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:4px 0;font-size:14px;color:#201e1d;">${esc(v)}</td></tr>`)
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-size:13px;color:#4E545D;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:4px 0;font-size:14px;color:#111418;">${esc(v)}</td></tr>`)
     .join("");
   return {
     subject: `Enquiry from ${input.name} (${input.email})`,
@@ -236,7 +236,7 @@ export function enquiryEmail(input: { name: string; email: string; role?: string
       `${esc(input.name)} asked a question on hysaab.ai.`,
       `${kicker("hysaab.ai enquiry")}
       ${h1("Someone asked a question.")}
-      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px 0;font-family:Archivo,Arial,Helvetica,sans-serif;">${rows}</table>
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;">${rows}</table>
       ${infobox("Notes", esc(input.notes).replace(/\n/g, "<br />"))}
       ${p("Reply to this email and it goes straight to them.", 4)}`,
       "Sent by the enquiry form on hysaab.ai.",

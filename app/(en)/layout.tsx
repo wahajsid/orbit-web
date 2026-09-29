@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Instrument_Serif, DM_Mono, Noto_Kufi_Arabic } from "next/font/google";
+import { Schibsted_Grotesk, JetBrains_Mono, Caveat, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
@@ -7,30 +7,29 @@ import "../wire.css";
 import "../home.css";
 import "../hysaab-home.css";
 import "../motion.css";
+import "../tick-tie.css";
 
-// Hysaab: Archivo everywhere (400–700), Noto Kufi Arabic for the Arabic
-// glyphs that appear inside English pages (the ع switch, the name's
-// origin in "Why we built Hysaab"). Both SIL OFL.
-const archivo = Archivo({
+// Tick & Tie (brand/tick-and-tie/BRAND.md): Schibsted Grotesk for
+// everything people read, JetBrains Mono for figures, IDs and labels,
+// Caveat for red review marks only. Noto Kufi Arabic for the Arabic glyphs
+// that appear inside English pages (the ع switch). All SIL OFL.
+const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  // Variable axis (100–900): the homepage headings sit at 550.
-  variable: "--font-archivo",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: "400",
-  variable: "--font-instrument-serif",
+  variable: "--font-mono",
   display: "swap",
 });
 
-const dmMono = DM_Mono({
+const hand = Caveat({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
+  weight: ["700"],
+  variable: "--font-hand",
   display: "swap",
 });
 
@@ -79,12 +78,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#122940",
+  themeColor: "#111418",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${kufi.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${hand.variable} ${kufi.variable}`}>
       <body>
         {children}
         <MotionEnhancer />

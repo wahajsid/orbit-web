@@ -1,0 +1,345 @@
+{
+  "palette": [
+    {
+      "group": "core",
+      "token": "ink",
+      "name": "Ink",
+      "hex": "#111418",
+      "rgb": [
+        17,
+        20,
+        24
+      ],
+      "cmyk_approx": [
+        29,
+        17,
+        0,
+        91
+      ],
+      "use": "Text, the wordmark, rules, primary buttons",
+      "contrast_on_paper": 18.47,
+      "contrast_on_ink": 1.0
+    },
+    {
+      "group": "core",
+      "token": "paper",
+      "name": "Paper",
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "cmyk_approx": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "use": "The page. Every working paper starts white",
+      "contrast_on_paper": 1.0,
+      "contrast_on_ink": 18.47
+    },
+    {
+      "group": "core",
+      "token": "highlighter",
+      "name": "Highlighter",
+      "hex": "#FFE55C",
+      "rgb": [
+        255,
+        229,
+        92
+      ],
+      "cmyk_approx": [
+        0,
+        10,
+        64,
+        0
+      ],
+      "use": "The one claim per section that matters; primary button on paper",
+      "contrast_on_paper": 1.26,
+      "contrast_on_ink": 14.61
+    },
+    {
+      "group": "core",
+      "token": "review-red",
+      "name": "Review Red",
+      "hex": "#D1322A",
+      "rgb": [
+        209,
+        50,
+        42
+      ],
+      "cmyk_approx": [
+        0,
+        76,
+        80,
+        18
+      ],
+      "use": "Tick marks, the logo tail, anything a person must look at",
+      "contrast_on_paper": 5.0,
+      "contrast_on_ink": 3.69
+    },
+    {
+      "group": "support",
+      "token": "signal-red",
+      "name": "Signal Red",
+      "hex": "#F0584B",
+      "rgb": [
+        240,
+        88,
+        75
+      ],
+      "cmyk_approx": [
+        0,
+        63,
+        69,
+        6
+      ],
+      "use": "Review Red on ink backgrounds (text-safe there)",
+      "contrast_on_paper": 3.39,
+      "contrast_on_ink": 5.45
+    },
+    {
+      "group": "support",
+      "token": "graphite",
+      "name": "Graphite",
+      "hex": "#4E545D",
+      "rgb": [
+        78,
+        84,
+        93
+      ],
+      "cmyk_approx": [
+        16,
+        10,
+        0,
+        64
+      ],
+      "use": "Secondary text",
+      "contrast_on_paper": 7.64,
+      "contrast_on_ink": 2.42
+    },
+    {
+      "group": "support",
+      "token": "pencil",
+      "name": "Pencil",
+      "hex": "#6F7680",
+      "rgb": [
+        111,
+        118,
+        128
+      ],
+      "cmyk_approx": [
+        13,
+        8,
+        0,
+        50
+      ],
+      "use": "Captions, meta, placeholders",
+      "contrast_on_paper": 4.59,
+      "contrast_on_ink": 4.03
+    },
+    {
+      "group": "support",
+      "token": "rule",
+      "name": "Rule",
+      "hex": "#E3E3DE",
+      "rgb": [
+        227,
+        227,
+        222
+      ],
+      "cmyk_approx": [
+        0,
+        0,
+        2,
+        11
+      ],
+      "use": "Hairlines and dividers",
+      "contrast_on_paper": 1.29,
+      "contrast_on_ink": 14.34
+    },
+    {
+      "group": "support",
+      "token": "grid",
+      "name": "Grid",
+      "hex": "#F2F2EF",
+      "rgb": [
+        242,
+        242,
+        239
+      ],
+      "cmyk_approx": [
+        0,
+        0,
+        1,
+        5
+      ],
+      "use": "The working-paper grid and quiet panels",
+      "contrast_on_paper": 1.12,
+      "contrast_on_ink": 16.47
+    },
+    {
+      "group": "support",
+      "token": "highlighter-soft",
+      "name": "Highlighter Soft",
+      "hex": "#FFF6C2",
+      "rgb": [
+        255,
+        246,
+        194
+      ],
+      "cmyk_approx": [
+        0,
+        4,
+        24,
+        0
+      ],
+      "use": "Rows that need attention, input focus",
+      "contrast_on_paper": 1.09,
+      "contrast_on_ink": 16.9
+    },
+    {
+      "group": "support",
+      "token": "ink-2",
+      "name": "Ink 2",
+      "hex": "#1C2027",
+      "rgb": [
+        28,
+        32,
+        39
+      ],
+      "cmyk_approx": [
+        28,
+        18,
+        0,
+        85
+      ],
+      "use": "Raised surfaces on ink",
+      "contrast_on_paper": 16.34,
+      "contrast_on_ink": 1.13
+    },
+    {
+      "group": "support",
+      "token": "off-white",
+      "name": "Off-white",
+      "hex": "#F4F4F1",
+      "rgb": [
+        244,
+        244,
+        241
+      ],
+      "cmyk_approx": [
+        0,
+        0,
+        1,
+        4
+      ],
+      "use": "Text and the wordmark on ink",
+      "contrast_on_paper": 1.1,
+      "contrast_on_ink": 16.76
+    },
+    {
+      "group": "support",
+      "token": "ink-sub",
+      "name": "Ink Sub",
+      "hex": "#B9BEC7",
+      "rgb": [
+        185,
+        190,
+        199
+      ],
+      "cmyk_approx": [
+        7,
+        5,
+        0,
+        22
+      ],
+      "use": "Secondary text on ink",
+      "contrast_on_paper": 1.87,
+      "contrast_on_ink": 9.9
+    },
+    {
+      "group": "state",
+      "token": "posted",
+      "name": "Posted",
+      "hex": "#1F7A4A",
+      "rgb": [
+        31,
+        122,
+        74
+      ],
+      "cmyk_approx": [
+        75,
+        0,
+        39,
+        52
+      ],
+      "use": "Posted, reconciled, verified (always with a word)",
+      "contrast_on_paper": 5.33,
+      "contrast_on_ink": 3.47
+    },
+    {
+      "group": "state",
+      "token": "posted-tint",
+      "name": "Posted tint",
+      "hex": "#E3F1E8",
+      "rgb": [
+        227,
+        241,
+        232
+      ],
+      "cmyk_approx": [
+        6,
+        0,
+        4,
+        5
+      ],
+      "use": "Background for posted pills",
+      "contrast_on_paper": 1.17,
+      "contrast_on_ink": 15.84
+    },
+    {
+      "group": "state",
+      "token": "waiting",
+      "name": "Waiting",
+      "hex": "#8A5A00",
+      "rgb": [
+        138,
+        90,
+        0
+      ],
+      "cmyk_approx": [
+        0,
+        35,
+        100,
+        46
+      ],
+      "use": "Awaiting someone, proposed, held (always with a word)",
+      "contrast_on_paper": 5.93,
+      "contrast_on_ink": 3.12
+    },
+    {
+      "group": "state",
+      "token": "waiting-tint",
+      "name": "Waiting tint",
+      "hex": "#FFF1CC",
+      "rgb": [
+        255,
+        241,
+        204
+      ],
+      "cmyk_approx": [
+        0,
+        5,
+        20,
+        0
+      ],
+      "use": "Background for waiting pills",
+      "contrast_on_paper": 1.12,
+      "contrast_on_ink": 16.45
+    }
+  ],
+  "note": "CMYK values are straight conversions for reference only; proof printed colour against a physical sample."
+}

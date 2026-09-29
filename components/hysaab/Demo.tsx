@@ -11,11 +11,58 @@
    CFO; Rashid runs a site in the Dubai entity; Omar keeps petty cash
    (renamed from Noor so the person and the group do not share a name). */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Wordmark } from "../Wordmark";
 
 type Tab = "docs" | "bank" | "decisions" | "close" | "report";
 type Chq = null | "petty" | "ask";
+
+/* The cheque question is shared with the homepage audit trail
+   (components/home/tt/AuditTrail.tsx): answering it in either place
+   answers it in both. */
+export const CHEQUE_EVENT = "hysaab:cheque";
+export type ChequeDetail = { value: "petty" | "ask"; from: "demo" | "trail" };
+
+/* Tick & Tie review marks (brand/tick-and-tie): a red hand mark beside a
+   figure. ✓ recomputed · T traced to source. Decorative: the steps say it in words. */
+function Tm({ m }: { m: string }) {
+  return <span className="hy-tm" aria-hidden="true">{m}</span>;
+}
+
+/* Dashed red lines tying the invoice's VAT and total to the journal lines
+   they became. Drawn from the rendered positions; hidden on narrow screens. */
+function useTies(box: React.RefObject<HTMLDivElement>, on: boolean, deps: unknown[]) {
+  const [paths, setPaths] = useState<{ d: string; x1: number; y1: number; x2: number; y2: number }[]>([]);
+  const [size, setSize] = useState<[number, number]>([0, 0]);
+  useLayoutEffect(() => {
+    const el = box.current;
+    if (!el || !on) { setPaths([]); return; }
+    const draw = () => {
+      const b = el.getBoundingClientRect();
+      const out: { d: string; x1: number; y1: number; x2: number; y2: number }[] = [];
+      el.querySelectorAll<HTMLElement>("[data-tie]").forEach((src) => {
+        const dst = el.querySelector<HTMLElement>(`[data-tie-to="${src.dataset.tie}"]`);
+        const from = src.closest<HTMLElement>(".hy-doc");
+        const to = dst?.closest<HTMLElement>(".hy-entry");
+        if (!dst || !from || !to) return;
+        const a = src.getBoundingClientRect(), c = dst.getBoundingClientRect();
+        const x1 = from.getBoundingClientRect().right - b.left + 3, y1 = a.top + a.height / 2 - b.top;
+        const x2 = to.getBoundingClientRect().left - b.left - 3, y2 = c.top + c.height / 2 - b.top;
+        if (x2 <= x1 + 8) return;
+        const mx = (x1 + x2) / 2;
+        out.push({ d: `M${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`, x1, y1, x2, y2 });
+      });
+      setSize([b.width, b.height]);
+      setPaths(out);
+    };
+    draw();
+    const ro = new ResizeObserver(draw);
+    ro.observe(el);
+    return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [on, ...deps]);
+  return { paths, size };
+}
 type Locale = "en" | "ar";
 
 const TAB_FOR: Tab[] = ["docs", "docs", "decisions", "close", "report"];
@@ -284,7 +331,7 @@ const AR: Strings = {
 
 const S: Record<Locale, Strings> = { en: EN, ar: AR };
 
-export function Demo({ locale = "en" }: { locale?: Locale }) {
+export function Demo({ locale = "en", marks = false }: { locale?: Locale; marks?: boolean }) {
   const s = S[locale];
   const [beat, setBeat] = useState(1);
   const [playing, setPlaying] = useState(true);
@@ -294,6 +341,21 @@ export function Demo({ locale = "en" }: { locale?: Locale }) {
   const [locked, setLocked] = useState(false);
   const playingRef = useRef(playing);
   playingRef.current = playing;
+  const docGrid = useRef<HTMLDivElement>(null);
+
+  /* Answer the cheque here, and tell the audit trail. */
+  const answerChq = (value: "petty" | "ask") => {
+    setChq(value);
+    window.dispatchEvent(new CustomEvent<ChequeDetail>(CHEQUE_EVENT, { detail: { value, from: "demo" } }));
+  };
+  useEffect(() => {
+    const on = (e: Event) => {
+      const d = (e as CustomEvent<ChequeDetail>).detail;
+      if (d?.from === "trail") setChq(d.value);
+    };
+    window.addEventListener(CHEQUE_EVENT, on);
+    return () => window.removeEventListener(CHEQUE_EVENT, on);
+  }, []);
 
   // Visitors who ask for reduced motion get the demo paused, controls in hand.
   useEffect(() => {
@@ -322,6 +384,8 @@ export function Demo({ locale = "en" }: { locale?: Locale }) {
   const canLock = approved === 3 && !locked;
   const openCount = (chqOpen ? 1 : 0) + 2;
   const posted = beat >= 2 || tab !== "docs" || !playing;
+
+  const ties = useTies(docGrid, marks && posted && tab === "docs", [tab, posted, beat]);
 
   const lockPeriod = () => { setLocked(true); setTab("report"); setBeat(5); setPlaying(false); };
 
@@ -376,18 +440,25 @@ export function Demo({ locale = "en" }: { locale?: Locale }) {
           {tab === "docs" && (
             <>
               <div className="hy-pane-head"><span className="hy-pane-title">{s.docTitle}</span><span className="hy-pane-status">{posted ? s.docPosted : s.docArrived}</span></div>
-              <div className="hy-doc-grid">
+              <div className="hy-doc-grid" ref={docGrid} data-marks={marks || undefined}>
+                {marks && ties.paths.length > 0 && (
+                  <svg className="hy-ties" width={ties.size[0]} height={ties.size[1]} viewBox={`0 0 ${ties.size[0]} ${ties.size[1]}`} aria-hidden="true">
+                    {ties.paths.map((t) => (
+                      <g key={t.d}><path d={t.d} /><circle cx={t.x1} cy={t.y1} r={3} /><circle cx={t.x2} cy={t.y2} r={3} /></g>
+                    ))}
+                  </svg>
+                )}
                 <div className="hy-doc">
                   <div className="hy-doc-head"><span className="hy-doc-sup">{s.docSup}</span><span className="hy-doc-kind">{s.docKind}</span></div>
                   <div className="hy-doc-meta">{s.docMeta}</div>
                   <div className="hy-doc-rule" />
                   <div className="hy-doc-lines">
-                    <div className="hy-doc-line"><span>{s.docLine1}</span><span>3,200.00</span></div>
-                    <div className="hy-doc-line"><span>{s.docLine2}</span><span>640.00</span></div>
-                    <div className="hy-doc-line"><span>{s.docLine3}</span><span>150.00</span></div>
-                    <div className="hy-doc-line hy-doc-line--muted"><span>{s.docLine4}</span><span>199.50</span></div>
+                    <div className="hy-doc-line"><span>{s.docLine1}</span><span>3,200.00{marks && posted && <Tm m="✓" />}</span></div>
+                    <div className="hy-doc-line"><span>{s.docLine2}</span><span>640.00{marks && posted && <Tm m="✓" />}</span></div>
+                    <div className="hy-doc-line"><span>{s.docLine3}</span><span>150.00{marks && posted && <Tm m="✓" />}</span></div>
+                    <div className="hy-doc-line hy-doc-line--muted"><span>{s.docLine4}</span><span data-tie="vat">199.50{marks && posted && <Tm m="✓" />}</span></div>
                   </div>
-                  <div className="hy-doc-total"><span>{s.docTotal}</span><span>4,189.50</span></div>
+                  <div className="hy-doc-total"><span>{s.docTotal}</span><span data-tie="tot">4,189.50{marks && posted && <Tm m="T" />}</span></div>
                   <span className="hy-doc-src">{s.docSrc}</span>
                 </div>
                 <div className="hy-steps">
@@ -399,9 +470,9 @@ export function Demo({ locale = "en" }: { locale?: Locale }) {
                   ))}
                   <div className="hy-entry">
                     <span className="hy-entry-l">{s.entry}</span>
-                    <div className="hy-doc-line"><span>{s.entryIt}</span><span>3,990.00</span></div>
-                    <div className="hy-doc-line"><span>{s.entryVat}</span><span>199.50</span></div>
-                    <div className="hy-doc-line"><span>{s.entryAp}</span><span>(4,189.50)</span></div>
+                    <div className="hy-doc-line"><span>{s.entryIt}</span><span>3,990.00{marks && <Tm m="✓" />}</span></div>
+                    <div className="hy-doc-line"><span>{s.entryVat}</span><span data-tie-to="vat">199.50{marks && <Tm m="T" />}</span></div>
+                    <div className="hy-doc-line"><span>{s.entryAp}</span><span data-tie-to="tot">(4,189.50){marks && <Tm m="T" />}</span></div>
                   </div>
                 </div>
               </div>
@@ -440,8 +511,8 @@ export function Demo({ locale = "en" }: { locale?: Locale }) {
                     </div>
                   </div>
                   <div className="hy-dec-actions">
-                    <button type="button" className="hy-btn hy-btn--navy" onClick={() => setChq("petty")}>{s.postPetty}</button>
-                    <button type="button" className="hy-btn hy-btn--outline" onClick={() => setChq("ask")}>{s.askNoor}</button>
+                    <button type="button" className="hy-btn hy-btn--navy" onClick={() => answerChq("petty")}>{s.postPetty}</button>
+                    <button type="button" className="hy-btn hy-btn--outline" onClick={() => answerChq("ask")}>{s.askNoor}</button>
                   </div>
                 </div>
               ) : (

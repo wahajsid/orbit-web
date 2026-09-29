@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Instrument_Serif, DM_Mono, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
+import { Schibsted_Grotesk, JetBrains_Mono, Caveat, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
 import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
@@ -11,25 +11,25 @@ import "../motion.css";
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
 // Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
 // the arabic subset, so Latin strings (hysaab, Xero, AED figures) fall
-// through to Archivo — the stack order in --sans does the pairing.
-const archivo = Archivo({
-  subsets: ["latin"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
+// through to Schibsted Grotesk — the stack order in --sans does the
+// pairing. Latin families follow Tick & Tie (brand/tick-and-tie/BRAND.md).
+const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: "400",
-  variable: "--font-instrument-serif",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const dmMono = DM_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const hand = Caveat({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-hand",
   display: "swap",
 });
 
@@ -75,12 +75,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#122940",
+  themeColor: "#111418",
 };
 
 export default function ArRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${archivo.variable} ${instrumentSerif.variable} ${dmMono.variable} ${notoArabic.variable} ${kufi.variable}`}>
+    <html lang="ar" dir="rtl" className={`${sans.variable} ${mono.variable} ${hand.variable} ${notoArabic.variable} ${kufi.variable}`}>
       <body>
         {children}
         <MotionEnhancer />
