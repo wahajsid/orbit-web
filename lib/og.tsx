@@ -1,9 +1,9 @@
 import { ImageResponse } from "next/og";
 import { LOCKUP } from "./brand-paths";
 
-/* ── Branded OpenGraph card ──────────────────────────────────────────
-   Cream ground, 3px navy frame, blush kicker, big flush-left navy title,
-   wordmark footer drawn from the baked lockup outlines (lib/brand-paths).
+/* ── Branded OpenGraph card (Tick & Tie) ─────────────────────────────
+   Paper ground, 3px ink frame, Review Red kicker, big flush-left ink
+   title, wordmark footer drawn from the baked outlines (lib/brand-paths).
    Body text uses ImageResponse's bundled sans; the palette and the
    wordmark do the branding. */
 
@@ -18,7 +18,7 @@ export function brandOg(kicker: string, title: string) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#FBF7F0",
+          background: "#FFFFFF",
           padding: 48,
         }}
       >
@@ -27,7 +27,7 @@ export function brandOg(kicker: string, title: string) {
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            border: "3px solid #122940",
+            border: "3px solid #111418",
             padding: "56px 64px",
             justifyContent: "space-between",
           }}
@@ -38,7 +38,7 @@ export function brandOg(kicker: string, title: string) {
                 fontSize: 26,
                 fontWeight: 700,
                 letterSpacing: "0.12em",
-                color: "#9A5150",
+                color: "#D1322A",
                 textTransform: "uppercase",
               }}
             >
@@ -50,7 +50,7 @@ export function brandOg(kicker: string, title: string) {
                 fontWeight: 600,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.08,
-                color: "#122940",
+                color: "#111418",
                 marginTop: 24,
                 maxWidth: 980,
               }}
@@ -59,12 +59,11 @@ export function brandOg(kicker: string, title: string) {
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <svg viewBox={LOCKUP.viewBox} width={Math.round(LOCKUP.width * 0.048)} height={Math.round(LOCKUP.height * 0.048)}>
-              <path fill="#122940" d={LOCKUP.ink} />
-              <path fill="#E4A1A0" d={LOCKUP.tail} />
-              <path fill="#122940" fillOpacity={0.55} d={LOCKUP.suffix} />
+            <svg viewBox={LOCKUP.viewBox} width={Math.round(LOCKUP.width * 0.05)} height={Math.round(LOCKUP.height * 0.05)}>
+              <path fill="#111418" d={LOCKUP.ink} />
+              <path fill="#D1322A" d={LOCKUP.tail} />
             </svg>
-            <div style={{ fontSize: 22, color: "#6B6560", marginLeft: "auto" }}>AI accounting &amp; reporting · Dubai</div>
+            <div style={{ fontSize: 22, color: "#4E545D", marginLeft: "auto" }}>AI agents for finance · UAE · KSA</div>
           </div>
         </div>
       </div>

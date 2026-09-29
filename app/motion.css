@@ -104,7 +104,7 @@ html.m-ready [data-play]:not(.is-in) *::before,
 html.m-ready [data-play]:not(.is-in) *::after { animation-play-state: paused; }
 
 /* Count-up numbers keep their width steady while they run. */
-[data-count] { font-variant-numeric: tabular-nums; }
+[data-count] { font-variant-numeric: lining-nums; }
 
 /* ══ 3. Buttons: fill sweep, lift, press ════════════════════════════
    Any .hw-btn, .hw-nav-cta or .m-btn. The fill colour is --m-fill. */
@@ -144,8 +144,8 @@ html.m-ready [data-play]:not(.is-in) *::after { animation-play-state: paused; }
 
 /* Fill colours: the old hover shade now sweeps in instead of snapping. */
 .hw-btn--blush, .hw-btn--peach, .hw-zero-section .hw-btn { --m-fill: var(--hw-blush-hover); }
-.hw-btn--navy, .hw-nav-cta { --m-fill: #254762; }
-.hw-form .hw-btn { --m-fill: #efe8dc; }
+.hw-btn--navy, .hw-nav-cta { --m-fill: #2A2F37; }
+.hw-form .hw-btn { --m-fill: #F2F2EF; }
 
 @media (hover: hover) and (pointer: fine) {
   :is(.hw-btn, .hw-nav-cta, .m-btn):hover { transition-duration: var(--m-dur-fast), var(--m-dur-quick), var(--m-dur-quick); }
@@ -233,7 +233,7 @@ html[dir="rtl"] :is(.m-underline, .hw-nav a, .hw-signin, .hw-link--ruled, .hw-te
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--m-lift-shadow, #dde3d9);
+  background: var(--m-lift-shadow, #F2F2EF);
   opacity: 0;
   transition: transform var(--m-dur-medium) var(--m-ease-out), opacity var(--m-dur-medium) var(--m-ease-out);
   pointer-events: none;
@@ -250,8 +250,8 @@ html[dir="rtl"] :is(.m-underline, .hw-nav a, .hw-signin, .hw-link--ruled, .hw-te
 .hw-form label { transition: color var(--m-dur-quick) var(--m-ease-out); }
 .hw-form label:has(+ :is(input, select, textarea):focus) { color: var(--hw-blush); }
 /* :user-invalid only matches once the visitor has touched the field. */
-.hw-form :is(input, select, textarea):user-invalid { border-bottom-color: #ff9b8a; }
-.hw-form label:has(+ :user-invalid) { color: #ff9b8a; }
+.hw-form :is(input, select, textarea):user-invalid { border-bottom-color: #FFE55C; }
+.hw-form label:has(+ :user-invalid) { color: #FFE55C; }
 .hw-form input:is([type="email"], [name="name"]):user-valid:not(:focus) {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23D1DBE2' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 2px center / 14px;
   padding-inline-end: 24px;
@@ -268,7 +268,7 @@ html[dir="rtl"] .hw-form input:is([type="email"], [name="name"]):user-valid:not(
    .m-step-tick. On first paint the rule fills and the ticks complete
    one beat apart; off screen it waits (data-play). Static and complete
    without CSS animation support, JS or motion. */
-.m-steps { --m-steps-delay: 700ms; --m-steps-rule: rgba(250, 246, 238, 0.22); --m-steps-fill: var(--hw-blush); --m-steps-tick-ink: var(--hw-navy); list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative; counter-reset: m-step; }
+.m-steps { --m-steps-delay: 700ms; --m-steps-rule: rgba(244, 244, 241, 0.22); --m-steps-fill: var(--hw-blush); --m-steps-tick-ink: var(--hw-navy); list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative; counter-reset: m-step; }
 .m-steps.is-late { --m-steps-delay: 120ms; }
 .m-steps::before, .m-steps::after { content: ""; position: absolute; inset-inline: 9px calc(25% - 9px); top: 9px; height: 1px; background: var(--m-steps-rule); }
 .m-steps::after { background: var(--m-steps-fill); transform-origin: left center; animation: m-grow-x calc(var(--m-dur-step) * 3) var(--m-ease-in-out) calc(var(--m-steps-delay) + var(--m-dur-step) * 0.5) backwards; }
@@ -356,7 +356,7 @@ html[dir="rtl"] .m-mark::before { transform-origin: right center; }
 }
 
 /* ── Digit reels (after SmoothUI NumberFlow; pure CSS, lands on the value) ── */
-.m-roll { font-variant-numeric: tabular-nums; line-height: 1.1; display: inline-block; }
+.m-roll { font-variant-numeric: lining-nums; line-height: 1.1; display: inline-block; }
 .m-roll-row { display: inline-flex; }
 .m-roll-reel { position: relative; display: inline-block; overflow: hidden; height: 1.1em; }
 .m-roll-sizer { visibility: hidden; display: block; }
@@ -434,7 +434,7 @@ html:has(.hw-page), body:has(.hw-page) { overflow-x: clip; }
    (the accent rule `.hw-phero h1 span` must only reach the accent). */
 :is(.hw-phero, .hw-hero, .hw-talk) h1 :is(.m-kin-line, .m-kin-in),
 .hw-talk h2 :is(.m-kin-line, .m-kin-in) { color: inherit; }
-.hw-phero h1 { --m-mark-from: var(--hw-blush); }
+.hw-phero h1 { --m-mark-from: var(--hw-ink); }
 .hw-page:has([data-motion-page]) .hw-phero-in > h1 { animation: none; }
 /* Bands further down run their kinetic lines when they come into view. */
 [data-kin-on-view]:not(.is-in) .m-kin-in { animation: none; }
@@ -473,7 +473,7 @@ html[dir="rtl"] .m-cta::before { transform-origin: center bottom !important; }
 html[dir="rtl"] .hw-index a:active > div { transform: translate3d(-10px, 0, 0); }
 
 /* Sage verdict bands: display-size headings. */
-.hw-block--sage .hw-heading h2 { font: 400 clamp(46px, 6vw, 92px)/0.98 var(--hw-serif); letter-spacing: -0.03em; }
+.hw-block--sage .hw-heading h2 { font: 900 clamp(38.64px, 5.04vw, 77.28px)/0.98 var(--hw-serif); letter-spacing: -0.03em; }
 html[lang="ar"] .hw-block--sage .hw-heading h2 { font-size: clamp(34px, 4.4vw, 60px); letter-spacing: 0; }
 
 /* Header: the mobile menu links stagger in. */
@@ -498,3 +498,4 @@ html[lang="ar"] .hw-block--sage .hw-heading h2 { font-size: clamp(34px, 4.4vw, 6
   html[dir="rtl"] .m-kin-in { animation: none !important; }
   .hw-index a > div, .hw-social a, .hw-menu > a { transform: none !important; animation: none !important; }
 }
+.hw-phero .m-cta--on-navy { --m-fill: var(--hw-ink); --m-fill-ink: var(--hw-cream); }

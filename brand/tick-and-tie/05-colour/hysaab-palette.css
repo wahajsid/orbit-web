@@ -1,0 +1,20 @@
+/* Hysaab colour tokens · Tick & Tie · v1 */
+:root{
+  --hy-ink: #111418;
+  --hy-paper: #FFFFFF;
+  --hy-highlighter: #FFE55C;
+  --hy-review-red: #D1322A;
+  --hy-signal-red: #F0584B;
+  --hy-graphite: #4E545D;
+  --hy-pencil: #6F7680;
+  --hy-rule: #E3E3DE;
+  --hy-grid: #F2F2EF;
+  --hy-highlighter-soft: #FFF6C2;
+  --hy-ink-2: #1C2027;
+  --hy-off-white: #F4F4F1;
+  --hy-ink-sub: #B9BEC7;
+  --hy-posted: #1F7A4A;
+  --hy-posted-tint: #E3F1E8;
+  --hy-waiting: #8A5A00;
+  --hy-waiting-tint: #FFF1CC;
+}
