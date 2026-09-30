@@ -17,7 +17,7 @@ import { PriceBands } from "@/components/hysaab/PriceBands";
 export const metadata = {
   title: "أسعار Hysaab: خدمة ذاتية من 199 دولارًا، ومُدارة، وللمكاتب",
   description:
-    "فحص دفاتر مجاني للقراءة فقط، ثم الخدمة الذاتية من 199 دولارًا شهريًا لما يصل إلى 100 معاملة، مع شرائح استرشادية لما يزيد على ذلك. خدمة مُدارة تُسعَّر وفق نطاق دفاترك للفرق الأكبر. وHysaab Practice وHysaab Audit للمكاتب: رسوم إعداد واشتراك شهري.",
+    "فحص دفاتر مجاني للقراءة فقط، ثم الخدمة الذاتية من 199 دولارًا شهريًا لما يصل إلى 100 معاملة، مع شرائح استرشادية لما يزيد على ذلك. خدمة مُدارة تُسعَّر وفق نطاق دفاترك للفرق الأكبر. و Hysaab Practice و Hysaab Audit للمكاتب: رسوم إعداد واشتراك شهري.",
   alternates: langAlternates("/pricing"),
 };
 
@@ -54,7 +54,7 @@ const TIERS: Tier[] = [
     ],
   },
   {
-    name: <><bdi className="hw-nowrap">Hysaab Practice</bdi> و<bdi className="hw-nowrap">Hysaab Audit</bdi></>,
+    name: <><bdi className="hw-nowrap">Hysaab Practice</bdi> و <bdi className="hw-nowrap">Hysaab Audit</bdi></>,
     mode: "للمكاتب المهنية",
     priceText: "رسوم إعداد واشتراك شهري",
     who: "لمكاتب الضرائب والاستشارات ومكاتب التدقيق المرخّصة. استخدم أيًّا من المنتجين وحده، أو كليهما معًا.",

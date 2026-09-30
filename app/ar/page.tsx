@@ -36,7 +36,7 @@ import { ReviewNote } from "@/components/home/tt/ReviewNote";
 export const metadata = {
   title: "وكلاء ذكاء اصطناعي للفرق المالية والمكاتب المهنية | Hysaab",
   description:
-    "وكلاء الذكاء الاصطناعي يؤدون العمل المالي وفريقك يراجع ويعتمد. Hysaab Finance للفرق المالية، وHysaab Practice وHysaab Audit للمكاتب المهنية.",
+    "وكلاء الذكاء الاصطناعي يؤدون العمل المالي وفريقك يراجع ويعتمد. Hysaab Finance للفرق المالية، و Hysaab Practice و Hysaab Audit للمكاتب المهنية.",
   alternates: langAlternates("/"),
 };
 
@@ -164,7 +164,7 @@ export default function Page() {
               </article>
               <article aria-labelledby="door-firm">
                 <p className="tt-who">أدير مكتبًا مهنيًا</p>
-                <h2 id="door-firm"><bdi className="hw-nowrap">Hysaab Practice</bdi> و<bdi className="hw-nowrap">Hysaab Audit</bdi></h2>
+                <h2 id="door-firm"><bdi className="hw-nowrap">Hysaab Practice</bdi> و <bdi className="hw-nowrap">Hysaab Audit</bdi></h2>
                 <p>يتولى الوكلاء الفحوص الضريبية وارتباطات العملاء وملف التدقيق وفق معايير ISA. والقرار لشركائك.</p>
                 <div className="tt-acts">
                   <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="احجز عرضًا تجريبيًا" whole /> <span aria-hidden="true">↗</span>{newTab}</a>

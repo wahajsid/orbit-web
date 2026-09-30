@@ -92,7 +92,7 @@ export default function AboutPage() {
             <p>من يبني Hysaab، ومن يبيعه، ومن يؤدي العمل حين تطلب منا إدارته معك.</p>
           </div>
           <div className="hw-rows">
-            <article><span className="hw-mono">01</span><h3>Hysaab شركة قائمة بذاتها.</h3><p>Hysaab شركة مستقلة عن Oblique Consult. تبني البرنامج وتبيعه: Hysaab Finance للفرق المالية، وHysaab Practice وHysaab Audit للمكاتب المهنية.</p></article>
+            <article><span className="hw-mono">01</span><h3>Hysaab شركة قائمة بذاتها.</h3><p>Hysaab شركة مستقلة عن Oblique Consult. تبني البرنامج وتبيعه: Hysaab Finance للفرق المالية، و Hysaab Practice و Hysaab Audit للمكاتب المهنية.</p></article>
             <article><span className="hw-mono">02</span><h3>محاسبو Oblique يديرون الخدمة المُدارة.</h3><p>حين تختار شركة الخدمة المُدارة، يدير محاسبو Oblique Consult قائمة العمل ويجهّزون الإقفال مع فريقها، مستخدمين Hysaab كل يوم.</p></article>
             <article><span className="hw-mono">03</span><h3>Simpla تتولى هندسة المنتج.</h3><p>الهندسة من Simpla، فريق في دبي يبني الذكاء الاصطناعي للضرائب والمحاسبة، ويعمل على الطاولة نفسها مع المحاسبين.</p></article>
             <article><span className="hw-mono">04</span><h3>مساحة عملك تبقى لك.</h3><p>لا ترى Oblique Consult مساحة عمل أي عميل إلا إذا اختار الخدمة المُدارة أو منح إذنًا كتابيًا. <a href="/ar/trust">اقرأ التزاماتنا</a>.</p></article>
@@ -141,7 +141,7 @@ export default function AboutPage() {
               <p className="hw-eyebrow">ما نؤمن به</p>
               <h2>خمس قواعد.<br /><span>ثابتة على كل شاشة.</span></h2>
             </div>
-            <p>هذه هي المعايير التي عملنا بها كمحاسبين. وHysaab مبني ليحافظ عليها.</p>
+            <p>هذه هي المعايير التي عملنا بها كمحاسبين. و Hysaab مبني ليحافظ عليها.</p>
           </div>
           <div className="hw-rows">
             {PRINCIPLES.map((r) => (
