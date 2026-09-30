@@ -4,6 +4,8 @@
    All emails: navy header with the lockup, cream ground, white card with a
    2px navy frame, navy CTA, zero radius. No em dashes anywhere. */
 
+import { DEMO_URL } from "./demo";
+
 export const SITE = "https://hysaab.ai";
 export const APP = "https://app.hysaab.ai";
 export const INFO = "info@hysaab.ai";
@@ -19,23 +21,24 @@ const HEADER = `<tr><td style="background:#111418;padding:0;line-height:0;font-s
   <a href="${SITE}" style="text-decoration:none;display:block;"><img src="${EMAIL_HEADER_IMG}" width="576" alt="${EMAIL_HEADER_ALT}" style="display:block;border:0;width:100%;max-width:576px;height:auto;background:#111418;color:#F4F4F1;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:500;line-height:1.3;" /></a>
 </td></tr>`;
 
-const FOOTER = (reason: string) => `<tr><td style="padding:16px 36px 24px 36px;border-top:2px solid #E3E3DE;">
+const FOOTER = (reason: string, dir = "ltr") => `<tr><td dir="${dir}" style="padding:16px 36px 24px 36px;border-top:2px solid #E3E3DE;text-align:${dir === "rtl" ? "right" : "left"};">
   <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#4E545D;line-height:1.6;margin:10px 0 0 0;">Hysaab &middot; Dubai, UAE<br /><a href="${SITE}" style="color:#111418;text-decoration:none;">hysaab.ai</a> &middot; <a href="mailto:${INFO}" style="color:#111418;text-decoration:none;">${INFO}</a><br />${reason}</p>
 </td></tr>`;
 
-function wrap(preheader: string, body: string, reason = "You are receiving this because you joined the waitlist at hysaab.ai."): string {
+function wrap(preheader: string, body: string, reason = "You are receiving this because you joined the waitlist at hysaab.ai.", lang: "en" | "ar" = "en"): string {
+  const dir = lang === "ar" ? "rtl" : "ltr";
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Hysaab</title></head>
+<html lang="${lang}" dir="${dir}"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="color-scheme" content="light only" /><meta name="supported-color-schemes" content="light only" /><title>Hysaab</title></head>
 <body style="margin:0;padding:0;background:#F4F4F1;color:#111418;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${preheader}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F4F4F1;padding:30px 12px;">
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;overflow:hidden;border:2px solid #111418;">
         ${HEADER}
-        <tr><td style="padding:32px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;">
+        <tr><td dir="${dir}" style="padding:32px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;text-align:${lang === "ar" ? "right" : "left"};">
           ${body}
         </td></tr>
-        ${FOOTER(reason)}
+        ${FOOTER(reason, dir)}
       </table>
     </td></tr>
   </table>
@@ -288,5 +291,133 @@ If anything else comes to mind before then, simply reply to this email.
 
 We look forward to working with you.
 ${TEXT_FOOT}`,
+  };
+}
+
+// ── Access request received (owner decision 2026-09-30) ──────────────
+// Hysaab is invite-only. Sent by /api/early-access when a new request is
+// stored; the Arabic version when the form was Arabic. No counts, no
+// queue position: the reference identifies the request, nothing more.
+// Nothing the visitor typed is echoed back except their first name.
+
+const monoRef = (ref: string) => `<span style="font-family:'Courier New',Courier,monospace;font-size:18px;font-weight:700;color:#111418;letter-spacing:0.04em;" dir="ltr">${esc(ref)}</span>`;
+
+export function requestReceivedEmail(input: { ref: string | null; name?: string; locale?: "en" | "ar" }) {
+  const first = (input.name ?? "").trim().split(/\s+/)[0] || "";
+  const ref = input.ref;
+  if (input.locale === "ar") {
+    /* AR-REVIEW: the whole Arabic "request received" email. */
+    const hello = first ? `شكرًا لك يا ${esc(first)}. وصلنا طلبك.` : "شكرًا لك. وصلنا طلبك.";
+    return {
+      subject: ref ? `طلب انضمامك إلى Hysaab · المرجع ${ref}` : "طلب انضمامك إلى Hysaab",
+      html: wrap(
+        ref ? `وصلنا طلبك. المرجع ${ref}.` : "وصلنا طلبك.",
+        `${kicker("بالدعوة")}
+        ${h1(hello)}
+        ${ref ? infobox("مرجعك", monoRef(ref)) : ""}
+        ${p("يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.")}
+        ${p('<strong style="color:#111418;">وإلى ذلك الحين:</strong> فحص الدفاتر المجاني متاح للجميع. نظرة للقراءة فقط على دفاترك في Xero أو QuickBooks، ترى فيها ما يجده Hysaab، دون أن يُكتب شيء في دفترك.', 8)}
+        ${cta(`${SITE}/check`, "افحص دفاترك مجانًا &larr;")}
+        ${p(`تريد أن تبدأ أسرع؟ <a href="${DEMO_URL}" style="color:#111418;font-weight:700;">احجز عرضًا تجريبيًا مدته 20 دقيقة</a> ونمرّ معك على دفاترك.`)}
+        ${p("لديك سؤال؟ رُدّ على هذه الرسالة: البريد نفسه، والفريق نفسه.", 20)}
+        ${signoff("إلى اللقاء قريبًا.").replace("The Hysaab team", "فريق Hysaab")}`,
+        "تصلك هذه الرسالة لأنك طلبت الانضمام إلى Hysaab على hysaab.ai.",
+        "ar",
+      ),
+      text: `${first ? `شكرًا لك يا ${first}.` : "شكرًا لك."} وصلنا طلبك.
+${ref ? `\nمرجعك: ${ref}\n` : ""}
+يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.
+
+وإلى ذلك الحين: فحص الدفاتر المجاني متاح للجميع: ${SITE}/check
+
+تريد أن تبدأ أسرع؟ احجز عرضًا تجريبيًا مدته 20 دقيقة: ${DEMO_URL}
+
+لديك سؤال؟ رُدّ على هذه الرسالة: البريد نفسه، والفريق نفسه.
+
+إلى اللقاء قريبًا.
+فريق Hysaab
+hysaab.ai · ${INFO}`,
+    };
+  }
+  const hello = first ? `Thank you, ${esc(first)}. Your request is in.` : "Thank you. Your request is in.";
+  return {
+    subject: ref ? `Your Hysaab access request · Ref ${ref}` : "Your Hysaab access request",
+    html: wrap(
+      ref ? `Request received. Your reference is ${ref}.` : "Request received.",
+      `${kicker("By invitation")}
+      ${h1(hello)}
+      ${ref ? infobox("Your reference", monoRef(ref)) : ""}
+      ${p("Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.")}
+      ${p('<strong style="color:#111418;">In the meantime:</strong> the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books: what Hysaab finds, with nothing written to your ledger.', 8)}
+      ${cta(`${SITE}/check`, "Check your books free &rarr;")}
+      ${p(`Want to move faster? <a href="${DEMO_URL}" style="color:#111418;font-weight:700;">Book a 20-minute demo</a> and we will walk your books through it with you.`)}
+      ${p("Questions? Reply to this email: same inbox, same humans.", 20)}
+      ${signoff("Speak soon.")}`,
+      "You are receiving this because you requested access to Hysaab at hysaab.ai.",
+    ),
+    text: `${first ? `Thank you, ${first}.` : "Thank you."} Your request is in.
+${ref ? `\nYour reference: ${ref}\n` : ""}
+Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.
+
+In the meantime: the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books, with nothing written to your ledger: ${SITE}/check
+
+Want to move faster? Book a 20-minute demo: ${DEMO_URL}
+
+Questions? Reply to this email: same inbox, same humans.
+
+Speak soon.
+${TEXT_FOOT}`,
+  };
+}
+
+/* Internal: every field of a new access request, to SIGNUP_CC, with the
+   requester as reply-to. `stored` says how the row was written, so a
+   missing migration is visible in the inbox as well as the logs. */
+export function accessRequestNoticeEmail(input: {
+  ref: string | null; name: string; email: string; company: string; accounting_system: string | null;
+  role: string | null; country: string | null; monthly_volume: string | null; locale: string; source: string;
+  stored: "rpc" | "insert" | "insert-legacy" | "insert-minimal"; emailed: boolean;
+}) {
+  const storedNote = {
+    "rpc": "Stored with every field (request_access).",
+    "insert": "Stored with every field (plain insert; the reference function is not installed, run supabase/early_access_v2.sql).",
+    "insert-legacy": "Stored WITHOUT role, country, volume, locale and source: those columns do not exist yet. Run supabase/early_access_v2.sql. The fields above are the only copy.",
+    "insert-minimal": "Stored with name, email and company only: the table has no accounting_system column either. Run supabase/early_access_v2.sql. The fields above are the only copy.",
+  }[input.stored];
+  const fields: [string, string][] = [
+    ["Reference", input.ref ?? "none (see Stored)"],
+    ["Name", input.name || "not given"],
+    ["Email", input.email],
+    ["Company", input.company || "not given"],
+    ["Role", input.role ?? "not given"],
+    ["Accounting system", input.accounting_system ?? "not given"],
+    ["Transactions a month", input.monthly_volume ?? "not given"],
+    ["Country", input.country ?? "not given"],
+    ["Form language", input.locale === "ar" ? "Arabic" : "English"],
+    ["Source", input.source],
+    ["Confirmation email", input.emailed ? "sent" : "NOT sent (see the logs)"],
+  ];
+  const rows = fields
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-size:13px;color:#4E545D;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:4px 0;font-size:14px;color:#111418;">${esc(v)}</td></tr>`)
+    .join("");
+  const who = input.company || input.email;
+  return {
+    subject: `Access request${input.ref ? ` ${input.ref}` : ""}: ${who}`,
+    html: wrap(
+      `${esc(who)} requested access on hysaab.ai.`,
+      `${kicker("Access request")}
+      ${h1("Someone requested access.")}
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;">${rows}</table>
+      ${infobox("Stored", esc(storedNote))}
+      ${p("Reply to this email and it goes straight to them.", 4)}`,
+      "Sent by the Request access form on hysaab.ai.",
+    ),
+    text: `Access request from hysaab.ai
+
+${fields.map(([k, v]) => `${k}: ${v}`).join("\n")}
+
+Stored: ${storedNote}
+
+Reply to this email and it goes straight to them.`,
   };
 }
