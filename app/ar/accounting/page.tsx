@@ -223,7 +223,7 @@ export default function AccountingPage() {
             <article>
               <p className="hw-eyebrow">الخدمة الذاتية · فريقك يديرها</p>
               <h3>من USD 199 شهريًا</h3>
-              <p>يُعدّ الوكلاء العمل، وفريقك يراجع ويعتمد ويقفل. نظام محاسبي واحد متصل، وعدد غير محدود من الأشخاص.</p>
+              <p>حتى 100 معاملة شهريًا، وتبدأ الرسوم حين يعمل Hysaab في نظامك المحاسبي. يُعدّ الوكلاء العمل، وفريقك يراجع ويعتمد ويقفل. نظام محاسبي واحد متصل، وعدد غير محدود من الأشخاص.</p>
               <a className="hw-link" href="/ar/pricing">شاهد الأسعار <span aria-hidden="true">←</span></a>
             </article>
             <article className="is-navy">
