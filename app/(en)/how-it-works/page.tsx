@@ -356,7 +356,7 @@ export default function HowItWorksPage() {
             <article>
               <p className="hw-eyebrow">Pricing</p>
               <h3>Three plans, not priced by seats.</h3>
-              <p>Self-serve is USD 199 a month; the managed service, run with Oblique’s accountants, is scoped to your books. Every plan gives your whole team access, and the fee follows the complexity of the books rather than seats. See <a href="/pricing">pricing</a>.</p>
+              <p>Start with a free, read-only Books Check. Self-serve is from USD 199 a month for up to 100 transactions, charged once Hysaab works in your accounting system; the managed service, run with Oblique’s accountants, is scoped to your books. Every plan gives your whole team access, and the fee follows the complexity of the books rather than seats. See <a href="/pricing">pricing</a>.</p>
               <a className="hw-link" href="/pricing">Full pricing details <span aria-hidden="true">↗</span></a>
             </article>
           </div>

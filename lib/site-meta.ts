@@ -37,7 +37,7 @@ export const APP_LD = {
   offers: {
     "@type": "Offer",
     name: "Self-serve",
-    description: "Hysaab Finance, self-serve: from USD 199 a month.",
+    description: "Hysaab Finance, self-serve: from USD 199 a month for up to 100 transactions.",
     price: "199",
     priceCurrency: "USD",
     priceSpecification: { "@type": "UnitPriceSpecification", minPrice: "199", priceCurrency: "USD", unitText: "MONTH" },

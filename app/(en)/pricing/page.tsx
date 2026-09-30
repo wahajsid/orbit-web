@@ -1,6 +1,8 @@
 /* ── /pricing ────────────────────────────────────────────────────────
    Website change plan 2026-09-23: three cards. Self-serve "From USD 199
-   a month"; the managed service "Scoped to your books" (no published
+   a month" for up to 100 transactions (owner, 2026-09-30), charged once
+   Hysaab works in the accounting system full time; the free, read-only
+   Books Check is the way in, not a tier. The managed service "Scoped to your books" (no published
    price); and a card for firms (Hysaab Practice and Hysaab Audit: a
    setup fee plus a monthly subscription). Every card books a demo on
    the team's Calendly. The scoping rows are unchanged: the figures that
@@ -15,7 +17,7 @@ import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 export const metadata = {
   title: "Hysaab Pricing: Self-serve from USD 199, Managed and Firms",
   description:
-    "Self-serve from USD 199 a month. A managed service scoped to your books. Hysaab Practice and Hysaab Audit for firms: a setup fee plus a monthly subscription.",
+    "A free, read-only Books Check, then self-serve from USD 199 a month for up to 100 transactions. A managed service scoped to your books for larger teams. Hysaab Practice and Hysaab Audit for firms: a setup fee plus a monthly subscription.",
   alternates: langAlternates("/pricing"),
 };
 
@@ -26,8 +28,9 @@ const TIERS: Tier[] = [
     name: "Self-serve",
     mode: "Your team runs it",
     price: "199",
-    who: "For a business whose own people keep the books. The agents prepare the work; your team reviews, approves and closes.",
+    who: "For a business whose own people keep the books. The agents prepare the work; your team reviews, approves and closes. Charged once Hysaab works in your accounting system full time.",
     feats: [
+      "Up to 100 transactions a month; higher volumes priced by band",
       "Documents in by WhatsApp, email or upload, read and coded from your own history",
       "Every invoice tested against the tax-invoice rules before VAT is claimed",
       "The decisions queue, the month-end close cockpit and the reporting pack",
@@ -40,7 +43,7 @@ const TIERS: Tier[] = [
     mode: "We run it with you",
     priceText: "Scoped to your books",
     hero: true,
-    who: "For mid-sized and larger companies and groups. Oblique’s accountants run the queue and prepare the close with you, using Hysaab every day.",
+    who: "For larger teams, mid-sized companies and groups. Oblique’s accountants run the queue and prepare the close with you, using Hysaab every day.",
     feats: [
       "Everything in Self-serve",
       "A named accountant reviewing exceptions and correcting where necessary",
@@ -64,7 +67,8 @@ const TIERS: Tier[] = [
 ];
 
 const SCOPED = [
-  ["Document volume", "How many invoices, receipts and statements arrive in a typical month. The self-serve fee covers a small business’s volume; heavier volume is scoped into the managed fee."],
+  ["Transactions", "Self-serve starts at USD 199 a month for up to 100 transactions. Higher volumes are priced by band, and a group or heavy document volume is scoped into the managed fee."],
+  ["The free Books Check", "A read-only look at your own Xero or QuickBooks: what Hysaab finds, with nothing written to your ledger. It is free. The fee starts when Hysaab works in your accounting system full time."],
   ["Entities", "Self-serve covers one company on one connected accounting system. Groups and multiple entities are managed-service work and are priced per scope."],
   ["Onboarding", "Connecting the books and agreeing the approval rules happens before the first month. It is included; the time it takes depends on the state of the books, and we tell you upfront."],
   ["Support", "Every customer can write to a person. The managed service adds a named accountant and a monthly review; self-serve support is by email in working hours."],
@@ -93,7 +97,7 @@ export default function PricingPage() {
               <p className="hw-eyebrow">Three ways in</p>
               <h2>One monthly fee.<br /><span>No charge per user.</span></h2>
             </div>
-            <p>Prices are in US dollars. The fee follows the work on your books, not the number of people who log in.</p>
+            <p>Prices are in US dollars. Start with a free, read-only <a href="/check">Books Check</a>; the fee starts when Hysaab works in your accounting system, and it follows the work, not the number of people who log in.</p>
           </div>
 
           <div className="hw-plans" data-play="">

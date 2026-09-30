@@ -224,7 +224,7 @@ export default function AccountingPage() {
             <article>
               <p className="hw-eyebrow">Self-serve · your team runs it</p>
               <h3>From USD 199 a month</h3>
-              <p>The agents prepare the work; your team reviews, approves and closes. One connected accounting system, unlimited people.</p>
+              <p>Up to 100 transactions a month, charged once Hysaab works in your accounting system. The agents prepare the work; your team reviews, approves and closes. One connected accounting system, unlimited people.</p>
               <a className="hw-link" href="/pricing">See pricing <span aria-hidden="true">→</span></a>
             </article>
             <article className="is-navy">
