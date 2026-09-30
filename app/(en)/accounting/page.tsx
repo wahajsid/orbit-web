@@ -45,8 +45,8 @@ const MODULES = [
     p: "Reminders are drafted inside a collections cadence you set once, and nothing sends until you approve it. Ageing, promises to pay and provision exposure sit on one screen, measured against your own policy.",
     ticks: ["Ageing and the next step for every open invoice", "Provisioning follows the ladder you set", "Customer statements are reconciled against your books"],
     file: "p-receivables.png", title: "Receivables",
-    alt: "Hysaab receivables screen: tiles for open, due, past-due and at-risk receivables, an ageing chart, write-off risk and provisioning, and a table of invoices with ageing, status and next step.",
-    caption: "Receivables, sample data: ageing, provisioning and the next collection step for each invoice.",
+    alt: "Hysaab receivables: every invoice still owed with customer, issue date, amount, ageing band, status and next collection step, beside the customer statements drop.",
+    caption: "Receivables, sample data: ageing, status and the next collection step for each invoice.",
   },
   {
     n: "03", name: "Ledger",
@@ -63,8 +63,8 @@ const MODULES = [
     p: "The close cockpit shows what Hysaab has done, what is still open and what needs a person. Accruals are proposed with their basis for you to approve. When the gates are clear you lock the period, and the lock applies to everyone, Hysaab included.",
     ticks: ["Accruals proposed with their basis, approved by you", "A checklist for Hysaab’s side and for your ledger’s side", "The period lock is yours to press"],
     file: "p-close.png", title: "Close cockpit",
-    alt: "Hysaab close cockpit: proposed recurring accruals with basis and amount, a checklist of what Hysaab runs, a checklist for the ledger’s side, and the button to close and lock the period.",
-    caption: "The close cockpit, sample data: proposed accruals, both checklists and the gated lock.",
+    alt: "Hysaab close cockpit: proposed recurring accruals with basis and amount, the ledger’s side checklist, and the button to close and lock the period behind its gate.",
+    caption: "The close cockpit, sample data: proposed accruals, the ledger’s checklist and the gated lock.",
   },
   {
     n: "05", name: "Documents",
