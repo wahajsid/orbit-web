@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk, JetBrains_Mono, Caveat, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
+import { Caveat, Noto_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
+import { sans, mono } from "../site-fonts";
 import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
 import "../wire.css";
@@ -11,21 +12,8 @@ import "../motion.css";
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
 // Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
 // the arabic subset, so Latin strings (hysaab, Xero, AED figures) fall
-// through to Schibsted Grotesk — the stack order in --sans does the
+// through to Hysaab Grotesk (app/site-fonts.ts) — the stack order in --sans does the
 // pairing. Latin families follow Tick & Tie (brand/tick-and-tie/BRAND.md).
-const sans = Schibsted_Grotesk({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
 const hand = Caveat({
   subsets: ["latin"],
   weight: ["700"],

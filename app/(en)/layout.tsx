@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk, JetBrains_Mono, Caveat, Noto_Kufi_Arabic } from "next/font/google";
+import { Caveat, Noto_Kufi_Arabic } from "next/font/google";
 import { ORG_LD, APP_LD } from "@/lib/site-meta";
+import { sans, mono } from "../site-fonts";
 import { MotionEnhancer } from "@/components/motion/MotionEnhancer";
 import "../globals.css";
 import "../wire.css";
@@ -9,23 +10,11 @@ import "../hysaab-home.css";
 import "../motion.css";
 import "../tick-tie.css";
 
-// Tick & Tie (brand/tick-and-tie/BRAND.md): Schibsted Grotesk for
-// everything people read, JetBrains Mono for figures, IDs and labels,
+// Tick & Tie (brand/tick-and-tie/BRAND.md): Hysaab Grotesk
+// (Schibsted Grotesk) for everything people read, Hysaab Mono (JetBrains
+// Mono) for figures, IDs and labels, both self-hosted from app/site-fonts.ts;
 // Caveat for red review marks only. Noto Kufi Arabic for the Arabic glyphs
 // that appear inside English pages (the ع switch). All SIL OFL.
-const sans = Schibsted_Grotesk({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
 const hand = Caveat({
   subsets: ["latin"],
   weight: ["700"],
