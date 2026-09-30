@@ -24,7 +24,7 @@
 .tt-tm { font: 700 1.35em/1 var(--hw-hand); color: var(--hw-red); display: inline-block; min-width: 1ch; text-align: center; }
 .tt-h2 { font: 900 clamp(34px, 4.6vw, 66px)/0.97 var(--hw-serif); letter-spacing: -0.03em; margin-top: 40px !important; max-width: 20ch; color: var(--hw-ink); }
 .tt-lead { color: var(--hw-supporting); margin-top: 20px !important; max-width: 60ch; font-size: clamp(17px, 1.3vw, 19.5px); line-height: 1.55; }
-.tt-hl { background-image: linear-gradient(transparent 10%, var(--hw-blush) 10%, var(--hw-blush) 92%, transparent 92%); background-repeat: no-repeat; background-size: 100% 100%; padding-inline: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 900ms var(--m-ease-out, ease-out); }
+.tt-hl { background-image: linear-gradient(transparent 20%, var(--hw-blush) 20%, var(--hw-blush) 90%, transparent 90%); background-repeat: no-repeat; background-size: 100% 100%; padding-inline: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 900ms var(--m-ease-out, ease-out); }
 html.m-ready .tt-hl[data-play]:not(.is-in):not(.is-seen) { background-size: 0% 100%; }
 html[dir="rtl"] .tt-hl { background-position: right; }
 .tt-link { font-weight: 700; border-bottom: 3px solid var(--hw-blush); padding-bottom: 1px; display: inline-flex; gap: 10px; align-items: baseline; }
@@ -39,7 +39,7 @@ html[dir="rtl"] .tt-hl { background-position: right; }
 .tt-hero { padding-top: 32px; }
 .tt-hero-g { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); margin-top: 48px; align-items: start; }
 .tt-hero h1 { font: 900 clamp(46px, 6.1vw, 96px)/0.93 var(--hw-serif); letter-spacing: -0.035em; color: var(--hw-ink); }
-.tt-hero h1 .m-mark { --m-mark-from: var(--hw-ink); display: inline; padding-inline: 0.06em; margin-inline: 0; background: linear-gradient(transparent 10%, var(--hw-blush) 10%, var(--hw-blush) 92%, transparent 92%) no-repeat 0 0 / 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: tt-hl-grow 800ms var(--m-ease-snap, ease) var(--m-mark-at, 1000ms) backwards; }
+.tt-hero h1 .m-mark { --m-mark-from: var(--hw-ink); display: inline; padding-inline: 0.06em; margin-inline: 0; background: linear-gradient(transparent 20%, var(--hw-blush) 20%, var(--hw-blush) 90%, transparent 90%) no-repeat 0 0 / 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: tt-hl-grow 800ms var(--m-ease-snap, ease) var(--m-mark-at, 1000ms) backwards; }
 .tt-hero h1 .m-mark::before { display: none; }
 @keyframes tt-hl-grow { from { background-size: 0% 100%; } }
 .tt-note { display: inline-block; font: 700 clamp(22px, 2vw, 27px)/1.1 var(--hw-hand); color: var(--hw-red); margin-top: 18px !important; transform: rotate(-2deg); }

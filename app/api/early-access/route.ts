@@ -201,6 +201,11 @@ export async function POST(req: NextRequest) {
   const sent = await sendMail({ to: email, ...mail });
   if (!sent.ok) console.error("[early-access] request-received email failed:", sent.error);
 
+  // The owner gets the same welcome as it was sent (owner, 2026-09-30), as a
+  // separate mail so their address is never shown to the person signing up.
+  const copy = await sendMail({ to: SIGNUP_CC, unsubscribe: false, ...mail, subject: `Copy · sent to ${email} · ${mail.subject}` });
+  if (!copy.ok) console.error("[early-access] welcome copy failed:", copy.error);
+
   const notice = accessRequestNoticeEmail({
     ref: stored.ref, name, email, company, accounting_system, role, country, monthly_volume, locale, source,
     stored: stored.mode, emailed: sent.ok,
