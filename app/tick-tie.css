@@ -94,7 +94,9 @@ html[dir="rtl"] .tt-strip-track { animation-direction: reverse; }
 .tt-meta { display: block; font: 400 11px var(--hw-mono); opacity: 0.7; margin-top: 6px; }
 .tt-bub-r { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
 .tt-bub--hy .tt-tm { color: var(--hw-blush); font-size: 19px; }
-.tt-photo { height: 84px; border: 1px dashed #C9B24A; display: grid; place-items: center; font: 400 11.5px var(--hw-mono); color: var(--hw-supporting); margin-bottom: 8px; background: repeating-linear-gradient(-45deg, transparent 0 8px, rgba(201, 178, 74, 0.18) 8px 9px); }
+/* Rashid's WhatsApp photo of INV-4471 (public/home/inv-4471-photo.jpg, a sample
+   document drawn from the Demo figures: 3,990.00 + VAT 199.50 = 4,189.50). */
+.tt-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 8px; border: 1px solid rgba(17, 20, 24, 0.12); }
 
 /* ── audit trail ── */
 .tt-trail { margin-top: 48px; border-top: 2px solid var(--hw-ink); overflow-x: auto; background: var(--hw-cream); }

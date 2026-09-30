@@ -135,7 +135,7 @@ export default function PracticePage() {
               <p className="hw-eyebrow">Hysaab Audit</p>
               <h2>إن كنت توقّع آراء التدقيق،<br /><span>فالملف يعمل هنا أيضًا.</span></h2>
             </div>
-            <p>بُني Hysaab Audit على العملاء أنفسهم وغرفة الملفات نفسها والقاعدة نفسها: المحركات تحسب، وشخص مرخّص يستنتج. اشترِه وحده أو مع Hysaab Practice.</p>
+            <p>يتبع Hysaab Audit القاعدة نفسها: المحركات تحسب، وشخص مرخّص يستنتج. اشترِه وحده أو مع Hysaab Practice. لكلٍّ منهما سجلات عملائه الخاصة، وقواعد الاستقلالية في مكتبك تحدد من يعمل على أي عميل.</p>
           </div>
           <div className="hw-cards">
             <article>

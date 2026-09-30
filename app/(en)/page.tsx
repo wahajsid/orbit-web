@@ -192,7 +192,7 @@ export default function Page() {
               <div className="tt-chat" aria-label="Example WhatsApp exchange, illustrative" data-reveal="">
                 <div className="tt-chat-h"><span>WhatsApp · Hysaab</span><span>21:00</span></div>
                 <div className="tt-chat-b">
-                  <div className="tt-bub tt-bub--me"><div className="tt-photo">INV-4471 · photo</div>Gulf Technical invoice for the Dubai office<span className="tt-meta">Rashid · 21:00</span></div>
+                  <div className="tt-bub tt-bub--me"><img className="tt-photo" src="/home/inv-4471-photo.jpg" width={880} height={660} alt="Photo of Gulf Technical Supplies tax invoice INV-4471, 12 Sep 2026: AED 3,990.00 plus VAT 199.50, total AED 4,189.50. Sample document." loading="lazy" />Gulf Technical invoice for the Dubai office<span className="tt-meta">Rashid · 21:00</span></div>
                   <div className="tt-bub tt-bub--hy">Got it. Reading now.
                     <span className="tt-bub-r"><Tm m="✓" />Tax invoice · TRN valid</span>
                     <span className="tt-bub-r"><Tm m="T" />IT equipment · Dubai office · 96%</span>
