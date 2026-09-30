@@ -307,13 +307,17 @@ export function requestReceivedEmail(input: { ref: string | null; name?: string;
   const ref = input.ref;
   if (input.locale === "ar") {
     /* AR-REVIEW: the whole Arabic "request received" email. */
-    const hello = first ? `شكرًا لك يا ${esc(first)}. وصلنا طلبك.` : "شكرًا لك. وصلنا طلبك.";
+    // "نقلة نوعية" (a step change), not "ثورة": the literal word for
+    // revolution reads as political in the Gulf. AR-REVIEW.
+    const hello = "مرحبًا بك في نقلة نوعية في عالم المحاسبة والمالية والاستشارات.";
+    const thanks = first ? `شكرًا لك يا ${esc(first)}. وصلنا طلبك.` : "شكرًا لك. وصلنا طلبك.";
     return {
-      subject: ref ? `طلب انضمامك إلى Hysaab · المرجع ${ref}` : "طلب انضمامك إلى Hysaab",
+      subject: ref ? `مرحبًا بك في Hysaab · المرجع ${ref}` : "مرحبًا بك في Hysaab",
       html: wrap(
-        ref ? `وصلنا طلبك. المرجع ${ref}.` : "وصلنا طلبك.",
+        ref ? `مرحبًا بك في Hysaab. المرجع ${ref}.` : "مرحبًا بك في Hysaab.",
         `${kicker("بالدعوة")}
         ${h1(hello)}
+        ${p(`${thanks} وكلاء Hysaab يعدّون العمل من التصنيف والمطابقات إلى الإقفال والفحوص الضريبية، وأنت تتخذ القرار.`)}
         ${ref ? infobox("مرجعك", monoRef(ref)) : ""}
         ${p("يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.")}
         ${p('<strong style="color:#111418;">وإلى ذلك الحين:</strong> فحص الدفاتر المجاني متاح للجميع. نظرة للقراءة فقط على دفاترك في Xero أو QuickBooks، ترى فيها ما يجده Hysaab، دون أن يُكتب شيء في دفترك.', 8)}
@@ -324,7 +328,9 @@ export function requestReceivedEmail(input: { ref: string | null; name?: string;
         "تصلك هذه الرسالة لأنك طلبت الانضمام إلى Hysaab على hysaab.ai.",
         "ar",
       ),
-      text: `${first ? `شكرًا لك يا ${first}.` : "شكرًا لك."} وصلنا طلبك.
+      text: `مرحبًا بك في نقلة نوعية في عالم المحاسبة والمالية والاستشارات.
+
+${first ? `شكرًا لك يا ${first}.` : "شكرًا لك."} وصلنا طلبك. وكلاء Hysaab يعدّون العمل من التصنيف والمطابقات إلى الإقفال والفحوص الضريبية، وأنت تتخذ القرار.
 ${ref ? `\nمرجعك: ${ref}\n` : ""}
 يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.
 
@@ -339,13 +345,17 @@ ${ref ? `\nمرجعك: ${ref}\n` : ""}
 hysaab.ai · ${INFO}`,
     };
   }
-  const hello = first ? `Thank you, ${esc(first)}. Your request is in.` : "Thank you. Your request is in.";
+  // The welcome (owner, 2026-09-30): "A revolution in the world of
+  // accounting, finance and advisory."
+  const hello = "Welcome to a revolution in accounting, finance and advisory.";
+  const thanks = first ? `Thank you, ${esc(first)}. Your request is in.` : "Thank you. Your request is in.";
   return {
-    subject: ref ? `Your Hysaab access request · Ref ${ref}` : "Your Hysaab access request",
+    subject: ref ? `Welcome to Hysaab · Ref ${ref}` : "Welcome to Hysaab",
     html: wrap(
-      ref ? `Request received. Your reference is ${ref}.` : "Request received.",
+      ref ? `Welcome to Hysaab. Your reference is ${ref}.` : "Welcome to Hysaab.",
       `${kicker("By invitation")}
       ${h1(hello)}
+      ${p(`${thanks} Hysaab's AI agents prepare the work, the coding, the reconciliations, the close and the tax checks, and people like you make the call.`)}
       ${ref ? infobox("Your reference", monoRef(ref)) : ""}
       ${p("Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.")}
       ${p('<strong style="color:#111418;">In the meantime:</strong> the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books: what Hysaab finds, with nothing written to your ledger.', 8)}
@@ -355,7 +365,9 @@ hysaab.ai · ${INFO}`,
       ${signoff("Speak soon.")}`,
       "You are receiving this because you requested access to Hysaab at hysaab.ai.",
     ),
-    text: `${first ? `Thank you, ${first}.` : "Thank you."} Your request is in.
+    text: `Welcome to a revolution in accounting, finance and advisory.
+
+${first ? `Thank you, ${first}.` : "Thank you."} Your request is in. Hysaab's AI agents prepare the work, the coding, the reconciliations, the close and the tax checks, and people like you make the call.
 ${ref ? `\nYour reference: ${ref}\n` : ""}
 Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.
 

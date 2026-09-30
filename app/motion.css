@@ -320,7 +320,7 @@ html[dir="rtl"] .m-steps::after { transform-origin: right center; }
 
 /* ── Marker highlight: blush sweeps in, the word turns to ink ── */
 .m-mark { position: relative; display: inline-block; isolation: isolate; padding-inline: 0.1em; margin-inline: -0.1em; color: var(--m-mark-ink, var(--hw-navy)) !important; animation: m-mark-ink 380ms var(--m-ease-out) var(--m-mark-at, 700ms) backwards; }
-.m-mark::before { content: ""; position: absolute; z-index: -1; inset: 0.1em 0 -0.08em; background: var(--m-mark-bg, var(--hw-blush)); transform-origin: left center; animation: m-grow-x 560ms var(--m-ease-snap) var(--m-mark-at, 700ms) backwards; }
+.m-mark::before { content: ""; position: absolute; z-index: -1; inset: 0.2em 0 -0.06em; background: var(--m-mark-bg, var(--hw-blush)); transform-origin: left center; animation: m-grow-x 560ms var(--m-ease-snap) var(--m-mark-at, 700ms) backwards; }
 html[dir="rtl"] .m-mark::before { transform-origin: right center; }
 @keyframes m-mark-ink { from { color: var(--m-mark-from, currentColor); } }
 

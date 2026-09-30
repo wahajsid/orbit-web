@@ -473,7 +473,7 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-phero-in { padding-block: 80px 90px; }
 .hw-phero .hw-eyebrow { color: var(--hw-supporting); font-family: var(--hw-mono); letter-spacing: 0.08em; display: flex; align-items: center; gap: 10px; }
 .hw-phero h1 { font-size: clamp(36px, 4.3vw, 60px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 900; margin-block: 26px 24px; color: var(--hw-ink); max-width: 17ch; }
-.hw-phero h1 span:not([class]) { color: inherit; background: linear-gradient(transparent 10%, var(--hw-blush) 10%, var(--hw-blush) 92%, transparent 92%); padding-inline: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hw-phero h1 span:not([class]) { color: inherit; background: linear-gradient(transparent 20%, var(--hw-blush) 20%, var(--hw-blush) 90%, transparent 90%); padding-inline: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .hw-phero-lede { font-size: 18px; line-height: 1.7; color: var(--hw-supporting); max-width: 620px; }
 .hw-phero :is(.hw-link--light, .hw-textlink) { color: var(--hw-ink) !important; }
 .hw-phero .hw-actions { margin-top: 32px; }
