@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LAUNCH_AT, LAUNCH_DATE_SHORT, LAUNCH_DATE_SHORT_AR, APP_SIGNUP } from "@/lib/launch";
+import { LAUNCH_AT, LAUNCH_DATE_SHORT, LAUNCH_DATE_SHORT_AR } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 
 /* ── Launch countdown ────────────────────────────────────────────────
    Ruled paper band ticking down to the gate in lib/launch.ts (one
@@ -26,7 +27,7 @@ function partsAt(now: number): Parts | null {
 
 const T = {
   en: {
-    open: "DOORS ARE OPEN", live: "Hysaab is live.", create: "Create your workspace →",
+    open: "DOORS ARE OPEN", live: "Hysaab is live.", create: "Request access →",
     kicker: (d: string) => `DOORS OPEN ${d.toUpperCase()}`,
     aria: (d: string) => `Countdown to launch, ${d}`,
     launch: "Launch",
@@ -34,7 +35,7 @@ const T = {
     date: LAUNCH_DATE_SHORT,
   },
   ar: {
-    open: "الأبواب مفتوحة", live: "Hysaab متاح الآن.", create: "أنشئ مساحة عملك ←",
+    open: "الأبواب مفتوحة", live: "Hysaab متاح الآن.", create: "اطلب الانضمام ←",
     kicker: (d: string) => `الأبواب تُفتح ${d}`,
     aria: (d: string) => `العد التنازلي للإطلاق، ${d}`,
     launch: "الإطلاق",
@@ -60,7 +61,7 @@ export function Countdown({ locale = "en" }: { locale?: "en" | "ar" }) {
         <div className="mg-kicker">{t.open}</div>
         <h2 className="mg-h2" style={{ marginBottom: 0 }}>{t.live}</h2>
         <div style={{ marginTop: 20 }}>
-          <a href={APP_SIGNUP} className="mg-cta">{t.create}</a>
+          <a href={ACCESS_HREF[locale]} className="mg-cta">{t.create}</a>
         </div>
       </section>
     );

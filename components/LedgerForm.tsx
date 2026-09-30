@@ -7,7 +7,8 @@
    signup instead. Locale-aware: the /ar pages pass locale="ar". */
 
 import { useEffect, useState } from "react";
-import { APP_SIGNUP, FOUNDING_SEATS, LAUNCH_AT, LAUNCH_DATE_SHORT, LAUNCH_DATE_SHORT_AR, isPostLaunch } from "@/lib/launch";
+import { FOUNDING_SEATS, LAUNCH_AT, LAUNCH_DATE_SHORT, LAUNCH_DATE_SHORT_AR, isPostLaunch } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 import { useEarlyAccess } from "./useEarlyAccess";
 
 const pad3 = (n: number) => String(n).padStart(3, "0");
@@ -17,7 +18,7 @@ const T = {
     head: "FOUNDING LEDGER · FOUNDER PRICING",
     taken: (name: string) => <>· <span className="redact">{name}</span> — taken</>,
     names: ["▓▓▓▓▓▓ LLC", "▓▓▓▓ Trading", "▓▓▓▓▓ & Co"],
-    open: "doors are open — sign up",
+    open: "request access",
     reserved: "reserved ✓",
     yourEntry: "your entry?",
     doorsOpen: (d: string) => `doors open ${d}`,
@@ -34,7 +35,7 @@ const T = {
     head: "سجل التأسيس · سعر المؤسسين",
     taken: (name: string) => <>· <span className="redact">{name}</span> — محجوز</>,
     names: ["▓▓▓▓▓▓ ذ.م.م", "▓▓▓▓ للتجارة", "▓▓▓▓▓ وشركاه"],
-    open: "الأبواب مفتوحة — سجّل الآن",
+    open: "اطلب الانضمام",
     reserved: "محجوز ✓",
     yourEntry: "قيدك؟",
     doorsOpen: (d: string) => `الأبواب تُفتح ${d}`,
@@ -72,7 +73,7 @@ export function LedgerForm({ seat, locale = "en" }: { seat: number; locale?: "en
         <div>
           {pad3(seat)} ·{" "}
           {post ? (
-            <a className="ledger-you" href={APP_SIGNUP} style={{ textDecoration: "none" }}>{t.open}</a>
+            <a className="ledger-you" href={ACCESS_HREF[locale]} style={{ textDecoration: "none" }}>{t.open}</a>
           ) : done ? (
             <span style={{ color: "var(--petrol)" }}>{t.reserved}</span>
           ) : (

@@ -1,7 +1,11 @@
-/* Launch gate — one constant, shared by every CTA, the founding ledger and
-   the sticky countdown bar. Pre-launch the page sells founding seats via the
-   capture forms; from the launch instant every CTA points straight at the
-   app's signup instead. ?preview=post / ?preview=pre override for testing.
+/* Launch gate — one constant, shared by the launch notice and the older
+   countdown pieces. ?preview=post / ?preview=pre override for testing.
+
+   Owner decision 2026-09-30: Hysaab is invite-only. The gate no longer
+   sends anyone to the app's signup: before AND after the launch instant
+   every "sign up / get started" call to action goes to /access (or
+   /ar/access), see lib/access.ts. Only the wording of the launch notice
+   changes at the instant. "Sign in" still goes to the app's login.
 
    The instant comes from NEXT_PUBLIC_LAUNCH_AT (ISO 8601 with offset) so it
    can be moved on Vercel without a deploy; the default is the design's
@@ -10,7 +14,6 @@
 const RAW = process.env.NEXT_PUBLIC_LAUNCH_AT || "2026-10-28T09:00:00+04:00";
 const parsed = new Date(RAW).getTime();
 export const LAUNCH_AT = Number.isFinite(parsed) ? parsed : new Date("2026-10-28T09:00:00+04:00").getTime();
-export const APP_SIGNUP = "https://app.hysaab.ai/signup";
 
 /* Display forms of the launch date, DERIVED from LAUNCH_AT so copy can never
    drift from the gate again (it did once: two emails said different dates).

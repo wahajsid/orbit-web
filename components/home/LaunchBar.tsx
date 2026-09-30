@@ -7,7 +7,8 @@
    server and client markup match; at zero it points at the app signup. */
 
 import { useEffect, useState } from "react";
-import { APP_SIGNUP, LAUNCH_AT, LAUNCH_DATE_BAR, LAUNCH_DATE_LONG, isPostLaunch } from "@/lib/launch";
+import { LAUNCH_AT, LAUNCH_DATE_BAR, LAUNCH_DATE_LONG, isPostLaunch } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 
 type Parts = { d: string; h: string; m: string; s: string };
 const two = (n: number) => String(n).padStart(2, "0");
@@ -33,9 +34,9 @@ export function LaunchBar({ href = "#conversation" }: { href?: string }) {
   if (post) {
     return (
       <div className="hy-bar hw-launchbar" role="region" aria-label="Launch">
-        <span className="hy-bar-k">Hysaab is live</span>
+        <span className="hy-bar-k">Opening by invitation</span>
         <span className="hy-bar-seats" />
-        <a href={APP_SIGNUP} className="hy-btn hy-btn--blush">Create your workspace →</a>
+        <a href={ACCESS_HREF.en} className="hy-btn hy-btn--blush">Request access →</a>
       </div>
     );
   }

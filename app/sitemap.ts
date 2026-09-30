@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", updated: "2026-09-24", priority: 0.6 },
     { path: "/about", updated: "2026-09-24", priority: 0.5 },
     { path: "/contact", updated: "2026-09-24", priority: 0.5 },
-    { path: "/privacy", updated: "2026-09-18", priority: 0.2, enOnly: true },
+    { path: "/privacy", updated: "2026-09-30", priority: 0.2, enOnly: true },
     { path: "/terms", updated: "2026-09-18", priority: 0.2, enOnly: true },
   ];
   /* Each marketing page exists in both languages; hreflang alternates on

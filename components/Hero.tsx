@@ -8,7 +8,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { APP_SIGNUP, FOUNDING_SEATS, LAUNCH_AT, isPostLaunch } from "@/lib/launch";
+import { FOUNDING_SEATS, LAUNCH_AT, isPostLaunch } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 import { useEarlyAccess } from "./useEarlyAccess";
 
 const pad3 = (n: number) => String(n).padStart(3, "0");
@@ -70,7 +71,7 @@ export function Hero({ seat }: { seat: number }) {
 
         {post ? (
           <div className="hero-actions">
-            <a className="cta" href={APP_SIGNUP}>Open your account</a>
+            <a className="cta" href={ACCESS_HREF.en}>Request access</a>
             <span className="mono hero-seat">THE DOORS ARE OPEN</span>
           </div>
         ) : done ? (

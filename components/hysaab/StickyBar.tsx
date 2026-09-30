@@ -8,7 +8,8 @@
    points at the app's signup. */
 
 import { useEffect, useState } from "react";
-import { APP_SIGNUP, FOUNDING_SEATS, LAUNCH_AT, LAUNCH_DATE_BAR, isPostLaunch } from "@/lib/launch";
+import { FOUNDING_SEATS, LAUNCH_AT, LAUNCH_DATE_BAR, isPostLaunch } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 
 type Parts = { d: string; h: string; m: string; s: string };
 const two = (n: number) => String(n).padStart(2, "0");
@@ -36,7 +37,7 @@ export function StickyBar({ seatsTaken, href = "#cohort" }: { seatsTaken: number
       <div className="hy-bar" role="region" aria-label="Launch">
         <span className="hy-bar-k">Doors are open</span>
         <span className="hy-bar-seats">Hysaab is live. Founder pricing for the first {FOUNDING_SEATS}.</span>
-        <a href={APP_SIGNUP} className="hy-btn hy-btn--blush">Create your workspace →</a>
+        <a href={ACCESS_HREF.en} className="hy-btn hy-btn--blush">Request access →</a>
       </div>
     );
   }
@@ -50,7 +51,7 @@ export function StickyBar({ seatsTaken, href = "#cohort" }: { seatsTaken: number
         ))}
       </div>
       <span className="hy-bar-seats">{seatsTaken} of {FOUNDING_SEATS} founding seats taken · founder pricing locked</span>
-      <a href={href} className="hy-btn hy-btn--blush">Join the waitlist →</a>
+      <a href={href} className="hy-btn hy-btn--blush">Request access →</a>
     </div>
   );
 }
