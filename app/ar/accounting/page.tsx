@@ -151,7 +151,7 @@ export default function AccountingPage() {
               <p>تنقّل بين الكيانات، ووحّدها، وحوّل مساحة العمل كلها إلى العربية، من اليمين إلى اليسار.</p>
             </div>
             <div className="hw-shot">
-              <Image src="/shots/adv-arabic.png" width={1600} height={1360} sizes="(max-width: 760px) 100vw, 55vw" alt="مساحة عمل Hysaab بالعربية، من اليمين إلى اليسار. بيانات تجريبية." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
+              <Image src="/shots/adv-arabic.png" width={1600} height={1290} sizes="(max-width: 760px) 100vw, 55vw" alt="مساحة عمل Hysaab بالعربية، من اليمين إلى اليسار. بيانات تجريبية." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
               <p className="hw-shot-cap">مساحة العمل نفسها بالعربية، من اليمين إلى اليسار. بيانات تجريبية.</p>
             </div>
           </div>
