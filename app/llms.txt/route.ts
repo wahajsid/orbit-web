@@ -23,6 +23,7 @@ Key facts:
 - Approval is the promise, not approval forever: nothing posts outside the rules the customer approves. Each ledger connection climbs a trust ladder the customer controls: it starts read-only and earns write access. Observe (reads): Hysaab reads and compares and writes nothing; the free Books Check reads only (with the customer's separate consent it can also create unposted drafts of its fixes in Xero). Propose (drafts, the trial): fixes are prepared as drafts, in Hysaab or as unposted drafts in the ledger, and each waits for a person's approval. Execute (posts, after the trial): routine journals post on their own inside the rules agreed, each one recorded; anything unusual or below the confidence gate still goes to a person.
 - The agents communicate as well as write: they chase overdue customer invoices on the collections cadence the customer sets (with a statement of account from the second reminder; reminders wait for approval unless auto-send for routine ones is switched on, and escalations always go to a person), ask for the receipt behind a bank payment with no document, answer the team's questions and tasks on WhatsApp or by email, and draft journals (accruals, reclassifications, corrections) for approval. In short: it reads the books, writes the entries and chases what is missing; the customer approves.
 - Company: Hysaab is a separate company, built in Dubai by the team behind Oblique Consult (https://obliqueconsult.com, a Dubai tax and accounting advisory); the engineering is by Simpla. Founders: Wahaj Siddiqui and Saad Zafar. Contact info@hysaab.ai; the app runs at app.hysaab.ai.
+- Access: Hysaab is opening by invitation. Request access at ${BASE}/access (Arabic: ${BASE}/ar/access); requests are admitted in the order they arrive. Anyone can book a demo or run the free Books Check meanwhile.
 - Languages: English and Arabic. Marketing pages have Arabic (RTL) twins under ${BASE}/ar (for example /ar, /ar/accounting, /ar/pricing, /ar/trust).
 
 ## Pages
@@ -42,6 +43,7 @@ Key facts:
 - [FAQ](${BASE}/faq): straight answers on data safety, autonomy limits, pricing
 - [About](${BASE}/about): who builds Hysaab and why
 - [Ibtidah](${BASE}/hire): the sister hiring product
+- [Request access](${BASE}/access): Hysaab is opening by invitation; requests are admitted in the order they arrive, and an invitation goes to the work email when a request comes up. A demo can be booked meanwhile
 - [Contact](${BASE}/contact): how to reach the team
 - [الموقع بالعربية](${BASE}/ar): the marketing site in Arabic, right to left
 `;

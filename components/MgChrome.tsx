@@ -14,6 +14,7 @@ import { ContactForm } from "./hysaab/ContactForm";
 import { FOOT, OwnerLine } from "./FooterData";
 import { SiteHeader } from "./home/HomeHeader";
 import { SiteFooter } from "./home/SiteFooter";
+import { ACCESS_HREF } from "@/lib/access";
 
 type Locale = "en" | "ar";
 type Link = readonly [string, string];
@@ -26,7 +27,7 @@ const NAV = {
     inner: [
       ["/accounting", "Product"], ["/pricing", "Pricing"], ["/compliance", "Compliance"], ["/guides", "Guides"], ["/tools", "Tools"], ["/#family", "Products"],
     ] as readonly Link[],
-    signin: "Sign in", demo: "Book a demo", join: "Join the waitlist →", menu: "Menu", close: "Close", brand: "hysaab.ai, home",
+    signin: "Sign in", demo: "Book a demo", join: "Request access →", menu: "Menu", close: "Close", brand: "hysaab.ai, home",
   },
   ar: {
     home: [
@@ -35,7 +36,7 @@ const NAV = {
     inner: [
       ["/ar/accounting", "المنتج"], ["/ar/pricing", "الأسعار"], ["/ar/compliance", "الامتثال"], ["/ar/guides", "الأدلة"], ["/ar/tools", "الأدوات"],
     ] as readonly Link[],
-    signin: "تسجيل الدخول", demo: "احجز عرضًا", join: "انضم إلى قائمة الانتظار ←", menu: "القائمة", close: "إغلاق", brand: "hysaab.ai، الصفحة الرئيسية",
+    signin: "تسجيل الدخول", demo: "احجز عرضًا", join: "اطلب الانضمام ←", menu: "القائمة", close: "إغلاق", brand: "hysaab.ai، الصفحة الرئيسية",
   },
 };
 
@@ -62,7 +63,7 @@ function MgNavLegacy({ locale = "en", home = false }: { active?: string; locale?
   const { isAr, target } = twinOf(path);
   const root = locale === "ar" ? "/ar" : "/";
   const links = home ? t.home : t.inner;
-  const cohort = locale === "ar" ? "/ar#ledger" : home ? "#cohort" : "/#cohort";
+  const cohort = ACCESS_HREF[locale];
   const contact = locale === "ar" ? "/ar/contact" : home ? "#contact" : "/#contact";
 
   return (

@@ -8,7 +8,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { isPersonalEmail } from "@/lib/email-domains";
-import { APP_SIGNUP, isPostLaunch } from "@/lib/launch";
+import { isPostLaunch } from "@/lib/launch";
+import { ACCESS_HREF } from "@/lib/access";
 
 export const ACCOUNTING_SYSTEMS = ["Zoho Books", "QuickBooks", "Xero", "Tally", "Spreadsheets", "Other"] as const;
 
@@ -55,9 +56,9 @@ export function CohortForm({ seatsTaken }: { seatsTaken: number }) {
   if (post) {
     return (
       <div className="hy-form-done">
-        <span className="hy-form-done-h">Doors are open.</span>
-        <span className="hy-form-done-p">Create your workspace and bring your ledger with you.</span>
-        <a href={APP_SIGNUP} className="hy-btn hy-btn--navy hy-btn--lg" style={{ alignSelf: "flex-start" }}>Create your workspace →</a>
+        <span className="hy-form-done-h">Hysaab is opening by invitation.</span>
+        <span className="hy-form-done-p">Requests are admitted in the order they arrive.</span>
+        <a href={ACCESS_HREF.en} className="hy-btn hy-btn--navy hy-btn--lg" style={{ alignSelf: "flex-start" }}>Request access →</a>
       </div>
     );
   }
@@ -89,7 +90,7 @@ export function CohortForm({ seatsTaken }: { seatsTaken: number }) {
         </select>
       </label>
       <button type="submit" className="hy-btn hy-btn--navy hy-btn--lg" disabled={busy} style={{ opacity: busy ? 0.6 : 1 }}>
-        {busy ? "Recording your entry…" : "Join the waitlist →"}
+        {busy ? "Sending your request…" : "Request access →"}
       </button>
       {err && <div className="hy-form-msg" role="alert">{err}</div>}
     </form>

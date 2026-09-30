@@ -5,8 +5,9 @@
    Books Check is the way in, not a tier. Indicative volume bands
    (owner, 2026-09-30) sit under the cards: lib/pricing.ts, PriceBands. The managed service "Scoped to your books" (no published
    price); and a card for firms (Hysaab Practice and Hysaab Audit: a
-   setup fee plus a monthly subscription). Every card books a demo on
-   the team's Calendly. The scoping rows are unchanged: the figures that
+   setup fee plus a monthly subscription). Self-serve asks for access
+   (/access, invite-only since 2026-09-30); the managed and firms cards
+   book a demo on the team's Calendly. The scoping rows are unchanged: the figures that
    exist are stated, and what is scoped per customer is named as such
    rather than invented. */
 
@@ -14,6 +15,7 @@ import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { ACCESS_HREF } from "@/lib/access";
 import { PriceBands } from "@/components/hysaab/PriceBands";
 
 export const metadata = {
@@ -114,9 +116,11 @@ export default function PricingPage() {
                 <ul className="hw-ticks">
                   {t.feats.map((f, i) => <li key={i}>{f}</li>)}
                 </ul>
-                <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} {...DEMO}>
-                  Book a demo <span aria-hidden="true">↗</span>{newTab}
-                </a>
+                {t.price
+                  ? <a className="hw-btn hw-btn--navy" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a>
+                  : <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} {...DEMO}>
+                    Book a demo <span aria-hidden="true">↗</span>{newTab}
+                  </a>}
               </article>
             ))}
           </div>

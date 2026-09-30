@@ -95,6 +95,12 @@ html:has(.hw-page) { scroll-behavior: smooth; scroll-padding-top: 24px; }
 .hw-lang [aria-current] { color: var(--hw-navy); font-weight: 600; }
 .hw-nav-cta { background: var(--hw-navy); color: var(--hw-cream) !important; padding: 13px 18px; font-size: 12px; font-weight: 600; display: inline-flex; gap: 28px; white-space: nowrap; transition: background 0.2s; min-height: 45px; }
 .hw-nav-cta:hover { background: #2A2F37; }
+/* Secondary header action (2026-09-30): "Book a demo" beside the main
+   "Request access" button. Phone widths carry it in the menu instead. */
+.hw-nav-demo { color: var(--hw-navy) !important; box-shadow: inset 0 0 0 1.5px var(--hw-navy); padding: 13px 16px; font-size: 12px; font-weight: 600; display: inline-flex; gap: 14px; white-space: nowrap; min-height: 45px; align-items: center; transition: background 0.2s; }
+.hw-nav-demo:hover { background: var(--hw-blush); }
+@media (max-width: 960px) { .hw-nav-demo { display: none; } }
+.hw-menu .hw-menu-access { font-weight: 700; }
 .hw-menu-btn { display: none; background: transparent; color: var(--hw-navy); border: 1px solid var(--hw-hairline); padding: 11px 14px; font-size: 14px; font-weight: 500; min-height: 44px; }
 .hw-menu { display: none; }
 
@@ -423,6 +429,7 @@ html[lang="ar"] .hw-team-orgs img { object-position: right center; }
 .hw-talk-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .hw-talk-actions .hw-btn { min-width: 240px; }
 .hw-talk .hw-link--ruled { border-bottom-color: #B32720; }
+.hw-talk-key { font-size: 14px; line-height: 1.6; color: #111418; max-width: 36ch; border-top: 1px solid #111418; padding-top: 14px; margin-top: 4px; }
 .hw-nav a[aria-current="page"] { font-weight: 600; }
 .hw-menu a[aria-current="page"] { color: var(--hw-blush) !important; }
 
@@ -731,7 +738,7 @@ html[lang="ar"] :is(.hw-page, .hw-chrome) :is(h1, h2, h3, h4, .hw-step-h, .hw-pl
 html[lang="ar"] .hw-hero h1 { font-size: clamp(44px, 5vw, 74px); line-height: 1.2; font-family: var(--hw-serif); }
 html[lang="ar"] :is(.hw-heading h2, .hw-control h2, .hw-conversation h2, .hw-talk h2, .hw-phero h1) { line-height: 1.25; font-family: var(--hw-serif); }
 html[lang="ar"] :is(.hw-eyebrow, .hw-mono, .hw-label) { letter-spacing: 0; font-family: var(--sans); font-weight: 600; font-size: 12px; }
-html[lang="ar"] .hw-nav a, html[lang="ar"] .hw-signin, html[lang="ar"] .hw-nav-cta, html[lang="ar"] .hw-btn, html[lang="ar"] .hw-link { font-size: 15px; }
+html[lang="ar"] .hw-nav a, html[lang="ar"] .hw-signin, html[lang="ar"] .hw-nav-cta, html[lang="ar"] .hw-nav-demo, html[lang="ar"] .hw-btn, html[lang="ar"] .hw-link { font-size: 15px; }
 html[lang="ar"] .hw-band-track { animation-direction: reverse; }
 
 /* ── round 2 (2026-09-24): bigger kinetic hero + the Books Check band ── */

@@ -11,6 +11,7 @@ import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { ACCESS_HREF, ACCESS_LABEL } from "@/lib/access";
 import { PriceBands } from "@/components/hysaab/PriceBands";
 
 /* AR-REVIEW: title and description */
@@ -113,9 +114,11 @@ export default function PricingPage() {
                 <ul className="hw-ticks">
                   {t.feats.map((f, i) => <li key={i}>{f}</li>)}
                 </ul>
-                <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} {...DEMO}>
-                  احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span>
-                </a>
+                {t.price
+                  ? <a className="hw-btn hw-btn--navy" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a>
+                  : <a className={`hw-btn ${t.hero ? "hw-btn--peach" : "hw-btn--navy"}`} {...DEMO}>
+                    احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.ar}</span>
+                  </a>}
               </article>
             ))}
           </div>

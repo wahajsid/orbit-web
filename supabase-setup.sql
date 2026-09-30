@@ -31,3 +31,8 @@ create policy "anon insert only"
 -- index → PostgREST returns 409 → the function reports "already on the list"
 -- and skips the welcome email.
 create unique index if not exists early_access_email_uniq on early_access (lower(email));
+
+-- ── 2026-09-30: access requests ──────────────────────────────────────
+-- Hysaab is invite-only. Then run supabase/early_access_v2.sql: request
+-- fields (role, country, monthly_volume, locale, source, status), the
+-- HY-0127 reference in arrival order, and request_access(p jsonb).
