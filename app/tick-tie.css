@@ -55,6 +55,7 @@ html[dir="rtl"] .tt-hl { background-position: right; }
 .tt-doors h2 { font: 800 clamp(24px, 2.2vw, 31px)/1.05 var(--hw-serif) !important; letter-spacing: -0.02em; color: var(--hw-ink); }
 .tt-doors p:not(.tt-who) { color: var(--hw-supporting); }
 .tt-acts { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 6px; }
+.tt-invite { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; margin-top: 28px !important; padding-top: 16px; border-top: 1px solid var(--hw-hairline); color: var(--hw-supporting); font-size: 15px; line-height: 1.6; }
 
 /* ── proof strip ── */
 .tt-strip { background: var(--hw-ink); color: #F4F4F1; overflow: hidden; position: relative; }

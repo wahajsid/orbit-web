@@ -22,6 +22,7 @@ import { EnquiryForm, InterestLink } from "@/components/home/EnquiryForm";
 import { loadMoments } from "@/lib/home-moments";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { ACCESS_HREF, ACCESS_LABEL, KEY_LINE } from "@/lib/access";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { TEAM } from "@/lib/team";
@@ -158,8 +159,8 @@ export default function Page() {
                 <h2 id="door-finance">Hysaab Finance</h2>
                 <p>يتولى الوكلاء الذمم الدائنة والمطابقات والإقفال والتقارير داخل النظام المحاسبي الذي تستخدمه بالفعل.</p>
                 <div className="tt-acts">
-                  <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="احجز عرضًا تجريبيًا" whole /> <span aria-hidden="true">↗</span>{newTab}</a>
-                  <a className="tt-link" href="/check">افحص دفاترك مجانًا <span aria-hidden="true">←</span>{inEnglish}</a>
+                  <a href={ACCESS_HREF.ar} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text={ACCESS_LABEL.ar} whole /> <span aria-hidden="true">←</span></a>
+                  <a className="tt-link" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
                 </div>
               </article>
               <article aria-labelledby="door-firm">
@@ -167,11 +168,13 @@ export default function Page() {
                 <h2 id="door-firm"><bdi className="hw-nowrap">Hysaab Practice</bdi> و <bdi className="hw-nowrap">Hysaab Audit</bdi></h2>
                 <p>يتولى الوكلاء الفحوص الضريبية وارتباطات العملاء وملف التدقيق وفق معايير ISA. والقرار لشركائك.</p>
                 <div className="tt-acts">
-                  <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="احجز عرضًا تجريبيًا" whole /> <span aria-hidden="true">↗</span>{newTab}</a>
-                  <a className="tt-link" href="/ar/firms">شاهد كيف تستخدمه المكاتب <span aria-hidden="true">←</span></a>
+                  <a href={ACCESS_HREF.ar} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text={ACCESS_LABEL.ar} whole /> <span aria-hidden="true">←</span></a>
+                  <a className="tt-link" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
                 </div>
               </article>
             </div>
+            {/* AR-REVIEW: "وإلى ذلك الحين، افحص دفاترك مجانًا" */}
+            <p className="tt-invite m-enter-block">{KEY_LINE.ar} <a className="hw-link hw-link--ruled" href="/check">وإلى ذلك الحين، افحص دفاترك مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
           </div>
         </section>
 

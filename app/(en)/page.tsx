@@ -15,6 +15,7 @@ import { EnquiryForm, InterestLink } from "@/components/home/EnquiryForm";
 import { loadMoments } from "@/lib/home-moments";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { ACCESS_HREF, KEY_LINE } from "@/lib/access";
 import { Demo } from "@/components/hysaab/Demo";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { TEAM } from "@/lib/team";
@@ -133,8 +134,8 @@ export default function Page() {
                 <h2 id="door-finance">Hysaab Finance</h2>
                 <p>Agents handle payables, reconciliations, the close and reporting inside the ledger you already use.</p>
                 <div className="tt-acts">
-                  <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="Book a demo" /> <span aria-hidden="true">↗</span>{newTab}</a>
-                  <a className="tt-link" href="/check">Check your books free <span aria-hidden="true">→</span></a>
+                  <a href={ACCESS_HREF.en} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="Request access" /> <span aria-hidden="true">→</span></a>
+                  <a className="tt-link" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
                 </div>
               </article>
               <article aria-labelledby="door-firm">
@@ -142,11 +143,12 @@ export default function Page() {
                 <h2 id="door-firm">Hysaab Practice and Hysaab Audit</h2>
                 <p>Agents run tax checks, client engagements and the ISA audit file. Your partners make the calls.</p>
                 <div className="tt-acts">
-                  <a {...DEMO} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="Book a demo" /> <span aria-hidden="true">↗</span>{newTab}</a>
-                  <a className="tt-link" href="/firms">See how firms use it <span aria-hidden="true">→</span></a>
+                  <a href={ACCESS_HREF.en} className="hw-btn hw-btn--navy m-cta m-magnetic"><SwapLabel text="Request access" /> <span aria-hidden="true">→</span></a>
+                  <a className="tt-link" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
                 </div>
               </article>
             </div>
+            <p className="tt-invite m-enter-block">{KEY_LINE.en} <a className="hw-link hw-link--ruled" href="/check">Meanwhile, check your books free <span aria-hidden="true">→</span></a></p>
           </div>
         </section>
 

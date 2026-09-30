@@ -7,6 +7,9 @@
    finance teams, For firms), Trust joins the bar, and "Book a demo"
    replaces "Let's talk" as the main button. It opens the team's
    Calendly in a new tab (lib/demo.ts).
+   Owner 2026-09-30 (invite-only): the main button is "Request access"
+   (/access or /ar/access); "Book a demo" stays beside it on wide
+   screens and sits in the phone menu, next to Request access.
 
    Dropdowns are disclosure buttons (aria-expanded + aria-controls):
    click or tap toggles, Enter and Space work because it is a real
@@ -18,6 +21,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "../Wordmark";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { ACCESS_HREF, ACCESS_LABEL } from "@/lib/access";
 import { OpenPoints } from "./tt/OpenPoints";
 
 type Link = readonly [string, string];
@@ -64,7 +68,7 @@ const T = {
 
 /* The other language's twin of the current path. Pages without a twin
    fall back to that language's homepage. */
-const AR_PAGES = new Set(["/about", "/accounting", "/compliance", "/contact", "/faq", "/firms", "/guides", "/how-it-works", "/integrations", "/invoice", "/pricing", "/tools", "/trust"]);
+const AR_PAGES = new Set(["/about", "/access", "/accounting", "/compliance", "/contact", "/faq", "/firms", "/guides", "/how-it-works", "/integrations", "/invoice", "/pricing", "/tools", "/trust"]);
 function twinOf(path: string, locale: Locale): string {
   if (locale === "ar") return path === "/ar" ? "/" : path.startsWith("/ar/") ? path.slice(3) : "/";
   let p = path;
@@ -158,7 +162,8 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
             {isAr ? <span className="hy-ar" aria-current="true" lang="ar">ع</span> : <a href={twin} className="hy-ar" lang="ar" aria-label="العربية">ع</a>}
           </span>
           <a href="https://app.hysaab.ai" className="hw-signin">{t.signin}</a>
-          <a {...DEMO} className="hw-nav-cta m-magnetic" onClick={close}>{t.demo} <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB[locale]}</span></a>
+          <a {...DEMO} className="hw-nav-demo" onClick={close}>{t.demo} <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB[locale]}</span></a>
+          <a href={ACCESS_HREF[locale]} className="hw-nav-cta m-magnetic" aria-current={current(ACCESS_HREF[locale])} onClick={close}>{ACCESS_LABEL[locale]} <span aria-hidden="true">{isAr ? "←" : "→"}</span></a>
           <button ref={btn} type="button" className="hw-menu-btn" aria-expanded={open} aria-controls="hw-menu" onClick={() => setOpen((o) => !o)}>
             {open ? t.close : t.menu}
           </button>
@@ -175,6 +180,9 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
             )
             : <a key={item.label} href={item.href} onClick={close} aria-current={current(item.href)}>{item.label}</a>,
         )}
+        <span className="hw-menu-rule" aria-hidden="true" />
+        <a href={ACCESS_HREF[locale]} className="hw-menu-access" onClick={close} aria-current={current(ACCESS_HREF[locale])}>{ACCESS_LABEL[locale]} <span aria-hidden="true">{isAr ? "←" : "→"}</span></a>
+        <a {...DEMO} onClick={close}>{t.demo} <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB[locale]}</span></a>
         <span className="hw-menu-rule" aria-hidden="true" />
         {MORE[locale].map(([href, label]) => <a key={href} href={href} onClick={close}>{label}</a>)}
         <a href="https://app.hysaab.ai" onClick={close}>{t.signin}</a>
