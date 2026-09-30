@@ -302,6 +302,21 @@ ${TEXT_FOOT}`,
 
 const monoRef = (ref: string) => `<span style="font-family:'Courier New',Courier,monospace;font-size:18px;font-weight:700;color:#111418;letter-spacing:0.04em;" dir="ltr">${esc(ref)}</span>`;
 
+/* Section heading and numbered points for the longer welcome. Tables, not
+   <ol>, so Outlook keeps the layout; the number column flips for Arabic. */
+function h2(text: string): string {
+  return `<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:700;color:#111418;letter-spacing:-0.01em;line-height:1.3;margin:26px 0 10px 0;">${text}</h2>`;
+}
+
+function points(items: [string, string][], dir: "ltr" | "rtl" = "ltr"): string {
+  const pad = dir === "rtl" ? "padding:0 0 0 12px;" : "padding:0 12px 0 0;";
+  const rows = items.map(([lead, body], i) => `<tr>
+      <td valign="top" style="${pad}width:28px;font-family:'Courier New',Courier,monospace;font-size:13px;font-weight:700;color:#B32720;line-height:1.7;">0${i + 1}</td>
+      <td valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#4E545D;line-height:1.7;padding-bottom:12px;"><strong style="color:#111418;">${lead}</strong> ${body}</td>
+    </tr>`).join("");
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" dir="${dir}" style="margin:4px 0 8px 0;">${rows}</table>`;
+}
+
 export function requestReceivedEmail(input: { ref: string | null; name?: string; locale?: "en" | "ar" }) {
   const first = (input.name ?? "").trim().split(/\s+/)[0] || "";
   const ref = input.ref;
@@ -310,17 +325,34 @@ export function requestReceivedEmail(input: { ref: string | null; name?: string;
     // "نقلة نوعية" (a step change), not "ثورة": the literal word for
     // revolution reads as political in the Gulf. AR-REVIEW.
     const hello = "مرحبًا بك في نقلة نوعية في عالم المحاسبة والمالية والاستشارات.";
-    const thanks = first ? `شكرًا لك يا ${esc(first)}. وصلنا طلبك.` : "شكرًا لك. وصلنا طلبك.";
+    const thanks = first ? `شكرًا لك يا ${esc(first)}. وصلنا طلبك وحجزنا مكانك في الدور.` : "شكرًا لك. وصلنا طلبك وحجزنا مكانك في الدور.";
+    const why = "تقضي معظم فرق المالية الشهر في التحضير: تصنيف المعاملات، وملاحقة الإيصالات، ومطابقة كشوف البنك، وإعادة بناء الجداول نفسها عند كل إقفال. أما العمل الذي يحتاج إلى حكمتك، أي المشورة التي يدفع عملاؤك أو شركتك مقابلها، فيُضغط في الأيام الأخيرة من الشهر.";
+    const items: [string, string][] = [
+      ["دفاتر تواكب عملك.", "تصل الإيصالات والفواتير عبر واتساب أو البريد أو الرفع المباشر. يقرؤها الوكلاء ويصنّفونها ويطابقونها مع حركة البنك فور وصولها، لا في نهاية الشهر."],
+      ["إقفال بلا ضغط.", "تُعَدّ المطابقات والاستحقاقات والقيود وتُراجَع مسبقًا، فتراجع أنت إقفالًا جاهزًا بدل أن تبنيه من الصفر."],
+      ["فحص ضريبي قبل التقديم.", "تُختبر كل فاتورة وفق قواعد الهيئة الاتحادية للضرائب لضريبة القيمة المضافة، وتُتابَع ضريبة الشركات شهرًا بشهر، فتظهر المشكلات وإصلاحها ما زال سهلًا."],
+      ["متابعة الإيصالات والتحصيل عنك.", "تُتابَع الإيصالات الناقصة والفواتير المتأخرة بلباقة، وكل ما يحتاج إلى قرار يصل إليك."],
+    ];
+    const charge = "لا يُرحَّل شيء إلى دفترك قبل موافقتك. بيانات كل شركة في مساحة عمل منفصلة خاصة بها، لا نشاركها مع أحد، ولا تُستخدم أبدًا لتدريب نماذج الذكاء الاصطناعي.";
+    const next = "يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.";
+    const meantime = "فحص الدفاتر المجاني متاح للجميع. نظرة للقراءة فقط على دفاترك في Xero أو QuickBooks، ترى فيها ما يجده Hysaab، دون أن يُكتب شيء في دفترك.";
     return {
       subject: ref ? `مرحبًا بك في Hysaab · المرجع ${ref}` : "مرحبًا بك في Hysaab",
       html: wrap(
         ref ? `مرحبًا بك في Hysaab. المرجع ${ref}.` : "مرحبًا بك في Hysaab.",
         `${kicker("بالدعوة")}
         ${h1(hello)}
-        ${p(`${thanks} وكلاء Hysaab يعدّون العمل من التصنيف والمطابقات إلى الإقفال والفحوص الضريبية، وأنت تتخذ القرار.`)}
+        ${p(thanks)}
         ${ref ? infobox("مرجعك", monoRef(ref)) : ""}
-        ${p("يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.")}
-        ${p('<strong style="color:#111418;">وإلى ذلك الحين:</strong> فحص الدفاتر المجاني متاح للجميع. نظرة للقراءة فقط على دفاترك في Xero أو QuickBooks، ترى فيها ما يجده Hysaab، دون أن يُكتب شيء في دفترك.', 8)}
+        ${h2("لماذا بنينا Hysaab")}
+        ${p(why)}
+        ${h2("ما يفعله Hysaab لك")}
+        ${points(items, "rtl")}
+        ${h2("القرار يبقى لك")}
+        ${p(charge)}
+        ${h2("الخطوة التالية")}
+        ${p(next)}
+        ${p(`<strong style="color:#111418;">وإلى ذلك الحين:</strong> ${meantime}`, 8)}
         ${cta(`${SITE}/check`, "افحص دفاترك مجانًا &larr;")}
         ${p(`تريد أن تبدأ أسرع؟ <a href="${DEMO_URL}" style="color:#111418;font-weight:700;">احجز عرضًا تجريبيًا مدته 20 دقيقة</a> ونمرّ معك على دفاترك.`)}
         ${p("لديك سؤال؟ رُدّ على هذه الرسالة: البريد نفسه، والفريق نفسه.", 20)}
@@ -328,13 +360,23 @@ export function requestReceivedEmail(input: { ref: string | null; name?: string;
         "تصلك هذه الرسالة لأنك طلبت الانضمام إلى Hysaab على hysaab.ai.",
         "ar",
       ),
-      text: `مرحبًا بك في نقلة نوعية في عالم المحاسبة والمالية والاستشارات.
+      text: `${hello}
 
-${first ? `شكرًا لك يا ${first}.` : "شكرًا لك."} وصلنا طلبك. وكلاء Hysaab يعدّون العمل من التصنيف والمطابقات إلى الإقفال والفحوص الضريبية، وأنت تتخذ القرار.
+${first ? `شكرًا لك يا ${first}.` : "شكرًا لك."} وصلنا طلبك وحجزنا مكانك في الدور.
 ${ref ? `\nمرجعك: ${ref}\n` : ""}
-يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها. وحين يحين دور طلبك نرسل دعوة إلى هذا العنوان.
+لماذا بنينا Hysaab
+${why}
 
-وإلى ذلك الحين: فحص الدفاتر المجاني متاح للجميع: ${SITE}/check
+ما يفعله Hysaab لك
+${items.map(([a, b], i) => `0${i + 1} ${a} ${b}`).join("\n")}
+
+القرار يبقى لك
+${charge}
+
+الخطوة التالية
+${next}
+
+وإلى ذلك الحين: ${meantime} ${SITE}/check
 
 تريد أن تبدأ أسرع؟ احجز عرضًا تجريبيًا مدته 20 دقيقة: ${DEMO_URL}
 
@@ -346,32 +388,61 @@ hysaab.ai · ${INFO}`,
     };
   }
   // The welcome (owner, 2026-09-30): "A revolution in the world of
-  // accounting, finance and advisory."
+  // accounting, finance and advisory", then what Hysaab is for and how it
+  // helps (owner: "a little more explanation of what we aim to do").
+  // Every claim here is one the site already makes (trust, how-it-works).
   const hello = "Welcome to a revolution in accounting, finance and advisory.";
-  const thanks = first ? `Thank you, ${esc(first)}. Your request is in.` : "Thank you. Your request is in.";
+  const thanks = first ? `Thank you, ${esc(first)}. Your request is in and your place in the queue is saved.` : "Thank you. Your request is in and your place in the queue is saved.";
+  const why = "Most finance teams spend the month on preparation: coding transactions, chasing receipts, matching bank lines and rebuilding the same schedules for every close. The judgement work, the advice your business or your clients actually value, gets squeezed into the last few days.";
+  const items: [string, string][] = [
+    ["Books that keep up.", "Receipts and invoices arrive by WhatsApp, email or upload. Agents read them, code them and match them to the bank line as they come in, not at month end."],
+    ["A close without the scramble.", "Reconciliations, accruals and journals are prepared and checked in advance, so you review a close that is ready instead of building one from scratch."],
+    ["Tax checked before it is filed.", "Every invoice is tested against the FTA's VAT rules and Corporate Tax is tracked month by month, so problems surface while they are still easy to fix."],
+    ["Receipts and cash chased for you.", "Missing receipts and overdue invoices are followed up politely, and anything that needs a decision comes to you."],
+  ];
+  const charge = "Nothing posts to your ledger until you approve it. Each company's data sits in its own separate workspace, is never shared, and is never used to train AI models.";
+  const next = "Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.";
+  const meantime = "the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books: what Hysaab finds, with nothing written to your ledger.";
   return {
     subject: ref ? `Welcome to Hysaab · Ref ${ref}` : "Welcome to Hysaab",
     html: wrap(
       ref ? `Welcome to Hysaab. Your reference is ${ref}.` : "Welcome to Hysaab.",
       `${kicker("By invitation")}
       ${h1(hello)}
-      ${p(`${thanks} Hysaab's AI agents prepare the work, the coding, the reconciliations, the close and the tax checks, and people like you make the call.`)}
+      ${p(thanks)}
       ${ref ? infobox("Your reference", monoRef(ref)) : ""}
-      ${p("Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.")}
-      ${p('<strong style="color:#111418;">In the meantime:</strong> the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books: what Hysaab finds, with nothing written to your ledger.', 8)}
+      ${h2("Why we built Hysaab")}
+      ${p(why)}
+      ${h2("What Hysaab does about it")}
+      ${points(items)}
+      ${h2("You stay in charge")}
+      ${p(charge)}
+      ${h2("What happens next")}
+      ${p(next)}
+      ${p(`<strong style="color:#111418;">In the meantime:</strong> ${meantime}`, 8)}
       ${cta(`${SITE}/check`, "Check your books free &rarr;")}
       ${p(`Want to move faster? <a href="${DEMO_URL}" style="color:#111418;font-weight:700;">Book a 20-minute demo</a> and we will walk your books through it with you.`)}
       ${p("Questions? Reply to this email: same inbox, same humans.", 20)}
       ${signoff("Speak soon.")}`,
       "You are receiving this because you requested access to Hysaab at hysaab.ai.",
     ),
-    text: `Welcome to a revolution in accounting, finance and advisory.
+    text: `${hello}
 
-${first ? `Thank you, ${first}.` : "Thank you."} Your request is in. Hysaab's AI agents prepare the work, the coding, the reconciliations, the close and the tax checks, and people like you make the call.
+${first ? `Thank you, ${first}.` : "Thank you."} Your request is in and your place in the queue is saved.
 ${ref ? `\nYour reference: ${ref}\n` : ""}
-Hysaab is opening by invitation. Requests are admitted in the order they arrive; when yours comes up we'll send an invitation to this address.
+WHY WE BUILT HYSAAB
+${why}
 
-In the meantime: the free Books Check is open to anyone. It is a read-only look at your own Xero or QuickBooks books, with nothing written to your ledger: ${SITE}/check
+WHAT HYSAAB DOES ABOUT IT
+${items.map(([a, b], i) => `0${i + 1} ${a} ${b}`).join("\n")}
+
+YOU STAY IN CHARGE
+${charge}
+
+WHAT HAPPENS NEXT
+${next}
+
+In the meantime: ${meantime} ${SITE}/check
 
 Want to move faster? Book a 20-minute demo: ${DEMO_URL}
 
