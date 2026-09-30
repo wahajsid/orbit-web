@@ -268,3 +268,22 @@ html.m-ready [data-play]:not(.is-in):not(.is-seen) .tt-circle path { stroke-dash
   .tt-hl, .tt-circle path { transition: none; }
 }
 .tt-more .tt-link, .tt-clients .tt-link { color: var(--hw-ink); }
+
+/* ── /pricing: self-serve volume bands (components/hysaab/PriceBands.tsx) ── */
+.tt-bands { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 72px); align-items: start; margin-top: clamp(48px, 6vw, 72px); padding-top: 28px; border-top: 1px solid var(--hw-hairline); }
+.tt-bands-head h3 { font: 800 clamp(24px, 2.4vw, 32px)/1.1 var(--hw-serif); letter-spacing: -0.02em; margin-top: 10px !important; }
+.tt-bands-head p:not(.hw-eyebrow) { color: var(--hw-supporting); margin-top: 14px !important; max-width: 52ch; font-size: 15.5px; line-height: 1.65; }
+.tt-bands-t table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--hw-ink); font-size: 15.5px; }
+.tt-bands-t th, .tt-bands-t td { text-align: start; padding: 13px 0; padding-inline-end: 16px; border-bottom: 1px solid var(--hw-hairline); font-weight: 400; }
+.tt-bands-t thead th { font: 600 11.5px/1.4 var(--hw-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--hw-supporting); border-bottom-color: var(--hw-ink); }
+.tt-bands-t tbody th bdi { font-family: var(--hw-mono); }
+.tt-bands-t td { text-align: end; padding-inline-end: 0; }
+.tt-bands-t thead th:last-child { text-align: end; padding-inline-end: 0; }
+.tt-bands-n { font: 600 20px/1 var(--hw-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.tt-bands-ast { color: var(--hw-red); margin-inline-start: 2px; }
+.tt-bands-m { color: var(--hw-supporting); font-weight: 600; }
+.tt-bands-note { margin-top: 12px !important; font-size: 13.5px; line-height: 1.6; color: var(--hw-supporting); }
+html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--sans); font-size: 12.5px; }
+@media (max-width: 860px) { .tt-bands { grid-template-columns: 1fr; } }
+.hw-plan-price .tt-ast { color: var(--hw-red); font-size: 0.55em; vertical-align: super; line-height: 0; margin-inline-start: 2px; text-decoration: none !important; }
+.hw-plans .is-featured .hw-plan-price .tt-ast { color: var(--signal-red); }

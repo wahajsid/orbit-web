@@ -3,18 +3,21 @@
    2026-09-23: three cards (self-serve from USD 199 a month, a managed
    service scoped to your books, and firms: a setup fee plus a monthly
    subscription); every card books a demo on the team's Calendly.
+   Indicative volume bands (owner, 2026-09-30) under the cards:
+   lib/pricing.ts, components/hysaab/PriceBands.tsx.
    AR-REVIEW: the strings marked below are new drafts. */
 
 import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { PriceBands } from "@/components/hysaab/PriceBands";
 
 /* AR-REVIEW: title and description */
 export const metadata = {
   title: "أسعار Hysaab: خدمة ذاتية من 199 دولارًا، ومُدارة، وللمكاتب",
   description:
-    "فحص دفاتر مجاني للقراءة فقط، ثم الخدمة الذاتية من 199 دولارًا شهريًا لما يصل إلى 100 معاملة. خدمة مُدارة تُسعَّر وفق نطاق دفاترك للفرق الأكبر. وHysaab Practice وHysaab Audit للمكاتب: رسوم إعداد واشتراك شهري.",
+    "فحص دفاتر مجاني للقراءة فقط، ثم الخدمة الذاتية من 199 دولارًا شهريًا لما يصل إلى 100 معاملة، مع شرائح استرشادية لما يزيد على ذلك. خدمة مُدارة تُسعَّر وفق نطاق دفاترك للفرق الأكبر. وHysaab Practice وHysaab Audit للمكاتب: رسوم إعداد واشتراك شهري.",
   alternates: langAlternates("/pricing"),
 };
 
@@ -65,12 +68,13 @@ const TIERS: Tier[] = [
 ];
 
 const SCOPED = [
-  ["المعاملات", "تبدأ الخدمة الذاتية من 199 دولارًا شهريًا لما يصل إلى 100 معاملة. والأحجام الأعلى تُسعَّر حسب الشريحة، والمجموعات أو أحجام المستندات الكبيرة تُدرج ضمن نطاق رسوم الخدمة المُدارة."],
+  /* AR-REVIEW: transactions and overages rows (volume bands, 2026-09-30) */
+  ["المعاملات", "المعاملة هي كل فاتورة مورّد، وكل فاتورة مبيعات، وكل سطر في كشف الحساب البنكي يعالجه Hysaab خلال الشهر. تبدأ الخدمة الذاتية من 199* دولارًا شهريًا لما يصل إلى 100 معاملة؛ ثم 399* دولارًا حتى 250، و649* دولارًا حتى 500، و999* دولارًا حتى 1,000. وما يزيد على 1,000، أو دفاتر المجموعات، فهو عمل الخدمة المُدارة ويُحدَّد نطاقه. *أسعار استرشادية، نؤكدها كتابةً قبل أن تبدأ."],
   ["فحص الدفاتر المجاني", "نظرة للقراءة فقط على دفاترك في Xero أو QuickBooks: ما يجده Hysaab، دون أن يُكتب شيء في دفتر الأستاذ. وهو مجاني. تبدأ الرسوم حين يعمل Hysaab في نظامك المحاسبي بدوام كامل."],
   ["الكيانات", "تغطي الخدمة الذاتية شركة واحدة على نظام محاسبي واحد متصل. أما المجموعات والكيانات المتعددة فهي من عمل الخدمة المُدارة وتُسعَّر بحسب النطاق."],
   ["الإعداد الأولي", "ربط الدفاتر والاتفاق على قواعد الاعتماد يتمّان قبل الشهر الأول. الإعداد مشمول؛ والوقت الذي يستغرقه يعتمد على حال الدفاتر، ونخبرك به مسبقًا."],
   ["الدعم", "كل عميل يستطيع مراسلة شخص. تضيف الخدمة المُدارة محاسبًا مسمّى ومراجعة شهرية؛ ودعم الخدمة الذاتية بالبريد في ساعات العمل."],
-  ["التجاوزات", "إذا نما حجم عملك إلى ما يتجاوز ما حُدِّدت الرسوم على أساسه، نخبرك قبل أن يتغير أي شيء. لا رسوم تجاوز صامتة."],
+  ["التجاوزات", "إذا تجاوز شهرٌ شريحتك، يواصل Hysaab العمل: لا تتوقف الدفاتر في منتصف الشهر. وتُطبَّق الشريحة التالية من الشهر الذي يليه، ونخبرك قبل ذلك. لا رسوم تجاوز صامتة."],
   ["ضريبة القيمة المضافة على الرسوم", "تذكر عروض الأسعار الرسوم وما إذا كانت ضريبة القيمة المضافة تنطبق عليها، فيكون الرقم الذي توافق عليه هو الرقم الذي تدفعه."],
 ];
 
@@ -103,7 +107,7 @@ export default function PricingPage() {
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
                 {t.price
-                  ? <p className="hw-plan-price"><small>من</small> <span dir="ltr">USD <DigitRoll value={t.price} delay={200} /></span><small>شهريًا</small></p>
+                  ? <p className="hw-plan-price"><small>من</small> <span dir="ltr">USD <DigitRoll value={t.price} delay={200} /><a className="tt-ast" href="#bands" aria-label="سعر استرشادي: انظر الملاحظة أسفل شرائح الحجم">*</a></span><small>شهريًا</small></p>
                   : <p className="hw-plan-price hw-plan-price--text">{t.priceText}</p>}
                 <p>{t.who}</p>
                 <ul className="hw-ticks">
@@ -115,6 +119,8 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
+
+          <PriceBands locale="ar" />
 
           <div className="hw-note">
             <span className="hw-mono">قبل أن نبدأ</span>

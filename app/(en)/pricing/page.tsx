@@ -2,7 +2,8 @@
    Website change plan 2026-09-23: three cards. Self-serve "From USD 199
    a month" for up to 100 transactions (owner, 2026-09-30), charged once
    Hysaab works in the accounting system full time; the free, read-only
-   Books Check is the way in, not a tier. The managed service "Scoped to your books" (no published
+   Books Check is the way in, not a tier. Indicative volume bands
+   (owner, 2026-09-30) sit under the cards: lib/pricing.ts, PriceBands. The managed service "Scoped to your books" (no published
    price); and a card for firms (Hysaab Practice and Hysaab Audit: a
    setup fee plus a monthly subscription). Every card books a demo on
    the team's Calendly. The scoping rows are unchanged: the figures that
@@ -13,11 +14,12 @@ import { DigitRoll } from "@/components/motion/Kinetic";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
+import { PriceBands } from "@/components/hysaab/PriceBands";
 
 export const metadata = {
   title: "Hysaab Pricing: Self-serve from USD 199, Managed and Firms",
   description:
-    "A free, read-only Books Check, then self-serve from USD 199 a month for up to 100 transactions. A managed service scoped to your books for larger teams. Hysaab Practice and Hysaab Audit for firms: a setup fee plus a monthly subscription.",
+    "A free, read-only Books Check, then self-serve from USD 199 a month for up to 100 transactions, with indicative bands above that. A managed service scoped to your books for larger teams. Hysaab Practice and Hysaab Audit for firms: a setup fee plus a monthly subscription.",
   alternates: langAlternates("/pricing"),
 };
 
@@ -67,12 +69,12 @@ const TIERS: Tier[] = [
 ];
 
 const SCOPED = [
-  ["Transactions", "Self-serve starts at USD 199 a month for up to 100 transactions. Higher volumes are priced by band, and a group or heavy document volume is scoped into the managed fee."],
+  ["Transactions", "A transaction is each supplier bill, each sales invoice and each bank statement line Hysaab processes in the month. Self-serve starts at USD 199* a month for up to 100 transactions; then USD 399* up to 250, USD 649* up to 500 and USD 999* up to 1,000. Above 1,000, or for a group, the work is the managed service, scoped. *Indicative prices, confirmed in writing before you start."],
   ["The free Books Check", "A read-only look at your own Xero or QuickBooks: what Hysaab finds, with nothing written to your ledger. It is free. The fee starts when Hysaab works in your accounting system full time."],
   ["Entities", "Self-serve covers one company on one connected accounting system. Groups and multiple entities are managed-service work and are priced per scope."],
   ["Onboarding", "Connecting the books and agreeing the approval rules happens before the first month. It is included; the time it takes depends on the state of the books, and we tell you upfront."],
   ["Support", "Every customer can write to a person. The managed service adds a named accountant and a monthly review; self-serve support is by email in working hours."],
-  ["Overages", "If your volume grows past what the fee was sized for, we tell you before anything changes. There are no silent overage charges."],
+  ["Overages", "If a month runs past your band, Hysaab keeps working: the books never stop mid-month. The next band applies from the following month, and we tell you before it does. There are no silent overage charges."],
   ["VAT on the fee", "Quotes state the fee and whether VAT applies to it, so the number you approve is the number you pay."],
 ];
 
@@ -106,7 +108,7 @@ export default function PricingPage() {
                 <p className="hw-eyebrow">{t.mode}</p>
                 <h3>{t.name}</h3>
                 {t.price
-                  ? <p className="hw-plan-price"><small>From</small> USD <DigitRoll value={t.price} delay={200} /><small>a month</small></p>
+                  ? <p className="hw-plan-price"><small>From</small> USD <DigitRoll value={t.price} delay={200} /><a className="tt-ast" href="#bands" aria-label="Indicative price: see the note under the volume bands">*</a><small>a month</small></p>
                   : <p className="hw-plan-price hw-plan-price--text">{t.priceText}</p>}
                 <p>{t.who}</p>
                 <ul className="hw-ticks">
@@ -118,6 +120,8 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
+
+          <PriceBands />
 
           <div className="hw-note">
             <span className="hw-mono">Before we start</span>

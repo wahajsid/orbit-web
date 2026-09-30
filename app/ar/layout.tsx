@@ -8,6 +8,7 @@ import "../wire.css";
 import "../home.css";
 import "../hysaab-home.css";
 import "../motion.css";
+import "../tick-tie.css";
 
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
 // Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
