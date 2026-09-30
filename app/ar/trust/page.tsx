@@ -73,7 +73,7 @@ export default function TrustPage() {
               </article>
             ))}
           </div>
-          <div className="hw-note" style={{ borderColor: "#536477" }}>
+          <div className="hw-note">
             <span className="hw-mono">ما هذه الالتزامات</span>
             <p>هذه التزامات نقطعها لكل عميل، وليست شهادة من طرف ثالث. اسألنا عن التفاصيل وراء أيٍّ منها.</p>
           </div>

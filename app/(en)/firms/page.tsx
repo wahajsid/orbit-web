@@ -80,7 +80,7 @@ export default function PracticePage() {
       <PageHero
         eyebrow="For tax and advisory firms"
         title={<>Hysaab Practice.<br /><span>AI agents for tax and advisory firms.</span></>}
-        lede={<>Agents run the tax work: hundreds of VAT and CT checks, treatments drawn from your own precedents and a red-team review before anything is filed. Your partners make the calls. <a href="/audit" style={{ color: "var(--hw-blush)" }}>Hysaab Audit</a> runs the ISA file alongside it.</>}
+        lede={<>Agents run the tax work: hundreds of VAT and CT checks, treatments drawn from your own precedents and a red-team review before anything is filed. Your partners make the calls. <a href="/audit">Hysaab Audit</a> runs the ISA file alongside it.</>}
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
         <a className="hw-link hw-link--light" href="#day">Watch a day in the firm</a>
@@ -185,7 +185,7 @@ export default function PracticePage() {
               <p>Audit records belong to the firm; the client grants read access for a fixed, revocable window. Testing runs on a hashed snapshot, never the live ledger. Hysaab never signs an opinion.</p>
             </article>
           </div>
-          <div className="hw-note" style={{ borderColor: "#3e6356" }}>
+          <div className="hw-note">
             <span className="hw-mono">Explore further</span>
             <p><a href="/audit">See Hysaab Audit, screen by screen <span aria-hidden="true">→</span></a></p>
           </div>

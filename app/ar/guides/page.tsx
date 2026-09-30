@@ -27,7 +27,7 @@ export default function GuidesPage() {
               const ar = getArGuide(g.slug);
               return (
                 <a key={g.slug} href={ar ? `/ar/guides/${g.slug}` : `/guides/${g.slug}`}>
-                  <div>
+                  <div {...(ar ? {} : { lang: "en", dir: "ltr", className: "hw-index-en" })}>
                     <h3>{(ar ?? g).title}</h3>
                     <p>{(ar ?? g).description}</p>
                   </div>

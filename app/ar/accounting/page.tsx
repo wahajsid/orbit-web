@@ -182,9 +182,7 @@ export default function AccountingPage() {
             </div>
             <p>سبعون ثانية من عمل الوكلاء، أدناه. و<a href="/ar/how-it-works">الجولة الكاملة</a> تمتد من وصول المستند إلى فترة مقفلة.</p>
           </div>
-          <div dir="ltr">
-            <Terminal />
-          </div>
+          <Terminal locale="ar" />
           {/* AR-REVIEW: what the agents send, and the trust ladder (2026-09-24);
               strings in components/home/AgentsAct.tsx and TrustLadder.tsx */}
           <AgentsAct locale="ar" />

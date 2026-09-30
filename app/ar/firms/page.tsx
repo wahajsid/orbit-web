@@ -2,13 +2,15 @@
    Arabic twin of app/(en)/firms/page.tsx, rebuilt 2026-09-23 (website
    change plan). Same order: the tax work first, the nine areas of three,
    Hysaab Audit, how the AI is allowed to work, the five questions firms
-   ask (DRAFT: owner review, lib/trust.ts) and why we built it. The two
-   English-only interactive pieces (the day in the firm and the savings
-   calculator) stay on the English page.
+   ask (DRAFT: owner review, lib/trust.ts) and why we built it, with the
+   day in the firm (ServicesDay) and the savings calculator (SavingsCalc)
+   in Arabic, as on the English page.
    AR-REVIEW: every Arabic string on this page is a new draft for the
    native reviewer (brand/AR-REVIEW.md). */
 
 import { PageShell, PageHero } from "@/components/home/PageShell";
+import { ServicesDay } from "@/components/hysaab/ServicesDay";
+import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
 import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 import { FIRM_QUESTIONS } from "@/lib/trust";
@@ -80,10 +82,10 @@ export default function PracticePage() {
         locale="ar"
         eyebrow="لمكاتب الضرائب والاستشارات"
         title={<>Hysaab Practice.<br /><span>وكلاء ذكاء اصطناعي لمكاتب الضرائب والاستشارات.</span></>}
-        lede={<>يتولى الوكلاء العمل الضريبي: مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات، ومعالجات مستمدة من سوابق مكتبك، ومراجعة نقدية قبل تقديم أي شيء. والقرار لشركائك. ويعمل <a href="/audit" style={{ color: "var(--hw-blush)" }}>Hysaab Audit</a> على ملف التدقيق بجانبه.</>}
+        lede={<>يتولى الوكلاء العمل الضريبي: مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات، ومعالجات مستمدة من سوابق مكتبك، ومراجعة نقدية قبل تقديم أي شيء. والقرار لشركائك. ويعمل <a href="/audit">Hysaab Audit</a> على ملف التدقيق بجانبه.</>}
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
-        <a className="hw-link hw-link--light" href="#tax-work">ابدأ بالعمل الضريبي</a>
+        <a className="hw-link hw-link--light" href="#day">شاهد يومًا في المكتب</a>
       </PageHero>
 
       <section id="tax-work">
@@ -100,6 +102,20 @@ export default function PracticePage() {
             <article><span className="hw-mono">02</span><h3>معالجات من سوابق مكتبك.</h3><p>تُقترح المعالجات الضريبية من سوابق المكتب نفسه أولًا، مع إظهار المصدر، فتكون الإجابة هي التي كان مكتبك سيقدّمها.</p></article>
             <article><span className="hw-mono">03</span><h3>مراجعة نقدية قبل الاعتماد.</h3><p>تتحدى مراجعة نقدية الإقرار قبل أن يعتمده الشريك، وتُصاغ شروح الفروقات وخطابات الإحالة للمراجع. والنسخ المقدَّمة دائمة: التصحيحات تحل محلها ولا تكتب فوقها.</p></article>
           </div>
+        </div>
+      </section>
+
+      {/* ── يوم في المكتب (AR-REVIEW) ── */}
+      <section id="day" className="hw-block--rule">
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">يوم في المكتب</p>
+              <h2>يوم ثلاثاء واحد. ست لحظات كانت الأعمال الإدارية تلتهمها.</h2>
+            </div>
+            <p>مكتب وعملاء توضيحيون. اضغط الأزرار في النافذة: لا يُحتسب شيء يقترحه الذكاء الاصطناعي حتى يؤكده شخص.</p>
+          </div>
+          <ServicesDay locale="ar" />
         </div>
       </section>
 
@@ -125,6 +141,20 @@ export default function PracticePage() {
             <span className="hw-mono">ما يحل محله</span>
             <p>أداة إدارة المكتب، والبريد المشترك، وجداول المواعيد، وبوابة المستندات، ونظام إدارة العملاء، وتطبيق التوقيع الإلكتروني، وتطبيق سجلات الوقت، وملف الموارد البشرية.</p>
           </div>
+        </div>
+      </section>
+
+      {/* ── الوقت والتكلفة (AR-REVIEW) ── */}
+      <section>
+        <div className="hw-wrap hw-section">
+          <div className="hw-heading">
+            <div>
+              <p className="hw-eyebrow">الوقت والتكلفة</p>
+              <h2>كم تكلّف الأعمال الإدارية مكتبك.</h2>
+            </div>
+            <p>أدخل فريقك وتكلفة الساعة لديك. كل افتراض معروض على الصفحة، فالرقم رقمك لتناقشه.</p>
+          </div>
+          <SavingsCalc locale="ar" />
         </div>
       </section>
 
@@ -154,7 +184,7 @@ export default function PracticePage() {
               <p>سجلات التدقيق ملك للمكتب؛ ويمنح العميل صلاحية قراءة لفترة محددة قابلة للإلغاء. والاختبار يجري على نسخة ثابتة مجزّأة، لا على الدفتر الحي. ولا يوقّع Hysaab أي رأي أبدًا.</p>
             </article>
           </div>
-          <div className="hw-note" style={{ borderColor: "#3e6356" }}>
+          <div className="hw-note">
             <span className="hw-mono">للمزيد</span>
             <p><a href="/audit">شاهد Hysaab Audit شاشةً بشاشة (بالإنجليزية) <span aria-hidden="true">←</span></a></p>
           </div>
