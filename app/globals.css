@@ -866,7 +866,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
    ══════════════════════════════════════════════════════════════════ */
 
 /* Font pairing: Noto Sans Arabic first; its arabic subset has no Latin
-   glyphs, so HYSAAB / Xero / AED figures fall through to Archivo. */
+   glyphs, so HYSAAB / Xero / AED figures fall through to Hysaab Grotesk.
+   The full Tick & Tie stacks (display, mono) are in app/tick-tie-ar.css. */
 html[lang="ar"] {
   --sans: var(--font-arabic), var(--font-sans), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }

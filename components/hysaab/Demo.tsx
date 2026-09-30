@@ -30,7 +30,8 @@ function Tm({ m }: { m: string }) {
 }
 
 /* Dashed red lines tying the invoice's VAT and total to the journal lines
-   they became. Drawn from the rendered positions; hidden on narrow screens. */
+   they became. Drawn from the rendered positions, in either reading
+   direction; hidden on narrow screens. */
 function useTies(box: React.RefObject<HTMLDivElement>, on: boolean, deps: unknown[]) {
   const [paths, setPaths] = useState<{ d: string; x1: number; y1: number; x2: number; y2: number }[]>([]);
   const [size, setSize] = useState<[number, number]>([0, 0]);
@@ -46,9 +47,13 @@ function useTies(box: React.RefObject<HTMLDivElement>, on: boolean, deps: unknow
         const to = dst?.closest<HTMLElement>(".hy-entry");
         if (!dst || !from || !to) return;
         const a = src.getBoundingClientRect(), c = dst.getBoundingClientRect();
-        const x1 = from.getBoundingClientRect().right - b.left + 3, y1 = a.top + a.height / 2 - b.top;
-        const x2 = to.getBoundingClientRect().left - b.left - 3, y2 = c.top + c.height / 2 - b.top;
-        if (x2 <= x1 + 8) return;
+        /* Right to left, the invoice sits on the right and the entry on
+           its left, so the line leaves the invoice's left edge. */
+        const rtl = getComputedStyle(el).direction === "rtl";
+        const f = from.getBoundingClientRect(), g = to.getBoundingClientRect();
+        const x1 = (rtl ? f.left - 3 : f.right + 3) - b.left, y1 = a.top + a.height / 2 - b.top;
+        const x2 = (rtl ? g.right + 3 : g.left - 3) - b.left, y2 = c.top + c.height / 2 - b.top;
+        if (Math.abs(x2 - x1) <= 8 || (rtl ? x2 > x1 : x2 < x1)) return;
         const mx = (x1 + x2) / 2;
         out.push({ d: `M${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`, x1, y1, x2, y2 });
       });

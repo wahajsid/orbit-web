@@ -54,9 +54,22 @@ Proportions: Paper ~70, Ink ~20, Highlighter ~7, Red ~3. Red never means
 - **Schibsted Grotesk** (400–900): everything people read. Display 900 at −3 to −3.5% tracking.
 - **JetBrains Mono** (400–600): every figure, ID, time and small uppercase label.
 - **Caveat** (700): red review marks and sign-offs only. Never body copy.
-- Arabic: Noto Sans Arabic / Noto Kufi Arabic (Arabic pass pending).
+- Arabic (/ar/*, in place 30 September 2026): **Noto Sans Arabic** for everything
+  people read, **Noto Kufi Arabic** (700–800) for display headings. Both load
+  the arabic subset only with no metric fallback, and sit first in every stack
+  (`--sans`, `--mono`, `--hw-serif` in `app/tick-tie-ar.css`), so Latin words
+  and every figure in an Arabic line fall through to Hysaab Grotesk / Hysaab
+  Mono and read exactly as in English: Western digits, amounts, IDs and sums
+  kept left to right (`<bdi>`). No letter-spacing or uppercase on Arabic.
+  Caveat stays for the Latin marks (✓ T B P ?) only; Arabic hand notes and
+  sign-offs are set in Kufi, still red. Layout mirrors through logical
+  properties; offset shadows, the highlighter sweep, the tick tape and the
+  demo's tie lines run right to left. The homepage and inner pages use the
+  same components as English with Arabic strings (a `locale` prop).
 Loaded with `next/font` in `app/(en)/layout.tsx` and `app/ar/layout.tsx`
-as `--font-sans`, `--font-mono`, `--font-hand`.
+as `--font-sans`, `--font-mono`, `--font-hand` (Hysaab Grotesk and Hysaab Mono
+self-hosted from `app/site-fonts.ts`), plus `--font-arabic` and
+`--font-noto-kufi` in the Arabic layout.
 
 ## Marks with meanings
 | Mark | Meaning |
