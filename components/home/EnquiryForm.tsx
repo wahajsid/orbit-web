@@ -42,6 +42,11 @@ const INTEREST_LABEL: Record<Interest, string> = {
   "Own team": "Hysaab for our existing finance team",
   "Managed support": "Managed accounting support",
 };
+/* Shown on Arabic pages; the email to the team keeps the English label. */
+const INTEREST_LABEL_AR: Record<Interest, string> = {
+  "Own team": "Hysaab لفريقنا المالي الحالي",
+  "Managed support": "دعم محاسبي مُدار",
+};
 
 /** A link to the enquiry section that also preselects the interest. */
 export function InterestLink({ interest, children }: { interest: Interest; children: React.ReactNode }) {
@@ -137,7 +142,7 @@ export function EnquiryForm({ source = "Homepage", locale = "en", demo = false }
       </div>
       {interest && (
         <p className="hw-form-interest">
-          <span>{t.asking} <strong>{INTEREST_LABEL[interest]}</strong></span>
+          <span>{t.asking} <strong>{locale === "ar" ? INTEREST_LABEL_AR[interest] : INTEREST_LABEL[interest]}</strong></span>
           <button type="button" onClick={() => setInterest(null)} aria-label={t.clearLabel}>{t.clear}</button>
         </p>
       )}

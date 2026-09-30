@@ -151,7 +151,7 @@ export function SiteHeader({ home = false, locale = "en" }: { home?: boolean; lo
           )}
         </nav>
         <div className="hw-header-right">
-          {home && !isAr && <OpenPoints />}
+          {home && <OpenPoints locale={locale} />}
           <span className="hw-lang">
             {isAr ? <a href={twin} lang="en" aria-label="English">EN</a> : <span aria-current="true">EN</span>}
             <span aria-hidden="true">·</span>

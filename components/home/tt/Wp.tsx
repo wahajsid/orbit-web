@@ -1,13 +1,16 @@
 /* ── Working-paper strip (Tick & Tie, brand/tick-and-tie/BRAND.md) ────
    Opens each homepage section the way a page opens in an audit file:
-   a reference on the left, who prepared it (or "Illustrative data") on
-   the right. The reference is structure, not decoration: H-1 to H-13
-   follow the page order. */
+   a reference at the start, who prepared it (or "Illustrative data") at
+   the end. The reference is structure, not decoration: H-1 to H-13
+   follow the page order. On Arabic pages the strip reads right to left;
+   the reference itself stays Latin, as it would in the file. */
 
-export function Wp({ r, children, right }: { r: string; children: React.ReactNode; right?: React.ReactNode }) {
+export type Locale = "en" | "ar";
+
+export function Wp({ r, children, right, locale = "en" }: { r: string; children: React.ReactNode; right?: React.ReactNode; locale?: Locale }) {
   return (
     <p className="tt-wp">
-      <span>W/P ref <b>{r}</b> · {children}</span>
+      <span>{locale === "ar" ? "مرجع ورقة العمل" : "W/P ref"} <b><bdi>{r}</bdi></b> · {children}</span>
       {right && <span>{right}</span>}
     </p>
   );

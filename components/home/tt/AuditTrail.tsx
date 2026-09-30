@@ -7,13 +7,28 @@
 
 import { useEffect, useState } from "react";
 import { CHEQUE_EVENT, type ChequeDetail } from "../../hysaab/Demo";
-import { Tm } from "./Wp";
+import { Tm, type Locale } from "./Wp";
 
 export type TrailRow = { t: string; who: string; msg: React.ReactNode; mark?: string; ask?: boolean };
 
-const RESOLVED: Record<"petty" | "ask", string> = { petty: "posted as petty cash", ask: "slip requested from Omar" };
+const T = {
+  en: {
+    cols: ["Time", "Agent", "What it did", "Mark"],
+    point: "Review point · yours", petty: "Post as petty cash", ask: "Ask Omar for the slip",
+    resolved: { petty: "posted as petty cash", ask: "slip requested from Omar" }, by: "L.H.",
+    approved: "Approved by a person", open: "Open: needs a person",
+  },
+  /* AR-REVIEW: the audit trail's furniture (the answers match the demo's). */
+  ar: {
+    cols: ["الوقت", "الوكيل", "ما فعله", "العلامة"],
+    point: "نقطة مراجعة · لك", petty: "ترحيل كنثرية", ask: "اطلب الإيصال من عمر",
+    resolved: { petty: "رُحِّل كنثرية", ask: "طُلب الإيصال من عمر" }, by: "ل.ح.",
+    approved: "اعتمده شخص", open: "مفتوح: يحتاج إلى شخص",
+  },
+};
 
-export function AuditTrail({ rows }: { rows: TrailRow[] }) {
+export function AuditTrail({ rows, locale = "en" }: { rows: TrailRow[]; locale?: Locale }) {
+  const t = T[locale];
   const [chq, setChq] = useState<null | "petty" | "ask">(null);
   useEffect(() => {
     const on = (e: Event) => {
@@ -30,26 +45,26 @@ export function AuditTrail({ rows }: { rows: TrailRow[] }) {
   return (
     <div className="tt-trail">
       <table>
-        <thead><tr><th scope="col">Time</th><th scope="col">Agent</th><th scope="col">What it did</th><th scope="col" className="tt-trail-k">Mark</th></tr></thead>
+        <thead><tr><th scope="col">{t.cols[0]}</th><th scope="col">{t.cols[1]}</th><th scope="col">{t.cols[2]}</th><th scope="col" className="tt-trail-k">{t.cols[3]}</th></tr></thead>
         <tbody>
           {rows.map((r) => (
             <tr key={r.t + r.who} className={r.ask ? "tt-trail-ask" : undefined}>
-              <td className="tt-trail-t">{r.t}</td>
+              <td className="tt-trail-t"><bdi>{r.t}</bdi></td>
               <td className="tt-trail-a">{r.who}</td>
               <td>
                 {r.msg}
                 {r.ask && (chq == null ? (
                   <span className="tt-trail-sign">
-                    <span className="tt-trail-sign-l">Review point · yours</span>
-                    <button type="button" className="hw-btn hw-btn--navy" onClick={() => answer("petty")}>Post as petty cash</button>
-                    <button type="button" className="hw-btn tt-btn-line" onClick={() => answer("ask")}>Ask Omar for the slip</button>
+                    <span className="tt-trail-sign-l">{t.point}</span>
+                    <button type="button" className="hw-btn hw-btn--navy" onClick={() => answer("petty")}>{t.petty}</button>
+                    <button type="button" className="hw-btn tt-btn-line" onClick={() => answer("ask")}>{t.ask}</button>
                   </span>
                 ) : (
-                  <span className="tt-trail-done" role="status">P · {RESOLVED[chq]} · L.H. 06:11</span>
+                  <span className="tt-trail-done" role="status"><span className="tt-trail-done-m">P</span> · {t.resolved[chq]} · {t.by} <bdi>06:11</bdi></span>
                 ))}
               </td>
               <td className="tt-trail-k">
-                {r.ask ? <Tm m={chq ? "P" : "?"} label={chq ? "Approved by a person" : "Open: needs a person"} /> : <Tm m={r.mark ?? "✓"} />}
+                {r.ask ? <Tm m={chq ? "P" : "?"} label={chq ? t.approved : t.open} /> : <Tm m={r.mark ?? "✓"} />}
               </td>
             </tr>
           ))}

@@ -7,8 +7,15 @@
    0 at ALL SQUARE. */
 
 import { useEffect, useState } from "react";
+import type { Locale } from "./Wp";
 
-export function OpenPoints() {
+const T = {
+  en: { l: "Open points", title: "Open review points in September’s close, cleared as you read" },
+  ar: { l: "نقاط مفتوحة", title: "نقاط المراجعة المفتوحة في إقفال سبتمبر، تُغلق كلما قرأت" },
+};
+
+export function OpenPoints({ locale = "en" }: { locale?: Locale }) {
+  const t = T[locale];
   const [n, setN] = useState<number | null>(null);
   useEffect(() => {
     const marks = Array.from(document.querySelectorAll<HTMLElement>("[data-open]"));
@@ -29,8 +36,8 @@ export function OpenPoints() {
   }, []);
   if (n == null) return null;
   return (
-    <span className="tt-openpts" data-zero={n === 0 || undefined} title="Open review points in September’s close, cleared as you read">
-      <span className="tt-openpts-l">Open points</span> <b>{n}</b>
+    <span className="tt-openpts" data-zero={n === 0 || undefined} title={t.title}>
+      <span className="tt-openpts-l">{t.l}</span> <b>{n}</b>
     </span>
   );
 }
