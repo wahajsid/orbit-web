@@ -152,7 +152,7 @@ export default function AccountingPage() {
               <p>Switch entities, consolidate, and turn the whole workspace to Arabic, right to left, down to the numerals.</p>
             </div>
             <div className="hw-shot">
-              <Image src="/shots/adv-arabic.png" width={1600} height={1360} sizes="(max-width: 760px) 100vw, 55vw" alt="The Hysaab workspace in Arabic, right to left, sample data." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
+              <Image src="/shots/adv-arabic.png" width={1600} height={1290} sizes="(max-width: 760px) 100vw, 55vw" alt="The Hysaab workspace in Arabic, right to left, sample data." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
               <p className="hw-shot-cap">The same workspace in Arabic, right to left. Sample data.</p>
             </div>
           </div>

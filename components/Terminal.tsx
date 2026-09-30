@@ -16,7 +16,7 @@ interface Scenario {
   lines: [string, string, string, boolean][];   // [time, agent, rest, brass?]
 }
 
-const SCENARIOS: Scenario[] = [
+const SCENARIOS_EN: Scenario[] = [
   {
     key: "invoice",
     title: ["One invoice,", "start to finish."],
@@ -58,10 +58,55 @@ const SCENARIOS: Scenario[] = [
   },
 ];
 
+/* AR-REVIEW: the three scenarios in Arabic (the feed reads right to
+   left; times, IDs and amounts stay Latin). */
+const SCENARIOS_AR: Scenario[] = [
+  {
+    key: "invoice",
+    title: ["فاتورة واحدة،", "من البداية إلى النهاية."],
+    sub: "تصل صورة عبر واتساب. يقرؤها الوكلاء، ويختبرونها وفق قواعد الهيئة الاتحادية للضرائب، ويطابقونها مع أمر الشراء وسطر البنك، ثم يرحّلونها. وأنت تعتمد ما يهم فقط.",
+    header: "HYSAAB / النشاط",
+    lines: [
+      ["08:14", "الاستلام", "invoice.pdf عبر واتساب", false],
+      ["08:14", "القارئ", "12 سطرًا · طوبق المورّد", false],
+      ["08:15", "الضريبة", "ضريبة مدخلات 5% ✓ قواعد الهيئة", false],
+      ["08:15", "المطابقة", "PO-0092 ⟷ سطر البنك", false],
+      ["08:16", "رُحّل", "← Zoho Books ◉", true],
+    ],
+  },
+  {
+    key: "close",
+    title: ["الإقفال،", "يُقفل نفسه."],
+    sub: "خلال الليل، تجمع الفترة أدلتها بنفسها: استحقاقات مقترحة، وبنك مطابَق، وفروقات مُعلَّمة. وفي الصباح، لا يبقى لك إلا قرارات الحكم المهني.",
+    header: "HYSAAB / نهاية الشهر",
+    lines: [
+      ["21:02", "الاستحقاق", "اقتراح استحقاقين دوريين", false],
+      ["21:04", "المطابقة", "البنك ⟷ الدفتر · 41 سطرًا مطابَقًا", false],
+      ["21:07", "الفروقات", "المرافق +8.2%، مُعلَّمة", false],
+      ["21:09", "الفحوص", "الميزان متوازن ✓ القيمة المضافة ⟷ ضريبة الشركات", false],
+      ["21:10", "جاهز", "الإقفال 92% · موافقتان بانتظارك", true],
+    ],
+  },
+  {
+    key: "collections",
+    title: ["النقد يُلاحَق", "بلباقة."],
+    sub: "الفواتير المتأخرة تتلقى تذكيرًا بنبرتك: يُصاغ، ويخضع لموافقتك، ويُرسل، ثم يُطابَق مع البنك حين يصل المال. والعلاقات سليمة.",
+    header: "HYSAAB / التحصيل",
+    lines: [
+      ["09:00", "الفحص", "3 فواتير متأخرة · 347k درهم", false],
+      ["09:01", "الصياغة", "تذكير بنبرتك ← Corniche LLC", false],
+      ["09:01", "البوابة", "بانتظار موافقتك", false],
+      ["10:12", "أُرسل", "تذكير + كشف حساب مرفق", false],
+      ["+3 أيام", "دُفع", "120,000 درهم ← طوبق مع البنك ◉", true],
+    ],
+  },
+];
+
 const LINE_MS = 700;      // per typed line
 const HOLD_MS = 4200;     // fully-typed dwell before the next scenario
 
-export function Terminal() {
+export function Terminal({ locale = "en" }: { locale?: "en" | "ar" }) {
+  const SCENARIOS = locale === "ar" ? SCENARIOS_AR : SCENARIOS_EN;
   const ref = useRef<HTMLDivElement>(null);
   const [scenario, setScenario] = useState(0);
   const [shown, setShown] = useState(0);
@@ -118,12 +163,12 @@ export function Terminal() {
       <div className="term-panel">
         <div className="term-header">
           <span>{s.header}</span>
-          <span className="term-live">· LIVE</span>
+          <span className="term-live">{locale === "ar" ? "· مباشر" : "· LIVE"}</span>
         </div>
         <div className="term-feed" style={{ minHeight: "11.5em" }}>
           {s.lines.map(([time, agent, rest, brass], i) => (
             <div key={s.key + agent + time} className={`feedline${i < shown ? " on" : ""}`}>
-              <span className="t">{time}</span>{" "}
+              <span className="t"><bdi>{time}</bdi></span>{" "}
               <span className={brass ? "posted" : "agent"}>{agent}</span>{" "}
               {rest}
             </div>

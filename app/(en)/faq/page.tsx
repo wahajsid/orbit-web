@@ -82,7 +82,7 @@ const GROUPS: Group[] = [
       ],
       [
         "What does it cost?",
-        "There are two ways to run Hysaab. A free, read-only Books Check comes first. Self-serve is from USD 199 a month for up to 100 transactions, charged once Hysaab works in your accounting system: your own team reviews, approves and closes, with Hysaab preparing the work. The managed service is scoped to your books: Oblique’s accountants work the exceptions with you and prepare each close, using Hysaab every day. Fees follow the complexity of your books, not the number of people who log in, and are confirmed with you before you start. See hysaab.ai/pricing.",
+        "There are two ways to run Hysaab. A free, read-only Books Check comes first. Self-serve is from USD 199 a month for up to 100 transactions, charged once Hysaab works in your accounting system; indicative bands follow (USD 399 up to 250, USD 649 up to 500, USD 999 up to 1,000 transactions a month, where a transaction is each supplier bill, sales invoice or bank statement line processed), and above 1,000 the work is the managed service. On self-serve, your own team reviews, approves and closes, with Hysaab preparing the work. The managed service is scoped to your books: Oblique’s accountants work the exceptions with you and prepare each close, using Hysaab every day. Fees follow the complexity of your books, not the number of people who log in, and are confirmed with you before you start. See hysaab.ai/pricing.",
       ],
     ],
   },

@@ -194,7 +194,7 @@ export default function CompliancePage() {
             <article><span className="hw-mono">03</span><h3>لا يقرر عنك.</h3><p>الاختبار المخفق يُحجز ويُعلَّم، ولا يُحل نيابة عنك. والتجاوز يحتاج إلى سبب مكتوب، ويُسجَّل السبب مع القيد.</p></article>
           </div>
           {/* AR-REVIEW: the note below links to /ar/trust. */}
-          <div className="hw-note" style={{ borderColor: "#536477" }}>
+          <div className="hw-note">
             <span className="hw-mono">بياناتك</span>
             <p>كيف نرعى بياناتك، وأين نرسم الحدود مع المكاتب المهنية وعملائها، مبيّن في <a href="/ar/trust">صفحة الثقة</a>.</p>
           </div>

@@ -112,7 +112,7 @@ export const MOMENTS: MomentDef[] = [
     alt: "Hysaab Home screen: tiles for cash of AED 1.4m, up 14% on last month, four decisions with two critical, and AED 216k due in 30 days with two bills overdue; below, a chart of June from AED 1.23m at the start, AED 612k in and AED 442k out, to AED 1.4m now.",
     pending: "Workspace capture pending: the Home screen.",
     focus: "f-05-position.png",
-    notice: "Notice the three tiles: cash, what needs you and what falls due, each with its context line.",
+    notice: "Notice the headline that leads with what needs you, the three tiles under it, and June’s cash walked from the start of the month to now.",
   },
 ];
 

@@ -62,7 +62,7 @@ export default function TrustPage() {
               <p className="hw-eyebrow">الجزء الثاني · ضوابط البيانات</p>
               <h2>كيف نرعى بياناتك.<br /><span>للمكاتب والفرق المالية على السواء.</span></h2>
             </div>
-            <p>الالتزامات الخمسة نفسها تسري في Hysaab Finance وHysaab Practice وHysaab Audit.</p>
+            <p>الالتزامات الخمسة نفسها تسري في Hysaab Finance و Hysaab Practice و Hysaab Audit.</p>
           </div>
           <div className="hw-rows">
             {DATA_CONTROLS.ar.map((c, i) => (
@@ -73,7 +73,7 @@ export default function TrustPage() {
               </article>
             ))}
           </div>
-          <div className="hw-note" style={{ borderColor: "#536477" }}>
+          <div className="hw-note">
             <span className="hw-mono">ما هذه الالتزامات</span>
             <p>هذه التزامات نقطعها لكل عميل، وليست شهادة من طرف ثالث. اسألنا عن التفاصيل وراء أيٍّ منها.</p>
           </div>

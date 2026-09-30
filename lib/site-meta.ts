@@ -4,7 +4,9 @@
    and AR root layouts so the entity stays identical across locales.
    Owner 2026-09-23: no parent organisation (Hysaab is a separate
    company), both founders named, and the only published price is the
-   self-serve plan, from USD 199 a month. */
+   self-serve plan, from USD 199 a month, with indicative volume bands
+   (lib/pricing.ts, 2026-09-30). */
+import { BANDS_TEXT, BAND_MAX, fmt } from "./pricing";
 
 export const ORG_LD = {
   "@context": "https://schema.org",
@@ -37,7 +39,7 @@ export const APP_LD = {
   offers: {
     "@type": "Offer",
     name: "Self-serve",
-    description: "Hysaab Finance, self-serve: from USD 199 a month for up to 100 transactions.",
+    description: `Hysaab Finance, self-serve: from USD 199 a month for up to 100 transactions. Indicative volume bands: ${BANDS_TEXT} a month; above ${fmt(BAND_MAX)} transactions, the managed service, scoped. The final fee is confirmed in writing before you start.`,
     price: "199",
     priceCurrency: "USD",
     priceSpecification: { "@type": "UnitPriceSpecification", minPrice: "199", priceCurrency: "USD", unitText: "MONTH" },

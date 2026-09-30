@@ -151,7 +151,7 @@ export default function AccountingPage() {
               <p>تنقّل بين الكيانات، ووحّدها، وحوّل مساحة العمل كلها إلى العربية، من اليمين إلى اليسار.</p>
             </div>
             <div className="hw-shot">
-              <Image src="/shots/adv-arabic.png" width={1600} height={1360} sizes="(max-width: 760px) 100vw, 55vw" alt="مساحة عمل Hysaab بالعربية، من اليمين إلى اليسار. بيانات تجريبية." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
+              <Image src="/shots/adv-arabic.png" width={1600} height={1290} sizes="(max-width: 760px) 100vw, 55vw" alt="مساحة عمل Hysaab بالعربية، من اليمين إلى اليسار. بيانات تجريبية." style={{ width: "100%", height: "auto", border: "1px solid var(--hw-hairline)" }} />
               <p className="hw-shot-cap">مساحة العمل نفسها بالعربية، من اليمين إلى اليسار. بيانات تجريبية.</p>
             </div>
           </div>
@@ -182,9 +182,7 @@ export default function AccountingPage() {
             </div>
             <p>سبعون ثانية من عمل الوكلاء، أدناه. و<a href="/ar/how-it-works">الجولة الكاملة</a> تمتد من وصول المستند إلى فترة مقفلة.</p>
           </div>
-          <div dir="ltr">
-            <Terminal />
-          </div>
+          <Terminal locale="ar" />
           {/* AR-REVIEW: what the agents send, and the trust ladder (2026-09-24);
               strings in components/home/AgentsAct.tsx and TrustLadder.tsx */}
           <AgentsAct locale="ar" />

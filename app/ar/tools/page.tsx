@@ -24,7 +24,7 @@ export default function ToolsPage() {
           <div className="hw-index">
             {TOOLS.map((t) => (
               <a key={t.slug} href={t.arTitle ? `/ar/tools/${t.slug}` : `/tools/${t.slug}`}>
-                <div>
+                <div {...(t.arTitle ? {} : { lang: "en", dir: "ltr", className: "hw-index-en" })}>
                   <h3>{t.arTitle ?? t.title}</h3>
                   <p>{t.arDescription ?? t.description}</p>
                 </div>

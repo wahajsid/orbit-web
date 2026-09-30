@@ -50,7 +50,7 @@ html[dir="rtl"] .tt-hl { background-position: right; }
 .tt-legend li { display: grid; grid-template-columns: 36px 1fr; gap: 6px; padding: 5px 0; align-items: baseline; }
 .tt-legend-foot { margin-top: 14px !important; padding-top: 12px; border-top: 1px solid var(--hw-hairline); color: var(--hw-supporting); font-size: 13.5px; display: flex; gap: 8px; }
 .tt-doors { display: grid; grid-template-columns: 1fr 1fr; margin-top: 56px; border-top: 2px solid var(--hw-ink); }
-.tt-doors article { padding: 24px 28px 0 0; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.tt-doors article { padding-block: 24px 0; padding-inline: 0 28px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .tt-doors article + article { padding-inline-start: 28px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-doors h2 { font: 800 clamp(24px, 2.2vw, 31px)/1.05 var(--hw-serif) !important; letter-spacing: -0.02em; color: var(--hw-ink); }
 .tt-doors p:not(.tt-who) { color: var(--hw-supporting); }
@@ -61,7 +61,10 @@ html[dir="rtl"] .tt-hl { background-position: right; }
 .tt-strip-track { display: flex; width: max-content; animation: tt-tape 130s linear infinite; }
 .tt-strip:hover .tt-strip-track, .tt-strip[data-paused] .tt-strip-track { animation-play-state: paused; }
 @keyframes tt-tape { to { transform: translateX(-50%); } }
-html[dir="rtl"] .tt-strip-track { animation-direction: reverse; }
+/* Right to left the tape runs rightwards from its start, so each phrase
+   enters at the left and the list still reads in order. */
+html[dir="rtl"] .tt-strip-track { animation-name: tt-tape-rtl; }
+@keyframes tt-tape-rtl { to { transform: translateX(50%); } }
 .tt-strip-track > span { padding: 15px 24px; white-space: nowrap; font-size: 15px; display: flex; gap: 10px; align-items: center; }
 .tt-strip-track .tt-tm { color: var(--hw-blush); font-size: 21px; }
 .tt-strip-m { color: var(--hw-blush); font-weight: 700; }
@@ -69,7 +72,7 @@ html[dir="rtl"] .tt-strip-track { animation-direction: reverse; }
 
 /* ── products ── */
 .tt-prods { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--hw-ink); margin-top: 48px; }
-.tt-prods article { padding: 22px 24px 6px 0; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.tt-prods article { padding-block: 22px 6px; padding-inline: 0 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .tt-prods article + article { padding-inline-start: 24px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-prod-st { font: 400 12px/1.5 var(--hw-mono); color: var(--hw-supporting); display: flex; justify-content: space-between; gap: 8px; }
 .tt-prod-st b { background: var(--hw-blush); color: var(--hw-ink); font-weight: 600; padding: 0 5px; white-space: nowrap; }
@@ -173,7 +176,7 @@ html.m-ready [data-play]:not(.is-in):not(.is-seen) .tt-circle path { stroke-dash
 .tt-rn-acts { display: flex; gap: 8px; flex-wrap: wrap; }
 .tt-rn-acts .hw-btn { min-height: 40px; padding: 10px 14px; }
 .tt-pts { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(48px, 6vw, 80px); border-top: 2px solid var(--hw-ink); }
-.tt-pts article { padding: 22px 24px 0 0; min-width: 0; }
+.tt-pts article { padding-block: 22px 0; padding-inline: 0 24px; min-width: 0; }
 .tt-pts article + article { padding-inline-start: 24px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-pts h3 { font-weight: 800; font-size: 18.5px; display: flex; gap: 10px; align-items: baseline; }
 .tt-pts p { color: var(--hw-supporting); margin-top: 8px !important; }
@@ -194,12 +197,12 @@ html.m-ready [data-play]:not(.is-in):not(.is-seen) .tt-circle path { stroke-dash
 .tt-ways h3 { font: 900 clamp(28px, 2.8vw, 38px)/1.05 var(--hw-serif); letter-spacing: -0.03em; }
 .tt-ways p:not(.tt-who) { color: var(--hw-supporting); max-width: 44ch; }
 .tt-ways article > a:last-child { align-self: flex-start; margin-top: auto; }
-.tt-ways .tt-or { font: 700 clamp(46px, 6vw, 72px)/1 var(--hw-hand); color: var(--hw-red); align-self: center; transform: rotate(-6deg); }
+.tt-ways p.tt-or { font: 700 clamp(46px, 6vw, 72px)/1 var(--hw-hand); color: var(--hw-red); align-self: center; transform: rotate(-6deg); }
 
 /* ── origin ── */
 .tt-origin { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); }
 .tt-orgs { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--hw-ink); margin-top: 40px; }
-.tt-orgs a { padding: 18px 18px 18px 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.tt-orgs a { padding-block: 18px; padding-inline: 0 18px; display: grid; gap: 12px; align-content: start; min-width: 0; }
 .tt-orgs a + a { padding-inline-start: 18px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-orgs img { height: 34px; width: auto; }
 .tt-orgs span { color: var(--hw-supporting); font-size: 14.5px; }
@@ -268,3 +271,25 @@ html.m-ready [data-play]:not(.is-in):not(.is-seen) .tt-circle path { stroke-dash
   .tt-hl, .tt-circle path { transition: none; }
 }
 .tt-more .tt-link, .tt-clients .tt-link { color: var(--hw-ink); }
+
+/* ── /pricing: self-serve volume bands (components/hysaab/PriceBands.tsx) ── */
+.tt-bands { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 72px); align-items: start; margin-top: clamp(48px, 6vw, 72px); padding-top: 28px; border-top: 1px solid var(--hw-hairline); }
+.tt-bands-head h3 { font: 800 clamp(24px, 2.4vw, 32px)/1.1 var(--hw-serif); letter-spacing: -0.02em; margin-top: 10px !important; }
+.tt-bands-head p:not(.hw-eyebrow) { color: var(--hw-supporting); margin-top: 14px !important; max-width: 52ch; font-size: 15.5px; line-height: 1.65; }
+.tt-bands-t table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--hw-ink); font-size: 15.5px; }
+.tt-bands-t th, .tt-bands-t td { text-align: start; padding: 13px 0; padding-inline-end: 16px; border-bottom: 1px solid var(--hw-hairline); font-weight: 400; }
+.tt-bands-t thead th { font: 600 11.5px/1.4 var(--hw-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--hw-supporting); border-bottom-color: var(--hw-ink); }
+.tt-bands-t tbody th bdi { font-family: var(--hw-mono); }
+.tt-bands-t td { text-align: end; padding-inline-end: 0; }
+.tt-bands-t thead th:last-child { text-align: end; padding-inline-end: 0; }
+.tt-bands-n { font: 600 20px/1 var(--hw-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.tt-bands-ast { color: var(--hw-red); margin-inline-start: 2px; }
+.tt-bands-m { color: var(--hw-supporting); font-weight: 600; }
+.tt-bands-note { margin-top: 12px !important; font-size: 13.5px; line-height: 1.6; color: var(--hw-supporting); }
+html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--sans); font-size: 12.5px; }
+@media (max-width: 860px) { .tt-bands { grid-template-columns: 1fr; } }
+.hw-plan-price .tt-ast { color: var(--hw-red); font-size: 0.55em; vertical-align: super; line-height: 0; margin-inline-start: 2px; text-decoration: none !important; }
+.hw-plans .is-featured .hw-plan-price .tt-ast { color: var(--signal-red); }
+
+/* ── Register tables: IDs and amounts in the mono face ── */
+.hw-table .hw-table-id, .hw-table .hw-table-num { font-family: var(--hw-mono); font-size: 14px; }

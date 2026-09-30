@@ -9,6 +9,7 @@
 
 import { useMemo, useState } from "react";
 
+type Locale = "en" | "ar";
 type Activity = { key: string; label: string; unit: string; per: "week" | "month"; qty: number; before: number; after: number; how: string };
 
 const DEFAULTS: Activity[] = [
@@ -22,10 +23,47 @@ const DEFAULTS: Activity[] = [
 const WEEKS_PER_MONTH = 4.33;
 const fmt = (n: number, d = 0) => n.toLocaleString("en-GB", { maximumFractionDigits: d, minimumFractionDigits: d });
 
-export function SavingsCalc() {
+/* AR-REVIEW: the calculator's labels. Same keys and assumptions. */
+const AR_ACT: Record<string, Pick<Activity, "label" | "unit" | "how">> = {
+  email: { label: "فرز البريد وتوجيهه والردود الأولى عليه", unit: "رسالة", how: "الفرز ومطابقة العميل والأرشفة ومسودة الرد تتم قبل أن يفتحه أحد." },
+  meet: { label: "التحضير للاجتماعات وملاحظاتها ومهام المتابعة", unit: "اجتماع", how: "موجز تحضيري مسبق؛ والملاحظات تصبح قرارات ومهام لها مسؤولون." },
+  time: { label: "كتابة سجلات الوقت", unit: "يوم", how: "تُصاغ من عمل اليوم؛ وأنت تؤكدها أو تخفضها." },
+  chase: { label: "ملاحقة مستندات العملاء ومواعيدهم", unit: "طلب", how: "طلبات بروابط آمنة، وتذكيرات، وتقويم مواعيد حي." },
+  file: { label: "إدارة الإقرارات: قوائم التحقق والخطابات وشروح الفروقات", unit: "إقرار", how: "فحوص الاكتمال، وخطابات مُصاغة، ومراجعة نقدية قبل الاعتماد." },
+};
+
+const T = {
+  en: {
+    people: "Fee earners and staff", rate: "Blended cost per hour, AED",
+    perItem: (b: string, a: string) => `${b} min → ${a} min per item`,
+    qtyLabel: (a: Activity) => `${a.unit} per person per ${a.per}`,
+    qtyUnit: (a: Activity) => `${a.unit} / person / ${a.per}`,
+    h: "h", est: "Your estimate",
+    hours: "hours a month back to the team", aed: "a year in time you no longer spend on admin",
+    money: (v: number) => (v >= 1_000_000 ? `AED ${fmt(v / 1_000_000, 2)}m` : `AED ${fmt(v / 1000)}k`),
+    fte: "full-time roles of capacity, without hiring", perPerson: "per person, every week, for client work",
+    note: "An estimate from your inputs and our working assumptions, shown on the left. Not a measured result. Change any number.",
+    cta: "Talk to us about your firm →", href: "/contact",
+  },
+  ar: {
+    people: "المهنيون والموظفون", rate: "متوسط تكلفة الساعة، بالدرهم",
+    perItem: (b: string, a: string) => `${b} د ← ${a} د لكل بند`,
+    qtyLabel: (a: Activity) => `${a.unit} لكل شخص في ${a.per === "week" ? "الأسبوع" : "الشهر"}`,
+    qtyUnit: (a: Activity) => `${a.unit} / شخص / ${a.per === "week" ? "أسبوع" : "شهر"}`,
+    h: "س", est: "تقديرك",
+    hours: "ساعة شهريًا تعود إلى الفريق", aed: "سنويًا من وقت لم تعد تصرفه على الأعمال الإدارية",
+    money: (v: number) => (v >= 1_000_000 ? `${fmt(v / 1_000_000, 2)} مليون درهم` : `${fmt(v / 1000)} ألف درهم`),
+    fte: "وظائف بدوام كامل من السعة، دون توظيف", perPerson: "لكل شخص، كل أسبوع، لعمل العملاء",
+    note: "تقدير من مدخلاتك وافتراضاتنا المعروضة في الجدول. ليس نتيجة مقيسة. غيّر أي رقم.",
+    cta: "تحدث إلينا عن مكتبك ←", href: "/ar/contact",
+  },
+};
+
+export function SavingsCalc({ locale = "en" }: { locale?: Locale }) {
+  const t = T[locale];
   const [people, setPeople] = useState(12);
   const [rate, setRate] = useState(220);
-  const [acts, setActs] = useState(DEFAULTS);
+  const [acts, setActs] = useState(() => (locale === "ar" ? DEFAULTS.map((a) => ({ ...a, ...AR_ACT[a.key] })) : DEFAULTS));
 
   const setQty = (key: string, qty: number) => setActs((a) => a.map((x) => (x.key === key ? { ...x, qty: Math.max(0, qty) } : x)));
 
@@ -51,10 +89,10 @@ export function SavingsCalc() {
     <div className="hy-calc">
       <div className="hy-calc-inputs">
         <div className="hy-calc-top">
-          <label className="hy-field">Fee earners and staff
+          <label className="hy-field">{t.people}
             <input className="hy-input" type="number" min={1} max={500} value={people} onChange={(e) => setPeople(Math.max(1, Number(e.target.value) || 1))} />
           </label>
-          <label className="hy-field">Blended cost per hour, AED
+          <label className="hy-field">{t.rate}
             <input className="hy-input" type="number" min={50} max={2000} step={10} value={rate} onChange={(e) => setRate(Math.max(0, Number(e.target.value) || 0))} />
           </label>
         </div>
@@ -64,28 +102,28 @@ export function SavingsCalc() {
               <div className="hy-calc-row-main">
                 <span className="hy-calc-row-h">{a.label}</span>
                 <span className="hy-calc-row-p">{a.how}</span>
-                <span className="hy-calc-row-a hy-num">{fmt(a.before, a.before % 1 ? 1 : 0)} min → {fmt(a.after, a.after % 1 ? 1 : 0)} min per item</span>
+                <span className="hy-calc-row-a hy-num">{t.perItem(fmt(a.before, a.before % 1 ? 1 : 0), fmt(a.after, a.after % 1 ? 1 : 0))}</span>
               </div>
               <label className="hy-calc-qty">
-                <input className="hy-input" type="number" min={0} value={a.qty} onChange={(e) => setQty(a.key, Number(e.target.value) || 0)} aria-label={`${a.unit} per person per ${a.per}`} />
-                <span>{a.unit} / person / {a.per}</span>
+                <input className="hy-input" type="number" min={0} value={a.qty} onChange={(e) => setQty(a.key, Number(e.target.value) || 0)} aria-label={t.qtyLabel(a)} />
+                <span>{t.qtyUnit(a)}</span>
               </label>
-              <span className="hy-calc-row-out hy-num">{fmt(a.hoursMonthTeam)} h</span>
+              <span className="hy-calc-row-out hy-num">{fmt(a.hoursMonthTeam)} {t.h}</span>
             </div>
           ))}
         </div>
       </div>
 
       <div className="hy-calc-out" aria-live="polite">
-        <span className="hy-kicker hy-kicker--blush">Your estimate</span>
-        <div className="hy-calc-big"><span className="hy-num">{fmt(r.hoursMonth)}</span><span>hours a month back to the team</span></div>
-        <div className="hy-calc-big"><span className="hy-num">AED {r.aedYear >= 1_000_000 ? `${fmt(r.aedYear / 1_000_000, 2)}m` : `${fmt(r.aedYear / 1000)}k`}</span><span>a year in time you no longer spend on admin</span></div>
+        <span className="hy-kicker hy-kicker--blush">{t.est}</span>
+        <div className="hy-calc-big"><span className="hy-num">{fmt(r.hoursMonth)}</span><span>{t.hours}</span></div>
+        <div className="hy-calc-big"><span className="hy-num">{t.money(r.aedYear)}</span><span>{t.aed}</span></div>
         <div className="hy-calc-pair">
-          <div><strong className="hy-num">{fmt(r.fte, 1)}</strong><span>full-time roles of capacity, without hiring</span></div>
-          <div><strong className="hy-num">{fmt(r.perPersonWeek, 1)} h</strong><span>per person, every week, for client work</span></div>
+          <div><strong className="hy-num">{fmt(r.fte, 1)}</strong><span>{t.fte}</span></div>
+          <div><strong className="hy-num">{fmt(r.perPersonWeek, 1)} {t.h}</strong><span>{t.perPerson}</span></div>
         </div>
-        <p className="hy-calc-note">An estimate from your inputs and our working assumptions, shown on the left. Not a measured result. Change any number.</p>
-        <a href="/contact" className="hy-btn hy-btn--blush hy-btn--lg" style={{ alignSelf: "flex-start" }}>Talk to us about your firm →</a>
+        <p className="hy-calc-note">{t.note}</p>
+        <a href={t.href} className="hy-btn hy-btn--blush hy-btn--lg" style={{ alignSelf: "flex-start" }}>{t.cta}</a>
       </div>
     </div>
   );

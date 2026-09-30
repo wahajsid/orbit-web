@@ -8,12 +8,18 @@ import "../wire.css";
 import "../home.css";
 import "../hysaab-home.css";
 import "../motion.css";
+import "../tick-tie.css";
+import "../tick-tie-ar.css";
 
 // Arabic root layout — its own <html> with lang="ar" dir="rtl".
-// Noto Sans Arabic carries the Arabic text; it ships no Latin glyphs in
-// the arabic subset, so Latin strings (hysaab, Xero, AED figures) fall
-// through to Hysaab Grotesk (app/site-fonts.ts) — the stack order in --sans does the
-// pairing. Latin families follow Tick & Tie (brand/tick-and-tie/BRAND.md).
+// Tick & Tie in Arabic (brand/tick-and-tie/BRAND.md): Noto Sans Arabic
+// for everything people read, Noto Kufi Arabic for display headings.
+// Both load only the arabic subset and no metric fallback, so their
+// font-face covers Arabic code points only: Latin letters and figures in
+// the same line (hysaab, Xero, J-2291, 4,189.50) fall through to Hysaab
+// Grotesk and Hysaab Mono (app/site-fonts.ts, as in the English layout).
+// The stacks that pair them are in app/tick-tie-ar.css. Caveat stays for
+// the Latin review marks (✓ T B P ?) only, never for Arabic words.
 const hand = Caveat({
   subsets: ["latin"],
   weight: ["700"],
@@ -21,18 +27,23 @@ const hand = Caveat({
   display: "swap",
 });
 
+/* adjustFontFallback: false — the generated fallback face is local
+   Arial with no unicode-range; it would catch the Latin text before
+   Hysaab Grotesk could. */
 const notoArabic = Noto_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-arabic",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 const kufi = Noto_Kufi_Arabic({
   subsets: ["arabic"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700", "800"],
   variable: "--font-noto-kufi",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

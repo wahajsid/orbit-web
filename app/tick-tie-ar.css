@@ -1,0 +1,84 @@
+/* ══════════════════════════════════════════════════════════════════
+   Tick & Tie in Arabic (brand/tick-and-tie/BRAND.md). Loaded by
+   app/ar/layout.tsx only, after the shared kit and app/tick-tie.css, so
+   /ar/* is the English design read right to left. Layout mirroring is
+   carried by logical properties in the shared files; this file holds
+   the type pairing and the residue that cannot be expressed logically.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Type ──────────────────────────────────────────────────────────
+   Noto Sans Arabic (body) and Noto Kufi Arabic (display) come first in
+   every stack. They load the arabic subset only, with no metric
+   fallback face (app/ar/layout.tsx), so each covers Arabic code points
+   and nothing else: Latin words and every figure in the same line fall
+   through to Hysaab Grotesk, or to Hysaab Mono where the English page
+   sets mono. Amounts therefore look exactly as they do in English. */
+html[lang="ar"] {
+  --sans: var(--font-arabic), var(--font-sans), "Noto Sans Arabic", -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+  --mono: var(--font-arabic), var(--font-mono), "Noto Sans Arabic", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --hw-mono: var(--mono);
+  --hw-serif: var(--font-noto-kufi), var(--font-sans), "Noto Kufi Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  --hy-ar: var(--font-noto-kufi), "Noto Kufi Arabic", "Noto Sans Arabic", sans-serif;
+}
+
+/* Tracking is a Latin device: any letter-spacing, negative display
+   tracking or spaced microlabels, breaks Arabic joining. Uppercase has
+   no meaning in Arabic either. */
+html[lang="ar"] :is(.hw-page, .hw-chrome) * { letter-spacing: 0; }
+html[lang="ar"] :is(.hw-page, .hw-chrome) :is(.tt-wp, .tt-who, .tt-lab, .tt-legend h2, .tt-trail th, .tt-trail-sign-l, .tt-rn-k, .tt-prod-st, .tt-cap-n, .tt-bands-t thead th) { text-transform: none; }
+
+/* Display: Noto Kufi Arabic, bold rather than black, with the line
+   height Arabic ascenders and dots need. */
+html[lang="ar"] :is(.hw-page, .hw-chrome) :is(h1, h2) { font-family: var(--hw-serif); font-weight: 700; }
+html[lang="ar"] :is(.tt-prods h3, .tt-caps h3, .tt-firms h3, .tt-ways h3, .tt-bands-head h3, .hw-plans h3, .hw-split h3, .hw-rows h3, .hw-cards h3) { font-family: var(--hw-serif); font-weight: 700; }
+html[lang="ar"] .tt-hero h1 { font-size: clamp(38px, 5vw, 76px); line-height: 1.28; font-weight: 800; }
+html[lang="ar"] .tt-h2 { font-size: clamp(30px, 3.7vw, 54px); line-height: 1.3; max-width: 22ch; }
+html[lang="ar"] .tt-doors h2 { line-height: 1.3 !important; }
+html[lang="ar"] :is(.tt-square h2, .tt-books h2) { line-height: 1.3 !important; }
+html[lang="ar"] .tt-books h2 { font-size: clamp(40px, 6vw, 84px) !important; }
+html[lang="ar"] .tt-verdict { font-size: clamp(26px, 3vw, 40px); line-height: 1.5; }
+html[lang="ar"] .tt-clients > span { font-size: clamp(22px, 2.6vw, 34px); line-height: 1.4; }
+html[lang="ar"] :is(.tt-prods h3, .tt-firms h3, .tt-ways h3, .tt-caps h3) { line-height: 1.3; }
+html[lang="ar"] .hw-phero h1 { line-height: 1.3; }
+html[lang="ar"] .tt-hero h1 .m-mark, html[lang="ar"] .tt-hl { padding-inline: 0.12em; }
+html[lang="ar"] .tt-lead, html[lang="ar"] .tt-hero-sub { line-height: 1.75; }
+
+/* Mono labels holding Arabic words read better a little larger. */
+html[lang="ar"] :is(.tt-wp, .tt-who, .tt-prod-st, .tt-trail-foot, .tt-lab, .tt-small, .tt-role, .tt-rn-k, .tt-cap-n) { font-size: 13px; }
+
+/* Caveat is for the Latin review marks only. The Arabic hand notes,
+   sign-offs and the red "or" keep their colour and tilt, set in Kufi;
+   the P inside a sign-off stays a hand mark. */
+html[lang="ar"] :is(.tt-note, .tt-signoff, .tt-trail-done, .tt-or) { font-family: var(--hw-serif); font-weight: 700; }
+html[lang="ar"] .tt-note { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; }
+html[lang="ar"] .tt-signoff { font-size: 18px; line-height: 1.6; transform: rotate(1.5deg); transform-origin: right; }
+html[lang="ar"] .tt-trail-done { font-size: 16px; line-height: 1.6; }
+html[lang="ar"] .tt-ways p.tt-or { font-size: clamp(34px, 4vw, 52px); transform: rotate(6deg); }
+:is(.tt-signoff-m, .tt-trail-done-m) { font-family: var(--hw-hand); font-size: 1.3em; }
+
+/* ── Mirroring ─────────────────────────────────────────────────────
+   Offset shadows fall toward the reading direction's end. */
+html[dir="rtl"] .hy-win { box-shadow: -16px 16px 0 var(--hy-blush); }
+@media (max-width: 719px) { html[dir="rtl"] .hy-win { box-shadow: -10px 10px 0 var(--hy-blush); } }
+html[dir="rtl"] .hw-experience .hy-win { box-shadow: none; }
+html[dir="rtl"] .hw-shot .hw-capture { box-shadow: -9px 9px 0 #F2F2EF; }
+html[dir="rtl"] .hw-block--sage .hw-shot .hw-capture { box-shadow: -9px 9px 0 #111418; }
+html[dir="rtl"] .hw-firms-grid .hw-shot .hw-capture { box-shadow: none; }
+html[dir="rtl"] .hw-plans > article.is-featured { box-shadow: -9px 9px 0 #F2F2EF; }
+html[dir="rtl"] .hw-zoom { box-shadow: -12px 12px 0 #11141855; }
+html[dir="rtl"] .hw-drop-panel { box-shadow: -6px 6px 0 var(--hw-blush); }
+html[dir="rtl"] :is(.tt-chat, .tt-rn, .tt-firms article, .tt-experience .hy-win) { box-shadow: -8px 8px 0 var(--hw-hairline); }
+/* The highlighter is drawn from the start of the phrase. */
+html[dir="rtl"] .tt-hero h1 .m-mark { background-position: 100% 0; }
+/* The hand-drawn circle around "free" and the zero keep their shape. */
+html[dir="rtl"] .tt-circle { transform: scaleX(-1); }
+
+/* Figures, times and IDs stay left to right inside Arabic lines. */
+html[lang="ar"] :is(.tt-trail-t, .tt-step-n, .tt-count, .tt-bands-n, .hw-plan-price) { unicode-bidi: isolate; }
+
+/* English-only guides and tools listed on the Arabic indexes read left
+   to right, set flush to the same edge as the Arabic entries. */
+html[dir="rtl"] .hw-index-en { text-align: end; }
+
+/* The accounting terminal's scenario title sits in a narrow column. */
+html[lang="ar"] .term-sticky .section-head { font-size: clamp(28px, 2.8vw, 40px); line-height: 1.3; margin-bottom: 12px; }

@@ -71,7 +71,7 @@ export default function TrustPage() {
               </article>
             ))}
           </div>
-          <div className="hw-note" style={{ borderColor: "#536477" }}>
+          <div className="hw-note">
             <span className="hw-mono">What these are</span>
             <p>These are commitments we make to every customer. They are not a third-party certification. Ask us for the detail behind any of them.</p>
           </div>

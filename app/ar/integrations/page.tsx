@@ -12,7 +12,7 @@ import { langAlternates } from "@/lib/site-meta";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata: Metadata = {
-  title: "تكاملات Hysaab: Zoho Books وXero وQuickBooks وOdoo",
+  title: "تكاملات Hysaab: Zoho Books و Xero و QuickBooks و Odoo",
   description:
     "اربط Zoho Books أو Xero أو QuickBooks أو Odoo أو Wafeq أو ERPNext مرة واحدة. Hysaab يرحّل القيود المعتمدة إلى دفترك، ويبقى دفترك هو السجل.",
   alternates: langAlternates("/integrations"),
