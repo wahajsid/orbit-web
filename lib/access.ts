@@ -22,6 +22,14 @@ export const KEY_LINE: Record<Locale, string> = {
   ar: "يفتح Hysaab أبوابه بالدعوة، ونقبل الطلبات بحسب ترتيب وصولها.",
 };
 
+/* The key line in two halves, for the /access hero: the heading carries
+   the first sentence, the lede the second. */
+export const KEY_TAIL: Record<Locale, string> = {
+  en: "Requests are admitted in the order they arrive.",
+  /* AR-REVIEW */
+  ar: "ونقبل الطلبات بحسب ترتيب وصولها.",
+};
+
 export const ACCESS_LABEL: Record<Locale, string> = {
   en: "Request access",
   /* AR-REVIEW: "اطلب الانضمام" (Request access). */
