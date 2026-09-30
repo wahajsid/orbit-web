@@ -31,7 +31,7 @@ const STEPS: {
       ["Sequence", <>Missing journal numbers are listed as gaps for the client to explain.</>],
       ["Hashed", <>SHA-256 on the snapshot. Every later figure cites the hash it came from.</>],
     ],
-    shot: { src: "/shots/audit-data.png", w: 2560, h: 1256, alt: "Hysaab Audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
+    shot: { src: "/shots/audit-data.png", w: 2940, h: 1256, alt: "Hysaab Audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
     bar: "Data · snapshots and integrity",
     cap: "The first snapshot stopped the file: the client's trial balance predated a journal in the ledger.",
   },
@@ -44,7 +44,7 @@ const STEPS: {
       ["Materiality", <>Computed from this year's figures, with every candidate benchmark shown and the choice explained.</>],
       ["The programme", <>Only the procedures that fit the chart are instantiated. No tax recompute where there is no tax account.</>],
     ],
-    shot: { src: "/shots/audit-planning.png", w: 2540, h: 2360, alt: "Hysaab Audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
+    shot: { src: "/shots/audit-planning.png", w: 2920, h: 2360, alt: "Hysaab Audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
     bar: "Planning · risk register and procedures",
     cap: "Nine significant risks, each with the factor that raised it. The gate stays shut until the partner approves.",
   },
@@ -57,7 +57,7 @@ const STEPS: {
       ["Thirty criteria", <>Post-close postings, round numbers, weekends and holidays, blank narratives, seldom-used accounts, keyword hits, duplicates, reversals, segregation conflicts, entries just below an approval threshold.</>],
       ["Auditable", <>Each row carries the criteria that flagged it. The selection is seeded, so it reproduces.</>],
     ],
-    shot: { src: "/shots/audit-jet.png", w: 2540, h: 2360, alt: "Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
+    shot: { src: "/shots/audit-jet.png", w: 2920, h: 2360, alt: "Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
     bar: "JET explorer · ISA 240 journal testing",
     cap: "The top rows are the planted ones: revenue booked after year-end, a suspense plug, a duplicate payment, a capitalised expense, a related-party fee.",
   },
@@ -70,7 +70,7 @@ const STEPS: {
       ["Attribute too", <>Control testing at ninety-five percent confidence with its own sample table.</>],
       ["Honest answer", <>An upper limit above performance materiality is reported as not accepted, not explained away.</>],
     ],
-    shot: { src: "/shots/audit-sampling.png", w: 2540, h: 2360, alt: "Hysaab Audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
+    shot: { src: "/shots/audit-sampling.png", w: 2920, h: 2360, alt: "Hysaab Audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
     bar: "Sampling · monetary-unit sample",
     cap: "Upper limit 563,355 against performance materiality 231,800. The engine calls it: not accepted.",
   },
@@ -83,7 +83,7 @@ const STEPS: {
       ["Reliability", <>Scored by route and sender domain. A forwarded reply is evidence of a different grade.</>],
       ["Sent by people", <>Letters leave the firm's own mailbox. The software drafts them and tracks them.</>],
     ],
-    shot: { src: "/shots/audit-fieldwork.png", w: 2540, h: 2360, alt: "Hysaab Audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
+    shot: { src: "/shots/audit-fieldwork.png", w: 3120, h: 2360, alt: "Hysaab Audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
     bar: "Fieldwork · confirmations and requests",
     cap: "One exception of 42,750, one reply routed through the client, one escalated to alternative procedures.",
   },
@@ -96,7 +96,7 @@ const STEPS: {
       ["Subsequent events", <>Post-period journals and minutes are scanned and classified adjusting or non-adjusting, with the IAS 10 reference.</>],
       ["File completion", <>Nine checks on the file itself. Two are still open on this engagement, and it says so.</>],
     ],
-    shot: { src: "/shots/audit-completion.png", w: 2540, h: 2460, alt: "Hysaab Audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
+    shot: { src: "/shots/audit-completion.png", w: 3120, h: 2460, alt: "Hysaab Audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
     bar: "Completion · the misstatement register",
     cap: "Five findings, four above clearly trivial, one aggregate the partner has to act on.",
   },
@@ -109,7 +109,7 @@ const STEPS: {
       ["Versions", <>Immutable. The reason for every new version is on the paper.</>],
       ["Conclusions", <>A reviewer cannot sign a judgement workpaper without recording a conclusion in their own words.</>],
     ],
-    shot: { src: "/shots/audit-workpapers.png", w: 2540, h: 2460, alt: "Hysaab Audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
+    shot: { src: "/shots/audit-workpapers.png", w: 2920, h: 2460, alt: "Hysaab Audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
     bar: "Workpapers · the audit file",
     cap: "The receivables lead is inconclusive because the sub-ledger is 15,000 short. It stays inconclusive until someone explains it.",
   },
@@ -270,7 +270,7 @@ export default function AuditPage() {
               <p className="hw-eyebrow">Where it sits</p>
               <h2>Part of the professional services stack.</h2>
             </div>
-            <p>Hysaab Audit can be bought on its own, or with <a href="/firms">Hysaab Practice</a>, our product for tax and advisory firms. Together they share the same clients, the same file room and the same rule that the AI proposes and a person decides.</p>
+            <p>Hysaab Audit can be bought on its own, or with <a href="/firms">Hysaab Practice</a>, our product for tax and advisory firms. Both follow the same rule: the AI proposes and a person decides. Each keeps its own client records, so your independence rules decide who works on which client.</p>
           </div>
           <div className="hw-cards">
             <article>

@@ -166,7 +166,7 @@ export default function PracticePage() {
               <p className="hw-eyebrow">Hysaab Audit</p>
               <h2>If you sign audit opinions,<br /><span>the file runs here too.</span></h2>
             </div>
-            <p>Hysaab Audit is built on the same clients, the same file room and the same rule: the engines compute, a licensed human concludes. Buy it on its own or with Hysaab Practice.</p>
+            <p>Hysaab Audit follows the same rule: the engines compute, a licensed human concludes. Buy it on its own or with Hysaab Practice. Each keeps its own client records, so your independence rules decide who works on which client.</p>
           </div>
           <div className="hw-cards">
             <article>

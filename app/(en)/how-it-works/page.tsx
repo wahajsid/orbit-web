@@ -95,8 +95,8 @@ const SCREENS = [
     p: "When a coding falls below the confidence gate, a tax invoice fails the rules or a supplier’s price rises with no contract change on file, Hysaab stops and brings it to you. It tells you what your policy says and asks you to make the call.",
     ticks: ["Each decision names the concern and the evidence", "A recommended route, not a silent correction", "Your answer is recorded with the entry it affects"],
     file: "03-app-second-opinion.png", title: "Decisions required",
-    alt: "Hysaab decisions queue with four items: missing periods for a recurring supplier, a coding below the confidence threshold where history suggests a different account, a tax invoice that omits the supplier TRN so input VAT is blocked, and a detected price increase. Each shows a confidence score and buttons to open the queue or the detail.",
-    caption: "Decisions required, sample data: a coding questioned, input VAT held until an invoice is corrected, and a price rise with no contract change on file.",
+    alt: "Hysaab review queue with four decisions: missing periods for a recurring supplier, a coding below the confidence threshold, tax invoice criteria not met, and price creep, each with its agent and confidence. The open decision: Almarai Catering INV-5512 omits the supplier TRN, so input VAT of AED 1,036 is blocked until corrected.",
+    caption: "The review queue, sample data: four decisions, each with its agent and confidence; the open one holds input VAT until the invoice is corrected.",
   },
   {
     eyebrow: "Steps 08 and 09 / On screen",
@@ -104,8 +104,8 @@ const SCREENS = [
     p: "Proposed accruals sit beside their basis. One checklist covers Hysaab’s side of the close and another covers your ledger’s side. The lock is gated, and it waits for you.",
     ticks: ["Accruals proposed with their basis, approved by you", "A checklist for each side of the close", "The period lock is pressed by a person"],
     file: "p-close.png", title: "Close cockpit",
-    alt: "Hysaab close cockpit: proposed recurring accruals with basis and amount, a checklist of what Hysaab runs, a checklist for the ledger’s side, and the button to close and lock the period.",
-    caption: "The close cockpit, sample data: proposed accruals, both checklists and the gated lock.",
+    alt: "Hysaab close cockpit: proposed recurring accruals with basis and amount, the ledger’s side checklist, and the button to close and lock the period behind its gate.",
+    caption: "The close cockpit, sample data: proposed accruals, the ledger’s checklist and the gated lock.",
   },
 ];
 
