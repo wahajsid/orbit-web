@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Enter an amount, choose the rate (UAE 5% or KSA 15%) and choose the direction. The calculator shows the net amount, the VAT and the gross amount, each to two decimal places. Nothing is rounded until the display, so net plus VAT always equals gross on screen.",
+        "Results are shown in AED at the UAE 5% rate and in SAR at the KSA 15% rate."
+      ],
+      "list": [
+        "Add VAT: the amount is the net price. VAT = net x rate; gross = net + VAT.",
+        "Extract VAT: the amount is the VAT-inclusive price. Net = gross / (1 + rate); VAT = net x rate. At 5% the VAT fraction of a gross price is 5/105 (1/21); at 15% it is 15/115 (3/23)."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "In the UAE, Article 3 of Federal Decree-Law No. 8 of 2017 imposes a standard rate of 5% on taxable supplies and imports, on the value of the supply. In Saudi Arabia the standard rate has been 15% since 1 July 2020, when it rose from 5%. Neither calculator mode handles zero-rated or exempt supplies, the reverse charge or the profit margin scheme: for those the VAT on the invoice is not simply price x rate. Use the [reverse charge calculator](/tools/uae-reverse-charge-calculator) for imported services.",
+        "Rounding: Article 61 of the UAE VAT Executive Regulation allows tax calculated to a fraction of a fils to be rounded to the nearest fils on a mathematical basis. The calculator's two-decimal display does the same, which matters when you extract VAT from a gross figure that does not divide evenly.",
+        "On a UAE tax invoice, Article 59 of the Executive Regulation requires the rate, the VAT amount and the gross amount payable to be shown in AED, with the exchange rate where the price is in another currency. Article 69 of the Decree-Law fixes that rate as the Central Bank rate on the date of supply. A simplified tax invoice, showing the total consideration and the tax in AED, is allowed where the customer is not registered, or is registered and the consideration is AED 10,000 or less. Our [tax invoice checklist](/guides/uae-tax-invoice-checklist) lists every field.",
+        "Extracting VAT is only right if the price really includes VAT. If a supplier's quote is silent and the supplier is registered, agree the position in writing before you pay. On the purchase side, the VAT you calculate is only recoverable if the invoice is valid and the expense is not blocked: see [blocked input VAT](/guides/uae-blocked-input-vat)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A UAE-registered agency receives a VAT-inclusive bill of AED 99.99 from a registered supplier and also needs to price a AED 2,400 retainer for a client. A Saudi branch receives a SAR 1,150 VAT-inclusive invoice."
+    ],
+    "list": [
+      "Step 1: choose UAE 5%, Extract VAT, enter 99.99. Net = 99.99 / 1.05 = 95.2286, shown as 95.23; VAT = 4.7614, shown as 4.76; gross 99.99.",
+      "Step 2: journal for the bill: Dr Expense 95.23; Dr VAT recoverable 4.76; Cr Accounts payable 99.99.",
+      "Step 3: choose Add VAT, enter 2,400. VAT = 2,400 x 5% = 120.00; gross = 2,520.00. Invoice the client AED 2,520.00 showing AED 120.00 of VAT.",
+      "Step 4: choose KSA 15%, Extract VAT, enter 1,150. Net = 1,150 / 1.15 = 1,000.00; VAT = 150.00; the results show in SAR.",
+      "Check: 4.76 is 1/21 of 99.99 to the nearest fils, and 150 is 3/23 of 1,150."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How do I calculate 5% VAT in the UAE?",
+      "a": "Multiply the net price by 0.05 to get the VAT and add it to the price. AED 1,000 net gives AED 50 of VAT and AED 1,050 gross."
+    },
+    {
+      "q": "How do I remove VAT from a total in the UAE?",
+      "a": "Divide the VAT-inclusive total by 1.05 to get the net price; the difference is the VAT. Equivalently, the VAT is the total divided by 21. AED 1,050 gross contains AED 50 of VAT."
+    },
+    {
+      "q": "How do I calculate 15% VAT in Saudi Arabia?",
+      "a": "Multiply the net price by 0.15 to add VAT, or divide a VAT-inclusive price by 1.15 to extract it. SAR 1,150 gross is SAR 1,000 net plus SAR 150 VAT. The 15% rate has applied since 1 July 2020."
+    },
+    {
+      "q": "Does UAE VAT have to be rounded on the invoice?",
+      "a": "Tax worked out to a fraction of a fils may be rounded to the nearest fils on a mathematical basis under Article 61 of the Executive Regulation, and the tax amount on the invoice must be shown in AED."
+    },
+    {
+      "q": "Can I use this calculator for zero-rated or exempt supplies?",
+      "a": "No. It applies the standard rate only. Exports, international transport and other zero-rated supplies carry 0%, exempt supplies carry no VAT, and imported services are taxed by the recipient under the reverse charge."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Federal Decree-Law No. 8 of 2017 on VAT and its amendments (FTA, unofficial translation)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "Executive Regulation of Federal Decree-Law No. 8 of 2017 (Cabinet Decision No. 52 of 2017, amended to Cabinet Decision No. 100 of 2024)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2024/10/Executive-Regulation-of-Federal-Decree-Law-No-8-of-2017.pdf"
+    },
+    {
+      "label": "ZATCA: 15% VAT rate takes effect on 1 July 2020",
+      "href": "https://zatca.gov.sa/en/MediaCenter/News/Pages/News-342.aspx"
+    }
+  ]
+}

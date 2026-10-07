@@ -1,0 +1,148 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "The problem it solves",
+      "ps": [
+        "When you issue a tax invoice, you account for the 5% output VAT in that period — whether or not the customer ever pays. A receivable that goes bad therefore costs you twice: the revenue you'll never collect, and VAT you already paid to the FTA on money that never arrived. Bad-debt relief is the mechanism that returns the second loss."
+      ]
+    },
+    {
+      "h": "Where the rule sits",
+      "ps": [
+        "Bad-debt relief is Article 64 of Federal Decree-Law No. 8 of 2017 on VAT, the Decree-Law itself, not the Executive Regulation, whose Article 64 deals with returns and payment. Clause 1 gives the supplier the right to reduce output tax. Clause 2 imposes the matching duty on a registered customer. Clause 3 fixes the amount: the tax related to the consideration written off. None of this was changed by the 2026 amendments to the Executive Regulation, including Cabinet Decision No. 149 of 2026."
+      ]
+    },
+    {
+      "h": "The four conditions — all of them",
+      "list": [
+        "The goods or services were supplied and the output tax was charged and paid to the FTA",
+        "The consideration has been written off, in full or in part, in your accounts — a real accounting write-off, not just an ageing report entry",
+        "More than six months have passed since the date of the supply",
+        "You have notified the customer of the amount written off"
+      ]
+    },
+    {
+      "h": "How the adjustment works",
+      "ps": [
+        "Once every condition is met, you reduce your output tax in the VAT return for the period in which the conditions were satisfied — by the VAT fraction of the amount written off (for a 5% supply, 5/105 of the gross unpaid amount). The relief is proportional: write off half the invoice, adjust half the VAT.",
+        "The mirror matters: a registered customer who received your write-off notice must reduce the input VAT they claimed on that invoice. The FTA can see both sides — a supplier claiming relief against a customer still holding the input credit is a mismatch that surfaces in audit."
+      ]
+    },
+    {
+      "h": "What counts as written off",
+      "ps": [
+        "Article 64(1)(b) requires the consideration to be written off as a bad debt in the supplier's accounts. Under IFRS 9 a loss allowance for expected credit losses is not a write-off. It reduces the carrying amount through a separate allowance while the receivable stays on the books. A write-off under paragraph 5.4.4 is a direct reduction of the gross carrying amount when you have no reasonable expectation of recovery, and it is a derecognition event.",
+        "In practice that means an approved write-off entry against the specific invoice, posted in the ledger, with the approval and the reasoning kept on file. Use the [ECL provision calculator](/tools/ecl-provision-calculator) for the allowance and treat the VAT relief as a separate, later step."
+      ]
+    },
+    {
+      "h": "Worked example with a part payment",
+      "ps": [
+        "A registered consultancy completes a project on 12 January 2026 and invoices the same day: AED 200,000 plus VAT of AED 10,000, total AED 210,000. The VAT is declared and paid with the return for the quarter to 31 March 2026. The client pays AED 84,000 in March and nothing after that. Six months from the date of supply ends on 12 July 2026. The board approves a write-off of the remaining AED 126,000 on 31 August 2026, and the client is notified by email on 3 September 2026. All four conditions are met in the quarter to 30 September 2026.",
+        "Relief is 126,000 × 5/105 = AED 6,000, the VAT inside the unpaid part only. The VAT in the AED 84,000 that was paid stays with the FTA. You can check the figures in the [bad-debt relief calculator](/tools/uae-bad-debt-relief-calculator)."
+      ],
+      "list": [
+        "Invoice, 12 January: Dr Trade receivables 210,000; Cr Revenue 200,000; Cr VAT output 10,000",
+        "Part payment, March: Dr Bank 84,000; Cr Trade receivables 84,000",
+        "Write-off, 31 August: Dr Bad debt expense or loss allowance 120,000; Dr VAT bad-debt relief pending 6,000; Cr Trade receivables 126,000",
+        "Notice sent, 3 September, so the last condition is met: Dr VAT output 6,000; Cr VAT bad-debt relief pending 6,000, reported in the return for the quarter to 30 September 2026",
+        "Registered client, on receiving the notice: Dr Expense 6,000; Cr VAT recoverable 6,000, in its return for the period in which the Article 64(2) conditions are met"
+      ]
+    },
+    {
+      "h": "The customer notice",
+      "ps": [
+        "Article 64(1)(d) requires the supplier to notify the customer of the amount of consideration written off, but it prescribes no form. A notice that will stand up in an audit identifies the tax invoice by number and date, states the amount written off and the VAT included in it, and is sent to an address the customer actually uses. Keep the sent email or courier receipt with the write-off approval. The notice is also what triggers the customer's own obligation under Article 64(2), so it protects you from a mismatch on the FTA's side."
+      ]
+    },
+    {
+      "h": "The traps",
+      "list": [
+        "Counting six months from the invoice date when the supply date differs — the clock runs from the date of supply",
+        "Claiming relief on debts that were never written off in the books — the accounting entry is a condition, not a formality",
+        "Skipping the customer notification, the condition most often missed and the easiest for an auditor to test",
+        "Forgetting the reverse: if the customer later pays, the relief claimed on that amount no longer matches the facts. Article 64 does not spell out the mechanism, so record the recovery and account for the VAT fraction of the amount received, and take advice where the sum is material"
+      ]
+    },
+    {
+      "h": "Bad-debt relief or a tax credit note",
+      "ps": [
+        "The two are often confused. A tax credit note is for the cases in Article 61 of the Decree-Law: a cancelled supply, a change in the agreed consideration, returned goods, or tax charged in error. It must be issued within 14 days of the event (Article 62(2)). A negotiated settlement in which you agree to accept less is a change in consideration, so it goes through a credit note immediately, with no six-month wait. A customer who simply does not pay has not changed the agreed price, so the route is Article 64, with its write-off, waiting period and notice."
+      ]
+    },
+    {
+      "h": "Edge cases",
+      "list": [
+        "Date of supply earlier than the invoice: under Article 25 the date of supply is the earliest of delivery, completion, payment or invoice. Where an invoice was issued in advance, the six months may start on the invoice date because that was the earliest event",
+        "Unregistered customers: the relief is the same, and the notice is still required even though the customer has no input tax to reverse",
+        "Customers in liquidation: a liquidator's statement can support the write-off decision, but it does not replace your own write-off entry or the notice",
+        "Debts written off before the six months pass: the accounting entry can come first. The relief waits until the period in which the last condition is met, as in the example above",
+        "Old debts: keep the write-off and notice evidence for the full record-retention period, because the claim can be audited long after the return"
+      ]
+    },
+    {
+      "h": "A checklist before the adjustment goes in the return",
+      "ps": [
+        "Run these checks invoice by invoice, not on the debtor balance as a whole. Relief is computed per supply, and an auditor will sample individual invoices rather than accept a ledger total."
+      ],
+      "list": [
+        "The original tax invoice, its date of supply and the return in which its output VAT was declared and paid",
+        "Every receipt against the invoice, so that relief is limited to the unpaid part",
+        "The write-off approval, who approved it and why, and the ledger entry against that specific invoice",
+        "A date of supply more than six months before the end of the period you are claiming in",
+        "The notice to the customer, with the date it was sent and proof of delivery",
+        "The VAT fraction applied: 5/105 for a standard-rated supply, nil for zero-rated or exempt supplies, which carried no output tax to recover",
+        "A note on the file of any later receipt, so the recovery is picked up when it arrives"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I claim VAT back on bad debts in the UAE?",
+      "a": "Yes. Article 64 of the VAT Decree-Law lets a registered supplier reduce output tax on consideration written off as a bad debt. The supply must have been made and the VAT paid, the debt written off in your accounts, more than six months passed since the date of supply, and the customer notified of the amount written off."
+    },
+    {
+      "q": "How long do I have to wait to claim VAT bad debt relief in the UAE?",
+      "a": "More than six months from the date of supply, not from the invoice due date. The claim goes in the return for the tax period in which the last of the four conditions is met, which is often later than six months if the write-off or notice comes afterwards."
+    },
+    {
+      "q": "How is UAE VAT bad debt relief calculated?",
+      "a": "It equals the tax in the consideration written off (Article 64(3)). For a standard-rated supply, multiply the unpaid VAT-inclusive amount written off by 5/105. AED 126,000 written off gives relief of AED 6,000. Amounts already paid are excluded."
+    },
+    {
+      "q": "Does my customer have to pay back the input VAT if I claim bad debt relief?",
+      "a": "Yes, if the customer is registered and recovered the input tax. Under Article 64(2) it must reduce its recoverable input tax once it has received your notice and the consideration has been unpaid for over six months. The reduction equals the VAT on the amount written off."
+    },
+    {
+      "q": "Is an expected credit loss provision enough to claim VAT bad debt relief?",
+      "a": "No. Article 64 requires the consideration to be written off in your accounts. An IFRS 9 loss allowance leaves the receivable on the books. A write-off directly reduces the gross carrying amount of the specific debt and is what the condition requires."
+    },
+    {
+      "q": "Should I issue a credit note for a bad debt in the UAE?",
+      "a": "No. A tax credit note is for cancellations, returns, price changes or errors under Article 61. An unpaid invoice whose price has not changed goes through bad-debt relief under Article 64. If you agree a reduced settlement with the customer, that is a price change and needs a credit note within 14 days."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments, Articles 25, 61, 62 and 64",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation (Cabinet Decision No. 52 of 2017 and amendments to Cabinet Decision No. 149 of 2026)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    }
+  ],
+  "related": [
+    "uae-vat-voluntary-disclosure",
+    "month-end-close-checklist",
+    "uae-fta-vat-audit-preparation"
+  ]
+}

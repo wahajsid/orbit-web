@@ -10,7 +10,7 @@ export type Tool = { slug: string; updated: string; title: string; description: 
 export const TOOLS: Tool[] = [
   {
     slug: "ecl-provision-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "IFRS 9 ECL provision calculator",
     description:
       "A provision-matrix calculator for trade receivables: your ageing balances, your loss rates, and a forward-looking scenario slider — watch the provision reprice as you drag.",
@@ -18,7 +18,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "eosb-gratuity-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "UAE gratuity (EOSB) calculator",
     description:
       "End-of-service gratuity under the 21/30-day rule: basic wage, years of service, the two-year cap — with the working shown.",
@@ -26,14 +26,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "VAT calculator — UAE 5% & KSA 15%",
     description: "Add VAT to a net amount or extract it from a gross one, at the UAE or KSA rate.",
     guide: "uae-blocked-input-vat",
   },
   {
     slug: "uae-corporate-tax-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "UAE Corporate Tax estimator",
     description:
       "0% to AED 375,000, 9% above — with the Small Business Relief election handled.",
@@ -41,7 +41,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ifrs16-lease-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "IFRS 16 lease liability & ROU asset calculator",
     description:
       "Compute the day-1 lease liability and right-of-use asset, then generate the full amortisation schedule — interest unwinding and straight-line depreciation, period by period.",
@@ -49,7 +49,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ias19-actuarial-eosb-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "IAS 19 actuarial EOSB valuation",
     description:
       "A simplified projected unit credit estimate for UAE end-of-service benefits: discount rate, salary escalation, attrition — the inputs an actuary uses, in your browser.",
@@ -73,7 +73,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ifrs9-eir-calculator",
-    updated: "2026-09-23",
+    updated: "2026-10-07",
     title: "IFRS 9 effective interest rate (EIR) calculator",
     description:
       "Solve for the EIR on a financial instrument with origination fees or a premium/discount, and produce the full amortised-cost schedule.",
@@ -99,7 +99,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "small-business-relief-checker",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "Small Business Relief eligibility checker",
     description:
       "The AED 3m revenue test, the prior-period condition, the QFZP and MNE exclusions — a yes/no on the election, with the 9% it would save.",
@@ -110,14 +110,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-penalty-calculator",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "UAE VAT penalty estimator",
     description:
-      "What a late return and late payment actually cost: the fixed filing penalties plus 2% immediately and 4% monthly on unpaid tax, capped at 300% — computed from days late.",
+      "What a late return and late payment cost under the April 2026 rules: the fixed filing penalties plus 14% a year on unpaid tax, charged monthly — computed from days late.",
     guide: "uae-tax-deadlines",
     arTitle: "حاسبة غرامات ضريبة القيمة المضافة الإماراتية",
     arDescription:
-      "كم يكلّف الإقرار المتأخر والسداد المتأخر فعلًا: الغرامات الثابتة زائد 2% فورًا و4% شهريًا على الضريبة غير المدفوعة بسقف 300% — محسوبة من أيام التأخر.",
+      "كم يكلّف الإقرار المتأخر والسداد المتأخر وفق قواعد أبريل 2026: الغرامات الثابتة زائد 14% سنويًا على الضريبة غير المدفوعة تُحتسب شهريًا — محسوبة من أيام التأخر.",
   },
   {
     slug: "loyalty-points-calculator",
@@ -132,7 +132,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ksa-withholding-tax-calculator",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "KSA withholding tax (WHT) calculator",
     description:
       "Domestic WHT on payments to non-residents by category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
@@ -154,7 +154,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-vat-registration-checker",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "UAE VAT registration checker",
     description:
       "The AED 375,000 mandatory and AED 187,500 voluntary thresholds, tested the way the FTA tests them — rolling 12 months plus the next-30-days rule.",
@@ -187,7 +187,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-ecommerce-vat-checker",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "E-commerce VAT checker (UAE)",
     description:
       "Goods or electronic services, domestic or abroad, evidence or not — the rate, the VAT and the total per order, with the zero-rating documentation rule enforced.",
@@ -198,7 +198,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-employee-cost-calculator",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "UAE employee cost calculator",
     description:
       "What a hire really costs per month: gross salary plus the monthly EOSB provision on basic wage — or pension contributions for nationals — with the annual total.",
@@ -275,14 +275,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "uae-voluntary-disclosure-penalty-calculator",
-    updated: "2026-09-15",
+    updated: "2026-10-07",
     title: "VAT voluntary disclosure penalty calculator",
     description:
-      "The Form 211 cost by year: the fixed penalty plus the 5%-to-40% ladder on the tax difference — and what waiting one more year adds.",
+      "The Form 211 cost under the April 2026 rules: 1% of the tax difference for every month since the return was due, 15% more after an audit notice — and what waiting six more months adds.",
     guide: "uae-vat-voluntary-disclosure",
     arTitle: "حاسبة غرامات الإفصاح الطوعي",
     arDescription:
-      "كلفة النموذج 211 بحسب السنة: الغرامة الثابتة زائد سلّم الـ 5% إلى 40% على فرق الضريبة — وما يضيفه انتظار سنة أخرى.",
+      "كلفة النموذج 211 وفق قواعد أبريل 2026: 1% من فرق الضريبة عن كل شهر منذ استحقاق الإقرار، و15% إضافية بعد إشعار التدقيق — وما يضيفه انتظار ستة أشهر أخرى.",
   },
   {
     slug: "uae-interest-cap-calculator",

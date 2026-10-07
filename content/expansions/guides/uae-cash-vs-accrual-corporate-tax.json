@@ -1,0 +1,150 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The rule",
+      "ps": [
+        "Taxable income starts from accounting income, and the default accounting basis is accrual. The concession: a business whose revenue does not exceed AED 3,000,000 in the tax period may prepare its financial statements on the cash basis instead — income when received, expenses when paid. Above the threshold, accrual is mandatory, with cash basis available only in exceptional circumstances approved by the FTA.",
+        "The source is Article 20(5) of the Corporate Tax Law and Article 2 of Ministerial Decision No. 114 of 2023. No application is needed below the threshold. The same decision sets the accrual standards: IFRS, or IFRS for SMEs where revenue does not exceed AED 50 million."
+      ]
+    },
+    {
+      "h": "What counts as revenue for the AED 3 million test",
+      "ps": [
+        "Revenue is the gross amount of income derived during the tax period, before any expenses, measured at arm's length and including every business activity of the company. The FTA's Accounting Standards Guide (CTGACS1) says the test is applied using the cash basis itself, so it is cash received in the period that counts, not invoices raised. It also means you only know for certain whether you qualified once the period has ended.",
+        "[Small Business Relief](/guides/uae-small-business-relief) uses the same AED 3 million figure but lets you measure revenue under IFRS or the cash basis. The guide is explicit that eligibility for the cash basis is always tested on cash receipts, even if you used IFRS revenue for the relief."
+      ]
+    },
+    {
+      "h": "How the cash basis works in practice",
+      "list": [
+        "A credit sale of AED 15,000 in November 2024, with AED 9,000 received in December and AED 6,000 in January 2025, is revenue of AED 9,000 in 2024 and AED 6,000 in 2025 (the FTA's own example)",
+        "December salaries paid by transfer on 2 January are an expense of January, not December",
+        "Card payments count when the cash moves: for the buyer, when the card bill is settled; for the seller, when the bank account is credited. A cheque counts when it is cashed",
+        "Loans received, loan principal repaid and the purchase price of an asset are not revenue or expenditure. Interest is",
+        "There is no depreciation under the cash basis; a deduction may be taken for assets purchased in its place",
+        "There is no balance sheet for Corporate Tax purposes, so receivables, payables and prepayments are invisible in the tax computation"
+      ]
+    },
+    {
+      "h": "Why small businesses take it",
+      "list": [
+        "It matches the bank account — no accruals, no prepayments, no revenue recognised before cash arrives",
+        "It defers tax where customers pay slowly: income lands in the period the cash does",
+        "It pairs naturally with Small Business Relief — the same AED 3m revenue line governs both, though relief is only available for tax periods ending on or before 31 December 2029 (extended from 2026 by Ministerial Decision No. 131 of 2026), while the cash basis concession has no end date"
+      ]
+    },
+    {
+      "h": "Worked example: the same year on both bases",
+      "ps": [
+        "A consultancy in its first year of trading, with a tax period that starts after Small Business Relief has ended, invoices AED 2,600,000 and collects AED 2,300,000 by year-end. It incurs AED 1,890,000 of running costs and pays AED 1,740,000 of them. On 1 December it pays a year's office rent of AED 120,000 in advance.",
+        "Accrual basis: revenue AED 2,600,000, costs AED 1,890,000 plus one month's rent of AED 10,000, so profit is AED 700,000. Corporate Tax is 9% of the AED 325,000 above the AED 375,000 nil band: AED 29,250. You can reproduce both figures in the [Corporate Tax calculator](/tools/uae-corporate-tax-calculator).",
+        "Cash basis: receipts AED 2,300,000, payments AED 1,740,000 plus the full AED 120,000 rent, so profit is AED 440,000. Corporate Tax is 9% of AED 65,000: AED 5,850.",
+        "The AED 23,400 difference is timing, not a saving. The AED 300,000 of uncollected invoices, AED 150,000 of unpaid costs and AED 110,000 of prepaid rent all reverse into next year's cash computation. It becomes a permanent problem only if the business crosses AED 3 million and the conversion is done badly."
+      ]
+    },
+    {
+      "h": "Why eligible is not the same as advisable",
+      "list": [
+        "VAT does not follow: the date of supply rules (goods transferred or service completed, invoice issued or payment received, whichever is earliest) drive VAT timing regardless of your accounting basis, so cash-basis books and the VAT return tell structurally different stories that must still reconcile",
+        "Growth forces a conversion: cross AED 3m and the switch to accrual is a real exercise — opening balances, unbilled work, accrued expenses — done under time pressure",
+        "Lenders and buyers think in accrual: cash-basis statements understate a growing business and complicate any financing or exit conversation",
+        "Prepaid-heavy or inventory-heavy models distort badly on cash basis — a year's rent paid in month twelve makes a profitable year look like a loss"
+      ]
+    },
+    {
+      "h": "Reconciling cash-basis books to the VAT returns",
+      "ps": [
+        "The FTA will compare your Corporate Tax revenue with the supplies declared on your VAT returns, so a cash-basis business needs a standing reconciliation between the two. In the worked example, the four VAT returns for the year declare standard-rated supplies of AED 2,600,000, because VAT followed the invoices. The Corporate Tax return shows revenue of AED 2,300,000. The AED 300,000 gap is the year-end receivables balance, and it should be listed invoice by invoice with the date each is later paid.",
+        "Next year the same AED 300,000 appears in Corporate Tax revenue but on no VAT return, so the reconciliation runs in the other direction. Keep the schedule for every year, because both taxes require records to be kept for at least seven years after the end of the tax period they relate to.",
+        "Records to keep even though the cash basis does not need them for the profit figure:"
+      ],
+      "list": [
+        "Every sales and purchase tax invoice, which VAT requires regardless of your accounting basis",
+        "A receivables and payables list at each year-end, which is the reconciliation above and the starting point for any conversion to accrual",
+        "Fixed asset purchases with dates and costs, so the deduction taken in place of depreciation can be evidenced",
+        "Bank statements for every account, and the evidence behind any cash receipt or payment"
+      ]
+    },
+    {
+      "h": "Switching to accrual when you cross AED 3 million",
+      "ps": [
+        "The FTA's guide says that once cash receipts in a tax period exceed AED 3 million, the business should move to the accrual basis. It may apply to the FTA to stay on the cash basis in exceptional circumstances; the guide's example is a business that expects to exceed the threshold for one tax period only, and it should keep evidence of why it expected that.",
+        "The guide does not prescribe a transition computation, so build one yourself and keep it on file. The principle is that every item of income and expense is taxed or deducted once: receivables raised under the cash basis but not yet collected must not drop out of both years, and costs already deducted when paid must not be deducted again as accrual expenses."
+      ],
+      "list": [
+        "Opening receivables and unbilled work at the switch date, with the cash basis treatment of each",
+        "Opening payables and accruals, identifying which were already deducted when paid",
+        "Prepayments, split between the part already deducted and the part relating to the new period",
+        "A fixed asset register built from purchase invoices, with the assets already deducted under the cash basis flagged so they are not depreciated a second time",
+        "Inventory counted and valued at the switch date"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Testing the AED 3 million threshold on invoices rather than cash received",
+        "Treating a loan from the owner as revenue, or a loan repayment as an expense",
+        "Declaring VAT on receipts because the books are cash-based; VAT timing follows the date of supply rules",
+        "Forgetting that a cash-basis year still needs records that support every receipt and payment, kept for seven years",
+        "Staying on the cash basis after a year above AED 3 million without an FTA approval, then discovering at the [audit or return stage](/guides/uae-audit-requirements) that the statements were prepared on the wrong basis"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab keeps the underlying records accrual-complete either way — documents, dues and payments all dated — so a cash-basis business still sees its real receivables and payables, and the day it crosses AED 3m the accrual conversion is a report, not a reconstruction."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can a UAE company use cash basis accounting for Corporate Tax?",
+      "a": "Yes, if its revenue in the tax period does not exceed AED 3 million, under Article 2 of Ministerial Decision No. 114 of 2023. No application is needed. Above AED 3 million it must use the accrual basis unless the FTA approves an exception."
+    },
+    {
+      "q": "Is the AED 3 million cash basis threshold measured on invoices or receipts?",
+      "a": "On receipts. The FTA's Accounting Standards Guide says the cash basis is used to determine whether revenue exceeds AED 3 million, so it is cash received in the tax period that counts."
+    },
+    {
+      "q": "What happens if revenue goes over AED 3 million on the cash basis?",
+      "a": "The business should switch to the accrual basis for that tax period. It can apply to the FTA to stay on the cash basis in exceptional circumstances, for example if it expects to exceed the threshold for one period only, but it needs the FTA's approval and evidence for the expectation."
+    },
+    {
+      "q": "Do I need audited financial statements if I use the cash basis?",
+      "a": "Not because of the cash basis itself. Under Ministerial Decision No. 84 of 2025, for tax periods starting on or after 1 January 2025, audited statements are required for a taxable person with revenue above AED 50 million, for every Qualifying Free Zone Person, and in a special purpose form for tax groups. A business under AED 3 million is usually outside all three."
+    },
+    {
+      "q": "Does cash basis accounting change when I pay VAT in the UAE?",
+      "a": "No. VAT is due on the date of supply, which is the earliest of the goods being transferred or the service completed, the tax invoice being issued, or payment being received. Your Corporate Tax accounting basis does not change that."
+    },
+    {
+      "q": "Can I use the cash basis and Small Business Relief together?",
+      "a": "Yes. Both use an AED 3 million revenue test, and Small Business Relief can be elected for tax periods ending on or before 31 December 2029. After that, the cash basis remains available but the relief does not."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ministerial Decision No. 114 of 2023 on Accounting Standards and Methods for Corporate Tax",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-114-of-2023-on-the-Accounting-Standards-and-Methods-for-Corporate-Tax-Purposes.pdf"
+    },
+    {
+      "label": "FTA: Accounting Standards Corporate Tax Guide CTGACS1 (section 4.2, cash basis)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Accounting%20Standards%20Guide%20-%2006%2011%202023.pdf"
+    },
+    {
+      "label": "FTA: Small Business Relief Corporate Tax Guide",
+      "href": "https://tax.gov.ae/DataFolder/Files/Guides/CT/Small%20Business%20Relief%20Guide%20-%20EN%20-%2027%2008%202023.pdf"
+    },
+    {
+      "label": "Federal Decree-Law No. 8 of 2017 on VAT and its amendments, Article 25 (date of supply)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    }
+  ],
+  "related": [
+    "uae-small-business-relief",
+    "uae-audit-requirements",
+    "uae-tax-deadlines"
+  ]
+}

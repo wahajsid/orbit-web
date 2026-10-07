@@ -1,0 +1,69 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter a fixed lease payment, how often it is paid (monthly, quarterly or annually), the lease term in years plus months, an annual discount rate and any amounts to add to the right-of-use (ROU) asset. The calculator assumes every payment is made at the end of its period (in arrears) and the payment never changes.",
+        "The periodic rate is the annual rate divided by the number of payments a year, so 6% with monthly payments gives 0.5% a month. The number of periods is the term in months divided by the months in each period, rounded to the nearest whole period. The lease liability is the payment multiplied by the ordinary annuity factor (1 − (1 + r)^−n) / r.",
+        "The ROU asset on day one is the lease liability plus the figure in the prepaid / initial direct costs field. The schedule then runs period by period: interest is the opening liability multiplied by the periodic rate, the payment is deducted, and the ROU asset is depreciated straight-line over the same number of periods. It shows the first 60 periods."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "IFRS 16 paragraph 26 measures the lease liability at the present value of the lease payments not paid at the commencement date, discounted at the interest rate implicit in the lease if it can be readily determined, otherwise at the lessee's incremental borrowing rate. Paragraph 27 adds index-linked payments, residual value guarantees, reasonably certain purchase options and termination penalties to the fixed payments.",
+        "Paragraph 24 builds the ROU asset at cost: the initial lease liability, plus payments made at or before commencement less incentives received, plus initial direct costs, plus an estimate of dismantling and restoration costs. The calculator's prepaid field covers the second, third and fourth items; enter incentives received as a deduction from that figure.",
+        "Paragraph 36 rolls the liability forward by adding interest and deducting payments, and paragraph 37 requires interest at a constant periodic rate on the remaining balance, which is what the schedule does. Paragraphs 31 and 32 depreciate the ROU asset under IAS 16, to the earlier of the end of its useful life or the end of the lease term, unless ownership transfers or a purchase option is reasonably certain to be exercised, in which case depreciation runs to the end of the asset's useful life. The calculator always uses the lease term. Lease liabilities and ROU assets often create temporary differences for tax; see the [IAS 12 deferred tax calculator](/tools/ias12-deferred-tax-calculator).",
+        "Paragraphs 5 to 8 let a lessee skip all of this for short-term leases (a lease term of 12 months or less at commencement, and no purchase option), elected by class of asset, and for leases of low-value assets, elected lease by lease. Low value is judged on the asset when new (B3 to B8): tablets, personal computers, telephones and small office furniture qualify; cars do not, and an asset you sublease never does. Payments under either exemption are expensed straight-line or on another systematic basis."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a five-year office lease at AED 50,000 a month",
+    "ps": [
+      "Use the defaults: payment AED 50,000, monthly, 5 years and 0 months, discount rate 6%, prepaid 0. That is 60 payments at 0.5% a month, AED 3,000,000 in total."
+    ],
+    "list": [
+      "Lease liability: 50,000 × (1 − 1.005^−60) / 0.005 = AED 2,586,278.04. With nothing prepaid, the ROU asset is the same amount.",
+      "Day 1: Dr Right-of-use asset 2,586,278.04, Cr Lease liability 2,586,278.04.",
+      "Month 1: interest 2,586,278.04 × 0.5% = 12,931.39; payment 50,000; closing liability 2,549,209.43. Journal: Dr Interest expense 12,931.39, Dr Lease liability 37,068.61, Cr Bank 50,000.00.",
+      "Month 1 depreciation: 2,586,278.04 ÷ 60 = 43,104.63. Journal: Dr Depreciation 43,104.63, Cr Accumulated depreciation (ROU) 43,104.63.",
+      "Year 1 totals: interest AED 142,737.85, depreciation AED 517,255.61, closing liability AED 2,129,015.89. The year-one charge of AED 659,993.46 exceeds the AED 600,000 cash paid: IFRS 16 front-loads the expense.",
+      "Over the full term: total interest AED 413,721.96, which is AED 3,000,000 less the day-one liability. Post the monthly interest and depreciation entries as part of your [month-end close](/guides/month-end-close-checklist).",
+      "Rent paid monthly in advance instead: enter 4 years 11 months and AED 50,000 in the prepaid field. The liability becomes AED 2,549,209.43 (the 59 payments still unpaid at commencement) and the ROU asset AED 2,599,209.43. The depreciation the tool shows is then spread over 59 months; the correct charge over the 60-month term is AED 43,320.16 a month."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How do you calculate the lease liability under IFRS 16?",
+      "a": "Discount the lease payments not yet paid at commencement to present value, using the rate implicit in the lease or, if that cannot be readily determined, your incremental borrowing rate (paragraph 26). For level payments in arrears that is payment × (1 − (1 + r)^−n) / r."
+    },
+    {
+      "q": "What discount rate should I use for IFRS 16?",
+      "a": "The interest rate implicit in the lease if it can be readily determined; otherwise the lessee's incremental borrowing rate (paragraph 26). The implicit rate depends on the lessor's view of the asset's residual value and its own direct costs, so check whether you can actually determine it before defaulting to it. Enter the rate per year; the calculator converts it to a periodic rate."
+    },
+    {
+      "q": "Does IFRS 16 apply to leases of 12 months or less?",
+      "a": "You can elect not to apply it. A short-term lease has a lease term of 12 months or less at commencement and no purchase option. The election is made by class of underlying asset and the payments are expensed, usually straight-line."
+    },
+    {
+      "q": "What counts as a low-value asset under IFRS 16?",
+      "a": "The test is the value of the asset when new, regardless of its age. The standard's examples are tablets, personal computers, small office furniture and telephones. Cars do not qualify, nor does any asset you sublease or expect to sublease."
+    },
+    {
+      "q": "Why is my lease expense higher in the early years under IFRS 16?",
+      "a": "Interest is charged on the outstanding liability, which is largest at the start, while depreciation is straight-line. In the default example year one costs AED 659,993.46 against AED 600,000 of rent."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS 16 Leases, standard text incl. paragraphs 5 to 8, 24, 26, 27, 31, 32, 36, 37 and B3 to B8 (Commission Regulation (EU) 2017/1986)",
+      "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32017R1986"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 16 Leases",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/"
+    }
+  ]
+}

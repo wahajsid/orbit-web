@@ -48,7 +48,7 @@ export function EclCalculator() {
   const rows = ECL_BUCKETS.map((b, i) => {
     const exposure = num(bal[i]);
     const base = num(rate[i]);
-    const applied = Math.max(0, base * (1 + adj / 100));
+    const applied = Math.min(100, Math.max(0, base * (1 + adj / 100))); // a loss rate cannot exceed 100%
     return { b, exposure, base, applied, ecl: (exposure * applied) / 100 };
   });
   const totalExp = rows.reduce((s, r) => s + r.exposure, 0);
@@ -114,7 +114,7 @@ export function EosbCalculator() {
 
   const b = num(basic);
   const service = Math.max(0, num(years)) + Math.min(11, Math.max(0, num(months))) / 12;
-  const daily = (b * 12) / 365;
+  const daily = b / 30; // Art. 67: a month is 30 days, so a day's basic wage is monthly basic ÷ 30
   const first = Math.min(service, 5) * 21;
   const after = Math.max(0, service - 5) * 30;
   const raw = service >= 1 ? daily * (first + after) : 0;
@@ -154,6 +154,7 @@ export function VatCalculator() {
   const net = mode === "add" ? a : a / (1 + rate / 100);
   const vat = net * (rate / 100);
   const gross = net + vat;
+  const money = rate === 15 ? sar2 : aed2; // KSA figures are in riyals
 
   return (
     <div className="mg-tool">
@@ -175,9 +176,9 @@ export function VatCalculator() {
         </div>
       </div>
       <div className="mg-tool-result">
-        <div><div className="mg-tool-label">Net</div><div className="mg-tool-big">{aed2(net)}</div></div>
-        <div><div className="mg-tool-label">VAT ({rate}%)</div><div className="mg-tool-big">{aed2(vat)}</div></div>
-        <div><div className="mg-tool-label">Gross</div><div className="mg-tool-big">{aed2(gross)}</div></div>
+        <div><div className="mg-tool-label">Net</div><div className="mg-tool-big">{money(net)}</div></div>
+        <div><div className="mg-tool-label">VAT ({rate}%)</div><div className="mg-tool-big">{money(vat)}</div></div>
+        <div><div className="mg-tool-label">Gross</div><div className="mg-tool-big">{money(gross)}</div></div>
       </div>
     </div>
   );
@@ -336,7 +337,7 @@ export function ActuarialEosbCalculator() {
   for (let y = 1; y <= projectionYears; y++) {
     const futureService = svc + y;
     const futureBasic = basic * Math.pow(1 + sg, y);
-    const daily = (futureBasic * 12) / 365;
+    const daily = futureBasic / 30;
     const first5 = Math.min(futureService, 5) * 21;
     const after5 = Math.max(0, futureService - 5) * 30;
     const rawGratuity = futureService >= 1 ? daily * (first5 + after5) : 0;
@@ -350,7 +351,7 @@ export function ActuarialEosbCalculator() {
   const stayProb = Math.pow(1 - att, projectionYears);
   const termBasic = basic * Math.pow(1 + sg, projectionYears);
   const termService = svc + projectionYears;
-  const termDaily = (termBasic * 12) / 365;
+  const termDaily = termBasic / 30;
   const termFirst5 = Math.min(termService, 5) * 21;
   const termAfter5 = Math.max(0, termService - 5) * 30;
   const termGratuity = termService >= 1 ? Math.min(termDaily * (termFirst5 + termAfter5), termBasic * 24) : 0;
@@ -358,7 +359,7 @@ export function ActuarialEosbCalculator() {
   totalPV += termPV;
 
   const undiscountedNow = (() => {
-    const daily = (basic * 12) / 365;
+    const daily = basic / 30;
     const f5 = Math.min(svc, 5) * 21;
     const a5 = Math.max(0, svc - 5) * 30;
     const raw = svc >= 1 ? daily * (f5 + a5) : 0;
@@ -604,14 +605,14 @@ export function EirCalculator() {
   const couponAmt = face * cpn;
 
   const solveEIR = (): number => {
-    let lo = 0, hi = 1;
+    let lo = -0.5, hi = 1; // below zero for instruments issued at a large premium
     for (let iter = 0; iter < 200; iter++) {
       const mid = (lo + hi) / 2;
       let pv = 0;
       for (let t = 1; t <= years; t++) {
         pv += couponAmt / Math.pow(1 + mid, t);
       }
-      pv += face / Math.pow(1 + years > 0 ? 1 + mid : 1, years);
+      pv += face / Math.pow(1 + mid, years);
       if (pv > netProceeds) lo = mid; else hi = mid;
     }
     return (lo + hi) / 2;
@@ -889,10 +890,10 @@ export function SbrCheckerCalculator({ ar = false }: { ar?: boolean } = {}) {
         <div className="mg-tool-note">
           {ar
             ? (eligible
-              ? <>مع الاختيار يُعامَل الدخل الخاضع كأنه صفر للفترة — مقابل ما يقدَّر بـ {aed2(taxWithout)} على الشرائح العادية 0%/9%. يُمارَس الاختيار في الإقرار الضريبي، ويسري على الفترات المنتهية في 31 ديسمبر 2026 أو قبله، ويتخلى عن ترحيل خسائر الفترة. ويبقى التسجيل والتقديم واجبين.</>
+              ? <>مع الاختيار يُعامَل الدخل الخاضع كأنه صفر للفترة — مقابل ما يقدَّر بـ {aed2(taxWithout)} على الشرائح العادية 0%/9%. يُمارَس الاختيار في الإقرار الضريبي، ويسري على الفترات المنتهية في 31 ديسمبر 2029 أو قبله، ويتخلى عن ترحيل خسائر الفترة. ويبقى التسجيل والتقديم واجبين.</>
               : <>غير مؤهل: {blockers.join("؛ ")}. وتبقى الشريحة الصفرية حتى 375,000 درهم و9% فوقها ساريتين.</>)
             : (eligible
-              ? <>With the election, taxable income is treated as nil for the period — versus an estimated {aed2(taxWithout)} at the standard 0%/9% bands. The election is made in the tax return, applies to periods ending on or before 31 December 2026, and gives up loss carry-forward for the period. Registration and filing are still required.</>
+              ? <>With the election, taxable income is treated as nil for the period — versus an estimated {aed2(taxWithout)} at the standard 0%/9% bands. The election is made in the tax return, applies to periods ending on or before 31 December 2029 (extended from 2026 by Ministerial Decision No. 131 of 2026), and gives up loss carry-forward for the period. Registration and filing are still required.</>
               : <>Not eligible: {blockers.join("; ")}. The standard 0% band to AED 375,000 and 9% above still apply.</>)}
         </div>
       </div>
@@ -910,15 +911,16 @@ export function VatPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
 
   const tax = Math.max(0, num(unpaid));
   const d = Math.max(0, Math.floor(num(days)));
-  const monthlyHits = d >= 31 ? Math.floor((d - 1) / 30) : 0;
-  const latePct = d > 0 ? Math.min(300, 2 + 4 * monthlyHits) : 0;
-  const latePayment = (tax * latePct) / 100;
+  // Cabinet Decision No. 129 of 2025, from 14 April 2026: 14% a year on unpaid
+  // tax, calculated monthly; counted here per month or part month, no cap.
+  const months = d > 0 ? Math.ceil(d / 30) : 0;
+  const latePayment = (tax * 0.14 * months) / 12;
   const filing = lateReturn ? (repeat ? 2000 : 1000) : 0;
   const total = latePayment + filing;
 
   const L = ar
-    ? { unpaid: "الضريبة غير المدفوعة (درهم)", days: "الأيام بعد الموعد النهائي", lateRet: "الإقرار نفسه قُدِّم متأخرًا أيضًا", repeat: "تكرار التأخر في التقديم خلال 24 شهرًا", pay: `غرامة التأخر في السداد (${latePct}%)`, file: "غرامة التأخر في التقديم", total: "إجمالي التعرض" }
-    : { unpaid: "Unpaid VAT (AED)", days: "Days past the deadline", lateRet: "The return itself was also filed late", repeat: "Repeat late filing within 24 months", pay: `Late-payment penalty (${latePct}%)`, file: "Late-filing penalty", total: "Total exposure" };
+    ? { unpaid: "الضريبة غير المدفوعة (درهم)", days: "الأيام بعد الموعد النهائي", lateRet: "الإقرار نفسه قُدِّم متأخرًا أيضًا", repeat: "تكرار التأخر في التقديم خلال 24 شهرًا", pay: `غرامة التأخر في السداد (${months} ${months === 1 ? "شهر" : "أشهر"} بنسبة 14% سنويًا)`, file: "غرامة التأخر في التقديم", total: "إجمالي التعرض" }
+    : { unpaid: "Unpaid VAT (AED)", days: "Days past the deadline", lateRet: "The return itself was also filed late", repeat: "Repeat late filing within 24 months", pay: `Late-payment penalty (${months} month${months === 1 ? "" : "s"} at 14% a year)`, file: "Late-filing penalty", total: "Total exposure" };
 
   return (
     <div className="mg-tool">
@@ -951,8 +953,8 @@ export function VatPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
         </div>
         <div className="mg-tool-note">
           {ar
-            ? <>التأخر في السداد: 2% من الضريبة غير المدفوعة فور انقضاء الموعد، ثم 4% شهريًا ابتداءً من شهر بعده{monthlyHits > 0 ? ` (${monthlyHits} ${monthlyHits === 1 ? "رسم شهري" : "رسوم شهرية"} حتى الآن)` : ""}, بسقف 300%. التأخر في التقديم: 1,000 درهم للمرة الأولى و2,000 درهم عند التكرار خلال 24 شهرًا. والإفصاح الطوعي قبل إشعار التدقيق يخفّض التعرض عادةً — والأرقام هنا تفترض عدمه.</>
-            : <>Late payment: 2% of the unpaid tax immediately after the deadline, then 4% monthly starting one month after it{monthlyHits > 0 ? ` (${monthlyHits} monthly charge${monthlyHits === 1 ? "" : "s"} so far)` : ""}, capped at 300%. Late filing: AED 1,000 first offence, AED 2,000 on repetition within 24 months. Voluntary disclosure before an audit notice generally reduces the exposure — the numbers here assume none.</>}
+            ? <>منذ 14 أبريل 2026 (قرار مجلس الوزراء رقم 129 لسنة 2025) تُفرض على الضريبة غير المدفوعة غرامة تأخر بنسبة 14% سنويًا تُحتسب شهريًا: نحو 1.17% عن كل شهر أو جزء منه تبقى فيه الضريبة غير مدفوعة، دون سقف 300% القديم. التأخر في التقديم: 1,000 درهم للمرة الأولى و2,000 درهم عند التكرار خلال 24 شهرًا. والأرقام تقدير وفق القواعد السارية من 14 أبريل 2026.</>
+            : <>Since 14 April 2026 (Cabinet Decision No. 129 of 2025), unpaid tax attracts a late-payment penalty of 14% a year, calculated monthly: about 1.17% for each month or part month the tax stays unpaid, with no cap (the old regime of 2% plus 4% a month, capped at 300%, is gone). Late filing: AED 1,000 first offence, AED 2,000 on repetition within 24 months. An estimate under the rules in force from 14 April 2026.</>}
         </div>
       </div>
     </div>
@@ -1081,8 +1083,8 @@ export function WhtCalculator({ ar = false }: { ar?: boolean } = {}) {
         </div>
         <div className="mg-tool-note">
           {ar
-            ? <>يسري الاستقطاع على المدفوعات من السعودية لغير المقيمين عن دخل مصدره المملكة، بالنسب المحلية المبينة؛ ويستحق إقرار الاستقطاع وسداده خلال الأيام العشرة الأولى من الشهر التالي للدفع. وقد تخفّض اتفاقية ضريبية النسبة — عمليًا عبر الاستقطاع ثم الاسترداد. وبنود الصافي من الضريبة تجعل الضريبة تكلفة الدافع، كما هو محسوب هنا.</>
-            : <>Withholding applies to payments from KSA to non-residents for KSA-source income, at the domestic rates shown; the WHT return and payment are due within the first ten days of the month following payment. A tax treaty can reduce the rate — in practice via withhold-and-refund. Gross-up clauses make the tax the payer&rsquo;s cost, as computed here.</>}
+            ? <>يسري الاستقطاع على المدفوعات من السعودية لغير المقيمين عن دخل مصدره المملكة، بالنسب المحلية المبينة؛ ويستحق إقرار الاستقطاع وسداده خلال الأيام العشرة الأولى من الشهر التالي للدفع. وقد تخفّض اتفاقية ضريبية النسبة: إما بتطبيقها عند الدفع بعد تقديم طلب الاتفاقية مع شهادة الإقامة الضريبية عبر بوابة الزكاة والضريبة والجمارك، أو باستردادها لاحقًا بطلب استرداد. وبنود الصافي من الضريبة تجعل الضريبة تكلفة الدافع، كما هو محسوب هنا.</>
+            : <>Withholding applies to payments from KSA to non-residents for KSA-source income, at the domestic rates shown; the WHT return and payment are due within the first ten days of the month following payment. A tax treaty can reduce the rate: either applied at source, once the treaty claim and the recipient&rsquo;s tax residency certificate are filed through ZATCA&rsquo;s portal, or recovered later through a refund claim. Gross-up clauses make the tax the payer&rsquo;s cost, as computed here.</>}
         </div>
       </div>
     </div>
@@ -1339,7 +1341,7 @@ export function EcomVatCalculator({ ar = false }: { ar?: boolean } = {}) {
 
   const a = Math.max(0, num(amount));
   // Domestic → 5%. Goods abroad with export evidence → 0%; without → hold at 5%.
-  // E-services used abroad with evidence → 0%/out of scope; without → 5%.
+  // E-services used abroad with evidence → outside the scope (Art. 31); without → 5%.
   const zero = abroad && evidence;
   const vat = zero ? 0 : a * 0.05;
 
@@ -1374,7 +1376,7 @@ export function EcomVatCalculator({ ar = false }: { ar?: boolean } = {}) {
       <div className="mg-tool-result">
         <div>
           <div className="mg-tool-label">{L.rate}</div>
-          <div className="mg-tool-big" style={{ color: zero ? "var(--accent)" : "var(--text)" }}>{zero ? "0%" : "5%"}</div>
+          <div className="mg-tool-big" style={{ color: zero ? "var(--accent)" : "var(--text)" }}>{zero ? (stream === 1 ? (ar ? "خارج النطاق" : "Out of scope") : "0%") : "5%"}</div>
         </div>
         <div>
           <div className="mg-tool-label">{L.out}</div>
@@ -1389,13 +1391,17 @@ export function EcomVatCalculator({ ar = false }: { ar?: boolean } = {}) {
             ? (abroad && !evidence
               ? <b>وجهة خارجية بلا دليل محفوظ: عامل التوريد 5% حتى يكتمل الملف — النسبة الصفرية تُكتسب بالتوثيق، والهيئة تعيد التسعير حيث يغيب.</b>
               : zero
-                ? "نسبة صفرية: استرداد كامل لضريبة المدخلات، مع الاحتفاظ بالدليل لكل طلب مربوطًا برقمه."
-                : "توريد محلي: 5% على السعر وفاتورة ضريبية (المبسطة تكفي المستهلكين عادة). وتذكّر عتبة التسجيل 375,000 درهم على إيراد متحرك.")
+                ? (stream === 1
+                  ? "خارج نطاق ضريبة القيمة المضافة الإماراتية (المادة 31): الخدمة الإلكترونية المستخدمة خارج الدولة لا تخضع للضريبة، وتبقى ضريبة المدخلات على تكاليفها قابلة للاسترداد. احتفظ بدليل مكان الاستخدام لكل طلب."
+                  : "نسبة صفرية: استرداد كامل لضريبة المدخلات، مع الاحتفاظ بالدليل لكل طلب مربوطًا برقمه.")
+                : "توريد محلي: 5% على السعر وفاتورة ضريبية (المبسطة تكفي المستهلكين عادة). وتذكّر عتبة التسجيل 375,000 درهم، وتُقاس على التوريدات الخاضعة والواردات خلال الأشهر الاثني عشر السابقة.")
             : (abroad && !evidence
               ? <b>Foreign destination without retained evidence: treat the supply as 5% until the file is complete — zero-rating is earned by documentation, and the FTA re-rates where it is missing.</b>
               : zero
-                ? "Zero-rated: full input-tax recovery, with the evidence kept per order, linked to the order number."
-                : "Domestic supply: 5% on the price with a tax invoice (simplified usually suffices for consumers). Remember the AED 375,000 registration threshold runs on rolling revenue.")}
+                ? (stream === 1
+                  ? "Outside the scope of UAE VAT (Article 31): an electronic service used and enjoyed outside the State carries no UAE VAT, and input tax on the related costs stays recoverable. Keep evidence of where the service is used, order by order."
+                  : "Zero-rated: full input-tax recovery, with the evidence kept per order, linked to the order number.")
+                : "Domestic supply: 5% on the price with a tax invoice (simplified usually suffices for consumers). Remember the AED 375,000 registration threshold, measured on taxable supplies and imports over the previous 12 months.")}
         </div>
       </div>
     </div>
@@ -1415,7 +1421,7 @@ export function EmployeeCostCalculator({ ar = false }: { ar?: boolean } = {}) {
   const basic = g * bp;
   // EOSB accrues on basic at 21 days/year for expat staff; nationals get
   // pension contributions instead.
-  const eosb = national ? 0 : (basic * 21) / 365;
+  const eosb = national ? 0 : (basic / 30) * 21 / 12; // 21 days a year on the 30-day daily wage, per month
   const pension = national ? (g * Math.max(0, num(pensionPct))) / 100 : 0;
   const monthly = g + eosb + pension;
 
@@ -1845,41 +1851,41 @@ export function RealEstateVatCalculator({ ar = false }: { ar?: boolean } = {}) {
 
 export function VdPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [diff, setDiff] = useState("100000");
-  const [years, setYears] = useState("1");
-  const [repeat, setRepeat] = useState(false);
-
+  const [months, setMonths] = useState("12");
+  const [audit, setAudit] = useState(false);
   const d = Math.max(0, num(diff));
-  const y = Math.max(0, num(years));
-  const pct = y <= 1 ? 5 : y <= 2 ? 10 : y <= 3 ? 20 : y <= 4 ? 30 : 40;
-  const fixed = repeat ? 2000 : 1000;
-  const pctAmt = (d * pct) / 100;
-  const total = fixed + pctAmt;
-  const nextPct = y <= 1 ? 10 : y <= 2 ? 20 : y <= 3 ? 30 : y <= 4 ? 40 : 40;
-  const waitCost = (d * (nextPct - pct)) / 100;
-
+  // Cabinet Decision No. 129 of 2025, from 14 April 2026: 1% of the tax
+  // difference for each month from the original due date to the disclosure,
+  // plus 15% if disclosed after an FTA audit notice. No fixed amount.
+  const m = Math.max(0, Math.ceil(num(months)));
+  const monthly = (d * m) / 100;
+  const auditAmt = audit ? d * 0.15 : 0;
+  const total = monthly + auditAmt;
+  const waitCost = (d * 6) / 100;
   const L = ar
-    ? { diff: "فرق الضريبة في الإفصاح (درهم)", years: "السنوات منذ استحقاق الإقرار الأصلي", repeat: "إفصاح متكرر (الغرامة الثابتة 2,000)", pct: `الغرامة النسبية (${pct}%)`, fixed: "الغرامة الثابتة", total: "إجمالي كلفة الإفصاح", wait: "كلفة انتظار سنة أخرى" }
-    : { diff: "Tax difference being disclosed (AED)", years: "Years since the original return was due", repeat: "Repeat disclosure (AED 2,000 fixed)", pct: `Percentage penalty (${pct}%)`, fixed: "Fixed penalty", total: "Total disclosure cost", wait: "Cost of waiting another year" };
-
+    ? { diff: "فرق الضريبة في الإفصاح (درهم)", months: "الأشهر منذ استحقاق الإقرار الأصلي", audit: "الإفصاح بعد إشعار التدقيق (تُضاف 15%)", pct: `الغرامة الشهرية (1% × ${m})`, aud: "غرامة ما بعد إشعار التدقيق (15%)", total: "إجمالي كلفة الإفصاح", wait: "كلفة الانتظار ستة أشهر أخرى" }
+    : { diff: "Tax difference being disclosed (AED)", months: "Months since the original return was due", audit: "Disclosed after an FTA audit notice (adds 15%)", pct: `Monthly penalty (1% × ${m} month${m === 1 ? "" : "s"})`, aud: "Post-audit-notice penalty (15%)", total: "Total disclosure cost", wait: "Cost of waiting six more months" };
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
         <Field label={L.diff} value={diff} onChange={setDiff} width={270} />
-        <Field label={L.years} value={years} onChange={setYears} width={280} />
+        <Field label={L.months} value={months} onChange={setMonths} width={280} />
         <label className="mg-tool-check">
-          <input type="checkbox" checked={repeat} onChange={(e) => setRepeat(e.target.checked)} />
-          <span>{L.repeat}</span>
+          <input type="checkbox" checked={audit} onChange={(e) => setAudit(e.target.checked)} />
+          <span>{L.audit}</span>
         </label>
       </div>
       <div className="mg-tool-result">
         <div>
           <div className="mg-tool-label">{L.pct}</div>
-          <div className="mg-tool-big">{aed2(pctAmt)}</div>
+          <div className="mg-tool-big">{aed2(monthly)}</div>
         </div>
-        <div>
-          <div className="mg-tool-label">{L.fixed}</div>
-          <div className="mg-tool-big">{aed2(fixed)}</div>
-        </div>
+        {audit && (
+          <div>
+            <div className="mg-tool-label">{L.aud}</div>
+            <div className="mg-tool-big">{aed2(auditAmt)}</div>
+          </div>
+        )}
         <div>
           <div className="mg-tool-label">{L.total}</div>
           <div className="mg-tool-big">{aed2(total)}</div>
@@ -1892,14 +1898,13 @@ export function VdPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
         )}
         <div className="mg-tool-note">
           {ar
-            ? <>السلّم: 5% خلال السنة الأولى من الاستحقاق، ثم 10% و20% و30% و40% بعد السنة الرابعة — زائد الثابتة 1,000/2,000 درهم. وكل هذا يفترض الإفصاح قبل إشعار التدقيق؛ بعده يسقط السلّم المخفَّض ويقفز التعرض. الأخطاء البالغة 10,000 درهم فأقل تُصحح في الإقرار التالي بلا نموذج 211.</>
-            : <>The ladder: 5% within the first year of the due date, then 10%, 20%, 30%, and 40% beyond year four — plus the AED 1,000/2,000 fixed penalty. All of this assumes disclosure before an audit notice; after one, the reduced ladder is gone and exposure jumps. Errors of AED 10,000 or less are corrected in the next return, no Form 211 needed.</>}
+            ? <>منذ 14 أبريل 2026 (قرار مجلس الوزراء رقم 129 لسنة 2025) يكلّف الإفصاح الطوعي 1% من فرق الضريبة عن كل شهر من تاريخ استحقاق الإقرار الأصلي حتى تقديم الإفصاح، بدلًا من سلّم 5%–40% والغرامة الثابتة 1,000/2,000 درهم. وإن جاء الإفصاح بعد إشعار التدقيق تُضاف غرامة 15%. وتستحق الضريبة المُفصح عنها خلال 20 يوم عمل من التقديم، وبعدها تسري غرامة التأخر في السداد بنسبة 14% سنويًا. الأخطاء البالغة 10,000 درهم فأقل تُصحح في الإقرار التالي بلا نموذج 211.</>
+            : <>Since 14 April 2026 (Cabinet Decision No. 129 of 2025), a voluntary disclosure costs 1% of the tax difference for each month from the original due date until the disclosure is filed. That replaces the 5%-to-40% ladder and the fixed AED 1,000/2,000. Disclose after an FTA audit notice and a 15% penalty is added. The disclosed tax is then due within 20 business days of submission, after which the 14%-a-year late-payment penalty runs. Errors of AED 10,000 or less are corrected in the next return, no Form 211 needed.</>}
         </div>
       </div>
     </div>
   );
 }
-
 /* ── 29 · Interest deduction cap (30% EBITDA) ─────────────────────── */
 
 export function InterestCapCalculator({ ar = false }: { ar?: boolean } = {}) {

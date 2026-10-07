@@ -1,0 +1,144 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The switching tax",
+      "ps": [
+        "Every 'switch to our platform' pitch hides the same bill: re-keying or migrating history, retraining the team, re-teaching your accountant and auditor a system they don't know, and a cutover month where two systems disagree. For a working SME the migration usually costs more than the software."
+      ]
+    },
+    {
+      "h": "What sitting on top means, concretely",
+      "list": [
+        "Your chart of accounts is discovered and mapped — with your review — not replaced",
+        "Approved journals post into the ledger two ways; anything touching an unmapped account is held with the reason stated, never half-pushed",
+        "The ledger stays the system of record your auditor already trusts; Hysaab carries the evidence trail behind every number",
+        "Payables can land as proper bills where the ledger requires it — ledgers reserve their control accounts for their own documents, and Hysaab respects that",
+        "One connected ledger at a time, so there is always a single source of truth",
+        "Disconnect any time, from either side — your books remain yours, in your ledger"
+      ]
+    },
+    {
+      "h": "When replacing is right anyway",
+      "ps": [
+        "If you run no accounting system at all, there is nothing to preserve: Hysaab keeps the books itself from day one — chart of accounts, journals and evidence included. The point isn't that ledgers are sacred; it's that a business already invested in one shouldn't have to abandon it to get an AI finance team."
+      ]
+    },
+    {
+      "h": "What UAE law asks of your books, whatever software holds them",
+      "ps": [
+        "Article 4 of the Tax Procedures Law (Federal Decree-Law No. 28 of 2022) requires anyone conducting business to keep accounting records and commercial books. Article 2 of its Executive Regulation (Cabinet Decision No. 74 of 2023) spells out what that means: the balance sheet and profit and loss accounts, wage and salary records, the fixed asset register, inventory records including stock counts at the end of each tax period, and the documents behind every entry, such as invoices, contracts, correspondence and the workings for any tax election or calculation.",
+        "Article 4 of the same regulation allows two ways to comply: keep the original documents behind the record, or keep the information from them, on paper or electronically, provided it is identical to the original, available for the whole retention period and can be produced in readable form when the FTA asks. A ledger that drills down from the trial balance to the source document meets that test. An export of closing balances does not."
+      ]
+    },
+    {
+      "h": "How long the history has to stay readable",
+      "list": [
+        "VAT and other taxes under the Tax Procedures Law: five years after the end of the tax period the record relates to (Executive Regulation Article 3(1)(a))",
+        "Corporate tax: seven years after the end of the tax period, for taxable and exempt persons alike (Corporate Tax Law Article 56)",
+        "Real estate records for VAT: fifteen years after the end of the tax period (VAT Executive Regulation Article 71(2)). The Tax Procedures regulation sets seven years for real estate records generally",
+        "Four more years where there is a dispute with the FTA, an audit in progress or an audit notified before the period ends, and one more year after a voluntary disclosure made in the fifth year (Executive Regulation Article 3(2))",
+        "Failing to keep the required records costs AED 10,000 per violation, or AED 20,000 for a repeat within 24 months (Cabinet Decision No. 40 of 2017, Table 1)"
+      ],
+      "ps": [
+        "The periods run from the end of the tax period a record relates to, not from the date you stop using the software. Where more than one rule applies to the same record, keep it for the longest. For most companies that is the seven-year corporate tax period, which means the ledger you use today must still be readable, at transaction level, well into the 2030s."
+      ]
+    },
+    {
+      "h": "What a migration does to that trail",
+      "ps": [
+        "The corporate tax rule is the one that bites. A company that moves to a new system for its 2026 year still has to produce its 2024 and 2025 records, at transaction level, until the end of 2031 and 2032. If the old ledger was a subscription that has lapsed, or the history came across as opening balances only, the drill-down the FTA expects has gone. The usual workaround, a full data export to spreadsheets, has to be tested for exactly the property Article 4 requires: can you get from a number in the return to the invoice behind it?",
+        "A mid-year switch adds a second problem. Take a company with a calendar year that changes systems on 1 July 2026. Its 2026 corporate tax return and its audited financial statements must be built from two ledgers, with a cutover journal in between. Its VAT returns for the quarters either side of the switch were filed from different systems. Every one of those figures has to reconcile back to source for at least seven years, and the auditor tests the cutover as a separate risk.",
+        "Detail is often lost in transit too: open items migrated as one balance per customer instead of per invoice, which breaks [bad-debt relief](/guides/uae-vat-bad-debt-relief) ageing; foreign currency revaluation history; fixed asset cost and depreciation detail; and the link between payments and the tax invoices behind them."
+      ]
+    },
+    {
+      "h": "What an FTA audit tests in the ledger",
+      "ps": [
+        "Article 16 of the Tax Procedures Law lets the FTA audit at its own premises or wherever you do business, store goods or keep records, and Article 17 lets the auditor take original records or copies. In practice the request arrives as a list, and the answer has to come out of the books you kept for that period, whichever system they now sit in.",
+        "The test is usually a walk from the return to the evidence and back. An auditor picks a VAT return box or a corporate tax adjustment, asks for the ledger detail that makes it up, samples transactions from that detail and asks for the tax invoice, contract or payment behind each one. A ledger that keeps the document attached to the posting answers in minutes. A migrated ledger with balances only answers in weeks, if at all."
+      ],
+      "list": [
+        "A reconciliation of each VAT return to the general ledger, box by box",
+        "Transaction listings for sales, purchases and imports, with tax invoice numbers and the supplier's or customer's TRN",
+        "The fixed asset register with cost, additions, disposals and depreciation",
+        "Stock counts and the inventory records behind them",
+        "Payroll records and the workings behind any tax election or calculation"
+      ]
+    },
+    {
+      "h": "E-invoicing raises the stakes in 2027",
+      "ps": [
+        "Under Ministerial Decision No. 244 of 2025, businesses with revenue of AED 50 million or more must appoint an Accredited Service Provider by 31 July 2026 and go live with e-invoicing by 1 January 2027. Everyone else in scope must appoint one by 31 March 2027 and go live by 1 July 2027. Business-to-consumer transactions are excluded for now.",
+        "The service provider connects to the system that raises your invoices, which for most SMEs is the ledger. Changing ledgers in the months around go-live means building and testing that integration twice, under a penalty of AED 2,500 per detected case for failing the electronic issuance conditions. If a switch is genuinely needed, finish it well before your appointment deadline. The invoice requirements themselves are covered in our [tax invoice checklist](/guides/uae-tax-invoice-checklist)."
+      ]
+    },
+    {
+      "h": "Questions to answer before you switch anyway",
+      "list": [
+        "Will the old ledger stay readable, with drill-down, for seven years after the last tax period it holds, and who pays for that access?",
+        "Is history moving across at transaction level, or as balances only?",
+        "Do open receivables and payables migrate invoice by invoice, with their original dates and tax invoice numbers?",
+        "Does the switch date fall at a year end, and if not, how will the cutover be evidenced for the auditor and the corporate tax return?",
+        "Do the VAT return figures for each quarter reconcile to whichever ledger produced them?",
+        "Does the new system's e-invoicing connection fit your Accredited Service Provider deadline?",
+        "Have you run a [month-end close](/guides/month-end-close-checklist) in parallel on both systems before cutting over?"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long do I need to keep accounting records in the UAE?",
+      "a": "Seven years after the end of the tax period for corporate tax purposes, under Article 56 of the Corporate Tax Law. The general Tax Procedures rule is five years after the tax period, and VAT records relating to real estate must be kept for fifteen years. Disputes and audits extend these periods by four years."
+    },
+    {
+      "q": "Can accounting records be kept electronically in the UAE?",
+      "a": "Yes. Article 4 of the Tax Procedures Executive Regulation accepts electronic copies, provided the information is identical to the original, available for the full retention period, stored so the FTA can verify your tax position, and producible in readable form on request."
+    },
+    {
+      "q": "Can I keep my accounts in English in the UAE?",
+      "a": "Yes, in practice. The Tax Procedures Law requires submissions to the FTA in Arabic, but the FTA may accept records in English and can ask you to provide an approved Arabic translation, at your cost, within the period it sets."
+    },
+    {
+      "q": "What is the penalty for not keeping proper records in the UAE?",
+      "a": "AED 10,000 for each violation, rising to AED 20,000 for a repeat within 24 months, under Cabinet Decision No. 40 of 2017 as amended. Missing records also weaken your position on any figure the FTA questions, because the burden of evidence sits with you."
+    },
+    {
+      "q": "Does changing accounting software affect my VAT and corporate tax filings?",
+      "a": "It does not change the rules, but you remain responsible for producing the records behind every return already filed, for five to seven years. If the old system becomes unreadable or history is migrated as balances only, you can fail that requirement without any tax being wrong."
+    },
+    {
+      "q": "Do I need new accounting software for UAE e-invoicing?",
+      "a": "Not necessarily. Ministerial Decision No. 244 of 2025 requires you to appoint an Accredited Service Provider and issue invoices through the Electronic Invoicing System. The provider connects to your existing invoicing system. What matters is that your ledger can integrate before your go-live date, 1 January 2027 or 1 July 2027 depending on revenue."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Cabinet Decision No. 74 of 2023 on the Executive Regulation of the Tax Procedures Law, Articles 2–5",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Cabinet%20Decision%20No.%2074%20of%202023%20on%20Executive%20Regulation%20of%20Federal%20Decree-Law%20No.%2028%20of%202022%20on%20Tax%20Procedures%20-%20For%20Publishing.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses, Article 56",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation (Cabinet Decision No. 52 of 2017 and amendments), Article 71",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Ministerial Decision No. 244 of 2025 on the Implementation of the Electronic Invoicing System",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Ministerial%20Decision%20No.%20244%20of%202025%20on%20The%20Implementation%20of%20the%20Electronic%20Invoicing%20System.pdf"
+    },
+    {
+      "label": "MoF: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/11/Cabinet-Decision-No.-40-of-2017-and-its-amendments-v14.11.25.pdf"
+    }
+  ],
+  "related": [
+    "month-end-close-checklist",
+    "uae-audit-requirements",
+    "uae-tax-deadlines",
+    "uae-fta-vat-audit-preparation"
+  ]
+}
