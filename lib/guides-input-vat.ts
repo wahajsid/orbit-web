@@ -323,7 +323,8 @@ const fx: Guide = {
     {
       h: "How Hysaab applies this",
       ps: [
-        "Hysaab converts foreign-currency invoices to AED at a rate it records with its source and date, keeps the dirham's 3.6725 peg exact rather than rounded, and flags any foreign-currency tax invoice that does not show both the AED tax amount and the exchange rate. The free [foreign-currency VAT converter](/tools/uae-vat-currency-converter) shows the same working for a single invoice.",
+        "Hysaab converts each foreign-currency invoice at the Central Bank rate for its date of supply, taken from the table the Central Bank published on the last business day before the invoice date and used with all its decimals. The Saudi riyal and the other Gulf currencies are included: the Central Bank publishes them slightly off their dollar pegs, and Hysaab uses the published figure. The rate, the date of the table and the date of supply are kept with the invoice, and the books use the same rate, so the VAT in the ledger ties to the return.",
+        "If the Central Bank rate is not available, for example because the site cannot be reached, Hysaab marks the VAT as provisional and raises it for review rather than quietly using another rate. When the VAT return is drafted it re-prices those invoices at the Central Bank rate and states any difference from the ledger. It also flags any foreign-currency tax invoice that does not show both the AED tax amount and the exchange rate. The free [foreign-currency VAT converter](/tools/uae-vat-currency-converter) shows the same working for a single invoice.",
       ],
     },
   ],
@@ -388,6 +389,15 @@ export const INPUT_VAT_GUIDES: Guide[] = [supplierChecks, noTrn, simplified, fx]
    https://globaltaxnews.ey.com/news/2018-5894-uae-publishes-public-clarification-on-use-of-exchange-rates-for-vat-purposes
    - Central Bank rate at date of supply, published daily from 6 pm, no rounding;
      reverse charge invoice date may be date of supply; imports at the Customs rate.
+   CBUAE notice via EY, 24 May 2018,
+   https://globaltaxnews.ey.com/news/2018-5693-uae-central-bank-begins-publishing-daily-foreign-exchange-rates-for-vat-purposes
+   - Rates published Monday to Friday at 6 pm apply to invoices of the following day;
+     on a local holiday, the rate published the day before.
+   CBUAE table, "Exchange rates against UAE Dirham for VAT related obligations":
+   https://www.centralbank.ae/umbraco/Surface/Exchange/GetExchangeRateAllCurrencyDate?dateTime=2026-10-15
+   - Read 20 Oct 2026: EUR 4.120386, SAR 0.978629 (peg cross 0.979333), USD 3.6725;
+     no table on weekends. The "How Hysaab applies this" text describes orbit-app's
+     CBUAE rate path (lib/fx/cbuae.ts, rates.ts buildInvoiceFx).
 
 7. Five-year limit on excess input tax from 1 January 2026 (Article 74(3) as amended by
    Federal Decree-Law No. 16 of 2025): PwC, https://www.pwc.com/m1/en/services/tax/me-tax-legal-news/2025/uae-significant-legislative-updates-tax-procedures-vat-excise-tax-laws.html
