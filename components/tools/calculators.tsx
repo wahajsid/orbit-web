@@ -225,6 +225,7 @@ export function LeaseCalculator() {
   const [termMonths, setTermMonths] = useState("0");
   const [rate, setRate] = useState("6");
   const [prepaid, setPrepaid] = useState("0");
+  const [timing, setTiming] = useState<"arrears" | "advance">("arrears");
 
   const pmt = num(payment);
   const disc = num(rate) / 100;
@@ -235,20 +236,33 @@ export function LeaseCalculator() {
   const prep = num(prepaid);
 
   const periods = Math.max(1, totalPeriods);
+  const advance = timing === "advance";
+  /* IFRS 16.26: the liability is the PV of payments not yet paid at
+     commencement. Paid in advance, the first payment is made on day 1, so
+     only the remaining (n − 1) payments are discounted, and the day-1
+     payment goes straight into the right-of-use asset (16.24(b)). */
+  const discounted = advance ? periods - 1 : periods;
   const pvFactor = periodRate > 0
-    ? (1 - Math.pow(1 + periodRate, -periods)) / periodRate
-    : periods;
+    ? (1 - Math.pow(1 + periodRate, -discounted)) / periodRate
+    : discounted;
   const leaseLiability = pmt * pvFactor;
-  const rouAsset = leaseLiability + prep;
+  const rouAsset = leaseLiability + prep + (advance ? pmt : 0);
 
   const schedule: { period: number; openBal: number; interest: number; payment: number; closeBal: number; rouOpen: number; depr: number; rouClose: number }[] = [];
   const deprPerPeriod = rouAsset / periods;
   let bal = leaseLiability;
   let rou = rouAsset;
   for (let i = 1; i <= periods; i++) {
-    const interest = bal * periodRate;
-    const principal = pmt - interest;
-    const closeBal = Math.max(0, bal + interest - pmt);
+    let interest: number, closeBal: number;
+    if (advance) {
+      // payment at the start of each period; period 1's was made on day 1
+      const afterPay = i === 1 ? bal : Math.max(0, bal - pmt);
+      interest = afterPay * periodRate;
+      closeBal = Math.max(0, afterPay + interest);
+    } else {
+      interest = bal * periodRate;
+      closeBal = Math.max(0, bal + interest - pmt);
+    }
     const rouClose = Math.max(0, rou - deprPerPeriod);
     schedule.push({ period: i, openBal: bal, interest, payment: pmt, closeBal, rouOpen: rou, depr: deprPerPeriod, rouClose });
     bal = closeBal;
@@ -274,6 +288,13 @@ export function LeaseCalculator() {
         <Field label="+ months" value={termMonths} onChange={setTermMonths} width={100} />
         <Field label="Discount rate (% p.a.)" value={rate} onChange={setRate} width={160} />
         <Field label="Prepaid / initial direct costs" value={prepaid} onChange={setPrepaid} width={200} />
+        <div className="mg-tool-field" style={{ maxWidth: 260 }}>
+          <span className="mg-tool-label">Payments made</span>
+          <div className="mg-tool-toggle">
+            <button type="button" className={timing === "arrears" ? "on" : ""} onClick={() => setTiming("arrears")}>In arrears</button>
+            <button type="button" className={timing === "advance" ? "on" : ""} onClick={() => setTiming("advance")}>In advance</button>
+          </div>
+        </div>
       </div>
 
       <div className="mg-tool-result">
@@ -308,6 +329,7 @@ export function LeaseCalculator() {
           </tbody>
         </table>
       </div>
+      {advance && <p className="mg-tool-note" style={{ marginTop: 12 }}>Paid in advance: each payment falls at the start of its period. Period 1&rsquo;s payment is made on day 1, so it is in the right-of-use asset, not the liability.</p>}
       {periods > 60 && <p className="mg-tool-note" style={{ marginTop: 12 }}>Showing the first 60 of {periods} periods.</p>}
     </div>
   );
@@ -343,7 +365,11 @@ export function ActuarialEosbCalculator() {
     const rawGratuity = futureService >= 1 ? daily * (first5 + after5) : 0;
     const capped = Math.min(rawGratuity, futureBasic * 24);
     const exitProb = att * Math.pow(1 - att, y - 1);
-    const pv = (capped * exitProb * n) / Math.pow(1 + dr, y);
+    /* IAS 19.67–70: attribute the benefit to service already rendered.
+       Only the share earned to date (service today ÷ service at exit)
+       belongs in today's obligation. */
+    const attributed = futureService > 0 ? svc / futureService : 0;
+    const pv = (capped * attributed * exitProb * n) / Math.pow(1 + dr, y);
     rows.push({ year: y, projected: capped, prob: exitProb, pv });
     totalPV += pv;
   }
@@ -355,7 +381,7 @@ export function ActuarialEosbCalculator() {
   const termFirst5 = Math.min(termService, 5) * 21;
   const termAfter5 = Math.max(0, termService - 5) * 30;
   const termGratuity = termService >= 1 ? Math.min(termDaily * (termFirst5 + termAfter5), termBasic * 24) : 0;
-  const termPV = (termGratuity * stayProb * n) / Math.pow(1 + dr, projectionYears);
+  const termPV = (termGratuity * (termService > 0 ? svc / termService : 0) * stayProb * n) / Math.pow(1 + dr, projectionYears);
   totalPV += termPV;
 
   const undiscountedNow = (() => {
@@ -451,7 +477,7 @@ export function ImpairmentCalculator() {
     <div className="mg-tool">
       <div className="mg-tool-fields">
         <Field label="Carrying amount of CGU (AED)" value={carrying} onChange={setCarrying} width={240} />
-        <Field label="WACC / discount rate (%)" value={wacc} onChange={setWacc} width={180} />
+        <Field label="Pre-tax discount rate (%)" value={wacc} onChange={setWacc} width={180} />
         <Field label="Terminal growth rate (%)" value={termGrowth} onChange={setTermGrowth} width={180} />
       </div>
 
@@ -493,7 +519,7 @@ export function ImpairmentCalculator() {
       <div className="mg-tool-note">
         {headroom >= 0
           ? "Value in use exceeds carrying amount — no impairment required."
-          : `Value in use is below carrying amount by ${aed2(impairment)}. The CGU should be written down and the loss recognised in profit or loss.`}
+          : `Value in use is below carrying amount by ${aed2(impairment)}. Recoverable amount is the higher of value in use and fair value less costs of disposal (IAS 36.18): if fair value less costs of disposal is also below carrying amount, the shortfall is the impairment loss, recognised in profit or loss.`}
       </div>
     </div>
   );
@@ -501,14 +527,14 @@ export function ImpairmentCalculator() {
 
 /* ── 8 · IAS 12 Deferred Tax schedule ────────────────────────────── */
 
-type DtRow = { desc: string; carrying: string; taxBase: string };
+type DtRow = { desc: string; carrying: string; taxBase: string; kind: "asset" | "liability" };
 
 const DT_DEFAULTS: DtRow[] = [
-  { desc: "Property, plant & equipment", carrying: "1200000", taxBase: "1000000" },
-  { desc: "Right-of-use assets", carrying: "800000", taxBase: "0" },
-  { desc: "Trade receivables (net of ECL)", carrying: "450000", taxBase: "500000" },
-  { desc: "Lease liabilities", carrying: "820000", taxBase: "0" },
-  { desc: "Employee benefit obligations", carrying: "350000", taxBase: "0" },
+  { desc: "Property, plant & equipment", carrying: "1200000", taxBase: "1000000", kind: "asset" },
+  { desc: "Right-of-use assets", carrying: "800000", taxBase: "0", kind: "asset" },
+  { desc: "Trade receivables (net of ECL)", carrying: "450000", taxBase: "500000", kind: "asset" },
+  { desc: "Lease liabilities", carrying: "820000", taxBase: "0", kind: "liability" },
+  { desc: "Employee benefit obligations", carrying: "350000", taxBase: "0", kind: "liability" },
 ];
 
 export function DeferredTaxCalculator() {
@@ -520,7 +546,10 @@ export function DeferredTaxCalculator() {
   const computed = rows.map((r) => {
     const ca = num(r.carrying);
     const tb = num(r.taxBase);
-    const diff = ca - tb;
+    /* IAS 12.15 and 12.24: an asset carried above its tax base, or a
+       liability carried below its tax base, is a taxable difference (DTL);
+       the reverse is deductible (DTA). Positive = taxable here. */
+    const diff = r.kind === "liability" ? tb - ca : ca - tb;
     return { ...r, ca, tb, diff, dtl: diff > 0 ? diff * rate : 0, dta: diff < 0 ? Math.abs(diff) * rate : 0 };
   });
 
@@ -530,10 +559,10 @@ export function DeferredTaxCalculator() {
 
   const updateRow = (i: number, field: keyof DtRow, v: string) => {
     const next = rows.slice();
-    next[i] = { ...next[i], [field]: v };
+    next[i] = { ...next[i], [field]: v } as DtRow;
     setRows(next);
   };
-  const addRow = () => setRows([...rows, { desc: "", carrying: "0", taxBase: "0" }]);
+  const addRow = () => setRows([...rows, { desc: "", carrying: "0", taxBase: "0", kind: "asset" }]);
   const removeRow = (i: number) => { if (rows.length > 1) setRows(rows.filter((_, j) => j !== i)); };
 
   return (
@@ -546,7 +575,7 @@ export function DeferredTaxCalculator() {
         <table className="mg-tool-table mg-tool-table-wide">
           <thead>
             <tr>
-              <th>Item</th><th>Carrying amount</th><th>Tax base</th><th>Temp. difference</th>
+              <th>Item</th><th>Asset / liability</th><th>Carrying amount</th><th>Tax base</th><th>Taxable (+) / deductible (−)</th>
               <th>DTL</th><th>DTA</th><th></th>
             </tr>
           </thead>
@@ -554,6 +583,12 @@ export function DeferredTaxCalculator() {
             {computed.map((r, i) => (
               <tr key={i}>
                 <td><input className="mg-tool-in mg-tool-in-cell" style={{ maxWidth: 220, minWidth: 140 }} value={rows[i].desc} onChange={(e) => updateRow(i, "desc", e.target.value)} /></td>
+                <td>
+                  <select className="mg-tool-in mg-tool-in-cell" value={rows[i].kind} onChange={(e) => updateRow(i, "kind", e.target.value)}>
+                    <option value="asset">Asset</option>
+                    <option value="liability">Liability</option>
+                  </select>
+                </td>
                 <td><input className="mg-tool-in mg-tool-in-cell" inputMode="decimal" value={rows[i].carrying} onChange={(e) => updateRow(i, "carrying", e.target.value)} /></td>
                 <td><input className="mg-tool-in mg-tool-in-cell" inputMode="decimal" value={rows[i].taxBase} onChange={(e) => updateRow(i, "taxBase", e.target.value)} /></td>
                 <td className="mg-tool-mono" style={r.diff < 0 ? { color: "var(--accent)" } : r.diff > 0 ? { color: "var(--bad)" } : undefined}>{fmt2(r.diff)}</td>
@@ -578,9 +613,11 @@ export function DeferredTaxCalculator() {
         </div>
       </div>
       <div className="mg-tool-note">
-        Taxable temporary differences create DTLs; deductible ones create DTAs. Net presentation is
-        permitted only when the entity has a legally enforceable right to set off and they relate to
-        taxes levied by the same authority.
+        Taxable temporary differences create DTLs; deductible ones create DTAs. For an asset, carrying
+        amount above tax base is taxable; for a liability, carrying amount above tax base is deductible
+        (IAS 12.15 and 12.24). Deferred tax assets and liabilities shall be offset if, and only if, the
+        entity has a legally enforceable right to set off current tax and they relate to taxes levied by
+        the same authority (IAS 12.74).
       </div>
     </div>
   );
@@ -683,101 +720,213 @@ const sar = (n: number) =>
 const sar2 = (n: number) =>
   `SAR ${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-export function ZakatCalculator() {
-  // Sources of funds (the base builds up from what finances the business…)
+/* ── 10 · KSA Zakat estimator (ZATCA, 2024 Implementing Regulations) ──
+   Drop-in replacement for ZakatCalculator in components/tools/calculators.tsx.
+   Uses the file's existing helpers: useState, Field, num, fmt2, sar2.
+   The optional `ar` prop defaults to false, so the existing
+   <ZakatCalculator /> call site keeps working unchanged.
+
+   Method: Implementing Regulations for Zakat Collection, Minister of Finance
+   Decision No. 1007 (19/08/1445H) as amended by Decision No. 1248
+   (11/10/1446H), for financial years starting on or after 1 January 2024.
+   All balances are closing balances (Art 17).
+
+     equity       = capital + reserves/retained earnings − accumulated losses
+                    + provisions treated as equity + other equity equivalents
+                    (Arts 23(1), 24, 30, 36, 39)
+     deductions   = fixed assets + intangibles + deductible investments + other
+                    (Art 26)
+     liabilities  = min(non-current liabilities, deductions)        (Arts 23(2), 25(4), 29)
+     gap          = adjusted net profit − book net profit           (Art 23(3))
+     computed     = equity + liabilities + gap − deductions         (Art 21)
+     minimum      = if adjusted profit > 0 and computed < adjusted profit:
+                      min(adjusted profit, undeducted assets + gap) (Art 27(2))
+                    if computed < 0 and no adjusted profit: nil     (Art 27(3))
+                    if computed > 0 and no adjusted profit: computed (Art 27(4))
+     maximum      = equity + gap                                    (Art 28)
+     base         = max(0, min(after-minimum, maximum))
+     rate         = 2.5% Hijri; 2.5777% Gregorian (Art 15, as ZATCA's
+                    Zakat General Guideline rounds 2.5% × 365 / 354)
+     zakat        = base × Saudi/GCC share (Art 13) × rate
+
+   Not modelled: Art 25 placement of current liabilities against deducted
+   current assets, Art 29(2) current-liability additions, financing/insurance
+   activity rules, and short or long first/last periods. */
+
+export function ZakatCalculator({ ar = false }: { ar?: boolean } = {}) {
+  // Equity and its equivalents (closing balances)
   const [capital, setCapital] = useState("1000000");
-  const [retained, setRetained] = useState("250000");
-  const [provisions, setProvisions] = useState("50000");
-  const [ltLiab, setLtLiab] = useState("300000");
-  const [profit, setProfit] = useState("400000");
-  // …less what is tied up long-term (not zakatable working wealth).
+  const [reserves, setReserves] = useState("650000");
+  const [accLosses, setAccLosses] = useState("0");
+  const [provEq, setProvEq] = useState("50000");
+  const [otherEq, setOtherEq] = useState("0");
+  // Liabilities that can be added (Art 29)
+  const [ncl, setNcl] = useState("300000");
+  // Result of the year
+  const [bookProfit, setBookProfit] = useState("400000");
+  const [adjProfit, setAdjProfit] = useState("430000");
+  // Deductions (Art 26)
   const [fixedAssets, setFixedAssets] = useState("700000");
-  const [ltInvest, setLtInvest] = useState("100000");
-  const [losses, setLosses] = useState("0");
+  const [intangibles, setIntangibles] = useState("0");
+  const [investments, setInvestments] = useState("100000");
+  const [otherDed, setOtherDed] = useState("0");
+  // For the Art 27 minimum
+  const [totalAssets, setTotalAssets] = useState("2600000");
 
   const [yearType, setYearType] = useState<"hijri" | "gregorian">("gregorian");
   const [saudiPct, setSaudiPct] = useState("100");
 
-  // ZATCA levies 2.5% for a Hijri year; a Gregorian year is grossed up
-  // for its extra days: 2.5% × 365/354 ≈ 2.577683%.
-  const rate = yearType === "hijri" ? 2.5 : 2.577683;
+  const rate = yearType === "hijri" ? 2.5 : 2.5777;
 
-  const additions = num(capital) + num(retained) + num(provisions) + num(ltLiab) + num(profit);
-  const deductions = num(fixedAssets) + num(ltInvest) + num(losses);
-  const netBase = additions - deductions;
-  // The base is floored at the adjusted profit for the year: deductions
-  // can shelter equity, never the year's result itself.
-  const flooredBase = Math.max(netBase, num(profit));
-  const base = Math.max(0, flooredBase);
-  const floorApplied = base > 0 && netBase < num(profit);
+  const equity = num(capital) + num(reserves) - num(accLosses) + num(provEq) + num(otherEq);
+  const deductions = num(fixedAssets) + num(intangibles) + num(investments) + num(otherDed);
+  const nclIn = Math.max(0, num(ncl));
+  const liabAdded = Math.min(nclIn, Math.max(0, deductions));
+  const liabCapped = liabAdded < nclIn;
+  const adj = num(adjProfit);
+  const gap = adj - num(bookProfit);
+  const computed = equity + liabAdded + gap - deductions;
+
+  const undeducted = num(totalAssets) - deductions;
+  const minAlt = undeducted + gap;
+
+  let afterMin = computed;
+  let minApplied = false;
+  if (adj > 0 && computed < adj) {
+    afterMin = Math.min(adj, minAlt);
+    minApplied = true;
+  } else if (adj <= 0 && computed < 0) {
+    afterMin = 0;
+  }
+  const maximum = equity + gap;
+  const maxApplied = afterMin > maximum;
+  const base = Math.max(0, Math.min(afterMin, maximum));
 
   const share = Math.min(100, Math.max(0, num(saudiPct)));
   const zakatable = base * (share / 100);
   const zakat = zakatable * (rate / 100);
 
+  const L = ar
+    ? {
+        year: "السنة المالية", hijri: "هجرية · 2.5%", greg: "ميلادية · 2.5777%", own: "ملكية السعوديين / الخليجيين",
+        eqH: "حقوق الملكية وما في حكمها (أرصدة آخر السنة)",
+        capital: "رأس المال المدفوع (ريال)", reserves: "الاحتياطيات والأرباح المبقاة (شاملة ربح السنة الدفتري)",
+        losses: "الخسائر المتراكمة", provEq: "المخصصات المعاملة كحقوق ملكية (عدا نهاية الخدمة والإجازات)",
+        otherEq: "معادلات أخرى (قروض الشركاء، أرباح تحت التوزيع)",
+        liabH: "الالتزامات المضافة (المادة 29)", ncl: "الالتزامات غير المتداولة (شاملة مخصص نهاية الخدمة والإيجار والضريبة المؤجلة)",
+        resH: "نتيجة السنة", book: "صافي الربح الدفتري بعد الزكاة والضريبة", adj: "صافي الربح المعدل",
+        dedH: "البنود المحسومة (المادة 26)", fixed: "صافي الأصول الثابتة وما في حكمها", intang: "الأصول غير الملموسة",
+        inv: "الاستثمارات القابلة للحسم", otherDed: "حسومات أخرى (مواد غير معدة للبيع، ودائع نظامية، أصل ضريبي مؤجل)",
+        total: "إجمالي الأصول (آخر السنة)",
+        tH: "بناء الوعاء الزكوي", tEq: "حقوق الملكية وما في حكمها", tLiab: "الالتزامات المضافة (بحد البنود المحسومة)",
+        tGap: "فرق الربح المعدل عن الدفتري", tDed: "ناقصًا: البنود المحسومة", tComp: "الوعاء المحسوب",
+        tMin: "الحد الأدنى (المادة 27)", tMax: "الحد الأعلى (المادة 28)", tBase: "الوعاء الزكوي", tShare: "حصة السعوديين / الخليجيين",
+        due: "الزكاة المستحقة", rate: "النسبة المطبقة",
+      }
+    : {
+        year: "Fiscal year", hijri: "Hijri · 2.5%", greg: "Gregorian · 2.5777%", own: "Saudi / GCC ownership",
+        eqH: "Equity and its equivalents (closing balances)",
+        capital: "Paid-up capital (SAR)", reserves: "Reserves + retained earnings (incl. this year's book profit)",
+        losses: "Accumulated losses", provEq: "Provisions treated as equity (excl. end-of-service, leave)",
+        otherEq: "Other equivalents (partner loans, profits under distribution)",
+        liabH: "Liabilities that can be added (Art 29)", ncl: "Non-current liabilities (incl. end-of-service, leases, deferred tax)",
+        resH: "Result of the year", book: "Book net profit after zakat and tax", adj: "Adjusted net profit",
+        dedH: "Deductions (Art 26)", fixed: "Net fixed assets and equivalents", intang: "Intangible assets",
+        inv: "Deductible investments", otherDed: "Other (materials not for sale, statutory deposits, deferred tax asset)",
+        total: "Total assets (closing)",
+        tH: "Zakat base build-up", tEq: "Equity and its equivalents", tLiab: "Liabilities added (capped at deductions)",
+        tGap: "Adjusted less book profit", tDed: "Less: deductions", tComp: "Computed base",
+        tMin: "Minimum applied (Art 27)", tMax: "Maximum applied (Art 28)", tBase: "Zakat base", tShare: "Saudi / GCC share",
+        due: "Zakat due", rate: "Rate applied",
+      };
+
+  const notes: string[] = [];
+  if (liabCapped) notes.push(ar
+    ? `أُضيف من الالتزامات غير المتداولة ${sar2(liabAdded)} فقط، لأن الإضافة لا تتجاوز البنود المحسومة (المادتان 23 و25).`
+    : `Only ${sar2(liabAdded)} of non-current liabilities was added: added liabilities cannot exceed the deductions (Arts 23 and 25).`);
+  if (minApplied) notes.push(ar
+    ? `الوعاء المحسوب أقل من الربح المعدل، فصار الوعاء الأقل بين الربح المعدل (${sar2(adj)}) والأصول غير المحسومة مع فرق الربح (${sar2(minAlt)}) وفق المادة 27.`
+    : `The computed base is below adjusted profit, so the base is the lower of adjusted profit (${sar2(adj)}) and undeducted assets plus the profit gap (${sar2(minAlt)}) under Art 27.`);
+  if (maxApplied) notes.push(ar
+    ? `طُبّق الحد الأعلى: لا يتجاوز الوعاء حقوق الملكية وما في حكمها مع فرق الربح (${sar2(maximum)}) وفق المادة 28.`
+    : `The maximum applied: the base cannot exceed equity and its equivalents plus the profit gap (${sar2(maximum)}) under Art 28.`);
+  const methodNote = ar
+    ? "وفق اللائحة التنفيذية لجباية الزكاة (القرار 1007 المعدل بالقرار 1248): أرصدة آخر السنة (المادة 17)، الإضافات (المواد 23 و24 و29)، الحسومات (المادة 26)، الحدان الأدنى والأعلى (المادتان 27 و28)، النسبة (المادة 15)، والملكية في آخر السنة (المادة 13). تُقدَّم الإقرارات وتُسدَّد خلال 120 يومًا من نهاية السنة (المادة 102). حصة غير السعوديين تخضع لضريبة الدخل ولا تحسبها هذه الأداة."
+    : "Per the Implementing Regulations for Zakat Collection (Decision 1007 as amended by 1248): closing balances (Art 17), additions (Arts 23, 24, 29), deductions (Art 26), minimum and maximum (Arts 27, 28), rate (Art 15) and year-end ownership (Art 13). File and pay within 120 days of the year end (Art 102). The non-Saudi share is subject to income tax, which this tool does not compute.";
+
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
         <div className="mg-tool-field" style={{ maxWidth: 280 }}>
-          <span className="mg-tool-label">Fiscal year</span>
+          <span className="mg-tool-label">{L.year}</span>
           <div className="mg-tool-toggle">
-            <button type="button" className={yearType === "hijri" ? "on" : ""} onClick={() => setYearType("hijri")}>Hijri · 2.5%</button>
-            <button type="button" className={yearType === "gregorian" ? "on" : ""} onClick={() => setYearType("gregorian")}>Gregorian · 2.5777%</button>
+            <button type="button" className={yearType === "hijri" ? "on" : ""} onClick={() => setYearType("hijri")}>{L.hijri}</button>
+            <button type="button" className={yearType === "gregorian" ? "on" : ""} onClick={() => setYearType("gregorian")}>{L.greg}</button>
           </div>
         </div>
-        <Field label="Saudi / GCC ownership" value={saudiPct} onChange={setSaudiPct} suffix="%" width={180} />
+        <Field label={L.own} value={saudiPct} onChange={setSaudiPct} suffix="%" width={180} />
       </div>
 
-      <h3 className="mg-tool-schedule-h">Sources of funds (additions to the base)</h3>
+      <h3 className="mg-tool-schedule-h">{L.eqH}</h3>
       <div className="mg-tool-fields">
-        <Field label="Paid-up capital (SAR)" value={capital} onChange={setCapital} width={200} />
-        <Field label="Retained earnings + reserves" value={retained} onChange={setRetained} width={200} />
-        <Field label="Provisions (opening)" value={provisions} onChange={setProvisions} width={180} />
-        <Field label="Long-term liabilities" value={ltLiab} onChange={setLtLiab} width={180} />
-        <Field label="Adjusted net profit for the year" value={profit} onChange={setProfit} width={210} />
+        <Field label={L.capital} value={capital} onChange={setCapital} width={200} />
+        <Field label={L.reserves} value={reserves} onChange={setReserves} width={260} />
+        <Field label={L.losses} value={accLosses} onChange={setAccLosses} width={180} />
+        <Field label={L.provEq} value={provEq} onChange={setProvEq} width={260} />
+        <Field label={L.otherEq} value={otherEq} onChange={setOtherEq} width={260} />
       </div>
 
-      <h3 className="mg-tool-schedule-h">Deductions (long-term uses of funds)</h3>
+      <h3 className="mg-tool-schedule-h">{L.liabH}</h3>
       <div className="mg-tool-fields">
-        <Field label="Net fixed assets & intangibles" value={fixedAssets} onChange={setFixedAssets} width={210} />
-        <Field label="Long-term investments" value={ltInvest} onChange={setLtInvest} width={190} />
-        <Field label="Carried-forward losses" value={losses} onChange={setLosses} width={190} />
+        <Field label={L.ncl} value={ncl} onChange={setNcl} width={300} />
+      </div>
+
+      <h3 className="mg-tool-schedule-h">{L.resH}</h3>
+      <div className="mg-tool-fields">
+        <Field label={L.book} value={bookProfit} onChange={setBookProfit} width={240} />
+        <Field label={L.adj} value={adjProfit} onChange={setAdjProfit} width={200} />
+      </div>
+
+      <h3 className="mg-tool-schedule-h">{L.dedH}</h3>
+      <div className="mg-tool-fields">
+        <Field label={L.fixed} value={fixedAssets} onChange={setFixedAssets} width={220} />
+        <Field label={L.intang} value={intangibles} onChange={setIntangibles} width={180} />
+        <Field label={L.inv} value={investments} onChange={setInvestments} width={200} />
+        <Field label={L.otherDed} value={otherDed} onChange={setOtherDed} width={300} />
+        <Field label={L.total} value={totalAssets} onChange={setTotalAssets} width={200} />
       </div>
 
       <div className="mg-tool-tablewrap" style={{ marginTop: 20 }}>
         <table className="mg-tool-table">
           <thead>
-            <tr><th>Zakat base build-up</th><th>SAR</th></tr>
+            <tr><th>{L.tH}</th><th>SAR</th></tr>
           </thead>
           <tbody>
-            <tr><td>Sources of funds</td><td className="mg-tool-mono">{fmt2(additions)}</td></tr>
-            <tr><td>Less: deductible long-term assets</td><td className="mg-tool-mono">({fmt2(deductions)})</td></tr>
-            <tr><td>Net position</td><td className="mg-tool-mono">{fmt2(netBase)}</td></tr>
-            {floorApplied && (
-              <tr><td>Floor — base cannot fall below adjusted profit</td><td className="mg-tool-mono">{fmt2(num(profit))}</td></tr>
-            )}
-            <tr><td><b>Zakat base</b></td><td className="mg-tool-mono"><b>{fmt2(base)}</b></td></tr>
-            {share < 100 && (
-              <tr><td>Saudi / GCC share ({share}%)</td><td className="mg-tool-mono">{fmt2(zakatable)}</td></tr>
-            )}
+            <tr><td>{L.tEq}</td><td className="mg-tool-mono">{fmt2(equity)}</td></tr>
+            <tr><td>{L.tLiab}</td><td className="mg-tool-mono">{fmt2(liabAdded)}</td></tr>
+            <tr><td>{L.tGap}</td><td className="mg-tool-mono">{fmt2(gap)}</td></tr>
+            <tr><td>{L.tDed}</td><td className="mg-tool-mono">({fmt2(deductions)})</td></tr>
+            <tr><td>{L.tComp}</td><td className="mg-tool-mono">{fmt2(computed)}</td></tr>
+            {minApplied && <tr><td>{L.tMin}</td><td className="mg-tool-mono">{fmt2(afterMin)}</td></tr>}
+            {maxApplied && <tr><td>{L.tMax}</td><td className="mg-tool-mono">{fmt2(maximum)}</td></tr>}
+            <tr><td><b>{L.tBase}</b></td><td className="mg-tool-mono"><b>{fmt2(base)}</b></td></tr>
+            {share < 100 && <tr><td>{L.tShare} ({share}%)</td><td className="mg-tool-mono">{fmt2(zakatable)}</td></tr>}
           </tbody>
         </table>
       </div>
 
       <div className="mg-tool-result">
         <div>
-          <div className="mg-tool-label">Zakat due</div>
+          <div className="mg-tool-label">{L.due}</div>
           <div className="mg-tool-big">{sar2(zakat)}</div>
         </div>
         <div>
-          <div className="mg-tool-label">Rate applied</div>
+          <div className="mg-tool-label">{L.rate}</div>
           <div className="mg-tool-big">{rate.toFixed(4)}%</div>
         </div>
         <div className="mg-tool-note">
-          {floorApplied && <>The floor rule applied: deductions took the equity base below the year&rsquo;s adjusted profit, so zakat is charged on the profit itself ({sar(num(profit))}). </>}
-          {share < 100
-            ? <>Zakat applies to the Saudi/GCC share only ({share}%); the non-Saudi share of profits is instead subject to 20% income tax, which this tool does not compute.</>
-            : <>The base is what finances the business (equity, provisions, long-term borrowing and the year&rsquo;s profit) less what is locked up long-term (fixed assets, long-term investments, carried losses).</>}
+          {notes.length > 0 && <>{notes.join(" ")} </>}
+          {methodNote}
         </div>
       </div>
     </div>
@@ -823,11 +972,11 @@ export function DeMinimisCalculator({ ar = false }: { ar?: boolean } = {}) {
           {ar ? <>الحد هو الأدنى من 5,000,000 درهم أو 5% من إجمالي الإيرادات ({aed(t * 0.05)}).{" "}
             {pass
               ? "الإيرادات غير المؤهلة ضمن الحد — نظام الـ 0% يجتاز هذا الاختبار (وتبقى شروط الشخص المؤهل الأخرى: الحضور الفعلي، والحسابات المدققة، والتسعير التحويلي)."
-              : <b>تجاوز الحد يُسقط صفة الشخص المؤهل القائم في المنطقة الحرة لهذه الفترة وللفترات الأربع التالية — خمس سنوات من 9% على كل شيء.</b>}</>
+              : <b>تجاوز الحد يُسقط صفة الشخص المؤهل القائم في المنطقة الحرة لهذه الفترة وللفترات الأربع التالية — خمس فترات ضريبية بالنسب العادية 0%/9%.</b>}</>
           : <>The threshold is the lower of AED 5,000,000 and 5% of total revenue ({aed(t * 0.05)}).{" "}
             {pass
               ? "Non-qualifying revenue is inside the de minimis — the 0% regime survives this test (the other QFZP conditions still apply: substance, audited accounts, transfer pricing)."
-              : <b>Breaching the de minimis loses Qualifying Free Zone Person status for this period and the four that follow — five years of 9% on everything.</b>}</>}
+              : <b>Breaching the de minimis loses Qualifying Free Zone Person status for this period and the four that follow — five tax periods at the standard 0%/9% rates.</b>}</>}
         </div>
       </div>
     </div>
@@ -912,8 +1061,8 @@ export function VatPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
   const tax = Math.max(0, num(unpaid));
   const d = Math.max(0, Math.floor(num(days)));
   // Cabinet Decision No. 129 of 2025, from 14 April 2026: 14% a year on unpaid
-  // tax, calculated monthly; counted here per month or part month, no cap.
-  const months = d > 0 ? Math.ceil(d / 30) : 0;
+  // tax, calculated monthly; counted here per month or part month.
+  const months = d > 0 ? Math.ceil(d / (365 / 12)) : 0; // calendar-length months: 365 days late = 12 charges
   const latePayment = (tax * 0.14 * months) / 12;
   const filing = lateReturn ? (repeat ? 2000 : 1000) : 0;
   const total = latePayment + filing;
@@ -954,7 +1103,7 @@ export function VatPenaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
         <div className="mg-tool-note">
           {ar
             ? <>منذ 14 أبريل 2026 (قرار مجلس الوزراء رقم 129 لسنة 2025) تُفرض على الضريبة غير المدفوعة غرامة تأخر بنسبة 14% سنويًا تُحتسب شهريًا: نحو 1.17% عن كل شهر أو جزء منه تبقى فيه الضريبة غير مدفوعة، دون سقف 300% القديم. التأخر في التقديم: 1,000 درهم للمرة الأولى و2,000 درهم عند التكرار خلال 24 شهرًا. والأرقام تقدير وفق القواعد السارية من 14 أبريل 2026.</>
-            : <>Since 14 April 2026 (Cabinet Decision No. 129 of 2025), unpaid tax attracts a late-payment penalty of 14% a year, calculated monthly: about 1.17% for each month or part month the tax stays unpaid, with no cap (the old regime of 2% plus 4% a month, capped at 300%, is gone). Late filing: AED 1,000 first offence, AED 2,000 on repetition within 24 months. An estimate under the rules in force from 14 April 2026.</>}
+            : <>Since 14 April 2026 (Cabinet Decision No. 129 of 2025), unpaid tax attracts a late-payment penalty of 14% a year, calculated monthly: about 1.17% for each month or part month the tax stays unpaid (the old regime of 2% plus 4% a month, capped at 300%, is gone). Late filing: AED 1,000 first offence, AED 2,000 on repetition within 24 months. An estimate under the rules in force from 14 April 2026.</>}
         </div>
       </div>
     </div>
@@ -1022,18 +1171,21 @@ export function LoyaltyCalculator({ ar = false }: { ar?: boolean } = {}) {
 const WHT_CATS = [
   { k: "Management fees", r: 20 },
   { k: "Royalties", r: 15 },
-  { k: "Other services", r: 15 },
+  { k: "Any other payments", r: 15 },
   { k: "Dividends", r: 5 },
   { k: "Interest", r: 5 },
   { k: "Rent", r: 5 },
   { k: "Technical / consulting", r: 5 },
   { k: "Insurance premiums", r: 5 },
   { k: "Intl. telecommunications", r: 5 },
-] as const;
+  { k: "Air tickets / air or sea freight", r: 5 },
+  { k: "Land transport in KSA", r: 15 },
+] as const; // ZATCA General Guideline for Withholding Tax (May 2026), section 3
 
 const WHT_CATS_AR = [
-  "أتعاب الإدارة", "الإتاوات", "خدمات أخرى", "توزيعات الأرباح", "الفوائد",
+  "أتعاب الإدارة", "الإتاوات", "أي مدفوعات أخرى", "توزيعات الأرباح", "الفوائد",
   "الإيجار", "الخدمات الفنية / الاستشارية", "أقساط التأمين", "الاتصالات الدولية",
+  "تذاكر الطيران / الشحن الجوي أو البحري", "النقل البري داخل المملكة",
 ] as const;
 
 export function WhtCalculator({ ar = false }: { ar?: boolean } = {}) {
@@ -1242,8 +1394,8 @@ export function BadDebtCalculator({ ar = false }: { ar?: boolean } = {}) {
         <div className="mg-tool-note">
           {eligible
             ? (ar
-              ? <>خفّض ضريبة المخرجات بـ {aed2(relief)} في إقرار الفترة التي اكتملت فيها الشروط. تذكّر المرآة: على عميلك المسجل تخفيض ضريبة مدخلاته بالمقدار نفسه — وإن حصّلت لاحقًا أعدت احتساب الضريبة على المحصَّل.</>
-              : <>Reduce output tax by {aed2(relief)} in the return for the period the conditions were completed. Remember the mirror: your registered customer must reduce their input VAT by the same measure — and if you later recover, the VAT is re-accounted on the recovery.</>)
+              ? <>خفّض ضريبة المخرجات بـ {aed2(relief)} في إقرار الفترة التي اكتملت فيها الشروط. تذكّر المرآة: على عميلك المسجل تخفيض ضريبة مدخلاته بالمقدار نفسه — وإن سدّد العميل لاحقًا فمن الحصافة احتساب ضريبة المخرجات على المبلغ المحصَّل (المادة 64 لا تنص على ذلك صراحة).</>
+              : <>Reduce output tax by {aed2(relief)} in the return for the period the conditions were completed. Remember the mirror: your registered customer must reduce their input VAT by the same measure — and if the customer later pays, prudent practice is to account for output tax on the amount recovered (Article 64 does not spell this out).</>)
             : (ar
               ? <>الشروط غير المكتملة: {blockers.join("؛ ")}. الإعفاء يتطلب الأربعة كلها بموجب المادة 64.</>
               : <>Outstanding conditions: {blockers.join("; ")}. Relief requires all four under Article 64.</>)}
@@ -1271,13 +1423,13 @@ export function DesignatedZoneCalculator({ ar = false }: { ar?: boolean } = {}) 
   const [type, setType] = useState(0);
   const [dest, setDest] = useState(0);
 
-  // type 2 = services → always standard 5%. Goods consumed → 5% within zone.
+  // type 2 = services → place of supply in the State (Art. 51(6)). Goods consumed → 5%, in this or another zone.
   // Goods for resale/incorporation: within zone / zone-to-zone / abroad →
   // outside scope; to mainland → import VAT on entry.
   let verdict: "out" | "vat" | "import";
   if (type === 2) verdict = "vat";
   else if (dest === 2) verdict = "import";
-  else if (type === 1 && dest === 0) verdict = "vat";
+  else if (type === 1 && (dest === 0 || dest === 1)) verdict = "vat"; // consumed by the buyer: a supply in the State (Art. 51)
   else verdict = "out";
 
   const V = ar
@@ -1287,14 +1439,14 @@ export function DesignatedZoneCalculator({ ar = false }: { ar?: boolean } = {}) 
     ? {
         out: "خارج النطاق بشرط بقاء الرقابة الجمركية وعدم إطلاق السلع للتداول في الطريق. احتفظ بدليل الحركة — الخروج من النطاق معيار توثيق.",
         vat: type === 2
-          ? "مكان توريد الخدمات في المنطقة المحددة يعامَل كالبر الرئيسي — كل الخدمات بالنسبة العادية أيًا كان الطرفان."
+          ? "الخدمات المورَّدة في المنطقة المحددة تُعامَل كمورَّدة داخل الدولة (المادة 51(6))، فتسري القواعد العادية: 5% ما لم تنطبق نسبة صفرية، كتصدير خدمات لغير مقيم خارج الدولة."
           : "السلع المشتراة لتُستهلك داخل المنطقة (لا لإعادة البيع أو الدمج) تُفرض عليها الضريبة عاديًا.",
         import: "انتقال السلع من المنطقة المحددة إلى البر الرئيسي استيراد: تستحق ضريبة الاستيراد عبر رقم التسجيل الضريبي للمستورد أو عند الجمارك.",
       }
     : {
         out: "Outside the scope provided customs controls hold and the goods aren't released into circulation in transit. Keep the movement evidence — outside-scope is a documentation standard.",
         vat: type === 2
-          ? "Place of supply of services in a designated zone is treated as the mainland — all services at the standard rate, whoever the parties are."
+          ? "Services supplied in a designated zone are treated as supplied in the State (Article 51(6)), so the normal rules apply: 5% unless a zero rate applies, for example an export of services to a non-resident outside the UAE."
           : "Goods bought to be used or consumed inside the zone (not resold or incorporated) are taxed normally.",
         import: "Goods moving from a designated zone to the mainland are an import: import VAT is due via the importer's TRN or at customs.",
       };
@@ -1422,7 +1574,8 @@ export function EmployeeCostCalculator({ ar = false }: { ar?: boolean } = {}) {
   // EOSB accrues on basic at 21 days/year for expat staff; nationals get
   // pension contributions instead.
   const eosb = national ? 0 : (basic / 30) * 21 / 12; // 21 days a year on the 30-day daily wage, per month
-  const pension = national ? (g * Math.max(0, num(pensionPct))) / 100 : 0;
+  // GPSSA contribution salary is capped at AED 70,000 a month
+  const pension = national ? (Math.min(g, 70000) * Math.max(0, num(pensionPct))) / 100 : 0;
   const monthly = g + eosb + pension;
 
   const L = ar
@@ -1487,8 +1640,8 @@ export function ParticipationCalculator({ ar = false }: { ar?: boolean } = {}) {
   }
 
   const L = ar
-    ? { gain: "التوزيع أو الربح الرأسمالي (درهم)", own: "نسبة الملكية", cost: "أو تكلفة الاقتناء (درهم)", months: "أشهر الاحتفاظ (فعلية أو منوية)", taxed: "المساهمة خاضعة لـ 9% على الأقل في بلدها (أو تستوفي الاختبار المكافئ)", uae: "توزيع من شركة مقيمة في الإمارات (معفى دون شروط)", res: "الموقف", ok: "معفى", no: "خاضع", tax: "الضريبة إن لم يُعفَ" }
-    : { gain: "Dividend or capital gain (AED)", own: "Ownership", cost: "or acquisition cost (AED)", months: "Months held (actual or intended)", taxed: "Participation taxed at ≥9% in its jurisdiction (or meets the equivalent test)", uae: "Dividend from a UAE-resident company (exempt without conditions)", res: "Position", ok: "Exempt", no: "Taxable", tax: "Tax if not exempt" };
+    ? { gain: "التوزيع أو الربح الرأسمالي (درهم)", own: "نسبة الملكية", cost: "أو تكلفة الاقتناء (درهم)", months: "أشهر الاحتفاظ (الأرباح الرأسمالية: فعلية؛ التوزيعات: فعلية أو منوية)", taxed: "المساهمة خاضعة لـ 9% على الأقل في بلدها (أو تستوفي الاختبار المكافئ)", uae: "توزيع من شركة مقيمة في الإمارات (معفى دون شروط)", res: "الموقف", ok: "معفى", no: "خاضع", tax: "الضريبة إن لم يُعفَ" }
+    : { gain: "Dividend or capital gain (AED)", own: "Ownership", cost: "or acquisition cost (AED)", months: "Months held (gains: actual; dividends: actual or intended)", taxed: "Participation taxed at ≥9% in its jurisdiction (or meets the equivalent test)", uae: "Dividend from a UAE-resident company (exempt without conditions)", res: "Position", ok: "Exempt", no: "Taxable", tax: "Tax if not exempt" };
 
   return (
     <div className="mg-tool">
@@ -1779,7 +1932,7 @@ export function PartialExemptionCalculator({ ar = false }: { ar?: boolean } = {}
 
 const RE_TYPES = [
   { k: "New residential — first supply within 3 years", ak: "سكني جديد — توريد أول خلال 3 سنوات", v: "zero" },
-  { k: "Residential — subsequent supply or lease", ak: "سكني — توريد لاحق أو إيجار", v: "exempt" },
+  { k: "Residential — later sale or lease (after the first supply)", ak: "سكني — بيع أو إيجار لاحق (بعد التوريد الأول)", v: "exempt" },
   { k: "Commercial — sale or lease", ak: "تجاري — بيع أو إيجار", v: "std" },
   { k: "Bare land", ak: "أرض فضاء", v: "exempt2" },
   { k: "Hotel apartments / serviced accommodation", ak: "شقق فندقية / سكن مخدوم", v: "std2" },

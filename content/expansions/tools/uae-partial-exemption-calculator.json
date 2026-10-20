@@ -1,0 +1,72 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You sort the period's input VAT into three pots: VAT on costs used only for taxable supplies, VAT on costs used only for exempt supplies, and residual VAT on overheads that serve both. Then you choose the method. Negative entries are treated as zero.",
+        "On today's method the recovery ratio is taxable-pot VAT ÷ (taxable-pot VAT + exempt-pot VAT) × 100, rounded to the nearest whole per cent (a half rounds up). On the turnover method, which you pick with the second button, the ratio is the value of supplies that carry recovery ÷ (that value + the value of exempt supplies) × 100, rounded the same way. If both figures in a ratio are zero, the calculator uses 100%."
+      ],
+      "list": [
+        "Total recoverable = the taxable pot in full + residual × ratio",
+        "VAT lost = the exempt pot in full + the residual that does not recover",
+        "On the turnover method a fourth result shows the change in total recovery against today's method, so you can see what the 2028 rule does to your figures",
+        "The calculator works one period at a time. It does not do the annual adjustment or the actual-use test for you"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 55 of the VAT Executive Regulation sets the standard method. VAT wholly used for taxable supplies (and for the other supplies that Article 54(1) of the Decree-Law lets you recover on) recovers in full, VAT wholly used for exempt supplies or blocked under Article 53 does not, and the mixed residual recovers at the input tax ratio. The FTA's Input Tax Apportionment Guide (VATGIT1) gives the ratio as wholly recoverable input tax over wholly recoverable plus wholly non-recoverable input tax, rounded to the nearest whole number.",
+        "The calculation is done each tax period. In the first period of the next tax year you repeat it for the whole year just ended and adjust the difference against what you recovered period by period. If that standard result differs from the actual use of the costs by more than AED 250,000 in a year, you must adjust to actual use as well. You can also apply to the FTA for a special method, such as outputs, transaction count, floorspace or sectoral.",
+        "Cabinet Decision No. 149 of 2026 changes the residual formula from the first tax year starting after 1 October 2027, which for a calendar-year business is 1 January 2028. The ratio becomes the value of supplies that carry recovery over the value of all supplies, leaving out disposals of your own capital assets and goods and services you receive under the reverse charge. Government entities and charities keep a separate rule. The [partial exemption guide](/guides/uae-partial-exemption-input-vat) and the [Cabinet Decision 149 guide](/guides/uae-vat-cabinet-decision-149-2026-input-tax) cover the other changes."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A property group sells commercial units (taxable) and leases completed flats (exempt). For one quarter its input VAT is AED 36,000 on the commercial side, AED 14,000 on the residential side and AED 22,000 on shared head-office costs. Its supplies for the quarter are AED 1,800,000 commercial and AED 1,450,000 residential."
+    ],
+    "list": [
+      "Today's method: enter 36000, 14000 and 22000. Ratio 36,000 ÷ 50,000 = 72%",
+      "Residual recovered: 22,000 × 72% = AED 15,840. Total recoverable 36,000 + 15,840 = AED 51,840. VAT lost 14,000 + 6,160 = AED 20,160",
+      "Switch to the turnover method and enter 1800000 and 1450000. Ratio 1,800,000 ÷ 3,250,000 = 55.38%, rounded to 55%",
+      "Residual recovered: 22,000 × 55% = AED 12,100. Total recoverable AED 48,100, VAT lost AED 23,900",
+      "Change against today: −AED 3,740 a quarter. For this group the 2028 rule costs about AED 15,000 a year in recovery",
+      "Journal on today's method: debit recoverable input VAT AED 51,840, debit the cost accounts AED 20,160 for the VAT that cannot be recovered, credit suppliers AED 72,000"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How is partial exemption calculated in UAE VAT?",
+      "a": "VAT on costs used only for taxable supplies recovers in full, VAT on costs used only for exempt supplies is lost, and the shared residual recovers at a ratio. Under the current standard method the ratio is recoverable input tax over recoverable plus non-recoverable input tax, rounded to the nearest whole per cent."
+    },
+    {
+      "q": "What changes in UAE VAT apportionment from 2028?",
+      "a": "From the first tax year starting after 1 October 2027, the residual ratio moves to the value of supplies that carry recovery over the value of all supplies. Capital asset disposals and reverse-charge receipts are left out of the calculation. Government entities and charities keep a separate method."
+    },
+    {
+      "q": "When do I make the annual partial exemption adjustment?",
+      "a": "In the first tax period of the next tax year. You recalculate the ratio for the whole year just ended and correct the difference against what you recovered in each period of that year."
+    },
+    {
+      "q": "Can I use a different apportionment method in the UAE?",
+      "a": "Yes, with FTA approval. You apply with the standard method calculations for the previous 12 months and the proposed method, such as floorspace or transaction count, and once approved you generally keep it for at least two tax years."
+    },
+    {
+      "q": "What is the AED 250,000 rule in partial exemption?",
+      "a": "If in any tax year the standard method gives a recovery that differs from the actual use of the costs by more than AED 250,000, you must adjust to actual use in the annual adjustment period. The limit is reduced in proportion for a tax year shorter than 12 months."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Article 55)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Input Tax Apportionment VAT Guide (VATGIT1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Input%20Tax%20Apportionment%20Guide%20-%20EN%20-%2016%2006%202023.pdf"
+    }
+  ]
+}

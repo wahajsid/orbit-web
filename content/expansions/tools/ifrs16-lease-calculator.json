@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-20",
   "method": [
     {
       "h": "How this calculator works",
       "ps": [
-        "You enter a fixed lease payment, how often it is paid (monthly, quarterly or annually), the lease term in years plus months, an annual discount rate and any amounts to add to the right-of-use (ROU) asset. The calculator assumes every payment is made at the end of its period (in arrears) and the payment never changes.",
+        "You enter a fixed lease payment, how often it is paid (monthly, quarterly or annually), whether each payment falls at the end of its period (in arrears) or the start (in advance), the lease term in years plus months, an annual discount rate and any amounts to add to the right-of-use (ROU) asset. The payment is assumed not to change. Most UAE property rent is paid in advance: choose that option and the first payment is treated as made on day one, so it sits in the ROU asset rather than the liability.",
         "The periodic rate is the annual rate divided by the number of payments a year, so 6% with monthly payments gives 0.5% a month. The number of periods is the term in months divided by the months in each period, rounded to the nearest whole period. The lease liability is the payment multiplied by the ordinary annuity factor (1 − (1 + r)^−n) / r.",
         "The ROU asset on day one is the lease liability plus the figure in the prepaid / initial direct costs field. The schedule then runs period by period: interest is the opening liability multiplied by the periodic rate, the payment is deducted, and the ROU asset is depreciated straight-line over the same number of periods. It shows the first 60 periods."
       ]
@@ -31,13 +31,13 @@
       "Month 1 depreciation: 2,586,278.04 ÷ 60 = 43,104.63. Journal: Dr Depreciation 43,104.63, Cr Accumulated depreciation (ROU) 43,104.63.",
       "Year 1 totals: interest AED 142,737.85, depreciation AED 517,255.61, closing liability AED 2,129,015.89. The year-one charge of AED 659,993.46 exceeds the AED 600,000 cash paid: IFRS 16 front-loads the expense.",
       "Over the full term: total interest AED 413,721.96, which is AED 3,000,000 less the day-one liability. Post the monthly interest and depreciation entries as part of your [month-end close](/guides/month-end-close-checklist).",
-      "Rent paid monthly in advance instead: enter 4 years 11 months and AED 50,000 in the prepaid field. The liability becomes AED 2,549,209.43 (the 59 payments still unpaid at commencement) and the ROU asset AED 2,599,209.43. The depreciation the tool shows is then spread over 59 months; the correct charge over the 60-month term is AED 43,320.16 a month."
+      "Rent paid monthly in advance instead: switch the toggle to In advance. The liability becomes AED 2,549,209.43 (the 59 payments still unpaid at commencement), the ROU asset AED 2,599,209.43 (the liability plus the day-one payment), and depreciation AED 43,320.16 a month over the 60-month term."
     ]
   },
   "faqs": [
     {
       "q": "How do you calculate the lease liability under IFRS 16?",
-      "a": "Discount the lease payments not yet paid at commencement to present value, using the rate implicit in the lease or, if that cannot be readily determined, your incremental borrowing rate (paragraph 26). For level payments in arrears that is payment × (1 − (1 + r)^−n) / r."
+      "a": "Discount the lease payments not yet paid at commencement to present value, using the rate implicit in the lease or, if that cannot be readily determined, your incremental borrowing rate (paragraph 26). For level payments in arrears that is payment × (1 − (1 + r)^−n) / r. Paid in advance, the first payment is already made, so discount the remaining n − 1 payments and add the day-one payment to the ROU asset."
     },
     {
       "q": "What discount rate should I use for IFRS 16?",

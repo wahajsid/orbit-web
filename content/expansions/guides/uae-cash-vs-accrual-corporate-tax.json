@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-20",
   "minutes": 7,
   "sections": [
     {
@@ -113,7 +113,7 @@
     },
     {
       "q": "Do I need audited financial statements if I use the cash basis?",
-      "a": "Not because of the cash basis itself. Under Ministerial Decision No. 84 of 2025, for tax periods starting on or after 1 January 2025, audited statements are required for a taxable person with revenue above AED 50 million, for every Qualifying Free Zone Person, and in a special purpose form for tax groups. A business under AED 3 million is usually outside all three."
+      "a": "Not because of the cash basis itself. Under Ministerial Decision No. 84 of 2025, for tax periods starting on or after 1 January 2025, audited statements are required for a taxable person with revenue above AED 50 million, for every Qualifying Free Zone Person, and in a special purpose form for tax groups. A business under AED 3 million is usually outside all three for Corporate Tax, but company law can still require an audit: a mainland LLC must appoint an auditor every year under the Commercial Companies Law (Federal Decree-Law No. 32 of 2021), whatever its size. See [UAE audit requirements](/guides/uae-audit-requirements)."
     },
     {
       "q": "Does cash basis accounting change when I pay VAT in the UAE?",

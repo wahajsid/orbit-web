@@ -1,0 +1,142 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The rule that decides your route",
+      "ps": [
+        "Discover an error in a filed VAT return and the size of the error picks your route. If the net tax effect is AED 10,000 or less, you correct it in the next return you file — no separate process. Above AED 10,000, you must file a voluntary disclosure (Form 211) for the affected period. The disclosure is an obligation with its own deadline — within 20 business days of becoming aware of the error — not a goodwill gesture.",
+        "The obligation runs one way. It is mandatory where the error made the tax payable lower than it should have been, or a refund higher. Where the error went the other way, because you over-declared output tax or under-claimed input tax, a disclosure is optional, and it is the route to get the money back."
+      ]
+    },
+    {
+      "h": "Where the rules sit",
+      "ps": [
+        "The obligation is Article 10 of Federal Decree-Law No. 28 of 2022 on Tax Procedures, as amended by Federal Decree-Law No. 17 of 2025 from 1 January 2026. The AED 10,000 threshold, the 20 business day deadline and the correction route for smaller errors are in Article 10 of its Executive Regulation, Cabinet Decision No. 74 of 2023. For errors of AED 10,000 or less, that article says to correct the error in the return for the period in which you discover it, or in an earlier period's return that is not yet due, whichever comes first. If there is no return to correct it in, you file a disclosure anyway.",
+        "The penalties are items 11 and 12 of the table in Cabinet Decision No. 40 of 2017, replaced by Cabinet Decision No. 129 of 2025 with effect from 14 April 2026. Late payment of the disclosed tax is item 9."
+      ]
+    },
+    {
+      "h": "What a disclosure costs",
+      "ps": [
+        "Since 14 April 2026, Cabinet Decision No. 129 of 2025 sets the cost: 1% of the tax difference for each month from the date the original return was due until the disclosure is filed. It replaced the old structure of a fixed AED 1,000 or AED 2,000 per disclosure plus a 5%-to-40% ladder by year. The logic is unchanged and now runs month by month: an error disclosed after 6 months costs 6%, after 24 months 24%.",
+        "The cliff is still the audit notice. Disclose after the FTA has told you it is auditing you and a 15% penalty is added on top of the monthly charge, and you have surrendered the one advantage a voluntary disclosure buys. Once the disclosure is submitted, the tax it reveals is due within 20 business days; after that, the late-payment penalty of 14% a year, charged monthly, runs on whatever is still unpaid. The economically rational moment to disclose is always now."
+      ]
+    },
+    {
+      "h": "How the months are counted",
+      "ps": [
+        "Item 11 charges 1% for each month or part of a month, starting the day after the original return was due and ending on the date the disclosure is submitted. A VAT return is due 28 days after the end of its tax period under Article 64 of the VAT Executive Regulation, so a quarter ending 31 March is due on 28 April and the clock starts on 29 April. A disclosure filed one day into a new month pays for that whole month.",
+        "If you never disclose and the FTA finds the error, item 12 applies: the fixed 15% plus 1% a month running until the FTA issues its tax assessment. The [voluntary disclosure penalty calculator](/tools/uae-voluntary-disclosure-penalty-calculator) runs the dates for you."
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "In September 2026 a finance team finds that its return for the quarter to 31 March 2026 claimed AED 40,000 of input VAT on supplier invoices that were not valid tax invoices. The return was due on 28 April 2026. The team becomes aware of the error on 10 September and submits the disclosure on 25 September, inside 20 business days.",
+        "From 29 April to 25 September is four whole months and part of a fifth, so five months are charged: 5% of AED 40,000, which is AED 2,000. The AED 40,000 is due within 20 business days of submission. If any of it is still unpaid after that, the 14% a year late-payment penalty runs monthly on the unpaid amount. Had the same disclosure followed an FTA audit notice, the cost would be AED 6,000 (15%) plus AED 2,000, a total of AED 8,000.",
+        "The entries: Dr Purchases or prior-period adjustment 40,000, Cr VAT payable 40,000 to reverse the claim, and Dr Tax penalties 2,000, Cr VAT payable 2,000. Whether the reversal goes through current profit or restates the comparative is an IAS 8 materiality question. The penalty is not deductible for Corporate Tax: Article 33 of Federal Decree-Law No. 47 of 2022 disallows fines and penalties."
+      ]
+    },
+    {
+      "h": "What actually triggers disclosures",
+      "list": [
+        "Input VAT claimed on invalid tax invoices found in a later review — the classic",
+        "Reverse-charge boxes left empty while foreign-supplier costs sat in the ledger all along",
+        "Output VAT missed on deemed supplies, staff benefits, or asset disposals",
+        "Zero-rating applied to exports whose evidence file never existed",
+        "Arithmetic and mapping errors between the accounting system and the return",
+        "Input VAT recovered on [blocked categories](/guides/uae-blocked-input-vat) such as client entertainment or cars available for personal use",
+        "Partial exemption wash-ups that were never run (see [partial exemption](/guides/uae-partial-exemption-input-vat))"
+      ]
+    },
+    {
+      "h": "Doing it properly",
+      "list": [
+        "Quantify per period — a disclosure is filed against specific returns, and one root cause often touches several",
+        "Fix the process before filing the form: the FTA's follow-up question is always what changed so it stops recurring",
+        "Keep the workings: the disclosure asks for the corrected figures and a narrative; both should trace to documents",
+        "If the error runs your way (you over-declared), the same form is how you get the money back — disclosure is not only for bad news"
+      ]
+    },
+    {
+      "h": "What to have ready before you file",
+      "list": [
+        "A dated record of when the error was found and by whom, because that date starts the 20 business days",
+        "For each affected period, the box-by-box figures as filed and as corrected, with the net tax difference",
+        "The invoices, customs statements, contracts or ledger reports that prove each corrected figure",
+        "A short narrative of the root cause and the control you have changed",
+        "Cash to pay the disclosed tax within 20 business days of submission, plus the 1% a month penalty once the FTA assesses it",
+        "A check of later periods: an error in one quarter's process usually repeats in the next, and each of those returns needs the same test"
+      ]
+    },
+    {
+      "h": "The five-year limit",
+      "ps": [
+        "Since 1 January 2026, Article 46 of the Tax Procedures Law sets the outer limits. The FTA generally cannot audit or assess a tax period more than five years after it ends. You cannot submit a voluntary disclosure after five years from the end of the tax period either, except for a disclosure correcting a refund application the FTA has not yet decided.",
+        "A disclosure filed in the fifth year reopens the period briefly: the FTA may audit or assess it within one year of the submission. Where a disclosure creates a credit in your favour, Article 38 gives you five years from the end of the tax period in which the disclosure was submitted to apply for the refund. Federal Decree-Law No. 17 of 2025 also gave a one-year window from 1 January 2026 for credits whose five-year period had already lapsed."
+      ]
+    },
+    {
+      "h": "Errors with no tax difference",
+      "ps": [
+        "Some errors do not change the tax: sales reported against the wrong emirate, for example, or a correct total split across the wrong boxes. From 1 January 2026, Article 10(5) of the Tax Procedures Law says these are corrected by voluntary disclosure only in the cases the FTA specifies, and otherwise through a later tax return."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab's period-lock and evidence discipline exist so errors surface in-month, not in year three — and when a historical error does surface, the ledger's document trail quantifies the correction per period in minutes, which is the hard half of a disclosure."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "When is a VAT voluntary disclosure mandatory in the UAE?",
+      "a": "When an error in a filed return has a net tax effect above AED 10,000. You must file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead."
+    },
+    {
+      "q": "What are the penalties for a VAT voluntary disclosure?",
+      "a": "Since 14 April 2026 (Cabinet Decision No. 129 of 2025): 1% of the tax difference for each month from the original due date until you disclose. The old fixed AED 1,000/2,000 and the 5%-to-40% ladder no longer apply. A disclosure made after an FTA audit notice adds a 15% penalty."
+    },
+    {
+      "q": "Is it better to disclose before an FTA audit?",
+      "a": "Materially. Disclosing after the FTA notifies you of an audit adds a 15% penalty on top of the 1% monthly charge. The cheapest disclosure is always the earliest one."
+    },
+    {
+      "q": "Can a voluntary disclosure recover overpaid VAT?",
+      "a": "Yes — the same Form 211 process corrects errors in your favour, and it is how over-declared output tax or under-claimed input tax is recovered for a past period."
+    },
+    {
+      "q": "How long do I have to pay the tax after a voluntary disclosure?",
+      "a": "20 business days from the date you submit the disclosure. After that, the late-payment penalty of 14% a year, calculated monthly, applies to any amount still unpaid, in addition to the 1% a month disclosure penalty."
+    },
+    {
+      "q": "How far back can I file a voluntary disclosure in the UAE?",
+      "a": "Up to five years from the end of the tax period concerned, under Article 46(6) of the Tax Procedures Law as amended from 1 January 2026. The only exception is a disclosure correcting a refund application the FTA has not yet decided."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 28 of 2022 on Tax Procedures, consolidated to Federal Decree-Law No. 17 of 2025 (Articles 10, 38 and 46)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%2028%20of%202022%20-%20publishing%2003%2012%202025.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 74 of 2023, Executive Regulation of the Tax Procedures Law (Article 10)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Cabinet%20Decision%20No.%2074%20of%202023%20on%20Executive%20Regulation%20of%20Federal%20Decree-Law%20No.%2028%20of%202022%20on%20Tax%20Procedures%20-%20For%20Publishing.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 40 of 2017 on administrative penalties, consolidated to Cabinet Decision No. 129 of 2025",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (Article 64, return due date)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    }
+  ],
+  "related": [
+    "uae-fta-vat-audit-preparation",
+    "uae-tax-deadlines",
+    "uae-blocked-input-vat"
+  ]
+}

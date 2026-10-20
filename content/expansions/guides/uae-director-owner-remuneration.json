@@ -1,0 +1,143 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The question every owner now has",
+      "ps": [
+        "Before Corporate Tax, how you took money out of your own company was a cash-flow preference. At 9%, it is a tax computation: a salary is a deductible expense that reduces taxable profit; a dividend is a distribution of profit that has already been taxed. On AED 500,000 taken out, the difference between the two routes is up to AED 45,000 of tax — every year. That maximum assumes the company's taxable income is already above the AED 375,000 band taxed at 0%, so the whole salary saves tax at 9%."
+      ]
+    },
+    {
+      "h": "What happens in the owner's hands",
+      "ps": [
+        "The UAE has no personal income tax, so the choice is driven by the company's side of the computation. The FTA's guide on natural persons confirms that a wage, including cash and in-kind benefits paid to an employee, is outside Corporate Tax, and that board fees paid to an individual director are generally treated the same way rather than as a business. Dividends an individual receives on their own shareholding are personal investment income, also outside Corporate Tax. So a salary deducts in the company and is not taxed on receipt, while a dividend does not deduct and is not taxed on receipt. That asymmetry is why the market-value test matters."
+      ]
+    },
+    {
+      "h": "The catch: Article 36",
+      "ps": [
+        "Payments to connected persons — owners, directors, and their related parties — are deductible only to the extent they correspond to the market value of the service actually provided, and are incurred wholly and exclusively for the business. An owner genuinely running the company can pay themselves what the market would pay a manager doing that job. An owner paying themselves AED 2 million for a role the market fills at AED 400,000 has AED 1.6 million of non-deductible distribution wearing a salary costume — and it is exactly the number an FTA reviewer prices first."
+      ]
+    },
+    {
+      "h": "Who counts as connected, and who is exempt",
+      "ps": [
+        "Article 36(2) of Federal Decree-Law No. 47 of 2022 names three groups: an owner of the taxable person, a director or officer of it, and a related party of either. An owner is any individual who directly or indirectly holds an ownership interest in the company or controls it (Article 36(3)), so a 5% shareholder who is paid a salary is caught as much as the founder. Related parties include individuals related within the fourth degree of kinship or affiliation (Article 35(1)(a)), which brings in children, parents and siblings on the payroll, and companies the owner controls or holds 50% or more of. Treat a spouse on the payroll the same way.",
+        "Article 36(5) applies the arm's length rules of Article 34 to decide market value, which means the same comparability analysis used for transfer pricing. Article 36(6) switches the rule off for companies whose shares trade on a recognised stock exchange and for companies under the regulatory oversight of a competent UAE authority, such as licensed banks and insurers. For a privately owned trading company, it applies in full."
+      ]
+    },
+    {
+      "h": "Worked example: AED 1.1 million taken out",
+      "ps": [
+        "A mainland LLC owned by one founder makes AED 2,000,000 of profit before paying her anything. She wants AED 1,100,000. A benchmark from two recruiter surveys puts a general manager of a company that size at AED 600,000 a year, including allowances.",
+        "Route one, all salary. The company deducts AED 1,100,000, but under Article 36 only AED 600,000 corresponds to market value. AED 500,000 is added back. Taxable income is AED 2,000,000 minus 600,000, so AED 1,400,000. Tax is 9% of the amount above AED 375,000: 9% of 1,025,000 = AED 92,250.",
+        "Route two, market salary plus dividend. Salary AED 600,000, then a dividend of AED 500,000 out of post-tax profit. Taxable income is again AED 1,400,000 and the tax is again AED 92,250. The cash outcome is the same, but route two matches the law and the paperwork, and it removes the add-back, the dispute and any penalty exposure from an understated return."
+      ],
+      "list": [
+        "Monthly salary: Dr Staff costs: owner remuneration AED 50,000 / Cr Salaries payable AED 50,000, then Dr Salaries payable / Cr Bank when paid through payroll",
+        "Dividend on approval by the general assembly: Dr Retained earnings AED 500,000 / Cr Dividend payable AED 500,000, then Dr Dividend payable / Cr Bank",
+        "If any excess salary stays in the accounts, the CT working adds it back as a non-deductible connected person payment. It does not change the accounting entry"
+      ]
+    },
+    {
+      "h": "Making the salary defensible",
+      "list": [
+        "A real employment contract, registered where required, with the role described",
+        "A salary a recruiter would recognise for that role, that seniority, that market — benchmark it once a year and keep the evidence",
+        "Paid regularly through payroll (and WPS where applicable), not as ad-hoc round-number transfers",
+        "Board/management fees documented separately from salary, each at their own market value",
+        "The mirror check: free-zone owners at 0% have the opposite incentive (suppress salary, inflate zone profit) — the market-value test cuts both ways"
+      ]
+    },
+    {
+      "h": "Family members on the payroll",
+      "ps": [
+        "A parent, child or sibling of the owner is a related party, and so a connected person of the company, and a spouse should be treated the same way. Their salaries face the same test: real work, at the rate the market would pay for it. A spouse paid AED 25,000 a month for a part-time administrative role that the market fills at AED 8,000 creates an add-back of AED 204,000 a year. Keep timesheets, a job description and evidence of output, because family payroll is where reviewers look for disguised distributions."
+      ]
+    },
+    {
+      "h": "What never deducts",
+      "list": [
+        "Dividends and profit distributions, however labelled. Article 33(4) of the Corporate Tax Law disallows dividends, profit distributions and similar benefits paid to an owner",
+        "Owner personal spending run through the company — non-deductible, and it contaminates the books an auditor must sign",
+        "Interest on owner loans beyond arm's-length terms",
+        "For an individual taxed on business income through a sole establishment, there is no salary to pay yourself: amounts the owner withdraws from the business are drawings and are not deductible (Article 33(5))"
+      ]
+    },
+    {
+      "h": "Small businesses and free zone owners",
+      "ps": [
+        "A company that elects [Small Business Relief](/guides/uae-small-business-relief), with revenue of AED 3 million or less for tax periods ending on or before 31 December 2029, is treated as having no taxable income, so the deductibility of owner pay does not change its tax that year. The market-value logic returns the year it leaves the relief, and a salary record built up in the meantime is the best evidence for that year.",
+        "A Qualifying Free Zone Person is in the reverse position. Its owners gain nothing from a high salary, because the profit it reduces would have been taxed at 0%. An owner who does the work but takes nothing, while a mainland sister company carries his cost, shifts profit into the 0% entity. Article 36 and the arm's length rules apply to that too, and the result can be a deduction challenged in one company and income adjusted in the other. See [free zone 0% Corporate Tax](/guides/free-zone-corporate-tax-0-percent)."
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Setting the owner's salary at year end to bring taxable income down to AED 375,000, with no contract and no benchmark",
+        "Paying the owner in irregular transfers coded to 'director's current account' and then reclassifying them as salary when the return is drafted",
+        "Treating a one-off bonus as deductible when it is really a share of profit, decided after the results were known",
+        "Forgetting that the owner's own company is a related party: a fee paid to a consultancy the owner controls faces the same market-value test"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tags connected-person payments as their own category, keeps the payroll evidence attached, and shows owner remuneration on its own line in the CT working — so the market-value conversation happens with your advisor before filing, not with the FTA after."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "The [Corporate Tax calculator](/tools/uae-corporate-tax-calculator) shows the effect of a salary change on the tax for the year, and the [employee cost calculator](/tools/uae-employee-cost-calculator) prices the full package. The arm's length rules behind Article 36 are covered in [transfer pricing documentation](/guides/uae-transfer-pricing-documentation)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is an owner's salary tax deductible under UAE Corporate Tax?",
+      "a": "Yes, up to market value. Under Article 36 of the Corporate Tax Law, a payment to an owner, director or their related party is deductible only to the extent it matches the market value of the work and is incurred wholly and exclusively for the business. Anything above that is added back."
+    },
+    {
+      "q": "Are dividends deductible for UAE Corporate Tax?",
+      "a": "No. Article 33(4) disallows dividends, profit distributions and similar benefits paid to an owner. A dividend comes out of profit that has already been taxed at the company level."
+    },
+    {
+      "q": "Is salary taxed in the UAE for the owner who receives it?",
+      "a": "No. The UAE has no personal income tax, and the FTA confirms that a wage paid to an employee, including director fees in the usual case, is outside Corporate Tax. Dividends an individual receives on personal shareholdings are also outside Corporate Tax."
+    },
+    {
+      "q": "Who is a connected person under UAE Corporate Tax?",
+      "a": "An owner of the company, a director or officer of it, or a related party of either, such as a family member. An owner means any individual who directly or indirectly holds an ownership interest in the company or controls it."
+    },
+    {
+      "q": "How do I prove my salary as an owner is at market value?",
+      "a": "Keep a written employment contract describing the role, a benchmark from salary surveys or recruiter data for a similar role and company size, and a payroll record of regular payments. Refresh the benchmark each year and keep the evidence for seven years with the tax records."
+    },
+    {
+      "q": "Can I pay my wife or children a salary from my UAE company?",
+      "a": "Yes, if they do real work and are paid what the market would pay for it. Children are related parties of the owner, and a spouse should be treated the same way, so their salaries are connected person payments and the excess over market value is not deductible."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 and its amendments (Articles 33, 34 and 36)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "FTA: Corporate Tax Guide, Taxation of natural persons (CTGTNP1), section 3.8 on wages and director fees",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Taxation%20of%20natural%20persons%20-%2025%2011%202023.pdf"
+    },
+    {
+      "label": "FTA: Corporate Tax Guide, Transfer Pricing (CTGTP1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+    }
+  ],
+  "related": [
+    "uae-transfer-pricing-documentation",
+    "uae-small-business-relief",
+    "free-zone-corporate-tax-0-percent",
+    "uae-wps-payroll-compliance"
+  ]
+}

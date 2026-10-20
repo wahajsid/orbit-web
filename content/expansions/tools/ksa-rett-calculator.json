@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the agreed price in Saudi riyals, the fair market value if it is higher, and the number of days the tax was paid late. You can also tick the box for a buyer who holds a First Home certificate. The calculator shows the tax base, the RETT payable, any amount borne by the state and any late-payment fine.",
+        "The base is the higher of the agreed price and the fair market value. Leave the market value blank and the agreed price is used. Full RETT is 5% of the base.",
+        "With the First Home box ticked, the state bears 5% of the base up to SAR 1,000,000, so the payable amount is 5% of the excess over SAR 1,000,000. A first home priced at SAR 1,000,000 or less shows nothing payable.",
+        "The fine counts each started block of 30 days as a month (days divided by 30, rounded up). It charges 2% of the payable tax per month, capped at 50%. Twenty-five months or more therefore reach the cap."
+      ],
+      "list": [
+        "Not modelled: the further 1% a month where ZATCA amends the tax due.",
+        "Not modelled: the tax base rules for share deals (use the [share-transfer checker](/tools/ksa-rett-share-transfer-checker)), usufructs over 50 years and BOOT projects.",
+        "Not modelled: exemptions. An exempt transaction is still registered on the ZATCA portal, but no tax is due."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "RETT is levied under the Real Estate Transaction Tax Law issued by Royal Decree No. M/84, in force from 10 April 2025, and its Implementing Regulations. It replaced the 2020 regulations, which first moved property sales from VAT to RETT on 4 October 2020. The rate stayed at 5%. ZATCA's Detailed Guideline for RETT (version 6, May 2026) sets out how it applies.",
+        "The tax is charged on the value agreed between the parties, but never on less than fair market value on the transaction date. The profit margin in a licensed financing arrangement is left out of the base. The seller (the assignor) is liable even when the contract makes the buyer bear the tax. For a notarised sale, the tax must be paid on or before notarisation, so late payment arises mainly on unnotarised handovers, share transfers, usufructs over 50 years and exemptions that are later broken. Each of those must be paid within 30 days.",
+        "For a Saudi citizen's first home, the buyer gets a First Home certificate from the Ministry of Municipalities and Housing portal, and the seller enters it when registering the sale. ZATCA checks eligibility. No tax is charged on the price up to SAR 1,000,000, and 5% applies to any amount above it.",
+        "Late payment costs 2% of the unpaid tax for each month or part of a month, starting the day after the payment deadline, capped at 50% of the unpaid tax. That replaced the 5% a month under the pre-2025 regulations. Where ZATCA amends the tax due, a further 1% a month applies. Fines for periods before 10 April 2025 follow the old regulations, but the total may not exceed 50% of the unpaid tax after the law took effect. The full rules are in our [RETT guide](/guides/ksa-real-estate-transaction-tax)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A seller hands over possession of a plot in Jeddah to the buyer under a private contract, without notarisation. The agreed price is SAR 1,300,000, but a valuer puts the plot's market value at SAR 1,450,000. The tax was due on handover and payable within 30 days. It is paid 45 days after that deadline."
+    ],
+    "list": [
+      "Step 1: enter 1,300,000 as the agreed price, 1,450,000 as fair market value and 45 days late. Leave First Home unticked.",
+      "Step 2: tax base = the higher of 1,300,000 and 1,450,000 = SAR 1,450,000.",
+      "Step 3: RETT payable = 1,450,000 x 5% = SAR 72,500.00.",
+      "Step 4: 45 days late = two months or part-months, so the fine is 4% of 72,500 = SAR 2,900.00.",
+      "Step 5: if the seller bears the tax, book it as a cost of disposal: Dr Loss/gain on disposal 72,500 and Dr Penalties 2,900; Cr Bank 75,400. See [RETT accounting](/guides/ksa-rett-accounting).",
+      "Variation: a Saudi citizen buys a first home for SAR 1,300,000, notarised and paid on time. Clear the market value and the days, then tick First Home. The full tax is SAR 65,000.00, the state bears SAR 50,000.00 and SAR 15,000.00 is payable."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How is RETT calculated in Saudi Arabia?",
+      "a": "5% of the agreed price or the fair market value on the transaction date, whichever is higher. Financing profit is left out. A SAR 1,450,000 market value on a SAR 1,300,000 sale gives RETT of SAR 72,500."
+    },
+    {
+      "q": "Is the first SAR 1 million exempt from RETT?",
+      "a": "Only for a Saudi citizen buying a first home with a valid First Home certificate. The state bears the tax on the price up to SAR 1,000,000, and 5% applies to the rest. Other buyers pay 5% on the full value."
+    },
+    {
+      "q": "What is the RETT late payment penalty?",
+      "a": "2% of the unpaid tax for each month or part of a month, starting the day after the deadline, capped at 50% of the unpaid tax. A further 1% a month applies where ZATCA amends the tax. The pre-2025 rate was 5% a month."
+    },
+    {
+      "q": "When must RETT be paid?",
+      "a": "For a notarised sale, on or before notarisation; the transfer will not complete until it is paid or shown to be exempt. For an unnotarised handover, a share transfer in a real estate company, a usufruct over 50 years or a broken exemption, within 30 days of the date the tax became due."
+    },
+    {
+      "q": "Who pays RETT, the buyer or the seller?",
+      "a": "The seller is legally liable. The contract can make the buyer bear the cost, and anyone may pay ZATCA, but the liability stays with the seller. Since April 2025 the buyer is jointly liable only if ZATCA shows the buyer caused the non-payment."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ZATCA: Detailed Guideline for the Real Estate Transaction Tax (version 6, May 2026), sections 4, 6 and 7",
+      "href": "https://zatca.gov.sa/en/HelpCenter/guidelines/Documents/Detailed-Guideline-for-RETT-In-accordance-with-provision-of-RETT-Law-and-its-Implementing-Regulations.pdf"
+    },
+    {
+      "label": "ZATCA: Real Estate Transaction Tax Law and Implementing Regulations",
+      "href": "https://zatca.gov.sa/en/RulesRegulations/Taxes/Pages/RETTRegulation.aspx"
+    }
+  ]
+}

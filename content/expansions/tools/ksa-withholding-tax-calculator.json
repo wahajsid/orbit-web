@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-20",
   "method": [
     {
       "h": "How this calculator works",
@@ -11,7 +11,7 @@
       "list": [
         "Management fees: 20%",
         "Royalties: 15%",
-        "Other services: 15% (the calculator's label for ZATCA's 'any other payments' category)",
+        "Any other payments: 15%",
         "Dividends, interest (loan charges), rent, technical and consulting services, insurance and reinsurance premiums, international telecommunications: 5%"
       ]
     },
@@ -19,7 +19,7 @@
       "h": "The rules behind it",
       "ps": [
         "Withholding tax is imposed under Article 68 of the Income Tax Law and Article 63 of its Implementing Regulations on payments by a Saudi resident, or a permanent establishment in the Kingdom, to a non-resident for income from a source in the Kingdom. It is levied on the gross amount, not on the non-resident's profit. Payments to a resident taxpayer or to a non-resident's Saudi permanent establishment are outside WHT because that income is already in a Saudi tax base.",
-        "ZATCA's General Guideline for Withholding Tax (second version, May 2026) lists the rates the calculator uses, plus two categories the calculator does not offer as buttons: payments for air tickets or air or sea freight at 5%, and land transport within the Kingdom at 15%. For those, use the 5% or 15% option and note the category on your workings. Payments by a local telecom operator to an international operator for passing calls, and international roaming charges, are not subject to WHT.",
+        "ZATCA's General Guideline for Withholding Tax (second version, May 2026) lists the rates the calculator uses, including payments for air tickets or air or sea freight at 5% (international departure tickets from the Kingdom, and freight paid to carriers or their agents in the Kingdom, but not shipping from abroad to Saudi ports) and land transport within the Kingdom at 15%. Both have their own buttons. Payments by a local telecom operator to an international operator for passing calls, and international roaming charges, are not subject to WHT.",
         "Getting the category right matters more than the arithmetic. A contract labelled consulting that is in substance a management service is 20%, not 5%. Where a contract mixes goods and services, only the service element is in scope. Technical and consulting services are caught even if performed wholly outside the Kingdom, and amounts a resident company pays its head office or a related company are Saudi-source wherever the work is done. See our guide to [intercompany management fees](/guides/intercompany-management-fees-uae) before settling a group recharge.",
         "The withholder files a monthly withholding statement and pays the tax within the first 10 days of the month after the month of payment, and gives the beneficiary a certificate of the amount withheld. An annual statement is due within 120 days of the year end (60 days for partnerships). Late payment attracts a delay penalty of 1% of the unpaid tax for every 30 days under Article 77(a) of the Law.",
         "A double tax treaty can reduce or remove the rate. Under ZATCA's January 2025 circular on WHT under treaties, the withholder can apply the treaty rate at source by applying through the ZATCA portal with the non-resident's tax residency certificate, the approved request form, embassy or Apostille authentication and an undertaking on Form Q/7C. Alternatively it withholds at the domestic rate and claims a refund. The time limit to apply, and for ZATCA to audit, is five years. The calculator always applies the domestic rate."

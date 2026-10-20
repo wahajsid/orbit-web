@@ -1,0 +1,72 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "You pick what is being supplied (goods to be resold or built into other goods, goods to be used up in the zone, or services) and where it is going (within the same designated zone, to another designated zone, to the mainland, or abroad). The checker returns one of three answers and a note."
+      ],
+      "list": [
+        "Services: always 5%. The destination buttons other than the first are switched off, because a designated zone counts as inside the UAE for services",
+        "Goods of either kind going to the mainland: import VAT on entry",
+        "Goods to be consumed, staying in the same zone: 5%",
+        "Every other combination of goods (resold or incorporated within the zone, zone to zone, or exported abroad): outside the scope. Goods the buyer will consume, whether in this zone or another one, are 5%: consumption puts the supply in the State",
+        "The checker gives the treatment only. It does not test whether your zone is on the Cabinet's list or whether the customs and evidence conditions are met"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 51 of the VAT Decree-Law and Article 51 of the Executive Regulation treat a designated zone as outside the UAE for goods, provided it is a fenced area with customs controls, has internal procedures for keeping and processing goods, and its operator follows FTA procedures. Only zones named in a Cabinet decision qualify; being a free zone is not enough.",
+        "Goods moving between designated zones are not taxed if they are not released, used or altered on the way and move under GCC customs suspension rules. Goods supplied within a zone to a person who consumes them are treated as supplied in the UAE, so 5% applies, unless they are built into or used to produce other goods in the same zone, are exported with customs evidence, or move to the mainland with evidence that import VAT was paid. Goods that the owner consumes in the zone without paying VAT, and shortages, are treated as imported.",
+        "For services, Article 51(6) of the Executive Regulation places the supply inside the UAE when its place of supply is in a designated zone. That means the ordinary UAE rules apply, including zero-rating for qualifying exports of services to non-residents; a service is not standard-rated simply because the zone is involved, which is a nuance the checker's one-line answer does not show. Water and energy supplied in a designated zone are always inside the UAE. The [designated zone guide](/guides/uae-designated-zone-vat) covers the evidence file."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A trading company in a designated zone holds AED 200,000 of industrial parts in its warehouse. It makes four sales in one month."
+    ],
+    "list": [
+      "Parts sold to a manufacturer in the same zone that builds them into machines there: pick goods resold or incorporated, within the same zone. Outside the scope, no VAT on the invoice",
+      "Parts shipped under customs suspension to a buyer in another designated zone: goods resold or incorporated, to another zone. Outside the scope, provided the transfer documents show the goods were not released",
+      "Parts sold to a mainland contractor: goods, to the mainland. The goods are imported when they leave the zone, and import VAT of 200,000 × 5% = AED 10,000 is due through the importer's TRN (Box 6 of its return, under the [reverse charge](/guides/uae-vat-reverse-charge)) or at customs. The seller keeps evidence that import VAT was applied",
+      "Spare parts sold to a zone company that uses them to maintain its own forklifts: goods consumed, within the same zone. 5%, so AED 10,000 VAT on a AED 200,000 sale",
+      "Separately, the company's freight forwarder invoices it for services in the zone: services. 5% under the normal rules",
+      "Journal for the consumed-in-zone sale: debit receivable AED 210,000, credit revenue AED 200,000, credit output VAT AED 10,000"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is a designated zone the same as a free zone for UAE VAT?",
+      "a": "No. Only zones listed in a Cabinet decision and meeting the fencing, customs and procedure conditions are designated zones. A free zone that is not on the list is treated as part of the UAE for VAT, like the mainland."
+    },
+    {
+      "q": "Is VAT charged on goods sold within a designated zone?",
+      "a": "Not if the buyer resells them or builds them into other goods in the zone. If the buyer consumes the goods in the zone, the supply is treated as made in the UAE and 5% applies."
+    },
+    {
+      "q": "Are services in a designated zone subject to VAT?",
+      "a": "Yes. A designated zone is treated as inside the UAE for services, so the normal rules apply: 5% in most cases, or zero-rating where a service qualifies as an export to a non-resident."
+    },
+    {
+      "q": "What happens when goods move from a designated zone to the mainland?",
+      "a": "They are treated as imported into the UAE. Import VAT at 5% is due, either through the importer's VAT return under the reverse charge or at customs before release."
+    },
+    {
+      "q": "Is VAT charged on electricity and water in a designated zone?",
+      "a": "Yes. Article 51 of the Executive Regulation treats water and every form of energy supplied in a designated zone as supplied inside the UAE."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Article 51)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (Box 6 and designated zone purchases)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    }
+  ]
+}

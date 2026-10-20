@@ -132,14 +132,14 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "ksa-withholding-tax-calculator",
-    updated: "2026-10-07",
+    updated: "2026-10-20",
     title: "KSA withholding tax (WHT) calculator",
     description:
-      "Domestic WHT on payments to non-residents by category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
+      "Domestic WHT on payments to non-residents by category — management fees 20%, royalties and any other payments 15%, rent, interest, technical services and freight 5% — with net-of-tax gross-up handled.",
     guide: "intercompany-management-fees-uae",
     arTitle: "حاسبة ضريبة الاستقطاع السعودية",
     arDescription:
-      "الاستقطاع المحلي على المدفوعات لغير المقيمين حسب الفئة — أتعاب الإدارة 20% والإتاوات 15% ومعظم الباقي 5% — مع معالجة عقود الصافي من الضريبة.",
+      "الاستقطاع المحلي على المدفوعات لغير المقيمين حسب الفئة — أتعاب الإدارة 20%، والإتاوات وأي مدفوعات أخرى 15%، والإيجار والفوائد والخدمات الفنية والشحن 5% — مع معالجة عقود الصافي من الضريبة.",
   },
   {
     slug: "uae-corporate-tax-penalty-calculator",

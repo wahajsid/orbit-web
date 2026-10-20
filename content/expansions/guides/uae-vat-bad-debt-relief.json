@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-20",
   "minutes": 9,
   "sections": [
     {
@@ -100,7 +100,7 @@
     {
       "h": "How Hysaab applies this",
       "ps": [
-        "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be."
+        "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and flags a later recovery for your review, so relief is claimed when it becomes claimable and a late payment is not missed."
       ]
     }
   ],
