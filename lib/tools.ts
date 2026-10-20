@@ -394,6 +394,30 @@ export const TOOLS: Tool[] = [
     arDescription:
       "موعد تعيين مزود الخدمة المعتمد وبدء الفوترة الإلكترونية الإلزامية حسب المرحلة، والأيام المتبقية، واستثناء المجموعات الضريبية، والغرامات.",
   },
+  {
+    slug: "uae-intercompany-loan-interest-calculator",
+    updated: "2026-10-20",
+    title: "Intercompany loan interest calculator (UAE TP)",
+    description:
+      "Arm's length interest on an intercompany loan against the rate charged, the Article 34 adjustment on each side, and the net UAE tax for the group.",
+    guide: "uae-intercompany-loans-transfer-pricing",
+  },
+  {
+    slug: "uae-vat-ct-reconciliation-calculator",
+    updated: "2026-10-20",
+    title: "VAT to Corporate Tax revenue reconciliation",
+    description:
+      "Bridge revenue in the financial statements to Box 1, 4 and 5 of the VAT returns: advances, unbilled revenue, asset sales, non-supply income, and the unexplained gap.",
+    guide: "uae-vat-corporate-tax-reconciliation",
+  },
+  {
+    slug: "uae-fta-objection-deadline-calculator",
+    updated: "2026-10-20",
+    title: "FTA objection deadline calculator (40 business days)",
+    description:
+      "The last day to request a review or reconsideration, object to the Tax Disputes Resolution Committee or appeal to court, counted in business days under Article 49.",
+    guide: "uae-fta-group-tax-audit",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
