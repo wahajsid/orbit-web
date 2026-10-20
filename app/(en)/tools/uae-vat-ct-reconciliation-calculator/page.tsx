@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { VatCtReconCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "VAT to Corporate Tax revenue reconciliation — Hysaab",
   description:
     "Free UAE reconciliation calculator: bridge revenue in the accounts to VAT returns Box 1, 4 and 5, with advances, unbilled revenue and asset sales, and see the gap.",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/uae-vat-ct-reconciliation-calculator"),
 };
 
 export default function Page() {
