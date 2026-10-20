@@ -11,7 +11,7 @@ import type { Guide } from "./guides";
 
 const capitalAssets: Guide = {
   slug: "uae-vat-capital-assets-scheme",
-  title: "نظام الأصول الرأسمالية: تعديل السنوات العشر",
+  title: "نظام الأصول الرأسمالية: التعديل على مدى 10 سنوات",
   description:
     "كيف يعمل نظام الأصول الرأسمالية في ضريبة القيمة المضافة للأصول بقيمة 5 ملايين درهم فأكثر: معادلة W وX وQ وR − Z، وفترتا 10 و5 سنوات، والتصرف، ومثال.",
   updated: "2026-10-20",
