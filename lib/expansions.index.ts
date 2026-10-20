@@ -27,10 +27,12 @@ import g24 from "@/content/expansions/guides/uae-tax-invoice-checklist.json";
 import g25 from "@/content/expansions/guides/uae-tax-loss-carry-forward.json";
 import g26 from "@/content/expansions/guides/uae-transfer-pricing-documentation.json";
 import g27 from "@/content/expansions/guides/uae-vat-bad-debt-relief.json";
-import g28 from "@/content/expansions/guides/uae-vat-reverse-charge.json";
-import g29 from "@/content/expansions/guides/uae-vat-voluntary-disclosure.json";
-import g30 from "@/content/expansions/guides/uae-wps-payroll-compliance.json";
-import g31 from "@/content/expansions/guides/zatca-e-invoicing-phase-2.json";
+import g28 from "@/content/expansions/guides/uae-vat-cabinet-decision-149-2026-input-tax.json";
+import g29 from "@/content/expansions/guides/uae-vat-reverse-charge.json";
+import g30 from "@/content/expansions/guides/uae-vat-staff-accommodation-recovery-2026.json";
+import g31 from "@/content/expansions/guides/uae-vat-voluntary-disclosure.json";
+import g32 from "@/content/expansions/guides/uae-wps-payroll-compliance.json";
+import g33 from "@/content/expansions/guides/zatca-e-invoicing-phase-2.json";
 import t0 from "@/content/expansions/tools/ecl-provision-calculator.json";
 import t1 from "@/content/expansions/tools/eosb-gratuity-calculator.json";
 import t2 from "@/content/expansions/tools/freezone-de-minimis-calculator.json";
@@ -92,10 +94,12 @@ export const GUIDE_FILES: Record<string, any> = {
   "uae-tax-loss-carry-forward": g25 as any,
   "uae-transfer-pricing-documentation": g26 as any,
   "uae-vat-bad-debt-relief": g27 as any,
-  "uae-vat-reverse-charge": g28 as any,
-  "uae-vat-voluntary-disclosure": g29 as any,
-  "uae-wps-payroll-compliance": g30 as any,
-  "zatca-e-invoicing-phase-2": g31 as any,
+  "uae-vat-cabinet-decision-149-2026-input-tax": g28 as any,
+  "uae-vat-reverse-charge": g29 as any,
+  "uae-vat-staff-accommodation-recovery-2026": g30 as any,
+  "uae-vat-voluntary-disclosure": g31 as any,
+  "uae-wps-payroll-compliance": g32 as any,
+  "zatca-e-invoicing-phase-2": g33 as any,
 };
 export const TOOL_FILES: Record<string, any> = {
   "ecl-provision-calculator": t0 as any,
