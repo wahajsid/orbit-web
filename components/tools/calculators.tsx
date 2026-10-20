@@ -2530,7 +2530,7 @@ export function IpDepreciationCalculator({ ar = false }: { ar?: boolean } = {}) 
           {!ok
             ? <>{T.enter}</>
             : ar
-              ? <>القيمة الافتتاحية هي التكلفة ناقص 4% عن كل سنة ميلادية سبقت أول فترة ضريبية تبدأ في 1 يناير 2025 أو بعده: {aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}. كل فترة تخصم الأقل من 4% من التكلفة والقيمة الدفترية الضريبية، فتستمر الخصومات {periods} فترة.{claimed > 0 && <> البيع في نهاية {sy} يضيف إلى الدخل {aed(claimed)} المخصومة (نحو {aed(claimed * 0.09)} ضريبة بنسبة 9%)، إضافة إلى ضريبة الربح المحقق. وزّع الفترة الأخيرة نسبيًا إن تم البيع في منتصف السنة.</>} يفترض فترات ضريبية متتالية مدة كل منها 12 شهرًا.</>
+              ? <>القيمة الافتتاحية هي التكلفة ناقص 4% عن كل سنة ميلادية سبقت أول فترة ضريبية تبدأ في 1 يناير 2025 أو بعده: <span dir="ltr">{aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}</span>. كل فترة تخصم الأقل من 4% من التكلفة والقيمة الدفترية الضريبية، فتستمر الخصومات {periods} فترة.{claimed > 0 && <> البيع في نهاية {sy} يضيف إلى الدخل {aed(claimed)} المخصومة (نحو {aed(claimed * 0.09)} ضريبة بنسبة 9%)، إضافة إلى ضريبة الربح المحقق. وزّع الفترة الأخيرة نسبيًا إن تم البيع في منتصف السنة.</>} يفترض فترات ضريبية متتالية مدة كل منها 12 شهرًا.</>
               : <>Opening Value is the cost less 4% for each calendar year held before the first tax period starting on or after 1 January 2025: {aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}. Each period deducts the lower of 4% of cost and the written-down value, so the deductions run for {periods} periods.{claimed > 0 && <> Selling at the end of {sy} adds back the {aed(claimed)} claimed (about {aed(claimed * 0.09)} of tax at 9%), on top of the tax on the realised gain. Prorate the final period if the sale is mid-year.</>} Assumes consecutive 12-month tax periods.</>}
         </div>
       </div>
@@ -2610,7 +2610,7 @@ export function TopUpTaxCalculator({ ar = false }: { ar?: boolean } = {}) {
         <div><div className="mg-tool-label">{L.tu}</div><div className="mg-tool-big" style={{ color: topUp > 0 ? "var(--bad)" : "var(--accent)" }}>{aed(topUp)}</div></div>
         <div className="mg-tool-note">
           {ar
-            ? <>الاستبعاد = {pr}% من الرواتب + {ar_}% من الأصول الملموسة (النسب الانتقالية لسنة {year}). الضريبة = ({"15% − "}{pct2(etr)}) × الربح الزائد. {shEtr && <>ملاذ تقارير CbCR الانتقالي يحتاج معدلًا فعليًا مبسطًا لا يقل عن {shEtr}% بأرقام التقرير لا بأرقام GloBE. </>}التسجيل مطلوب حتى لو كانت الضريبة صفرًا؛ والمهلة الانتقالية للسنوات المنتهية قبل 30 أبريل 2026 هي 30 نوفمبر 2026. تقدير أولي فقط: دخل GloBE والضرائب المشمولة يتطلبان تعديلات كثيرة على الحسابات.</>
+            ? <>الاستبعاد = {pr}% من الرواتب + {ar_}% من الأصول الملموسة (النسب الانتقالية لسنة {year}). الضريبة = <span dir="ltr">(15% − {pct2(etr)})</span> × الربح الزائد. {shEtr && <>ملاذ تقارير CbCR الانتقالي يحتاج معدلًا فعليًا مبسطًا لا يقل عن {shEtr}% بأرقام التقرير لا بأرقام GloBE. </>}التسجيل مطلوب حتى لو كانت الضريبة صفرًا؛ والمهلة الانتقالية للسنوات المنتهية قبل 30 أبريل 2026 هي 30 نوفمبر 2026. تقدير أولي فقط: دخل GloBE والضرائب المشمولة يتطلبان تعديلات كثيرة على الحسابات.</>
             : <>Exclusion = {pr}% of payroll + {ar_}% of tangible assets (the transitional rates for {year}). Top-up = (15% − {pct2(etr)}) × excess profit. {shEtr && <>The transitional CbCR safe harbour needs a simplified effective rate of at least {shEtr}%, measured on country-by-country report figures, not GloBE figures. </>}Registration is required even when the tax is zero; for years ending before 30 April 2026 the transitional deadline is 30 November 2026. A first estimate only: GloBE income and covered taxes carry many adjustments to the accounts.</>}
         </div>
       </div>
@@ -2676,11 +2676,11 @@ export function CapitalAssetCalculator({ ar = false }: { ar?: boolean } = {}) {
       </div>
       <div className="mg-tool-result">
         <div><div className="mg-tool-label">{L.z}</div><div className="mg-tool-big">{aed(z)}</div></div>
-        <div><div className="mg-tool-label">{L.tot}</div><div className="mg-tool-big">{annual > 0 ? "+" : annual < 0 ? "−" : ""}{aed(Math.abs(annual))}</div></div>
-        {sold && <div><div className="mg-tool-label">{L.sale}</div><div className="mg-tool-big">{onSale > 0 ? "+" : onSale < 0 ? "−" : ""}{aed(Math.abs(onSale))}</div></div>}
+        <div><div className="mg-tool-label">{L.tot}</div><div className="mg-tool-big"><span dir="ltr">{annual > 0 ? "+" : annual < 0 ? "−" : ""}{aed(Math.abs(annual))}</span></div></div>
+        {sold && <div><div className="mg-tool-label">{L.sale}</div><div className="mg-tool-big"><span dir="ltr">{onSale > 0 ? "+" : onSale < 0 ? "−" : ""}{aed(Math.abs(onSale))}</span></div></div>}
         <div className="mg-tool-note">
           {ar
-            ? <>كل سنة: R = W ÷ {years} × Q مقارنةً بـ Z = W ÷ {years} × X = {aed(z)}. إن زاد R تزيد ضريبة المدخلات بالفرق، وإن نقص تُخفَّض. تُسجَّل التسوية في أول فترة ضريبية من السنة الضريبية التالية. {sold && <>عند البيع في السنة {sale} تُعامل السنوات {sale + 1} إلى {years} وكأنها {saleTaxable ? "خاضعة بالكامل" : "معفاة بالكامل"}، وتدخل تسويتها في إقرار فترة البيع (على القراءة المعتادة).</>}</>
+            ? <>كل سنة: <span dir="ltr">R = W ÷ {years} × Q</span> مقارنةً بـ <span dir="ltr">Z = W ÷ {years} × X = {aed(z)}</span>. إن زاد R تزيد ضريبة المدخلات بالفرق، وإن نقص تُخفَّض. تُسجَّل التسوية في أول فترة ضريبية من السنة الضريبية التالية. {sold && <>عند البيع في السنة {sale} تُعامل السنوات {sale + 1} إلى {years} وكأنها {saleTaxable ? "خاضعة بالكامل" : "معفاة بالكامل"}، وتدخل تسويتها في إقرار فترة البيع (على القراءة المعتادة).</>}</>
             : <>Each year: R = W ÷ {years} × Q against Z = W ÷ {years} × X = {aed(z)}. If R is higher, input tax increases by the difference; if lower, it is reduced. Each adjustment goes in the first tax period of the following tax year. {sold && <>On a sale in Year {sale}, Years {sale + 1} to {years} are treated as {saleTaxable ? "fully taxable" : "fully exempt"}, and their adjustment goes in the return for the period of the sale (on the usual reading).</>}</>}
         </div>
       </div>
@@ -2694,7 +2694,7 @@ export function CapitalAssetCalculator({ ar = false }: { ar?: boolean } = {}) {
                 <td className="mg-tool-mono">{r.q}%</td>
                 <td className="mg-tool-mono">{fmt2(r.r)}</td>
                 <td className="mg-tool-mono">{fmt2(z)}</td>
-                <td className="mg-tool-mono">{r.adj > 0 ? "+" : r.adj < 0 ? "−" : ""}{fmt2(Math.abs(r.adj))}</td>
+                <td className="mg-tool-mono"><span dir="ltr">{r.adj > 0 ? "+" : r.adj < 0 ? "−" : ""}{fmt2(Math.abs(r.adj))}</span></td>
               </tr>
             ))}
           </tbody>
@@ -2726,8 +2726,10 @@ export function EinvoiceDeadlineCalculator({ ar = false }: { ar?: boolean } = {}
   const left = (t: number) => (today == null ? null : Math.round((t - today) / DAY));
   const fmtDate = (t: number) =>
     new Date(t).toLocaleDateString(ar ? "ar-AE-u-nu-latn" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  // Arabic counted noun: 1 يوم، 2 يومان، 3–10 أيام، 11+ يومًا.
+  const arDays = (k: number) => (k === 1 ? "يوم واحد" : k === 2 ? "يومان" : k <= 10 ? `${k} أيام` : `${k} يومًا`);
   const days = (n: number | null) =>
-    n == null ? "" : n >= 0 ? (ar ? ` · بعد ${n} يومًا` : ` · ${n} days left`) : (ar ? ` · مضى ${-n} يومًا` : ` · ${-n} days ago`);
+    n == null ? "" : n >= 0 ? (ar ? ` · بعد ${arDays(n)}` : ` · ${n} days left`) : (ar ? ` · مضى ${arDays(-n)}` : ` · ${-n} days ago`);
 
   const L = ar
     ? { who: "من أنت؟", grp: "كل مبيعاتنا بين الشركات داخل مجموعتنا الضريبية", asp: "آخر موعد لتعيين مزود خدمة معتمد", live: "بدء الفوترة الإلكترونية الإلزامية" }
