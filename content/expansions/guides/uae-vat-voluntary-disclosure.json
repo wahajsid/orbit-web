@@ -93,7 +93,7 @@
   "faqs": [
     {
       "q": "When is a VAT voluntary disclosure mandatory in the UAE?",
-      "a": "When an error in a filed return has a net tax effect above AED 10,000. You must file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead."
+      "a": "When an error in a filed return understated the tax due (or overstated a refund) by more than AED 10,000. You must then file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead, and where an error went against you, a disclosure is optional."
     },
     {
       "q": "What are the penalties for a VAT voluntary disclosure?",

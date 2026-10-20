@@ -1112,7 +1112,7 @@ GUIDES.push(
     slug: "uae-vat-reverse-charge",
     title: "The reverse charge in UAE VAT: when you are your own supplier",
     description:
-      "Imported services, imported goods, and the domestic reverse charge for gold and hydrocarbons — how the mechanism works, why it is usually cash-neutral, and the return boxes people miss.",
+      "Imported services, imported goods, and the domestic reverse charge for precious metals and stones, hydrocarbons, electronic devices and metal scrap — how the mechanism works, why it is usually cash-neutral, and the return boxes people miss.",
     updated: "2026-08-28",
     minutes: 5,
     tax: true,
@@ -1531,7 +1531,7 @@ GUIDES.push(
       },
     ],
     faqs: [
-      { q: "When is a VAT voluntary disclosure mandatory in the UAE?", a: "When an error in a filed return has a net tax effect above AED 10,000. You must file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead." },
+      { q: "When is a VAT voluntary disclosure mandatory in the UAE?", a: "When an error in a filed return understated the tax due (or overstated a refund) by more than AED 10,000. You must then file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead, and where an error went against you, a disclosure is optional." },
       { q: "What are the penalties for a VAT voluntary disclosure?", a: "Since 14 April 2026 (Cabinet Decision No. 129 of 2025): 1% of the tax difference for each month from the original due date until you disclose. The old fixed AED 1,000/2,000 and the 5%-to-40% ladder no longer apply. A disclosure made after an FTA audit notice adds a 15% penalty." },
       { q: "Is it better to disclose before an FTA audit?", a: "Materially. Disclosing after the FTA notifies you of an audit adds a 15% penalty on top of the 1% monthly charge. The cheapest disclosure is always the earliest one." },
       { q: "Can a voluntary disclosure recover overpaid VAT?", a: "Yes — the same Form 211 process corrects errors in your favour, and it is how over-declared output tax or under-claimed input tax is recovered for a past period." },
