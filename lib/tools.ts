@@ -401,6 +401,9 @@ export const TOOLS: Tool[] = [
     description:
       "Arm's length interest on an intercompany loan against the rate charged, the Article 34 adjustment on each side, and the net UAE tax for the group.",
     guide: "uae-intercompany-loans-transfer-pricing",
+    arTitle: "حاسبة فائدة القروض بين الشركات المرتبطة",
+    arDescription:
+      "الفائدة بالسعر المحايد على قرض بين شركات مرتبطة مقارنةً بالسعر المحتسب، وتعديل المادة 34 لدى الطرفين، وصافي الضريبة على المجموعة في الدولة.",
   },
   {
     slug: "uae-vat-ct-reconciliation-calculator",
@@ -409,6 +412,9 @@ export const TOOLS: Tool[] = [
     description:
       "Bridge revenue in the financial statements to Box 1, 4 and 5 of the VAT returns: advances, unbilled revenue, asset sales, non-supply income, and the unexplained gap.",
     guide: "uae-vat-corporate-tax-reconciliation",
+    arTitle: "تسوية ضريبة القيمة المضافة مع إيرادات ضريبة الشركات",
+    arDescription:
+      "اربط الإيرادات في القوائم المالية بالخانات 1 و4 و5 في إقرارات ضريبة القيمة المضافة: الدفعات المقدمة، والإيرادات غير المفوترة، وبيع الأصول، والفرق غير المفسَّر.",
   },
   {
     slug: "uae-fta-objection-deadline-calculator",
@@ -417,6 +423,9 @@ export const TOOLS: Tool[] = [
     description:
       "The last day to request a review or reconsideration, object to the Tax Disputes Resolution Committee or appeal to court, counted in business days under Article 49.",
     guide: "uae-fta-group-tax-audit",
+    arTitle: "حاسبة مهلة الاعتراض لدى الهيئة (40 يوم عمل)",
+    arDescription:
+      "آخر يوم لطلب المراجعة أو إعادة النظر أو الاعتراض أمام لجنة فض المنازعات الضريبية أو الطعن أمام المحكمة، محسوبًا بأيام العمل وفق المادة 49.",
   },
 ];
 

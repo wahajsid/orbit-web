@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { LoanInterestCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "Intercompany loan interest calculator (UAE TP) — Hysaab",
   description:
     "Free calculator for UAE intercompany loans: arm's length interest, the Article 34 adjustment for lender and borrower, and the net Corporate Tax cost for the group.",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/uae-intercompany-loan-interest-calculator"),
 };
 
 export default function Page() {
