@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { TopUpTaxCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "UAE 15% top-up tax (DMTT) estimator — Hysaab",
   description:
     "Free estimator for the UAE Domestic Minimum Top-up Tax: effective tax rate, substance-based carve-outs and the top-up to 15% for groups with EUR 750m+ revenue.",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/uae-top-up-tax-estimator"),
 };
 
 export default function Page() {

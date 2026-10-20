@@ -2,7 +2,29 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageShell, PageHero } from "@/components/home/PageShell";
 import { AR_GUIDES, getArGuide } from "@/lib/guides-ar";
+import { linkParts, stripLinks } from "@/lib/guides";
+import { TOOLS, getTool } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
+
+/* Inline [label](/path) links point at the Arabic twin when one exists,
+   and at the English page otherwise. */
+function arHref(href: string): string {
+  const g = /^\/guides\/([^/#?]+)/.exec(href);
+  if (g) return getArGuide(g[1]) ? `/ar${href}` : href;
+  const t = /^\/tools\/([^/#?]+)/.exec(href);
+  if (t) return getTool(t[1])?.arTitle ? `/ar${href}` : href;
+  return href;
+}
+
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {linkParts(text).map((p, i) =>
+        typeof p === "string" ? p : <a key={i} href={arHref(p.href)}>{p.label}</a>,
+      )}
+    </>
+  );
+}
 
 export function generateStaticParams() {
   return AR_GUIDES.map((g) => ({ slug: g.slug }));
@@ -30,7 +52,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
         mainEntity: g.faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          acceptedAnswer: { "@type": "Answer", text: stripLinks(f.a) },
         })),
       }
     : null;
@@ -47,6 +69,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
     mainEntityOfPage: `https://hysaab.ai/ar/guides/${g.slug}`,
   };
 
+  const tools = TOOLS.filter((t) => t.guide === g.slug && t.arTitle);
   const [y, m, d] = g.updated.split("-");
   const MON_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
   const dateStr = `${Number(d)} ${MON_AR[Number(m) - 1]} ${y}`;
@@ -68,10 +91,10 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
               {g.sections.map((s) => (
                 <div key={s.h}>
                   <h2>{s.h}</h2>
-                  {s.ps?.map((p, i) => <p key={i}>{p}</p>)}
+                  {s.ps?.map((p, i) => <p key={i}><Rich text={p} /></p>)}
                   {s.list && (
                     <ul>
-                      {s.list.map((li) => <li key={li}>{li}</li>)}
+                      {s.list.map((li) => <li key={li}><Rich text={li} /></li>)}
                     </ul>
                   )}
                 </div>
@@ -82,9 +105,19 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
                   {g.faqs.map((f) => (
                     <div key={f.q}>
                       <p><strong>{f.q}</strong></p>
-                      <p>{f.a}</p>
+                      <p><Rich text={f.a} /></p>
                     </div>
                   ))}
+                </div>
+              )}
+              {tools.length > 0 && (
+                <div>
+                  <h2>جرّبها بأرقامك</h2>
+                  <ul>
+                    {tools.map((t) => (
+                      <li key={t.slug}><a href={`/ar/tools/${t.slug}`}>{t.arTitle}</a>: {t.arDescription}</li>
+                    ))}
+                  </ul>
                 </div>
               )}
               {g.tax && (
