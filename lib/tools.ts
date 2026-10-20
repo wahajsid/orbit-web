@@ -317,6 +317,38 @@ export const TOOLS: Tool[] = [
     arDescription:
       "هل الكيان شركة عقارية (50% من الأصول بالقيمة السوقية)؟ هل يبلغ النقل 30% خلال ثلاث سنوات؟ ثم الوعاء: الأعلى بين القيمة السوقية × الحصة والثمن المخصص.",
   },
+  {
+    slug: "uae-supplier-verification-checker",
+    updated: "2026-10-20",
+    title: "Supplier verification checker (FTA Decision 13)",
+    description:
+      "Which supplier and supply checks FTA Decision No. 13 of 2026 requires before you deduct input VAT: the AED 10,000 exception, the AED 100,000 and 375,000 tests, and the payment flags.",
+    guide: "uae-fta-decision-13-supplier-verification",
+  },
+  {
+    slug: "uae-tax-invoice-checker",
+    updated: "2026-10-20",
+    title: "UAE tax invoice checker (Article 59)",
+    description:
+      "Is a simplified invoice allowed, or must it be a full one? Tick the fields the invoice shows and see whether it supports an input VAT claim, and which field is missing.",
+    guide: "uae-simplified-tax-invoice-aed-10000",
+  },
+  {
+    slug: "uae-vat-currency-converter",
+    updated: "2026-10-20",
+    title: "Foreign-currency invoice VAT converter (AED)",
+    description:
+      "Convert a USD, EUR or other invoice to the AED figures a UAE tax invoice must show, at the Central Bank rate, and see the exchange difference on payment that does not touch the VAT.",
+    guide: "uae-vat-foreign-currency-invoices",
+  },
+  {
+    slug: "uae-investment-property-depreciation-calculator",
+    updated: "2026-10-20",
+    title: "Investment property 4% tax depreciation calculator",
+    description:
+      "Ministerial Decision 173 of 2025: the Opening Value, the yearly 4% deduction, the tax saved at 9% and the add-back on sale, for a building held at fair value.",
+    guide: "uae-investment-property-tax-depreciation",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

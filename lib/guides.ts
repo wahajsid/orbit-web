@@ -6,6 +6,8 @@
 
 import { CD149_GUIDES } from "./guides-cd149";
 import { RETT_GUIDES } from "./guides-rett";
+import { INPUT_VAT_GUIDES } from "./guides-input-vat";
+import { PROPERTY_GUIDES } from "./guides-property";
 
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
 /* faqs render as a question-and-answer block at the end of the guide and
@@ -136,6 +138,8 @@ export const GUIDES: Guide[] = [
   },
   ...CD149_GUIDES,
   ...RETT_GUIDES,
+  ...INPUT_VAT_GUIDES,
+  ...PROPERTY_GUIDES,
   {
     slug: "uae-tax-invoice-checklist",
     title: "What makes a valid UAE tax invoice — the Article 59 checklist",
