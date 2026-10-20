@@ -1,0 +1,81 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "There are two number inputs and three tick boxes. Enter revenue for the tax period in AED and, if you know it, taxable income for the same period. Then confirm whether every earlier tax period also stayed at or under AED 3,000,000, and tick the boxes if the business is a Qualifying Free Zone Person or a member of a multinational group above the country-by-country reporting threshold.",
+        "The result is 'Can elect' only when all four tests pass: revenue for the period is AED 3,000,000 or less (the test is 'not more than', so exactly AED 3,000,000 passes), the prior-period box is ticked, and neither exclusion box is ticked. If any test fails, the checker lists each blocker by name.",
+        "Where you can elect, the checker shows the Corporate Tax the election would save: the higher of zero and (taxable income - 375,000), multiplied by 9%. The saving assumes no losses brought forward, no tax credits and no other adjustments."
+      ],
+      "list": [
+        "Revenue means gross revenue under the accounting standards you use (IFRS or IFRS for SMEs), not profit and not taxable income.",
+        "The prior-period box covers every tax period since Corporate Tax began for you. One period above AED 3,000,000 closes the relief for good.",
+        "The checker does not test the artificial separation rule described below."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 21 of Federal Decree-Law No. 47 of 2022 lets a resident taxable person elect to be treated as having no taxable income for a tax period if its revenue for that period and all previous periods does not exceed a threshold set by the Minister. Ministerial Decision No. 73 of 2023 sets that threshold at AED 3,000,000 for each tax period (Article 2) and states that the election is lost if revenue in any relevant or previous period has exceeded it.",
+        "The relief was originally limited to tax periods ending on or before 31 December 2026. Ministerial Decision No. 131 of 2026, announced by the Ministry of Finance on 7 August 2026, extends it to tax periods ending on or before 31 December 2029. The AED 3,000,000 threshold and the other conditions are unchanged.",
+        "Article 3 of the Decision excludes two kinds of person: a constituent company of a multinational enterprise group as defined in Cabinet Decision No. 44 of 2020 (consolidated group revenue of AED 3.15 billion or more), and a Qualifying Free Zone Person. Article 6 treats an artificial split of one business into several entities to stay under the threshold as a tax avoidance arrangement under Article 50 of the Corporate Tax Law.",
+        "Electing has a price. Tax losses incurred in a relief period cannot be carried forward (Article 4), and net interest expenditure disallowed in a relief period cannot be carried forward either (Article 5). Losses from earlier periods without the election survive and can be used in a later period where you do not elect. Article 21(2) of the law also switches off exempt income, reliefs and deductions for the period. You must still register, file a return by the nine-month deadline and keep records. See our guide to [Small Business Relief](/guides/uae-small-business-relief) for the full conditions."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Sharjah mainland design studio has a calendar-year tax period. Revenue was AED 2.1 million in 2024 and AED 2,850,000 in 2025. Taxable income for 2025, after adding back fines and half of client entertainment, is AED 520,000. It has no free zone licence and is not part of a group."
+    ],
+    "list": [
+      "Step 1: enter revenue 2,850,000 and taxable income 520,000.",
+      "Step 2: leave the prior-period box ticked (2024 revenue was AED 2.1 million), and leave both exclusion boxes unticked.",
+      "Step 3: the revenue test passes because 2,850,000 is not more than 3,000,000. Result: Can elect.",
+      "Step 4: tax without the election = (520,000 - 375,000) x 9% = 145,000 x 9% = AED 13,050. The checker shows AED 13,050 as the estimated saving.",
+      "Step 5: make the election in the 2025 Corporate Tax return, due with any tax by 30 September 2026. No current tax expense is booked for 2025.",
+      "Contrast: if 2026 revenue reaches AED 3,050,000, untick the prior-period box for 2027 onwards as well. The studio is then outside the relief permanently and the [Corporate Tax calculator](/tools/uae-corporate-tax-calculator) applies."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Has UAE Small Business Relief been extended?",
+      "a": "Yes. Ministerial Decision No. 131 of 2026 extends Small Business Relief to tax periods ending on or before 31 December 2029. Before the extension, it stopped with periods ending on or before 31 December 2026. The AED 3,000,000 revenue threshold has not changed."
+    },
+    {
+      "q": "Is the AED 3 million limit based on revenue or profit?",
+      "a": "Revenue. Ministerial Decision No. 73 of 2023 measures gross revenue under the accounting standards accepted in the UAE. A business with AED 3.2 million of revenue and a loss still fails the test."
+    },
+    {
+      "q": "What happens if my revenue goes over AED 3 million once?",
+      "a": "You lose the relief for that period and every later period, even if revenue falls back below AED 3,000,000. The test looks at the current period and all previous tax periods."
+    },
+    {
+      "q": "Do I still need to file a corporate tax return if I claim Small Business Relief?",
+      "a": "Yes. The election is made in the Corporate Tax return, so you must be registered, file within nine months of the period end and keep records that support the revenue figure."
+    },
+    {
+      "q": "Can a free zone company claim Small Business Relief?",
+      "a": "Not if it is a Qualifying Free Zone Person. Article 3 of Ministerial Decision No. 73 of 2023 excludes them. A free zone company that is not a Qualifying Free Zone Person can elect if it meets the revenue test."
+    },
+    {
+      "q": "Should I elect Small Business Relief if I made a loss?",
+      "a": "Usually not. A loss made in a relief period cannot be carried forward, while a loss in a normal period can offset up to 75% of later taxable income. Use the [tax loss carry-forward calculator](/tools/uae-tax-loss-carry-forward-calculator) to see what the loss is worth."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 73 of 2023 on Small Business Relief",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Small Business Relief extended to 31 December 2029 (Ministerial Decision No. 131 of 2026)",
+      "href": "https://mof.gov.ae/en/news/ministry-of-finance-announces-extension-of-small-business-relief-for-corporate-tax-purposes-until-31-december-2029/"
+    },
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments (Article 21)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    }
+  ]
+}

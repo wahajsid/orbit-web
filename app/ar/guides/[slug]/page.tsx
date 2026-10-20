@@ -5,6 +5,8 @@ import { AR_GUIDES, getArGuide } from "@/lib/guides-ar";
 import { linkParts, stripLinks } from "@/lib/guides";
 import { TOOLS, getTool } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
+import { AUTHOR_LD } from "@/lib/authors";
+import { Byline } from "@/components/Byline";
 
 /* Inline [label](/path) links point at the Arabic twin when one exists,
    and at the English page otherwise. */
@@ -64,7 +66,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
     description: g.description,
     dateModified: g.updated,
     inLanguage: "ar",
-    author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    author: AUTHOR_LD,
     publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
     mainEntityOfPage: `https://hysaab.ai/ar/guides/${g.slug}`,
   };
@@ -88,6 +90,7 @@ export default function ArGuidePage({ params }: { params: { slug: string } }) {
         <section>
           <div className="hw-wrap hw-section">
             <div className="hw-prose">
+              <Byline updated={g.updated} locale="ar" />
               {g.sections.map((s) => (
                 <div key={s.h}>
                   <h2>{s.h}</h2>

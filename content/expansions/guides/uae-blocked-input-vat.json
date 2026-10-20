@@ -1,0 +1,163 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "Not all input VAT comes back",
+      "ps": [
+        "The default is generous: VAT you pay on costs used to make taxable supplies is recoverable. But the Executive Regulations block recovery on specific categories regardless of how business-related the spend feels — and claiming blocked VAT is one of the easiest findings an FTA audit can make, because it sits in plain sight on the return.",
+        "The blocks sit in Article 53 of the VAT Executive Regulation (Cabinet Decision No. 52 of 2017). The article was last amended by Cabinet Decision No. 149 of 2026, with effect from 1 October 2026, and the FTA set the conditions for the employee-benefit exception in FTA Decision No. 17 of 2026 from the same date."
+      ]
+    },
+    {
+      "h": "The blocked categories",
+      "list": [
+        "Entertainment provided to anyone who is not an employee — client dinners, hospitality, events for customers and partners",
+        "Motor vehicles that are available for personal use — the purchase, lease, fuel and maintenance VAT is blocked unless the vehicle qualifies (a licensed taxi, a registered emergency vehicle, a vehicle rented out to customers by a rental business, or a genuine pool car with no personal use)",
+        "Goods or services purchased for employees' personal benefit free of charge, unless there is a legal obligation under UAE labour legislation, or a contractual obligation or documented policy that meets the FTA's conditions (the 2026 rules are set out below)"
+      ]
+    },
+    {
+      "h": "The grey zones worth respecting",
+      "ps": [
+        "Staff entertainment has narrow allowances (modest hospitality incidental to business meetings is treated differently from a gala dinner), and 'available for personal use' on vehicles is judged on facts, not on what the logbook says. When a cost sits in a grey zone, the defensible position is to hold the claim until the facts are documented — not to claim first and explain later."
+      ]
+    },
+    {
+      "h": "Entertainment: what the definition catches",
+      "ps": [
+        "Article 53(2)(a) defines entertainment services as hospitality of any kind, including accommodation, food and drinks not provided in the normal course of a meeting, access to shows or events, and trips for pleasure or entertainment. Article 53(1)(a) blocks the VAT where these are provided to anyone not employed by the business, and names customers, potential customers, officials, shareholders, other owners and investors. Government entities designated under the Decree-Law are carved out.",
+        "The meeting test does the practical work. Water, coffee and a sandwich lunch served during a working session at your office are part of the meeting. A dinner afterwards, tickets to a match, or a client's hotel room for a weekend are not. Article 53(3) adds one narrow carve-out: meals and accommodation an airline or other transport operator gives to delayed passengers are not entertainment.",
+        "Entertainment for your own staff is caught by a different clause. Article 53(1)(c) blocks goods and services provided free to employees for their personal benefit and says expressly that this includes entertainment, so an annual party or a team trip is blocked unless one of the employee exceptions applies."
+      ]
+    },
+    {
+      "h": "Motor vehicles: the definition and the exclusions",
+      "ps": [
+        "A motor vehicle, for this rule, is a road vehicle designed or adapted to carry no more than ten people including the driver. Trucks, forklifts, hoists and similar vehicles are outside the definition, so VAT on a delivery truck or a site forklift is not blocked by Article 53 even if someone occasionally drives it home.",
+        "Article 53(4) lists three categories that are never treated as available for private use: a taxi licensed by the competent authority, a vehicle registered and used as an emergency vehicle, and a vehicle used in a rental business where it is rented to customers. Outside those, the question is availability, not actual use. A car allocated to a sales manager who keeps it overnight and at weekends is available for personal use even if the mileage log shows only client visits.",
+        "Article 53(1)(b) is written around vehicles purchased, rented or leased. Running costs such as fuel and servicing on a car that is available for personal use should be held back on the same basis unless you can evidence business-only use, which is the reading the original list above reflects."
+      ]
+    },
+    {
+      "h": "Employee benefits from 1 October 2026",
+      "ps": [
+        "The block on free goods and services for employees is unchanged. What Cabinet Decision No. 149 of 2026 rewrote are the exceptions in Article 53(1)(c). There are now four:"
+      ],
+      "list": [
+        "Mandatory under UAE labour legislation, including free zone legislation. Employer-provided accommodation only qualifies here where MoHRE decisions or directives make it mandatory (see our guide to [staff accommodation recovery](/guides/uae-vat-staff-accommodation-recovery-2026))",
+        "A contractual obligation or documented policy, but only in the cases and conditions the FTA specifies. A policy alone is no longer enough",
+        "Health insurance, including enhanced cover, for employees and family members up to one spouse and three children under 18",
+        "Provision that is a deemed supply, where output tax is accounted for instead"
+      ]
+    },
+    {
+      "h": "The FTA's six cases for contract or policy benefits",
+      "ps": [
+        "FTA Decision No. 17 of 2026, issued on 9 September 2026 and effective from 1 October 2026, lists the only cases in which the contract-or-policy exception works. Each has conditions that must all be met. In the transport, food and operational accommodation cases, the employee must also be unable to opt for a cash allowance instead."
+      ],
+      "list": [
+        "Transport between home and the workplace or client premises, or for other purposes directly related to the job, with no personal use",
+        "Food and drinks, only where the employee lives in a remote or isolated area with no cooking facilities or nearby restaurants, linked to the work or residence period",
+        "Accommodation driven by operational need, near the work site or client, for the employee alone (family only where the employee must live there permanently), commensurate with the job and without significant recreational elements",
+        "Temporary accommodation for new joiners, for no longer than 30 days",
+        "Mobile phones, airtime, data and home internet needed for the job, with any personal use incidental, a documented usage policy and reasonable monitoring",
+        "Parking fees incurred solely for business, under a documented reimbursement policy, with receipts showing date, time, amount and VAT"
+      ]
+    },
+    {
+      "h": "Other reasons input VAT is lost",
+      "ps": [
+        "Article 53 is not the only gate. Input VAT is also lost or deferred where you do not hold a valid tax invoice (test it against the [tax invoice checklist](/guides/uae-tax-invoice-checklist)), where the cost relates to exempt supplies (see [partial exemption](/guides/uae-partial-exemption-input-vat)), and where you have not paid and do not intend to pay within six months of the agreed payment date (Article 54(1) and (2)).",
+        "From 1 October 2026, new Article 54(3) also blocks VAT on any supply above a value set by the Minister of Finance where the consideration is paid, or intended to be paid, in cash. The Ministerial Decision fixing that value had not been published on the FTA legislation page as of 20 October 2026. The details are in our guide to [cash payments and petty cash](/guides/uae-vat-cash-payments-petty-cash-2026)."
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A registered engineering consultancy, making only standard-rated supplies, books four costs in its October to December 2026 quarter, each with a valid tax invoice and paid by bank transfer.",
+        "Client dinner after a project review: AED 4,000 plus AED 200 VAT. Blocked under Article 53(1)(a). Dr Entertainment expense 4,200, Cr Bank 4,200.",
+        "Three-month hire of a car kept by the sales manager at weekends: AED 15,000 plus AED 750 VAT. Available for personal use, so blocked under Article 53(1)(b). Dr Motor vehicle hire 15,750, Cr Bank 15,750.",
+        "Mobile and data plans for site engineers under a written usage policy with monthly usage reports and no cash alternative: AED 6,000 plus AED 300 VAT. This meets case 5 of FTA Decision No. 17 of 2026. Dr Telephone expense 6,000, Dr VAT recoverable 300, Cr Bank 6,300.",
+        "Year-end desert trip for staff: AED 10,000 plus AED 500 VAT. Entertainment for employees with no exception available. Dr Staff welfare 10,500, Cr Bank 10,500.",
+        "VAT incurred in the quarter is AED 1,750. Only AED 300 goes into Box 9 of the return, against a net value of AED 6,000; the FTA's returns guide tells you to leave expenses with specifically disallowed input tax out of Box 9 altogether. The AED 1,450 of blocked VAT is a cost. For Corporate Tax, Article 32 of Federal Decree-Law No. 47 of 2022 then allows only 50% of the client entertainment as a deduction, so of the AED 4,200 dinner (VAT included, because irrecoverable VAT forms part of the cost) AED 2,100 is deductible."
+      ]
+    },
+    {
+      "h": "What to check before you claim",
+      "list": [
+        "Who received the benefit: a customer or other outsider, an employee, or the business itself",
+        "For hospitality, whether it was served in the normal course of a meeting or was a separate event",
+        "For vehicles, the seat count and type, who holds the keys outside working hours, and whether one of the three Article 53(4) exclusions applies",
+        "For employee costs, the legal basis in writing: the labour law or MoHRE provision, or the FTA Decision No. 17 case and evidence for each of its conditions, including that no cash alternative was offered",
+        "The tax invoice itself, the payment date and the payment method",
+        "That blocked amounts are posted gross to expense and excluded from Box 9, not claimed and reversed later"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Treating every staff cost as recoverable because there is an HR policy: from 1 October 2026 a policy only works inside the six FTA cases",
+        "Claiming VAT on a director's car because the company pays for it",
+        "Recovering VAT on hotel stays for visiting clients as travel rather than hospitality",
+        "Applying the Corporate Tax 50% rule to staff entertainment: Article 32 is aimed at customers, shareholders, suppliers and other business partners, a different population from the VAT block",
+        "Reclassifying blocked VAT as recoverable in a later quarter without a change in facts, which is an error to correct by [voluntary disclosure](/guides/uae-vat-voluntary-disclosure) once it exceeds AED 10,000"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab classifies input VAT per line as recoverable, blocked or conditional, keeps blocked VAT out of the return automatically, and shows the blocked total on its own report — so the cost is visible, but never claimed."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I claim VAT on client entertainment in the UAE?",
+      "a": "No. Article 53(1)(a) of the VAT Executive Regulation blocks input VAT on hospitality, events and pleasure trips provided to anyone you do not employ, including customers, prospects, officials and shareholders. Food and drinks served in the normal course of a business meeting are not entertainment, so modest refreshments during a working session remain recoverable."
+    },
+    {
+      "q": "Is VAT on a company car recoverable in the UAE?",
+      "a": "Only if the car is not available for personal use by anyone. Licensed taxis, registered emergency vehicles and cars rented out by a rental business are never treated as available for private use. A car an employee can take home is blocked even if it is mostly used for work. Trucks, forklifts and vehicles that carry more than ten people are outside the rule."
+    },
+    {
+      "q": "Can I recover VAT on employee benefits from 1 October 2026?",
+      "a": "Only through one of four exceptions in Article 53(1)(c): an obligation under UAE labour legislation, a contract or documented policy that fits one of the six cases in FTA Decision No. 17 of 2026, health insurance within the family limits, or a deemed supply. Accommodation passes the legal-obligation test only where MoHRE decisions or directives make it mandatory."
+    },
+    {
+      "q": "Is VAT on staff parties and team-building recoverable?",
+      "a": "Generally not. Article 53(1)(c) blocks free goods and services for employees' personal benefit and expressly includes entertainment. None of the six FTA Decision No. 17 cases covers staff events, so the VAT is a cost."
+    },
+    {
+      "q": "Where does blocked input VAT go on the UAE VAT return?",
+      "a": "Nowhere. The FTA's VAT returns guide tells you to exclude expenses where input tax is specifically disallowed, such as entertainment and cars available for private use, from Box 9. Post the gross amount, VAT included, to the expense account."
+    },
+    {
+      "q": "Are mobile phone bills for employees recoverable?",
+      "a": "Yes from 1 October 2026, if all the conditions in case 5 of FTA Decision No. 17 of 2026 are met: the service is needed for the job, personal use is incidental, a documented usage policy is in place and the employer can show reasonable monitoring. Without the policy and the monitoring, the VAT is blocked."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (Articles 53 and 54)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA Decision No. 17 of 2026 on the cases and conditions for recovery of input tax on employee expenses",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/legislation/FTA%20Decision%20No.%2017%20of%202026%20on%20the%20Cases%20and%20Conditions%20for%20the%20Recovery%20of%20Input%20Tax%20Incurred%20on%20Employee%20Expenses%20-%20Publishing.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (Box 9 inclusions and exclusions)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on Corporate Tax (Article 32, entertainment expenditure)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    }
+  ],
+  "related": [
+    "uae-vat-cabinet-decision-149-2026-input-tax",
+    "uae-vat-staff-accommodation-recovery-2026",
+    "uae-tax-invoice-checklist"
+  ]
+}

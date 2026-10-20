@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "The calculator models a plain fixed-rate instrument: a face value, an annual coupon paid at the end of each year, and the face value repaid in full at maturity. You enter five numbers and it solves for the single rate that discounts those cash flows back to the amount actually lent or borrowed on day one.",
+        "Net proceeds on day one are face value minus origination fees plus any premium (enter a discount as a negative premium). The calculator then searches for the rate at which the present value of the coupons and the final repayment equals those net proceeds. It uses bisection between −50% and 100% (200 iterations) and displays two decimals.",
+        "The amortised cost schedule starts at net proceeds. Each year, interest for the income statement is the opening balance multiplied by the EIR, the coupon is deducted, and the difference (the accretion of the fee or discount) is added to the balance. By the end of the final year the balance has climbed back to face value, which is then repaid, so the schedule shows a closing balance of nil."
+      ],
+      "list": [
+        "Inputs: face value, coupon rate (% a year), term in whole years (decimals are rounded), origination fees, premium or (discount).",
+        "Out of scope: monthly or quarterly coupons, amortising principal, floating rates and prepayment options. An instrument issued at a large premium can produce a negative effective rate, which the calculator shows as such."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "IFRS 9 defines the effective interest rate as the rate that exactly discounts estimated future cash payments or receipts through the expected life of the instrument to the gross carrying amount of a financial asset or the amortised cost of a financial liability. Paragraph 5.4.1 requires interest revenue on amortised-cost assets to be calculated with this method.",
+        "What goes into the rate is set out in B5.4.1 to B5.4.3. Fees that are an integral part of the rate, such as origination fees for evaluating the borrower, negotiating terms and preparing documents, adjust the EIR instead of being booked as income on day one. Servicing fees and most syndication fees are not integral and fall under IFRS 15. Transaction costs, meaning incremental costs such as agents' and advisers' fees, levies and transfer taxes (B5.4.8), are also included; internal administrative costs are not.",
+        "B5.4.4 says the fees, transaction costs, premiums and discounts are generally amortised over the expected life of the instrument, or a shorter period where they relate to a variable that reprices to market earlier. This calculator assumes the expected life equals the contractual term.",
+        "The same arithmetic works for both sides. For a borrower, arrangement fees paid reduce the liability; for a lender, origination fees received reduce the receivable. Either way, enter them as origination fees. A lender's own transaction costs paid to third parties would instead increase the carrying amount, which you can model by entering them as a premium."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a AED 1 million loan with a 2% arrangement fee",
+    "ps": [
+      "Use the calculator's defaults: face value AED 1,000,000, coupon 5%, term 5 years, origination fees AED 20,000, premium 0. The borrower receives AED 980,000 but pays AED 50,000 of coupon each year and AED 1,000,000 at the end. The calculator returns an EIR of 5.47% (5.4679% unrounded) and total IFRS interest of AED 270,000: five coupons of AED 50,000 plus the AED 20,000 fee."
+    ],
+    "list": [
+      "Day 1 (borrower): Dr Bank 980,000, Cr Loan payable 980,000. The fee is not expensed; it sits inside the carrying amount.",
+      "Year 1: interest 980,000.00 × 5.4679% = 53,585.82. Coupon paid 50,000. Closing amortised cost 983,585.82. Journal: Dr Finance cost 53,585.82, Cr Bank 50,000.00, Cr Loan payable 3,585.82.",
+      "Year 2: interest 53,781.89, closing 987,367.72.",
+      "Year 3: interest 53,988.69, closing 991,356.40.",
+      "Year 4: interest 54,206.79, closing 995,563.19.",
+      "Year 5: interest 54,436.81 takes the balance to exactly 1,000,000.00 before the coupon and principal are paid; the schedule shows nil after repayment.",
+      "Check: 53,585.82 + 53,781.89 + 53,988.69 + 54,206.79 + 54,436.81 = 270,000.00. A lender that received the AED 20,000 fee records the mirror image as interest income. Book the monthly accrual as part of your [month-end close](/guides/month-end-close-checklist); for corporate tax, the EIR interest expense feeds the [interest deduction limitation](/guides/uae-interest-deduction-limitation) test."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the effective interest rate under IFRS 9?",
+      "a": "It is the rate that exactly discounts the instrument's estimated future cash flows over its expected life to its gross carrying amount (asset) or amortised cost (liability). It includes integral fees, transaction costs and premiums or discounts, but excludes expected credit losses except for credit-impaired assets on purchase or origination."
+    },
+    {
+      "q": "Are loan arrangement fees expensed immediately under IFRS 9?",
+      "a": "No, not for a loan measured at amortised cost. Fees that are an integral part of the effective interest rate are deducted from the initial carrying amount and spread through the EIR over the expected life (B5.4.1 and B5.4.4). They are recognised immediately only when the instrument is measured at fair value through profit or loss."
+    },
+    {
+      "q": "What is the difference between the coupon rate and the EIR?",
+      "a": "The coupon rate is the contractual cash rate applied to face value. The EIR is the yield on the amount actually advanced after fees and premiums. In the default example the coupon is 5.00% but the EIR is 5.47%, because the borrower only received AED 980,000."
+    },
+    {
+      "q": "Can I use this calculator for a loan with monthly instalments?",
+      "a": "Not directly. It assumes annual coupons and a single repayment at maturity. For an amortising loan, solve the EIR on the actual monthly cash flows, for example with Excel's IRR or XIRR, and convert to an annual rate if you need one."
+    },
+    {
+      "q": "When does the EIR change after initial recognition?",
+      "a": "For a fixed-rate instrument the original EIR is kept. If estimated cash flows change, the carrying amount is recalculated at the original EIR and the difference goes to profit or loss (B5.4.6). For floating-rate instruments, periodic re-estimation of cash flows to reflect market rate movements alters the EIR (B5.4.5)."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS 9 Financial Instruments, standard text incl. Appendix A, 5.4.1 and B5.4.1 to B5.4.8 (Commission Regulation (EU) 2016/2067)",
+      "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R2067"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 9 Financial Instruments",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-9-financial-instruments/"
+    }
+  ]
+}

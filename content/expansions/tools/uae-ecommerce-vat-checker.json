@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Enter the order value in AED excluding VAT, choose the revenue stream (goods shipped or electronic services), and say whether the customer or use is outside the UAE. If it is, a second box asks whether you hold the evidence. The calculator shows the rate, the VAT and the order total to two decimal places.",
+        "The logic is a single test: if the order is foreign and the evidence box is ticked, the rate shown is 0% and VAT is nil. In every other case VAT is the order value x 5%, and the total is the order value plus VAT. A foreign order without evidence is deliberately held at 5%."
+      ],
+      "list": [
+        "Goods, UAE customer: 5%.",
+        "Goods, customer outside the UAE, customs exit evidence held: 0% (zero-rated export).",
+        "Goods, customer outside the UAE, no evidence yet: 5% until the file is complete.",
+        "Electronic services used in the UAE: 5%.",
+        "Electronic services used outside the UAE, evidence held: out of scope (no UAE VAT, see below).",
+        "Electronic services used outside the UAE, no evidence: 5%."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Goods. Under Article 27(3) of Federal Decree-Law No. 8 of 2017, a supply of goods exported to a place outside the Implementing States has its place of supply in the UAE, and Article 45(1) zero-rates it. Article 30 of the Executive Regulation sets the conditions for a direct export: the goods must physically leave within 90 days of the date of supply, and the exporter must keep either a customs declaration with commercial evidence (a waybill or manifest), or a shipping certificate with official evidence such as a customs exit certificate. If the goods do not leave within 90 days, or a longer period the FTA allows on written application, VAT is due at the UAE rate. Goods moved into a Designated Zone are not exported.",
+        "Electronic services. Article 31 of the Decree-Law puts the place of supply of electronic services in the UAE to the extent they are used and enjoyed in the UAE, and outside it to the extent they are used and enjoyed abroad, wherever the contract is signed or payment made. Article 23 of the Executive Regulation defines them as services delivered automatically over the internet or an electronic network, such as software, digital content, streaming and online advertising space. The portion used abroad is outside the scope of UAE VAT rather than zero-rated, and the related input tax stays recoverable under Article 54(1)(b). Where a subscription is used partly in the UAE, only the UAE share is taxed: the calculator does not apportion. See our guide to [SaaS and digital services](/guides/uae-vat-saas-digital-services).",
+        "Registration. The test in Article 13 of the Decree-Law and Article 7 of the Executive Regulation is the value of taxable supplies (including zero-rated supplies) and imports: you must register if it exceeded AED 375,000 over the previous 12 months, or will exceed it in the next 30 days, and apply within 30 days. Out-of-scope and exempt income does not count. Check with the [registration checker](/tools/uae-vat-registration-checker).",
+        "Invoices. A simplified tax invoice is allowed for a customer who is not VAT-registered, and for a registered customer where the consideration is AED 10,000 or less. The full position for online sellers is in our [e-commerce VAT guide](/guides/uae-ecommerce-vat)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai online store, VAT-registered, has three AED 1,000 orders (excluding VAT) on the same day: a perfume set delivered in Abu Dhabi, a perfume set shipped by courier to London, and a 12-month design-software licence bought by a customer in Mumbai."
+    ],
+    "list": [
+      "Order 1: Goods shipped, abroad unticked. Rate 5%, VAT AED 50.00, total AED 1,050.00. Journal: Dr Receivable 1,050; Cr Revenue 1,000; Cr Output VAT 50.",
+      "Order 2: Goods shipped, tick 'Customer outside the UAE' and 'Customs exit evidence retained' once the courier's air waybill and export declaration are on file. Rate 0%, VAT nil, total AED 1,000.00.",
+      "Order 2 before the evidence arrives: leave the evidence box unticked. The calculator shows 5%, AED 50.00, total AED 1,050.00. If the goods leave within 90 days and the evidence is filed, the supply is zero-rated.",
+      "Order 3: Electronic services, tick 'Service used outside the UAE' and the evidence box (for example billing address, IP location and payment country all pointing to India). VAT nil, total AED 1,000.00. Report it as outside the scope, not as a zero-rated supply."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Do I charge UAE VAT on online sales to customers abroad?",
+      "a": "Goods physically exported outside the Implementing States within 90 days are zero-rated, provided you keep the customs and transport evidence required by Article 30 of the Executive Regulation. Electronic services used and enjoyed outside the UAE are outside the scope of UAE VAT."
+    },
+    {
+      "q": "What evidence do I need to zero-rate an export of goods from the UAE?",
+      "a": "Either a customs declaration plus commercial evidence such as an air, sea or land waybill or manifest, or a shipping certificate plus official evidence such as a customs exit certificate. The evidence must show the supplier, consignor, goods, value, destination and mode of transport and route."
+    },
+    {
+      "q": "What is the place of supply for electronic services in the UAE?",
+      "a": "Where the services are actually used and enjoyed, regardless of where the contract is made or payment comes from (Article 31 of the VAT Decree-Law). Use in the UAE is taxed at 5%; use abroad is outside the scope."
+    },
+    {
+      "q": "What happens if exported goods do not leave the UAE within 90 days?",
+      "a": "The zero rate is lost and VAT is due at the rate that would have applied to a UAE supply, normally 5%, unless the FTA has extended the period on a written application."
+    },
+    {
+      "q": "When does an online seller have to register for UAE VAT?",
+      "a": "When the value of taxable supplies and imports exceeded AED 375,000 over the previous 12 months, or is expected to exceed it in the next 30 days. The application is due within 30 days. Zero-rated exports count towards the threshold."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Federal Decree-Law No. 8 of 2017 on VAT and its amendments (FTA, unofficial translation)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "Executive Regulation of Federal Decree-Law No. 8 of 2017 (Cabinet Decision No. 52 of 2017, amended to Cabinet Decision No. 100 of 2024)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2024/10/Executive-Regulation-of-Federal-Decree-Law-No-8-of-2017.pdf"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The three penalties that matter",
+      "list": [
+        "Late registration: a fixed AED 10,000 for failing to submit the registration application within the FTA's deadline for your licence",
+        "Late filing: AED 500 for each month (or part of one) the return is late during the first twelve months, rising to AED 1,000 per month from the thirteenth month onward",
+        "Late payment: 14% per annum on the unpaid tax, applied monthly from the day after the payment deadline"
+      ]
+    },
+    {
+      "h": "Where the numbers come from",
+      "ps": [
+        "Corporate Tax penalties sit in their own table: Cabinet Decision No. 75 of 2023, in force since 1 August 2023, as amended by Cabinet Decision No. 10 of 2024 (in force 1 March 2024), which added the AED 10,000 late-registration penalty. Article 2 of the decision says its table applies to Corporate Tax violations notwithstanding Cabinet Decision No. 40 of 2017, the older VAT and excise penalty decision.",
+        "Cabinet Decision No. 129 of 2025, which took effect on 14 April 2026, amended Cabinet Decision No. 40 of 2017 for VAT and excise. It did not amend the Corporate Tax table. What it did was bring VAT and excise much closer to the Corporate Tax model that already existed: 14% a year for late payment, charged monthly, and 1% a month for voluntary disclosures. If you read that VAT penalties \"changed in April 2026\", that is right for VAT; the Corporate Tax amounts below have been the same since March 2024.",
+        "The filing and payment deadline itself is in the Corporate Tax Law: Article 53 (return) and Article 48 (payment), both nine months from the end of the tax period. A 31 December 2025 year-end therefore filed and paid by 30 September 2026. The full calendar is in [UAE tax deadlines](/guides/uae-tax-deadlines)."
+      ]
+    },
+    {
+      "h": "The full Corporate Tax penalty table",
+      "list": [
+        "Failure to keep the required records: AED 10,000 per violation, AED 20,000 for a repeat within 24 months",
+        "Failure to submit tax data, records and documents in Arabic when the FTA asks: AED 5,000",
+        "Late deregistration application: AED 1,000 per month, capped at AED 10,000",
+        "Failure to tell the FTA about a change that requires the tax record to be amended: AED 1,000, or AED 5,000 for a repeat within 24 months",
+        "Legal representative's late notification of appointment: AED 1,000, from the representative's own funds",
+        "Late tax return (also applies to a legal representative who files late): AED 500 a month for months 1 to 12, AED 1,000 a month from month 13",
+        "Late payment: 14% a year, charged monthly on the unsettled amount, for each month or part of one",
+        "Incorrect tax return: AED 500, unless corrected before the filing deadline",
+        "Voluntary disclosure of an error: 1% of the tax difference for each month or part of one, from the day after the original due date to the date of disclosure",
+        "No voluntary disclosure before an FTA audit notice: a fixed 15% of the tax difference, plus 1% a month",
+        "Failure to facilitate an FTA tax auditor: AED 20,000",
+        "Late or missing declaration required under the Corporate Tax Law: AED 500 a month for months 1 to 12, AED 1,000 a month after that",
+        "Late registration: AED 10,000"
+      ]
+    },
+    {
+      "h": "What that looks like in dirhams",
+      "ps": [
+        "A company that files its return nine months late owes AED 4,500 in filing penalties before any tax is counted. If it also owes AED 100,000 of tax for those nine months, the late-payment charge adds roughly AED 10,500 more — about AED 15,000 of pure penalty on a position that a calendar reminder would have avoided entirely.",
+        "The filing penalty runs even when no tax is due: a loss-making company that ignores its return obligation accumulates the same monthly charges as a profitable one."
+      ]
+    },
+    {
+      "h": "Worked example: a return filed four and a half months late",
+      "ps": [
+        "A mainland LLC has a 31 December 2025 year-end, so its return and payment were due on 30 September 2026. It files on 15 February 2027 and pays AED 200,000 of Corporate Tax the same day.",
+        "Both penalties are imposed from the day after the deadline and then on the same date each month (Article 3 of the decision fixes the date for short months). The charge dates are 1 October, 1 November, 1 December 2026, 1 January and 1 February 2027: five months or parts of months."
+      ],
+      "list": [
+        "Late filing: 5 × AED 500 = AED 2,500",
+        "Late payment: AED 200,000 × 14% ÷ 12 = AED 2,333.33 a month; × 5 = AED 11,666.67",
+        "Total penalties: AED 14,166.67, on top of the AED 200,000 of tax",
+        "Journal entry when the FTA raises the penalties: Dr Tax penalties (profit or loss) 14,166.67, Cr FTA payable 14,166.67. Penalties are not deductible for Corporate Tax (Article 33 of the Corporate Tax Law), so add them back in next year's computation"
+      ]
+    },
+    {
+      "h": "Worked example: correcting an understated return",
+      "ps": [
+        "The same company filed on time but understated its tax by AED 50,000. It finds the error in March 2027 and submits a voluntary disclosure on 10 March 2027.",
+        "The 1% monthly penalty runs from 1 October 2026 to 10 March 2027: October, November, December, January, February and part of March, six periods. That is 6% × AED 50,000 = AED 3,000. The incorrect-return penalty of AED 500 can also apply, because the return was not corrected before the 30 September deadline. The AED 50,000 of tax is due within 20 business days of submitting the disclosure; after that the 14% a year late-payment penalty starts on it.",
+        "If the company had waited until the FTA notified it of a tax audit and then disclosed, the bill would be a fixed 15% (AED 7,500) plus the same 1% a month. If it never disclosed and the FTA found the error, the 15% applies plus 1% a month until the FTA issues its assessment. Disclosing before an audit notice is the single biggest lever on the cost of an error. The VAT equivalent is covered in [the voluntary disclosure guide](/guides/uae-vat-voluntary-disclosure), and you can run your own dates through the [Corporate Tax penalty calculator](/tools/uae-corporate-tax-penalty-calculator)."
+      ]
+    },
+    {
+      "h": "Registration deadlines and the waiver",
+      "ps": [
+        "Registration deadlines come from FTA Decision No. 3 of 2024. Companies that existed before 1 March 2024 had deadlines in 2024 set by the month their licence was issued. A resident company incorporated on or after 1 March 2024, including a free zone company, has three months from incorporation; a company incorporated on 10 January 2026 had until 10 April 2026.",
+        "The AED 10,000 is not always final. In May 2025 the FTA began applying a Cabinet decision that waives the late-registration penalty if the first tax return (or annual declaration, for exempt persons that must register) is filed within seven months of the end of the first tax period. It covers people who registered late and were fined, people who paid the fine (it is credited back to their FTA account), and people who have still not registered, provided they register and file within the seven months."
+      ]
+    },
+    {
+      "h": "The ones people forget",
+      "list": [
+        "Failing to keep the required records and information carries its own fixed penalties, repeated on re-offence",
+        "An incorrect return can be penalised — voluntary disclosure before the FTA notices is what keeps corrections cheap",
+        "Registered but dormant? The filing obligation doesn't sleep: nil-activity companies file too",
+        "A company that ceases trading and does not apply to deregister on time pays AED 1,000 a month up to AED 10,000, and keeps accruing late-filing penalties while it stays registered",
+        "[Small Business Relief](/guides/uae-small-business-relief) does not switch off penalties: the relief is elected in the return, so a company that does not file cannot claim it and still pays the late-filing charge"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Counting months from the filing date rather than charge dates: a return one day late already attracts a full AED 500, because the penalty is per month or part of one",
+        "Assuming the 14% stops at some point: the Corporate Tax table sets no cap of its own, so it runs until the tax is paid. The only ceiling is Article 24(4) of the Tax Procedures Law, under which no single administrative penalty may exceed twice the tax it relates to, and at 14% a year that takes more than 14 years to reach",
+        "Paying the tax but not the penalties: penalties assessed by the FTA are a liability in their own right and sit on the EmaraTax account until settled",
+        "Applying VAT figures to Corporate Tax, or the reverse: the two tables are now similar but not identical, so check which decision governs before quoting a number"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab's deadline watchdog tracks each entity's registration and filing calendar, escalates well before the nine-month line, and drafts the return from the ledger as the year runs — so the penalty schedule above stays a reference page, not a bill."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the penalty for late Corporate Tax filing in the UAE?",
+      "a": "AED 500 for each month or part of a month for the first twelve months, then AED 1,000 a month from the thirteenth month, under Cabinet Decision No. 75 of 2023. It applies whether or not any tax is due, so a loss-making company that files late pays the same."
+    },
+    {
+      "q": "What is the penalty for late Corporate Tax registration?",
+      "a": "A fixed AED 10,000, added by Cabinet Decision No. 10 of 2024. Since May 2025 the FTA waives it, and refunds it if paid, where the first tax return or annual declaration is filed within seven months of the end of the first tax period."
+    },
+    {
+      "q": "How is the Corporate Tax late payment penalty calculated?",
+      "a": "At 14% a year, charged monthly on the unpaid tax for each month or part of one, starting the day after the payment deadline. That is about 1.17% a month: AED 100,000 paid three months late attracts roughly AED 3,500."
+    },
+    {
+      "q": "Did Cabinet Decision 129 of 2025 change Corporate Tax penalties?",
+      "a": "No. Cabinet Decision No. 129 of 2025, effective 14 April 2026, amended the VAT and excise penalty decision (Cabinet Decision No. 40 of 2017). Corporate Tax penalties remain in Cabinet Decision No. 75 of 2023 as amended by Cabinet Decision No. 10 of 2024."
+    },
+    {
+      "q": "What is the penalty for a Corporate Tax voluntary disclosure?",
+      "a": "1% of the tax difference for each month or part of one, from the day after the original due date until the disclosure is submitted. If the disclosure is made only after an FTA audit notice, a fixed 15% is added. The tax itself is due within 20 business days of the disclosure."
+    },
+    {
+      "q": "Do I have to file a Corporate Tax return if I have no income?",
+      "a": "Yes. Every registered taxable person files within nine months of the year-end, including dormant and loss-making companies, and the late-filing penalty applies regardless of the tax due."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Cabinet Decision No. 75 of 2023 and amendments (Corporate Tax administrative penalties)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Cabinet%20Decision%20No.%2075%20of%202023%20and%20amendments%20-%20For%20Publishing.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 40 of 2017 and amendments to Cabinet Decision No. 129 of 2025 (VAT and excise penalties)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 and amendments (Corporate Tax Law), Articles 48 and 53",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 28 of 2022 on Tax Procedures and amendments, Article 24",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%2028%20of%202022%20-%20publishing%2003%2012%202025.pdf"
+    },
+    {
+      "label": "FTA: Decision No. 3 of 2024 on the Corporate Tax registration timeline",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/RE%20FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20%20-%20For%20publishing.pdf"
+    }
+  ],
+  "related": [
+    "uae-tax-deadlines",
+    "uae-vat-voluntary-disclosure",
+    "uae-small-business-relief"
+  ]
+}

@@ -5,6 +5,8 @@ import { GUIDES, getGuide, relatedGuides, stripLinks, linkParts } from "@/lib/gu
 import { getArGuide } from "@/lib/guides-ar";
 import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
+import { AUTHOR_LD } from "@/lib/authors";
+import { Byline } from "@/components/Byline";
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -58,8 +60,9 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     "@type": "Article",
     headline: g.title,
     description: g.description,
+    ...(g.published ? { datePublished: g.published } : {}),
     dateModified: g.updated,
-    author: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
+    author: AUTHOR_LD,
     publisher: { "@type": "Organization", name: "Hysaab", url: "https://hysaab.ai" },
     mainEntityOfPage: url,
   };
@@ -92,6 +95,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
         <section>
           <div className="hw-wrap hw-section">
             <div className="hw-prose">
+              <Byline published={g.published} updated={g.updated} />
               {g.sections.map((s) => (
                 <div key={s.h}>
                   <h2>{s.h}</h2>
@@ -123,6 +127,16 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                     ))}
                     {related.map((r) => (
                       <li key={r.slug}><strong>Guide:</strong> <a href={`/guides/${r.slug}`}>{r.title}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {g.sources && g.sources.length > 0 && (
+                <div>
+                  <h2>Sources</h2>
+                  <ul>
+                    {g.sources.map((s) => (
+                      <li key={s.href}><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>
                     ))}
                   </ul>
                 </div>

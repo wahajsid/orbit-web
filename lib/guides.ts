@@ -8,6 +8,8 @@ import { CD149_GUIDES } from "./guides-cd149";
 import { RETT_GUIDES } from "./guides-rett";
 import { INPUT_VAT_GUIDES } from "./guides-input-vat";
 import { PROPERTY_GUIDES } from "./guides-property";
+import PUBLISHED from "./guide-published.json";
+import { GUIDE_EXPANSIONS } from "./expansions";
 import { ENTERPRISE_GUIDES } from "./guides-enterprise";
 
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
@@ -32,7 +34,14 @@ export type Guide = {
   faqs?: GuideFaq[];
   related?: string[];
   cta?: { href: string; label: string };
+  /* First publication (ISO date). Filled from lib/guide-published.json,
+     derived from git history; set by hand only for a new guide. */
+  published?: string;
+  /* Primary sources the guide relies on (FTA, ZATCA, MoF, IFRS text),
+     rendered as a "Sources" list at the end. */
+  sources?: GuideSource[];
 };
+export type GuideSource = { label: string; href: string };
 
 export const GUIDES: Guide[] = [
   {
@@ -492,15 +501,15 @@ GUIDES.push(
     title: "UAE Corporate Tax Small Business Relief: who qualifies, what it actually does, and the catches",
     description:
       "Revenue at or under AED 3 million can mean no taxable income at all — but the relief is an election with conditions, an expiry date, and consequences for losses.",
-    updated: "2026-08-22",
+    updated: "2026-10-07",
     minutes: 5,
     tax: true,
     sections: [
       {
         h: "What the relief does",
         ps: [
-          "Small Business Relief lets a UAE-resident taxable person be treated as having no taxable income for a tax period — no 9% to pay — if revenue is AED 3,000,000 or less in that period and in every previous tax period ending on or before 31 December 2026. It is an election made in the tax return, period by period, not an automatic exemption.",
-          "Two things it does not do: it does not remove the obligation to register for Corporate Tax and file a return, and it does not last forever — it is available only for tax periods ending on or before 31 December 2026.",
+          "Small Business Relief lets a UAE-resident taxable person be treated as having no taxable income for a tax period — no 9% to pay — if revenue is AED 3,000,000 or less in that period and in every previous tax period, for tax periods ending on or before 31 December 2029. It is an election made in the tax return, period by period, not an automatic exemption.",
+          "Two things it does not do: it does not remove the obligation to register for Corporate Tax and file a return, and it does not last forever — it is available only for tax periods ending on or before 31 December 2029. The original sunset was 31 December 2026; Ministerial Decision No. 131 of 2026, announced by the Ministry of Finance in August 2026, extended it by three years.",
         ],
       },
       {
@@ -670,7 +679,7 @@ GUIDES.push(
       {
         h: "How Hysaab applies this",
         ps: [
-          "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and re-accounts automatically if a recovery lands later — so relief is claimed exactly when it becomes claimable, and unwound exactly when it must be.",
+          "Hysaab watches receivables ageing cross the six-month line, checks the write-off posting and the notification evidence, computes the 5/105 adjustment into the VAT return draft, and flags a later recovery for your review, so relief is claimed when it becomes claimable and a late payment is not missed.",
         ],
       },
     ],
@@ -1103,7 +1112,7 @@ GUIDES.push(
     slug: "uae-vat-reverse-charge",
     title: "The reverse charge in UAE VAT: when you are your own supplier",
     description:
-      "Imported services, imported goods, and the domestic reverse charge for gold and hydrocarbons — how the mechanism works, why it is usually cash-neutral, and the return boxes people miss.",
+      "Imported services, imported goods, and the domestic reverse charge for precious metals and stones, hydrocarbons, electronic devices and metal scrap — how the mechanism works, why it is usually cash-neutral, and the return boxes people miss.",
     updated: "2026-08-28",
     minutes: 5,
     tax: true,
@@ -1433,14 +1442,14 @@ GUIDES.push(
     title: "Free zone vs mainland in the UAE: the tax comparison founders actually need",
     description:
       "The 0% headline is conditional, the 9% baseline is simpler than it looks, and VAT mostly doesn't care — how the two setups compare on tax, and the questions that decide it.",
-    updated: "2026-09-01",
+    updated: "2026-10-07",
     minutes: 6,
     tax: true,
     sections: [
       {
         h: "Corporate tax: conditional 0% vs simple 9%",
         ps: [
-          "Mainland is straightforward: 0% to AED 375,000 of taxable income, 9% above, Small Business Relief available under AED 3m revenue until the 2026 sunset. Free zone offers the famous 0% — but only as a Qualifying Free Zone Person, only on qualifying income, with substance, audited accounts, transfer pricing compliance and the de minimis test all holding, every period. A free-zone company selling mainly to mainland consumers usually ends up at 9% on that income anyway, without the AED 375,000 band, plus the audit cost the regime demands.",
+          "Mainland is straightforward: 0% to AED 375,000 of taxable income, 9% above, Small Business Relief available under AED 3m revenue for tax periods ending on or before 31 December 2029. Free zone offers the famous 0% — but only as a Qualifying Free Zone Person, only on qualifying income, with substance, audited accounts, transfer pricing compliance and the de minimis test all holding, every period. A free-zone company selling mainly to mainland consumers usually ends up at 9% on that income anyway, without the AED 375,000 band, plus the audit cost the regime demands.",
           "The honest sorting question: who are your customers? Mostly other free-zone businesses or foreign markets in a qualifying activity → the 0% regime is real. Mostly mainland UAE consumers → the free-zone tax advantage largely evaporates, and the decision should be made on licensing, premises and ownership factors instead.",
         ],
       },
@@ -1477,8 +1486,8 @@ GUIDES.push(
     slug: "uae-vat-voluntary-disclosure",
     title: "VAT voluntary disclosure in the UAE: when Form 211 is mandatory, and what it costs by year",
     description:
-      "Find an error over AED 10,000 and disclosure is not optional. The fixed penalties, the 5%-to-40% ladder that climbs with every year you wait, and why disclosing before the audit notice changes everything.",
-    updated: "2026-09-02",
+      "Find an error over AED 10,000 and disclosure is not optional. What it costs since April 2026, 1% of the tax difference for every month you wait, and why disclosing before the audit notice still changes everything.",
+    updated: "2026-10-07",
     minutes: 6,
     tax: true,
     sections: [
@@ -1491,8 +1500,8 @@ GUIDES.push(
       {
         h: "What a disclosure costs",
         ps: [
-          "Two penalties stack. A fixed penalty per disclosure: AED 1,000 the first time, AED 2,000 on repetition. Then a percentage of the tax difference that climbs with the time elapsed since the return was due: 5% if you disclose within a year, 10% in the second year, 20% in the third, 30% in the fourth, 40% after that. The design is explicit — the same error costs eight times more to confess in year five than in year one.",
-          "The cliff is the audit notice: disclose after the FTA has told you it is auditing you and the reduced ladder is gone — the percentage exposure rises steeply, and you have surrendered the one advantage a voluntary disclosure buys. The economically rational moment to disclose is always now.",
+          "Since 14 April 2026, Cabinet Decision No. 129 of 2025 sets the cost: 1% of the tax difference for each month from the date the original return was due until the disclosure is filed. It replaced the old structure of a fixed AED 1,000 or AED 2,000 per disclosure plus a 5%-to-40% ladder by year. The logic is unchanged and now runs month by month: an error disclosed after 6 months costs 6%, after 24 months 24%.",
+          "The cliff is still the audit notice. Disclose after the FTA has told you it is auditing you and a 15% penalty is added on top of the monthly charge, and you have surrendered the one advantage a voluntary disclosure buys. Once the disclosure is submitted, the tax it reveals is due within 20 business days; after that, the late-payment penalty of 14% a year, charged monthly, runs on whatever is still unpaid. The economically rational moment to disclose is always now.",
         ],
       },
       {
@@ -1522,9 +1531,9 @@ GUIDES.push(
       },
     ],
     faqs: [
-      { q: "When is a VAT voluntary disclosure mandatory in the UAE?", a: "When an error in a filed return has a net tax effect above AED 10,000. You must file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead." },
-      { q: "What are the penalties for a VAT voluntary disclosure?", a: "A fixed penalty of AED 1,000 (AED 2,000 on repetition) plus a percentage of the tax difference based on how long after the original due date you disclose: 5% within the first year, 10% in the second, 20% in the third, 30% in the fourth, and 40% beyond that." },
-      { q: "Is it better to disclose before an FTA audit?", a: "Materially. Disclosing after the FTA notifies you of an audit removes the reduced percentage ladder and the exposure rises steeply. The cheapest disclosure is always the earliest one." },
+      { q: "When is a VAT voluntary disclosure mandatory in the UAE?", a: "When an error in a filed return understated the tax due (or overstated a refund) by more than AED 10,000. You must then file Form 211 within 20 business days of becoming aware of the error. Errors of AED 10,000 or less are corrected in the next return instead, and where an error went against you, a disclosure is optional." },
+      { q: "What are the penalties for a VAT voluntary disclosure?", a: "Since 14 April 2026 (Cabinet Decision No. 129 of 2025): 1% of the tax difference for each month from the original due date until you disclose. The old fixed AED 1,000/2,000 and the 5%-to-40% ladder no longer apply. A disclosure made after an FTA audit notice adds a 15% penalty." },
+      { q: "Is it better to disclose before an FTA audit?", a: "Materially. Disclosing after the FTA notifies you of an audit adds a 15% penalty on top of the 1% monthly charge. The cheapest disclosure is always the earliest one." },
       { q: "Can a voluntary disclosure recover overpaid VAT?", a: "Yes — the same Form 211 process corrects errors in your favour, and it is how over-declared output tax or under-claimed input tax is recovered for a past period." },
     ],
   },
@@ -1647,7 +1656,7 @@ GUIDES.push(
       "VAT on Google Ads, AWS, Microsoft 365 and every SaaS subscription in the UAE",
     description:
       "Every foreign digital service you buy carries a reverse charge obligation — the same 5% as a local purchase, accounted by you. The services, the return boxes, the FX rule, and the mistake that triggers voluntary disclosures.",
-    updated: "2026-09-20",
+    updated: "2026-10-07",
     minutes: 6,
     tax: true,
     sections: [
@@ -1717,7 +1726,7 @@ GUIDES.push(
       },
       {
         q: "What happens if I never applied the reverse charge on SaaS subscriptions?",
-        a: "You need to file a voluntary disclosure for each affected VAT period where the net tax effect exceeds AED 10,000. The penalty is AED 1,000 fixed plus a percentage that rises from 5% in the first year to 40% after four years. Disclose before an FTA audit notice to keep the percentage at its lowest.",
+        a: "You need to file a voluntary disclosure for each affected VAT period where the net tax effect exceeds AED 10,000. Since 14 April 2026 the penalty is 1% of the tax difference for each month since the return was due, with 15% added if you disclose after an FTA audit notice. Disclose early to keep it at its lowest.",
       },
       {
         q: "Does the reverse charge cost me money if I am fully taxable?",
@@ -1833,7 +1842,7 @@ GUIDES.push(
       "UAE Corporate Tax for freelancers and sole establishments: who must register, what counts as business income, and the AED 1 million line",
     description:
       "A natural person carrying on business in the UAE is taxable above AED 1 million of turnover — but which income counts, how a sole establishment fits, and whether Small Business Relief applies are the questions nobody answers straight.",
-    updated: "2026-09-20",
+    updated: "2026-10-07",
     minutes: 6,
     tax: true,
     sections: [
@@ -1863,7 +1872,7 @@ GUIDES.push(
       {
         h: "Small Business Relief and the AED 3 million question",
         ps: [
-          "A natural person who is a taxable person (turnover above AED 1 million) can elect [Small Business Relief](/guides/uae-small-business-relief) if revenue is at or below AED 3 million in the period and in every previous period ending on or before 31 December 2026 — the same conditions as a company. The relief treats taxable income as zero: no 9% to pay. But the obligation to register, file a return and keep records remains.",
+          "A natural person who is a taxable person (turnover above AED 1 million) can elect [Small Business Relief](/guides/uae-small-business-relief) if revenue is at or below AED 3 million in the period and in every previous period, for tax periods ending on or before 31 December 2029 — the same conditions as a company. The relief treats taxable income as zero: no 9% to pay. But the obligation to register, file a return and keep records remains.",
           "For many freelancers in the AED 1–3 million band, this is the practical answer: register, elect the relief, file, and pay nothing — while keeping the books clean enough to survive a question. The catch is losses: a tax loss in a relief period cannot be carried forward, and electing in a loss year gives up something real if income is expected to rise.",
         ],
       },
@@ -1903,7 +1912,7 @@ GUIDES.push(
       },
       {
         q: "Does Small Business Relief apply to freelancers?",
-        a: "Yes, if the freelancer is a taxable person (above AED 1M) with revenue at or below AED 3 million. The relief treats taxable income as zero, but the obligation to register and file remains. It is available for periods ending on or before 31 December 2026.",
+        a: "Yes, if the freelancer is a taxable person (above AED 1M) with revenue at or below AED 3 million. The relief treats taxable income as zero, but the obligation to register and file remains. It is available for periods ending on or before 31 December 2029, after Ministerial Decision No. 131 of 2026 extended the original 2026 sunset.",
       },
     ],
   },
@@ -1944,4 +1953,17 @@ export function linkParts(text: string): (string | { label: string; href: string
   }
   if (last < text.length) out.push(text.slice(last));
   return out;
+}
+
+/* Expansions (SEO wave 2026-10): longer sections, FAQs and sources for
+   guides, kept as data in content/expansions/guides so a guide's title,
+   description and URL never change when its body grows. Applied after
+   every GUIDES.push above. */
+for (const g of GUIDES) {
+  const x = GUIDE_EXPANSIONS[g.slug];
+  if (x) Object.assign(g, x);
+  const first = g.published ?? (PUBLISHED as Record<string, string>)[g.slug];
+  /* git records when the guide reached the repo, which can trail the
+     date written on it by a day; never show published after updated. */
+  g.published = first && first > g.updated ? g.updated : first;
 }

@@ -1,0 +1,177 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "The order matters",
+      "ps": [
+        "Most close pain is sequencing pain: accruals proposed before the AP cutoff, VAT drafted before the bank is matched, a lock that has to be reopened. The list below is ordered so each step's inputs are already settled when you reach it."
+      ]
+    },
+    {
+      "h": "The eight steps",
+      "list": [
+        "1 · Documents in — chase the stragglers: every invoice, receipt and statement for the month filed and readable, duplicates eliminated",
+        "2 · AP cutoff — post everything received; list what's expected but missing (that list feeds the accruals)",
+        "3 · Bank reconciliation — every bank line matched to a document or explicitly explained; unmatched lines are findings, not filler",
+        "4 · Accruals & prepayments — accrue the missing regulars (rent, utilities, subscriptions), release the prepayment schedules due this month",
+        "5 · Depreciation & payroll — post depreciation across classes; post the payroll run with EOSB gratuity provision movements",
+        "6 · VAT draft — build the return from the posted ledger, with input VAT held on any invoice that fails the tax-invoice test",
+        "7 · Variance review — explain the month's significant movements line-by-line; what can't be explained gets flagged, not smoothed",
+        "8 · Lock — when every gate is green, close and lock the period, in Hysaab and in the connected ledger, so it cannot quietly change"
+      ]
+    },
+    {
+      "h": "The timetable, by working day",
+      "ps": [
+        "WD means working day after month-end. The targets below fit a business with one to five bank accounts and a few hundred transactions a month. Larger groups add a day for intercompany, not a week."
+      ],
+      "list": [
+        "WD-2 to WD0: send the supplier cut-off reminder, confirm the payroll file, raise all sales invoices for work done in the month",
+        "WD1 (morning): bank feeds and statements in for every account, card and wallet; start matching",
+        "WD1 (afternoon): AP cut-off; list of expected but missing invoices goes to whoever owns accruals",
+        "WD2: bank reconciliation complete; accruals, prepayments, depreciation and payroll journals posted",
+        "WD2 to WD3: VAT control account reconciled, intercompany balances agreed with the other side",
+        "WD3: variance review, reviewer sign-off, lock",
+        "In a VAT quarter-end month, the return is drafted from the locked ledger on WD4 and filed well before the 28th"
+      ]
+    },
+    {
+      "h": "Bank and cash",
+      "ps": [
+        "Reconcile every account that can move money: current accounts, deposit accounts, credit cards, payment gateway balances, petty cash and post-dated cheques held. The statement closing balance must equal the ledger balance after listing timing items, and each timing item should clear within the next month. An uncleared item older than 60 days is usually a posting error, not a timing difference.",
+        "Post bank charges and FX differences from the statement, not from memory. Revalue foreign currency balances at the month-end rate. Since 1 October 2026, cash settlement also affects VAT recovery: Cabinet Decision No. 149 of 2026 blocks input tax on supplies above a threshold to be set by the Minister where they are paid in cash, so record the settlement method for every petty cash and site cash purchase (see [VAT on cash payments and petty cash](/guides/uae-vat-cash-payments-petty-cash-2026))."
+      ]
+    },
+    {
+      "h": "Payables and receivables",
+      "list": [
+        "Match each supplier invoice to the purchase order and goods received note; anything received but not invoiced is an accrual, not a gap",
+        "Test each invoice for the tax-invoice fields before the input VAT is claimed: supplier TRN, your name and TRN where required, date, description, VAT amount in AED (see the [tax invoice checklist](/guides/uae-tax-invoice-checklist))",
+        "Reconcile supplier statements for your top suppliers by spend every month, and every supplier at quarter-end",
+        "On the sales side, every delivery or completed service in the month is invoiced or recorded as unbilled revenue. A registered supplier must issue the tax invoice within 14 days of the date of supply (Article 67 of the VAT law)",
+        "Review the receivables ageing, chase anything over terms and update the expected credit loss provision; consider VAT bad-debt relief where more than six months have passed since the date of supply, the debt is written off and the customer has been notified (Article 64 of the VAT law)",
+        "Clear unallocated receipts and payments: cash on account is a reconciliation item, not a resting place"
+      ]
+    },
+    {
+      "h": "Accruals and prepayments, with numbers",
+      "ps": [
+        "A company pays annual office rent of AED 120,000 plus VAT of AED 6,000 on 1 January for the calendar year. On payment: Dr Prepayments 120,000, Dr Input VAT 6,000, Cr Bank 126,000. Each month-end: Dr Rent expense 10,000, Cr Prepayments 10,000. The VAT is recovered when the tax invoice is received, not spread with the expense.",
+        "The DEWA bill for September arrives on 12 October. At the September close, accrue the estimate from the last three bills: Dr Utilities 4,200, Cr Accruals 4,200, with no VAT entry because there is no invoice yet. Reverse it on 1 October and post the real bill when it arrives. Keep one schedule per prepayment and one list of recurring accruals, and tie both to the balance sheet every month."
+      ]
+    },
+    {
+      "h": "Fixed assets and depreciation",
+      "ps": [
+        "Capitalise purchases above your policy threshold, post additions and disposals for the month, then run depreciation. Under IAS 16 depreciation begins when the asset is available for use, not when the invoice is paid. A laptop costing AED 7,200 with a three-year life and no residual value depreciates at AED 200 a month: Dr Depreciation 200, Cr Accumulated depreciation 200. The fixed asset register total must agree to the general ledger cost and accumulated depreciation accounts at every close; a register that only reconciles at year-end hides misposted capital items for eleven months."
+      ]
+    },
+    {
+      "h": "Payroll and the EOSB provision",
+      "ps": [
+        "Since 1 June 2026, wages for a month are due on the first day of the following month, with no grace period, and an employer is treated as compliant only if at least 85% of the wages due are paid through the Wages Protection System (MoHRE Ministerial Resolution No. 340 of 2026, which replaced Resolution No. 598 of 2022). Post the payroll from the WPS file so that the bank and the ledger agree line by line.",
+        "Then post the end of service provision movement. Under Article 51 of Federal Decree-Law No. 33 of 2021, a full-time foreign employee earns 21 days of basic wage for each of the first five years of service and 30 days for each year after that, capped at two years' wage. In practice that is 1.75 days of basic wage accruing each month during the first five years and 2.5 days a month afterwards. Recalculate the liability for every employee on the latest basic wage, post the difference (Dr Staff costs, Cr EOSB provision) and check it with the [EOSB gratuity calculator](/tools/eosb-gratuity-calculator). A pay rise increases the liability for all past service at once, so expect a step in the month it takes effect. Accrue leave and contractual air tickets in the same pass."
+      ]
+    },
+    {
+      "h": "VAT control account reconciliation",
+      "ps": [
+        "Every month, not only in the quarter's last month, prove that the VAT accounts in the ledger equal what the return will say. Opening balance, plus output VAT, minus recoverable input VAT, minus payments to the FTA, must equal the closing balance, and the period's movement must equal the box totals on the draft return.",
+        "Worked check for a quarter: output VAT posted AED 48,500; input VAT posted AED 21,300, of which AED 900 is on client entertainment and is blocked under Article 53 of the VAT Executive Regulation; reverse charge on imported services AED 2,000 posted to both sides. The return should show output tax of AED 50,500 including the reverse charge, recoverable input tax of AED 22,400, and net payable of AED 28,100. If the ledger says anything else, find the difference before filing, not after."
+      ],
+      "list": [
+        "Blocked input VAT sits in its own account or is expensed, never left in recoverable input VAT (see [blocked input VAT](/guides/uae-blocked-input-vat))",
+        "Reverse charge entries appear as both output and input in the same period",
+        "Credit notes issued and received are in the period they were issued",
+        "Unpaid supplier invoices past their due date are reviewed, because input tax is recoverable only to the extent you intend to pay within six months after the agreed payment date (Article 54(2) of the VAT Executive Regulation)",
+        "Sales by emirate agree to the split the return asks for"
+      ]
+    },
+    {
+      "h": "Intercompany",
+      "ps": [
+        "Agree each intercompany balance with the other entity before either side locks. Both sides use the same transaction date and the same exchange rate, and any difference is investigated, not plugged to a suspense account. Management fees and recharges should be invoiced every month under the agreement, with VAT where the entities are not in the same VAT group (see [intercompany management fees](/guides/intercompany-management-fees-uae)). Settle balances in cash on a regular cadence; a balance that only grows tends to be reclassified as a loan by the first reviewer who looks at it."
+      ]
+    },
+    {
+      "h": "Review and lock",
+      "ps": [
+        "Compare each P&L line with last month, the same month last year and budget. Set a threshold, for example any movement over 10% and over AED 25,000, and write one line of explanation for each. The reviewer signs off on the reconciliations, the variance notes and the journals posted after cut-off. Then lock the period in the ledger. Anything found after the lock is posted in the next open period with a reference to the original, so the locked month stays the month you reported."
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Accruing an expense and later booking the invoice in the same month without reversing the accrual, so the cost doubles",
+        "Recovering input VAT on a proforma or a quotation instead of a tax invoice",
+        "Leaving the EOSB provision as a year-end adjustment, which puts twelve months of cost in December",
+        "Reconciling the bank to the ledger by posting the difference to suspense",
+        "Locking one entity before the intercompany balance is agreed with the other"
+      ]
+    },
+    {
+      "h": "What a good close looks like",
+      "ps": [
+        "Two to three days, not two to three weeks. The measure isn't speed for its own sake — it's that steps 1–6 are mechanical and should run themselves, leaving human time for step 7, the only step that actually requires judgement.",
+        "A defensible close also leaves a trail: every posting carries its evidence, every adjustment its reason, every lock its timestamp. If handing the month to an auditor makes you nervous, the close isn't done — it's just stopped."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab runs steps 1–6 as agents with confidence gates, presents step 7 as plain-language decisions with the evidence attached, and enforces step 8 as a hard lock that agents cannot cross. The close cockpit shows the whole checklist live — what's done, what's posting, what needs you."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many days should a month-end close take?",
+      "a": "Three working days is a realistic target for a UAE SME. Bank, payables, accruals, depreciation and payroll on days one and two; VAT and intercompany reconciliation on days two and three; review and lock on day three."
+    },
+    {
+      "q": "What is included in a month-end close checklist?",
+      "a": "Bank reconciliation, the payables and receivables cut-off, accruals and prepayments, fixed assets and depreciation, payroll with the end of service provision, the VAT control account reconciliation, intercompany balances, a variance review and the period lock. Each step should leave a reconciliation or schedule that ties to the balance sheet."
+    },
+    {
+      "q": "How do you calculate the monthly EOSB provision in the UAE?",
+      "a": "Recalculate each employee's accrued gratuity at month-end and post the change. A full-time foreign employee earns 21 days of basic wage per year for the first five years and 30 days per year after that, capped at two years' wage, so roughly 1.75 days of basic wage accrue each month in the first five years."
+    },
+    {
+      "q": "How do you reconcile the VAT control account?",
+      "a": "Take the opening balance, add output VAT, deduct recoverable input VAT and payments to the FTA, and agree the result to the closing balance. Then agree the period's movements to the boxes on the draft VAT return, including reverse charge on both sides and excluding blocked input VAT."
+    },
+    {
+      "q": "When must salaries be paid in the UAE?",
+      "a": "Through WPS, by the first day of the following month. Since 1 June 2026 there is no grace period: a salary paid after the 1st is late under MoHRE Ministerial Resolution No. 340 of 2026."
+    },
+    {
+      "q": "Should you accrue expenses if the invoice has not arrived?",
+      "a": "Yes, if the goods or services were received in the month. Post the estimate as an accrual with no VAT, reverse it at the start of the next month, and recover the input VAT only when the tax invoice arrives."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoHRE: Federal Decree-Law No. 33 of 2021 on employment relationships, Article 51 (end of service benefits)",
+      "href": "https://mohre.gov.ae/assets/download/8cd7cf08/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments.pdf.aspx"
+    },
+    {
+      "label": "Federal Decree-Law No. 8 of 2017 on VAT and its amendments (MoF consolidated text)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "Cabinet Decision No. 52 of 2017, VAT Executive Regulation, and its amendments",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/10/Cabinet-Decision-No.-52-of-2017-of-the-Executive-Regulation-of-the-Federal-Decree-Law-No.-8-of-2017-on-Value-Added-Tax-and-its-amendments.pdf"
+    },
+    {
+      "label": "MoHRE: Ministerial Resolution No. 340 of 2026 Concerning the Wage Protection System (in force 1 June 2026)",
+      "href": "https://www.mohre.gov.ae/assets/download/1f19ab7b/Ministerial%20Resolution%20No.%200340%20of%202026.pdf.aspx"
+    }
+  ],
+  "related": [
+    "uae-tax-invoice-checklist",
+    "uae-eosb-gratuity",
+    "uae-blocked-input-vat",
+    "uae-tax-deadlines"
+  ]
+}

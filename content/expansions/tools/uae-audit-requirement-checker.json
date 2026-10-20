@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "You enter revenue for the tax period in dirhams and tick what describes the entity: a Qualifying Free Zone Person (QFZP), a free-zone entity that is not a QFZP, or a mainland company such as an LLC. Ticking QFZP also ticks the free-zone box and clears the mainland box.",
+        "The checker gives 'Required' if any one of four reasons applies, and lists every reason that does:"
+      ],
+      "list": [
+        "Revenue above AED 50,000,000. The test is strictly greater than, so exactly AED 50,000,000 does not trigger it.",
+        "QFZP ticked, whatever the revenue.",
+        "Free-zone entity ticked without QFZP: the checker flags that most free zones ask for audited statements to renew the licence.",
+        "Mainland company ticked: the checker treats the company law auditor requirement as applying.",
+        "If none applies, the answer is 'Not CT-mandated', with a reminder to check the licensing authority and any bank or investor covenants."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "The Corporate Tax rule comes from Article 54(2) of Federal Decree-Law No. 47 of 2022, which lets the Minister specify who must keep audited financial statements. For tax periods starting on or after 1 January 2025, that list is in Ministerial Decision No. 84 of 2025, issued on 25 March 2025. It repealed Ministerial Decision No. 82 of 2023, which still applies to tax periods that started before 1 January 2025.",
+        "Under Article 2(1) of Decision No. 84, two categories must prepare and maintain audited financial statements. The first is a taxable person that is not a tax group and derives revenue exceeding AED 50,000,000 in the tax period. The second is every Qualifying Free Zone Person, whatever its size. For a non-resident, only revenue derived through UAE permanent establishments or nexuses counts towards the AED 50m.",
+        "Article 2(2) is the change most groups miss. Every tax group must prepare audited special purpose financial statements in the form the FTA specifies, whatever its revenue. Decision No. 82 had no separate rule for tax groups, so a group was caught only through the AED 50m revenue test like any other taxable person. The checker does not have a tax group option, so test groups yourself. See [qualifying group relief and tax groups](/guides/uae-qualifying-group-relief).",
+        "A QFZP that distributes goods or materials in or from a designated zone must also follow any extra procedures the FTA prescribes (Article 2(3)). For a QFZP, the audit sits alongside the other 0% conditions, including the [de minimis test](/tools/freezone-de-minimis-calculator). The Corporate Tax answer is only one of three. Company law and the free zone's licensing rules can require an audit even where Decision No. 84 does not, which is why the checker keeps those flags separate. Our [audit requirements guide](/guides/uae-audit-requirements) sets out all three."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "Three companies with calendar-year tax periods test 2025. Company A is a Dubai mainland LLC with revenue of AED 62 million. Company B is a QFZP in a free zone with revenue of AED 8 million. Company C is a free-zone company that is not a QFZP, with revenue of AED 30 million."
+    ],
+    "list": [
+      "Company A: enter 62,000,000 and tick mainland. The result is 'Required', for two reasons: revenue exceeds AED 50m, and mainland companies appoint an auditor. Decision No. 84 applies, because the tax period started on 1 January 2025.",
+      "Company B: enter 8,000,000 and tick QFZP. The result is 'Required'. Revenue is irrelevant, because every QFZP must keep audited statements.",
+      "Company C: enter 30,000,000 and tick only the free-zone box. The result is 'Required' because of the licence-renewal flag, not Corporate Tax. Clear the box and the result becomes 'Not CT-mandated'.",
+      "Edge case: change Company A's revenue to 50,000,000 and clear mainland. The result is 'Not CT-mandated', because the AED 50m test needs revenue exceeding that amount.",
+      "Tax group: if A and a sister company form a tax group, the group must prepare audited special purpose statements, even if combined revenue were only AED 20m. The checker cannot show this, so record it separately."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is an audit mandatory in the UAE for Corporate Tax?",
+      "a": "Only for two categories under Ministerial Decision No. 84 of 2025: taxable persons, other than tax groups, with revenue above AED 50 million in the tax period, and every Qualifying Free Zone Person. Tax groups must prepare audited special purpose financial statements. Company law and free-zone licence rules can require an audit separately."
+    },
+    {
+      "q": "Do tax groups need audited financial statements in the UAE?",
+      "a": "Yes. For tax periods starting on or after 1 January 2025, every tax group must prepare audited special purpose financial statements, whatever its revenue. Under Decision No. 82 of 2023 a group was caught only if it passed the AED 50m revenue test."
+    },
+    {
+      "q": "Does a free zone company with low revenue need an audit?",
+      "a": "If it is a Qualifying Free Zone Person, yes, for Corporate Tax purposes. A free-zone company that is not a QFZP needs one for Corporate Tax only above AED 50 million. Most free zones also ask for audited statements to renew the licence."
+    },
+    {
+      "q": "When did Ministerial Decision 84 of 2025 take effect?",
+      "a": "It applies to tax periods starting on or after 1 January 2025. Decision No. 82 of 2023 continues to govern tax periods that started before that date. For a calendar-year company, 2025 is the first year under the new rules."
+    },
+    {
+      "q": "How is the AED 50 million audit threshold measured for a foreign company?",
+      "a": "For a non-resident person, only revenue derived through its UAE permanent establishments or nexuses counts. Revenue earned outside the UAE is left out of the AED 50m test."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Ministerial Decision No. 84 of 2025 on Audited Financial Statements for the Purposes of Federal Decree-Law No. 47 of 2022",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 82 of 2023 (repealed for tax periods from 1 January 2025)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-82-of-2023-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    }
+  ]
+}
