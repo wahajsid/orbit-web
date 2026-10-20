@@ -324,6 +324,9 @@ export const TOOLS: Tool[] = [
     description:
       "Which supplier and supply checks FTA Decision No. 13 of 2026 requires before you deduct input VAT: the AED 10,000 exception, the AED 100,000 and 375,000 tests, and the payment flags.",
     guide: "uae-fta-decision-13-supplier-verification",
+    arTitle: "فحص التحقق من الموردين (قرار الهيئة 13)",
+    arDescription:
+      "ما فحوص المورد والتوريد التي يتطلبها قرار الهيئة رقم 13 لسنة 2026 قبل خصم ضريبة المدخلات: استثناء 10,000 درهم، واختبارا 100,000 و375,000 درهم.",
   },
   {
     slug: "uae-tax-invoice-checker",
@@ -332,6 +335,9 @@ export const TOOLS: Tool[] = [
     description:
       "Is a simplified invoice allowed, or must it be a full one? Tick the fields the invoice shows and see whether it supports an input VAT claim, and which field is missing.",
     guide: "uae-simplified-tax-invoice-aed-10000",
+    arTitle: "فاحص الفاتورة الضريبية الإماراتية (المادة 59)",
+    arDescription:
+      "هل تكفي فاتورة مبسطة أم يلزم فاتورة كاملة؟ علّم الحقول الظاهرة في الفاتورة لترى هل تدعم استرداد ضريبة المدخلات وأي حقل ينقصها.",
   },
   {
     slug: "uae-vat-currency-converter",
@@ -340,6 +346,9 @@ export const TOOLS: Tool[] = [
     description:
       "Convert a USD, EUR or other invoice to the AED figures a UAE tax invoice must show, at the Central Bank rate, and see the exchange difference on payment that does not touch the VAT.",
     guide: "uae-vat-foreign-currency-invoices",
+    arTitle: "محوّل ضريبة الفواتير بالعملات الأجنبية (درهم)",
+    arDescription:
+      "حوّل فاتورة بالدولار أو اليورو أو غيرهما إلى المبالغ بالدرهم التي يجب أن تظهرها الفاتورة الضريبية بسعر المصرف المركزي، مع فرق الصرف عند السداد.",
   },
   {
     slug: "uae-investment-property-depreciation-calculator",
@@ -348,6 +357,9 @@ export const TOOLS: Tool[] = [
     description:
       "Ministerial Decision 173 of 2025: the Opening Value, the yearly 4% deduction, the tax saved at 9% and the add-back on sale, for a building held at fair value.",
     guide: "uae-investment-property-tax-depreciation",
+    arTitle: "حاسبة استهلاك العقار الاستثماري الضريبي 4%",
+    arDescription:
+      "القرار الوزاري 173 لسنة 2025: القيمة الافتتاحية، والخصم السنوي 4% على العقار الاستثماري بالقيمة العادلة، والوفر الضريبي، والإضافة عند البيع.",
   },
   {
     slug: "uae-top-up-tax-estimator",
@@ -356,6 +368,9 @@ export const TOOLS: Tool[] = [
     description:
       "A first estimate of the UAE Domestic Minimum Top-up Tax: effective tax rate, the payroll and tangible asset carve-outs, excess profit and the top-up to 15%.",
     guide: "uae-domestic-minimum-top-up-tax",
+    arTitle: "مقدّر ضريبة الحد الأدنى الإضافية 15% في الإمارات",
+    arDescription:
+      "تقدير أولي لضريبة الحد الأدنى المحلية الإضافية: معدل الضريبة الفعلي، واستبعاد الرواتب والأصول الملموسة، والربح الزائد، والضريبة الإضافية حتى 15%.",
   },
   {
     slug: "uae-capital-assets-scheme-calculator",
@@ -364,6 +379,9 @@ export const TOOLS: Tool[] = [
     description:
       "The Article 58 adjustment year by year for buildings (10 years) and other assets of AED 5m+ (5 years): W, X, Q, R and Z, with the remaining-years adjustment on a sale.",
     guide: "uae-vat-capital-assets-scheme",
+    arTitle: "حاسبة نظام الأصول الرأسمالية لضريبة القيمة المضافة",
+    arDescription:
+      "تسوية المادة 58 سنة بسنة للمباني (10 سنوات) والأصول الأخرى بقيمة 5 ملايين درهم فأكثر (5 سنوات): W وX وQ وR وZ، مع تسوية السنوات المتبقية عند البيع.",
   },
   {
     slug: "uae-e-invoicing-deadline-checker",
@@ -372,6 +390,9 @@ export const TOOLS: Tool[] = [
     description:
       "Your Accredited Service Provider deadline and e-invoicing go-live date by phase, days remaining, the tax group exclusion and the penalties for missing them.",
     guide: "uae-e-invoicing-large-businesses-2027",
+    arTitle: "فاحص مواعيد الفوترة الإلكترونية في الإمارات",
+    arDescription:
+      "موعد تعيين مزود الخدمة المعتمد وبدء الفوترة الإلكترونية الإلزامية حسب المرحلة، والأيام المتبقية، واستثناء المجموعات الضريبية، والغرامات.",
   },
 ];
 

@@ -2105,7 +2105,7 @@ export function RettShareCalculator({ ar = false }: { ar?: boolean } = {}) {
 
 /* ── 32 · Supplier verification checker (FTA Decision No. 13 of 2026) ─ */
 
-export function SupplierCheckCalculator() {
+export function SupplierCheckCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [kind, setKind] = useState(0); // 0 company, 1 individual
   const [recent, setRecent] = useState(false);
   const [supply, setSupply] = useState("9000");
@@ -2122,43 +2122,79 @@ export function SupplierCheckCalculator() {
   const exempt = s < 10000 && total <= 100000;
   const bank = total > 375000; // Article 3(4)
 
+  const T = ar
+    ? {
+        idCo: "هوية المورد: التحقق من التأسيس عبر قاعدة بيانات رسمية أو شهادة التأسيس مع تطابق الاسم والعنوان، ونسخة من الهوية الإماراتية أو جواز سفر من يمثّل المورد.",
+        idPerson: "هوية المورد: نسخة سارية من الهوية الإماراتية أو جواز السفر، ولقاء (حضوريًا أو بالفيديو) قبل التوريد.",
+        place: "مقر العمل: مقر فعلي للمورد، يُتحقق منه إلكترونيًا أو بزيارة، ويتناسب مع نشاطه.",
+        risk: "مؤشرات المخاطر: أكثر من تغييرين في العنوان أو في الموظفين الرئيسيين خلال 12 شهرًا، أو تعاملات لا تتناسب مع حجمه. إن انطبق أيٌّ منها فاحتفظ بتفسير مكتوب.",
+        bank: "أكثر من 375,000 درهم سنويًا: تأكيد كتابي من بنك في الدولة بأن للمورد حسابًا دون تحفظات، ومراجعة التقييمات والتغطية الإعلامية المتاحة للعموم.",
+        bankRecent: "تحققت من المورد خلال آخر 12 شهرًا. تأكد أن ملفه يتضمن تأكيد البنك في الدولة ومراجعة التغطية العامة، المطلوبين فوق 375,000 درهم سنويًا.",
+        supply: "هذا التوريد: سبب تجاري حقيقي، وسعر أو هامش يتماشى مع السوق، وسلع أو خدمات ضمن رخصة المورد، والتحقق من منشأ السلع وملكيتها، وتفسير دور أي وسيط.",
+        cash: "الدفع نقدًا: وثّق السبب التجاري، والتزم بالحدود الواردة في التشريع الضريبي، واجعله سهل التحقق. وقد تفقد المدفوعات النقدية الكبيرة حق الاسترداد بموجب المادة 54(3).",
+        third: "الدفع لطرف ثالث أو لحساب بنكي خارج دولة تأسيس المورد: سجّل تفسيرًا تجاريًا معقولًا.",
+        doc: "وثّق كل خطوة واحتفظ بالأدلة، وفق سياسة مكتوبة تحدد من ينفّذ الفحوص ومن يراجعها.",
+        who: "المورد", kinds: ["شركة", "فرد"], sup: "هذا التوريد دون الضريبة (درهم)", p12: "المشتريات منه آخر 12 شهرًا (درهم)", n12: "المتوقع في الـ 12 شهرًا القادمة (درهم)",
+        paid: "طريقة الدفع", pays: ["تحويل بنكي أو بطاقة", "نقدًا", "طرف ثالث أو حساب خارجي"], rec: "تحققنا من هذا المورد خلال آخر 12 شهرًا",
+        res: "النتيجة", none: "لا فحوص مطلوبة", req: "الفحوص مطلوبة", tot: "إجمالي المورد المعتمد",
+        exemptNote: "التوريد أقل من 10,000 درهم دون الضريبة ولا يتجاوز إجمالي المورد خلال 12 شهرًا 100,000 درهم، فتُعفي المادة 6 من الفحوص. احتفظ بالإجماليات في الملف لتبيّن كيف وصلت إلى هذا الرأي.",
+        lost: "التوريد أقل من 10,000 درهم، لكن إجمالي المورد خلال 12 شهرًا يتجاوز 100,000 درهم، فيسقط الاستثناء. ",
+        before: "قبل خصم ضريبة المدخلات:",
+      }
+    : {
+        idCo: "Supplier identity: incorporation confirmed through an official database or certificate, name and address matching; Emirates ID or passport of the person who represents the supplier.",
+        idPerson: "Supplier identity: copy of a valid Emirates ID or passport, and a meeting (in person or by video) before the supply.",
+        place: "Place of business: a real place of business, confirmed electronically or by a visit, that fits the supplier's activity.",
+        risk: "Risk indicators: more than two address changes or two key-staff changes in 12 months, or trading out of line with its size. If any applies, keep a written explanation.",
+        bank: "Over AED 375,000 a year: written confirmation from a UAE bank that the supplier holds an account, without reservations, and a review of public reviews and media coverage.",
+        bankRecent: "Supplier verified in the last 12 months. Confirm that file includes the UAE bank confirmation and the public-coverage review, needed above AED 375,000 a year.",
+        supply: "This supply: a genuine commercial reason, a price or margin in line with the market, goods or services within the supplier's licence, goods' origin and title checked, and any intermediary's role explained.",
+        cash: "Cash payment: document the commercial reason, keep within the thresholds in tax law and make it easy to verify. Large cash payments can also lose recovery under Article 54(3).",
+        third: "Payment to a third party or a bank account outside the supplier's country of incorporation: record a reasonable commercial explanation.",
+        doc: "Document each step and keep the evidence, under a written policy naming who runs and reviews the checks.",
+        who: "The supplier is", kinds: ["A company", "An individual"], sup: "This supply, excluding VAT (AED)", p12: "Purchases from them, last 12 months (AED)", n12: "Expected, next 12 months (AED)",
+        paid: "Paid by", pays: ["Bank transfer or card", "Cash", "Third party or foreign account"], rec: "We verified this supplier in the last 12 months",
+        res: "Result", none: "No checks required", req: "Checks required", tot: "Supplier total tested",
+        exemptNote: "The supply is under AED 10,000 excluding VAT and the supplier's 12-month total does not exceed AED 100,000, so Article 6 excuses the checks. Keep the totals on file to show how you reached that view.",
+        lost: "The supply is under AED 10,000, but the supplier's 12-month total exceeds AED 100,000, so the exception falls away. ",
+        before: "Before deducting the input VAT:",
+      };
+
   const checks: string[] = [];
   if (!exempt) {
     if (!recent) {
-      checks.push(kind === 0
-        ? "Supplier identity: incorporation confirmed through an official database or certificate, name and address matching; Emirates ID or passport of the person who represents the supplier."
-        : "Supplier identity: copy of a valid Emirates ID or passport, and a meeting (in person or by video) before the supply.");
-      checks.push("Place of business: a real place of business, confirmed electronically or by a visit, that fits the supplier's activity.");
-      checks.push("Risk indicators: more than two address changes or two key-staff changes in 12 months, or trading out of line with its size. If any applies, keep a written explanation.");
-      if (bank) checks.push("Over AED 375,000 a year: written confirmation from a UAE bank that the supplier holds an account, without reservations, and a review of public reviews and media coverage.");
+      checks.push(kind === 0 ? T.idCo : T.idPerson);
+      checks.push(T.place);
+      checks.push(T.risk);
+      if (bank) checks.push(T.bank);
     } else if (bank) {
-      checks.push("Supplier verified in the last 12 months. Confirm that file includes the UAE bank confirmation and the public-coverage review, needed above AED 375,000 a year.");
+      checks.push(T.bankRecent);
     }
-    checks.push("This supply: a genuine commercial reason, a price or margin in line with the market, goods or services within the supplier's licence, goods' origin and title checked, and any intermediary's role explained.");
-    if (pay === 1) checks.push("Cash payment: document the commercial reason, keep within the thresholds in tax law and make it easy to verify. Large cash payments can also lose recovery under Article 54(3).");
-    if (pay === 2) checks.push("Payment to a third party or a bank account outside the supplier's country of incorporation: record a reasonable commercial explanation.");
-    checks.push("Document each step and keep the evidence, under a written policy naming who runs and reviews the checks.");
+    checks.push(T.supply);
+    if (pay === 1) checks.push(T.cash);
+    if (pay === 2) checks.push(T.third);
+    checks.push(T.doc);
   }
 
   return (
     <div className="mg-tool">
       <div className="mg-tool-field">
-        <span className="mg-tool-label">The supplier is</span>
+        <span className="mg-tool-label">{T.who}</span>
         <div className="mg-tool-toggle">
-          {["A company", "An individual"].map((t, i) => (
+          {T.kinds.map((t, i) => (
             <button key={t} type="button" className={kind === i ? "on" : ""} onClick={() => setKind(i)}>{t}</button>
           ))}
         </div>
       </div>
       <div className="mg-tool-fields">
-        <Field label="This supply, excluding VAT (AED)" value={supply} onChange={setSupply} width={250} />
-        <Field label="Purchases from them, last 12 months (AED)" value={prev12} onChange={setPrev12} width={290} />
-        <Field label="Expected, next 12 months (AED)" value={next12} onChange={setNext12} width={250} />
+        <Field label={T.sup} value={supply} onChange={setSupply} width={250} />
+        <Field label={T.p12} value={prev12} onChange={setPrev12} width={290} />
+        <Field label={T.n12} value={next12} onChange={setNext12} width={250} />
       </div>
       <div className="mg-tool-field">
-        <span className="mg-tool-label">Paid by</span>
+        <span className="mg-tool-label">{T.paid}</span>
         <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
-          {["Bank transfer or card", "Cash", "Third party or foreign account"].map((t, i) => (
+          {T.pays.map((t, i) => (
             <button key={t} type="button" className={pay === i ? "on" : ""} onClick={() => setPay(i)}>{t}</button>
           ))}
         </div>
@@ -2166,24 +2202,24 @@ export function SupplierCheckCalculator() {
       <div className="mg-tool-fields">
         <label className="mg-tool-check">
           <input type="checkbox" checked={recent} onChange={(e) => setRecent(e.target.checked)} />
-          <span>We verified this supplier in the last 12 months</span>
+          <span>{T.rec}</span>
         </label>
       </div>
       <div className="mg-tool-result">
         <div>
-          <div className="mg-tool-label">Result</div>
-          <div className="mg-tool-big" style={{ color: exempt ? "var(--accent)" : "var(--text)" }}>{exempt ? "No checks required" : "Checks required"}</div>
+          <div className="mg-tool-label">{T.res}</div>
+          <div className="mg-tool-big" style={{ color: exempt ? "var(--accent)" : "var(--text)" }}>{exempt ? T.none : T.req}</div>
         </div>
         <div>
-          <div className="mg-tool-label">Supplier total tested</div>
+          <div className="mg-tool-label">{T.tot}</div>
           <div className="mg-tool-big">{aed(total)}</div>
         </div>
         <div className="mg-tool-note">
           {exempt
-            ? <>The supply is under AED 10,000 excluding VAT and the supplier's 12-month total does not exceed AED 100,000, so Article 6 excuses the checks. Keep the totals on file to show how you reached that view.</>
+            ? <>{T.exemptNote}</>
             : <>
-                {s < 10000 && total > 100000 && <>The supply is under AED 10,000, but the supplier's 12-month total exceeds AED 100,000, so the exception falls away. </>}
-                Before deducting the input VAT:
+                {s < 10000 && total > 100000 && <>{T.lost}</>}
+                {T.before}
                 <ul style={{ margin: "8px 0 0", paddingInlineStart: 18 }}>
                   {checks.map((c) => <li key={c} style={{ marginBottom: 6 }}>{c}</li>)}
                 </ul>
@@ -2197,27 +2233,27 @@ export function SupplierCheckCalculator() {
 /* ── 33 · Tax invoice checker (Article 59) ─────────────────────────── */
 
 const INV_FULL = [
-  { k: "heading", t: "The words “Tax Invoice” clearly displayed" },
-  { k: "supplier", t: "Supplier's name, address and TRN" },
-  { k: "recipient", t: "Your name, address and TRN" },
-  { k: "number", t: "A sequential or unique invoice number" },
-  { k: "date", t: "Date of issue (and date of supply, if different)" },
-  { k: "desc", t: "A description of the goods or services" },
-  { k: "lines", t: "Per line: unit price, quantity, VAT rate and amount in AED" },
-  { k: "discount", t: "Any discount shown (or none was given)" },
-  { k: "gross", t: "Gross amount payable in AED" },
-  { k: "vat", t: "VAT in AED, with the exchange rate if converted" },
-  { k: "rc", t: "Reverse charge statement and legal reference" },
+  { k: "heading", t: "The words “Tax Invoice” clearly displayed", a: "عبارة «فاتورة ضريبية» بوضوح" },
+  { k: "supplier", t: "Supplier's name, address and TRN", a: "اسم المورد وعنوانه ورقم تسجيله الضريبي" },
+  { k: "recipient", t: "Your name, address and TRN", a: "اسمك وعنوانك ورقم تسجيلك الضريبي" },
+  { k: "number", t: "A sequential or unique invoice number", a: "رقم فاتورة تسلسلي أو فريد" },
+  { k: "date", t: "Date of issue (and date of supply, if different)", a: "تاريخ الإصدار (وتاريخ التوريد إن اختلف)" },
+  { k: "desc", t: "A description of the goods or services", a: "وصف السلع أو الخدمات" },
+  { k: "lines", t: "Per line: unit price, quantity, VAT rate and amount in AED", a: "لكل بند: سعر الوحدة والكمية ونسبة الضريبة والمبلغ بالدرهم" },
+  { k: "discount", t: "Any discount shown (or none was given)", a: "أي خصم ممنوح (أو لا يوجد خصم)" },
+  { k: "gross", t: "Gross amount payable in AED", a: "إجمالي المبلغ المستحق بالدرهم" },
+  { k: "vat", t: "VAT in AED, with the exchange rate if converted", a: "الضريبة بالدرهم مع سعر الصرف عند التحويل" },
+  { k: "rc", t: "Reverse charge statement and legal reference", a: "بيان الاحتساب العكسي والمرجع القانوني" },
 ] as const;
 const INV_SIMPLE = [
-  { k: "heading", t: "The words “Tax Invoice” clearly displayed" },
-  { k: "supplier", t: "Supplier's name, address and TRN" },
-  { k: "date", t: "Date of issue" },
-  { k: "desc", t: "A description of the goods or services" },
-  { k: "total", t: "Total consideration and VAT charged, in AED" },
+  { k: "heading", t: "The words “Tax Invoice” clearly displayed", a: "عبارة «فاتورة ضريبية» بوضوح" },
+  { k: "supplier", t: "Supplier's name, address and TRN", a: "اسم المورد وعنوانه ورقم تسجيله الضريبي" },
+  { k: "date", t: "Date of issue", a: "تاريخ الإصدار" },
+  { k: "desc", t: "A description of the goods or services", a: "وصف السلع أو الخدمات" },
+  { k: "total", t: "Total consideration and VAT charged, in AED", a: "إجمالي المقابل والضريبة المحتسبة بالدرهم" },
 ] as const;
 
-export function InvoiceCheckerCalculator() {
+export function InvoiceCheckerCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [registered, setRegistered] = useState(true);
   const [reverse, setReverse] = useState(false);
   const [einv, setEinv] = useState(false);
@@ -2228,18 +2264,48 @@ export function InvoiceCheckerCalculator() {
     lines: true, discount: true, gross: true, vat: true, rc: true, total: true,
   });
 
+  const T = ar
+    ? {
+        reg: "نحن مسجلون في ضريبة القيمة المضافة", rev: "نحن نحتسب الضريبة (الاحتساب العكسي)", ein: "المورد يصدر فواتير إلكترونية",
+        tot: "إجمالي الفاتورة شامل الضريبة (درهم)", iss: "أصدر المورد", types: ["فاتورة ضريبية كاملة", "فاتورة ضريبية مبسطة"], tick: "علّم ما تظهره الفاتورة",
+        res: "النتيجة", ok: "فاتورة ضريبية صالحة", no: "غير صالحة بعد", typ: "النوع المسموح", both: "مبسطة أو كاملة", safe: "كاملة (الأسلم)", full: "كاملة فقط",
+        wE: "المورد يصدر فواتير إلكترونية، فتُلغي المادة 59(16) خيار الفاتورة المبسطة.",
+        wR: "أنت تحتسب الضريبة بآلية الاحتساب العكسي، والمادة 59(5) تستثنيها من الفاتورة المبسطة.",
+        wU: "أنت غير مسجل، فتسمح المادة 59(5)(أ) بفاتورة مبسطة بأي مبلغ.",
+        wS: "أنت مسجل والإجمالي شامل الضريبة 10,000 درهم أو أقل، فتسمح المادة 59(5)(ب) بفاتورة مبسطة على أي قراءة.",
+        wG: "السعر قبل الضريبة 10,000 درهم أو أقل، لكن الإجمالي مع الضريبة يتجاوزها. النص لا يحدد أيهما المعتبر، فالفاتورة الكاملة هي الخيار الأسلم.",
+        wF: "أنت مسجل والمقابل يتجاوز 10,000 درهم، فالفاتورة الضريبية الكاملة مطلوبة.",
+        notType: "الفاتورة المبسطة لا تكفي هنا: اطلب من المورد فاتورة ضريبية كاملة. ", miss: "ينقص: ",
+        valid: "الفاتورة تدعم استرداد ضريبة المدخلات، مع الشروط الأخرى: السداد أو نية السداد خلال ستة أشهر، وفحوص المورد حيث تنطبق.",
+        hold: "أوقف الضريبة واطلب من المورد فاتورة مصححة، واستردها في الفترة التي تحوز فيها فاتورة صالحة.",
+      }
+    : {
+        reg: "We are VAT-registered", rev: "We account for the VAT (reverse charge)", ein: "The supplier issues e-invoices",
+        tot: "Invoice total including VAT (AED)", iss: "The supplier issued", types: ["A full tax invoice", "A simplified tax invoice"], tick: "Tick what the invoice shows",
+        res: "Result", ok: "Valid tax invoice", no: "Not valid yet", typ: "Type allowed", both: "Simplified or full", safe: "Full (safe)", full: "Full only",
+        wE: "The supplier issues electronic invoices, so Article 59(16) removes the simplified option.",
+        wR: "You account for the VAT under the reverse charge, which Article 59(5) excludes from simplified invoices.",
+        wU: "You are not registered, so Article 59(5)(a) allows a simplified invoice at any amount.",
+        wS: "You are registered and the total, including VAT, is AED 10,000 or less, so Article 59(5)(b) allows a simplified invoice on any reading.",
+        wG: "The price before VAT is AED 10,000 or less, but the total with VAT is above it. The text does not say which counts, so a full invoice is the safe choice.",
+        wF: "You are registered and the consideration exceeds AED 10,000, so a full tax invoice is required.",
+        notType: "A simplified invoice is not enough here: ask the supplier for a full tax invoice. ", miss: "Missing: ",
+        valid: "The invoice supports an input VAT claim, subject to the other conditions: paying or intending to pay within six months, and the supplier checks where they apply.",
+        hold: "Hold the VAT and ask the supplier for a corrected invoice. Claim it in the period in which you hold a valid one.",
+      };
+
   const t = Math.max(0, num(total));
   // Article 59(5): simplified allowed for an unregistered recipient, or a
   // registered one where consideration does not exceed AED 10,000 — never
   // under the reverse charge; Article 59(16) removes it for e-invoices.
   let allowed: "simplified" | "grey" | "full";
   let why: string;
-  if (einv) { allowed = "full"; why = "The supplier issues electronic invoices, so Article 59(16) removes the simplified option."; }
-  else if (reverse) { allowed = "full"; why = "You account for the VAT under the reverse charge, which Article 59(5) excludes from simplified invoices."; }
-  else if (!registered) { allowed = "simplified"; why = "You are not registered, so Article 59(5)(a) allows a simplified invoice at any amount."; }
-  else if (t <= 10000) { allowed = "simplified"; why = "You are registered and the total, including VAT, is AED 10,000 or less, so Article 59(5)(b) allows a simplified invoice on any reading."; }
-  else if (t / 1.05 <= 10000) { allowed = "grey"; why = "The price before VAT is AED 10,000 or less, but the total with VAT is above it. The text does not say which counts, so a full invoice is the safe choice."; }
-  else { allowed = "full"; why = "You are registered and the consideration exceeds AED 10,000, so a full tax invoice is required."; }
+  if (einv) { allowed = "full"; why = T.wE; }
+  else if (reverse) { allowed = "full"; why = T.wR; }
+  else if (!registered) { allowed = "simplified"; why = T.wU; }
+  else if (t <= 10000) { allowed = "simplified"; why = T.wS; }
+  else if (t / 1.05 <= 10000) { allowed = "grey"; why = T.wG; }
+  else { allowed = "full"; why = T.wF; }
 
   const asSimple = issued === 1;
   const typeOk = !asSimple || allowed === "simplified";
@@ -2254,55 +2320,53 @@ export function InvoiceCheckerCalculator() {
       <div className="mg-tool-fields">
         <label className="mg-tool-check">
           <input type="checkbox" checked={registered} onChange={(e) => setRegistered(e.target.checked)} />
-          <span>We are VAT-registered</span>
+          <span>{T.reg}</span>
         </label>
         <label className="mg-tool-check">
           <input type="checkbox" checked={reverse} onChange={(e) => setReverse(e.target.checked)} />
-          <span>We account for the VAT (reverse charge)</span>
+          <span>{T.rev}</span>
         </label>
         <label className="mg-tool-check">
           <input type="checkbox" checked={einv} onChange={(e) => setEinv(e.target.checked)} />
-          <span>The supplier issues e-invoices</span>
+          <span>{T.ein}</span>
         </label>
       </div>
       <div className="mg-tool-fields">
-        <Field label="Invoice total including VAT (AED)" value={total} onChange={setTotal} width={260} />
+        <Field label={T.tot} value={total} onChange={setTotal} width={260} />
         <div className="mg-tool-field">
-          <span className="mg-tool-label">The supplier issued</span>
+          <span className="mg-tool-label">{T.iss}</span>
           <div className="mg-tool-toggle">
-            {["A full tax invoice", "A simplified tax invoice"].map((x, i) => (
+            {T.types.map((x, i) => (
               <button key={x} type="button" className={issued === i ? "on" : ""} onClick={() => setIssued(i)}>{x}</button>
             ))}
           </div>
         </div>
       </div>
       <div className="mg-tool-field">
-        <span className="mg-tool-label">Tick what the invoice shows</span>
+        <span className="mg-tool-label">{T.tick}</span>
         <div className="mg-tool-fields" style={{ flexDirection: "column", alignItems: "flex-start", gap: 8 }}>
           {fields.map((f) => (
             <label key={f.k} className="mg-tool-check">
               <input type="checkbox" checked={!!have[f.k]} onChange={(e) => setHave({ ...have, [f.k]: e.target.checked })} />
-              <span>{f.t}</span>
+              <span>{ar ? f.a : f.t}</span>
             </label>
           ))}
         </div>
       </div>
       <div className="mg-tool-result">
         <div>
-          <div className="mg-tool-label">Result</div>
-          <div className="mg-tool-big" style={{ color: valid ? "var(--accent)" : "var(--bad)" }}>{valid ? "Valid tax invoice" : "Not valid yet"}</div>
+          <div className="mg-tool-label">{T.res}</div>
+          <div className="mg-tool-big" style={{ color: valid ? "var(--accent)" : "var(--bad)" }}>{valid ? T.ok : T.no}</div>
         </div>
         <div>
-          <div className="mg-tool-label">Type allowed</div>
-          <div className="mg-tool-big">{allowed === "simplified" ? "Simplified or full" : allowed === "grey" ? "Full (safe)" : "Full only"}</div>
+          <div className="mg-tool-label">{T.typ}</div>
+          <div className="mg-tool-big">{allowed === "simplified" ? T.both : allowed === "grey" ? T.safe : T.full}</div>
         </div>
         <div className="mg-tool-note">
           {why}{" "}
-          {!typeOk && <>A simplified invoice is not enough here: ask the supplier for a full tax invoice. </>}
-          {missing.length > 0 && <>Missing: {missing.map((m) => m.t).join("; ")}. </>}
-          {valid
-            ? <>The invoice supports an input VAT claim, subject to the other conditions: paying or intending to pay within six months, and the supplier checks where they apply.</>
-            : <>Hold the VAT and ask the supplier for a corrected invoice. Claim it in the period in which you hold a valid one.</>}
+          {!typeOk && <>{T.notType}</>}
+          {missing.length > 0 && <>{T.miss}{missing.map((m) => (ar ? m.a : m.t)).join(ar ? "؛ " : "; ")}. </>}
+          {valid ? <>{T.valid}</> : <>{T.hold}</>}
         </div>
       </div>
     </div>
@@ -2311,7 +2375,7 @@ export function InvoiceCheckerCalculator() {
 
 /* ── 34 · Foreign-currency invoice VAT converter ───────────────────── */
 
-export function FxVatCalculator() {
+export function FxVatCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [ccy, setCcy] = useState("EUR");
   const [net, setNet] = useState("8000");
   const [rate, setRate] = useState("4.2850");
@@ -2329,30 +2393,46 @@ export function FxVatCalculator() {
   const received = r2(grossFcy * sr);
   const diff = r2(received - grossAed);
   const decimals = (rate.split(".")[1] ?? "").length;
+  const gain = diff > 0;
+
+  const T = ar
+    ? { ccy: "العملة", net: `المبلغ الصافي قبل الضريبة (${code})`, rate: `سعر المصرف المركزي، درهم لكل ${code}`, settle: "السعر عند السداد (اختياري)", peg: "الدولار عند سعر الربط 3.6725",
+        netA: "الصافي بالدرهم", vatA: "الضريبة 5% بالدرهم", grossA: "الإجمالي بالدرهم", fx: gain ? "ربح صرف عند السداد" : "خسارة صرف عند السداد" }
+    : { ccy: "Currency", net: `Net amount before VAT (${code})`, rate: `Central Bank rate, AED per ${code}`, settle: "Rate when paid (optional)", peg: "USD at the 3.6725 peg",
+        netA: "Net, in AED", vatA: "VAT at 5%, in AED", grossA: "Gross, in AED", fx: gain ? "Exchange gain on payment" : "Exchange loss on payment" };
 
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
-        <Field label="Currency" value={ccy} onChange={setCcy} width={110} />
-        <Field label={`Net amount before VAT (${code})`} value={net} onChange={setNet} width={230} />
-        <Field label={`Central Bank rate, AED per ${code}`} value={rate} onChange={setRate} width={230} />
-        <Field label="Rate when paid (optional)" value={settle} onChange={setSettle} width={210} />
+        <Field label={T.ccy} value={ccy} onChange={setCcy} width={110} />
+        <Field label={T.net} value={net} onChange={setNet} width={230} />
+        <Field label={T.rate} value={rate} onChange={setRate} width={230} />
+        <Field label={T.settle} value={settle} onChange={setSettle} width={210} />
       </div>
       <div className="mg-tool-toggle" style={{ flexWrap: "wrap", marginBottom: 16 }}>
-        <button type="button" className={code === "USD" ? "on" : ""} onClick={() => { setCcy("USD"); setRate("3.6725"); setSettle("3.6725"); }}>USD at the 3.6725 peg</button>
+        <button type="button" className={code === "USD" ? "on" : ""} onClick={() => { setCcy("USD"); setRate("3.6725"); setSettle("3.6725"); }}>{T.peg}</button>
       </div>
       <div className="mg-tool-result">
-        <div><div className="mg-tool-label">Net, in AED</div><div className="mg-tool-big">{aed2(netAed)}</div></div>
-        <div><div className="mg-tool-label">VAT at 5%, in AED</div><div className="mg-tool-big">{aed2(vatAed)}</div></div>
-        <div><div className="mg-tool-label">Gross, in AED</div><div className="mg-tool-big">{aed2(grossAed)}</div></div>
+        <div><div className="mg-tool-label">{T.netA}</div><div className="mg-tool-big">{aed2(netAed)}</div></div>
+        <div><div className="mg-tool-label">{T.vatA}</div><div className="mg-tool-big">{aed2(vatAed)}</div></div>
+        <div><div className="mg-tool-label">{T.grossA}</div><div className="mg-tool-big">{aed2(grossAed)}</div></div>
         {sr > 0 && diff !== 0 && (
-          <div><div className="mg-tool-label">Exchange {diff > 0 ? "gain" : "loss"} on payment</div><div className="mg-tool-big">{aed2(Math.abs(diff))}</div></div>
+          <div><div className="mg-tool-label">{T.fx}</div><div className="mg-tool-big">{aed2(Math.abs(diff))}</div></div>
         )}
         <div className="mg-tool-note">
-          The invoice shows {code} {fmt2(grossFcy)} in total, and must also show the line amounts, the gross {aed2(grossAed)} and the VAT {aed2(vatAed)} in AED, with the rate {rate || "—"}. Box 1 carries {aed2(netAed)} and {aed2(vatAed)} of output tax.
-          {sr > 0 && diff !== 0 && <> When the customer pays {code} {fmt2(grossFcy)} at {settle}, you receive {aed2(received)}: the {aed2(Math.abs(diff))} difference is an exchange {diff > 0 ? "gain" : "loss"} in the accounts and does not change the VAT, which was fixed at the date of supply.</>}
-          {sr > 0 && diff === 0 && <> At an unchanged rate there is no exchange difference on payment.</>}
-          {code !== "USD" && decimals > 0 && decimals < 4 && <> Check the rate: the Central Bank publishes rates with more decimals, and the FTA does not allow rounding.</>}
+          {ar
+            ? <>
+                تُظهر الفاتورة {code} {fmt2(grossFcy)} إجماليًا، ويجب أن تُظهر أيضًا مبالغ البنود والإجمالي {aed2(grossAed)} والضريبة {aed2(vatAed)} بالدرهم، مع السعر {rate || "—"}. يحمل البند 1 من الإقرار {aed2(netAed)} وضريبة مخرجات {aed2(vatAed)}.
+                {sr > 0 && diff !== 0 && <> عندما يسدد العميل {code} {fmt2(grossFcy)} بسعر {settle} تستلم {aed2(received)}: الفرق {aed2(Math.abs(diff))} {gain ? "ربح" : "خسارة"} صرف في الحسابات ولا يغيّر الضريبة التي تحددت في تاريخ التوريد.</>}
+                {sr > 0 && diff === 0 && <> بسعر لم يتغير لا يوجد فرق صرف عند السداد.</>}
+                {code !== "USD" && decimals > 0 && decimals < 4 && <> تحقق من السعر: المصرف المركزي ينشر الأسعار بخانات عشرية أكثر، والهيئة لا تسمح بالتقريب.</>}
+              </>
+            : <>
+                The invoice shows {code} {fmt2(grossFcy)} in total, and must also show the line amounts, the gross {aed2(grossAed)} and the VAT {aed2(vatAed)} in AED, with the rate {rate || "—"}. Box 1 carries {aed2(netAed)} and {aed2(vatAed)} of output tax.
+                {sr > 0 && diff !== 0 && <> When the customer pays {code} {fmt2(grossFcy)} at {settle}, you receive {aed2(received)}: the {aed2(Math.abs(diff))} difference is an exchange {gain ? "gain" : "loss"} in the accounts and does not change the VAT, which was fixed at the date of supply.</>}
+                {sr > 0 && diff === 0 && <> At an unchanged rate there is no exchange difference on payment.</>}
+                {code !== "USD" && decimals > 0 && decimals < 4 && <> Check the rate: the Central Bank publishes rates with more decimals, and the FTA does not allow rounding.</>}
+              </>}
         </div>
       </div>
     </div>
@@ -2370,8 +2450,8 @@ const addYears = (t: number, n: number) => {
   const d = new Date(t);
   return Date.UTC(d.getUTCFullYear() + n, d.getUTCMonth(), d.getUTCDate());
 };
-const dayLabel = (t: number) =>
-  new Date(t).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+const dayLabel = (t: number, ar = false) =>
+  new Date(t).toLocaleDateString(ar ? "ar-AE-u-nu-latn" : "en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
 function DateField({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
   return (
@@ -2384,7 +2464,7 @@ function DateField({ label, value, onChange }: { label: string; value: string; o
   );
 }
 
-export function IpDepreciationCalculator() {
+export function IpDepreciationCalculator({ ar = false }: { ar?: boolean } = {}) {
   const [cost, setCost] = useState("14000000");
   const [acq, setAcq] = useState("2022-01-01");
   const [first, setFirst] = useState("2025-01-01");
@@ -2420,41 +2500,52 @@ export function IpDepreciationCalculator() {
   }
   const sy = Math.round(num(saleYear));
   const claimed = sy > 0 ? rows.filter((r) => new Date(r.end).getUTCFullYear() <= sy).reduce((s, r) => s + r.ded, 0) : 0;
+  const periods = rows.filter((r) => r.ded > 0).length;
+
+  const T = ar
+    ? { cost: "تكلفة المبنى دون الأرض (درهم)", acq: "تاريخ الاقتناء", first: "بداية أول فترة ضريبية وفق القرار 173", sale: "البيع في الفترة المنتهية في (سنة، اختياري)",
+        prior: "السنوات السابقة", open: "القيمة الافتتاحية", ann: "الخصم السنوي الكامل (4%)", save: "الوفر الضريبي السنوي بنسبة 9%", back: `الإضافة عند البيع (${sy})`,
+        sched: "جدول الخصم", per: "الفترة الضريبية", ded: "الخصم", tax: "الوفر الضريبي (9%)", wdv: "القيمة الدفترية الضريبية", enter: "أدخل تكلفة المبنى والتاريخين." }
+    : { cost: "Building cost, excluding land (AED)", acq: "Acquired on", first: "First tax period under MD 173 starts", sale: "Sold in period ending (year, optional)",
+        prior: "Years held before", open: "Opening Value", ann: "Full-year deduction (4%)", save: "Tax saved a year at 9%", back: `Add-back on sale (${sy})`,
+        sched: "Deduction schedule", per: "Tax period", ded: "Deduction", tax: "Tax saved (9%)", wdv: "Written-down value", enter: "Enter the building cost and both dates." };
 
   return (
     <div className="mg-tool">
       <div className="mg-tool-fields">
-        <Field label="Building cost, excluding land (AED)" value={cost} onChange={setCost} width={260} />
-        <DateField label="Acquired on" value={acq} onChange={setAcq} />
-        <DateField label="First tax period under MD 173 starts" value={first} onChange={setFirst} />
-        <Field label="Sold in period ending (year, optional)" value={saleYear} onChange={setSaleYear} width={250} />
+        <Field label={T.cost} value={cost} onChange={setCost} width={260} />
+        <DateField label={T.acq} value={acq} onChange={setAcq} />
+        <DateField label={T.first} value={first} onChange={setFirst} />
+        <Field label={T.sale} value={saleYear} onChange={setSaleYear} width={250} />
       </div>
       <div className="mg-tool-result">
-        <div><div className="mg-tool-label">Years held before</div><div className="mg-tool-big">{prior.toFixed(2)}</div></div>
-        <div><div className="mg-tool-label">Opening Value</div><div className="mg-tool-big">{aed(opening)}</div></div>
-        <div><div className="mg-tool-label">Full-year deduction (4%)</div><div className="mg-tool-big">{aed(annual)}</div></div>
-        <div><div className="mg-tool-label">Tax saved a year at 9%</div><div className="mg-tool-big">{aed(annual * 0.09)}</div></div>
+        <div><div className="mg-tool-label">{T.prior}</div><div className="mg-tool-big">{prior.toFixed(2)}</div></div>
+        <div><div className="mg-tool-label">{T.open}</div><div className="mg-tool-big">{aed(opening)}</div></div>
+        <div><div className="mg-tool-label">{T.ann}</div><div className="mg-tool-big">{aed(annual)}</div></div>
+        <div><div className="mg-tool-label">{T.save}</div><div className="mg-tool-big">{aed(annual * 0.09)}</div></div>
         {claimed > 0 && (
-          <div><div className="mg-tool-label">Add-back on sale ({sy})</div><div className="mg-tool-big">{aed(claimed)}</div></div>
+          <div><div className="mg-tool-label">{T.back}</div><div className="mg-tool-big">{aed(claimed)}</div></div>
         )}
         <div className="mg-tool-note">
-          {ok
-            ? <>Opening Value is the cost less 4% for each calendar year held before the first tax period starting on or after 1 January 2025: {aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}. Each period deducts the lower of 4% of cost and the written-down value, so the deductions run for {rows.filter((r) => r.ded > 0).length} periods.{claimed > 0 && <> Selling at the end of {sy} adds back the {aed(claimed)} claimed (about {aed(claimed * 0.09)} of tax at 9%), on top of the tax on the realised gain. Prorate the final period if the sale is mid-year.</>} Assumes consecutive 12-month tax periods.</>
-            : <>Enter the building cost and both dates.</>}
+          {!ok
+            ? <>{T.enter}</>
+            : ar
+              ? <>القيمة الافتتاحية هي التكلفة ناقص 4% عن كل سنة ميلادية سبقت أول فترة ضريبية تبدأ في 1 يناير 2025 أو بعده: {aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}. كل فترة تخصم الأقل من 4% من التكلفة والقيمة الدفترية الضريبية، فتستمر الخصومات {periods} فترة.{claimed > 0 && <> البيع في نهاية {sy} يضيف إلى الدخل {aed(claimed)} المخصومة (نحو {aed(claimed * 0.09)} ضريبة بنسبة 9%)، إضافة إلى ضريبة الربح المحقق. وزّع الفترة الأخيرة نسبيًا إن تم البيع في منتصف السنة.</>} يفترض فترات ضريبية متتالية مدة كل منها 12 شهرًا.</>
+              : <>Opening Value is the cost less 4% for each calendar year held before the first tax period starting on or after 1 January 2025: {aed(c)} − {aed(c * 0.04 * prior)} = {aed(opening)}. Each period deducts the lower of 4% of cost and the written-down value, so the deductions run for {periods} periods.{claimed > 0 && <> Selling at the end of {sy} adds back the {aed(claimed)} claimed (about {aed(claimed * 0.09)} of tax at 9%), on top of the tax on the realised gain. Prorate the final period if the sale is mid-year.</>} Assumes consecutive 12-month tax periods.</>}
         </div>
       </div>
       {ok && rows.length > 0 && (
         <>
-          <h3 className="mg-tool-schedule-h" style={{ marginTop: 32 }}>Deduction schedule</h3>
+          <h3 className="mg-tool-schedule-h" style={{ marginTop: 32 }}>{T.sched}</h3>
           <div className="mg-tool-tablewrap">
             <table className="mg-tool-table">
               <thead>
-                <tr><th>Tax period</th><th>Deduction</th><th>Tax saved (9%)</th><th>Written-down value</th></tr>
+                <tr><th>{T.per}</th><th>{T.ded}</th><th>{T.tax}</th><th>{T.wdv}</th></tr>
               </thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.start}>
-                    <td>{dayLabel(r.start)} – {dayLabel(r.end)}</td>
+                    <td>{dayLabel(r.start, ar)} – {dayLabel(r.end, ar)}</td>
                     <td className="mg-tool-mono">{fmt2(r.ded)}</td>
                     <td className="mg-tool-mono">{fmt2(r.ded * 0.09)}</td>
                     <td className="mg-tool-mono">{fmt2(r.close)}</td>
