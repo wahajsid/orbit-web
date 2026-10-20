@@ -2450,8 +2450,19 @@ const addYears = (t: number, n: number) => {
   const d = new Date(t);
   return Date.UTC(d.getUTCFullYear() + n, d.getUTCMonth(), d.getUTCDate());
 };
-const dayLabel = (t: number, ar = false) =>
-  new Date(t).toLocaleDateString(ar ? "ar-AE-u-nu-latn" : "en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+/* Dates are formatted by hand: Node and the browser ship different ICU data,
+   and a locale-formatted date can differ between server and client render. */
+const MON_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const MON_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+const DAY_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAY_AR = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+const fmtDay = (t: number, ar = false, opts: { short?: boolean; weekday?: boolean } = {}) => {
+  const d = new Date(t);
+  const mon = ar ? MON_AR[d.getUTCMonth()] : opts.short ? MON_EN[d.getUTCMonth()].slice(0, 3) : MON_EN[d.getUTCMonth()];
+  const core = `${d.getUTCDate()} ${mon} ${d.getUTCFullYear()}`;
+  return opts.weekday ? `${(ar ? DAY_AR : DAY_EN)[d.getUTCDay()]} ${core}` : core;
+};
+const dayLabel = (t: number, ar = false) => fmtDay(t, ar, { short: true });
 
 function DateField({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
   return (
@@ -2725,7 +2736,7 @@ export function EinvoiceDeadlineCalculator({ ar = false }: { ar?: boolean } = {}
   const asp = utc(p.asp), live = utc(p.live);
   const left = (t: number) => (today == null ? null : Math.round((t - today) / DAY));
   const fmtDate = (t: number) =>
-    new Date(t).toLocaleDateString(ar ? "ar-AE-u-nu-latn" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+    fmtDay(t, ar);
   // Arabic counted noun: 1 يوم، 2 يومان، 3–10 أيام، 11+ يومًا.
   const arDays = (k: number) => (k === 1 ? "يوم واحد" : k === 2 ? "يومان" : k <= 10 ? `${k} أيام` : `${k} يومًا`);
   const days = (n: number | null) =>
@@ -2758,6 +2769,189 @@ export function EinvoiceDeadlineCalculator({ ar = false }: { ar?: boolean } = {}
           {ar
             ? <>{phase === 0 && <>نُقل موعد تعيين المزود من 31 يوليو إلى 30 أكتوبر 2026 في مايو 2026، ولم يتغير موعد البدء. </>}{groupOnly && <>المعاملات بين أعضاء المجموعة الضريبية نفسها مستثناة 24 شهرًا من 1 يناير 2027 (إعلان 19 أكتوبر 2026)، لكن أي بيع لطرف خارج المجموعة يبقى ضمن النطاق، وستحتاج مزودًا لاستلام فواتير الموردين أيضًا. </>}الغرامات بموجب قرار مجلس الوزراء رقم 106 لسنة 2025: 5,000 درهم عن كل شهر تأخير في التطبيق، و100 درهم عن كل فاتورة لا تصدر بالشكل المطلوب بحد أقصى 5,000 درهم شهريًا لكل فئة. المبيعات للمستهلكين خارج النطاق.</>
             : <>{phase === 0 && <>The provider deadline moved from 31 July to 30 October 2026 in May 2026; the go-live date did not move. </>}{groupOnly && <>Transactions between members of the same VAT tax group are excluded for 24 months from 1 January 2027 (announced 19 October 2026), but any sale outside the group stays in scope, and you still need a provider to receive suppliers' e-invoices. </>}Penalties under Cabinet Decision No. 106 of 2025: AED 5,000 for each month of late implementation, and AED 100 per invoice not issued in the required form, capped at AED 5,000 a month for each category. Sales to consumers are out of scope.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 39 · Intercompany loan interest adjustment (CT Law Article 34) ── */
+
+const LOAN_SIDES = [
+  { k: "UAE, 9%", ak: "في الدولة، 9%", rate: 9, uae: true },
+  { k: "UAE, 0% (free zone)", ak: "في الدولة، 0% (منطقة حرة)", rate: 0, uae: true },
+  { k: "Outside the UAE", ak: "خارج الدولة", rate: 0, uae: false },
+] as const;
+
+export function LoanInterestCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [principal, setPrincipal] = useState("50000000");
+  const [days, setDays] = useState("365");
+  const [charged, setCharged] = useState("0");
+  const [alp, setAlp] = useState("6.2");
+  const [lender, setLender] = useState(0);
+  const [borrower, setBorrower] = useState(1);
+
+  const P = Math.max(0, num(principal));
+  const D = Math.max(0, num(days));
+  const ic = (P * Math.max(0, num(charged)) / 100) * D / 365;
+  const ia = (P * Math.max(0, num(alp)) / 100) * D / 365;
+  const diff = ia - ic; // > 0: undercharged, < 0: overcharged
+  const L = LOAN_SIDES[lender], B = LOAN_SIDES[borrower];
+  // Undercharged: lender's income rises; a UAE borrower gets the matching deduction.
+  // Overcharged: a UAE borrower loses the excess deduction; a UAE lender's income falls.
+  const lenderTax = L.uae ? (diff * L.rate) / 100 : 0;
+  const borrowerTax = B.uae ? (-diff * B.rate) / 100 : 0;
+  const net = lenderTax + borrowerTax;
+
+  const T = ar
+    ? { p: "أصل القرض (درهم)", d: "عدد أيام القرض", c: "الفائدة المحتسبة فعلًا (% سنويًا)", a: "سعر الفائدة المحايد (% سنويًا)", ls: "المُقرض", bs: "المقترض",
+        ic: "الفائدة المحتسبة", ia: "الفائدة بالسعر المحايد", adj: "التعديل", net: "صافي الضريبة الإضافية على المجموعة في الدولة",
+        under: "الفائدة أقل من السعر المحايد: يزيد الدخل الخاضع للمُقرض", over: "الفائدة أعلى من السعر المحايد: يُرفض خصم الزيادة لدى المقترض", even: "الفائدة بالسعر المحايد: لا تعديل" }
+    : { p: "Loan principal (AED)", d: "Days outstanding", c: "Interest actually charged (% a year)", a: "Arm's length rate (% a year)", ls: "Lender", bs: "Borrower",
+        ic: "Interest charged", ia: "Arm's length interest", adj: "Adjustment", net: "Net extra UAE tax for the group",
+        under: "Under-charged: the lender's taxable income rises", over: "Over-charged: the borrower loses the excess deduction", even: "Charged at arm's length: no adjustment" };
+
+  const sideToggle = (val: number, set: (n: number) => void) => (
+    <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+      {LOAN_SIDES.map((s, i) => (
+        <button key={s.k} type="button" className={val === i ? "on" : ""} onClick={() => set(i)}>{ar ? s.ak : s.k}</button>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={T.p} value={principal} onChange={setPrincipal} width={220} />
+        <Field label={T.d} value={days} onChange={setDays} width={150} />
+        <Field label={T.c} value={charged} onChange={setCharged} width={230} />
+        <Field label={T.a} value={alp} onChange={setAlp} width={210} />
+      </div>
+      <div className="mg-tool-field"><span className="mg-tool-label">{T.ls}</span>{sideToggle(lender, setLender)}</div>
+      <div className="mg-tool-field"><span className="mg-tool-label">{T.bs}</span>{sideToggle(borrower, setBorrower)}</div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{T.ic}</div><div className="mg-tool-big">{aed(ic)}</div></div>
+        <div><div className="mg-tool-label">{T.ia}</div><div className="mg-tool-big">{aed(ia)}</div></div>
+        <div><div className="mg-tool-label">{T.adj}</div><div className="mg-tool-big">{aed(Math.abs(diff))}</div></div>
+        <div><div className="mg-tool-label">{T.net}</div><div className="mg-tool-big" style={{ color: net > 0 ? "var(--bad)" : "var(--accent)" }}><span dir="ltr">{net < 0 ? "−" : ""}{aed(Math.abs(net))}</span></div></div>
+        <div className="mg-tool-note">
+          {Math.abs(diff) < 0.5 ? T.even : diff > 0 ? T.under : T.over}
+          {ar
+            ? <>. {diff > 0.5 && L.uae && <>يزيد دخل المُقرض {aed(diff)}، أي ضريبة {aed(lenderTax)} بنسبة {L.rate}%. </>}{diff > 0.5 && B.uae && <>ويحصل المقترض على تعديل مقابل بخصم {aed(diff)} (المادة 34(10))، قيمته {aed(-borrowerTax)} بنسبة {B.rate}%. </>}{diff < -0.5 && B.uae && <>يُرفض خصم {aed(-diff)} لدى المقترض، أي ضريبة {aed(borrowerTax)} بنسبة {B.rate}%. </>}{diff < -0.5 && L.uae && <>وينخفض دخل المُقرض بالمبلغ نفسه، فيوفر {aed(-lenderTax)}. </>}الفائدة تُحسب على أساس 365 يومًا. وتنطبق بعدها المادة 31 وسقف الـ 30% على الفائدة المحايدة وحدها.</>
+            : <>. {diff > 0.5 && L.uae && <>The lender's income rises by {aed(diff)}: {aed(lenderTax)} of tax at {L.rate}%. </>}{diff > 0.5 && B.uae && <>The borrower gets a corresponding deduction of {aed(diff)} under Article 34(10), worth {aed(-borrowerTax)} at {B.rate}%. </>}{diff < -0.5 && B.uae && <>The borrower loses a deduction of {aed(-diff)}: {aed(borrowerTax)} of tax at {B.rate}%. </>}{diff < -0.5 && L.uae && <>The lender's income falls by the same amount, saving {aed(-lenderTax)}. </>}Interest on a 365-day basis. Article 31 and the 30% interest cap then apply to the arm's length interest only.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 40 · VAT turnover to Corporate Tax revenue bridge ─────────────── */
+
+export function VatCtReconCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [rev, setRev] = useState("48500000");
+  const [advIn, setAdvIn] = useState("1200000");
+  const [advOut, setAdvOut] = useState("900000");
+  const [unbilled, setUnbilled] = useState("600000");
+  const [nonRev, setNonRev] = useState("350000");
+  const [notSupply, setNotSupply] = useState("0");
+  const [other, setOther] = useState("0");
+  const [declared, setDeclared] = useState("48610000");
+
+  const expected = num(rev) + num(advIn) - num(advOut) - num(unbilled) + num(nonRev) - num(notSupply) + num(other);
+  const decl = num(declared);
+  const gap = decl - expected;
+  const pct = expected !== 0 ? (gap / expected) * 100 : 0;
+  const closed = Math.abs(gap) < 1;
+
+  const T = ar
+    ? { rev: "الإيرادات في القوائم المالية (درهم)", ai: "+ دفعات مقدمة مستلمة هذه السنة لأعمال لاحقة", ao: "− دفعات سنة سابقة أُثبتت إيرادًا هذه السنة", ub: "− إيرادات غير مفوترة بلا استحقاق ضريبي بعد", nr: "+ توريدات ليست إيرادًا (بيع أصول، توريدات مفترضة)", ns: "− دخل ليس توريدًا (أرباح موزعة، أرباح قيمة عادلة)", ot: "± بنود أخرى (صرف، إشعارات دائنة)", dc: "الخانات 1 + 4 + 5 للأشهر نفسها (درهم)",
+        ex: "التوريدات المتوقعة", dl: "التوريدات المصرح بها", gap: "الفرق غير المفسَّر", ok: "التسوية مغلقة: كل فرق مفسَّر.", bad: "ابحث في هذا الفرق حتى يُفسَّر أو يُصحَّح، وصحّح أخطاء ضريبة القيمة المضافة بإفصاح طوعي حيث تتطلب القواعد ذلك." }
+    : { rev: "Revenue per the financial statements (AED)", ai: "+ Advances received this year for later work", ao: "− Prior-year advances recognised this year", ub: "− Unbilled revenue with no tax point yet", nr: "+ Supplies that are not revenue (asset sales, deemed supplies)", ns: "− Income that is not a supply (dividends, fair value gains)", ot: "± Other items (exchange rates, credit notes)", dc: "Box 1 + Box 4 + Box 5, same months (AED)",
+        ex: "Expected VAT supplies", dl: "Declared VAT supplies", gap: "Unexplained difference", ok: "The bridge closes: every difference is explained.", bad: "Investigate this difference until it is explained or corrected, and correct VAT errors through a voluntary disclosure where the rules require it." };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={T.rev} value={rev} onChange={setRev} width={280} />
+        <Field label={T.dc} value={declared} onChange={setDeclared} width={280} />
+      </div>
+      <div className="mg-tool-fields">
+        <Field label={T.ai} value={advIn} onChange={setAdvIn} width={280} />
+        <Field label={T.ao} value={advOut} onChange={setAdvOut} width={280} />
+        <Field label={T.ub} value={unbilled} onChange={setUnbilled} width={280} />
+        <Field label={T.nr} value={nonRev} onChange={setNonRev} width={280} />
+        <Field label={T.ns} value={notSupply} onChange={setNotSupply} width={280} />
+        <Field label={T.ot} value={other} onChange={setOther} width={280} />
+      </div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{T.ex}</div><div className="mg-tool-big">{aed(expected)}</div></div>
+        <div><div className="mg-tool-label">{T.dl}</div><div className="mg-tool-big">{aed(decl)}</div></div>
+        <div><div className="mg-tool-label">{T.gap}</div><div className="mg-tool-big" style={{ color: closed ? "var(--accent)" : "var(--bad)" }}><span dir="ltr">{gap > 0 ? "+" : gap < 0 ? "−" : ""}{aed(Math.abs(gap))}</span></div></div>
+        <div className="mg-tool-note">
+          {closed ? T.ok : <>{ar ? <>الفرق {pct2(Math.abs(pct))} من التوريدات المتوقعة. </> : <>That is {pct2(Math.abs(pct))} of expected supplies. </>}{T.bad}</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 41 · FTA dispute deadline (Tax Procedures Law, business days) ─── */
+
+const DISPUTE_STAGES = [
+  { k: "Tax assessment: review or reconsideration request", ak: "تقييم ضريبي: طلب مراجعة أو إعادة نظر", art: "28 / 29" },
+  { k: "Other FTA decision: reconsideration request", ak: "قرار آخر للهيئة: طلب إعادة نظر", art: "29" },
+  { k: "Reconsideration decision: objection to the Committee", ak: "قرار إعادة النظر: اعتراض أمام اللجنة", art: "32" },
+  { k: "Committee decision: appeal to court", ak: "قرار اللجنة: طعن أمام المحكمة", art: "36" },
+] as const;
+
+export function DisputeDeadlineCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [notified, setNotified] = useState("2026-10-20");
+  const [stage, setStage] = useState(0);
+  const [holidays, setHolidays] = useState("0");
+
+  const start = utc(notified);
+  const extra = Math.max(0, Math.round(num(holidays)));
+  let deadline = NaN;
+  if (Number.isFinite(start)) {
+    // Article 49: the notification day is excluded; Saturdays and Sundays are
+    // not business days; public holidays in the window are added by the user.
+    let t = start, n = 0;
+    while (n < 40 + extra) {
+      t += DAY;
+      const wd = new Date(t).getUTCDay();
+      if (wd !== 0 && wd !== 6) n++;
+    }
+    deadline = t;
+  }
+  const s = DISPUTE_STAGES[stage];
+  const fmtDate = (t: number) =>
+    fmtDay(t, ar, { weekday: true });
+
+  const T = ar
+    ? { nd: "تاريخ الإخطار بالقرار", st: "ما الذي تطعن فيه؟", hd: "العطل الرسمية في الفترة", dl: "آخر يوم لتقديم الطلب", art: "المادة" }
+    : { nd: "Date you were notified", st: "What are you challenging?", hd: "Public holidays in the window", dl: "Last day to file", art: "Article" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{T.st}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {DISPUTE_STAGES.map((x, i) => (
+            <button key={x.k} type="button" className={stage === i ? "on" : ""} onClick={() => setStage(i)}>{ar ? x.ak : x.k}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-fields">
+        <DateField label={T.nd} value={notified} onChange={setNotified} />
+        <Field label={T.hd} value={holidays} onChange={setHolidays} width={200} />
+      </div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{T.dl}</div><div className="mg-tool-big">{Number.isFinite(deadline) ? fmtDate(deadline) : "—"}</div></div>
+        <div><div className="mg-tool-label">{T.art}</div><div className="mg-tool-big"><span dir="ltr">{s.art}</span></div></div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>40 يوم عمل من الإخطار وفق قانون الإجراءات الضريبية. لا يُحتسب يوم الإخطار، ولا السبت والأحد، وإن وقع آخر يوم في غير يوم عمل يُرحَّل إلى يوم العمل التالي (المادة 49). أضف عدد العطل الرسمية الواقعة في الفترة، فمواعيد بعضها تتحدد قرب حلولها. {stage === 2 && <>يجب سداد الضريبة محل الاعتراض كاملة قبل تقديمه، وقرار اللجنة نهائي إن لم تتجاوز الضريبة والغرامات 100,000 درهم. </>}{stage === 3 && <>يجب سداد الضريبة كاملة و50% على الأقل من الغرامات أو تقديم ضمان بنكي بها. </>}قدّم مبكرًا: رفض طلب التمديد نهائي.</>
+            : <>40 business days from notification under the Tax Procedures Law. The notification day does not count, nor do Saturdays and Sundays, and a deadline on a non-business day moves to the next business day (Article 49). Add the public holidays that fall in the window, since some are only fixed shortly before. {stage === 2 && <>The disputed tax must be paid in full before objecting, and the Committee's decision is final where tax and penalties do not exceed AED 100,000. </>}{stage === 3 && <>The tax must be paid in full, and at least 50% of the penalties paid or covered by a bank guarantee. </>}File early: a refused extension request is final.</>}
         </div>
       </div>
     </div>
