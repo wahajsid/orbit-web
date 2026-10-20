@@ -10,6 +10,7 @@ import { INPUT_VAT_GUIDES } from "./guides-input-vat";
 import { PROPERTY_GUIDES } from "./guides-property";
 import PUBLISHED from "./guide-published.json";
 import { GUIDE_EXPANSIONS } from "./expansions";
+import { ENTERPRISE_GUIDES } from "./guides-enterprise";
 
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
 /* faqs render as a question-and-answer block at the end of the guide and
@@ -149,6 +150,7 @@ export const GUIDES: Guide[] = [
   ...RETT_GUIDES,
   ...INPUT_VAT_GUIDES,
   ...PROPERTY_GUIDES,
+  ...ENTERPRISE_GUIDES,
   {
     slug: "uae-tax-invoice-checklist",
     title: "What makes a valid UAE tax invoice — the Article 59 checklist",

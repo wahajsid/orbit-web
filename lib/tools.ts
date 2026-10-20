@@ -349,6 +349,30 @@ export const TOOLS: Tool[] = [
       "Ministerial Decision 173 of 2025: the Opening Value, the yearly 4% deduction, the tax saved at 9% and the add-back on sale, for a building held at fair value.",
     guide: "uae-investment-property-tax-depreciation",
   },
+  {
+    slug: "uae-top-up-tax-estimator",
+    updated: "2026-10-20",
+    title: "UAE 15% top-up tax (DMTT) estimator",
+    description:
+      "A first estimate of the UAE Domestic Minimum Top-up Tax: effective tax rate, the payroll and tangible asset carve-outs, excess profit and the top-up to 15%.",
+    guide: "uae-domestic-minimum-top-up-tax",
+  },
+  {
+    slug: "uae-capital-assets-scheme-calculator",
+    updated: "2026-10-20",
+    title: "VAT capital assets scheme calculator",
+    description:
+      "The Article 58 adjustment year by year for buildings (10 years) and other assets of AED 5m+ (5 years): W, X, Q, R and Z, with the remaining-years adjustment on a sale.",
+    guide: "uae-vat-capital-assets-scheme",
+  },
+  {
+    slug: "uae-e-invoicing-deadline-checker",
+    updated: "2026-10-20",
+    title: "UAE e-invoicing deadline checker",
+    description:
+      "Your Accredited Service Provider deadline and e-invoicing go-live date by phase, days remaining, the tax group exclusion and the penalties for missing them.",
+    guide: "uae-e-invoicing-large-businesses-2027",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

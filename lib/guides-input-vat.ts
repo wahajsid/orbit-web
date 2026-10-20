@@ -227,7 +227,7 @@ const simplified: Guide = {
       h: "What e-invoicing changes",
       ps: [
         "Cabinet Decision No. 100 of 2025, in force from 29 September 2025, added Clause 16 to Article 59. Where a registrant must issue tax invoices as electronic invoices, or chooses to, Clauses 2, 3, 5, 7, 8 and 15 no longer apply. That removes the simplified invoice, the relief for wholly zero-rated supplies and the FTA's power to waive invoice particulars.",
-        "Under Ministerial Decision No. 244 of 2025, as issued, voluntary e-invoicing opened on 1 July 2026. Businesses with revenue of AED 50 million or more must appoint an accredited service provider by 30 October 2026 (extended from 31 July 2026 by Ministerial Decision No. 66 of 2026) and go live by 1 January 2027. Businesses below AED 50 million appoint by 31 March 2027 and go live by 1 July 2027, and government entities by 1 October 2027. Business-to-consumer sales are outside the e-invoicing scope, so check the FTA's guidance before changing how retail receipts are issued. Check the FTA's e-invoicing page for later revisions to these dates.",
+        "Under Ministerial Decision No. 244 of 2025, as amended in May 2026, voluntary e-invoicing opened on 1 July 2026. Businesses with revenue of AED 50 million or more must appoint an accredited service provider by 30 October 2026 and go live by 1 January 2027. Businesses below AED 50 million appoint by 31 March 2027 and go live by 1 July 2027, and government entities by 1 October 2027. Business-to-consumer sales are outside the e-invoicing scope, so check the FTA's guidance before changing how retail receipts are issued. The [e-invoicing guide for large businesses](/guides/uae-e-invoicing-large-businesses-2027) covers the deadlines, penalties and the tax group exclusion announced on 19 October 2026.",
       ],
     },
     {
@@ -380,9 +380,9 @@ export const INPUT_VAT_GUIDES: Guide[] = [supplierChecks, noTrn, simplified, fx]
 5. E-invoicing timeline, Ministerial Decisions No. 243 and 244 of 2025 (29 Sep 2025):
    KPMG UAE, https://kpmg.com/ae/en/insights/tax-insights/implementation-of-the-electronic-invoicing-system-in-the-uae.html
    fiscal-requirements.com, https://www.fiscal-requirements.com/news/5357
-   - One secondary source mentions a later Ministerial Decision No. 66 of 2026 moving the
-     AED 50m appointment date to 30 Oct 2026; not confirmed against official text, hence
-     the "as issued" wording in the guide.
+   - Amended May 2026: AED 50m appointment date moved from 31 Jul to 30 Oct 2026, go-live
+     unchanged (Khaleej Times, 10 May 2026, https://www.khaleejtimes.com/business/uae-extends-e-invoicing-service-provider-deadline-to-october-2026).
+     Updated in the guide on 20 Oct 2026.
 
 6. Exchange rates: Article 69 VAT Decree-Law; FTA public clarification VATP004 via EY,
    https://globaltaxnews.ey.com/news/2018-5894-uae-publishes-public-clarification-on-use-of-exchange-rates-for-vat-purposes

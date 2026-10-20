@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* ── The tools hub's calculators ─────────────────────────────────────
    Nine client-side calculators in the modernist language. All figures
@@ -2623,6 +2623,208 @@ export function IpDepreciationCalculator() {
           </div>
         </>
       )}
+    </div>
+  );
+}
+
+/* ── 36 · UAE Domestic Minimum Top-up Tax estimator (Pillar Two) ───── */
+
+// OECD Model Rules Art 9.2 transitional carve-out rates, by year the fiscal year starts.
+const SBIE_RATES: Record<string, [number, number]> = { "2025": [9.6, 7.6], "2026": [9.4, 7.4], "2027": [9.2, 7.2] };
+
+export function TopUpTaxCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [income, setIncome] = useState("400000000");
+  const [taxes, setTaxes] = useState("30000000");
+  const [payroll, setPayroll] = useState("50000000");
+  const [assets, setAssets] = useState("200000000");
+  const [year, setYear] = useState("2025");
+
+  const inc = num(income);
+  const tx = Math.max(0, num(taxes));
+  const [pr, ar_] = SBIE_RATES[year];
+  const sbie = Math.max(0, num(payroll)) * pr / 100 + Math.max(0, num(assets)) * ar_ / 100;
+  const etr = inc > 0 ? (tx / inc) * 100 : 0;
+  const topPct = inc > 0 ? Math.max(0, 15 - etr) : 0;
+  const excess = Math.max(0, inc - sbie);
+  const topUp = (excess * topPct) / 100;
+  const shEtr = year === "2025" ? 16 : year === "2026" ? 17 : null;
+
+  const L = ar
+    ? { inc: "دخل GloBE لكيانات المجموعة في الدولة (درهم)", tx: "الضرائب المشمولة المعدّلة (درهم)", pay: "تكاليف الرواتب المؤهلة (درهم)", ast: "القيمة الدفترية للأصول الملموسة (درهم)", yr: "السنة المالية تبدأ في", etr: "معدل الضريبة الفعلي في الإمارات", pct: "نسبة الضريبة الإضافية", sb: "استبعاد الدخل القائم على الجوهر", ex: "الربح الزائد", tu: "الضريبة الإضافية التقديرية" }
+    : { inc: "GloBE income of all UAE entities (AED)", tx: "Adjusted covered taxes (AED)", pay: "Eligible payroll costs (AED)", ast: "Carrying value of tangible assets (AED)", yr: "Fiscal year starting in", etr: "UAE effective tax rate", pct: "Top-up percentage", sb: "Substance-based exclusion", ex: "Excess profit", tu: "Estimated top-up tax" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-fields">
+        <Field label={L.inc} value={income} onChange={setIncome} width={280} />
+        <Field label={L.tx} value={taxes} onChange={setTaxes} width={240} />
+        <Field label={L.pay} value={payroll} onChange={setPayroll} width={240} />
+        <Field label={L.ast} value={assets} onChange={setAssets} width={260} />
+      </div>
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.yr}</span>
+        <div className="mg-tool-toggle">
+          {Object.keys(SBIE_RATES).map((y) => (
+            <button key={y} type="button" className={year === y ? "on" : ""} onClick={() => setYear(y)}>{y}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{L.etr}</div><div className="mg-tool-big">{pct2(etr)}</div></div>
+        <div><div className="mg-tool-label">{L.pct}</div><div className="mg-tool-big">{pct2(topPct)}</div></div>
+        <div><div className="mg-tool-label">{L.sb}</div><div className="mg-tool-big">{aed(sbie)}</div></div>
+        <div><div className="mg-tool-label">{L.ex}</div><div className="mg-tool-big">{aed(excess)}</div></div>
+        <div><div className="mg-tool-label">{L.tu}</div><div className="mg-tool-big" style={{ color: topUp > 0 ? "var(--bad)" : "var(--accent)" }}>{aed(topUp)}</div></div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>الاستبعاد = {pr}% من الرواتب + {ar_}% من الأصول الملموسة (النسب الانتقالية لسنة {year}). الضريبة = ({"15% − "}{pct2(etr)}) × الربح الزائد. {shEtr && <>ملاذ تقارير CbCR الانتقالي يحتاج معدلًا فعليًا مبسطًا لا يقل عن {shEtr}% بأرقام التقرير لا بأرقام GloBE. </>}التسجيل مطلوب حتى لو كانت الضريبة صفرًا؛ والمهلة الانتقالية للسنوات المنتهية قبل 30 أبريل 2026 هي 30 نوفمبر 2026. تقدير أولي فقط: دخل GloBE والضرائب المشمولة يتطلبان تعديلات كثيرة على الحسابات.</>
+            : <>Exclusion = {pr}% of payroll + {ar_}% of tangible assets (the transitional rates for {year}). Top-up = (15% − {pct2(etr)}) × excess profit. {shEtr && <>The transitional CbCR safe harbour needs a simplified effective rate of at least {shEtr}%, measured on country-by-country report figures, not GloBE figures. </>}Registration is required even when the tax is zero; for years ending before 30 April 2026 the transitional deadline is 30 November 2026. A first estimate only: GloBE income and covered taxes carry many adjustments to the accounts.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 37 · VAT capital assets scheme adjustment (Article 58) ────────── */
+
+export function CapitalAssetCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [building, setBuilding] = useState(true);
+  const [w, setW] = useState("2500000");
+  const [x, setX] = useState("80");
+  const [qs, setQs] = useState<string[]>(["80", "60", "90", "90", "90", "90", "90", "90", "90"]);
+  const [saleYear, setSaleYear] = useState("6");
+  const [saleTaxable, setSaleTaxable] = useState(true);
+
+  const years = building ? 10 : 5;
+  const W = Math.max(0, num(w));
+  const X = Math.min(100, Math.max(0, num(x)));
+  const slice = W / years;
+  const z = (slice * X) / 100;
+  const sale = Math.round(num(saleYear));
+  const sold = sale >= 1 && sale < years;
+
+  const rows: { y: number; q: number; r: number; adj: number; deemed: boolean }[] = [];
+  for (let y = 2; y <= years; y++) {
+    const deemed = sold && y > sale;
+    const q = deemed ? (saleTaxable ? 100 : 0) : Math.min(100, Math.max(0, num(qs[y - 2] ?? "0")));
+    const r = (slice * q) / 100;
+    rows.push({ y, q, r, adj: r - z, deemed });
+  }
+  const annual = rows.filter((r) => !r.deemed).reduce((s, r) => s + r.adj, 0);
+  const onSale = rows.filter((r) => r.deemed).reduce((s, r) => s + r.adj, 0);
+  const setQ = (i: number, v: string) => setQs(qs.map((q, j) => (j === i ? v : q)));
+
+  const L = ar
+    ? { b: "مبنى (10 سنوات)", o: "أصل آخر (5 سنوات)", w: "ضريبة المدخلات في السنة الأولى W (درهم)", x: "نسبة الاسترداد في السنة الأولى X (%)", q: "نسبة الاسترداد Q لكل سنة (%)", s: "بيع في السنة (اختياري)", st: "البيع خاضع للضريبة", z: "الحصة السنوية Z", tot: "صافي التسويات السنوية", sale: "تسوية السنوات المتبقية عند البيع", yr: "السنة", adj: "التسوية", dm: "مفترضة" }
+    : { b: "Building (10 years)", o: "Other asset (5 years)", w: "Year 1 input VAT, W (AED)", x: "Year 1 recovery, X (%)", q: "Recovery Q in each later year (%)", s: "Sold in year (optional)", st: "The sale is taxable", z: "Annual share Z", tot: "Net annual adjustments", sale: "Remaining-years adjustment on sale", yr: "Year", adj: "Adjustment", dm: "deemed" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-toggle" style={{ marginBottom: 16, flexWrap: "wrap" }}>
+        <button type="button" className={building ? "on" : ""} onClick={() => setBuilding(true)}>{L.b}</button>
+        <button type="button" className={!building ? "on" : ""} onClick={() => setBuilding(false)}>{L.o}</button>
+      </div>
+      <div className="mg-tool-fields">
+        <Field label={L.w} value={w} onChange={setW} width={240} />
+        <Field label={L.x} value={x} onChange={setX} width={200} />
+        <Field label={L.s} value={saleYear} onChange={setSaleYear} width={180} />
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={saleTaxable} onChange={(e) => setSaleTaxable(e.target.checked)} />
+          <span>{L.st}</span>
+        </label>
+      </div>
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.q}</span>
+        <div className="mg-tool-fields" style={{ gap: 10 }}>
+          {Array.from({ length: years - 1 }, (_, i) => (
+            <Field key={i} label={`${ar ? "س" : "Y"}${i + 2}`} value={qs[i]} onChange={(v) => setQ(i, v)} width={78} />
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{L.z}</div><div className="mg-tool-big">{aed(z)}</div></div>
+        <div><div className="mg-tool-label">{L.tot}</div><div className="mg-tool-big">{annual > 0 ? "+" : annual < 0 ? "−" : ""}{aed(Math.abs(annual))}</div></div>
+        {sold && <div><div className="mg-tool-label">{L.sale}</div><div className="mg-tool-big">{onSale > 0 ? "+" : onSale < 0 ? "−" : ""}{aed(Math.abs(onSale))}</div></div>}
+        <div className="mg-tool-note">
+          {ar
+            ? <>كل سنة: R = W ÷ {years} × Q مقارنةً بـ Z = W ÷ {years} × X = {aed(z)}. إن زاد R تزيد ضريبة المدخلات بالفرق، وإن نقص تُخفَّض. تُسجَّل التسوية في أول فترة ضريبية من السنة الضريبية التالية. {sold && <>عند البيع في السنة {sale} تُعامل السنوات {sale + 1} إلى {years} وكأنها {saleTaxable ? "خاضعة بالكامل" : "معفاة بالكامل"}، وتدخل تسويتها في إقرار فترة البيع (على القراءة المعتادة).</>}</>
+            : <>Each year: R = W ÷ {years} × Q against Z = W ÷ {years} × X = {aed(z)}. If R is higher, input tax increases by the difference; if lower, it is reduced. Each adjustment goes in the first tax period of the following tax year. {sold && <>On a sale in Year {sale}, Years {sale + 1} to {years} are treated as {saleTaxable ? "fully taxable" : "fully exempt"}, and their adjustment goes in the return for the period of the sale (on the usual reading).</>}</>}
+        </div>
+      </div>
+      <div className="mg-tool-tablewrap" style={{ marginTop: 24 }}>
+        <table className="mg-tool-table">
+          <thead><tr><th>{L.yr}</th><th>Q</th><th>R</th><th>Z</th><th>{L.adj}</th></tr></thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.y}>
+                <td>{r.y}{r.deemed ? ` (${L.dm})` : ""}</td>
+                <td className="mg-tool-mono">{r.q}%</td>
+                <td className="mg-tool-mono">{fmt2(r.r)}</td>
+                <td className="mg-tool-mono">{fmt2(z)}</td>
+                <td className="mg-tool-mono">{r.adj > 0 ? "+" : r.adj < 0 ? "−" : ""}{fmt2(Math.abs(r.adj))}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+/* ── 38 · UAE e-invoicing deadline checker ─────────────────────────── */
+
+const EINV_PHASES = [
+  { k: "AED 50 million revenue or more", ak: "إيرادات 50 مليون درهم أو أكثر", asp: "2026-10-30", live: "2027-01-01" },
+  { k: "Below AED 50 million", ak: "أقل من 50 مليون درهم", asp: "2027-03-31", live: "2027-07-01" },
+  { k: "Government entity", ak: "جهة حكومية", asp: "2027-03-31", live: "2027-10-01" },
+] as const;
+
+export function EinvoiceDeadlineCalculator({ ar = false }: { ar?: boolean } = {}) {
+  const [phase, setPhase] = useState(0);
+  const [groupOnly, setGroupOnly] = useState(false);
+  const [today, setToday] = useState<number | null>(null);
+  useEffect(() => {
+    const d = new Date();
+    setToday(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  }, []);
+
+  const p = EINV_PHASES[phase];
+  const asp = utc(p.asp), live = utc(p.live);
+  const left = (t: number) => (today == null ? null : Math.round((t - today) / DAY));
+  const fmtDate = (t: number) =>
+    new Date(t).toLocaleDateString(ar ? "ar-AE-u-nu-latn" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  const days = (n: number | null) =>
+    n == null ? "" : n >= 0 ? (ar ? ` · بعد ${n} يومًا` : ` · ${n} days left`) : (ar ? ` · مضى ${-n} يومًا` : ` · ${-n} days ago`);
+
+  const L = ar
+    ? { who: "من أنت؟", grp: "كل مبيعاتنا بين الشركات داخل مجموعتنا الضريبية", asp: "آخر موعد لتعيين مزود خدمة معتمد", live: "بدء الفوترة الإلكترونية الإلزامية" }
+    : { who: "Which describes you?", grp: "All our B2B sales are to members of our own VAT tax group", asp: "Appoint an Accredited Service Provider by", live: "Mandatory e-invoicing from" };
+
+  return (
+    <div className="mg-tool">
+      <div className="mg-tool-field">
+        <span className="mg-tool-label">{L.who}</span>
+        <div className="mg-tool-toggle" style={{ flexWrap: "wrap" }}>
+          {EINV_PHASES.map((x, i) => (
+            <button key={x.k} type="button" className={phase === i ? "on" : ""} onClick={() => setPhase(i)}>{ar ? x.ak : x.k}</button>
+          ))}
+        </div>
+      </div>
+      <div className="mg-tool-fields">
+        <label className="mg-tool-check">
+          <input type="checkbox" checked={groupOnly} onChange={(e) => setGroupOnly(e.target.checked)} />
+          <span>{L.grp}</span>
+        </label>
+      </div>
+      <div className="mg-tool-result">
+        <div><div className="mg-tool-label">{L.asp}</div><div className="mg-tool-big">{fmtDate(asp)}</div><div className="mg-tool-note">{days(left(asp))}</div></div>
+        <div><div className="mg-tool-label">{L.live}</div><div className="mg-tool-big">{fmtDate(live)}</div><div className="mg-tool-note">{days(left(live))}</div></div>
+        <div className="mg-tool-note">
+          {ar
+            ? <>{phase === 0 && <>نُقل موعد تعيين المزود من 31 يوليو إلى 30 أكتوبر 2026 في مايو 2026، ولم يتغير موعد البدء. </>}{groupOnly && <>المعاملات بين أعضاء المجموعة الضريبية نفسها مستثناة 24 شهرًا من 1 يناير 2027 (إعلان 19 أكتوبر 2026)، لكن أي بيع لطرف خارج المجموعة يبقى ضمن النطاق، وستحتاج مزودًا لاستلام فواتير الموردين أيضًا. </>}الغرامات بموجب قرار مجلس الوزراء رقم 106 لسنة 2025: 5,000 درهم عن كل شهر تأخير في التطبيق، و100 درهم عن كل فاتورة لا تصدر بالشكل المطلوب بحد أقصى 5,000 درهم شهريًا لكل فئة. المبيعات للمستهلكين خارج النطاق.</>
+            : <>{phase === 0 && <>The provider deadline moved from 31 July to 30 October 2026 in May 2026; the go-live date did not move. </>}{groupOnly && <>Transactions between members of the same VAT tax group are excluded for 24 months from 1 January 2027 (announced 19 October 2026), but any sale outside the group stays in scope, and you still need a provider to receive suppliers' e-invoices. </>}Penalties under Cabinet Decision No. 106 of 2025: AED 5,000 for each month of late implementation, and AED 100 per invoice not issued in the required form, capped at AED 5,000 a month for each category. Sales to consumers are out of scope.</>}
+        </div>
+      </div>
     </div>
   );
 }
