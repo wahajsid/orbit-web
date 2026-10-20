@@ -11,6 +11,7 @@ import { RETT_AR_GUIDES } from "@/lib/guides-rett-ar";
 import { INPUT_VAT_AR_GUIDES } from "@/lib/guides-input-vat-ar";
 import { ENTERPRISE_AR_GUIDES_1 } from "@/lib/guides-enterprise-ar-1";
 import { ENTERPRISE_AR_GUIDES_2 } from "@/lib/guides-enterprise-ar-2";
+import { GROUP_TAX_AR_GUIDES } from "@/lib/guides-group-tax-ar";
 
 export const AR_GUIDES: Guide[] = [
   {
@@ -1236,7 +1237,7 @@ AR_GUIDES.push(
   },
 );
 
-AR_GUIDES.push(...RETT_AR_GUIDES, ...INPUT_VAT_AR_GUIDES, ...ENTERPRISE_AR_GUIDES_1, ...ENTERPRISE_AR_GUIDES_2);
+AR_GUIDES.push(...RETT_AR_GUIDES, ...INPUT_VAT_AR_GUIDES, ...ENTERPRISE_AR_GUIDES_1, ...ENTERPRISE_AR_GUIDES_2, ...GROUP_TAX_AR_GUIDES);
 
 export function getArGuide(slug: string): Guide | undefined {
   return AR_GUIDES.find((g) => g.slug === slug);
