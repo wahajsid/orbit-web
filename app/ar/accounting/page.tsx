@@ -97,7 +97,7 @@ export default function AccountingPage() {
         lede="يتصل Hysaab Finance بدفاترك، ويتحقق من الفروقات، ويُعدّ العمل لمراجعتك: الذمم الدائنة، والمطابقات، والإقفال الشهري وملفه، وحزمة التقارير. وفريقك يعتمد."
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
-        <a className="hw-link hw-link--light" href="/check">افحص دفاترك مجانًا (بالإنجليزية) <span aria-hidden="true">←</span></a>
+        <a className="hw-link hw-link--light" href="/check">فحص مجاني: دفاترك أو كشف حسابك البنكي (بالإنجليزية) <span aria-hidden="true">←</span></a>
       </PageHero>
 
       <section id="modules">

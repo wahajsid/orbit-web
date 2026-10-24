@@ -172,7 +172,7 @@ export default function Page() {
                 <p className="tt-ex">“Yes, make that a standing rule.”</p>
               </li>
             </ol>
-            <p className="tt-more tt-more--dark"><a className="tt-link" href="/bank-statement">Try it on a bank statement, free <span aria-hidden="true">→</span></a></p>
+            <p className="tt-more tt-more--dark"><a className="tt-link" href="/check">Try it free on your books or a bank statement <span aria-hidden="true">→</span></a></p>
           </div>
         </section>
 
@@ -293,7 +293,7 @@ export default function Page() {
                   </ol>
                 </div>
                 <p className="hw-demo-direct">Prefer to pick a time yourself? <a className="tt-link" {...DEMO}>Choose a slot in our calendar <span aria-hidden="true">↗</span>{newTab}</a></p>
-                <p className="tt-invite">{KEY_LINE.en} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a> <a className="hw-link hw-link--ruled" href="/check">Or check your books free <span aria-hidden="true">→</span></a></p>
+                <p className="tt-invite">{KEY_LINE.en} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a> <a className="hw-link hw-link--ruled" href="/check">Or run a free check on your books or a bank statement <span aria-hidden="true">→</span></a></p>
               </div>
               <EnquiryForm demo />
             </div>

@@ -32,7 +32,7 @@ type Item = { href: string; label: string } | { menu: string; label: string; lin
 
 const NAV: Record<Locale, readonly Item[]> = {
   en: [
-    { menu: "products", label: "Products", links: [["/accounting", "Hysaab Finance"], ["/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit"], ["/hire", "Ibtidah"], ["/check", "Books Check", "Free"]] },
+    { menu: "products", label: "Products", links: [["/accounting", "Hysaab Finance"], ["/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit"], ["/hire", "Ibtidah"], ["/check", "Free check", "Books or statement"]] },
     { href: "/accounting", label: "For finance teams" },
     { href: "/firms", label: "For firms" },
     { href: "/how-it-works", label: "How it works" },
@@ -45,7 +45,7 @@ const NAV: Record<Locale, readonly Item[]> = {
      stay Latin. Books Check has no Arabic page: the row links to the
      English /check. */
   ar: [
-    { menu: "products", label: "المنتجات", links: [["/ar/accounting", "Hysaab Finance"], ["/ar/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit"], ["/hire", "Ibtidah"], ["/check", "فحص الدفاتر", "مجاني"]] },
+    { menu: "products", label: "المنتجات", links: [["/ar/accounting", "Hysaab Finance"], ["/ar/firms", "Hysaab Practice"], ["/audit", "Hysaab Audit"], ["/hire", "Ibtidah"], ["/check", "فحص مجاني", "الدفاتر أو كشف الحساب"]] },
     { href: "/ar/accounting", label: "للفرق المالية" },
     { href: "/ar/firms", label: "للمكاتب المهنية" },
     { href: "/ar/how-it-works", label: "كيف يعمل" },
