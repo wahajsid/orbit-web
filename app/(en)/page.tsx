@@ -172,6 +172,7 @@ export default function Page() {
                 <p className="tt-ex">“Yes, make that a standing rule.”</p>
               </li>
             </ol>
+            <p className="tt-more tt-more--dark"><a className="tt-link" href="/bank-statement">Try it on a bank statement, free <span aria-hidden="true">→</span></a></p>
           </div>
         </section>
 

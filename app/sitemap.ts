@@ -14,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
      becomes <lastmod>. Bump it by hand when a page's copy changes — a
      lastmod that always says "today" teaches Google to ignore it. */
   const pages: { path: string; updated: string; priority: number; enOnly?: boolean }[] = [
-    { path: "/", updated: "2026-10-24", priority: 1 },
+    { path: "/", updated: "2026-10-25", priority: 1 },
+    { path: "/bank-statement", updated: "2026-10-25", priority: 0.8, enOnly: true },
     { path: "/pricing", updated: "2026-09-24", priority: 0.9 },
     { path: "/accounting", updated: "2026-09-24", priority: 0.9 },
     { path: "/invoice", updated: "2026-09-24", priority: 0.7 },
