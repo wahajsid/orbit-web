@@ -95,7 +95,7 @@ export default function AccountingPage() {
         lede="Hysaab Finance connects to your books, investigates discrepancies and prepares the work for your review: the payables, the reconciliations, the month-end close and its binder, and the reporting pack. Your team approves."
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
-        <a className="hw-link hw-link--light" href="/check">Check your books free <span aria-hidden="true">→</span></a>
+        <a className="hw-link hw-link--light" href="/check">Free check: your books or a bank statement <span aria-hidden="true">→</span></a>
       </PageHero>
 
       {/* ── 1. What does it do? ── */}

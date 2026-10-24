@@ -21,6 +21,9 @@ const nextConfig = {
       // /accounting (Hysaab Finance). A literal 301, like the host moves.
       { source: "/product", destination: "/accounting", statusCode: 301 },
       { source: "/ar/product", destination: "/ar/accounting", statusCode: 301 },
+      // 2026-10-25 (owner): the free bank statement check is merged into the
+      // one free check at /check.
+      { source: "/bank-statement", destination: "/check#statement", statusCode: 301 },
     ];
   },
 };

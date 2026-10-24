@@ -21,10 +21,10 @@ export default function ToolsPage() {
       <section>
         <div className="hw-wrap hw-section">
           <div className="hw-index">
-            <a href="/bank-statement">
+            <a href="/check#statement">
               <div>
-                <h3>Bank statement check and insights</h3>
-                <p>Upload a PDF or CSV statement: every line tied out, then where the money went, who pays you and what to look at.</p>
+                <h3>Free check: your books or a bank statement</h3>
+                <p>Connect Xero or QuickBooks read-only, or upload a bank statement: what needs fixing first, where the money went and what to look at.</p>
               </div>
               <span className="hw-mono">Free</span>
             </a>

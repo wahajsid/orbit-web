@@ -160,7 +160,7 @@ export default function Page() {
                 <p className="tt-ex">«نعم، اجعلها قاعدة دائمة.»</p>
               </li>
             </ol>
-            <p className="tt-more tt-more--dark"><a className="tt-link" href="/bank-statement">جرّبه على كشف حساب بنكي، مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
+            <p className="tt-more tt-more--dark"><a className="tt-link" href="/check">جرّبه مجانًا على دفاترك أو على كشف حساب بنكي <span aria-hidden="true">←</span>{inEnglish}</a></p>
           </div>
         </section>
 
@@ -285,7 +285,7 @@ export default function Page() {
                   </ol>
                 </div>
                 <p className="hw-demo-direct">تفضّل أن تختار الموعد بنفسك؟ <a className="tt-link" {...DEMO}>اختر موعدًا في تقويمنا <span aria-hidden="true">↗</span>{newTab}</a></p>
-                <p className="tt-invite">{KEY_LINE.ar} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a> <a className="hw-link hw-link--ruled" href="/check">أو افحص دفاترك مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
+                <p className="tt-invite">{KEY_LINE.ar} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a> <a className="hw-link hw-link--ruled" href="/check">أو افحص دفاترك أو كشف حسابك البنكي مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
               </div>
               <EnquiryForm source="Arabic homepage" locale="ar" demo />
             </div>
