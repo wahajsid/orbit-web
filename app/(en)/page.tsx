@@ -3,11 +3,12 @@
    on the finance work inside the accounting system you already use. The
    visitor should leave thinking "I can give this a job, inspect its work,
    and make the decisions that matter." So:
-     H-1 the promise, and directly under it a sample workspace where one
+     H-1 the promise beside the close film (kept, owner 2026-10-25), and
+         under it a sample workspace where one
          piece of work runs from a gap to a reviewable entry ("Why this
          entry?" is the key click);
      H-2 everyday outcomes, each with a concrete example;
-     H-3 the finished close: the film and the 31-workpaper binder (kept);
+     H-3 the finished close: the 31-workpaper binder (kept);
      H-4 the memory story: any AI can read a statement, Hysaab remembers
          your company (learn, unlearn, relearn);
      H-5 your existing system, available vs planned;
@@ -89,15 +90,16 @@ export default function Page() {
         <section className="tt-sec tt-grid tt-hero tt-hero3">
           <div className="hw-wrap">
             <Wp r="H-1" right={<>Prepared by <b>Hysaab</b> · Decided by <b>you</b></>}>AI for accounting, close and finance</Wp>
-            <div className="tt-hero3-g">
-              <h1>Your finance team. <span className="tt-hl">Without changing your accounting system.</span></h1>
-              <div>
+            <div className="tt-hero2-g tt-hero3-g">
+              <div className="tt-hero2-copy">
+                <h1>Your finance team. <span className="tt-hl">Without changing your accounting system.</span></h1>
                 <p className="tt-hero-sub">Hysaab connects to your books, investigates discrepancies and prepares the work for your review, from reconciliations to the month-end close. You see what’s done, what’s missing, and what needs your decision.</p>
                 <div className="tt-acts tt-hero2-acts">
                   <a className="hw-btn hw-btn--navy m-cta" href="#sample">See Hysaab work <span aria-hidden="true">↓</span></a>
                   <a className="tt-link" {...DEMO}>Book a live demo <span aria-hidden="true">↗</span>{newTab}</a>
                 </div>
               </div>
+              <CloseFilm />
             </div>
             <SampleWorkspace />
           </div>
@@ -124,17 +126,16 @@ export default function Page() {
         <section className="tt-sec tt-grid" id="binder" aria-labelledby="tt-binder-h">
           <div className="hw-wrap">
             <Wp r="H-3" right="The product's own numbers">What you get at the end of every close</Wp>
-            <div className="tt-close-g">
+            <div>
               <div>
                 <h2 className="tt-h2" id="tt-binder-h" data-reveal="">A closed month, <span className="tt-hl" data-play="">and the binder to prove it.</span></h2>
-                <div className="tt-facts tt-facts2" data-reveal="stagger-lg">
+                <div className="tt-facts" data-reveal="stagger-lg">
                   <article><b>31</b><p>Excel workpapers in every close binder, each with who prepared it, who reviewed it, and DRAFT or FINAL.</p></article>
                   <article><b>T+1–T+5</b><p>Every close task dated by working day, with an owner. At-risk tasks show before the deadline.</p></article>
                   <article><b>0</b><p>Accruals booked before a person confirms them. Reconciliations need a second signature.</p></article>
                   <article><b>Days</b><p>Days to close, measured every month, so each close can be compared with the last.</p></article>
                 </div>
               </div>
-              <CloseFilm />
             </div>
             <div className="tt-binder" aria-label="The workpapers in a Hysaab close binder">
               <p className="tt-binder-h"><span>Close binder · one folder per month</span><span>{BINDER.length} workpapers</span></p>

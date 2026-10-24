@@ -329,9 +329,9 @@ html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--san
 .hw-table .hw-table-id, .hw-table .hw-table-num { font-family: var(--hw-mono); font-size: 14px; }
 
 /* ── finance-first homepage (2026-10-25) ── */
-.tt-hero3-g { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); margin-top: 40px; align-items: end; }
-.tt-hero3 h1 { font: 900 clamp(42px, 5.4vw, 84px)/0.95 var(--hw-serif); letter-spacing: -0.035em; color: var(--hw-ink); }
-.tt-hero3 .tt-hero-sub { margin-top: 0 !important; }
+.tt-hero3-g { align-items: center; }
+.tt-hero3 .tt-hero-sub { margin-top: 20px !important; }
+.tt-hero3 h1 { font: 900 clamp(38px, 4.4vw, 68px)/0.97 var(--hw-serif); letter-spacing: -0.035em; color: var(--hw-ink); }
 .tt-outs { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 48px; border-top: 2px solid var(--hw-ink); }
 .tt-outs article { padding-block: 22px 0; padding-inline: 0 22px; min-width: 0; display: grid; gap: 10px; align-content: start; }
 .tt-outs article + article { padding-inline-start: 22px; border-inline-start: 1px solid var(--hw-hairline); }
