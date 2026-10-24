@@ -59,3 +59,10 @@
   .cf-binder li { grid-template-columns: 26px minmax(0, 1fr); }
   .cf-bar > span:nth-child(2) { font-size: 11px; }
 }
+
+/* Work films (WorkFilm.tsx): one scene; the stamped card rises over the rows. */
+.wf .wf-scene { opacity: 1 !important; transform: none !important; pointer-events: auto; }
+.wf[data-scene="locked"] .cf-lock { opacity: 1; transform: none; }
+.wf .cf-lock { inset: auto 20px 18px 20px; }
+.wf .cf-cal li { grid-template-columns: 66px 22px minmax(0, 1fr); }
+.wf .cf-d { white-space: nowrap; }
