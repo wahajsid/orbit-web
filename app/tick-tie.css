@@ -273,6 +273,39 @@ html.m-ready [data-play]:not(.is-in):not(.is-seen) .tt-circle path { stroke-dash
 }
 .tt-more .tt-link, .tt-clients .tt-link { color: var(--hw-ink); }
 
+/* ── simpler homepage (2026-10-24): hero with the close film, the binder ── */
+.tt-hero2-g { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 4.5vw, 64px); margin-top: 40px; align-items: center; }
+.tt-hero2 h1 { font: 900 clamp(42px, 5.2vw, 80px)/0.95 var(--hw-serif); letter-spacing: -0.035em; color: var(--hw-ink); }
+.tt-hero2 h1 .tt-hl { display: inline; }
+.tt-hero2-acts { margin-top: 28px; }
+.tt-facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 48px; border-top: 2px solid var(--hw-ink); }
+.tt-facts article { padding-block: 22px 0; padding-inline: 0 22px; min-width: 0; }
+.tt-facts article + article { padding-inline-start: 22px; border-inline-start: 1px solid var(--hw-hairline); }
+.tt-facts b { display: block; font: 900 clamp(34px, 3.6vw, 52px)/1 var(--hw-serif); letter-spacing: -0.03em; color: var(--hw-ink); white-space: nowrap; }
+.tt-facts p { color: var(--hw-supporting); margin-top: 12px !important; font-size: 15.5px; }
+.tt-binder { margin-top: clamp(40px, 5vw, 64px); border: 1px solid var(--hw-ink); background: var(--hw-cream); box-shadow: 8px 8px 0 var(--hw-hairline); }
+.tt-binder-h { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--hw-ink); font: 400 12px var(--hw-mono); color: var(--hw-supporting); }
+.tt-binder ol { list-style: none; margin: 0; padding: 12px 16px 16px; columns: 3 240px; column-gap: 28px; }
+.tt-binder li { break-inside: avoid; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--hw-hairline); font-size: 14.5px; }
+.tt-binder li span { font: 400 12.5px/1.6 var(--hw-mono); color: var(--hw-red-ink); }
+.tt-steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; border-top: 2px solid var(--hw-ink); margin-top: 48px; }
+.tt-steps3 li { grid-template-columns: 44px 1fr; border-bottom: 0; }
+.tt-origin2 { margin-top: clamp(48px, 6vw, 80px); display: grid; gap: 8px; }
+.tt-origin2 > p:first-child { display: flex; gap: 10px; align-items: baseline; font-size: clamp(17px, 1.3vw, 19.5px); max-width: 64ch; }
+.tt-origin2 .tt-orgs { margin-top: 20px; max-width: 760px; }
+@media (max-width: 960px) {
+  .tt-hero2-g { grid-template-columns: 1fr; }
+  .tt-facts { grid-template-columns: 1fr 1fr; }
+  .tt-facts article:nth-child(3) { padding-inline-start: 0; border-inline-start: 0; }
+  .tt-facts article { padding-bottom: 22px; }
+  .tt-steps3 { grid-template-columns: 1fr; }
+  .tt-steps3 li { border-bottom: 1px solid var(--hw-hairline); }
+}
+@media (max-width: 560px) {
+  .tt-facts { grid-template-columns: 1fr; }
+  .tt-facts article + article { padding-inline-start: 0; border-inline-start: 0; border-top: 1px solid var(--hw-hairline); }
+}
+
 /* ── /pricing: self-serve volume bands (components/hysaab/PriceBands.tsx) ── */
 .tt-bands { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 72px); align-items: start; margin-top: clamp(48px, 6vw, 72px); padding-top: 28px; border-top: 1px solid var(--hw-hairline); }
 .tt-bands-head h3 { font: 800 clamp(24px, 2.4vw, 32px)/1.1 var(--hw-serif); letter-spacing: -0.02em; margin-top: 10px !important; }

@@ -18,7 +18,8 @@ export function OpenPoints({ locale = "en" }: { locale?: Locale }) {
   const t = T[locale];
   const [n, setN] = useState<number | null>(null);
   useEffect(() => {
-    const marks = Array.from(document.querySelectorAll<HTMLElement>("[data-open]"));
+    // Sections only, with a number: other elements (menus) use data-open as a state flag.
+    const marks = Array.from(document.querySelectorAll<HTMLElement>("section[data-open]")).filter((m) => Number.isFinite(Number(m.dataset.open)) && m.dataset.open !== "");
     if (!marks.length) return;
     let raf = 0;
     const update = () => {
