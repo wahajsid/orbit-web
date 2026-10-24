@@ -82,3 +82,11 @@ html[dir="rtl"] .hw-index-en { text-align: end; }
 
 /* The accounting terminal's scenario title sits in a narrow column. */
 html[lang="ar"] .term-sticky .section-head { font-size: clamp(28px, 2.8vw, 40px); line-height: 1.3; margin-bottom: 12px; }
+
+/* Finance-first homepage (2026-10-25): letter-spacing and upper-casing
+   break Arabic letter joining, so the small mono labels drop both. */
+html[dir="rtl"] .cf-lock-k, html[dir="rtl"] .sw-amber, html[dir="rtl"] .sw-green, html[dir="rtl"] .sw-ev span,
+html[dir="rtl"] .sw-je th, html[dir="rtl"] .tt-st, html[dir="rtl"] .tt-sys thead th, html[dir="rtl"] .cf-tag, html[dir="rtl"] .sw-tag {
+  letter-spacing: 0; text-transform: none; font-family: var(--hw-serif);
+}
+html[dir="rtl"] .cf-lock-sign { transform-origin: right; transform: rotate(1.5deg); }

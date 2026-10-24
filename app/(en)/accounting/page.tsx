@@ -91,8 +91,8 @@ export default function AccountingPage() {
     <PageShell band={{ title: "See it on your own books.", body: "Bring one process that takes too long. We will walk it through the workspace with you, then confirm the scope and fees before any commitment." }}>
       <PageHero
         eyebrow="Hysaab Finance · for finance teams"
-        title={<>Hysaab Finance.<br /><span>AI agents for accounting and reporting.</span></>}
-        lede="Agents prepare the payables, the reconciliations, the close and the reporting pack inside the ledger you already use. Your team reviews and approves."
+        title={<>Your finance team.<br /><span>Without changing your accounting system.</span></>}
+        lede="Hysaab Finance connects to your books, investigates discrepancies and prepares the work for your review: the payables, the reconciliations, the month-end close and its binder, and the reporting pack. Your team approves."
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
         <a className="hw-link hw-link--light" href="/check">Check your books free <span aria-hidden="true">→</span></a>

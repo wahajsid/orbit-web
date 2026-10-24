@@ -92,8 +92,9 @@ export default function AccountingPage() {
       <PageHero
         locale="ar"
         eyebrow="Hysaab Finance · للفرق المالية"
-        title={<>Hysaab Finance.<br /><span>وكلاء ذكاء اصطناعي للمحاسبة والتقارير.</span></>}
-        lede="يُعدّ الوكلاء الذمم الدائنة والمطابقات والإقفال وحزمة التقارير داخل النظام المحاسبي الذي تستخدمه بالفعل. وفريقك يراجع ويعتمد."
+        // AR-REVIEW: title and lede (finance-first, 2026-10-25)
+        title={<>فريقك المالي.<br /><span>دون تغيير نظامك المحاسبي.</span></>}
+        lede="يتصل Hysaab Finance بدفاترك، ويتحقق من الفروقات، ويُعدّ العمل لمراجعتك: الذمم الدائنة، والمطابقات، والإقفال الشهري وملفه، وحزمة التقارير. وفريقك يعتمد."
       >
         <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
         <a className="hw-link hw-link--light" href="/check">افحص دفاترك مجانًا (بالإنجليزية) <span aria-hidden="true">←</span></a>

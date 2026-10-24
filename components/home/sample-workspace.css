@@ -70,3 +70,5 @@
 @media (prefers-reduced-motion: reduce) {
   .sw-in, .sw-why { animation: none; }
 }
+html[dir="rtl"] .sw-rail li.now { box-shadow: inset -3px 0 0 var(--hw-ink); }
+html[dir="rtl"] .sw-je th + th, html[dir="rtl"] .sw-je td + td { text-align: left; }
