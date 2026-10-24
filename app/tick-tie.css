@@ -412,7 +412,7 @@ html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--san
 
 /* ── product pages: /audit, /firms, /hire (2026-10-25) ── */
 .tt-oldnew { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 2px solid var(--hw-ink); }
-.tt-oldnew li { display: grid; gap: 6px; padding: 16px 22px 16px 0; border-bottom: 1px solid var(--hw-hairline); }
+.tt-oldnew li { display: grid; gap: 6px; padding-block: 16px; padding-inline: 0 22px; border-bottom: 1px solid var(--hw-hairline); }
 .tt-oldnew li:nth-child(even) { padding-inline-start: 22px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-oldnew s { font: 400 13px var(--hw-mono); color: var(--hw-supporting); text-decoration-color: var(--hw-red); text-decoration-thickness: 2px; }
 .tt-oldnew span { font-weight: 800; font-size: clamp(18px, 1.6vw, 22px); display: flex; gap: 10px; align-items: baseline; }
@@ -432,7 +432,7 @@ html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--san
 .tt-walk-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--hw-hairline); }
 .tt-walk-shot figcaption { font: 400 12.5px/1.5 var(--hw-mono); color: var(--hw-supporting); padding: 10px 2px 2px; }
 .tt-rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 40px; border-top: 2px solid #fff; }
-.tt-rules article { padding: 22px 24px 22px 0; border-bottom: 1px solid #2E333C; display: grid; gap: 8px; align-content: start; }
+.tt-rules article { padding-block: 22px; padding-inline: 0 24px; border-bottom: 1px solid #2E333C; display: grid; gap: 8px; align-content: start; }
 .tt-rules article:not(:nth-child(3n+1)) { padding-inline-start: 24px; border-inline-start: 1px solid #2E333C; }
 .tt-rules .tt-who { color: var(--hw-blush); }
 .tt-rules h3 { color: #fff; font-weight: 800; font-size: 19px; }
@@ -442,7 +442,7 @@ html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--san
 .tt-firmrow--3 a:first-child, .tt-firmrow--2 a:first-child { border-inline-start: 0; padding-inline-start: 0; }
 .tt-embed { margin-top: 40px; }
 .tt-areas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 40px; border-top: 2px solid var(--hw-ink); }
-.tt-areas article { padding: 20px 22px 22px 0; border-bottom: 1px solid var(--hw-hairline); display: grid; gap: 8px; align-content: start; }
+.tt-areas article { padding-block: 20px 22px; padding-inline: 0 22px; border-bottom: 1px solid var(--hw-hairline); display: grid; gap: 8px; align-content: start; }
 .tt-areas article:not(:nth-child(3n+1)) { padding-inline-start: 22px; border-inline-start: 1px solid var(--hw-hairline); }
 .tt-areas h3 { font-weight: 800; font-size: 19px; }
 .tt-areas p:not(.tt-who), .tt-areas li { color: var(--hw-supporting); font-size: 15px; }
