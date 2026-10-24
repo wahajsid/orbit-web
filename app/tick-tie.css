@@ -386,3 +386,26 @@ html[lang="ar"] .tt-bands-t thead th { letter-spacing: 0; font-family: var(--san
   .tt-outs, .tt-facts2 { grid-template-columns: 1fr; }
   .tt-outs article + article { padding-inline-start: 0; border-inline-start: 0; border-top: 1px solid var(--hw-hairline); }
 }
+
+/* ── /bank-statement (2026-10-25) ── */
+.tt-bsr { margin: 0; border: 1px solid var(--hw-ink); background: var(--hw-cream); box-shadow: 10px 10px 0 var(--hw-hairline); padding: 16px 18px 14px; display: grid; gap: 12px; min-width: 0; }
+.tt-bsr-h { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font: 400 12px var(--hw-mono); color: var(--hw-supporting); border-bottom: 1px solid var(--hw-ink); padding-bottom: 10px; }
+.tt-bsr-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tt-bsr-tiles div { border: 1px solid var(--hw-hairline); padding: 10px 12px; display: grid; gap: 4px; }
+.tt-bsr-tiles span { font: 500 10.5px var(--hw-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--hw-supporting); }
+.tt-bsr-tiles b { font: 800 clamp(17px, 1.6vw, 22px)/1.1 var(--hw-serif); font-variant-numeric: tabular-nums; }
+.tt-bsr-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.tt-bsr-bars li { display: grid; grid-template-columns: minmax(0, 11em) minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 13.5px; }
+.tt-bsr-bars small { display: block; font-size: 11px; color: var(--hw-supporting); }
+.tt-bsr-bars i { display: block; height: 9px; background: var(--hw-ink); }
+.tt-bsr-bars b { font: 500 12.5px var(--hw-mono); font-variant-numeric: tabular-nums; }
+.tt-bsr-flag { font-size: 13.5px; background: #FFF6C2; padding: 8px 10px; display: flex; gap: 8px; align-items: baseline; }
+.tt-bsr figcaption { font: 400 11.5px var(--hw-mono); color: var(--hw-supporting); }
+.tt-priv { max-width: 74ch; margin-top: 32px !important; gap: 14px !important; }
+.tt-memory .tt-more--dark { color: #C9CDD4; }
+.tt-memory .tt-more--dark .tt-link { color: #fff; border-bottom-color: var(--hw-blush); }
+.tt-memory .tt-more--dark .tt-link:hover { color: var(--hw-ink); }
+@media (max-width: 560px) {
+  .tt-bsr-bars li { grid-template-columns: minmax(0, 1fr) auto; }
+  .tt-bsr-bars i { grid-column: 1 / -1; grid-row: 2; }
+}

@@ -21,6 +21,13 @@ export default function ToolsPage() {
       <section>
         <div className="hw-wrap hw-section">
           <div className="hw-index">
+            <a href="/bank-statement">
+              <div>
+                <h3>Bank statement check and insights</h3>
+                <p>Upload a PDF or CSV statement: every line tied out, then where the money went, who pays you and what to look at.</p>
+              </div>
+              <span className="hw-mono">Free</span>
+            </a>
             {TOOLS.map((t) => (
               <a key={t.slug} href={`/tools/${t.slug}`}>
                 <div>
