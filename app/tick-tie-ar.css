@@ -90,3 +90,4 @@ html[dir="rtl"] .sw-je th, html[dir="rtl"] .tt-st, html[dir="rtl"] .tt-sys thead
   letter-spacing: 0; text-transform: none; font-family: var(--hw-serif);
 }
 html[dir="rtl"] .cf-lock-sign { transform-origin: right; transform: rotate(1.5deg); }
+html[dir="rtl"] .tt-rules .tt-who, html[dir="rtl"] .tt-areas .tt-who { letter-spacing: 0; }

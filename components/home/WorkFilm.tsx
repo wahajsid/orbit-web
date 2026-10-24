@@ -19,12 +19,14 @@ export interface FilmProps {
   rows: FilmRow[];
   final: { k: string; h: string; s: string; sign: string };
   doneOf?: (d: number, n: number) => string;
+  locale?: "en" | "ar";
 }
 
 const STEP = 950;          // ms per row
 const TICK = 100;
 
-export function WorkFilm({ bar, tag, title, sr, cap, rows, final, doneOf = (d, n) => `${d} of ${n} done` }: FilmProps) {
+export function WorkFilm({ bar, tag, title, sr, cap, rows, final, locale = "en", doneOf = locale === "ar" ? (d, n) => `أُنجز ${d} من ${n}` : (d, n) => `${d} of ${n} done` }: FilmProps) {
+  const btn = locale === "ar" ? { play: "تشغيل", pause: "إيقاف مؤقت", sr: " للرسم المتحرك" } : { play: "Play", pause: "Pause", sr: " the animation" };
   const lockAt = rows.length * STEP + 600;
   const loop = lockAt + 4200;
   const [t, setT] = useState(loop - 1);
@@ -96,7 +98,7 @@ export function WorkFilm({ bar, tag, title, sr, cap, rows, final, doneOf = (d, n
         <span>{cap}</span>
         {!still && (
           <button type="button" className="cf-pause" onClick={() => setPaused((p) => !p)} aria-pressed={paused}>
-            {paused ? "Play" : "Pause"}<span className="hw-sr"> the animation</span>
+            {paused ? btn.play : btn.pause}<span className="hw-sr">{btn.sr}</span>
           </button>
         )}
       </figcaption>
