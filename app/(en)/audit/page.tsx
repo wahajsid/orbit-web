@@ -1,14 +1,17 @@
-/* ── /audit ──────────────────────────────────────────────────────────
-   Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
-   all ISA walkthrough content and screenshots. Every figure in the
-   screenshots was produced by the audit engines on a seeded engagement
-   (Helio Trading LLC), never by hand.
-   2026-09-23 (website change plan): the product is Hysaab Audit, sold on
-   its own or with Hysaab Practice; the CTAs book a demo. */
+/* ── /audit: Hysaab Audit ─────────────────────────────────────────────
+   Rebuilt 2026-10-25 in the homepage's Tick & Tie language (W/P strips,
+   the highlighter, a work film in the hero, the demo form at the end).
+   Every fact and screenshot of the September page is kept. Every figure in
+   the screenshots and the film was produced by the audit engines on a
+   seeded engagement (Helio Trading LLC), never by hand.
+   The product is Hysaab Audit, sold on its own or with Hysaab Practice. */
 
 import Image from "next/image";
-import { PageShell, PageHero } from "@/components/home/PageShell";
-import { Wordmark } from "@/components/Wordmark";
+import { SiteHeader } from "@/components/home/HomeHeader";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { EnquiryForm } from "@/components/home/EnquiryForm";
+import { Wp, Tm } from "@/components/home/tt/Wp";
+import { WorkFilm } from "@/components/home/WorkFilm";
 import { DEMO, DEMO_NEW_TAB } from "@/lib/demo";
 
 export const metadata = {
@@ -20,7 +23,7 @@ export const metadata = {
 
 const STEPS: {
   n: string; h: string; p: React.ReactNode; facts: [string, React.ReactNode][];
-  shot: { src: string; w: number; h: number; alt: string }; bar: string; cap: string;
+  shot: { src: string; w: number; h: number; alt: string }; cap: string;
 }[] = [
   {
     n: "01 · The population",
@@ -32,7 +35,6 @@ const STEPS: {
       ["Hashed", <>SHA-256 on the snapshot. Every later figure cites the hash it came from.</>],
     ],
     shot: { src: "/shots/audit-data.png", w: 2940, h: 1256, alt: "Hysaab Audit snapshots: the first pull marked STOP for a broken general-ledger roll-forward, the corrected pull marked complete, both with their SHA-256 hashes" },
-    bar: "Data · snapshots and integrity",
     cap: "The first snapshot stopped the file: the client's trial balance predated a journal in the ledger.",
   },
   {
@@ -41,11 +43,10 @@ const STEPS: {
     p: <>The engines read the entity from its own numbers: ratios, monthly trends, differences above precision, the fraud triangle, related parties. Out comes a risk register per financial statement line and assertion, with the presumed significant risks of ISA 240 already on it and the factor that raised each one written beside it.</>,
     facts: [
       ["Approved by a person", <>The register is a proposal until a partner approves it, and the phase gate will not open before that.</>],
-      ["Materiality", <>Computed from this year's figures, with every candidate benchmark shown and the choice explained.</>],
+      ["Materiality", <>Computed from this year&apos;s figures, with every candidate benchmark shown and the choice explained.</>],
       ["The programme", <>Only the procedures that fit the chart are instantiated. No tax recompute where there is no tax account.</>],
     ],
     shot: { src: "/shots/audit-planning.png", w: 2920, h: 2360, alt: "Hysaab Audit planning: phase strip, the B6 risk register with nine significant risks by line and assertion, and the planning procedures with their last run" },
-    bar: "Planning · risk register and procedures",
     cap: "Nine significant risks, each with the factor that raised it. The gate stays shut until the partner approves.",
   },
   {
@@ -58,7 +59,6 @@ const STEPS: {
       ["Auditable", <>Each row carries the criteria that flagged it. The selection is seeded, so it reproduces.</>],
     ],
     shot: { src: "/shots/audit-jet.png", w: 2920, h: 2360, alt: "Hysaab Audit journal-entry testing: every journal scored against thirty criteria, stratified above performance materiality, scored and random, with the criteria hits and vouching result on each row" },
-    bar: "JET explorer · ISA 240 journal testing",
     cap: "The top rows are the planted ones: revenue booked after year-end, a suspense plug, a duplicate payment, a capitalised expense, a related-party fee.",
   },
   {
@@ -71,7 +71,6 @@ const STEPS: {
       ["Honest answer", <>An upper limit above performance materiality is reported as not accepted, not explained away.</>],
     ],
     shot: { src: "/shots/audit-sampling.png", w: 2920, h: 2360, alt: "Hysaab Audit sampling workbench: monetary-unit sample design, the selection with top stratum and sampled items, audited values entered, and the evaluation with the upper misstatement limit" },
-    bar: "Sampling · monetary-unit sample",
     cap: "Upper limit 563,355 against performance materiality 231,800. The engine calls it: not accepted.",
   },
   {
@@ -81,10 +80,9 @@ const STEPS: {
     facts: [
       ["The request list", <>Derived from the procedures actually planned, not typed from memory, with an owner and a due date per item.</>],
       ["Reliability", <>Scored by route and sender domain. A forwarded reply is evidence of a different grade.</>],
-      ["Sent by people", <>Letters leave the firm's own mailbox. The software drafts them and tracks them.</>],
+      ["Sent by people", <>Letters leave the firm&apos;s own mailbox. The software drafts them and tracks them.</>],
     ],
     shot: { src: "/shots/audit-fieldwork.png", w: 3120, h: 2360, alt: "Hysaab Audit fieldwork: the confirmation tracker with book and confirmed balances, reliability and status, and the information request list with owners, due dates and received status" },
-    bar: "Fieldwork · confirmations and requests",
     cap: "One exception of 42,750, one reply routed through the client, one escalated to alternative procedures.",
   },
   {
@@ -97,7 +95,6 @@ const STEPS: {
       ["File completion", <>Nine checks on the file itself. Two are still open on this engagement, and it says so.</>],
     ],
     shot: { src: "/shots/audit-completion.png", w: 3120, h: 2460, alt: "Hysaab Audit completion: the misstatement register evaluated against materiality on both bases, going concern with stress headroom, file completion checks, and the subsequent events classified under IAS 10" },
-    bar: "Completion · the misstatement register",
     cap: "Five findings, four above clearly trivial, one aggregate the partner has to act on.",
   },
   {
@@ -110,7 +107,6 @@ const STEPS: {
       ["Conclusions", <>A reviewer cannot sign a judgement workpaper without recording a conclusion in their own words.</>],
     ],
     shot: { src: "/shots/audit-workpapers.png", w: 2920, h: 2460, alt: "Hysaab Audit workpaper file: twenty-one workpapers with their review state, and the trade receivables lead schedule open with tick marks, the sub-ledger difference and an inconclusive conclusion" },
-    bar: "Workpapers · the audit file",
     cap: "The receivables lead is inconclusive because the sub-ledger is 15,000 short. It stays inconclusive until someone explains it.",
   },
 ];
@@ -125,195 +121,158 @@ const PHASES: [string, string, string][] = [
   ["6", "Archive", "The file sealed with its manifest and a retention date the firm sets."],
 ];
 
+const OLD_NEW: [string, string][] = [
+  ["25 journals picked by eye", "Every journal scored"],
+  ["Tick marks typed in", "Tick marks set by the engine"],
+  ["Last year's materiality", "Computed on this year's numbers"],
+  ["Sample size from a table", "Designed and evaluated"],
+  ["Confirmations in a mailbox", "Tracked, chased, escalated"],
+  ["Findings on a whiteboard", "One evaluated register"],
+  ["The file built at the end", "Written as work concludes"],
+  ["Review notes in email", "Sign-offs on the paper"],
+];
+
+const RULES: [string, string, string][] = [
+  ["The opinion", "Hysaab never signs", "The opinion is a decision tree a partner walks and records. The report is drafted for the firm to review, and the signed PDF is held as evidence, never produced by the software."],
+  ["Independence", "A firewall, not a policy", "Audit records belong to the firm. The client grants read access for a fixed window and can revoke it. A team member who holds a seat in the client organisation is refused by the database itself."],
+  ["The snapshot", "Testing never touches live books", "Every procedure runs on an immutable, hashed copy. Figures on screen cite the hash. Nothing in the audit module can write to a ledger."],
+  ["Judgement", "Some things are human only", "Inventory counts, inspections and other physical procedures are recorded by the person who performed them. Risk approval, conclusions and the phase gates need a named signature."],
+  ["Arithmetic", "Code computes, not the model", "Materiality, sample sizes, projections, tie-outs and the misstatement aggregate are computed deterministically and reproduce exactly. The model writes around the numbers, never the numbers."],
+  ["Citations", "Flagged until verified", "Standards references are marked unverified until the firm's licensed texts are loaded. We would rather show you the gap than let a confident citation into a file you sign."],
+];
+
+const newTab = <span className="hw-sr">{DEMO_NEW_TAB.en}</span>;
+
 export default function AuditPage() {
   return (
-    <PageShell band={{ kicker: "For licensed audit firms", title: "Bring us a file and we will run it.", body: "Hysaab Audit opens to a small group of licensed audit firms first. Tell us about your practice and a real person will walk you through an engagement within one working day." }}>
-      <PageHero
-        eyebrow="For licensed audit firms"
-        title={<>Hysaab Audit.<br /><span>The ISA file, run by engines, concluded by your partners.</span></>}
-        lede="An ISA audit file that tests every journal. A licensed human concludes and signs; Hysaab never signs an opinion. Buy it on its own, or with Hysaab Practice."
-      >
-        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span><span className="hw-sr">{DEMO_NEW_TAB.en}</span></a>
-        <a className="hw-link hw-link--light" href="#walkthrough">See the file, screen by screen</a>
-      </PageHero>
-
-      {/* ── What changes ── */}
-      <section className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">The file today</p>
-              <h2>An audit is mostly evidence handling.<br /><span>Almost none of it needs a human.</span></h2>
-            </div>
-            <p>Sampling by eye, tick marks in a spreadsheet, materiality carried over from last year&apos;s file, confirmations chased from memory, the file assembled in the week before the deadline. The judgement your licence is for gets whatever hours are left.</p>
-          </div>
-          <div className="hw-cards hw-cards--2">
-            {[
-              ["25 journals picked by eye", "Every journal scored"],
-              ["Tick marks typed in", "Tick marks set by the engine"],
-              ["Last year's materiality", "Computed on this year's numbers"],
-              ["Sample size from a table", "Designed and evaluated"],
-              ["Confirmations in a mailbox", "Tracked, chased, escalated"],
-              ["Findings on a whiteboard", "One evaluated register"],
-              ["The file built at the end", "Written as work concludes"],
-              ["Review notes in email", "Sign-offs on the paper"],
-            ].map(([old, now]) => (
-              <article key={old}>
-                <p className="hw-eyebrow" style={{ textDecoration: "line-through" }}>{old}</p>
-                <h3>{now}</h3>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Phases ── */}
-      <section>
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">How it is organised</p>
-              <h2>Seven phases, and a gate you cannot talk your way through.</h2>
-            </div>
-            <p>Each phase instantiates its own procedures from the programme, runs them on a dispatcher, and refuses to exit until its conditions are met. Phase 3 will not close with selected journals unvouched. Phase 4 will not close without the partner signatures.</p>
-          </div>
-          <div className="hw-rows">
-            {PHASES.map(([n, h, p]) => (
-              <article key={n}>
-                <span className="hw-mono">Phase {n}</span>
-                <h3>{h}</h3>
-                <p>{p}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── The walkthrough ── */}
-      <section className="hw-block--rule" id="walkthrough">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Screen by screen</p>
-              <h2>One engagement, from the snapshot to the signature.</h2>
-            </div>
-            <p>These are the real screens on a seeded engagement: a fictional UAE trading company with misstatements of known type planted in its books, so you can watch the engines find them.</p>
-          </div>
-          {STEPS.map((s) => (
-            <div className="hw-feature" key={s.n}>
-              <div className="hw-feature-copy">
-                <p className="hw-eyebrow">{s.n}</p>
-                <h3>{s.h}</h3>
-                <p>{s.p}</p>
-                <ul className="hw-ticks">
-                  {s.facts.map(([k, v]) => <li key={k}><strong>{k}.</strong> {v}</li>)}
-                </ul>
+    <div className="hw-page tt-page" id="top">
+      <a href="#main" className="hw-skip">Skip to the content</a>
+      <span data-motion-page="full" hidden />
+      <SiteHeader />
+      <main id="main">
+        {/* ── A-1 The promise and the file running ── */}
+        <section className="tt-sec tt-grid tt-hero tt-hero3">
+          <div className="hw-wrap">
+            <Wp r="A-1" right={<>Run by <b>engines</b> · Concluded by <b>your partners</b></>}>Hysaab Audit · for licensed audit firms</Wp>
+            <div className="tt-hero2-g tt-hero3-g">
+              <div className="tt-hero2-copy">
+                <h1>The ISA file, run by engines. <span className="tt-hl">Concluded by your partners.</span></h1>
+                <p className="tt-hero-sub">An ISA audit file that tests every journal. A licensed person concludes and signs; Hysaab never signs an opinion. Buy it on its own, or with Hysaab Practice.</p>
+                <div className="tt-acts tt-hero2-acts">
+                  <a className="hw-btn hw-btn--navy m-cta" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
+                  <a className="tt-link" href="#walkthrough">See the file, screen by screen <span aria-hidden="true">↓</span></a>
+                </div>
               </div>
-              <div className="hw-shot">
-                <Image src={s.shot.src} width={s.shot.w} height={s.shot.h} sizes="(max-width: 760px) 100vw, 55vw" alt={s.shot.alt} style={{ width: "100%", height: "auto", borderRadius: 4, border: "1px solid var(--hw-hairline)" }} />
-                <p className="hw-shot-cap">{s.cap}</p>
+              <WorkFilm
+                bar="Helio Trading LLC · FY2025 audit · seeded engagement" tag="Illustrative" title="The engagement"
+                sr="Illustration of a seeded audit engagement in Hysaab Audit: the snapshot is hashed and checked, the risk register approved, all 743 journals scored, the sample evaluated, confirmations tracked and the misstatements aggregated, leaving the file ready for the partner, who signs."
+                cap="Seeded engagement · fictional company · figures from the engines"
+                rows={[
+                  { label: "Data", task: "Snapshot hashed and checked", done: "SHA-256 · roll-forward ties" },
+                  { label: "Plan", task: "Risk register approved", done: "9 significant risks · partner signed" },
+                  { label: "JET", task: "Every journal scored", done: "743 of 743 · 175 selected" },
+                  { label: "MUS", task: "Sample evaluated", done: "Upper limit 563,355 > PM 231,800 · not accepted" },
+                  { label: "Field", task: "Confirmations tracked", done: "1 exception of 42,750 · 1 escalated" },
+                  { label: "Close", task: "Misstatements aggregated", done: "703,500 against 386,400 · material" },
+                ]}
+                final={{ k: "Ready for the partner", h: "The file is written", s: "Workpapers cross-referenced · two file checks still open", sign: "Partner signature required" }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── A-2 What changes ── */}
+        <section className="tt-sec" aria-labelledby="au-why-h">
+          <div className="hw-wrap">
+            <Wp r="A-2" right="The file today">What changes</Wp>
+            <h2 className="tt-h2" id="au-why-h" data-reveal="">An audit is mostly evidence handling. <span className="tt-hl" data-play="">Almost none of it needs a human.</span></h2>
+            <p className="tt-lead">Sampling by eye, tick marks in a spreadsheet, materiality carried over from last year&apos;s file, confirmations chased from memory, the file assembled in the week before the deadline. The judgement your licence is for gets whatever hours are left.</p>
+            <ul className="tt-oldnew" data-reveal="stagger-lg">
+              {OLD_NEW.map(([o, n]) => <li key={o}><s>{o}</s><span><Tm m="✓" />{n}</span></li>)}
+            </ul>
+          </div>
+        </section>
+
+        {/* ── A-3 Seven phases ── */}
+        <section className="tt-sec tt-grid" aria-labelledby="au-ph-h">
+          <div className="hw-wrap">
+            <Wp r="A-3" right="Gates, not reminders">How it is organised</Wp>
+            <h2 className="tt-h2" id="au-ph-h" data-reveal="">Seven phases, and a gate <span className="tt-hl" data-play="">you cannot talk your way through.</span></h2>
+            <p className="tt-lead">Each phase instantiates its own procedures from the programme, runs them, and refuses to exit until its conditions are met. Phase 3 will not close with selected journals unvouched. Phase 4 will not close without the partner signatures.</p>
+            <ol className="tt-steps tt-phases" data-reveal="stagger-lg">
+              {PHASES.map(([n, h, p]) => <li key={n}><span className="tt-step-n">Phase {n}</span><div><h3>{h}</h3><p>{p}</p></div></li>)}
+            </ol>
+          </div>
+        </section>
+
+        {/* ── A-4 Screen by screen ── */}
+        <section className="tt-sec" id="walkthrough" aria-labelledby="au-walk-h">
+          <div className="hw-wrap">
+            <Wp r="A-4" right="Real screens · seeded engagement">Screen by screen</Wp>
+            <h2 className="tt-h2" id="au-walk-h" data-reveal="">One engagement, <span className="tt-hl" data-play="">from the snapshot to the signature.</span></h2>
+            <p className="tt-lead">These are the real screens on a seeded engagement: a fictional UAE trading company with misstatements of known type planted in its books, so you can watch the engines find them.</p>
+            <div className="tt-walk">
+              {STEPS.map((s) => (
+                <article key={s.n}>
+                  <div className="tt-walk-copy">
+                    <p className="tt-who">{s.n}</p>
+                    <h3>{s.h}</h3>
+                    <p>{s.p}</p>
+                    <ul className="tt-list">{s.facts.map(([k, v]) => <li key={k}><Tm m="✓" /><span><strong>{k}.</strong> {v}</span></li>)}</ul>
+                  </div>
+                  <figure className="tt-walk-shot">
+                    <Image src={s.shot.src} width={s.shot.w} height={s.shot.h} sizes="(max-width: 960px) 100vw, 55vw" alt={s.shot.alt} />
+                    <figcaption>{s.cap}</figcaption>
+                  </figure>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── A-5 The rules ── */}
+        <section className="tt-sec tt-memory" aria-labelledby="au-rules-h">
+          <div className="hw-wrap">
+            <Wp r="A-5" right="What the software is not allowed to do">The rules</Wp>
+            <h2 className="tt-h2" id="au-rules-h" data-reveal="">Engines compute. Models draft words. <span className="tt-hl" data-play="">A licensed human concludes.</span></h2>
+            <div className="tt-rules" data-reveal="stagger-lg">
+              {RULES.map(([k, h, p]) => <article key={k}><p className="tt-who">{k}</p><h3>{h}</h3><p>{p}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        {/* ── A-6 Where it sits ── */}
+        <section className="tt-sec tt-grid" aria-labelledby="au-sits-h">
+          <div className="hw-wrap">
+            <Wp r="A-6" right="Bought on its own or together">Where it sits</Wp>
+            <h2 className="tt-h2" id="au-sits-h" data-reveal="">Part of the <span className="tt-hl" data-play="">professional services stack.</span></h2>
+            <p className="tt-lead">Hysaab Audit can be bought on its own, or with Hysaab Practice. Both follow the same rule: the AI proposes and a person decides. Each keeps its own client records, so your independence rules decide who works on which client.</p>
+            <div className="tt-firmrow tt-firmrow--3">
+              <a href="/firms"><span className="tt-prod-st"><span>For the firm</span><b>Hysaab Practice</b></span><strong>The practice around the audit</strong><span>Clients, engagement letters, the filing workbench, time, billing, capacity and people.</span></a>
+              <a href="/accounting"><span className="tt-prod-st"><span>For the client&apos;s books</span><b>Hysaab Finance</b></span><strong>The snapshot in one click</strong><span>When the client keeps its books on Hysaab Finance the snapshot is already complete. Pulling it from a connected ledger or a file is the next stage of the build.</span></a>
+              <a href="/contact"><span className="tt-prod-st"><span>For an SME, not an audit</span><b>Readiness review</b></span><strong>Before the auditor arrives</strong><span>The same engines over your own books: completeness, journal testing, tie-outs. Never called an audit, because it is not one.</span></a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── A-7 Where it has got to, and the invitation ── */}
+        <section className="tt-sec hw-conversation tt-conversation" id="conversation">
+          <span id="contact" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap">
+            <Wp r="A-7" right="A person replies within a working day">Bring us a file</Wp>
+            <div className="hw-conversation-grid" data-reveal="stagger-lg">
+              <div>
+                <h2 className="tt-h2">Bring us a file <span className="tt-hl" data-play="">and we will run it.</span></h2>
+                <p className="tt-lead">Hysaab Audit was written from a clean-sheet ISA methodology rather than a template pack, with the engines proved against a seeded engagement whose misstatements are known in advance. Every release re-runs it and scores what was found, what was missed and what was flagged in error. We are opening it to a small group of licensed firms in the UAE and KSA first.</p>
+                <p className="tt-promise"><Tm m="P" /> We will show you what runs today, label what does not, and never let software make a call your licence is on the line for.</p>
+                <p className="hw-demo-direct">Prefer to pick a time yourself? <a className="tt-link" {...DEMO}>Choose a slot in our calendar <span aria-hidden="true">↗</span>{newTab}</a></p>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── The rules ── */}
-      <section className="hw-block--dark">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">What the software is not allowed to do</p>
-              <h2>Engines compute. Models draft words.<br /><span>A licensed human concludes.</span></h2>
+              <EnquiryForm source="Audit page" demo />
             </div>
           </div>
-          <div className="hw-cards">
-            <article className="is-navy">
-              <p className="hw-eyebrow">The opinion</p>
-              <h3>Hysaab never signs</h3>
-              <p>The opinion is a decision tree a partner walks and records. The report is drafted for the firm to review, and the signed PDF is held as evidence, never produced by the software.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Independence</p>
-              <h3>A firewall, not a policy</h3>
-              <p>Audit records belong to the firm. The client grants read access for a fixed window and can revoke it. A team member who holds a seat in the client organisation is refused by the database itself.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">The snapshot</p>
-              <h3>Testing never touches live books</h3>
-              <p>Every procedure runs on an immutable, hashed copy. Figures on screen cite the hash. Nothing in the audit module can write to a ledger.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Judgement</p>
-              <h3>Some things are human only</h3>
-              <p>Inventory counts, inspections and other physical procedures are recorded by the person who performed them. Risk approval, conclusions and the phase gates need a named signature.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Arithmetic</p>
-              <h3>Code computes, not the model</h3>
-              <p>Materiality, sample sizes, projections, tie-outs and the misstatement aggregate are computed deterministically and reproduce exactly. The model writes around the numbers, never the numbers.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Citations</p>
-              <h3>Flagged until verified</h3>
-              <p>Standards references are marked unverified until the firm&apos;s licensed texts are loaded. We would rather show you the gap than let a confident citation into a file you sign.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Where it sits ── */}
-      <section>
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Where it sits</p>
-              <h2>Part of the professional services stack.</h2>
-            </div>
-            <p>Hysaab Audit can be bought on its own, or with <a href="/firms">Hysaab Practice</a>, our product for tax and advisory firms. Both follow the same rule: the AI proposes and a person decides. Each keeps its own client records, so your independence rules decide who works on which client.</p>
-          </div>
-          <div className="hw-cards">
-            <article>
-              <p className="hw-eyebrow">For the firm</p>
-              <h3>Hysaab Practice</h3>
-              <p>The practice around the audit: clients, engagement letters, the filing workbench, time, billing, capacity and people. A signed letter creates the obligations, and the obligations create the work.</p>
-              <a className="hw-link" href="/firms">See Hysaab Practice <span aria-hidden="true">→</span></a>
-            </article>
-            <article>
-              <p className="hw-eyebrow">For the client&apos;s books</p>
-              <h3>Hysaab Finance</h3>
-              <p>When the client keeps its books on Hysaab Finance the snapshot is one click and already complete. Pulling the population from a connected ledger or a file upload is the next stage of the build.</p>
-              <a className="hw-link" href="/accounting">See Hysaab Finance <span aria-hidden="true">→</span></a>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">For an SME, not an audit</p>
-              <h3>Readiness review</h3>
-              <p>The same engines over your own books, before the auditor arrives: completeness, journal testing, tie-outs and the differences you will be asked about. It is never called an audit, because it is not one.</p>
-              <a className="hw-link" href="/contact">Ask for a readiness review <span aria-hidden="true">→</span></a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Honest state ── */}
-      <section className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-split">
-            <div>
-              <p className="hw-eyebrow">Where it has got to</p>
-              <h2>Built against a working methodology, in the open.</h2>
-            </div>
-            <div className="hw-prose">
-              <p>Hysaab Audit was written from a clean-sheet ISA methodology rather than a template pack: acceptance through to archive, with the engines proved against a seeded engagement whose misstatements are known in advance. Every release re-runs it and scores what was found, what was missed and what was flagged in error.</p>
-              <p>We are opening it to a small group of licensed firms in the UAE and KSA first.</p>
-            </div>
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">Our promise</span>
-            <p>We will show you what runs today, label what does not, and never let software make a call your licence is on the line for.</p>
-          </div>
-        </div>
-      </section>
-    </PageShell>
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
