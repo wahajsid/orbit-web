@@ -10,7 +10,13 @@
    app/tick-tie-ar.css.
    AR-REVIEW: strings marked below are new drafts for the native reviewer
    (brand/AR-REVIEW.md). Strings carried over unchanged from the previous
-   Arabic homepage (control, ways to work, the form) are not marked. */
+   Arabic homepage (control, ways to work, the form) are not marked.
+   2026-10-25 v2: the same redesign as the English page (PR #25): one
+   primary action (اطلب الانضمام) with the demo beside it, the systems
+   strip, how it works, the outcomes as cards whose visuals play on screen,
+   the tagline reveal, the FAQ (with FAQ schema) and the final call with
+   its risk reversal. The new sections are components/home/lp with
+   locale="ar"; their strings are AR-REVIEW drafts. */
 
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { EnquiryForm, InterestLink } from "@/components/home/EnquiryForm";
@@ -23,6 +29,9 @@ import { Wp, Tm } from "@/components/home/tt/Wp";
 import { ReviewNote } from "@/components/home/tt/ReviewNote";
 import { CloseFilm } from "@/components/home/CloseFilm";
 import { SampleWorkspace } from "@/components/home/SampleWorkspace";
+import { HowItWorks, Bento, Faq, faqSchema } from "@/components/home/lp/Sections";
+import { TaglineReveal } from "@/components/home/lp/TaglineReveal";
+import "../lp.css";
 
 /* AR-REVIEW: title and description */
 export const metadata = {
@@ -40,14 +49,6 @@ const BINDER = [
   "ضريبة الشركات والزكاة", "القروض والاقتراض", "ذمم دائنة أخرى ومخصصات", "حقوق الملكية", "الحسابات المعلّقة والوسيطة",
   "إعادة تقييم العملات", "فصل الفترات", "سجل قيود اليومية", "تحليل تغيّرات الميزانية", "تحليل تغيّرات قائمة الدخل", "ورقة عمل التدفقات النقدية",
   "القوائم المالية", "البنود المفتوحة والاستثناءات", "أدلة قائمة الإقفال", "توحيد المجموعة",
-];
-
-/* AR-REVIEW: everyday outcomes */
-const OUTCOMES: { m: string; h: string; p: string; ex: string }[] = [
-  { m: "B", h: "افهم نقدك", p: "كل سطر بنكي مطابق مع الفاتورة أو الدفعة التي وراءه، والرصيد مطابق للبنك.", ex: "طُوبق 212 سطرًا خلال الليل؛ وبقي سطران لك، لكل منهما سببه." },
-  { m: "T", h: "اكتشف الفروقات", p: "التكرار والترميز الخاطئ والفواتير الناقصة تُكتشف قبل أن تصل إلى الحسابات.", ex: "فاتورة المورّد نفسها مُدخلة مرتين في مارس: أُوقفت ولم تُدفع مرتين." },
-  { m: "✓", h: "جهّز الإقفال", p: "تقويم إقفال مؤرخ بأصحاب المهام، ومطابقات يوقّعها شخص ثانٍ، وملف محفوظ.", ex: "31 ورقة عمل لأكتوبر حُفظت في يوم العمل الرابع." },
-  { m: "?", h: "أجب عن الأسئلة الضريبية", p: "ضريبة القيمة المضافة وضريبة الشركات في الإمارات والسعودية تُفحص أثناء العمل، لا عند الإقرار.", ex: "فاتورة تحتسب 5% على تصدير خاضع لنسبة الصفر: أُوقفت مع ذكر القاعدة." },
 ];
 
 /* AR-REVIEW: the systems table */
@@ -72,7 +73,8 @@ const inEnglish = <span className="hw-sr"> (بالإنجليزية)</span>;
 
 export default function Page() {
   return (
-    <div className="hw-page tt-page" id="top">
+    <div className="hw-page tt-page lp" id="top">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema("ar")) }} />
       <a href="#main" className="hw-skip">تخطَّ إلى المحتوى</a>
       <span data-motion-page="full" hidden />
       <HomeHeader locale="ar" />
@@ -84,11 +86,17 @@ export default function Page() {
             <Wp locale="ar" r="H-1" right={<>أعدّه <b>Hysaab</b> · وقررته <b>أنت</b></>}>ذكاء اصطناعي للمحاسبة والإقفال والمالية</Wp>
             <div className="tt-hero2-g tt-hero3-g">
               <div className="tt-hero2-copy">
-                <h1>فريقك المالي. <span className="tt-hl">دون تغيير نظامك المحاسبي.</span></h1>
+                <h1>فريقك المالي.<br /> <span className="tt-hl">دون تغيير نظامك المحاسبي.</span></h1>
                 <p className="tt-hero-sub">يتصل Hysaab بدفاترك، ويتحقق من الفروقات، ويُعدّ العمل لمراجعتك، من المطابقات إلى الإقفال الشهري. ترى ما أُنجز، وما ينقص، وما يحتاج إلى قرارك.</p>
-                <div className="tt-acts tt-hero2-acts">
-                  <a className="hw-btn hw-btn--navy m-cta" href="#sample">شاهد Hysaab يعمل <span aria-hidden="true">↓</span></a>
-                  <a className="tt-link" {...DEMO}>احجز عرضًا حيًّا <span aria-hidden="true">↗</span>{newTab}</a>
+                {/* AR-REVIEW: the key line's tail and the strip label */}
+                <div className="lp-acts">
+                  <a className="lp-btn" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a>
+                  <a className="lp-link" {...DEMO}>احجز عرضًا تجريبيًا<span aria-hidden="true"> ↗</span>{newTab}</a>
+                  <p className="lp-key">{KEY_LINE.ar} أو <a className="lp-link" href="#sample">شاهده يعمل على شهر تجريبي</a>.</p>
+                </div>
+                <div className="lp-proof">
+                  <span>يعمل داخل</span>
+                  {["Xero", "Zoho Books", "QuickBooks", "Odoo", "Wafeq", "ERPNext"].map((n) => <b key={n} lang="en" dir="ltr"><i aria-hidden="true">✓</i>{n}</b>)}
                 </div>
               </div>
               <CloseFilm locale="ar" />
@@ -97,27 +105,35 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-2 ما يفعله كل يوم (AR-REVIEW) ── */}
-        <section className="tt-sec" id="outcomes" aria-labelledby="tt-out-h">
+        {/* ── H-2 كيف يعمل (AR-REVIEW) ── */}
+        <section className="tt-sec" id="how" aria-labelledby="lp-how-h">
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-2" right="أمثلة · بيانات تجريبية">ما يفعله كل يوم</Wp>
-            <h2 className="tt-h2" id="tt-out-h" data-reveal="">العمل الذي يؤديه فريقك اليوم، <span className="tt-hl" data-play="">مُعدٌّ قبل أن يصلوا إليه.</span></h2>
-            <div className="tt-outs" data-reveal="stagger-lg">
-              {OUTCOMES.map((o) => (
-                <article key={o.h}>
-                  <h3><Tm m={o.m} />{o.h}</h3>
-                  <p>{o.p}</p>
-                  <p className="tt-ex">{o.ex}</p>
-                </article>
-              ))}
-            </div>
+            <Wp locale="ar" r="H-2" right="للقراءة فقط في البداية">كيف يعمل</Wp>
+            <h2 className="lp-h2" id="lp-how-h" data-reveal="">ثلاث خطوات، والثالثة <span className="tt-hl" data-play="">لك دائمًا.</span></h2>
+            <HowItWorks locale="ar" />
           </div>
         </section>
 
-        {/* ── H-3 الإقفال المكتمل: الملف (AR-REVIEW) ── */}
+        {/* ── H-3 ما يفعله كل يوم (AR-REVIEW) ── */}
+        <section className="tt-sec" id="outcomes" aria-labelledby="tt-out-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="H-3" right="أمثلة · بيانات تجريبية">ما يفعله كل يوم</Wp>
+            <h2 className="tt-h2" id="tt-out-h" data-reveal="">العمل الذي يؤديه فريقك اليوم، <span className="tt-hl" data-play="">مُعدٌّ قبل أن يصلوا إليه.</span></h2>
+            <Bento locale="ar" />
+          </div>
+        </section>
+
+        {/* ── H-4 الشعار (AR-REVIEW) ── */}
+        <section className="tt-sec lp-tag" aria-label="ما الغاية من Hysaab">
+          <div className="hw-wrap">
+            <TaglineReveal text="الملاحقة والمطابقة والإعداد، منجزة قبل أن تصل. وما يبقى هو الجزء الذي يحتاج إلى محاسب: *الحكم *المهني." />
+          </div>
+        </section>
+
+        {/* ── H-5 الإقفال المكتمل: الملف (AR-REVIEW) ── */}
         <section className="tt-sec tt-grid" id="binder" aria-labelledby="tt-binder-h">
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-3" right="أرقام المنتج نفسه">ما تحصل عليه في نهاية كل إقفال</Wp>
+            <Wp locale="ar" r="H-5" right="أرقام المنتج نفسه">ما تحصل عليه في نهاية كل إقفال</Wp>
             <h2 className="tt-h2" id="tt-binder-h" data-reveal="">شهر مُقفل، <span className="tt-hl" data-play="">والملف الذي يثبته.</span></h2>
             <div className="tt-facts" data-reveal="stagger-lg">
               <article><b>31</b><p>ورقة عمل Excel في كل ملف إقفال، ولكل منها من أعدّها ومن راجعها، ومسودة أو نهائية.</p></article>
@@ -134,10 +150,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-4 الذاكرة (AR-REVIEW) ── */}
+        {/* ── H-6 الذاكرة (AR-REVIEW) ── */}
         <section className="tt-sec tt-memory" id="memory" aria-labelledby="tt-mem-h">
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-4" right="لماذا يتحسّن كل شهر">الذاكرة</Wp>
+            <Wp locale="ar" r="H-6" right="لماذا يتحسّن كل شهر">الذاكرة</Wp>
             <h2 className="tt-h2" id="tt-mem-h" data-reveal="">أي ذكاء اصطناعي يقرأ كشف حساب بنكي. <span className="tt-hl" data-play="">Hysaab يتذكّر شركتك.</span></h2>
             <p className="tt-lead">نافذة المحادثة تبدأ من الصفر في كل مرة. أما Hysaab فمتصل بدفاترك ومستنداتك وفريقك وكل قرار اتخذته، ويحتفظ بما يتعلمه. إنه الجزء من المالية الذي لا ينسى كيف تعمل شركتك.</p>
             <ol className="tt-lur" data-reveal="stagger-lg">
@@ -164,10 +180,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-5 نظامك المحاسبي (AR-REVIEW) ── */}
+        {/* ── H-7 نظامك المحاسبي (AR-REVIEW) ── */}
         <section className="tt-sec tt-grid" id="systems" aria-labelledby="tt-sys-h">
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-5" right="دفاترك تبقى السجل">نظامك المحاسبي</Wp>
+            <Wp locale="ar" r="H-7" right="دفاترك تبقى السجل">نظامك المحاسبي</Wp>
             <h2 className="tt-h2" id="tt-sys-h" data-reveal="">احتفظ بالنظام <span className="tt-hl" data-play="">الذي تثق به.</span></h2>
             <p className="tt-lead">يعمل Hysaab مع نظامك المحاسبي، لا بدلًا منه. ولا يُرحَّل شيء قبل أن تسمح قواعد الاعتماد لديك.</p>
             <div className="tt-sys">
@@ -187,10 +203,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-6 تحكّمك ── */}
+        {/* ── H-8 تحكّمك ── */}
         <section className="tt-sec" id="control" aria-labelledby="tt-ctl-h">
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-6" right="ملاحظات المراجعة تبقى في السجل">تحكّمك</Wp>
+            <Wp locale="ar" r="H-8" right="ملاحظات المراجعة تبقى في السجل">تحكّمك</Wp>
             <div className="tt-ctl">
               <div data-reveal="">
                 <h2 className="tt-h2" id="tt-ctl-h">الزميل الجيد لا يكتفي <span className="tt-hl" data-play="">بقول نعم.</span></h2>
@@ -208,7 +224,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-7 طرق العمل، والمكاتب، ومن وراء Hysaab ── */}
+        {/* ── H-9 طرق العمل، والمكاتب، ومن وراء Hysaab ── */}
         <section id="ways" className="tt-sec tt-grid" aria-labelledby="tt-ways-h">
           <span id="products" className="hw-anchor" aria-hidden="true" />
           <span id="family" className="hw-anchor" aria-hidden="true" />
@@ -216,7 +232,7 @@ export default function Page() {
           <span id="team" className="hw-anchor" aria-hidden="true" />
           <span id="origin" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-7" right="النطاق يُتفق عليه قبل أن نبدأ">طرق العمل</Wp>
+            <Wp locale="ar" r="H-9" right="النطاق يُتفق عليه قبل أن نبدأ">طرق العمل</Wp>
             <h2 className="tt-h2" id="tt-ways-h" data-reveal="">فريقك. <span className="tt-hl" data-play="">أو فريقنا إلى جانبه.</span></h2>
             <div className="tt-ways" data-reveal="stagger-lg">
               <article>
@@ -265,17 +281,37 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-8 الدعوة (AR-REVIEW: heading, lede and the demo steps) ── */}
+        {/* ── H-10 الأسئلة (AR-REVIEW) ── */}
+        <section className="tt-sec" id="faq" aria-labelledby="lp-faq-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="H-10" right="تسأله الفرق المالية">الأسئلة</Wp>
+            <div className="lp-faq-g">
+              <div>
+                <h2 className="lp-h2" id="lp-faq-h" data-reveal="">ما تسألنا عنه الفرق المالية <span className="tt-hl" data-play="">أولًا.</span></h2>
+                <p className="lp-lead">سؤال آخر؟ اسألنا في العرض التجريبي، أو اقرأ <a href="/ar/trust">التزاماتنا بشأن البيانات والتحكم</a>.</p>
+              </div>
+              <Faq locale="ar" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── H-11 الدعوة (AR-REVIEW: heading, lede and the demo steps) ── */}
         <section className="tt-sec tt-grid hw-conversation tt-conversation" id="conversation">
           <span id="contact" className="hw-anchor" aria-hidden="true" />
           <span id="ledger" className="hw-anchor" aria-hidden="true" />
           <span id="cohort" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap">
-            <Wp locale="ar" r="H-8" right="يرد عليك شخص">شاهده على دفاترك</Wp>
+            <Wp locale="ar" r="H-11" right="يرد عليك شخص">شاهده على دفاترك</Wp>
             <div className="hw-conversation-grid" data-reveal="stagger-lg">
               <div>
                 <h2 className="tt-h2">شاهد Hysaab يعمل <span className="tt-hl" data-play="">على دفاترك.</span></h2>
                 <p className="tt-lead">أخبرنا بنظامك المحاسبي وما الذي يستغرق وقتًا أطول مما ينبغي. في العرض نتصل للقراءة فقط، فلا يتغير شيء في دفاترك.</p>
+                <div className="lp-acts lp-final-acts">
+                  <a className="lp-btn" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a>
+                  <a className="lp-link" {...DEMO}>احجز عرضًا تجريبيًا<span aria-hidden="true"> ↗</span>{newTab}</a>
+                </div>
+                {/* AR-REVIEW: the four reassurances */}
+                <p className="lp-risk"><span>للقراءة فقط في البداية</span><span>لا يُرحَّل شيء دون اعتمادك</span><span>دون رسوم لكل مستخدم</span><span>فحص مجاني لدفاترك أو لكشف حساب بنكي</span></p>
                 <div className="hw-agenda">
                   <span className="hw-mono">ما يحدث في العرض</span>
                   <ol>
@@ -285,7 +321,7 @@ export default function Page() {
                   </ol>
                 </div>
                 <p className="hw-demo-direct">تفضّل أن تختار الموعد بنفسك؟ <a className="tt-link" {...DEMO}>اختر موعدًا في تقويمنا <span aria-hidden="true">↗</span>{newTab}</a></p>
-                <p className="tt-invite">{KEY_LINE.ar} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.ar}>{ACCESS_LABEL.ar} <span aria-hidden="true">←</span></a> <a className="hw-link hw-link--ruled" href="/check">أو افحص دفاترك أو كشف حسابك البنكي مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
+                <p className="tt-invite">{KEY_LINE.ar} <a className="hw-link hw-link--ruled" href="/check">افحص دفاترك أو كشف حسابك البنكي مجانًا <span aria-hidden="true">←</span>{inEnglish}</a></p>
               </div>
               <EnquiryForm source="Arabic homepage" locale="ar" demo />
             </div>
