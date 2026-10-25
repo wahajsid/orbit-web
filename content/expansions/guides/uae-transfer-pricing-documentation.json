@@ -1,0 +1,147 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "The three layers",
+      "ps": [
+        "UAE transfer pricing compliance stacks in three layers, and most businesses only owe the first. Layer one: every taxable person with related-party or connected-person dealings must be able to show they were priced at arm's length — that is the substantive rule, and it has no size threshold. Layer two: a disclosure form filed with the Corporate Tax return, summarising related-party and connected-person transactions, required once those transactions cross the materiality thresholds set in the FTA's return form. Layer three: formal documentation — a master file and local file — required only for the largest taxpayers: broadly, members of multinational groups above the country-by-country threshold (AED 3.15 billion consolidated revenue) or any taxable person with revenue of AED 200 million or more.",
+        "The anchors are Article 34 of the Corporate Tax Law (the arm's length standard and the five methods), Article 35 (related parties and control), Article 36 (connected persons) and Article 55 (disclosure and documentation), with the documentation thresholds in Ministerial Decision No. 97 of 2023. The FTA's Transfer Pricing Guide (CTGTP1) explains how it applies them and follows the OECD Guidelines where it is silent."
+      ]
+    },
+    {
+      "h": "The thresholds in one place",
+      "list": [
+        "Related party schedule in the return: required where the aggregate value of all transactions with all related parties, at the value in the financial statements or at market value, exceeds AED 40 million in the tax period. Once over, each transaction category above AED 4 million in aggregate is disclosed. Dividends are ignored for both thresholds (FTA Tax Returns guide CTGTXR1)",
+        "Connected persons schedule: required where payments or benefits to a connected person, together with its related parties, exceed AED 500,000",
+        "Master file and local file: a constituent company of a multinational group with consolidated revenue of AED 3,150,000,000 or more, or a taxable person whose own revenue is AED 200,000,000 or more (Article 2(1) of MD 97). A member of a UAE-only group with no business establishments abroad needs a local file but not a master file",
+        "Timing: the disclosure is filed with the return, within nine months of the end of the tax period. A master file, local file or other supporting information must be produced within 30 days of an FTA request, or a later date the FTA allows (Article 55(3) and (4))"
+      ]
+    },
+    {
+      "h": "What the disclosure form wants",
+      "list": [
+        "Related-party transactions by category — goods, services, IP, financing — with values and the pricing method used",
+        "Connected-person payments: remuneration and benefits to owners, directors and their relatives",
+        "Consistency: the numbers must reconcile to the financial statements the return is built on — a form that disagrees with the ledger is an invitation"
+      ],
+      "ps": [
+        "Income and expenditure are reported separately, not netted, and figures are given per related party by type of transaction. A receivable and payable with the same sister company are two lines, not one."
+      ]
+    },
+    {
+      "h": "Worked example: which schedules apply",
+      "ps": [
+        "A mainland trading LLC has revenue of AED 120 million. During the year it pays a management fee of AED 6 million to a free zone sister company that is a Qualifying Free Zone Person, sells goods worth AED 30 million to a related distributor in Oman, and pays its managing director, who holds no shares, salary and benefits of AED 900,000. It pays its UAE parent a dividend of AED 8 million.",
+        "Related party schedule: 6,000,000 + 30,000,000 = AED 36 million. The dividend is ignored, so the AED 40 million line is not crossed and the schedule is not required. Connected persons schedule: a director is a connected person under Article 36, and the AED 900,000 exceeds AED 500,000, so it is required. Master and local file: revenue is below AED 200 million, and the group is far below AED 3.15 billion, so neither is required.",
+        "Next year the parent lends the LLC money and charges AED 5 million of interest. Related-party transactions are now AED 41 million, the schedule is required, and services (AED 6 million), goods (AED 30 million) and interest (AED 5 million) are each above AED 4 million, so all three are disclosed. Neither year removes the need to show the management fee and the sale price to Oman are arm's length."
+      ]
+    },
+    {
+      "h": "What arm's length means in practice",
+      "ps": [
+        "Every intercompany price needs a method you can name — comparable uncontrolled price, cost plus, resale minus, transactional net margin, or transactional profit split — and evidence that the method's inputs are real: agreements signed before the charges ran, cost bases that reconcile, benchmarks for the margin. The documentation burden scales with size, but the analysis burden doesn't: a two-entity group with one management fee needs the same defensible logic as a multinational, just fewer binders."
+      ]
+    },
+    {
+      "h": "Adjusting in the return, up or down",
+      "ps": [
+        "Where the books do not reflect arm's length, the fix is a transfer pricing adjustment in the Corporate Tax return, not a quiet re-pricing. In the example, if a benchmark supports a fee of AED 4.5 million for the services actually received, the LLC adds AED 1.5 million back to taxable income: 1,500,000 × 9% = AED 135,000 of tax. No FTA approval is needed, because the regime is self-assessed, but the adjustment can be audited.",
+        "Downward adjustments draw more scrutiny. FTA Public Clarification CTP011, issued in July 2026, says every related-party transaction on which a downward adjustment is made must be disclosed in the return whatever its value or nature, so the AED 40 million and AED 4 million thresholds do not protect it. The taxpayer should hold the rationale, the arm's length analysis including any benchmarking study, a reconciliation from the financial statements to the values in the return, and evidence that the related party made the matching corresponding adjustment."
+      ]
+    },
+    {
+      "h": "What goes in the local file, and what can stay out",
+      "list": [
+        "Must be documented: transactions with non-resident persons (other than a UAE permanent establishment taxed at the same rate), with exempt persons, with a resident person using Small Business Relief, and with a resident taxed at a different rate, such as a Qualifying Free Zone Person",
+        "Can stay out of the local file: transactions with natural persons acting independently, with a person related only because it is a partner in an unincorporated partnership, and with a UAE permanent establishment of a non-resident taxed at the same rate",
+        "Everything left out must still be at arm's length and supportable on request"
+      ]
+    },
+    {
+      "h": "A minimum file for a small group",
+      "ps": [
+        "Below every threshold, the FTA can still ask for support within 30 days. For a small group the following is usually enough, and it is far cheaper to build as the year runs than to reconstruct."
+      ],
+      "list": [
+        "A signed intercompany agreement for each recurring flow, dated before the first charge, stating the service, the pricing basis and the invoicing frequency",
+        "The cost base behind each cost-plus charge, reconciled to the ledger, and the mark-up with a sentence on why it fits the functions performed",
+        "Loan agreements with principal, rate, repayment terms and security, and interest actually charged and booked",
+        "A schedule of related-party and connected-person totals by category, updated monthly, so the AED 40 million, AED 4 million and AED 500,000 lines are visible before year end",
+        "Board approval of owner and director remuneration with a note of the market evidence used"
+      ]
+    },
+    {
+      "h": "The failures that get priced first",
+      "list": [
+        "Year-end round-number journals labelled 'management fee' with no agreement behind them",
+        "Free-zone entities at 0% receiving charges that strip mainland profit — the single most examined pattern",
+        "Interest-free intercompany balances left to drift for years — loans need terms, and terms need rates",
+        "Disclosure thresholds tracked nowhere, so nobody knows the form was due until the return is being finalised",
+        "Owner and director pay booked through several entities, so no single ledger shows that the AED 500,000 connected person line has been crossed"
+      ]
+    },
+    {
+      "h": "Connected persons: the deduction test",
+      "ps": [
+        "Article 36 adds a test beyond disclosure. A payment or benefit to an owner, director or officer, or to their related parties, is deductible only to the extent it matches the market value of what was provided and is incurred wholly and exclusively for the business. A director's salary above what the role would command at arm's length is partly non-deductible. Listed companies and entities regulated by a UAE competent authority are outside this rule. Owner pay is covered in [director and owner remuneration](/guides/uae-director-owner-remuneration) and management charges in [intercompany management fees](/guides/intercompany-management-fees-uae)."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tags related-party and connected-person flows as they post, keeps the agreement and invoice attached to each, accumulates the disclosure-form categories through the year, and shows the totals against the thresholds — so the form is a report at filing time, not a reconstruction."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who needs to prepare transfer pricing documentation in the UAE?",
+      "a": "A master file and local file are required for a constituent company of a multinational group with consolidated revenue of AED 3.15 billion or more, or a taxable person with revenue of AED 200 million or more (Ministerial Decision No. 97 of 2023). Everyone else must still price related-party and connected-person dealings at arm's length and be able to support them within 30 days of an FTA request."
+    },
+    {
+      "q": "What is the threshold for the UAE transfer pricing disclosure form?",
+      "a": "The related party schedule applies when total related-party transactions exceed AED 40 million in the tax period, and then each category above AED 4 million is disclosed. The connected persons schedule applies when payments or benefits to a connected person and its related parties exceed AED 500,000. Dividends are excluded from the related-party thresholds."
+    },
+    {
+      "q": "When is the UAE transfer pricing disclosure form due?",
+      "a": "With the Corporate Tax return, within nine months of the end of the tax period. For a calendar-year company, the return for the year ended 31 December 2025 was due by 30 September 2026."
+    },
+    {
+      "q": "Do UAE companies with only domestic related parties need transfer pricing?",
+      "a": "Yes. The arm's length rule in Article 34 applies to domestic and foreign related parties alike. It matters most where the two sides are taxed differently, for example a mainland company and a Qualifying Free Zone Person, or a company using Small Business Relief, and such transactions belong in the local file where one is required."
+    },
+    {
+      "q": "How long do I have to submit a local file to the FTA?",
+      "a": "30 days from the FTA's request, or a later date the FTA directs (Article 55(3) of the Corporate Tax Law). The files are expected to be prepared contemporaneously, so they should exist before the request, not be written after it."
+    },
+    {
+      "q": "Can I make a downward transfer pricing adjustment in my UAE tax return?",
+      "a": "Yes, without prior FTA approval, but under Public Clarification CTP011 (July 2026) every related-party transaction with a downward adjustment must be disclosed in the return regardless of value, and you should hold the rationale, the arm's length analysis, a reconciliation to the financial statements and evidence of the corresponding adjustment."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Corporate Tax Guide on Transfer Pricing (CTGTP1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+    },
+    {
+      "label": "FTA: Corporate Tax Guide on Tax Returns (CTGTXR1), Related Parties and Connected Persons schedules",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/CT-Returns-EN-11-11-2024.pdf"
+    },
+    {
+      "label": "FTA: Public Clarification CTP011 (downward adjustments in the Tax Return)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/CTP011%20-%20TP%20downwards%20adjustment%20-07%202026.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Articles 34 to 36 and 55)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    }
+  ],
+  "related": [
+    "intercompany-management-fees-uae",
+    "uae-director-owner-remuneration",
+    "free-zone-corporate-tax-0-percent",
+    "uae-interest-deduction-limitation"
+  ]
+}

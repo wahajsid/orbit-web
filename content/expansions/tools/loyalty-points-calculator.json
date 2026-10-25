@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter four numbers: the sale amount, the face value of the points granted with it (what they are worth to the customer when spent), the percentage of points you expect to be redeemed, and the percentage of the points issued that has been redeemed to date. Negative amounts are treated as zero and both percentages are limited to 0 to 100.",
+        "The calculator then runs these steps and shows the results to two decimal places."
+      ],
+      "list": [
+        "Stand-alone value of the points = face value × expected redemption",
+        "Revenue at sale = sale × sale ÷ (sale + points value)",
+        "Deferred to points = sale × points value ÷ (sale + points value)",
+        "Progress = redeemed to date ÷ expected redemption, capped at 100%",
+        "Released to revenue = deferred × progress, and the contract liability today = deferred − released"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Under IFRS 15, points that give a customer a material right are a separate performance obligation (paragraph B40). The transaction price is split between the goods and the points on a relative stand-alone selling price basis (paragraph 74), with selling prices determined at contract inception (paragraph 76). The calculator uses the sale amount as the goods' stand-alone price, which holds when the goods sell for the same price without points.",
+        "Points rarely have an observable price, so their value is estimated from the discount the customer gets on redemption, adjusted for the likelihood that the option will be exercised (paragraph B42). That is why face value is multiplied by expected redemption.",
+        "Breakage, the points you expect never to be used, is recognised in proportion to the pattern of rights exercised by customers (paragraph B46), not as one gain when points expire. If you cannot estimate breakage reliably, the unused balance is released only when redemption becomes remote. Measuring progress as redemptions divided by expected redemptions does exactly that: once all expected redemptions have happened, the whole deferred amount has been released.",
+        "Two limits to keep in mind. The calculator uses one redemption rate both for the allocation at the sale and for the release pattern; if your estimate changes later, keep the original rate for the allocation and update only the release, booking the effect as a cumulative catch-up. It also works on amounts excluding VAT. VAT on points and vouchers is a separate question covered in the [gift cards and vouchers guide](/guides/gift-cards-vouchers-vat-uae)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai retailer sells goods for AED 1,000 excluding VAT and awards points worth AED 50 when spent. History shows 80% of points are redeemed. By the reporting date, customers have redeemed 40% of the points issued in this batch. Enter 1000, 50, 80 and 40."
+    ],
+    "list": [
+      "Points value: 50 × 80% = AED 40.00",
+      "Allocation: 1,000 ÷ 1,040 = 96.15% to the goods and 3.85% to the points",
+      "Revenue at sale: 1,000 × 1,000 ÷ 1,040 = AED 961.54; deferred to points: 1,000 × 40 ÷ 1,040 = AED 38.46",
+      "Journal at sale: Dr cash 1,000.00; Cr revenue 961.54; Cr contract liability 38.46",
+      "Progress: 40% ÷ 80% = 50%, so AED 19.23 is released. Journal: Dr contract liability 19.23; Cr revenue 19.23",
+      "Contract liability remaining: 38.46 − 19.23 = AED 19.23. When redemptions reach 80% of points issued, the balance is nil and the 20% breakage has been recognised along the way"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How are loyalty points accounted for under IFRS 15?",
+      "a": "Part of the sale price is allocated to the points as a separate performance obligation, based on relative stand-alone selling prices, and held as a contract liability. It is recognised as revenue when points are redeemed or, for expected breakage, in line with redemptions."
+    },
+    {
+      "q": "What is breakage in a loyalty programme?",
+      "a": "The points customers are expected never to redeem. If you can estimate it, you recognise it in proportion to the pattern of redemptions; if not, you recognise it only when the chance of redemption becomes remote."
+    },
+    {
+      "q": "Are loyalty points a provision or deferred revenue?",
+      "a": "Points that give the customer a material right are deferred revenue: a contract liability under IFRS 15, measured at the share of the sale price allocated to them. They are not a provision for the cost of the reward."
+    },
+    {
+      "q": "What if a third party supplies the rewards?",
+      "a": "Consider whether you are principal or agent for the reward. If you only arrange for a partner to supply it, you recognise the net amount you keep as revenue when your obligation is met."
+    },
+    {
+      "q": "What happens when the expected redemption rate changes?",
+      "a": "Stand-alone selling prices are set at contract inception, and the allocation is not redone when they change later. You update the breakage estimate and the release pattern, with a cumulative catch-up in the period. The [loyalty points guide](/guides/loyalty-points-accounting-uae) walks through the ledger entries."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS Foundation: IFRS 15 Revenue from Contracts with Customers (2026 issued text, paragraphs 74, 76, B40, B42 and B46)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards/english/2026/issued/ifrs15.html"
+    },
+    {
+      "label": "IFRS Foundation and FASB TRG staff paper: customer options for additional goods and services and nonrefundable upfront fees (October 2014)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/meetings/2014/october/trg-rev/rev-rec/ap6-customer-options.pdf"
+    }
+  ]
+}

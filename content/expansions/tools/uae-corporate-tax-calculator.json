@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "There is one input, taxable income for the tax period in AED, and one tick box for the Small Business Relief election. Taxable income is your accounting profit after the Corporate Tax adjustments, not revenue and not the accounting profit before adjustments.",
+        "Without the election, Corporate Tax = the higher of zero and (taxable income - 375,000), multiplied by 9%. With the election ticked, Corporate Tax is nil. The effective rate is Corporate Tax divided by taxable income, shown to two decimal places, and is 0% when taxable income is nil or negative.",
+        "The calculator does not test eligibility for the relief, so tick the box only if you have checked the conditions below. It also does not model a Qualifying Free Zone Person, tax losses brought forward, or tax credits: for those, compute taxable income first and adjust the result."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Federal Decree-Law No. 47 of 2022 charges Corporate Tax at 0% on the portion of taxable income not exceeding AED 375,000 and 9% on the portion above it. The threshold is set by Cabinet Decision No. 116 of 2023. It is a band, not an exemption limit: a business with AED 400,000 of taxable income pays 9% on AED 25,000 only. A taxable person with several businesses gets one AED 375,000 band in total.",
+        "Small Business Relief is in Ministerial Decision No. 73 of 2023. A resident taxable person, natural or juridical, can elect to be treated as having no taxable income for a period if its revenue is AED 3,000,000 or less in that period and in every previous tax period. Once revenue exceeds AED 3,000,000 in any period, the relief is lost for later periods even if revenue falls back. Ministerial Decision No. 131 of 2026, announced by the Ministry of Finance on 7 August 2026, extended the relief from periods ending on or before 31 December 2026 to periods ending on or before 31 December 2029; the AED 3,000,000 threshold is unchanged. The relief is not available to Qualifying Free Zone Persons or to members of multinational groups with consolidated revenue above AED 3.15 billion. The [Small Business Relief checker](/tools/small-business-relief-checker) tests the revenue history.",
+        "Electing has costs. In a relief period you cannot create or use tax losses or excess interest, and you cannot use qualifying group or business restructuring relief, although losses from earlier periods can still be carried forward. You must still register, file a (simplified) return and keep to the arm's length principle.",
+        "A Qualifying Free Zone Person does not get the AED 375,000 band: qualifying income is taxed at 0% and any taxable income that is not qualifying income at 9% from the first dirham. See our guide to the [free zone 0% rate](/guides/free-zone-corporate-tax-0-percent).",
+        "Corporate Tax is payable, and the return due, within nine months of the end of the tax period. Late filing and payment penalties are covered in the [Corporate Tax penalty calculator](/tools/uae-corporate-tax-penalty-calculator)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai mainland trading LLC has a calendar-year tax period. For 2025 its revenue was AED 9.2 million and, after adding back fines and the non-deductible part of client entertainment, its taxable income is AED 600,000. It has no losses brought forward and is not in a group."
+    ],
+    "list": [
+      "Step 1: enter 600,000 and leave the Small Business Relief box unticked (revenue is above AED 3,000,000, so the relief is not available).",
+      "Step 2: income in the 9% band = 600,000 - 375,000 = AED 225,000.",
+      "Step 3: Corporate Tax = 225,000 x 9% = AED 20,250.00.",
+      "Step 4: effective rate = 20,250 / 600,000 = 3.375%, displayed as 3.38%.",
+      "Step 5: the return and payment are due by 30 September 2026. Journal at the year end: Dr Current tax expense 20,250; Cr Corporate Tax payable 20,250.",
+      "Cross-check: AED 2,000,000 of taxable income gives AED 146,250.00 (7.31%); AED 375,000 or less gives nil."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How is UAE corporate tax calculated?",
+      "a": "Take taxable income for the period, deduct AED 375,000, and apply 9% to the excess. AED 600,000 of taxable income gives AED 20,250 of tax. Taxable income is accounting profit after the adjustments in the Corporate Tax Law."
+    },
+    {
+      "q": "Is the first AED 375,000 tax free for every company?",
+      "a": "For ordinary resident taxable persons, yes: the first AED 375,000 of taxable income is taxed at 0%. A Qualifying Free Zone Person does not get this band on income that is not qualifying income, which is taxed at 9% in full."
+    },
+    {
+      "q": "Has Small Business Relief been extended beyond 2026?",
+      "a": "Yes. Ministerial Decision No. 131 of 2026 extends Small Business Relief to tax periods ending on or before 31 December 2029. The AED 3,000,000 revenue threshold and the other conditions are unchanged."
+    },
+    {
+      "q": "Do I pay corporate tax if my revenue is under AED 3 million?",
+      "a": "Not if you elect Small Business Relief and meet the conditions: revenue of AED 3,000,000 or less in the period and every earlier period, and not a Qualifying Free Zone Person or member of a large multinational group. Without the election, the normal 0% and 9% bands apply."
+    },
+    {
+      "q": "When is UAE corporate tax payable?",
+      "a": "Within nine months of the end of the tax period, the same deadline as the return. For a year ending 31 December 2025, that is 30 September 2026."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: General Corporate Tax Guide (CTGGCT1)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Guides/CT/CT%20General%20Guide%20-%20EN%20-%2010%2009%202023.pdf"
+    },
+    {
+      "label": "FTA: Small Business Relief Corporate Tax Guide (CTGSBR1)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Guides/CT/Small%20Business%20Relief%20Guide%20-%20EN%20-%2027%2008%202023.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Small Business Relief extended to 31 December 2029 (Ministerial Decision No. 131 of 2026)",
+      "href": "https://mof.gov.ae/en/news/ministry-of-finance-announces-extension-of-small-business-relief-for-corporate-tax-purposes-until-31-december-2029/"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The mechanism in one paragraph",
+      "ps": [
+        "Normally the supplier charges VAT. Under the reverse charge, the registered recipient accounts for the output VAT as if it had made the supply to itself — and, in the same return, recovers that VAT as input tax to the extent it is entitled. For a fully taxable business the two entries cancel: no cash moves, but both boxes must be filled. The mechanism exists so that buying from abroad carries the same VAT weight as buying locally."
+      ]
+    },
+    {
+      "h": "Where it applies",
+      "list": [
+        "Imported services: anything received from a non-resident supplier with no UAE presence — software licences, consultancy, advertising platforms, SaaS subscriptions. This is the one every business has and many miss",
+        "Imported goods: import VAT accounted through the VAT return via your TRN linked at customs, rather than paid at the border",
+        "Domestic reverse charge: supplies between registrants of precious metals and precious stones (gold, silver, palladium, platinum, diamonds, pearls, rubies, sapphires, emeralds and jewellery where they make up most of the value) for resale or manufacture; crude or refined oil, natural gas and pure hydrocarbons for resale or energy production; mobile phones, computers, tablets and their parts for resale or manufacture; and, from 14 January 2026, metal scrap for resale or processing. The buyer accounts, not the seller"
+      ]
+    },
+    {
+      "h": "Why cash-neutral is not effort-neutral",
+      "ps": [
+        "Because no money moves, reverse-charge supplies feel invisible — and that is exactly how they go wrong. The FTA sees the gap: a business paying Google, AWS and foreign consultants shows those costs in its accounts, and a VAT return with an empty reverse-charge box contradicts its own ledger. The exposure compounds for partially exempt businesses, where the output side is due in full but the input side is only partly recoverable — there the reverse charge is a real cost, not a wash."
+      ]
+    },
+    {
+      "h": "The compliance checklist",
+      "list": [
+        "Sweep the expense ledger monthly for non-resident suppliers — the reverse-charge population is a query, not a memory exercise",
+        "Convert foreign-currency invoices at the applicable rate and account output tax in the correct period",
+        "Recover input tax only to your actual entitlement — full recovery is the common case, not the automatic one",
+        "Keep the supplier invoices: the reverse charge replaces the supplier's tax invoice as your evidence"
+      ]
+    },
+    {
+      "h": "The legal basis",
+      "ps": [
+        "Article 48(1) of Federal Decree-Law No. 8 of 2017 treats a taxable person who imports goods or services for its business as making a taxable supply to itself. Article 48(3) of the Executive Regulation extends this to a supply with a UAE place of supply received from a supplier with no place of residence in the UAE who does not charge VAT, which is how most cloud and advertising invoices are caught.",
+        "Since 1 January 2026, Federal Decree-Law No. 16 of 2025 has written into Article 48(1) that the recipient does not issue a tax invoice to itself. Your evidence is the supplier's invoice showing the details and the consideration, plus the customs statement for goods (Executive Regulation Article 48(5)).",
+        "The domestic cases each rest on their own text: Article 48(3) to (6) of the Decree-Law for hydrocarbons, Cabinet Decision No. 127 of 2024 for precious metals and stones (effective 26 February 2025, replacing the gold and diamonds rule in Cabinet Decision No. 25 of 2018), Cabinet Decision No. 91 of 2023 for electronic devices (effective 30 October 2023), and Cabinet Decision No. 153 of 2025 for metal scrap (effective 14 January 2026)."
+      ]
+    },
+    {
+      "h": "Timing, value and currency",
+      "ps": [
+        "Account for the VAT in the return for the period in which the date of supply falls (Executive Regulation Article 48(4)). For services that is the earliest of completion, receipt of payment or the invoice date under Article 25 of the Decree-Law, and for subscriptions billed periodically the earliest of the invoice, the due date, payment or one year after supply under Article 26. In practice, an annual licence paid upfront is reverse-charged in full in the quarter you pay.",
+        "The value is the consideration excluding VAT. Convert a foreign-currency invoice to dirhams at the Central Bank exchange rate under Article 69. Use the [VAT currency converter](/tools/uae-vat-currency-converter) if you need the dirham figure for a specific date."
+      ]
+    },
+    {
+      "h": "The return boxes",
+      "list": [
+        "Box 3: the value and the VAT of services and goods received under the reverse charge, including domestic reverse-charge purchases. Imports cleared through customs go in Box 6 instead",
+        "Box 6 and Box 7: import VAT on goods, prepopulated from customs data in Box 6, with Box 7 used to correct missing or wrong entries",
+        "Box 10: the reverse-charge VAT you are entitled to recover. A fully taxable business enters the same figure as Box 3 (and Box 6). A partially exempt business enters only the recoverable share"
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A Dubai company pays a US software vendor with no UAE establishment USD 10,000 for a quarterly licence. At the pegged rate of 3.6725 that is AED 36,725, and reverse-charge VAT is AED 1,836.25.",
+        "Fully taxable business: Dr Software expense 36,725, Cr Bank 36,725. Then Dr VAT recoverable (reverse charge) 1,836.25, Cr VAT payable (reverse charge) 1,836.25. Box 3 shows AED 36,725 and AED 1,836.25, Box 10 shows the same, and the net effect on the return is nil.",
+        "Partially exempt business recovering 60% of residual input tax: Box 3 is unchanged, but Box 10 shows AED 1,101.75. The other AED 734.50 is a cost: Dr Software expense 734.50, Cr VAT payable (reverse charge) 734.50, alongside the recoverable entry for 1,101.75. Run your own figures through the [reverse charge calculator](/tools/uae-reverse-charge-calculator)."
+      ]
+    },
+    {
+      "h": "The domestic reverse charge in practice",
+      "ps": [
+        "The domestic rules only switch on when the paperwork is in place before the date of supply. The buyer gives the seller two written declarations, one that it is buying for resale or for manufacture (or processing, or energy production, depending on the goods), and one that it is VAT registered. The seller keeps both and verifies the buyer's TRN through the FTA's approved means. For electronic devices and metal scrap the invoice must state that the reverse charge applies.",
+        "If the buyer does not give the declarations, the reverse charge does not apply to it. For precious metals, metal scrap and electronic devices, that buyer may not treat the goods as used for taxable supplies, which means the VAT it pays is not recoverable. None of the domestic rules applies where the supply is a zero-rated export, and the hydrocarbons rule does not apply where the supply includes other goods or services."
+      ]
+    },
+    {
+      "h": "Effects people miss",
+      "list": [
+        "Registration: the value of imported goods and services you receive counts towards the AED 375,000 mandatory registration threshold under Article 19 of the Decree-Law, so a service business buying heavily from abroad can be required to register",
+        "Blocked categories still bite: reverse-charge VAT on, for example, entertainment booked through a foreign platform is due in Box 3 but is not recoverable in Box 10 (see [blocked input VAT](/guides/uae-blocked-input-vat))",
+        "Partial exemption: reverse-charge VAT on overheads is residual input tax and goes through the ratio described in our [partial exemption guide](/guides/uae-partial-exemption-input-vat)",
+        "Group invoices: management charges from a foreign parent are imported services, priced or not",
+        "Cloud bills from a supplier that has registered in the UAE and charges 5% are not reverse-charged. Check the invoice for a UAE TRN before you self-account"
+      ]
+    },
+    {
+      "h": "What to check on a foreign supplier's invoice",
+      "list": [
+        "The supplier's legal name and country, and whether it shows a UAE TRN: no TRN and no VAT charged points to the reverse charge",
+        "That the invoice is addressed to your UAE entity, not to a group company elsewhere",
+        "The service period and invoice date, which fix the tax period under Articles 25 and 26",
+        "The currency and the amount excluding any foreign tax, so the dirham value can be converted at the Central Bank rate",
+        "Whether the cost falls in a blocked category or relates to exempt supplies, which limits the Box 10 recovery",
+        "The supplier invoice itself, showing the consideration paid, which Executive Regulation Article 48(5) requires you to keep"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab flags non-resident suppliers as documents arrive, computes the output and input entries per line, applies the recovery position, and fills both sides of the return — so the reverse charge happens because a supplier is foreign, not because someone remembered."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How does the reverse charge work in UAE VAT?",
+      "a": "The registered recipient, not the supplier, accounts for the 5% VAT. It declares the value and the VAT in Box 3 of its return and, in the same return, recovers the VAT it is entitled to in Box 10. For a fully taxable business the two cancel, so no cash is paid, but both boxes must be completed."
+    },
+    {
+      "q": "Do I need to issue a self-invoice for the reverse charge in the UAE?",
+      "a": "No. Since 1 January 2026, Article 48(1) of the VAT Decree-Law, as amended by Federal Decree-Law No. 16 of 2025, states that the recipient does not issue a tax invoice to itself. Keep the supplier's invoice, and the customs statement for imported goods, as your evidence."
+    },
+    {
+      "q": "Which box is the reverse charge in the UAE VAT return?",
+      "a": "Box 3 for the output side of imported services and domestic reverse-charge purchases, Box 6 for imports cleared through customs, and Box 10 for the recoverable input VAT on both."
+    },
+    {
+      "q": "Does the reverse charge apply to Google, Meta and AWS invoices?",
+      "a": "Only where the invoice comes from an entity with no UAE place of residence that does not charge UAE VAT. If the supplier is registered in the UAE and charges 5% on the invoice, you recover that VAT normally and do not self-account."
+    },
+    {
+      "q": "What goods are subject to the domestic reverse charge in the UAE?",
+      "a": "Precious metals and stones (from 26 February 2025), crude and refined oil, natural gas and pure hydrocarbons, mobile phones, computers, tablets and their parts (from 30 October 2023), and metal scrap (from 14 January 2026). Each applies only between registrants buying for resale or production, with written declarations given before the supply."
+    },
+    {
+      "q": "Do imported services count towards the UAE VAT registration threshold?",
+      "a": "Yes. Article 19 of the VAT Decree-Law includes the value of imported goods and services received by a person in the calculation against the AED 375,000 mandatory threshold."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT, consolidated to Federal Decree-Law No. 16 of 2025 (Articles 19, 25, 26, 48, 69)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 127 of 2024 on the reverse charge for precious metals and precious stones",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet-Decision-No-127-of-2024-on-Reverse-Charge-Mechanism-for-Precious-Metals.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 153 of 2025 on the reverse charge for metal scrap",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%20153%20of%202025%20on%20the%20Application%20of%20the%20Reverse%20Charge%20Mechanism%20on%20Metal%20Scrap.pdf"
+    },
+    {
+      "label": "FTA: VAT Public Clarification VATP034 (reverse charge on electronic devices)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/VAT/PublicClarifications/VATP034%20-%20Reverse%20Charge%20Mechanism%20on%20Electronic%20Devices%20-%2006%2010%202023.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (Boxes 3, 6, 7 and 10)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    }
+  ],
+  "related": [
+    "uae-vat-saas-digital-services",
+    "uae-partial-exemption-input-vat",
+    "uae-blocked-input-vat"
+  ]
+}

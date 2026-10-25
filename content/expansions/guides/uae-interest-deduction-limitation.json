@@ -1,0 +1,144 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The rule in numbers",
+      "ps": [
+        "The general interest deduction limitation caps net interest expense — interest expense minus interest income — at the greater of 30% of adjusted EBITDA (earnings before interest, tax, depreciation and amortisation, computed on tax numbers) or the AED 12 million safe harbour. Whatever exceeds the cap is not lost: it carries forward up to ten tax periods, deductible in later years inside those years' own caps.",
+        "The safe harbour does most of the work for SMEs: a business whose net interest is under AED 12 million never meets the 30% computation at all. The rule is aimed at leveraged structures — but 'aimed at' is not 'limited to', and a capital-intensive business with thin EBITDA can hit the cap well below headline-large borrowings."
+      ]
+    },
+    {
+      "h": "Where the rule sits",
+      "ps": [
+        "The rule is Article 30 of the Corporate Tax Law (Federal Decree-Law No. 47 of 2022). The detail is in Ministerial Decision No. 126 of 2023: what counts as interest (Articles 2 to 7), the AED 12,000,000 de minimis (Article 8), how EBITDA is computed (Article 9), the exclusion for debt agreed before 9 December 2022 (Article 11) and tax groups (Article 12).",
+        "Three points in the decision change the arithmetic. EBITDA is taxable income plus net interest expenditure plus tax depreciation and amortisation, with a floor of zero, so a tax loss year gives an EBITDA of nil and only the AED 12m safe harbour is available. Exempt income, such as dividends and qualifying participation gains, is left out. And the AED 12m is pro-rated when the tax period is longer or shorter than twelve months: a six-month first period has a AED 6m safe harbour."
+      ]
+    },
+    {
+      "h": "What counts as interest",
+      "list": [
+        "Interest on any debt instrument, performing or not, plus the interest component of repos, stock lending, securitisations and factoring",
+        "Guarantee, arrangement and commitment fees, and similar fees for raising finance",
+        "The finance element of lease payments, for finance leases and other leases alike, measured under Article 5 of the decision",
+        "Foreign exchange gains and losses on interest, and hedging costs directly connected with raising finance",
+        "The interest-equivalent component of Islamic financial instruments",
+        "Capitalised interest, which enters the computation as it is amortised rather than when incurred"
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "Net interest AED 20m, adjusted EBITDA AED 50m. Cap = greater of 30% × 50m = AED 15m and AED 12m → AED 15m. Deductible now: 15m. Carried forward: 5m, usable for ten periods. Now run a bad year — EBITDA AED 20m: cap = greater of 6m and 12m → the safe harbour takes over at 12m. The cap breathes with earnings, which is exactly why loss-making leveraged years hurt twice."
+      ]
+    },
+    {
+      "h": "The same example through the tax computation",
+      "list": [
+        "Year 1: taxable income after deducting all AED 20m of net interest is AED 10m. Tax depreciation is AED 20m. EBITDA = 10m + 20m + 20m = AED 50m",
+        "Cap = greater of AED 15m and AED 12m = AED 15m. Disallowed: AED 5m, added back. Taxable income = AED 15m; tax = 9% × (15,000,000 − 375,000) = AED 1,316,250",
+        "Year 2: current net interest AED 8m. Under Article 30(2) the AED 5m carried forward joins it, so net interest expenditure is AED 13m. That is above AED 12m, so the cap is tested",
+        "Taxable income after deducting the AED 13m is AED 27m; depreciation AED 20m; EBITDA = 27m + 13m + 20m = AED 60m. Cap = greater of AED 18m and AED 12m = AED 18m",
+        "All AED 13m is deductible, the carry-forward is used up, and the register is cleared. Carried-forward amounts are used in the order they arose (Article 30(4)), so the oldest vintage goes first"
+      ]
+    },
+    {
+      "h": "What the cap ignores — and what other rules catch",
+      "list": [
+        "Loans agreed before 9 December 2022 sit outside the limitation under the grandfathering rule — document the vintage. The exclusion covers only the net interest that would have arisen on the terms as they stood on 9 December 2022, and undrawn amounts count only where the lender was already legally committed to advance them",
+        "Banks and insurance providers are excluded from the rule; ordinary groups are not. Natural persons doing business in the UAE are also outside it",
+        "The cap is not the only gate: interest on connected-person loans used to pay dividends or similar distributions can be disallowed entirely under its own rule, before the cap is even computed",
+        "Islamic finance equivalents count as interest for these purposes — the label on the instrument does not change the analysis"
+      ]
+    },
+    {
+      "h": "The specific rule that runs first",
+      "ps": [
+        "Article 31 denies the deduction completely for interest on a loan from a related party used to fund a dividend or profit distribution to a related party, a share buy-back or capital reduction, a capital contribution to a related party, or the purchase of shares in a company that is or becomes a related party. It does not apply if the company shows that the main purpose was not a Corporate Tax advantage, and no advantage is deemed where the lender pays tax of at least 9% on the interest.",
+        "Interest disallowed under Article 31, or under any other article such as the arm's length rules, is taken out before the 30% test (Article 30(5)). So the order is: transfer pricing and Article 31 first, then the general cap on what is left."
+      ]
+    },
+    {
+      "h": "Worked example: old and new debt together",
+      "ps": [
+        "A group company has a bank facility agreed in 2021, with AED 9m of interest in 2026 on the terms as they stood on 9 December 2022, and a shareholder-backed facility drawn in 2024 with AED 14m of interest. It has AED 1m of interest income on deposits. Under Article 11 of the decision only the net interest on the new debt is tested: AED 14m less AED 1m = AED 13m, which is above the AED 12m safe harbour.",
+        "EBITDA adds back the interest on the historical debt as well (Article 9(1)(c)). If taxable income is AED 6m and tax depreciation AED 8m, EBITDA = 6m + 13m + 8m + 9m = AED 36m, 30% of which is AED 10.8m. The cap is the greater of AED 10.8m and AED 12m, so AED 12m is deductible and AED 1m carries forward. If the 2021 facility is later refinanced on new terms, its interest moves into the test, so price the tax effect into the refinancing decision."
+      ]
+    },
+    {
+      "h": "Managing it",
+      "list": [
+        "Track net interest against both prongs quarterly — the binding prong flips between years, and the answer changes borrowing decisions",
+        "Model the carry-forward: disallowed interest is an asset with a ten-year clock, and it expires worthless if EBITDA never grows into it",
+        "In groups, remember the computation runs at the taxable-person level (or tax group level if grouped) — where the debt sits determines whose cap it consumes"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Using accounting EBITDA from the management accounts: the decision uses taxable income as the starting point, so add-backs and exempt income change the answer",
+        "Leaving lease finance costs out of net interest: Article 5 of the decision brings them in, and for a business with many property leases they can be a large item",
+        "Treating the safe harbour as an allowance on top of 30%: it is the greater of the two, not the sum",
+        "Electing [Small Business Relief](/guides/uae-small-business-relief) in a year with disallowed interest: net interest expenditure incurred in a relief period cannot be carried forward",
+        "Forgetting that intra-group loan pricing still needs support under the arm's length rules (see [transfer pricing documentation](/guides/uae-transfer-pricing-documentation))"
+      ]
+    },
+    {
+      "h": "Tax groups",
+      "ps": [
+        "In a tax group the cap is computed once, on the group's combined figures. A subsidiary joining a group brings any carried-forward disallowed interest with it, but that amount can only be used against the group's taxable income attributable to that subsidiary. When a subsidiary leaves, the group keeps its carry-forward except the leaver's own unused pre-grouping amount. A bank or insurer inside a group is left out of the group's net interest and EBITDA. You can run the two prongs on your own figures with the [interest cap calculator](/tools/uae-interest-cap-calculator)."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab computes adjusted EBITDA from the ledger as periods close, runs both prongs of the cap, maintains the disallowed-interest carry-forward register with its expiry clock, and shows the binding constraint in the CT working — so financing decisions see their tax shadow before the debt is drawn."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How much interest can a UAE company deduct for Corporate Tax?",
+      "a": "Net interest expense is deductible up to the greater of 30% of adjusted EBITDA or AED 12 million. The excess carries forward for up to ten tax periods."
+    },
+    {
+      "q": "Does the 30% interest cap apply to small businesses?",
+      "a": "Rarely in practice: the AED 12 million safe harbour means the 30% computation only binds when net interest exceeds AED 12m. Most SMEs never reach it, though the connected-person loan rules still apply at any size."
+    },
+    {
+      "q": "Are old loans grandfathered from the UAE interest limitation?",
+      "a": "Loans whose terms were agreed before 9 December 2022 benefit from grandfathering under the rule. Keep the loan agreement evidencing the date — refinancing or amending terms can compromise the position, because the exclusion only covers interest on the terms as they stood on that date."
+    },
+    {
+      "q": "Do Islamic finance costs count as interest for the cap?",
+      "a": "Yes — amounts economically equivalent to interest under Islamic financial instruments are treated as interest for the limitation, regardless of the instrument's form."
+    },
+    {
+      "q": "Are lease costs included in the UAE interest cap?",
+      "a": "Yes, the finance element is. Ministerial Decision No. 126 of 2023 treats the finance element of finance lease payments and of other lease payments as interest, so a lessee's lease finance cost is part of net interest expenditure."
+    },
+    {
+      "q": "How is EBITDA calculated for the UAE interest limitation?",
+      "a": "It is taxable income plus net interest expenditure plus tax depreciation and amortisation, never less than zero, and excluding exempt income. It is a tax figure, not the EBITDA in your management accounts."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 and amendments (Corporate Tax Law), Articles 30 and 31",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 126 of 2023 on the General Interest Deduction Limitation Rule",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-126-of-2023-on-the-General-Interest-Deduction-Limitation-Rule-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 73 of 2023 on Small Business Relief (Article 5, net interest expenditure)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    }
+  ],
+  "related": [
+    "uae-transfer-pricing-documentation",
+    "uae-tax-loss-carry-forward"
+  ]
+}

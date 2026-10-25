@@ -1,0 +1,76 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the value of the imported service or goods in AED and the share of input VAT you are entitled to recover. Negative values are treated as zero and the recovery figure is held between 0% and 100%.",
+        "Output VAT is the value × 5%. Input VAT recovered is that output VAT × your recovery percentage. The net cash effect is output minus input: nil when you recover in full, a real cost when you do not. No rounding is applied beyond showing the result to two decimals."
+      ],
+      "list": [
+        "Fully taxable business: enter 100%. Output and input cancel and no cash moves",
+        "Partly exempt business: enter your recovery ratio, or 0% where the cost is used only for exempt supplies",
+        "Use the AED value you would record for the supply. If the invoice is in a foreign currency, convert it first with the [VAT currency converter](/tools/uae-vat-currency-converter)",
+        "The calculator assumes the standard 5% rate. It does not test whether the reverse charge applies in the first place"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 48(1) of the VAT Decree-Law treats a taxable person who imports concerned goods or concerned services for the business as making a taxable supply to itself, responsible for accounting for the tax. Article 48 of the Executive Regulation adds that the same applies where a UAE resident registrant receives goods or services with a place of supply in the UAE from a non-resident supplier who does not charge VAT. The tax is declared in the return for the period in which the date of supply falls, at the rate a UAE supplier would have charged.",
+        "The input side follows the normal recovery rules. A fully taxable business recovers the whole amount in the same return; a partly exempt one recovers only its share, and the rest is a cost. That is the point of this calculator: for a bank, insurer, residential landlord or school, imported services carry a real 5%.",
+        "In the return, imported services go in Box 3 (supplies subject to the reverse charge), while imported goods that clear customs on your TRN appear in Box 6. The recoverable part goes in Box 10. Keep the supplier's invoice and, for goods, the customs declaration. Since 1 January 2026, Federal Decree-Law No. 16 of 2025 no longer requires you to issue a self-invoice under the reverse charge, but the supporting documents must still be kept. The [reverse charge guide](/guides/uae-vat-reverse-charge) covers the domestic reverse charge between registrants on gold, diamonds and hydrocarbons; metal scrap was added from 14 January 2026 by Cabinet Decision No. 153 of 2025."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai company buys an IT consulting project from a UK firm with no UAE registration for AED 120,000. The UK firm charges no VAT."
+    ],
+    "list": [
+      "Fully taxable company: enter 120000 and 100. Output VAT AED 6,000, input VAT recovered AED 6,000, net cash effect AED 0",
+      "Return: AED 120,000 and AED 6,000 in Box 3, and AED 120,000 and AED 6,000 in Box 10",
+      "Journal: debit consulting expense AED 120,000, credit supplier AED 120,000; then debit input VAT AED 6,000, credit output VAT AED 6,000",
+      "Now suppose the buyer is partly exempt with a 72% recovery ratio and the project is a shared overhead. Enter 72: input VAT recovered 6,000 × 72% = AED 4,320, net cost AED 1,680",
+      "Journal for the partly exempt buyer: debit input VAT AED 4,320, debit consulting expense AED 1,680, credit output VAT AED 6,000",
+      "To work out the 72%, use the [partial exemption calculator](/tools/uae-partial-exemption-calculator)"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How does reverse charge VAT work in the UAE?",
+      "a": "When a UAE registrant imports services or goods from a supplier who does not charge UAE VAT, the registrant accounts for the 5% output VAT itself and recovers it as input VAT in the same return, to the extent it is entitled to. For a fully taxable business the two cancel."
+    },
+    {
+      "q": "Which VAT return box is used for reverse charge in the UAE?",
+      "a": "Imported services and other reverse-charge supplies go in Box 3, imported goods cleared on your TRN go in Box 6, and the recoverable input VAT on both goes in Box 10."
+    },
+    {
+      "q": "Do I still need to issue a self-invoice for reverse charge in the UAE?",
+      "a": "No. From 1 January 2026 Federal Decree-Law No. 16 of 2025 removed the self-invoice requirement. You still need to keep the supplier's invoice and the other supporting documents."
+    },
+    {
+      "q": "Is reverse charge VAT a cost for an exempt business?",
+      "a": "Yes, for the part it cannot recover. A business making only exempt supplies accounts for the full 5% and recovers none of it; a partly exempt one loses the share above its recovery ratio."
+    },
+    {
+      "q": "Does the reverse charge apply if I am not VAT registered?",
+      "a": "Article 48 applies to taxable persons. Imports of services count towards the AED 375,000 registration threshold, so a business buying a lot from abroad may need to register. Goods imported by an unregistered person have their VAT paid at customs before release."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Articles 48 to 50)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (Boxes 3, 6 and 10)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    },
+    {
+      "label": "Ministry of Finance: VAT law amendments from 1 January 2026 (Federal Decree-Law No. 16 of 2025)",
+      "href": "https://mof.gov.ae/en/news/ministry-of-finance-to-implement-vat-law-amendments-starting-january-2026/"
+    }
+  ]
+}

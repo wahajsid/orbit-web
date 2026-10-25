@@ -1,0 +1,133 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "Why holding structures suddenly matter",
+      "ps": [
+        "At 0% corporate tax, a UAE holding company was an administrative convenience. At 9%, it is the difference between investment returns flowing through untaxed and every dividend and exit gain taking a 9% haircut on the way up. The law is actually generous here — but the generosity is conditional, and the conditions are tested participation by participation.",
+        "The rules sit in Articles 22 and 23 of the Corporate Tax Law, with the detail in a Ministerial Decision: No. 116 of 2023 for earlier periods, replaced by No. 302 of 2024 for tax periods starting on or after 1 January 2025. The return carries a Participation Exemption schedule, one line per participation, so the evidence has to exist participation by participation too."
+      ]
+    },
+    {
+      "h": "The easy case: UAE-to-UAE dividends",
+      "ps": [
+        "Dividends and other profit distributions received from a UAE-resident company are exempt from Corporate Tax in the recipient's hands — no ownership threshold, no holding period. Domestic profits are taxed once, at the operating company, and flow up clean.",
+        "That exemption, in Article 22(1), covers dividends only. A gain on selling shares in a UAE subsidiary is exempt only if the participation exemption conditions below are met, so a domestic holding still needs the 5% and 12-month tests for the exit."
+      ]
+    },
+    {
+      "h": "The conditional case: the participation exemption",
+      "list": [
+        "Ownership: at least 5% of the shares — or, alternatively, an acquisition cost of at least AED 4 million. The interest must also carry at least 5% of distributable profits and of liquidation proceeds (Article 23(2)(c)), and holdings of other members of the same qualifying group are aggregated for both tests",
+        "Holding period: held, or intended to be held, for at least 12 months",
+        "Subject-to-tax: the participation is taxed in its home jurisdiction at a rate of at least 9%, or meets the equivalent-test conditions. The FTA's return guide accepts either a statutory corporate tax rate or an effective tax rate of at least 9%",
+        "Asset test: the participation is not, in substance, a wrapper for assets that would fail these tests if held directly. Article 23(2)(d) sets the line at 50%: no more than half of the participation's direct and indirect assets may be ownership interests that would not have qualified"
+      ]
+    },
+    {
+      "h": "What is exempt, and what is not",
+      "ps": [
+        "Where the conditions are met, Article 23(5) excludes four items from taxable income: dividends from a foreign participation, gains and losses on disposing of the participating interest, foreign exchange gains and losses on it, and impairment gains and losses on it. Losses are excluded as well as gains, so a write-down of a qualifying foreign subsidiary is not deductible.",
+        "Article 23 then takes the exemption away in defined cases: where the participation can deduct the dividend it pays you (a hybrid instrument), where you claimed a deductible impairment on the shares before they qualified, or where you or a related party took a deductible impairment on a loan to the participation. A loss realised on liquidating a participation is never covered (Article 23(8)), and shares received in exchange for a non-qualifying interest or under restructuring relief wait two years before the exemption applies (Article 23(9))."
+      ]
+    },
+    {
+      "h": "Worked example: the month-eleven sale",
+      "ps": [
+        "A UAE holding company buys 8% of a foreign trading company on 1 March 2025 for AED 10,000,000. The investee is taxed at a 25% headline rate, holds operating assets rather than shares, and the board minute records an intention to hold for at least three years. On 15 December 2025 it receives a dividend of AED 600,000. The holding company's other taxable income already exceeds AED 375,000, so any taxable amount is taxed at 9%.",
+        "Dividend: Dr Bank 600,000 / Cr Dividend income 600,000. In the 2025 return the AED 600,000 is deducted as exempt income on the strength of the intention to hold.",
+        "Scenario A, sale on 20 February 2026 for AED 13,000,000: Dr Bank 13,000,000 / Cr Investment 10,000,000 / Cr Gain on disposal 3,000,000. The 12 months were not completed, so the gain is taxable, and Article 23(10) brings back the dividend exempted in 2025 in the period the holding falls below 5%. Tax: (3,000,000 + 600,000) × 9% = AED 324,000. Scenario B, the same sale on 2 March 2026: the gain and the dividend are both exempt and tax is nil. Eleven days are worth AED 324,000, which is why the acquisition date belongs in the deal file and in the ledger."
+      ]
+    },
+    {
+      "h": "The traps",
+      "list": [
+        "Selling at month eleven — the gain on a participation that never reaches 12 months is fully taxable, and 'intended to hold' needs contemporaneous evidence if you lean on it",
+        "Zero-tax subsidiaries: a participation in a jurisdiction with no corporate income tax generally fails the subject-to-tax test — the exemption is not a route to double non-taxation",
+        "Mixed holdings: each participation is tested on its own; one qualifying subsidiary does not bless the portfolio",
+        "Expenses: costs of acquiring or disposing of exempt participations are correspondingly non-deductible — the exemption cuts both ways"
+      ]
+    },
+    {
+      "h": "The deemed-taxed exceptions",
+      "ps": [
+        "Two situations pass the subject-to-tax test without a 9% rate. A participation in a Qualifying Free Zone Person or an exempt person is treated as meeting it (Article 23(4)). An intermediate holding company is also treated as meeting it where its principal objective and activity is holding qualifying participations and its income substantially consists of income from them (Article 23(3)). That second rule lets a group keep a regional holding company in a low-tax jurisdiction, provided the companies below it would themselves qualify. A low-tax company that trades does not benefit."
+      ]
+    },
+    {
+      "h": "A free zone holding company",
+      "ps": [
+        "Holding shares and other securities for investment purposes is a qualifying activity under Ministerial Decision No. 229 of 2025, and shares are treated as held for investment once they have been held for an uninterrupted 12 months. A holding company in a free zone can therefore be a Qualifying Free Zone Person, and income from that activity can be qualifying income taxed at 0% even where the participation exemption would fail, for example on a holding below 5% that cost less than AED 4 million.",
+        "The price is the full QFZP package: adequate substance, audited financial statements whatever the revenue, transfer pricing compliance and the de minimis test on any other income such as fees charged to subsidiaries outside the headquarter services activity. A QFZP holding company also cannot form a tax group with its subsidiaries. For a passive holding of UAE companies whose dividends are already exempt under Article 22, the free zone layer often adds cost without adding relief."
+      ]
+    },
+    {
+      "h": "The tax-group alternative",
+      "ps": [
+        "Where a UAE parent holds at least 95% of a UAE subsidiary (shares, voting rights and profit entitlement), with the same financial year and accounting standards, the two can form a Corporate Tax group and file as one taxable person: intra-group transactions disappear, losses offset automatically. The trade-offs are joint liability and the compliance work of consolidation — and neither exempt persons nor Qualifying Free Zone Persons can join. Most owner-managed groups end up with the simpler answer: keep the companies separate and let the dividend exemption do the work.",
+        "Between 75% and 95% common ownership the middle option is Qualifying Group Relief, which lets assets and liabilities move between group companies without a taxable gain. See [qualifying group relief](/guides/uae-qualifying-group-relief)."
+      ]
+    },
+    {
+      "h": "What to keep on file for each participation",
+      "list": [
+        "Share register extract and purchase agreement showing the percentage, the acquisition date and the acquisition cost in AED at the exchange rate on that date",
+        "Board minute or investment memo recording the intention to hold for 12 months, dated before or at acquisition",
+        "Evidence of the subject-to-tax position: the jurisdiction's headline rate, or the participation's tax return and accounts if you rely on an effective rate",
+        "An asset test working where the participation itself holds shares",
+        "Confirmation that dividends received are not deductible for the payer, and a record of any impairment previously deducted on the shares or on loans to the participation"
+      ],
+      "ps": [
+        "The [participation exemption checker](/tools/uae-participation-exemption-checker) runs the ownership, holding-period and subject-to-tax tests for a single holding."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tags investment income by participation, keeps each participation's ownership %, acquisition cost, acquisition date and jurisdiction on file, and shows the exemption position per holding in the CT working — so the 12-month clock and the subject-to-tax evidence exist before the return needs them."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Are dividends taxable in the UAE for a holding company?",
+      "a": "Usually not. Dividends from a UAE resident company are exempt with no ownership or holding conditions (Article 22). Dividends from a foreign company are exempt if the participation exemption applies: at least 5% ownership or AED 4 million cost, a 12-month holding or intention to hold, a subject-to-tax rate of at least 9% abroad and the asset test."
+    },
+    {
+      "q": "What is the participation exemption in UAE corporate tax?",
+      "a": "It is the relief in Article 23 of the Corporate Tax Law that exempts dividends, disposal gains and losses, foreign exchange results and impairment results on a qualifying shareholding. The holding must be at least 5% or cost at least AED 4 million, be held for 12 months, be taxed at 9% or more in its jurisdiction and pass the 50% asset test."
+    },
+    {
+      "q": "Is capital gain on sale of shares taxable in the UAE?",
+      "a": "For a company, yes, unless the participation exemption applies. A gain on shares held for at least 12 months that meet the 5% or AED 4 million test, the subject-to-tax test and the asset test is exempt. A gain on a shorter or smaller holding is taxed at 9% as ordinary taxable income."
+    },
+    {
+      "q": "Does the participation exemption apply to a subsidiary in a zero-tax country?",
+      "a": "Generally no, because the subject-to-tax test needs a rate of at least 9%. The exceptions are a participation in a UAE Qualifying Free Zone Person or exempt person, and a pure holding company whose income substantially consists of income from participations that would themselves qualify."
+    },
+    {
+      "q": "What happens if I sell shares before 12 months in the UAE?",
+      "a": "The gain is taxable at 9%, and if you previously exempted dividends from that participation on the basis of an intention to hold, Article 23(10) brings that income back into taxable income in the period your holding falls below 5%."
+    },
+    {
+      "q": "Is a loss on liquidating a subsidiary deductible in the UAE?",
+      "a": "Not under the participation exemption. Article 23(8) excludes a loss realised on liquidation from the exemption, and the FTA's return guide tells you not to enter such a loss in the participation schedule. Whether and how the loss is otherwise deductible depends on the facts and should be checked before you file."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Articles 22, 23 and 40)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "FTA: Corporate Tax Guide on Tax Returns (CTGTXR1), Participation Exemption schedule",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/CT-Returns-EN-11-11-2024.pdf"
+    }
+  ],
+  "related": [
+    "uae-qualifying-group-relief",
+    "uae-branch-vs-subsidiary",
+    "free-zone-corporate-tax-0-percent"
+  ]
+}

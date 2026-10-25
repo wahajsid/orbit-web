@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You pick the fiscal year type and the Saudi and GCC ownership percentage, then enter closing balances in Saudi riyals in four groups: equity and its equivalents, non-current liabilities, the result of the year, and deductions plus total assets. Results show to two decimal places.",
+        "Equity is paid-up capital plus reserves and retained earnings (including this year's book profit), less accumulated losses, plus provisions treated as equity and other equivalents such as qualifying partner loans and profits under distribution. Deductions are net fixed assets and their equivalents, intangibles, deductible investments and other deductible items.",
+        "Non-current liabilities are added only up to the total deductions. The profit gap is adjusted net profit less book net profit. The computed base is equity plus the liabilities added plus the gap, less the deductions. The calculator then applies the minimum and maximum, multiplies by the ownership share and by the rate. Each adjustment it makes is shown in the build-up table and explained in the note."
+      ],
+      "list": [
+        "Minimum: if there is an adjusted profit and the computed base is below it, the base becomes the lower of the adjusted profit and the undeducted assets (total assets less deductions) plus the profit gap.",
+        "No adjusted profit: a negative computed base gives nil, and a positive one is used as it stands.",
+        "Maximum: the base never exceeds equity and its equivalents plus the profit gap.",
+        "Rate: 2.5% for a Hijri year, 2.5777% for a Gregorian year.",
+        "Not modelled: the Article 25 placement of current liabilities against deducted current assets, the special rules for financing and insurance activities, and periods shorter or longer than a year. The non-Saudi share falls under income tax, which the tool does not compute."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Zakat on companies is governed by the Implementing Regulations for Zakat Collection issued by Minister of Finance Decision No. 1007 of 19/08/1445H, as amended by Decision No. 1248 of 11/10/1446H. They apply to financial years starting on or after 1 January 2024. Article 15 sets the rate at 2.5% of the base for a Hijri year. For any other year, the rate is 2.5% divided by the days in the Hijri year and multiplied by the days in the payer's year. ZATCA's Zakat General Guideline (October 2024) works this through to 2.5777% for a 365-day Gregorian year.",
+        "Under Article 17, every item is taken at its year-end balance sheet value. Article 23 adds equity and its equivalents, liabilities under Article 29 (only up to the value of the assets deducted), and the difference between adjusted and book net profit. Article 24 treats most provisions as equity at their closing balance, but end-of-service and leave provisions are liabilities. Article 39 treats carried-forward losses as a reduction of equity.",
+        "Article 26 lists the deductions, including investments in entities inside and outside the Kingdom, local funds, net fixed assets and their equivalents (which include non-current right-of-use assets), intangibles, materials not held for sale, statutory deposits and deferred tax assets.",
+        "Article 27 sets the minimum. If the base falls below adjusted net profit, the base becomes the lower of two amounts: adjusted net profit, or the undeducted assets plus the difference between adjusted and book profit. A negative base with no adjusted profit means no zakat. Article 28 sets a new maximum: the base cannot exceed year-end equity, including items reclassified as equity, plus the adjusted-versus-book profit difference.",
+        "Zakat follows the ownership at the end of the year (Article 13), and a payer keeping books must file and pay within 120 days of the year end (Article 102)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Riyadh trading company, 100% Saudi-owned, has a Gregorian year to 31 December 2025. Its closing balances: paid-up capital SAR 1,000,000; reserves and retained earnings SAR 650,000, including the year's book profit of SAR 400,000; general provisions SAR 50,000 (no end-of-service balance); non-current liabilities SAR 300,000; net fixed assets SAR 700,000; an investment in a Saudi subsidiary SAR 100,000; total assets SAR 2,600,000. Adding back SAR 30,000 of non-deductible provisions gives an adjusted net profit of SAR 430,000. These are the calculator's default figures."
+    ],
+    "list": [
+      "Step 1: equity = 1,000,000 + 650,000 + 50,000 = SAR 1,700,000.00.",
+      "Step 2: deductions = 700,000 + 100,000 = SAR 800,000.00. The SAR 300,000 of liabilities is below that, so all of it is added.",
+      "Step 3: profit gap = 430,000 - 400,000 = SAR 30,000.00.",
+      "Step 4: computed base = 1,700,000 + 300,000 + 30,000 - 800,000 = SAR 1,230,000.00. It is above the SAR 430,000 adjusted profit, so the minimum does not apply, and below the SAR 1,730,000 maximum.",
+      "Step 5: zakat = 1,230,000 x 2.5777% = SAR 31,705.71. On a Hijri year it would be SAR 30,750.00, and at 60% Saudi ownership SAR 19,023.43.",
+      "Step 6: journal at year end: Dr Zakat expense 31,705.71; Cr Zakat payable 31,705.71. File and pay by 30 April 2026, which is 120 days after the year end.",
+      "Minimum check, from ZATCA's Zakat General Guideline (example 16): equity 20,000, liabilities 30,000, deductions 40,000, total assets 55,000, book profit 19,000, adjusted profit 20,000. The computed base is 11,000, below the profit, so the base is the lower of 20,000 and 15,000 + 1,000 = SAR 16,000.00. Zakat is SAR 412.43.",
+      "Maximum check (example 15): equity 100,000, liabilities 70,000, deductions 50,000, total assets 60,000, book profit 25,000, adjusted 30,000. Liabilities are capped at 50,000, the computed base is 105,000 and the maximum is also 105,000, so the base is SAR 105,000.00 and zakat SAR 2,706.59."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the zakat rate for a Gregorian year in Saudi Arabia?",
+      "a": "2.5777%. Article 15 of the 2024 Zakat Implementing Regulations divides 2.5% by the 354 days of a Hijri year and multiplies by the days in your financial year, so a 365-day year gives 2.5% x 365 / 354. A Hijri year is 2.5%."
+    },
+    {
+      "q": "How is the zakat base calculated for a Saudi company?",
+      "a": "Start with year-end equity and its equivalents, add qualifying liabilities up to the value of the assets you deduct, and add the difference between adjusted and book profit. Then subtract deductible assets such as net fixed assets, intangibles and qualifying investments. The base then has to fall between the Article 27 minimum and the Article 28 maximum."
+    },
+    {
+      "q": "When is the zakat return due in KSA?",
+      "a": "Within 120 days of the end of the zakat year, with the zakat paid on the same deadline (Article 102). For a 31 December year end that is 30 April. If the last day is an official holiday, the deadline moves to the next working day."
+    },
+    {
+      "q": "Do foreign-owned Saudi companies pay zakat?",
+      "a": "Only on the Saudi and GCC share. Zakat is calculated on the ownership at the end of the year (Article 13). The share owned by non-Saudi, non-GCC persons is subject to income tax instead, which this calculator does not compute. Payments such a company makes to non-residents can also need [withholding tax](/tools/ksa-withholding-tax-calculator)."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ZATCA: Implementing Regulations for Zakat Collection 1445H (Decision No. 1007, amended by Decision No. 1248), Articles 13, 15, 17, 23 to 29, 39 and 102",
+      "href": "https://zatca.gov.sa/en/RulesRegulations/Documents/ZAKAT%20COLLECTION.pdf"
+    },
+    {
+      "label": "ZATCA: Zakat General Guideline under the Implementing Regulation for Zakat Collection 1445H (first version, October 2024)",
+      "href": "https://zatca.gov.sa/en/HelpCenter/guidelines/Documents/Zakat-General-Guideline-Zakat-Collection-1445AH.pdf"
+    }
+  ]
+}

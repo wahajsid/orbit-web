@@ -1,0 +1,70 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "The calculator is a five-bucket provision matrix for trade receivables. For each ageing bucket (current, 1 to 30 days, 31 to 60 days, 61 to 90 days and over 90 days past due) you enter the receivable balance and a loss rate. The forward-looking slider then scales every loss rate by the same percentage, from −50% (an improving outlook) to +100% (a severe downturn), in steps of 5%.",
+        "For each bucket the applied rate is the base loss rate × (1 + adjustment ÷ 100), floored at zero. The bucket's expected credit loss (ECL) is the balance multiplied by the applied rate. The total provision is the sum of the five buckets and coverage is the total provision divided by total receivables. Bucket ECLs and the totals are displayed to the nearest dirham; coverage to two decimals."
+      ],
+      "list": [
+        "Applied rate = max(0, base rate × (1 + slider%)).",
+        "Bucket ECL = balance × applied rate.",
+        "Coverage = total ECL ÷ total receivables.",
+        "The slider is one uniform overlay. A real model may move buckets differently: a recession usually lifts older buckets more than current ones.",
+        "The applied rate is capped at 100%, so a stressed bucket (for example 60% at +100%) can never carry a provision larger than its balance."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "IFRS 9 paragraph 5.5.15 requires the simplified approach for trade receivables and contract assets within IFRS 15 that have no significant financing component: the loss allowance is always measured at lifetime expected credit losses, so there is no stage 1 or stage 2 tracking of significant increases in credit risk. For receivables with a significant financing component, and for lease receivables, the simplified approach is an accounting policy choice.",
+        "B5.5.35 names the provision matrix as an acceptable practical expedient, provided it is consistent with paragraph 5.5.17. The standard's own illustration uses fixed rates by days past due: 1% if not past due, 2% if under 30 days, 3% from 30 to 90 days and 20% from 90 to 180 days. It also requires segmentation where historical loss experience differs significantly between customer groups, for example by geographical region, product type, customer rating, collateral or trade credit insurance, or type of customer.",
+        "Paragraph 5.5.17 requires the estimate to be an unbiased, probability-weighted amount reflecting the time value of money and reasonable and supportable information about past events, current conditions and forecasts of future economic conditions. B5.5.52 treats historical loss rates as the anchor but requires them to be adjusted for current conditions and forecasts that did not affect the historical period. The slider is a simple way to express that adjustment; the documentation behind it matters more than the number.",
+        "B5.5.37 sets a rebuttable presumption that default does not occur later than 90 days past due, which is why the oldest bucket usually carries a much higher rate. Changes in the allowance are recognised in profit or loss as an impairment gain or loss (paragraph 5.5.8)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: AED 725,000 of receivables",
+    "ps": [
+      "Use the defaults: balances of AED 500,000 current, 120,000 at 1 to 30 days, 60,000 at 31 to 60 days, 30,000 at 61 to 90 days and 15,000 over 90 days; loss rates of 0.5%, 2%, 5%, 12% and 30%; slider at 0."
+    ],
+    "list": [
+      "Current: 500,000 × 0.5% = 2,500.",
+      "1 to 30 days: 120,000 × 2% = 2,400.",
+      "31 to 60 days: 60,000 × 5% = 3,000.",
+      "61 to 90 days: 30,000 × 12% = 3,600.",
+      "Over 90 days: 15,000 × 30% = 4,500.",
+      "Total provision AED 16,000 on receivables of AED 725,000: coverage 2.21%.",
+      "Stress the outlook: move the slider to +20%. The applied rates become 0.6%, 2.4%, 6%, 14.4% and 36%, the provision rises to AED 19,200 and coverage to 2.65%.",
+      "Journal, if last quarter's allowance was AED 16,000 and management adopts the +20% scenario: Dr Impairment loss on trade receivables 3,200, Cr Loss allowance 3,200. A write-off later reduces both the gross receivable and the allowance; it is not a second expense. The accounting provision is separate from VAT: recovering output tax on an unpaid invoice has its own conditions, covered in [UAE VAT bad debt relief](/guides/uae-vat-bad-debt-relief) and the [bad debt relief calculator](/tools/uae-bad-debt-relief-calculator). Refresh the matrix as part of your [month-end close](/guides/month-end-close-checklist)."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the simplified approach under IFRS 9?",
+      "a": "It requires the loss allowance on trade receivables and contract assets without a significant financing component to be measured at lifetime expected credit losses from day one (paragraph 5.5.15). There is no need to track whether credit risk has increased significantly since initial recognition."
+    },
+    {
+      "q": "How do you build a provision matrix for trade receivables?",
+      "a": "Group receivables by days past due (and by customer segment if loss patterns differ), work out historical loss rates for each bucket from how past balances in that bucket were eventually collected or written off, then adjust those rates for current conditions and forecasts as B5.5.52 requires. Apply each rate to the current balance in its bucket."
+    },
+    {
+      "q": "Do I need an ECL provision on current, not-yet-due receivables?",
+      "a": "Yes. Expected credit losses are forward-looking, so even balances that are not past due carry some expected loss. The standard's own matrix example applies 1% to receivables that are not past due."
+    },
+    {
+      "q": "What forward-looking information should adjust the loss rates?",
+      "a": "Reasonable and supportable information available without undue cost or effort: for example sector conditions, unemployment, commodity prices, a major customer's financial difficulty or payment behaviour after the reporting date. Document why the adjustment moves in the direction it does; B5.5.52 expects changes to be directionally consistent with the observable data."
+    },
+    {
+      "q": "Is 90 days past due automatically a default under IFRS 9?",
+      "a": "It is a rebuttable presumption. B5.5.37 presumes default occurs no later than 90 days past due, unless you have reasonable and supportable information that a later criterion is more appropriate. Whatever criterion you use must be applied consistently and documented."
+    }
+  ],
+  "sources": [
+    { "label": "IFRS 9 Financial Instruments, standard text incl. 5.5.15, 5.5.17, B5.5.35, B5.5.37 and B5.5.52 (Commission Regulation (EU) 2016/2067)", "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R2067" },
+    { "label": "IFRS Foundation: IFRS 9 Financial Instruments", "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-9-financial-instruments/" }
+  ]
+}

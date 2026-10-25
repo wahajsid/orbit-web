@@ -1,0 +1,139 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "VAT: 28 days after the tax period ends",
+      "ps": [
+        "UAE VAT returns are filed, and the tax paid, within 28 days of the end of the tax period the FTA assigned you — quarterly for most businesses, monthly for larger ones. When the deadline lands on a weekend or public holiday it moves to the next business day. The rule sits in Article 64 of the VAT Executive Regulation, and the money has to be received by the FTA by the same date, so a bank transfer started on the 28th is late if it lands on the 29th.",
+        "Missing a filing carries a fixed penalty for the first offence and a larger one on repetition within 24 months: AED 1,000 and AED 2,000. Late payment adds a penalty that grows the longer the tax stays unpaid. Since 14 April 2026 that penalty is 14% a year, charged monthly on the unpaid balance from the day after the due date (Cabinet Decision No. 129 of 2025, amending Cabinet Decision No. 40 of 2017). It replaced the older, steeper regime of stacked percentage penalties, so check which regime applied to any debt that arose before that date."
+      ]
+    },
+    {
+      "h": "Corporate Tax: nine months after year-end",
+      "ps": [
+        "The UAE Corporate Tax return is filed, and the Corporate Tax due paid, within nine months of the end of the relevant financial year. A December year-end means the following 30 September. There is no monthly CT filing — but a business that only thinks about CT in month eight has usually already told the FTA a different story through its VAT returns. The FTA confirmed on 26 September 2026 that 30 September 2026 was the deadline for tax periods ended 31 December 2025, including for businesses electing Small Business Relief.",
+        "That is why reconciling VAT-declared revenue against the CT position monthly matters: the two returns must tell one story, and the time to explain a gap is when it appears, not at filing."
+      ]
+    },
+    {
+      "h": "Corporate Tax registration: the deadline depends on when you were licensed",
+      "ps": [
+        "FTA Decision No. 3 of 2024 (effective 1 March 2024) set the registration deadlines. For resident companies that existed before 1 March 2024, the deadline was fixed by the month the trade licence was issued, whatever the year of issue. Where a company holds several licences, the earliest one counts. All of these deadlines have now passed, so a company in this group that has not registered is already late.",
+        "For companies set up on or after 1 March 2024 the rule is simple: apply within three months of incorporation, establishment or recognition. That includes free zone companies. A foreign company effectively managed and controlled in the UAE has three months from the end of its financial year."
+      ],
+      "list": [
+        "Licence issued in January or February: 31 May 2024",
+        "March or April: 30 June 2024",
+        "May: 31 July 2024",
+        "June: 31 August 2024",
+        "July: 30 September 2024",
+        "August or September: 31 October 2024",
+        "October or November: 30 November 2024",
+        "December: 31 December 2024",
+        "No licence at 1 March 2024: three months from that date, so 31 May 2024",
+        "Non-resident with a permanent establishment created on or after 1 March 2024: six months from the date the PE exists; with a nexus: three months from when the nexus arises",
+        "Resident natural persons whose business turnover exceeds AED 1 million in a calendar year: 31 March of the following year"
+      ]
+    },
+    {
+      "h": "The late registration penalty waiver",
+      "ps": [
+        "Late Corporate Tax registration carries a fixed AED 10,000 penalty. A Cabinet decision, announced by the FTA on 7 May 2025, waives it if the business files its first Corporate Tax return (or, for an exempt person that must register, its first annual declaration) within seven months of the end of its first tax period, instead of the usual nine. The waiver covers penalties incurred from 1 June 2023 and applies only to the first tax period.",
+        "It is automatic: no reconsideration request is needed, and a penalty already paid comes back as a credit on the EmaraTax account. In practice, a company with a first tax period ending 31 December 2025 had to file by 31 July 2026 to qualify, even though its legal deadline was 30 September 2026. The FTA's May 2026 update reported more than 68,600 beneficiaries and stated no end date for the initiative. If your first tax period ends later, check the FTA's current position before relying on it, and diary the seven-month date rather than the nine-month one."
+      ]
+    },
+    {
+      "h": "Corporate Tax penalties at a glance",
+      "list": [
+        "Late return: AED 500 for each month or part month for the first 12 months, then AED 1,000 a month. It runs even where no tax is payable",
+        "Late payment: 14% a year, charged monthly on the unpaid tax (Cabinet Decision No. 75 of 2023)",
+        "Late registration: AED 10,000, subject to the waiver above"
+      ],
+      "ps": [
+        "A December year-end company that files and pays on 15 December 2026 instead of 30 September 2026 is three months late (October, November and part of December), so the filing penalty is AED 1,500. Model your own position with the [Corporate Tax penalty calculator](/tools/uae-corporate-tax-penalty-calculator), and see the full schedule in [UAE Corporate Tax penalties](/guides/uae-corporate-tax-penalties)."
+      ]
+    },
+    {
+      "h": "VAT registration: 30 days",
+      "ps": [
+        "A business must apply for VAT registration within 30 days of becoming required to register: when taxable supplies and imports over the previous 12 months exceed AED 375,000, or when they are expected to exceed it in the next 30 days (Article 7 of the VAT Executive Regulation). If you miss it, the FTA registers you from the date you should have been registered, which means output VAT on sales you never charged it on, plus the AED 10,000 late registration penalty. Run the turnover test every month, on a rolling 12-month basis, not at year-end."
+      ]
+    },
+    {
+      "h": "E-invoicing: the dates that are now fixed",
+      "ps": [
+        "Ministerial Decisions No. 243 and 244 of 2025 set the scope and timeline for UAE e-invoicing. On 10 May 2026 the Ministry of Finance extended the deadline for large businesses to appoint an Accredited Service Provider (ASP), through Ministerial Decision No. 66 of 2026, but left the go-live dates unchanged. A pilot with a taxpayer working group began on 1 July 2026, and any business may adopt voluntarily from that date."
+      ],
+      "list": [
+        "Revenue of AED 50 million or more: appoint an ASP by 30 October 2026 (previously 31 July 2026); go live by 1 January 2027",
+        "Revenue below AED 50 million: appoint an ASP by 31 March 2027; go live by 1 July 2027",
+        "Government entities: appoint an ASP by 31 March 2027; go live by 1 October 2027",
+        "Penalties (Cabinet Decision No. 106 of 2025): AED 5,000 a month for failing to implement the system or appoint an ASP on time; AED 100 for each e-invoice or e-credit note not issued or sent on time, capped at AED 5,000 a month"
+      ]
+    },
+    {
+      "h": "A working calendar for a December year-end company",
+      "ps": [
+        "This is the shape of the next twelve months for a mainland company with a 31 December year-end on a calendar-quarter VAT stagger. Swap in your own stagger dates from EmaraTax: some quarterly filers have periods ending February, May, August and November."
+      ],
+      "list": [
+        "28 October 2026: VAT return and payment for July to September 2026",
+        "30 October 2026: ASP appointed, if revenue is AED 50 million or more",
+        "31 December 2029: last tax period end for which Small Business Relief can be elected, after Ministerial Decision No. 131 of 2026 extended it from 2026 (see [Small Business Relief](/guides/uae-small-business-relief))",
+        "1 January 2027: e-invoicing live for the AED 50 million and above group",
+        "28 January 2027: VAT return for October to December 2026",
+        "31 March 2027: ASP appointed for everyone else",
+        "28 April, 28 July and 28 October 2027: the next three quarterly VAT returns",
+        "1 July 2027: e-invoicing live for businesses below AED 50 million",
+        "30 September 2027: Corporate Tax return and payment for the year ended 31 December 2026, with the transfer pricing disclosure where thresholds are met"
+      ]
+    },
+    {
+      "h": "KSA, briefly",
+      "ps": [
+        "KSA VAT (15%) is filed monthly for businesses with annual taxable supplies above SAR 40 million and quarterly otherwise, with returns and payment due by the last day of the month following the period. ZATCA's e-invoicing regime additionally requires cleared or reported e-invoices depending on your integration wave. ZATCA charges a late filing fine of between 5% and 25% of the tax that should have been declared, so in Saudi Arabia a late return costs more as the liability grows, unlike the flat UAE filing penalty."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "A deadline watchdog tracks every registration's filing calendar, escalates as dates approach (green → amber at 14 days → red at 3), assembles the VAT return from the ledger as the month runs, and reconciles VAT against CT continuously so the filings never diverge silently."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the deadline for filing a VAT return in the UAE?",
+      "a": "The 28th day after the end of your tax period, for both the return and the payment. If that day is a weekend or public holiday, the deadline moves to the next business day. Quarterly filers with a quarter ending 30 September therefore file by 28 October."
+    },
+    {
+      "q": "When is the UAE Corporate Tax return due?",
+      "a": "Within nine months of the end of the tax period, and the tax must be paid by the same date. For a 31 December 2025 year-end the deadline was 30 September 2026; for a 31 December 2026 year-end it is 30 September 2027."
+    },
+    {
+      "q": "What is the penalty for late VAT payment in the UAE in 2026?",
+      "a": "Since 14 April 2026, 14% a year on the unpaid tax, charged monthly from the day after the due date, under Cabinet Decision No. 129 of 2025. Late filing of the return is a separate AED 1,000 penalty, or AED 2,000 for a repeat within 24 months."
+    },
+    {
+      "q": "Can the AED 10,000 Corporate Tax late registration penalty be waived?",
+      "a": "Yes, if you file your first Corporate Tax return or annual declaration within seven months of the end of your first tax period. The waiver is applied automatically, and a penalty already paid is credited back to your EmaraTax account. It only applies to the first tax period."
+    },
+    {
+      "q": "When does e-invoicing become mandatory in the UAE?",
+      "a": "From 1 January 2027 for businesses with revenue of AED 50 million or more, which must appoint an Accredited Service Provider by 30 October 2026. Businesses below AED 50 million go live on 1 July 2027, after appointing a provider by 31 March 2027."
+    },
+    {
+      "q": "What is the Corporate Tax registration deadline for a new company?",
+      "a": "Three months from the date of incorporation, establishment or recognition, for companies set up on or after 1 March 2024, including free zone companies. Earlier companies had fixed 2024 deadlines based on the month their licence was issued."
+    }
+  ],
+  "sources": [
+    { "label": "FTA Decision No. 3 of 2024 on the timeline for Corporate Tax registration", "href": "https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf" },
+    { "label": "FTA: Corporate Tax late registration penalty waiver initiative update (14 May 2026)", "href": "https://tax.gov.ae/en/media.centre/news/fta.expects.number.of.beneficiaries.from.corporate.tax.late.registration.penalty.waiver.initiative.to.rise.to.91000.aspx" },
+    { "label": "Cabinet Decision No. 40 of 2017 as amended by Cabinet Decision No. 129 of 2025 (penalties from 14 April 2026)", "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf" },
+    { "label": "Ministry of Finance: targeted amendments to e-invoicing decisions (10 May 2026)", "href": "https://mof.gov.ae/en/news/ministry-of-finance-announces-targeted-amendments-to-einvoicing-system-decisions/" },
+    { "label": "FTA: 30 September 2026 deadline for Corporate Tax returns", "href": "https://tax.gov.ae/en/media.centre/news/pr.2809.aspx" }
+  ],
+  "related": ["uae-corporate-tax-penalties", "uae-small-business-relief", "uae-transfer-pricing-documentation", "zatca-e-invoicing-phase-2"]
+}

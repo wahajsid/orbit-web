@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the tax difference the disclosure corrects, the number of months since the original return was due, and whether the FTA has already told you it will audit you. Negative entries are treated as zero and the months are rounded up, because a part month counts as a full one: 4.2 months is charged as 5.",
+        "The monthly penalty is tax difference × 1% × months. If you tick the audit box, a further 15% of the tax difference is added as a fixed amount. The total is the two together. The last figure, the cost of waiting, is 6% of the tax difference: what six more months of the 1% charge would add if you held the disclosure back. There is no fixed AED amount and no cap."
+      ],
+      "list": [
+        "Before an audit notice: 1% of the tax difference for each month or part month",
+        "After an audit notice: the same 1% a month plus a fixed 15%",
+        "The months run from the day after the original return was due to the day the disclosure is submitted",
+        "The calculator applies the 2026 rules to the whole period; it does not model how the FTA treats months that fall before 14 April 2026"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Cabinet Decision No. 129 of 2025, in force from 14 April 2026, rewrote items 11 and 12 of Table 1 in Cabinet Decision No. 40 of 2017. Item 11 now charges a monthly penalty of 1% on the tax difference for each month or part month, from the day after the due date of the return (or the date a refund application was submitted) until the date the voluntary disclosure is submitted. The old fixed AED 1,000 or AED 2,000 and the 5% to 40% ladder that rose with the time since the return was due are gone.",
+        "Item 12 covers the person who does not disclose before being notified of an audit. If the disclosure comes after the audit notice, the penalty is a fixed 15% of the tax difference plus the 1% a month up to the disclosure date. If no disclosure is made and the FTA issues an assessment, it is the same 15% plus 1% a month up to the date of the assessment. Either way, disclosing before the notice is the cheapest route.",
+        "When to disclose is set by Article 10 of the Tax Procedures Executive Regulation (Cabinet Decision No. 74 of 2023). Where the error left the tax payable lower than it should have been by more than AED 10,000, file the disclosure within 20 business days of becoming aware of it. At AED 10,000 or less you correct it in the next return instead. Once filed, the disclosed tax is due within 20 business days of submission; after that the 14% a year late-payment penalty runs on it, which the [VAT penalty calculator](/tools/uae-vat-penalty-calculator) estimates. The [voluntary disclosure guide](/guides/uae-vat-voluntary-disclosure) covers how to prepare Form 211."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A distributor's return for the quarter ended 31 March 2026 was due on 28 April 2026. In October its finance manager finds AED 60,000 of output VAT on a large customer order that was never declared. The disclosure goes in on 15 October 2026, with no audit notice received."
+    ],
+    "list": [
+      "Count the months from 29 April 2026: the sixth month starts on 29 September and is still running on 15 October, so the count is 6",
+      "Enter 60000 and 6, leave the audit box unticked",
+      "Monthly penalty: 60,000 × 1% × 6 = AED 3,600. That is the total disclosure cost",
+      "Cost of waiting six more months: AED 3,600 more, for AED 7,200 in all",
+      "If an audit notice had arrived first, tick the box: the 15% adds AED 9,000, for a total of AED 12,600",
+      "The AED 60,000 itself is due within 20 business days of 15 October; pay it by then and no late-payment penalty arises",
+      "Journal: debit VAT expense AED 60,000 (or a receivable, if the contract lets you recover the VAT from the customer), debit penalties expense AED 3,600, credit FTA payable AED 63,600"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the penalty for a voluntary disclosure in the UAE?",
+      "a": "From 14 April 2026 it is 1% of the tax difference for each month or part month from the day after the original return was due until you submit the disclosure. There is no fixed amount on top, provided you disclose before the FTA notifies you of an audit."
+    },
+    {
+      "q": "What happens if I make a voluntary disclosure after an FTA audit notice?",
+      "a": "A fixed 15% of the tax difference is added to the 1% a month. On a AED 60,000 error that is AED 9,000 extra, which is why disclosing as soon as you find the error is worth it."
+    },
+    {
+      "q": "Do I need a voluntary disclosure for an error under AED 10,000?",
+      "a": "Usually not. Where the error left tax payable short by AED 10,000 or less, Article 10 of the Tax Procedures Executive Regulation lets you correct it in the next return that is not yet due. A disclosure is needed only if there is no return through which to correct it."
+    },
+    {
+      "q": "How long do I have to file a voluntary disclosure?",
+      "a": "20 business days from becoming aware of the error, where it is above AED 10,000. Every extra month you wait adds another 1% of the tax difference."
+    },
+    {
+      "q": "When do I have to pay the tax shown in a voluntary disclosure?",
+      "a": "Within 20 business days of submitting it. If you miss that date, the 14% a year late-payment penalty starts on the unpaid amount, charged monthly."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025 (Table 1, items 9, 11 and 12)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 74 of 2023, Executive Regulation of the Tax Procedures Law (Article 10)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Cabinet%20Decision%20No.%2074%20of%202023%20on%20Executive%20Regulation%20of%20Federal%20Decree-Law%20No.%2028%20of%202022%20on%20Tax%20Procedures%20-%20For%20Publishing.pdf"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The core mechanics",
+      "ps": [
+        "A tax loss arises when the Corporate Tax computation goes negative. It carries forward indefinitely — no expiry — but with a throttle: in any later period, brought-forward losses can offset at most 75% of that period's taxable income. A company with AED 1,000,000 of taxable income and ample losses still pays 9% on AED 250,000. The design guarantees the FTA a minimum current-year take while still letting the losses work."
+      ]
+    },
+    {
+      "h": "Where the rules sit",
+      "ps": [
+        "Four articles of the Corporate Tax Law (Federal Decree-Law No. 47 of 2022) do the work. Article 37 sets the carry-forward and the 75% cap, measured on taxable income before any loss relief. Article 38 allows a loss to be used by another group company. Article 39 is the ownership and business continuity test. Article 42 deals with losses inside a tax group.",
+        "Two details in Article 37 matter in practice. First, Article 37(4) says a carried-forward loss must be set off against the next period's taxable income before any remainder moves on: you cannot skip a year to save the loss for a bigger one. Second, Article 37(3) lists losses that never qualify: those incurred before Corporate Tax started, before the person became a taxable person, and those from an asset or activity whose income is exempt or otherwise not taken into account."
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "Year 1: loss of AED 800,000. Year 2: taxable income AED 600,000. Offset is capped at 75% × 600,000 = AED 450,000 — taxable income becomes AED 150,000 (tax AED 0 under the 375k band), and AED 350,000 of losses carry on. The cap and the 0% band interact: small profits often pay nothing anyway, and the losses live to shelter bigger years."
+      ]
+    },
+    {
+      "h": "Carrying the example on",
+      "list": [
+        "Year 3: taxable income before loss relief AED 2,000,000. Cap = 75% × 2,000,000 = AED 1,500,000, so the full AED 350,000 is used. Taxable income AED 1,650,000; tax = 9% × (1,650,000 − 375,000) = AED 114,750",
+        "Without the losses, Year 3 tax would have been 9% × (2,000,000 − 375,000) = AED 146,250, so the brought-forward AED 350,000 saved AED 31,500 in Year 3",
+        "Year 2 also counts: without the loss, AED 600,000 of taxable income would have cost 9% × (600,000 − 375,000) = AED 20,250, so the AED 450,000 used saved AED 20,250. Article 37(4) made that set-off compulsory; the company could not bank the loss for Year 3",
+        "Loss register after Year 3: brought forward 800,000; used Year 2 450,000; used Year 3 350,000; carried forward nil"
+      ]
+    },
+    {
+      "h": "What kills a carried loss",
+      "list": [
+        "Ownership discontinuity: if more than 50% of ownership changes hands, the losses survive only if the business continues the same or a similar activity — sell a loss-making company for its tax losses and pivot it, and the losses die",
+        "Small Business Relief: losses arising in a period where the relief is claimed cannot be carried forward — electing in a loss year burns the loss",
+        "Pre-regime history: losses from periods before Corporate Tax applied to you never enter the system",
+        "Exempt income doesn't create them: exempt-participation write-downs and other exempt-stream costs don't manufacture usable losses"
+      ]
+    },
+    {
+      "h": "The continuity test in detail",
+      "ps": [
+        "Article 39 gives two routes. The ownership route: the same person or persons held at least 50% continuously, from the start of the period in which the loss arose to the end of the period in which it is used. The business route, if ownership changed by more than 50%: the company carried on the same or a similar business afterwards. The FTA reads these as alternatives, so passing either keeps the loss.",
+        "For the business route, Article 39(2) points to three factors: the company still uses some or all of the same assets, it has not made significant changes to the core identity or operations of its business, and any changes come from developing assets, services, processes, products or methods that existed before the change. A software reseller bought by a new owner that keeps the same customer contracts and team passes. A dormant trading shell turned into a property developer fails.",
+        "Companies whose shares are listed on a recognised stock exchange are outside Article 39 entirely (Article 39(3)), so market trading in their shares does not threaten their losses."
+      ]
+    },
+    {
+      "h": "Sharing losses in a group",
+      "ps": [
+        "Outside a full tax group, one UAE company can transfer its tax loss, or part of it, to another where common ownership is at least 75%, both are UAE-resident juridical persons, neither is exempt or a Qualifying Free Zone Person, their financial years end on the same date and both use the same accounting standards. The 75% common ownership must exist from the start of the period in which the loss arose to the end of the period in which the other company uses it, and the receiving company applies the same 75% offset cap. Inside a registered tax group, losses net automatically in the consolidated computation. The practical planning question is sequencing: which entity's losses to use, transfer or bank, decided before year-end while the choices are still open."
+      ]
+    },
+    {
+      "h": "Worked example: transferring a loss to a sister company",
+      "ps": [
+        "HoldCo owns 100% of OpCo A and OpCo B, both mainland companies with 31 December year-ends and IFRS accounts. OpCo B has 2026 taxable income of AED 4,000,000 and its own brought-forward losses of AED 1,000,000. OpCo A has AED 3,000,000 of losses it cannot use soon."
+      ],
+      "list": [
+        "Cap for OpCo B: 75% × 4,000,000 = AED 3,000,000 of total loss relief",
+        "OpCo B's own losses come first (Article 37(4)): AED 1,000,000",
+        "Room for a transfer from OpCo A: AED 2,000,000",
+        "OpCo B's taxable income = 4,000,000 − 1,000,000 − 2,000,000 = AED 1,000,000; tax = 9% × (1,000,000 − 375,000) = AED 56,250, against AED 326,250 with no relief at all",
+        "OpCo A reduces its loss pool to AED 1,000,000 (Article 38(2)(c)). Any intra-group payment for the loss is a separate question: agree and document it, on terms both companies can defend"
+      ]
+    },
+    {
+      "h": "Tax groups and restructurings",
+      "list": [
+        "A subsidiary joining a tax group brings its pre-grouping losses with it, but they can only offset the group's taxable income attributable to that subsidiary (Article 42(3)), subject again to the 75% cap and the continuity test",
+        "A subsidiary leaving a tax group takes only its own unused pre-grouping losses; the group's losses stay with the group (Article 42(6))",
+        "Under business restructuring relief, the transferor's unused losses can move to the transferee if the transferee carries on the same or a similar business (Article 27(3)(d) and Ministerial Decision No. 133 of 2023). See [qualifying group and restructuring relief](/guides/uae-qualifying-group-relief)"
+      ]
+    },
+    {
+      "h": "Deferred tax on carried-forward losses",
+      "ps": [
+        "Under IAS 12 a deferred tax asset is recognised for unused tax losses only to the extent it is probable that future taxable profit will be available to use them (paragraph 34). In the UAE that forecast has to reflect two local features: the 75% cap, which spreads the use of a large loss over more years, and the AED 375,000 band taxed at 0%, which means part of each year's income would not have been taxed anyway.",
+        "A simple test: model the loss register year by year against the profit forecast, compute the tax with and without the losses, and recognise the asset at the difference that is probable. For the example above, that is AED 20,250 for Year 2 and AED 31,500 for Year 3, not 9% of AED 800,000 (AED 72,000). The entry when recognised is Dr Deferred tax asset, Cr Deferred tax income, and it reverses as the losses are used."
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Applying the 75% cap to accounting profit instead of taxable income before loss relief",
+        "Forgetting that disallowed net interest is a separate carry-forward with a ten-year limit; it is not a tax loss (see [the 30% EBITDA interest cap](/guides/uae-interest-deduction-limitation))",
+        "Electing [Small Business Relief](/guides/uae-small-business-relief) in a loss year without checking whether the loss would have been worth more later",
+        "Not keeping evidence of ownership through the whole period: the 50% and 75% tests run from the start of the loss period to the end of the use period, and the FTA can ask for the share register at both points"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab maintains the loss register per entity — vintage, amount, what has been used — applies the 75% cap in the CT working automatically, and flags the continuity tests when ownership changes touch the cap table, so a decade of carried losses doesn't evaporate through a transaction nobody checked."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long can tax losses be carried forward in the UAE?",
+      "a": "Indefinitely. There is no expiry date, but each year the losses can offset at most 75% of taxable income, and they are lost if both the 50% ownership test and the same-business test fail."
+    },
+    {
+      "q": "What is the 75% loss restriction in UAE Corporate Tax?",
+      "a": "Brought-forward losses can reduce a later period's taxable income by no more than 75% of that income before loss relief (Article 37(2)). At least 25% of the year's taxable income is always exposed to tax, subject to the AED 375,000 0% band."
+    },
+    {
+      "q": "Can I choose not to use my tax losses in a year?",
+      "a": "No. Article 37(4) requires a carried-forward loss to be set off against the next period's taxable income, up to the cap, before any remainder carries further."
+    },
+    {
+      "q": "Can tax losses be transferred between UAE group companies?",
+      "a": "Yes, under Article 38, between UAE-resident companies with at least 75% common ownership that are not exempt or Qualifying Free Zone Persons, share a financial year-end and use the same accounting standards. The ownership must exist from the start of the loss period to the end of the period of use."
+    },
+    {
+      "q": "What happens to tax losses when a UAE company is sold?",
+      "a": "If more than 50% of ownership changes, the losses survive only if the company continues the same or a similar business. The FTA looks at whether the same assets are used and whether the core identity of the business has changed."
+    },
+    {
+      "q": "Can losses from before Corporate Tax started be used?",
+      "a": "No. Losses incurred before Corporate Tax applied, or before the person became a taxable person, cannot be claimed (Article 37(3))."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 and amendments (Corporate Tax Law), Articles 37 to 39 and 42",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 73 of 2023 on Small Business Relief (Article 4, tax losses)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 133 of 2023 on Business Restructuring Relief (Article 5, transfer of losses)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-133-of-2023-on-Business-Restructuring-Relief-for-Corporate-Tax-Purposes.pdf"
+    },
+    {
+      "label": "FTA: Determination of Taxable Income Corporate Tax Guide (tax losses and the continuity test)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/2024/Determination%20of%20Taxable%20Income%20-%2031%2007%202024.pdf"
+    }
+  ],
+  "related": [
+    "uae-small-business-relief",
+    "uae-qualifying-group-relief",
+    "uae-interest-deduction-limitation"
+  ]
+}

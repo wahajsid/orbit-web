@@ -1,0 +1,148 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "What retention actually is",
+      "ps": [
+        "A construction contract typically lets the employer hold back 5–10% of each certified payment until practical completion or the end of the defects period. The contractor has done the work — the revenue is earned under IFRS 15 — but has no unconditional right to the cash until the conditions clear. That gap drives both treatments below."
+      ]
+    },
+    {
+      "h": "The accounting: contract asset, not trade receivable",
+      "ps": [
+        "Certified work you can invoice now is a receivable. Retention is a contract asset: earned consideration whose right to payment is still conditional on something other than the passage of time. Reclassify it to receivables only when the conditions clear (completion certificate, defects period end). The distinction is not cosmetic — receivables age and drive ECL provisioning on one pattern; retentions on a project running three more years age on another, and lumping them together makes both the ageing report and the provision wrong.",
+        "The definitions are in IFRS 15 paragraphs 105 to 108: a receivable is a right to consideration that is unconditional, meaning only the passage of time is required before payment is due, and anything conditional on future performance is a contract asset. Both are in scope of the IFRS 9 impairment rules, and IFRS 9 paragraph 5.5.15 requires the simplified approach, lifetime expected credit losses, for trade receivables and contract assets that do not contain a significant financing component."
+      ]
+    },
+    {
+      "h": "Is retention a financing component?",
+      "ps": [
+        "Usually not. IFRS 15 paragraph 62(c) says a contract has no significant financing component where the gap between the promised consideration and the cash selling price arises for a reason other than financing, and gives as an example payment terms that protect a customer from the supplier failing to complete its obligations. Retention exists to secure completion and defect rectification, so it is normally not discounted. Record the reasoning in the contract file, because a retention released several years after the work is the kind of balance an auditor will ask about."
+      ]
+    },
+    {
+      "h": "The VAT: the tax point usually waits",
+      "ps": [
+        "For continuous supplies with periodic certification, the date of supply under Article 26(1) of the VAT Decree-Law is the earliest of: the tax invoice being issued, the payment falling due as specified on the tax invoice, the payment being received, or the expiry of one year from the date the goods or services were provided. Retention, by design, is neither invoiced nor due at certification — so its tax point normally arrives when the retention is finally invoiced or received, not when the original work was certified, but no later than the 12-month backstop described below.",
+        "The practical consequences: don't account for output VAT on retention years before you can bill it — that is prepaying tax on cash you don't hold; and when the retention does release, remember it carries VAT at that point — releasing AED 500,000 of retention means invoicing AED 525,000, a step contractors' cash-flow forecasts routinely miss."
+      ]
+    },
+    {
+      "h": "The 12-month backstop",
+      "ps": [
+        "Article 26(1)(d) is the limb that stops retention VAT being deferred indefinitely. The FTA's Real Estate VAT Guide (VATGRE1) applies it to retentions: the date of supply for a retention is the earliest of the retention being paid, a tax invoice being issued for it, or 12 months from the date the work was signed off as complete, for example by a completion certificate. The same guide confirms that certification on its own does not trigger a tax point, although it often sets a payment due date that can.",
+        "The backstop matters most where the defects liability period is longer than a year. If the second half of the retention is only payable 24 months after completion, the tax point still arrives 12 months after completion, the output VAT goes into that period's return, and Article 67 requires a tax invoice within 14 days of that date of supply. The contractor pays the VAT a year before it collects the cash.",
+        "The statute measures the year from the date the services were provided, while the FTA guide measures it from sign-off as complete. On a contract where each certified stage could be argued to be a separate service already provided, take advice before relying on the completion date, and document the position you take."
+      ]
+    },
+    {
+      "h": "Worked example: AED 40 million contract, 10% retention",
+      "ps": [
+        "A contractor certifies AED 2,000,000 of work in a month, excluding VAT, with 10% retention. It invoices the AED 1,800,000 that is payable now, plus VAT of AED 90,000. Revenue of AED 2,000,000 is recognised for the work done (assuming certification tracks progress), and the AED 200,000 retention sits as a contract asset with no VAT yet.",
+        "Over the project the retention builds to AED 4,000,000. Practical completion is certified on 30 June 2026 and the contract releases half then and half at the end of a 24-month defects period. The first AED 2,000,000 is invoiced in July 2026 with VAT of AED 100,000. For the second half, the 12-month backstop falls on 30 June 2027: output VAT of AED 100,000 is due in the return covering that date and the tax invoice must be issued by 14 July 2027, although the cash is not due until mid-2028."
+      ],
+      "list": [
+        "Monthly certificate: Dr Trade receivable 1,890,000 / Dr Contract asset (retention) 200,000 / Cr Revenue 2,000,000 / Cr Output VAT 90,000",
+        "First release invoiced: Dr Trade receivable 2,100,000 / Cr Contract asset (retention) 2,000,000 / Cr Output VAT 100,000",
+        "Backstop on the second half: Dr Trade receivable 2,100,000 / Cr Contract asset (retention) 2,000,000 / Cr Output VAT 100,000; the receivable is still payable only at the end of the defects period, so keep it in a separate ageing bucket and re-test the expected credit loss"
+      ]
+    },
+    {
+      "h": "When the employer keeps the retention",
+      "ps": [
+        "If the employer withholds retention permanently because of snags, VATGRE1 says no VAT is due on the amount withheld. If VAT has already been accounted for, because an invoice was issued or the 12-month rule applied, the guide points to two routes: a tax credit note where the contractor accepts that the money is not due, or bad debt relief where it still considers the money owed.",
+        "Bad debt relief under Article 64 of the Decree-Law requires that the VAT was charged and paid, that the debt has been written off in the accounts in full or in part, that more than six months have passed since the date of supply, and that the customer has been notified of the amount written off. The [bad debt relief guide](/guides/uae-vat-bad-debt-relief) covers the evidence in detail.",
+        "Where the original contractor fixes snags at its own cost there is no further supply and no extra VAT. Where the employer pays another contractor, or pays the original contractor an extra fee, that is a new taxable supply."
+      ]
+    },
+    {
+      "h": "The employer's side",
+      "ps": [
+        "The employer holds a retention payable, not a VAT receivable. It can recover the input VAT on a retention only once it holds the tax invoice for it, and only to the extent it has paid or intends to pay within six months of the agreed payment date (Article 55 of the Decree-Law and Article 54(2) of the Executive Regulation). Because the six months run from the agreed payment date, an employer that intends to pay on the contractual release date can generally recover the VAT on a backstop invoice when it receives it, even though the cash moves much later. If the employer disputes the retention and does not intend to pay, it should not recover the VAT."
+      ]
+    },
+    {
+      "h": "The traps",
+      "list": [
+        "Invoicing the full certified amount including retention — that accelerates the entire VAT and defeats the deferral",
+        "Forgetting retentions in the ECL assessment — long-dated, condition-heavy balances deserve their own loss-rate thinking",
+        "Losing track of defects-period end dates, so releasable retention sits unbilled for months",
+        "Contract clauses that make retention 'due' on certification with only payment delayed — wording can move the tax point, particularly where the due date appears on a tax invoice; read yours",
+        "Missing the 12-month backstop on defects periods longer than a year, which leaves output VAT unpaid and a tax invoice late"
+      ]
+    },
+    {
+      "h": "What to check in the contract and the ledger",
+      "list": [
+        "The retention percentage, any cap, and the release events: practical completion, taking-over certificate, end of the defects liability period",
+        "Whether the contract treats the works as complete at certification or only on final sign-off, since that decides when the 12-month backstop starts",
+        "That interim tax invoices show the net amount due and not the gross certified value",
+        "A retention register by contract with completion date, the 12-month backstop date, release dates and the VAT status of each tranche",
+        "Whether a bank guarantee replaces cash retention, which changes the cash forecast but not the date-of-supply analysis for amounts actually withheld",
+        "From 1 January 2027, contractors with revenue of AED 50 million or more must issue tax invoices, retention invoices included, through the UAE e-invoicing system (Ministerial Decision No. 244 of 2025, as amended by Ministerial Decision No. 66 of 2026); smaller businesses follow from 1 July 2027"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab carries retention per contract as a contract asset with its release conditions and dates, keeps it out of the VAT return until the tax point actually arrives, raises the invoice (VAT included) when release conditions clear, and ages it separately in the ECL working."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "To size the provision on long-dated retentions, use the [ECL provision calculator](/tools/ecl-provision-calculator). For sale and lease questions on the finished building, see [VAT on UAE real estate](/guides/uae-real-estate-vat)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "When is VAT due on retention money in the UAE?",
+      "a": "At the earliest of the retention being paid, a tax invoice being issued for it, or 12 months after the work is signed off as complete, according to the FTA's Real Estate VAT Guide applying Article 26 of the VAT Decree-Law. Certification alone does not create a tax point. In practice VAT is usually due when the retention is invoiced on release, unless the release is more than a year after completion."
+    },
+    {
+      "q": "Is retention a contract asset or a receivable under IFRS 15?",
+      "a": "A contract asset, while payment still depends on something other than the passage of time, such as completion or the end of the defects period. It becomes a receivable when the condition is met and only time stands between the contractor and the cash. Both are tested for expected credit losses under IFRS 9."
+    },
+    {
+      "q": "Do I charge VAT on retention when it is released?",
+      "a": "Yes, unless VAT was already accounted for at an earlier tax point. Retention is part of the price of standard-rated construction services, so releasing AED 500,000 of retention means a tax invoice for AED 525,000. If the 12-month backstop has already triggered VAT, do not charge it twice."
+    },
+    {
+      "q": "What happens to VAT if the client keeps the retention for defects?",
+      "a": "No VAT is due on retention the employer withholds permanently. If VAT was already declared, issue a tax credit note if you accept the amount is not due, or claim bad debt relief under Article 64 if you consider it still owed and the conditions are met, including six months since the date of supply and a write-off in the accounts."
+    },
+    {
+      "q": "Does the 12-month rule apply if the defects liability period is longer than a year?",
+      "a": "Yes. The backstop runs whether or not payment is due, so on a 24-month defects period the VAT on the remaining retention falls due 12 months after completion and a tax invoice must follow within 14 days. Plan the cash for it."
+    },
+    {
+      "q": "Does retention create a significant financing component under IFRS 15?",
+      "a": "Normally not. Paragraph 62(c) of IFRS 15 treats payment terms that protect the customer against the supplier failing to complete its obligations as a reason other than financing, so retention is not usually discounted. Document the assessment for long-dated retentions."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Real Estate VAT Guide VATGRE1 (sections 12.2 to 12.4, date of supply, retention payments and snagging)",
+      "href": "https://tax.gov.ae/DownloadOpenTextFile?fileUrl=en/VAT_VAT_Guides/Real_Estate_Guide/Real_Estate_Guide_VATGRE1_EN_19_04_2021_EN.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 26, 55, 64, 67), consolidated to 1 January 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 66 of 2026 amending Ministerial Decision No. 244 of 2025 on e-invoicing implementation",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/05/Ministerial-Resolution-No.-66-of-2026-Amending-Certain-Provisions-of-Ministerial-Resolution-No.-244-of-2025-Regarding-the-Implementation-of-the-Electronic-Invoicing-System-En-20260514.pdf"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 15 Revenue from Contracts with Customers (paragraphs 62, 105 to 108)",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/"
+    }
+  ],
+  "related": [
+    "uae-vat-bad-debt-relief",
+    "uae-real-estate-vat",
+    "uae-tax-invoice-checklist"
+  ]
+}

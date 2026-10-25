@@ -1,0 +1,69 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Enter the Corporate Tax still unpaid in AED, the number of months the return and payment are late, and tick the box if registration was also late. A part month is rounded up to a whole month, because the penalties run 'for each month or part thereof'.",
+        "Late filing penalty = AED 500 for each of the first 12 months plus AED 1,000 for each month from the 13th onwards. Late payment penalty = unpaid tax x 14% x months / 12, which is about 1.167% of the unpaid tax for each month or part month. Late registration adds a fixed AED 10,000. The total is the sum of the three, shown to two decimals; the first box shows filing and registration together.",
+        "The calculator uses one month count for both filing and payment. If you filed on time but paid late, or paid but filed late, run it twice and take the relevant line from each. It assumes the unpaid amount stays the same throughout; a part payment reduces the base for later months."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Corporate Tax penalties are set by Cabinet Decision No. 75 of 2023, in force from 1 August 2023 and amended by Cabinet Decision No. 10 of 2024 from 1 March 2024. Article 2 says its table applies to Corporate Tax notwithstanding Cabinet Decision No. 40 of 2017, the VAT and excise penalty schedule. Cabinet Decision No. 129 of 2025, which rewrote the VAT and excise penalties from 14 April 2026, brought those regimes into line with the Corporate Tax figures; it did not change this table.",
+        "Item 7 of the table: failure to submit a return on time costs AED 500 for each month or part thereof for the first twelve months, and AED 1,000 for each month or part thereof from the thirteenth month, starting the day after the deadline. It applies even when no tax is due. Item 8: failure to settle payable tax costs 14% per annum, for each month or part thereof, on the unsettled amount from the day after the due date. Item 14 (added by Cabinet Decision No. 10 of 2024): late registration costs AED 10,000.",
+        "The return and the payment are both due within nine months of the end of the tax period (Articles 48 and 53 of the Corporate Tax Law), so for a calendar year 2025 the deadline is 30 September 2026. Article 3 of the Decision fixes the monthly anniversary: where a month has no matching date, the last day of that month is used.",
+        "Other items not modelled here: AED 500 for an incorrect return not corrected before the filing deadline; a voluntary disclosure penalty of 1% of the tax difference for each month or part thereof from the original due date to the disclosure; a fixed 15% plus that monthly 1% where the disclosure comes only after an audit notice; and AED 10,000 (AED 20,000 for a repeat within 24 months) for failing to keep records. Tax found by a disclosure is due 20 business days after submission. Our guide to [Corporate Tax penalties](/guides/uae-corporate-tax-penalties) and the [deadlines calendar](/guides/uae-tax-deadlines) set out the dates."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai mainland contractor with a calendar-year tax period registered late. Its 2024 return and payment of AED 180,000 were due on 30 September 2025. It filed and paid on 10 October 2026."
+    ],
+    "list": [
+      "Step 1: count the months. Penalties start on 1 October 2025 and fall again on the 1st of each month. From 1 October 2025 to 10 October 2026, 13 months have started, so enter 13.",
+      "Step 2: enter unpaid tax 180,000 and tick the late registration box.",
+      "Step 3: filing penalty = 500 x 12 + 1,000 x 1 = AED 7,000.",
+      "Step 4: payment penalty = 180,000 x 14% x 13 / 12 = AED 27,300.00.",
+      "Step 5: registration penalty = AED 10,000. The first box shows AED 17,000.00 (filing plus registration).",
+      "Step 6: total = 7,000 + 27,300 + 10,000 = AED 44,300.00.",
+      "Step 7: the journal. Penalties are not deductible for Corporate Tax (Article 33 of the law), so add them back in the 2026 computation. Dr Tax penalties expense 44,300; Cr FTA payable 44,300."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the penalty for late corporate tax filing in the UAE?",
+      "a": "AED 500 for each month or part month for the first 12 months, then AED 1,000 for each month or part month after that. It runs from the day after the nine-month deadline and applies even when no tax is payable."
+    },
+    {
+      "q": "How is the UAE corporate tax late payment penalty calculated?",
+      "a": "At 14% a year on the unpaid tax, charged for each month or part month from the day after the due date. That is roughly 1.167% a month: AED 100,000 paid nine months late costs AED 10,500."
+    },
+    {
+      "q": "What is the penalty for late corporate tax registration?",
+      "a": "AED 10,000, under item 14 of the Cabinet Decision No. 75 of 2023 table, added by Cabinet Decision No. 10 of 2024 from 1 March 2024."
+    },
+    {
+      "q": "Did the April 2026 penalty changes affect corporate tax?",
+      "a": "No. Cabinet Decision No. 129 of 2025 changed the VAT and excise penalties from 14 April 2026. Corporate Tax penalties remain under Cabinet Decision No. 75 of 2023, which already used 14% a year for late payment and 1% a month for voluntary disclosures."
+    },
+    {
+      "q": "Is there a maximum corporate tax late filing penalty?",
+      "a": "The table sets no cap on the monthly filing penalty or on the 14% late payment penalty. Only the late deregistration penalty has a cap, AED 10,000."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Cabinet Decision No. 75 of 2023 and its amendments (Corporate Tax administrative penalties)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Cabinet%20Decision%20No.%2075%20of%202023%20and%20amendments%20-%20For%20Publishing.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    }
+  ]
+}

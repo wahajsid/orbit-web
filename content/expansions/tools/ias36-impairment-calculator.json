@@ -1,0 +1,80 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the carrying amount of the cash-generating unit (CGU), five annual cash flows, a discount rate and a terminal growth rate. Cash flows are treated as arising at the end of each year.",
+        "The calculator then works through these steps and shows each discount factor to four decimals and the values to two."
+      ],
+      "list": [
+        "Discount factor for year t = 1 ÷ (1 + rate)^t, and present value = cash flow × factor",
+        "Terminal value = year 5 cash flow × (1 + growth) ÷ (rate − growth); if growth is equal to or above the rate, the terminal value is set to zero",
+        "Terminal value is discounted with the year 5 factor",
+        "Value in use = the five present values + the discounted terminal value",
+        "If value in use is at or above the carrying amount, the result is headroom; if below, the shortfall is shown as the impairment loss"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "IAS 36 measures an impairment against the recoverable amount, which is the higher of fair value less costs of disposal and value in use. This calculator computes value in use only. If it shows a shortfall, estimate fair value less costs of disposal before booking a loss: if either measure exceeds the carrying amount, there is no impairment.",
+        "Value in use cash flows come from the most recent approved budgets, over a maximum of five years unless a longer period can be justified, and exclude financing and income tax cash flows, and the effects of restructurings not yet committed or of improvements to the asset. Beyond the budget period, extrapolate using a growth rate that does not exceed the long-term average for the products, industry or country.",
+        "IAS 36 requires a pre-tax discount rate that reflects current market assessments of the time value of money and the risks specific to the CGU. The field asks for that pre-tax rate. A group's post-tax WACC is not the right input on its own: it must be converted to the pre-tax rate that gives the same value, or the cash flows and rate must both be consistently post-tax and the result checked against the pre-tax basis.",
+        "Goodwill and indefinite-life intangibles are tested every year; other assets only when there is an indicator, such as falling revenue, higher market interest rates or net assets above market capitalisation. A CGU loss is allocated first to goodwill, then pro rata to the other assets, but no asset is reduced below the highest of its fair value less costs of disposal, its value in use and zero. Losses on goodwill are never reversed."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A retail CGU in Dubai has a carrying amount of AED 13,000,000, including AED 500,000 of goodwill. The approved budget shows cash flows of AED 800,000, 900,000, 1,000,000, 1,050,000 and 1,100,000. The pre-tax discount rate is 10% and long-term growth 2%. Enter 13000000, the five cash flows, 10 and 2. Fair value less costs of disposal has been estimated at AED 11,800,000."
+    ],
+    "list": [
+      "Discount factors: 0.9091, 0.8264, 0.7513, 0.6830, 0.6209",
+      "Present values: AED 727,272.73, 743,801.65, 751,314.80, 717,164.13 and 683,013.46, totalling AED 3,622,566.76",
+      "Terminal value: 1,100,000 × 1.02 ÷ (0.10 − 0.02) = AED 14,025,000.00; discounted at 0.6209 = AED 8,708,421.56",
+      "Value in use: 3,622,566.76 + 8,708,421.56 = AED 12,330,988.32, so the calculator shows an impairment loss of AED 669,011.68",
+      "Recoverable amount: the higher of 12,330,988.32 and 11,800,000 is value in use, so the loss stands",
+      "Allocation: AED 500,000 to goodwill, the remaining AED 169,011.68 pro rata across the other assets in the CGU",
+      "Journal: Dr impairment loss (profit or loss) 669,011.68; Cr goodwill 500,000.00; Cr property, plant and equipment and other CGU assets 169,011.68",
+      "Sensitivity: the terminal value is about 71% of value in use, so test the growth and discount rates. At 9% the CGU passes; disclose key assumptions and the change that would remove any remaining headroom."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the difference between value in use and fair value less costs of disposal?",
+      "a": "Value in use is the present value of the cash flows the entity expects from continuing to use the asset. Fair value less costs of disposal is the price a market participant would pay, less disposal costs. Recoverable amount is the higher of the two."
+    },
+    {
+      "q": "Should I use a pre-tax or post-tax discount rate for IAS 36?",
+      "a": "IAS 36 requires a pre-tax rate applied to pre-tax cash flows. Many entities start from a post-tax WACC and gross it up, and the disclosure must state the pre-tax rate used."
+    },
+    {
+      "q": "How many years of cash flows can a value-in-use model include?",
+      "a": "Budget-based projections should cover at most five years unless a longer period is justified. Later years are covered by extrapolating with a steady or declining growth rate, usually through a terminal value."
+    },
+    {
+      "q": "How often must goodwill be tested for impairment?",
+      "a": "At least annually, at the same time each year, and also whenever there is an indication of impairment. Other assets are tested only when an indicator exists."
+    },
+    {
+      "q": "Can an impairment loss be reversed?",
+      "a": "Yes for assets other than goodwill, when the estimates used to measure recoverable amount have changed, up to the carrying amount the asset would have had without the impairment. Goodwill impairment is never reversed. For the close process, see the [month-end close checklist](/guides/month-end-close-checklist)."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS Foundation: IAS 36 Impairment of Assets (2026 issued text, paragraphs 33, 55, 104 and 105)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards/english/2026/issued/ias36.html"
+    },
+    {
+      "label": "IFRS Foundation: IAS 36 summary",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ias-36-impairment-of-assets/"
+    },
+    {
+      "label": "IASB staff paper: Goodwill and impairment, pre-tax inputs in value in use (January 2018)",
+      "href": "https://www.ifrs.org/-/media/feature/meetings/2018/january/iasb/ap18a-g-and-i-value-in-use.pdf"
+    }
+  ]
+}

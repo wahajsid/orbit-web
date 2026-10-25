@@ -1,0 +1,75 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter one amount in Saudi riyals, pick a payment category and say whether the contract is net of tax. The calculator shows the WHT to withhold, what the supplier receives and the total cost to the payer, to two decimal places.",
+        "Without the net-of-tax box, the amount is treated as the gross payment. WHT is the gross payment multiplied by the category rate, the supplier receives the gross less the WHT, and the total cost is the gross payment.",
+        "With the net-of-tax box ticked, the amount is what the supplier must receive after tax. The calculator grosses it up: WHT = net x rate / (1 - rate), and the total cost is the net plus that WHT. The Saudi payer then bears the tax as an extra cost."
+      ],
+      "list": [
+        "Management fees: 20%",
+        "Royalties: 15%",
+        "Any other payments: 15%",
+        "Dividends, interest (loan charges), rent, technical and consulting services, insurance and reinsurance premiums, international telecommunications: 5%"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Withholding tax is imposed under Article 68 of the Income Tax Law and Article 63 of its Implementing Regulations on payments by a Saudi resident, or a permanent establishment in the Kingdom, to a non-resident for income from a source in the Kingdom. It is levied on the gross amount, not on the non-resident's profit. Payments to a resident taxpayer or to a non-resident's Saudi permanent establishment are outside WHT because that income is already in a Saudi tax base.",
+        "ZATCA's General Guideline for Withholding Tax (second version, May 2026) lists the rates the calculator uses, including payments for air tickets or air or sea freight at 5% (international departure tickets from the Kingdom, and freight paid to carriers or their agents in the Kingdom, but not shipping from abroad to Saudi ports) and land transport within the Kingdom at 15%. Both have their own buttons. Payments by a local telecom operator to an international operator for passing calls, and international roaming charges, are not subject to WHT.",
+        "Getting the category right matters more than the arithmetic. A contract labelled consulting that is in substance a management service is 20%, not 5%. Where a contract mixes goods and services, only the service element is in scope. Technical and consulting services are caught even if performed wholly outside the Kingdom, and amounts a resident company pays its head office or a related company are Saudi-source wherever the work is done. See our guide to [intercompany management fees](/guides/intercompany-management-fees-uae) before settling a group recharge.",
+        "The withholder files a monthly withholding statement and pays the tax within the first 10 days of the month after the month of payment, and gives the beneficiary a certificate of the amount withheld. An annual statement is due within 120 days of the year end (60 days for partnerships). Late payment attracts a delay penalty of 1% of the unpaid tax for every 30 days under Article 77(a) of the Law.",
+        "A double tax treaty can reduce or remove the rate. Under ZATCA's January 2025 circular on WHT under treaties, the withholder can apply the treaty rate at source by applying through the ZATCA portal with the non-resident's tax residency certificate, the approved request form, embassy or Apostille authentication and an undertaking on Form Q/7C. Alternatively it withholds at the domestic rate and claims a refund. The time limit to apply, and for ZATCA to audit, is five years. The calculator always applies the domestic rate."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Riyadh company licenses a brand from a UK licensor. The licence says the licensor must receive SAR 85,000 net of any Saudi tax. The royalty is paid on 20 January, and no treaty relief has been applied for at source."
+    ],
+    "list": [
+      "Step 1: enter 85,000, tick 'Contract is net-of-tax', choose Royalties (15%).",
+      "Step 2: WHT = 85,000 x 0.15 / 0.85 = SAR 15,000.00.",
+      "Step 3: total cost = 85,000 + 15,000 = SAR 100,000.00; the licensor receives SAR 85,000.00.",
+      "Step 4: journal on payment: Dr Royalty expense 100,000; Cr Bank 85,000; Cr WHT payable 15,000.",
+      "Step 5: file the January withholding statement and pay SAR 15,000 to ZATCA by 10 February, then send the licensor its withholding certificate.",
+      "Cross-check without the gross-up: a SAR 100,000 gross management fee gives WHT of SAR 20,000.00 and the supplier receives SAR 80,000.00."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the withholding tax rate in Saudi Arabia for services?",
+      "a": "It depends on the service. Technical and consulting services paid to a non-resident are 5%, management fees are 20%, and payments that fall in no specific category are 15%. ZATCA's General Guideline for Withholding Tax sets out the full table."
+    },
+    {
+      "q": "When is Saudi withholding tax due?",
+      "a": "Within the first 10 days of the month following the month in which the payment was made to the non-resident. A royalty paid on 20 January must be declared and paid by 10 February. An annual withholding statement is also due within 120 days of the financial year end."
+    },
+    {
+      "q": "How do you gross up withholding tax in KSA?",
+      "a": "Divide the net amount by (1 - rate) to get the gross, and the WHT is the difference. For SAR 85,000 net at 15%, the gross is SAR 100,000 and the WHT SAR 15,000. The WHT is then a cost of the payer."
+    },
+    {
+      "q": "Can a tax treaty reduce Saudi WHT at source?",
+      "a": "Yes. ZATCA allows the withholder to apply the treaty rate at source after applying through the ZATCA portal with the non-resident's tax residency certificate and the required forms, including the Q/7C undertaking. Otherwise tax is withheld at the domestic rate and a refund is claimed. Either way the claim must be made within five years."
+    },
+    {
+      "q": "What is the penalty for late payment of withholding tax in Saudi Arabia?",
+      "a": "A delay penalty of 1% of the unpaid tax for every 30 days of delay under Article 77(a) of the Income Tax Law. Concealing or misstating information can also bring the 25% fraud penalty under Article 77(b)."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ZATCA: General Guideline for Withholding Tax (second version, May 2026)",
+      "href": "https://zatca.gov.sa/en/HelpCenter/guidelines/Documents/General-Guideline-for-Withholding-Tax-In-accordance-with-the-provisions-of-the-Income-Tax-Law-and-its-Implementing-Regulations.pdf"
+    },
+    {
+      "label": "ZATCA: Tax Circular, Implementation of WHT under Double Taxation Agreements (January 2025)",
+      "href": "https://zatca.gov.sa/en/MediaCenter/Publications/Documents/Tax-Circular-WHT-Implementation-Under-Double-Taxation-Agreement.PDF"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "What the relief does",
+      "ps": [
+        "Small Business Relief lets a UAE-resident taxable person be treated as having no taxable income for a tax period — no 9% to pay — if revenue is AED 3,000,000 or less in that period and in every previous tax period, for tax periods ending on or before 31 December 2029. It is an election made in the tax return, period by period, not an automatic exemption.",
+        "Two things it does not do: it does not remove the obligation to register for Corporate Tax and file a return, and it does not last forever — it is available only for tax periods ending on or before 31 December 2029. The original sunset was 31 December 2026; Ministerial Decision No. 131 of 2026, announced by the Ministry of Finance in August 2026, extended it by three years."
+      ]
+    },
+    {
+      "h": "Where the rule sits",
+      "ps": [
+        "The relief is Article 21 of the Corporate Tax Law (Federal Decree-Law No. 47 of 2022). The detail is in Ministerial Decision No. 73 of 2023: Article 2 sets the AED 3,000,000 threshold for tax periods starting on or after 1 June 2023, Article 3 lists who cannot elect, Articles 4 and 5 deal with losses and interest, and Article 6 is the anti-fragmentation rule. Ministerial Decision No. 131 of 2026, issued on 29 July 2026 and in force the day after publication, replaced Article 2(2) so the threshold now applies to tax periods ending on or before 31 December 2029.",
+        "Revenue is measured under the accounting standards the business uses (Article 2(4) of the decision). A business with revenue of AED 3,000,000 or less may also prepare its financial statements on the cash basis, so the revenue figure for the relief can be a cash-basis figure. See [cash vs accrual for Corporate Tax](/guides/uae-cash-vs-accrual-corporate-tax) for how that test works."
+      ]
+    },
+    {
+      "h": "Who cannot use it",
+      "list": [
+        "Qualifying Free Zone Persons — the free zone 0% regime and Small Business Relief are mutually exclusive",
+        "Members of multinational groups with consolidated revenue above the country-by-country reporting threshold (AED 3.15 billion)",
+        "Businesses artificially split into pieces to stay under AED 3 million each — the FTA treats the arrangement as one to obtain a Corporate Tax advantage under the general anti-abuse rule in Article 50 of the Corporate Tax Law, and can counteract the advantage"
+      ]
+    },
+    {
+      "h": "What switches off when you elect",
+      "ps": [
+        "Electing means the taxable person is treated as having no taxable income, so Article 21(2) turns off the parts of the law that only matter when you compute it: exempt income, the reliefs in Chapter Eight (including qualifying group and business restructuring relief), deductions, tax loss relief, and the transfer pricing documentation requirements of Article 55.",
+        "The documentation point is a genuine saving: the FTA's Small Business Relief guide confirms there is no related-party disclosure with the return and no master or local file for a relief period. It also says the arm's length principle still applies, and the FTA can still review related-party transactions. If the owner's other company buys from you at a price that keeps your revenue under AED 3m, expect that to be looked at."
+      ]
+    },
+    {
+      "h": "The catches worth reading twice",
+      "list": [
+        "Revenue means revenue — gross income, not profit. A low-margin trader crosses AED 3m long before it earns AED 375,000 of profit",
+        "One breach ends it — cross the threshold in any period and the relief is gone for that period and cannot be claimed again, because the test requires all previous periods to have stayed under",
+        "Losses incurred in a relief period cannot be carried forward, and net interest expenditure incurred in a relief period cannot be carried forward either: both are lost, not parked. Losses and disallowed interest from earlier periods in which you did not elect survive, and can be used in a later period in which you do not elect",
+        "The election still requires clean books: the FTA can ask how the revenue figure was built, and the simplified return is simplified, not unaudited"
+      ]
+    },
+    {
+      "h": "Should a small business elect?",
+      "ps": [
+        "Usually yes if profitable and comfortably under the threshold. The genuine judgement call is a growing business near AED 3m, or one making a loss it could otherwise carry forward against future 9% profits. That is a modelling exercise — a year of relief today against a deduction tomorrow — and the answer depends on the trajectory, not a rule of thumb."
+      ]
+    },
+    {
+      "h": "Worked example: the loss year",
+      "ps": [
+        "A Dubai trading LLC with a calendar year-end has revenue of AED 2,400,000 in 2026 and a tax loss of AED 500,000. It expects revenue of AED 4,500,000 and taxable income of AED 1,200,000 in 2027, which puts it over the threshold for good."
+      ],
+      "list": [
+        "Elect for 2026: no tax in 2026 (there was none to pay anyway), and the AED 500,000 loss cannot be carried forward. 2027 tax = 9% × (1,200,000 − 375,000) = AED 74,250",
+        "Do not elect for 2026: no tax in 2026, full return, and the loss carries forward. In 2027 the loss can offset up to 75% of taxable income (AED 900,000), so all AED 500,000 is used. 2027 tax = 9% × (700,000 − 375,000) = AED 29,250",
+        "Cost of electing in the loss year: AED 45,000 of 2027 tax, against the compliance saving of a simplified return for one year",
+        "Now change one fact: if 2027 revenue stays under AED 3m, the company elects in 2027 too and pays nothing, and the burned loss costs nothing. The answer turns on the forecast"
+      ]
+    },
+    {
+      "h": "Worked example: the threshold year",
+      "ps": [
+        "A consultancy with a calendar year-end books revenue of AED 2,950,000 for 2026 on the accrual basis, then raises a AED 120,000 invoice on 28 December for work finished that month. Revenue is AED 3,070,000: the relief is unavailable for 2026 and for every later period, even if 2027 revenue falls back to AED 2m.",
+        "The cut-off question is accounting, not tax: under IFRS 15 revenue follows performance, so moving the invoice date does not move the revenue if the work was done in December. What does change the result is the facts. A genuine deferral of work into January, an accurate revenue cut-off, and credit notes for actual returns all count. Deliberate understatement to stay under a threshold is listed as tax evasion in Article 25 of the Tax Procedures Law."
+      ]
+    },
+    {
+      "h": "What to check before you tick the box",
+      "list": [
+        "Revenue for this period and every earlier tax period starting on or after 1 June 2023 is AED 3,000,000 or less, measured under the accounting standards you actually use",
+        "The entity is resident, is not a Qualifying Free Zone Person, and is not part of a multinational group above AED 3.15 billion",
+        "Related businesses under common ownership: the FTA will look at commercial reasons and financial, economic and organisational links if revenue across them exceeds AED 3m",
+        "Any carried-forward losses or disallowed interest: electing does not cancel them, but it does stop them being used this period",
+        "Any planned intra-group asset transfer this period: an electing company cannot use qualifying group relief",
+        "The return is filed on time: the election is made in the return, and late filing penalties apply regardless (see [Corporate Tax penalties](/guides/uae-corporate-tax-penalties))"
+      ]
+    },
+    {
+      "h": "Natural persons",
+      "ps": [
+        "The relief is not only for companies. A resident individual whose business turnover takes them into Corporate Tax can elect too, on the same AED 3m revenue test. The registration and filing mechanics for individuals are covered in [Corporate Tax for freelancers and sole establishments](/guides/uae-corporate-tax-freelancers-sole-establishments). You can test your own figures in the [Small Business Relief checker](/tools/small-business-relief-checker)."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tracks rolling revenue against the AED 3m line as the year runs — not at filing time — flags the approach while there is still time to plan, and keeps the revenue build traceable to documents so the election survives a question from the FTA."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Small Business Relief extended beyond 2026?",
+      "a": "Yes. Ministerial Decision No. 131 of 2026, issued on 29 July 2026, extended the relief to tax periods ending on or before 31 December 2029. The original end date was 31 December 2026."
+    },
+    {
+      "q": "Do I need to register for Corporate Tax if I claim Small Business Relief?",
+      "a": "Yes. The relief is elected in the Corporate Tax return, so you must register and file a return for every period. Late registration and late filing penalties apply in full."
+    },
+    {
+      "q": "Is the AED 3 million threshold based on revenue or profit?",
+      "a": "Revenue. It is gross revenue measured under the accounting standards you use, not profit. A business with AED 3.1m of sales and a small profit does not qualify."
+    },
+    {
+      "q": "What happens if my revenue exceeds AED 3 million in one year?",
+      "a": "You lose the relief for that period and cannot claim it again, because the test requires revenue to be AED 3m or less in the current period and every previous period. You are taxed normally from then on."
+    },
+    {
+      "q": "Can a free zone company claim Small Business Relief?",
+      "a": "Not if it is a Qualifying Free Zone Person. A free zone company that is not a Qualifying Free Zone Person (for example, one that has failed the conditions) is a normal resident taxable person and can elect if it meets the revenue test."
+    },
+    {
+      "q": "What happens to my tax losses if I elect Small Business Relief?",
+      "a": "Losses incurred in a period in which you elect are lost. Losses from earlier periods in which you did not elect are kept and can be used in a later period in which you do not elect, within the usual 75% cap."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Ministerial Decision No. 73 of 2023 on Small Business Relief",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 131 of 2026 extending Small Business Relief to 31 December 2029",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/08/Ministerial-Decision-No.-131-of-2026-Amending-Certain-Provisions-of-Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 and amendments (Corporate Tax Law), Article 21",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "FTA: Small Business Relief Corporate Tax Guide (CTGSBR1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Small%20Business%20Relief%20Guide%20-%20EN%20-%2029%2008%202023.pdf"
+    }
+  ],
+  "related": [
+    "uae-cash-vs-accrual-corporate-tax",
+    "uae-tax-loss-carry-forward",
+    "free-zone-corporate-tax-0-percent"
+  ]
+}

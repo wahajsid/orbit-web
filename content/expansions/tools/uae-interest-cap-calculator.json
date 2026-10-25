@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "There are two inputs: net interest expenditure for the tax period and adjusted EBITDA, both in AED. Negative entries are treated as zero.",
+        "The calculator takes 30% of adjusted EBITDA, then sets the cap at the higher of that figure and AED 12,000,000. Deductible interest = the lower of net interest expenditure and the cap. Disallowed interest = net interest expenditure - deductible interest, which carries forward. The label tells you which prong binds: the AED 12m threshold when it is the higher figure, otherwise 30% of EBITDA. All results are rounded to the nearest dirham.",
+        "Net interest expenditure here must already include any disallowed interest brought forward from earlier periods, because Article 30(2) of the Corporate Tax Law adds it in. The calculator uses the full AED 12,000,000 and does not pro-rate it for a tax period longer or shorter than 12 months."
+      ],
+      "list": [
+        "Net interest expenditure = interest expense (including amounts brought forward) minus taxable interest income. Interest already disallowed under another rule, such as the related-party rule in Article 31, is left out.",
+        "Adjusted EBITDA = taxable income for the period plus net interest expenditure plus tax depreciation and amortisation, excluding exempt income. It is a tax figure, not the EBITDA in the management accounts.",
+        "Interest on historical debt agreed before 9 December 2022 and on qualifying infrastructure projects is taken out of the computation."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 30(1) of Federal Decree-Law No. 47 of 2022 limits net interest expenditure to 30% of EBITDA for the period, excluding exempt income. Article 30(3) switches the limit off where net interest expenditure does not exceed an amount set by the Minister, which Article 8 of Ministerial Decision No. 126 of 2023 fixes at AED 12 million. The FTA's Interest Deduction Limitation guide (CTGIDL1) states the combined result: where net interest expenditure exceeds AED 12 million, the deductible amount is the greater of 30% of adjusted EBITDA and AED 12 million.",
+        "Disallowed interest carries forward for the next 10 tax periods and is used first in, first out, inside each later year's own cap (Article 30(4)). It cannot be transferred to or used by another taxable person.",
+        "The rule does not apply to banks, insurance providers or natural persons doing business (Article 30(6)). In a Tax Group, net interest expenditure and adjusted EBITDA are computed for the group, disregarding any bank or insurer member. In a Small Business Relief period, interest disallowed in that period cannot be carried forward. The order matters: the specific related-party rule in Article 31 runs first, and only the interest that survives it enters this computation. See our guide to [interest deduction limitation](/guides/uae-interest-deduction-limitation)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai real estate developer funded by bank debt has net interest expenditure of AED 20 million in 2025 and adjusted EBITDA of AED 50 million. In 2026, EBITDA falls to AED 30 million and the year's own net interest is AED 9 million."
+    ],
+    "list": [
+      "2025, Step 1: enter net interest 20,000,000 and adjusted EBITDA 50,000,000.",
+      "2025, Step 2: 30% x 50,000,000 = AED 15,000,000. That is above AED 12,000,000, so the 30% prong binds and the cap is AED 15,000,000.",
+      "2025, Step 3: deductible = AED 15,000,000; disallowed and carried forward = AED 5,000,000.",
+      "2026, Step 4: net interest including the brought-forward amount = 9,000,000 + 5,000,000 = AED 14,000,000. Enter 14,000,000 and adjusted EBITDA 30,000,000.",
+      "2026, Step 5: 30% x 30,000,000 = AED 9,000,000, below AED 12,000,000, so the AED 12m threshold binds and the cap is AED 12,000,000.",
+      "2026, Step 6: deductible = AED 12,000,000; AED 2,000,000 is disallowed and carries forward. Keep a schedule of carried amounts by year of origin: they are used first in, first out, and each one lapses if not used within 10 tax periods.",
+      "Tax effect: the 2025 disallowance adds AED 5,000,000 to taxable income, or AED 450,000 of tax at 9%. Recognise a deferred tax asset for the carried interest only if future capacity makes its use probable."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the interest deduction limit under UAE corporate tax?",
+      "a": "Net interest expenditure is deductible up to the greater of 30% of adjusted EBITDA and AED 12 million. Net interest of AED 12 million or less is always deductible under this rule."
+    },
+    {
+      "q": "Is the AED 12 million interest threshold a full exemption?",
+      "a": "It works as a floor. If net interest is AED 12 million or less, all of it is deductible. If it is more, you can still deduct at least AED 12 million, or 30% of EBITDA if that is higher."
+    },
+    {
+      "q": "How long can disallowed interest be carried forward in the UAE?",
+      "a": "For the 10 tax periods after the year of disallowance, used in the order incurred. Any amount still unused after the tenth period is lost."
+    },
+    {
+      "q": "Does the 30% EBITDA rule apply to banks in the UAE?",
+      "a": "No. Article 30(6) excludes banks, insurance providers and natural persons conducting business. In a Tax Group, a bank or insurer member's interest and EBITDA are disregarded."
+    },
+    {
+      "q": "Is EBITDA for the interest cap the accounting figure?",
+      "a": "No. It is built from taxable income: add back net interest expenditure and tax depreciation and amortisation, and exclude exempt income such as qualifying dividends. Use the [Corporate Tax calculator](/tools/uae-corporate-tax-calculator) after the cap to see the tax."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Interest Deduction Limitation Rules Corporate Tax Guide (CTGIDL1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Interest-Deduction-guide.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments (Articles 30 and 31)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    }
+  ]
+}
