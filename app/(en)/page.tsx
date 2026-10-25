@@ -15,6 +15,14 @@
      H-6 your control;
      H-7 firms, ways to work and who is behind it (moved down);
      H-8 the invitation: see Hysaab work on your books.
+   2026-10-25 v2 (owner: "a better looking landing page", built with the
+   landing-page-design and design-to-motion skills, brand values kept):
+   one primary action above the fold (Request access, the owner's
+   invite-only rule, with Book a demo beside it), a proof strip of the
+   systems it works inside, a three-step how it works with working visuals,
+   the outcomes as a bento whose visuals act out their job on screen, a
+   tagline reveal, an FAQ (with FAQ schema), and the final call identical to
+   the top with its risk reversal. Sections renumbered H-1 to H-11.
    Held back on purpose: "24/7" (until the agents provably run on their
    own) and a customer-proof section (until a named, measured close exists).
    Every figure is the product's own or labelled sample; nothing here is a
@@ -33,6 +41,9 @@ import { Wp, Tm } from "@/components/home/tt/Wp";
 import { ReviewNote } from "@/components/home/tt/ReviewNote";
 import { CloseFilm } from "@/components/home/CloseFilm";
 import { SampleWorkspace } from "@/components/home/SampleWorkspace";
+import { HowItWorks, Bento, Faq, faqSchema } from "@/components/home/lp/Sections";
+import { TaglineReveal } from "@/components/home/lp/TaglineReveal";
+import "../lp.css";
 
 /* The close binder, as the app files it (orbit-app lib/close-binder/registry.ts). */
 const BINDER = [
@@ -42,14 +53,6 @@ const BINDER = [
   "Corporate tax and Zakat", "Loans and borrowings", "Other payables and provisions", "Equity", "Suspense and clearing",
   "FX revaluation", "Cut-off", "Journal entries register", "Balance sheet flux", "Income statement flux", "Cash flow working",
   "Financial statements", "Open items and exceptions", "Close checklist evidence", "Group consolidation",
-];
-
-/* Everyday outcomes, each with one concrete example (sample data). */
-const OUTCOMES: { m: string; h: string; p: string; ex: string }[] = [
-  { m: "B", h: "Understand your cash", p: "Every bank line matched to the invoice, bill or payment behind it, and the balance agreed to the bank.", ex: "212 lines matched overnight; two left for you, each with the reason." },
-  { m: "T", h: "Catch discrepancies", p: "Duplicates, miscoded spend and missing bills found before they reach the accounts.", ex: "The same supplier bill entered twice in March: held, not paid twice." },
-  { m: "✓", h: "Prepare the close", p: "A dated close calendar with owners, reconciliations signed by a second person, and the binder filed.", ex: "October’s 31 workpapers filed on the fourth working day." },
-  { m: "?", h: "Answer tax questions", p: "UAE and Saudi VAT and corporate tax checked as the work is done, not at filing time.", ex: "A bill charging 5% VAT on a zero-rated export: held with the rule cited." },
 ];
 
 /* What Hysaab works with today, and what is planned. The capabilities are
@@ -80,7 +83,8 @@ const newTab = <span className="hw-sr">{DEMO_NEW_TAB.en}</span>;
 
 export default function Page() {
   return (
-    <div className="hw-page tt-page" id="top">
+    <div className="hw-page tt-page lp" id="top">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }} />
       <a href="#main" className="hw-skip">Skip to the content</a>
       <span data-motion-page="full" hidden />
       <HomeHeader />
@@ -92,11 +96,16 @@ export default function Page() {
             <Wp r="H-1" right={<>Prepared by <b>Hysaab</b> · Decided by <b>you</b></>}>AI for accounting, close and finance</Wp>
             <div className="tt-hero2-g tt-hero3-g">
               <div className="tt-hero2-copy">
-                <h1>Your finance team. <span className="tt-hl">Without changing your accounting system.</span></h1>
+                <h1>Your finance team.<br /> <span className="tt-hl">Without changing your accounting system.</span></h1>
                 <p className="tt-hero-sub">Hysaab connects to your books, investigates discrepancies and prepares the work for your review, from reconciliations to the month-end close. You see what’s done, what’s missing, and what needs your decision.</p>
-                <div className="tt-acts tt-hero2-acts">
-                  <a className="hw-btn hw-btn--navy m-cta" href="#sample">See Hysaab work <span aria-hidden="true">↓</span></a>
-                  <a className="tt-link" {...DEMO}>Book a live demo <span aria-hidden="true">↗</span>{newTab}</a>
+                <div className="lp-acts">
+                  <a className="lp-btn" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a>
+                  <a className="lp-link" {...DEMO}>Book a demo<span aria-hidden="true"> ↗</span>{newTab}</a>
+                  <p className="lp-key">{KEY_LINE.en} Or <a className="lp-link" href="#sample">watch it work on a sample month</a>.</p>
+                </div>
+                <div className="lp-proof">
+                  <span>Works inside</span>
+                  {["Xero", "Zoho Books", "QuickBooks", "Odoo", "Wafeq", "ERPNext"].map((n) => <b key={n}><i aria-hidden="true">✓</i>{n}</b>)}
                 </div>
               </div>
               <CloseFilm />
@@ -105,27 +114,35 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-2 Everyday outcomes ── */}
-        <section className="tt-sec" id="outcomes" aria-labelledby="tt-out-h">
+        {/* ── H-2 How it works ── */}
+        <section className="tt-sec" id="how" aria-labelledby="lp-how-h">
           <div className="hw-wrap">
-            <Wp r="H-2" right="Examples · sample data">What it does every day</Wp>
-            <h2 className="tt-h2" id="tt-out-h" data-reveal="">The work your team does now, <span className="tt-hl" data-play="">prepared before they get to it.</span></h2>
-            <div className="tt-outs" data-reveal="stagger-lg">
-              {OUTCOMES.map((o) => (
-                <article key={o.h}>
-                  <h3><Tm m={o.m} />{o.h}</h3>
-                  <p>{o.p}</p>
-                  <p className="tt-ex">{o.ex}</p>
-                </article>
-              ))}
-            </div>
+            <Wp r="H-2" right="Read-only to start">How it works</Wp>
+            <h2 className="lp-h2" id="lp-how-h" data-reveal="">Three steps, and the third <span className="tt-hl" data-play="">is always yours.</span></h2>
+            <HowItWorks />
           </div>
         </section>
 
-        {/* ── H-3 The finished close: the film and the binder ── */}
+        {/* ── H-3 Everyday outcomes ── */}
+        <section className="tt-sec" id="outcomes" aria-labelledby="tt-out-h">
+          <div className="hw-wrap">
+            <Wp r="H-3" right="Examples · sample data">What it does every day</Wp>
+            <h2 className="tt-h2" id="tt-out-h" data-reveal="">The work your team does now, <span className="tt-hl" data-play="">prepared before they get to it.</span></h2>
+            <Bento />
+          </div>
+        </section>
+
+        {/* ── H-4 The tagline ── */}
+        <section className="tt-sec lp-tag" aria-label="What Hysaab is for">
+          <div className="hw-wrap">
+            <TaglineReveal text="The chasing, the matching and the preparing, done before you arrive. What’s left is the part that needs an accountant: *judgement." />
+          </div>
+        </section>
+
+        {/* ── H-5 The finished close: the film and the binder ── */}
         <section className="tt-sec tt-grid" id="binder" aria-labelledby="tt-binder-h">
           <div className="hw-wrap">
-            <Wp r="H-3" right="The product's own numbers">What you get at the end of every close</Wp>
+            <Wp r="H-5" right="The product's own numbers">What you get at the end of every close</Wp>
             <div>
               <div>
                 <h2 className="tt-h2" id="tt-binder-h" data-reveal="">A closed month, <span className="tt-hl" data-play="">and the binder to prove it.</span></h2>
@@ -146,10 +163,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-4 The memory story ── */}
+        {/* ── H-6 The memory story ── */}
         <section className="tt-sec tt-memory" id="memory" aria-labelledby="tt-mem-h">
           <div className="hw-wrap">
-            <Wp r="H-4" right="Why it gets better every month">The memory</Wp>
+            <Wp r="H-6" right="Why it gets better every month">The memory</Wp>
             <h2 className="tt-h2" id="tt-mem-h" data-reveal="">Any AI can read a bank statement. <span className="tt-hl" data-play="">Hysaab remembers your company.</span></h2>
             <p className="tt-lead">A chat window starts from nothing every time. Hysaab is connected to your books, your documents, your team and every decision you have made, and it keeps what it learns. It is the part of finance that never forgets how your company works.</p>
             <ol className="tt-lur" data-reveal="stagger-lg">
@@ -176,10 +193,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-5 Your existing system ── */}
+        {/* ── H-7 Your existing system ── */}
         <section className="tt-sec tt-grid" id="systems" aria-labelledby="tt-sys-h">
           <div className="hw-wrap">
-            <Wp r="H-5" right="Your ledger stays the record">Your accounting system</Wp>
+            <Wp r="H-7" right="Your ledger stays the record">Your accounting system</Wp>
             <h2 className="tt-h2" id="tt-sys-h" data-reveal="">Keep the system <span className="tt-hl" data-play="">you trust.</span></h2>
             <p className="tt-lead">Hysaab works with your accounting system, not instead of it. Nothing posts until your approval rules say so.</p>
             <div className="tt-sys">
@@ -199,10 +216,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-6 Your control ── */}
+        {/* ── H-8 Your control ── */}
         <section className="tt-sec" id="control" aria-labelledby="tt-ctl-h">
           <div className="hw-wrap">
-            <Wp r="H-6" right="Review notes stay on the record">Your control</Wp>
+            <Wp r="H-8" right="Review notes stay on the record">Your control</Wp>
             <div className="tt-ctl">
               <div data-reveal="">
                 <h2 className="tt-h2" id="tt-ctl-h">A good colleague doesn&apos;t just <span className="tt-hl" data-play="">say yes.</span></h2>
@@ -219,7 +236,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-7 Firms, ways to work, who is behind it ── */}
+        {/* ── H-9 Firms, ways to work, who is behind it ── */}
         <section id="ways" className="tt-sec tt-grid" aria-labelledby="tt-ways-h">
           <span id="products" className="hw-anchor" aria-hidden="true" />
           <span id="family" className="hw-anchor" aria-hidden="true" />
@@ -227,7 +244,7 @@ export default function Page() {
           <span id="team" className="hw-anchor" aria-hidden="true" />
           <span id="origin" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap">
-            <Wp r="H-7" right="Scope agreed before we start">Ways to work</Wp>
+            <Wp r="H-9" right="Scope agreed before we start">Ways to work</Wp>
             <h2 className="tt-h2" id="tt-ways-h" data-reveal="">Your people. <span className="tt-hl" data-play="">Or ours, alongside.</span></h2>
             <div className="tt-ways" data-reveal="stagger-lg">
               <article>
@@ -274,16 +291,35 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ── H-8 The invitation ── */}
+        {/* ── H-10 Questions ── */}
+        <section className="tt-sec" id="faq" aria-labelledby="lp-faq-h">
+          <div className="hw-wrap">
+            <Wp r="H-10" right="Asked by finance teams">Questions</Wp>
+            <div className="lp-faq-g">
+              <div>
+                <h2 className="lp-h2" id="lp-faq-h" data-reveal="">What finance teams <span className="tt-hl" data-play="">ask us first.</span></h2>
+                <p className="lp-lead">Something else? Ask us in the demo, or read <a href="/trust">our commitments on data and control</a>.</p>
+              </div>
+              <Faq />
+            </div>
+          </div>
+        </section>
+
+        {/* ── H-11 The invitation ── */}
         <section className="tt-sec tt-grid hw-conversation tt-conversation" id="conversation">
           <span id="contact" className="hw-anchor" aria-hidden="true" />
           <span id="cohort" className="hw-anchor" aria-hidden="true" />
           <div className="hw-wrap">
-            <Wp r="H-8" right="A person replies">See it on your books</Wp>
+            <Wp r="H-11" right="A person replies">See it on your books</Wp>
             <div className="hw-conversation-grid" data-reveal="stagger-lg">
               <div>
                 <h2 className="tt-h2">See Hysaab work <span className="tt-hl" data-play="">on your books.</span></h2>
                 <p className="tt-lead">Tell us your accounting system and what takes too long. In the demo we connect read-only, so nothing in your books changes.</p>
+                <div className="lp-acts lp-final-acts">
+                  <a className="lp-btn" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a>
+                  <a className="lp-link" {...DEMO}>Book a demo<span aria-hidden="true"> ↗</span>{newTab}</a>
+                </div>
+                <p className="lp-risk"><span>Read-only to start</span><span>Nothing posts without your approval</span><span>No charge per user</span><span>Free check on your books or a bank statement</span></p>
                 <div className="hw-agenda">
                   <span className="hw-mono">What happens in the demo</span>
                   <ol>
@@ -293,7 +329,7 @@ export default function Page() {
                   </ol>
                 </div>
                 <p className="hw-demo-direct">Prefer to pick a time yourself? <a className="tt-link" {...DEMO}>Choose a slot in our calendar <span aria-hidden="true">↗</span>{newTab}</a></p>
-                <p className="tt-invite">{KEY_LINE.en} <a className="hw-link hw-link--ruled" href={ACCESS_HREF.en}>Request access <span aria-hidden="true">→</span></a> <a className="hw-link hw-link--ruled" href="/check">Or run a free check on your books or a bank statement <span aria-hidden="true">→</span></a></p>
+                <p className="tt-invite">{KEY_LINE.en} <a className="hw-link hw-link--ruled" href="/check">Run a free check on your books or a bank statement <span aria-hidden="true">→</span></a></p>
               </div>
               <EnquiryForm demo />
             </div>
