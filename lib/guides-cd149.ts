@@ -418,6 +418,9 @@ UNCERTAIN / NOT VERIFIED
 const bundled: Guide = {
   slug: "uae-vat-composite-bundled-supplies-2026",
   title: "Composite or mixed supply? Bundled VAT rates in the UAE after 1 October 2026",
+  seoTitle: "Composite vs mixed supply: UAE VAT from 1 October 2026",
+  seoDescription:
+    "A package whose parts carry different VAT rates: the Article 4 tests, what Article 4(6) changes from 1 October 2026, why a separate price no longer settles it.",
   description:
     "How UAE VAT treats a package whose parts carry different rates. The Article 4 tests, what new Article 4(6) changes from 1 October 2026, why a separate price is no longer a safe answer, and a worked AED example.",
   updated: "2026-09-15",

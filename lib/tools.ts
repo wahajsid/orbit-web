@@ -427,6 +427,14 @@ export const TOOLS: Tool[] = [
     arDescription:
       "آخر يوم لطلب المراجعة أو إعادة النظر أو الاعتراض أمام لجنة فض المنازعات الضريبية أو الطعن أمام المحكمة، محسوبًا بأيام العمل وفق المادة 49.",
   },
+  {
+    slug: "uae-depreciation-calculator",
+    updated: "2026-11-10",
+    title: "UAE depreciation calculator (straight-line, reducing balance, KSA tax)",
+    description:
+      "Annual depreciation rate and a year-by-year schedule for any fixed asset: straight-line or reducing balance with a first-year pro-rata, or the KSA Article 17 tax pool.",
+    guide: "uae-depreciation-rates",
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {

@@ -7,6 +7,7 @@ import { TOOLS } from "@/lib/tools";
 import { langAlternates } from "@/lib/site-meta";
 import { AUTHOR_LD } from "@/lib/authors";
 import { Byline } from "@/components/Byline";
+import { NextStep } from "@/components/NextStep";
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -17,8 +18,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!g) return {};
   const hasAr = !!getArGuide(g.slug);
   return {
-    title: `${g.title} — Hysaab`,
-    description: g.description,
+    title: g.seoTitle ?? `${g.title} — Hysaab`,
+    description: g.seoDescription ?? g.description,
     alternates: hasAr
       ? langAlternates(`/guides/${g.slug}`)
       : { canonical: "./" },
@@ -107,6 +108,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
               ))}
+              <NextStep slug={g.slug} />
               {g.faqs && g.faqs.length > 0 && (
                 <div>
                   <h2>Questions people actually ask</h2>

@@ -49,21 +49,32 @@ import t12 from "@/content/expansions/tools/loyalty-points-calculator.json";
 import t13 from "@/content/expansions/tools/small-business-relief-checker.json";
 import t14 from "@/content/expansions/tools/uae-audit-requirement-checker.json";
 import t15 from "@/content/expansions/tools/uae-bad-debt-relief-calculator.json";
-import t16 from "@/content/expansions/tools/uae-corporate-tax-calculator.json";
-import t17 from "@/content/expansions/tools/uae-corporate-tax-penalty-calculator.json";
-import t18 from "@/content/expansions/tools/uae-designated-zone-vat-checker.json";
-import t19 from "@/content/expansions/tools/uae-ecommerce-vat-checker.json";
-import t20 from "@/content/expansions/tools/uae-employee-cost-calculator.json";
-import t21 from "@/content/expansions/tools/uae-interest-cap-calculator.json";
-import t22 from "@/content/expansions/tools/uae-partial-exemption-calculator.json";
-import t23 from "@/content/expansions/tools/uae-participation-exemption-checker.json";
-import t24 from "@/content/expansions/tools/uae-real-estate-vat-checker.json";
-import t25 from "@/content/expansions/tools/uae-reverse-charge-calculator.json";
-import t26 from "@/content/expansions/tools/uae-tax-loss-carry-forward-calculator.json";
-import t27 from "@/content/expansions/tools/uae-vat-calculator.json";
-import t28 from "@/content/expansions/tools/uae-vat-penalty-calculator.json";
-import t29 from "@/content/expansions/tools/uae-vat-registration-checker.json";
-import t30 from "@/content/expansions/tools/uae-voluntary-disclosure-penalty-calculator.json";
+import t16 from "@/content/expansions/tools/uae-capital-assets-scheme-calculator.json";
+import t17 from "@/content/expansions/tools/uae-corporate-tax-calculator.json";
+import t18 from "@/content/expansions/tools/uae-corporate-tax-penalty-calculator.json";
+import t19 from "@/content/expansions/tools/uae-depreciation-calculator.json";
+import t20 from "@/content/expansions/tools/uae-designated-zone-vat-checker.json";
+import t21 from "@/content/expansions/tools/uae-e-invoicing-deadline-checker.json";
+import t22 from "@/content/expansions/tools/uae-ecommerce-vat-checker.json";
+import t23 from "@/content/expansions/tools/uae-employee-cost-calculator.json";
+import t24 from "@/content/expansions/tools/uae-fta-objection-deadline-calculator.json";
+import t25 from "@/content/expansions/tools/uae-intercompany-loan-interest-calculator.json";
+import t26 from "@/content/expansions/tools/uae-interest-cap-calculator.json";
+import t27 from "@/content/expansions/tools/uae-investment-property-depreciation-calculator.json";
+import t28 from "@/content/expansions/tools/uae-partial-exemption-calculator.json";
+import t29 from "@/content/expansions/tools/uae-participation-exemption-checker.json";
+import t30 from "@/content/expansions/tools/uae-real-estate-vat-checker.json";
+import t31 from "@/content/expansions/tools/uae-reverse-charge-calculator.json";
+import t32 from "@/content/expansions/tools/uae-supplier-verification-checker.json";
+import t33 from "@/content/expansions/tools/uae-tax-invoice-checker.json";
+import t34 from "@/content/expansions/tools/uae-tax-loss-carry-forward-calculator.json";
+import t35 from "@/content/expansions/tools/uae-top-up-tax-estimator.json";
+import t36 from "@/content/expansions/tools/uae-vat-calculator.json";
+import t37 from "@/content/expansions/tools/uae-vat-ct-reconciliation-calculator.json";
+import t38 from "@/content/expansions/tools/uae-vat-currency-converter.json";
+import t39 from "@/content/expansions/tools/uae-vat-penalty-calculator.json";
+import t40 from "@/content/expansions/tools/uae-vat-registration-checker.json";
+import t41 from "@/content/expansions/tools/uae-voluntary-disclosure-penalty-calculator.json";
 
 export const GUIDE_FILES: Record<string, any> = {
   "construction-retention-accounting-vat": g0 as any,
@@ -118,19 +129,30 @@ export const TOOL_FILES: Record<string, any> = {
   "small-business-relief-checker": t13 as any,
   "uae-audit-requirement-checker": t14 as any,
   "uae-bad-debt-relief-calculator": t15 as any,
-  "uae-corporate-tax-calculator": t16 as any,
-  "uae-corporate-tax-penalty-calculator": t17 as any,
-  "uae-designated-zone-vat-checker": t18 as any,
-  "uae-ecommerce-vat-checker": t19 as any,
-  "uae-employee-cost-calculator": t20 as any,
-  "uae-interest-cap-calculator": t21 as any,
-  "uae-partial-exemption-calculator": t22 as any,
-  "uae-participation-exemption-checker": t23 as any,
-  "uae-real-estate-vat-checker": t24 as any,
-  "uae-reverse-charge-calculator": t25 as any,
-  "uae-tax-loss-carry-forward-calculator": t26 as any,
-  "uae-vat-calculator": t27 as any,
-  "uae-vat-penalty-calculator": t28 as any,
-  "uae-vat-registration-checker": t29 as any,
-  "uae-voluntary-disclosure-penalty-calculator": t30 as any,
+  "uae-capital-assets-scheme-calculator": t16 as any,
+  "uae-corporate-tax-calculator": t17 as any,
+  "uae-corporate-tax-penalty-calculator": t18 as any,
+  "uae-depreciation-calculator": t19 as any,
+  "uae-designated-zone-vat-checker": t20 as any,
+  "uae-e-invoicing-deadline-checker": t21 as any,
+  "uae-ecommerce-vat-checker": t22 as any,
+  "uae-employee-cost-calculator": t23 as any,
+  "uae-fta-objection-deadline-calculator": t24 as any,
+  "uae-intercompany-loan-interest-calculator": t25 as any,
+  "uae-interest-cap-calculator": t26 as any,
+  "uae-investment-property-depreciation-calculator": t27 as any,
+  "uae-partial-exemption-calculator": t28 as any,
+  "uae-participation-exemption-checker": t29 as any,
+  "uae-real-estate-vat-checker": t30 as any,
+  "uae-reverse-charge-calculator": t31 as any,
+  "uae-supplier-verification-checker": t32 as any,
+  "uae-tax-invoice-checker": t33 as any,
+  "uae-tax-loss-carry-forward-calculator": t34 as any,
+  "uae-top-up-tax-estimator": t35 as any,
+  "uae-vat-calculator": t36 as any,
+  "uae-vat-ct-reconciliation-calculator": t37 as any,
+  "uae-vat-currency-converter": t38 as any,
+  "uae-vat-penalty-calculator": t39 as any,
+  "uae-vat-registration-checker": t40 as any,
+  "uae-voluntary-disclosure-penalty-calculator": t41 as any,
 };

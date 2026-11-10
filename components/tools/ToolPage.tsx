@@ -6,6 +6,7 @@ import { linkParts, stripLinks } from "@/lib/guides";
 import { TOOL_CONTENT } from "@/lib/expansions";
 import { AUTHOR_LD } from "@/lib/authors";
 import { Byline } from "@/components/Byline";
+import { NextStep } from "@/components/NextStep";
 
 function Rich({ text }: { text: string }) {
   return <>{linkParts(text).map((p, i) => (typeof p === "string" ? p : <a key={i} href={p.href}>{p.label}</a>))}</>;
@@ -74,6 +75,7 @@ export function ToolPage({ slug, kicker, lede, locale = "en", children }: {
             <div className="hw-prose">
               <Byline updated={updated} locale={locale} />
               {children}
+              {!ar && <NextStep slug={slug} />}
               {content && (
                 <div className="hw-tool-explainer" style={{ marginTop: "48px" }}>
                   {content.method.map((sec) => (

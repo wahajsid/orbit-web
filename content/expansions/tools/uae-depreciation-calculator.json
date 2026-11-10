@@ -1,0 +1,84 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Pick an asset class and the calculator fills in a typical useful life from UAE practice, which you can overwrite. Enter the cost, the residual value you expect at the end of the life, the date the asset was ready for use and the month your financial year ends. The schedule runs by financial year.",
+        "Straight-line spreads cost less residual value evenly over the life in months. The first year is prorated by months, counting the month the asset enters service as a full month, so an asset that starts on 1 April in a December year carries nine months in its first year and three in its last.",
+        "Reducing balance applies a fixed rate to the opening net book value each year, prorated by months in the first year. Leave the rate blank and the calculator uses the rate that brings cost down to residual value over the life, 1 − (residual ÷ cost)^(1 ÷ life), or double the straight-line rate where there is no residual value. Either way the final period writes the asset down to its residual value.",
+        "KSA tax pool mode applies the Article 17 group rate to the pool at each tax year-end. Half the cost enters the pool in the year the asset enters service and half in the following year, there is no residual value and no monthly pro-rata, and a balance under SAR 1,000 is deducted in full. The asset is modelled as if it were the only one in its group, and the tax year is assumed to match the financial year. A straight-line book column sits alongside for the deferred tax comparison."
+      ],
+      "list": [
+        "Inputs: asset class, cost, residual value, useful life in years (decimals allowed, up to 100), in-service date, financial year-end month, method, and a reducing-balance rate or KSA group where relevant.",
+        "Outputs: the annual rate, the first-year charge and its months, the depreciable amount, the year the asset is fully depreciated, and the schedule of opening value, depreciation and closing value.",
+        "Out of scope: units-of-production depreciation, revaluations, impairment, disposals part-way through the life, and changes of estimate. For a change in useful life, rerun the remaining net book value over the remaining life from the date of the change.",
+        "The asset-class lives are typical of UAE IFRS financial statements. They are practice, not law: the UAE publishes no depreciation rates."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "In the UAE, Corporate Tax starts from accounting income in financial statements prepared under IFRS or, for revenue up to AED 50 million, IFRS for SMEs (Article 20 of Federal Decree-Law No. 47 of 2022 and Ministerial Decision No. 114 of 2023). Capital spending is not deductible when incurred (Article 28(1)) and reaches the computation through depreciation, so the useful lives you set under IAS 16 drive both the accounts and the tax deduction. IAS 16 requires depreciation to start when the asset is available for use, allows straight-line, diminishing balance and units-of-production methods, prohibits revenue-based methods, and requires the residual value and useful life to be reviewed at least at each financial year-end.",
+        "The exceptions are specific. Ministerial Decision No. 134 of 2023 denies depreciation on capitalised cost that would not have been deductible as an expense and, for a business on the realisation basis, excludes depreciation on a revaluation uplift until the asset is realised. Ministerial Decision No. 173 of 2025 allows a 4% tax deduction on investment property held at fair value, which has its own [calculator](/tools/uae-investment-property-depreciation-calculator).",
+        "In Saudi Arabia, Article 17 of the Income Tax Law sets five groups: fixed buildings 5%; movable industrial and agricultural buildings 10%; factories, machinery, equipment, software and vehicles 25%; natural resource survey and exploration 20%; all other depreciable assets, including furniture, aircraft, ships and goodwill, 10%. Article 17(e) brings additions into the pool at 50% in the year of service and 50% the year after, and Article 17(h) allows a pool under SAR 1,000 to be deducted. Article 18 allows repairs and improvements up to 4% of the group's remaining value. The full explanation is in the guide to [depreciation rates in the UAE and Saudi Arabia](/guides/uae-depreciation-rates)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a 500,000 machine entering service on 1 April 2026",
+    "ps": [
+      "Use the calculator's defaults: plant and machinery, cost 500,000, residual value 50,000, a ten-year life, in service from 1 April 2026, financial year ending in December."
+    ],
+    "list": [
+      "Straight-line: (500,000 − 50,000) ÷ 120 months = AED 3,750 a month. FY 2026 carries nine months, AED 33,750, leaving a net book value of AED 466,250. FY 2027 to FY 2035 carry AED 45,000 a year. FY 2036 carries the last three months, AED 11,250, leaving the residual value of AED 50,000. The rate is 10% of the depreciable amount, or 9% of cost.",
+      "Reducing balance with the rate left blank: 1 − (50,000 ÷ 500,000)^(1 ÷ 10) = 20.57%. FY 2026: 500,000 × 20.57% × 9 ÷ 12 = AED 77,126.91. FY 2027: 422,873.09 × 20.57% = AED 86,973.05. The charge falls every year, and the last three months of FY 2036 write the remaining AED 3,236.57 down to the residual value.",
+      "KSA tax pool, group 3 at 25%, cost SAR 500,000: FY 2026 pool 250,000, tax depreciation 62,500, closing 187,500. FY 2027 pool 437,500, tax depreciation 109,375, closing 328,125. FY 2028 tax depreciation 82,031.25, closing 246,093.75.",
+      "Book against tax in KSA: over FY 2026 to FY 2028 tax depreciation is SAR 253,906.25 and straight-line book depreciation SAR 123,750. The SAR 130,156.25 difference is a taxable temporary difference; at the 20% income tax rate that is a deferred tax liability of about SAR 26,031 for a company wholly subject to income tax, which the [deferred tax calculator](/tools/ias12-deferred-tax-calculator) can carry forward."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What depreciation rate should I use for fixed assets in the UAE?",
+      "a": "The rate follows the useful life you set under IAS 16: 100% divided by the life in years for straight-line. The UAE publishes no rates. Typical practice is 2% to 5% for buildings, 20% to 33% for vehicles, computers and office equipment, 10% to 25% for furniture and around 7% to 20% for plant and machinery."
+    },
+    {
+      "q": "Is the depreciation in my accounts deductible for UAE Corporate Tax?",
+      "a": "Generally yes, because Corporate Tax starts from accounting profit. The main exceptions are assets used partly for private or exempt purposes, depreciation on a revaluation uplift where the realisation basis is elected, and assets transferred within a group without a taxable gain."
+    },
+    {
+      "q": "How is the first year prorated?",
+      "a": "This calculator counts the months from the month the asset enters service to the financial year-end, with the first month counted in full. Some businesses start from the following month or use days; set the convention in your accounting policy and apply it consistently. The KSA tax pool uses the 50% rule instead of any pro-rata."
+    },
+    {
+      "q": "Why does the KSA tax schedule never reach zero?",
+      "a": "Because a declining balance always leaves a remainder. Under Article 17(h) a group balance below SAR 1,000 at year-end may be deducted in full, and under Article 17(i) the balance is deductible once every asset in the group has been disposed of."
+    },
+    {
+      "q": "Which reducing-balance rate should I use?",
+      "a": "One that reflects how the asset's benefits are consumed and brings it to a reasonable residual value at the end of its life. The default here, 1 − (residual ÷ cost)^(1 ÷ life), does exactly that. Where there is no residual value the default is double the straight-line rate, with the final year writing off the balance."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (MoF), Articles 20 and 28",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "Ministerial Decision No. 114 of 2023 on Accounting Standards and Methods for Corporate Tax (MoF)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-114-of-2023-on-the-Accounting-Standards-and-Methods-for-Corporate-Tax-Purposes.pdf"
+    },
+    {
+      "label": "Ministerial Decision No. 134 of 2023 on the General Rules for Determining Taxable Income (MoF)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-134-of-2023-on-the-on-the-General-Rules-for-Determining-Taxable-Income-for-Corporate-Tax-Purposes.pdf"
+    },
+    {
+      "label": "KSA Income Tax Law, Royal Decree M/1 of 15/1/1425H, Articles 17 and 18 (ZATCA, Arabic)",
+      "href": "https://zatca.gov.sa/ar/HelpCenter/guidelines/Documents/%D9%86%D8%B8%D8%A7%D9%85%20%D8%B6%D8%B1%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AF%D8%AE%D9%84.pdf"
+    },
+    {
+      "label": "IAS 16 Property, Plant and Equipment (IFRS Foundation)",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/"
+    }
+  ]
+}

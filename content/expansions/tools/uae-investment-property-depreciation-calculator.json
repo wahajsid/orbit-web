@@ -1,0 +1,88 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Enter the building's cost excluding land, the date you acquired it, the start date of your first tax period under Ministerial Decision No. 173 of 2025, and, if you want to see the clawback, the year in which you expect to sell.",
+        "First it works out the Opening Value. For every Gregorian calendar year in which you held the building before the first tax period, it deducts 4% of cost, prorated by days for part years. Those years are counted but never deducted for tax; they only use up part of the 25 years of allowance.",
+        "Then it builds a schedule of consecutive 12-month tax periods starting on the date you entered. Each period deducts the lower of 4% of cost and the written-down value left at the start of the period. If you acquired the building after the first period started, the first deduction is prorated by days and earlier periods show nil. The schedule runs until the written-down value reaches zero, up to 40 periods."
+      ],
+      "list": [
+        "Results: years held before, Opening Value, the full-year 4% deduction, the tax it saves at 9%, and the add-back if you enter a sale year",
+        "The add-back is every deduction in periods ending in or before the sale year, so it assumes a sale at the end of that period. Prorate the last period yourself for a mid-year sale",
+        "The tax saving is a flat 9% of the deduction. It ignores the 0% band on the first AED 375,000 of taxable income, losses and Small Business Relief",
+        "Not modelled: tax periods shorter or longer than 12 months, capitalised costs added after purchase, part disposals and transfers within a group"
+      ]
+    },
+    {
+      "h": "Who can claim the 4% deduction",
+      "ps": [
+        "Investment property held at fair value under IAS 40 is not depreciated in the accounts, so before this Decision there was no deduction for the building wearing out. Article 2 of Ministerial Decision No. 173 of 2025 allows an irrevocable election to deduct the lower of 4% of original cost for each 12-month tax period and the tax written-down value at the start of the period.",
+        "Three conditions apply. You prepare financial statements on the accrual basis (see [cash versus accrual](/guides/uae-cash-vs-accrual-corporate-tax)). You have elected under Article 20(3) of the Corporate Tax Law to take gains and losses into account on a realisation basis; Article 2(5) lets you make that election in the same return as this one. And the property is held at fair value, not on the cost model. The election covers all your fair-valued investment properties, not a chosen few.",
+        "Investment property means a building or part of a building held by the owner, or by a lessee as a right-of-use asset, to earn rent or for capital appreciation, as IAS 40 defines it. Land and anything IAS 40 excludes are left out, which is why the calculator asks for cost excluding land. Original cost is cost under IAS 40, including later capitalised costs, at arm's length."
+      ]
+    },
+    {
+      "h": "Election timing and the clawback",
+      "ps": [
+        "The Decision applies to tax periods starting on or after 1 January 2025. If you held investment property in the first such period, the election must be made in the return for that period. If you acquired your first property later, elect in the return for the period in which you first hold one. If you were in [Small Business Relief](/guides/uae-small-business-relief), elect in the return for the first period in which it no longer applies. Miss the window and the right is forfeited (Article 3(4)).",
+        "On realisation, the total depreciation claimed is added back to taxable income. Realisation includes a sale or other derecognition, a change from the fair value model to the cost model, ceasing the business, becoming an exempt person or electing Small Business Relief. In the last two cases the add-back is made in the last tax period before the change. Transfers within a tax group or covered by Articles 26 or 27 of the Corporate Tax Law, such as [qualifying group relief](/guides/uae-qualifying-group-relief), do not trigger the add-back; the transferee takes over the history."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: an office building bought in 2022",
+    "ps": [
+      "Use the calculator's defaults. A company with a December year-end bought an office building on 1 January 2022. The valuer's allocation puts the building at AED 14,000,000 after excluding the land. Its first tax period under the Decision starts on 1 January 2025, and the company made both elections in its 2025 return."
+    ],
+    "list": [
+      "Years held before: 2022, 2023 and 2024, so 3.00",
+      "Opening Value: 14,000,000 − (14,000,000 × 4% × 3) = 14,000,000 − 1,680,000 = AED 12,320,000",
+      "Full-year deduction: 4% × 14,000,000 = AED 560,000, lower than the written-down value, so that is the 2025 deduction. Tax saved at 9%: AED 50,400 a year",
+      "The schedule runs 22 periods, from 2025 to 2046, because 12,320,000 ÷ 560,000 = 22. With the three earlier years that makes 25",
+      "Sale at the end of 2030: six periods claimed, 6 × 560,000 = AED 3,360,000 added back to 2030 taxable income, about AED 302,400 of tax at 9%, on top of tax on the realised gain. The AED 1,680,000 for 2022 to 2024 was never deducted and is not added back",
+      "Change the acquisition date to 1 July 2025 and the cost to 10,000,000: there are no years before, and the 2025 deduction is prorated to 184 of 365 days, 400,000 × 184 ÷ 365 = AED 201,643.84"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Can you claim depreciation on investment property for UAE Corporate Tax?",
+      "a": "Yes, if the property is held at fair value, you use accrual accounting and you have elected the realisation basis under Article 20(3). Ministerial Decision No. 173 of 2025 then lets you elect to deduct the lower of 4% of original cost and the remaining tax written-down value each year, from tax periods starting on or after 1 January 2025."
+    },
+    {
+      "q": "Is land included in the 4% investment property deduction?",
+      "a": "No. The Decision defines investment property as a building or part of a building and excludes land, so split the purchase price between land and building before you start."
+    },
+    {
+      "q": "What is the Opening Value under Ministerial Decision 173?",
+      "a": "Original cost less 4% for each calendar year, or part year, in which you held the property before your first tax period under the Decision. Those earlier years are not deducted; they reduce what is left to claim."
+    },
+    {
+      "q": "When must the investment property depreciation election be made?",
+      "a": "In the tax return for the first tax period the Decision applies to, if you hold investment property then. If you acquire your first property later, in the return for that period. If the election is not made in time, the right is forfeited."
+    },
+    {
+      "q": "What happens to the deduction when the property is sold?",
+      "a": "All depreciation claimed under the Decision is added back to taxable income in the period of sale, alongside tax on the realised gain. Transfers within a tax group or under Articles 26 and 27 do not trigger the add-back."
+    },
+    {
+      "q": "Does the deduction apply to property held on the cost model?",
+      "a": "No. Property on the cost model is already depreciated in the accounts and is outside the Decision. Switching from fair value to the cost model is itself a realisation event that triggers the add-back."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Ministerial Decision No. 173 of 2025 on depreciation adjustments for investment properties held at fair value",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Ministerial-Decision-No.-173-of-2025-on-Depreciation-Adjustments-for-Investment-Properties-held-at-Fair-Value-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022-en-v12.1.26.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Article 20(3))",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "IFRS Foundation: IAS 40 Investment Property",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ias-40-investment-property/"
+    }
+  ]
+}

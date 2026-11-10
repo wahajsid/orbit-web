@@ -1009,3 +1009,12 @@ html:not(.m-ready) .hw-page .feedline { opacity: 1; transform: none; }
   .hw-menu-btn { padding-inline: 8px; font-size: 13px; }
   html[lang="ar"] .hw-nav-cta { padding-inline: 8px; font-size: 12px; }
 }
+
+/* NextStep — the free-check card at the end of a guide or calculator (2026-11-10). */
+.hw-nextstep { background: var(--hw-navy); color: #fff; border-radius: 14px; padding: 28px 30px; margin: 44px 0 8px; }
+.hw-nextstep .hw-mono { color: var(--hw-blush); }
+.hw-prose .hw-nextstep h2 { color: #fff; margin: 8px 0 10px; }
+.hw-prose .hw-nextstep p { color: #E6E8EC; margin: 0 0 10px; }
+.hw-prose .hw-nextstep .hw-nextstep-how { color: var(--hw-dark-supporting); font-size: 0.95em; }
+.hw-nextstep-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 18px; }
+.hw-nextstep-fine { color: var(--hw-dark-supporting); font-size: 14px; }

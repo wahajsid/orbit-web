@@ -12,6 +12,7 @@ import PUBLISHED from "./guide-published.json";
 import { GUIDE_EXPANSIONS } from "./expansions";
 import { ENTERPRISE_GUIDES } from "./guides-enterprise";
 import { GROUP_TAX_GUIDES } from "./guides-group-tax";
+import { DEPRECIATION_GUIDES } from "./guides-depreciation";
 
 export type GuideSection = { h: string; ps?: string[]; list?: string[] };
 /* faqs render as a question-and-answer block at the end of the guide and
@@ -41,6 +42,12 @@ export type Guide = {
   /* Primary sources the guide relies on (FTA, ZATCA, MoF, IFRS text),
      rendered as a "Sources" list at the end. */
   sources?: GuideSource[];
+  /* Search-result title and snippet, when they should differ from the H1
+     and description. Set only on Search Console evidence (a page on page 1
+     with impressions and few clicks), never for cosmetic churn. Used as-is
+     with no " — Hysaab" suffix, so keep the title under ~60 characters. */
+  seoTitle?: string;
+  seoDescription?: string;
 };
 export type GuideSource = { label: string; href: string };
 
@@ -48,6 +55,9 @@ export const GUIDES: Guide[] = [
   {
     slug: "uae-vat-cabinet-decision-149-2026-input-tax",
     title: "Cabinet Decision 149 of 2026: what changes for UAE input VAT recovery from 1 October 2026",
+    seoTitle: "Cabinet Decision 149 of 2026: UAE input VAT changes",
+    seoDescription:
+      "What changes for UAE input VAT from 1 October 2026: the cash-payment block, employee benefits, composite supplies, capital assets and residual input tax.",
     description:
       "The September 2026 amendments to the UAE VAT Executive Regulation: the cash-payment block on input tax, the redrafted employee-benefit exceptions, the composite-supply substance test, the capital asset definition, and the 2028 move to turnover-based apportionment. What to test on every invoice, and when.",
     updated: "2026-09-15",
@@ -153,9 +163,13 @@ export const GUIDES: Guide[] = [
   ...PROPERTY_GUIDES,
   ...ENTERPRISE_GUIDES,
   ...GROUP_TAX_GUIDES,
+  ...DEPRECIATION_GUIDES,
   {
     slug: "uae-tax-invoice-checklist",
     title: "What makes a valid UAE tax invoice — the Article 59 checklist",
+    seoTitle: "UAE tax invoice requirements: the Article 59 checklist",
+    seoDescription:
+      "Every field the FTA requires on a full or simplified UAE tax invoice, when a simplified invoice is allowed, foreign-currency rules, and the cost of errors.",
     description:
       "The exact fields the FTA requires on a full and a simplified tax invoice under Article 59 of the UAE VAT Executive Regulations, and what an invalid invoice costs you.",
     updated: "2026-08-16",
@@ -407,6 +421,9 @@ GUIDES.push(
   {
     slug: "loyalty-points-accounting-uae",
     title: "Loyalty points and rewards: how to account for them under IFRS 15 — and what UAE VAT expects",
+    seoTitle: "Loyalty points accounting under IFRS 15 (with UAE VAT)",
+    seoDescription:
+      "Loyalty programmes under IFRS 15: allocating the sale price to points, estimating breakage, releasing revenue on redemption, and UAE VAT on free rewards.",
     description:
       "Points are deferred revenue, not a marketing footnote: allocating the sale price, estimating breakage, releasing on redemption — and how VAT treats the free redemption.",
     updated: "2026-08-22",
@@ -454,6 +471,9 @@ GUIDES.push(
   {
     slug: "gift-cards-vouchers-vat-uae",
     title: "Gift cards and vouchers in the UAE: VAT at issue, VAT at redemption, and the breakage question",
+    seoTitle: "VAT on gift cards and vouchers in the UAE (2026 guide)",
+    seoDescription:
+      "When VAT is due on a UAE gift card or voucher: at sale or at redemption, cards sold above face value, unredeemed balances, and a worked AED 500 example.",
     description:
       "Selling a voucher is not a supply — redemption is. Where Article 40 draws the line, what happens when a voucher sells above face value, and how unredeemed balances are treated.",
     updated: "2026-08-22",
@@ -876,6 +896,9 @@ GUIDES.push(
   {
     slug: "construction-retention-accounting-vat",
     title: "Retention money in construction: the accounting and the VAT date of supply",
+    seoTitle: "Retention money in construction: accounting and UAE VAT",
+    seoDescription:
+      "Retention is a contract asset, not a receivable, and UAE VAT on it can fall due a year before the cash. The IFRS 15 entries and date of supply, in AED.",
     description:
       "Retentions are earned but not yet billable — which splits the accounting (contract asset, not receivable) and delays the VAT tax point. Getting either wrong distorts revenue or prepays tax.",
     updated: "2026-08-24",

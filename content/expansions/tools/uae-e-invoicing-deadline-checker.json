@@ -1,0 +1,106 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "Pick the phase that describes you: revenue of AED 50 million or more, revenue below AED 50 million, or a government entity. The checker shows two dates for that phase, the last day to appoint an Accredited Service Provider (ASP) and the date from which e-invoicing is mandatory, and counts the days from today's date on your device to each one. A date already passed shows as days ago.",
+        "Tick the box if all your business-to-business sales are to members of your own VAT tax group, and the note explains the temporary exclusion for those transactions. The note also summarises the penalties for missing the dates."
+      ],
+      "list": [
+        "AED 50 million or more: appoint an ASP by 30 October 2026, go live on 1 January 2027",
+        "Below AED 50 million: appoint by 31 March 2027, go live on 1 July 2027",
+        "Government entity: appoint by 31 March 2027, go live on 1 October 2027",
+        "The checker does not test whether you are in scope, does not calculate your revenue and does not calculate a penalty. It shows the dates in the Ministerial Decisions for the phase you choose"
+      ]
+    },
+    {
+      "h": "Which phase are you in?",
+      "ps": [
+        "Ministerial Decision No. 244 of 2025 sets the timeline. Revenue means the gross income earned in your most recent accounting period, based on financial statements prepared under UAE law, or other documents the FTA accepts if there are none. A business at exactly AED 50,000,000 is in the first phase, because the test is revenue equal to or above that figure.",
+        "Ministerial Decision No. 66 of 2026 moved the first phase's ASP deadline from 31 July 2026 to 30 October 2026. It did not move the 1 January 2027 go-live. Once the three phases are complete, any other person subject to the system must appoint an ASP and implement it as well (Article 5(1)(d)).",
+        "Business-to-consumer transactions are not subject to the system, and a business that sells only to consumers is outside it until the Minister decides otherwise (Article 5(2)). Anyone may adopt e-invoicing voluntarily from 1 July 2026, and the penalty decision does not apply to voluntary users."
+      ]
+    },
+    {
+      "h": "The tax group exclusion",
+      "ps": [
+        "On 19 October 2026 the Ministry of Finance announced Ministerial Decision No. 197 of 2026, which amends Ministerial Decision No. 243 of 2025 and took effect on 1 October 2026. Business transactions between members of the same VAT tax group are treated as excluded transactions for 24 months from 1 January 2027. The same decision removed the requirement to store e-invoice data inside the UAE (the data must still be kept for the period in the Tax Procedures Law and produced to the FTA on request) and repealed the system failure notification rule.",
+        "The exclusion covers only transactions between members of the same group. Sales to anyone outside the group stay in scope from your phase's go-live date. The [VAT tax group guide](/guides/uae-vat-tax-group) explains who can group."
+      ]
+    },
+    {
+      "h": "Penalties under Cabinet Decision No. 106 of 2025",
+      "list": [
+        "Not implementing the system, including not appointing an ASP within the timeline: AED 5,000 for each month or part of a month of delay",
+        "Not issuing and transmitting an e-invoice to the recipient through the system within the timeline: AED 100 per e-invoice, up to AED 5,000 per calendar month",
+        "The same for e-credit notes: AED 100 each, up to AED 5,000 per calendar month",
+        "Not telling your ASP about changes to the data registered with the FTA: AED 1,000 for each day of delay, for issuers and recipients alike"
+      ],
+      "ps": [
+        "Once you issue e-invoices, Article 59(16) of the VAT Executive Regulation switches off the [simplified tax invoice](/guides/uae-simplified-tax-invoice-aed-10000) and several other invoicing reliefs, so check your invoice templates against the [tax invoice checker](/tools/uae-tax-invoice-checker) as well."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a distributor with AED 180 million of revenue",
+    "ps": [
+      "A distributor's 2025 financial statements show revenue of AED 180,000,000, so it chooses the first option. On 10 November 2026 the checker shows the ASP deadline of 30 October 2026 as 11 days ago and the go-live date of 1 January 2027 as 52 days away."
+    ],
+    "list": [
+      "The ASP deadline has passed. Each month or part of a month without an ASP and a working system counts towards the AED 5,000 a month penalty, so the contract should be signed now",
+      "Suppose it goes live three months late, on 1 April 2027: 3 × AED 5,000 = AED 15,000 for late implementation",
+      "If it also issues 400 invoices a month outside the system in those three months, the invoice penalty is AED 100 × 400 = AED 40,000 a month, capped at AED 5,000, so 3 × AED 5,000 = AED 15,000",
+      "Total exposure on that reading: AED 30,000, before any cost from customers who hold payment until they receive a compliant invoice",
+      "If the distributor's only business-to-business customers were members of its own VAT tax group, ticking the box shows that those sales are excluded for 24 months from 1 January 2027. Its sales to any other business stay in scope"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "When does e-invoicing become mandatory in the UAE?",
+      "a": "On 1 January 2027 for businesses with revenue of AED 50 million or more, 1 July 2027 for businesses below AED 50 million, and 1 October 2027 for government entities. Voluntary use has been possible since 1 July 2026."
+    },
+    {
+      "q": "What is the deadline to appoint an Accredited Service Provider?",
+      "a": "30 October 2026 for businesses with revenue of AED 50 million or more, moved from 31 July 2026 by Ministerial Decision No. 66 of 2026. Businesses below AED 50 million and government entities must appoint one by 31 March 2027."
+    },
+    {
+      "q": "How is the AED 50 million revenue threshold measured?",
+      "a": "On gross income earned in your most recent accounting period, taken from financial statements prepared under UAE law, or from other documents the FTA accepts where there are no financial statements. Revenue equal to AED 50 million is in the first phase."
+    },
+    {
+      "q": "Does UAE e-invoicing apply to sales to consumers?",
+      "a": "No. Business-to-consumer transactions are not subject to the system, and a business that sells only to consumers is outside it until the Minister decides otherwise."
+    },
+    {
+      "q": "Are transactions within a VAT tax group excluded from e-invoicing?",
+      "a": "Yes, for now. Ministerial Decision No. 197 of 2026 treats business transactions between members of the same tax group as excluded for 24 months from 1 January 2027. Sales outside the group remain in scope."
+    },
+    {
+      "q": "What is the penalty for missing the e-invoicing deadline?",
+      "a": "AED 5,000 for each month or part of a month of delay in implementing the system or appointing an ASP, under Cabinet Decision No. 106 of 2025. Invoices and credit notes not issued through the system cost AED 100 each, up to AED 5,000 a calendar month for each."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Ministerial Decision No. 244 of 2025 on the Implementation of the Electronic Invoicing System",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/09/Ministerial-Decision-No.-244-of-2025-on-the-Implementation-of-the-Electronic-Invoicing-System.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 66 of 2026 amending Ministerial Decision No. 244 of 2025",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/05/Ministerial-Resolution-No.-66-of-2026-Amending-Certain-Provisions-of-Ministerial-Resolution-No.-244-of-2025-Regarding-the-Implementation-of-the-Electronic-Invoicing-System-En-20260514.pdf"
+    },
+    {
+      "label": "MoF: Ministry of Finance amends electronic invoicing regulations (Ministerial Decision No. 197 of 2026), 19 October 2026",
+      "href": "https://mof.gov.ae/en/news/ministry-of-finance-amends-electronic-invoicing-regulations-to-ease-the-burden-on-businesses/"
+    },
+    {
+      "label": "MoF: Cabinet Decision No. 106 of 2025 on violations and administrative penalties for the Electronic Invoicing System",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/12/Cabinet-Decision-Violations-and-Penalties-eInvoicing-final-version-en-8.12.25.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law and its amendments (Article 59(16))",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    }
+  ]
+}

@@ -2436,6 +2436,7 @@ export function InvoiceCheckerCalculator({ ar = false }: { ar?: boolean } = {}) 
         notType: "الفاتورة المبسطة لا تكفي هنا: اطلب من المورد فاتورة ضريبية كاملة. ", miss: "ينقص: ",
         valid: "الفاتورة تدعم استرداد ضريبة المدخلات، مع الشروط الأخرى: السداد أو نية السداد خلال ستة أشهر، وفحوص المورد حيث تنطبق.",
         hold: "أوقف الضريبة واطلب من المورد فاتورة مصححة، واستردها في الفترة التي تحوز فيها فاتورة صالحة.",
+        validU: "الفاتورة صالحة كمستند، لكن غير المسجل في الضريبة لا يسترد ضريبة المدخلات.",
       }
     : {
         reg: "We are VAT-registered", rev: "We account for the VAT (reverse charge)", ein: "The supplier issues e-invoices",
@@ -2450,6 +2451,7 @@ export function InvoiceCheckerCalculator({ ar = false }: { ar?: boolean } = {}) 
         notType: "A simplified invoice is not enough here: ask the supplier for a full tax invoice. ", miss: "Missing: ",
         valid: "The invoice supports an input VAT claim, subject to the other conditions: paying or intending to pay within six months, and the supplier checks where they apply.",
         hold: "Hold the VAT and ask the supplier for a corrected invoice. Claim it in the period in which you hold a valid one.",
+        validU: "The invoice is a valid document, but a business that is not VAT-registered cannot recover input VAT on it.",
       };
 
   const t = Math.max(0, num(total));
@@ -2524,7 +2526,7 @@ export function InvoiceCheckerCalculator({ ar = false }: { ar?: boolean } = {}) 
           {why}{" "}
           {!typeOk && <>{T.notType}</>}
           {missing.length > 0 && <>{T.miss}{missing.map((m) => (ar ? m.a : m.t)).join(ar ? "؛ " : "; ")}. </>}
-          {valid ? <>{T.valid}</> : <>{T.hold}</>}
+          {valid ? <>{registered ? T.valid : T.validU}</> : <>{T.hold}</>}
         </div>
       </div>
     </div>
@@ -2583,13 +2585,13 @@ export function FxVatCalculator({ ar = false }: { ar?: boolean } = {}) {
                 تُظهر الفاتورة {code} {fmt2(grossFcy)} إجماليًا، ويجب أن تُظهر أيضًا مبالغ البنود والإجمالي {aed2(grossAed)} والضريبة {aed2(vatAed)} بالدرهم، مع السعر {rate || "—"}. يحمل البند 1 من الإقرار {aed2(netAed)} وضريبة مخرجات {aed2(vatAed)}.
                 {sr > 0 && diff !== 0 && <> عندما يسدد العميل {code} {fmt2(grossFcy)} بسعر {settle} تستلم {aed2(received)}: الفرق {aed2(Math.abs(diff))} {gain ? "ربح" : "خسارة"} صرف في الحسابات ولا يغيّر الضريبة التي تحددت في تاريخ التوريد.</>}
                 {sr > 0 && diff === 0 && <> بسعر لم يتغير لا يوجد فرق صرف عند السداد.</>}
-                {code !== "USD" && decimals > 0 && decimals < 4 && <> تحقق من السعر: المصرف المركزي ينشر الأسعار بخانات عشرية أكثر، والهيئة لا تسمح بالتقريب.</>}
+                {(code === "USD" ? rate.trim() !== "" && num(rate) !== 3.6725 : decimals > 0 && decimals < 4) && <> تحقق من السعر: المصرف المركزي ينشر الأسعار بخانات عشرية أكثر، والهيئة لا تسمح بالتقريب.</>}
               </>
             : <>
                 The invoice shows {code} {fmt2(grossFcy)} in total, and must also show the line amounts, the gross {aed2(grossAed)} and the VAT {aed2(vatAed)} in AED, with the rate {rate || "—"}. Box 1 carries {aed2(netAed)} and {aed2(vatAed)} of output tax.
                 {sr > 0 && diff !== 0 && <> When the customer pays {code} {fmt2(grossFcy)} at {settle}, you receive {aed2(received)}: the {aed2(Math.abs(diff))} difference is an exchange {gain ? "gain" : "loss"} in the accounts and does not change the VAT, which was fixed at the date of supply.</>}
                 {sr > 0 && diff === 0 && <> At an unchanged rate there is no exchange difference on payment.</>}
-                {code !== "USD" && decimals > 0 && decimals < 4 && <> Check the rate: the Central Bank publishes rates with more decimals, and the FTA does not allow rounding.</>}
+                {(code === "USD" ? rate.trim() !== "" && num(rate) !== 3.6725 : decimals > 0 && decimals < 4) && <> Check the rate: the Central Bank publishes rates with more decimals, and the FTA does not allow rounding.</>}
               </>}
         </div>
       </div>
