@@ -1,0 +1,121 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "Why this suddenly matters",
+      "ps": [
+        "Before Corporate Tax, a management fee between two UAE group companies moved profit but not tax, and nobody looked hard. At 9% — and with free zone entities at 0% sitting next to mainland entities at 9% — the same charge now moves real tax, and it is precisely the transaction the transfer pricing rules were written for. Charges that shift profit toward the 0% entity draw the most attention of all."
+      ]
+    },
+    {
+      "h": "Test one: arm's length",
+      "ps": [
+        "Related-party transactions must be priced as independent parties would price them. For routine management and back-office services that usually means cost plus a modest margin, supported by a method you can name. Payments that reach owners or directors face a second hurdle: deductible only to the extent they reflect market value of a genuine service. Above the ministerial thresholds, the charges are disclosed with the tax return — and larger groups also maintain transfer pricing documentation, so the number must be born defensible, not defended later.",
+        "The legal anchors are Article 34 of the Corporate Tax Law (the arm's length standard), Article 35 (who counts as a related party), Article 36 (payments to connected persons such as owners, directors and their related parties) and Article 55 (disclosure and documentation)."
+      ]
+    },
+    {
+      "h": "The thresholds that decide your paperwork",
+      "list": [
+        "Related party schedule in the Corporate Tax return: required where the aggregate value of all transactions with related parties exceeds AED 40 million in the tax period; once over, each category of transaction above AED 4 million is disclosed. Dividends are left out of both thresholds",
+        "Connected persons schedule: required where payments or benefits to a connected person, with its related parties, exceed AED 500,000",
+        "Master file and local file: required where the taxpayer's revenue is AED 200 million or more, or it belongs to a multinational group with consolidated revenue of AED 3.15 billion or more",
+        "Below those lines there is no disclosure form, but the arm's length rule still applies in full, and the FTA can ask for supporting evidence. Where requested, transfer pricing documentation must be provided within 30 days"
+      ],
+      "ps": [
+        "The thresholds and filing mechanics are covered in [transfer pricing documentation in the UAE](/guides/uae-transfer-pricing-documentation)."
+      ]
+    },
+    {
+      "h": "Pricing the charge: cost plus, and the 5% route",
+      "ps": [
+        "The FTA's Transfer Pricing Guide (CTGTP1) follows Chapter VII of the OECD Guidelines. First, a service must pass the benefit test: would an independent company pay for it, or do it itself? Second, the charge must be arm's length. For low value-adding support services, the guide adopts the OECD simplified approach: cost plus a 5% mark-up, without a benchmarking study.",
+        "To qualify, the service must be supportive, not part of the group's core business, must not use or create unique and valuable intangibles, and must not involve significant risk. The guide expressly excludes research and development, manufacturing, procurement of raw materials, sales and marketing, financial transactions, insurance and services of corporate senior management. A fee for the group CEO's time is therefore not a 5% case and needs a comparability analysis.",
+        "Costs that only serve the parent as shareholder cannot be charged at all. The guide lists the parent's own governance, listing and shareholder meetings, consolidation and group audit, investor relations and the parent's own tax compliance. Duplicated services are another risk: if the subsidiary already has its own finance team, a group finance charge needs a clear reason for both."
+      ]
+    },
+    {
+      "h": "Worked example",
+      "ps": [
+        "A mainland holding company runs finance, HR and IT for two mainland subsidiaries. Its annual cost pool is AED 1,200,000. Of that, AED 150,000 is group audit and consolidation work, a shareholder activity that stays with the parent. A further AED 200,000 is software licences bought for the subsidiaries and recharged at cost as pass-through costs, with no mark-up. The remaining AED 850,000 qualifies as low value-adding support.",
+        "Charge: AED 850,000 × 1.05 = AED 892,500, plus pass-through of AED 200,000, gives AED 1,092,500 for the year. Allocated by headcount (Subsidiary A 60 staff, Subsidiary B 40), A bears AED 655,500 and B bears AED 437,000. Invoiced monthly, A's charge is AED 54,625 plus 5% VAT of AED 2,731.25, a total of AED 57,356.25.",
+        "Holding company: Dr Intercompany receivable A 57,356.25, Cr Management fee income 54,625.00, Cr Output VAT 2,731.25. Subsidiary A: Dr Management fees 54,625.00, Dr Input VAT 2,731.25, Cr Intercompany payable 57,356.25. Both entries carry the same invoice number and date, and the intercompany balances are agreed at every month-end before either side closes."
+      ]
+    },
+    {
+      "h": "Test two: VAT does not care that it's family",
+      "list": [
+        "A management fee between two legal entities is a taxable supply at 5% — being in the same group changes nothing by default",
+        "The paying entity needs a valid tax invoice from the charging entity to recover the input VAT, subject to its own recovery position",
+        "A registered VAT tax group removes intra-group supplies from VAT entirely — but the group registration has its own conditions, and CT and VAT grouping are separate regimes with separate rules; being grouped for one does not group you for the other"
+      ],
+      "ps": [
+        "Timing follows Article 26 of the VAT law for contracts with periodic payments or consecutive invoices: VAT is due at the earliest of the tax invoice being issued, the payment date on the invoice, payment being received, or one year after the service was provided. A tax invoice must be issued within 14 days of the date of supply (Article 67). A charge left to a single year-end invoice does not defer VAT safely, because the one-year limit and any payments on account fix earlier dates. A VAT tax group needs each member to have a place of establishment or fixed establishment in the UAE, the members must be related parties, and one or more of them must control the others (Article 14)."
+      ]
+    },
+    {
+      "h": "Free zone and mainland: where the charge lands",
+      "ps": [
+        "Headquarter services to related parties are a qualifying activity for a Qualifying Free Zone Person under Ministerial Decision No. 229 of 2025, which replaced Ministerial Decision No. 265 of 2023 with effect from 1 June 2023. The definition covers senior and general management, administration, procurement, business planning, risk management, coordination of group activities and other support services. A free zone headquarters can therefore earn qualifying income from charging mainland affiliates, but that is exactly the flow that moves profit from 9% to 0%, so the arm's length analysis has to be strongest here. Non-qualifying revenue must stay within the de minimis limit of 5% of total revenue or AED 5 million, whichever is lower (see [the free zone 0% rate](/guides/free-zone-corporate-tax-0-percent)).",
+        "If the entities form a Corporate Tax group, intra-group transactions are eliminated in the consolidated computation, and the fee has no Corporate Tax effect. A Qualifying Free Zone Person cannot join a tax group."
+      ]
+    },
+    {
+      "h": "Test three: the service must be real",
+      "ps": [
+        "The cleanest pricing fails if there is nothing behind it. An intercompany agreement signed before the charges start, a description of the services actually delivered, a cost base that reconciles to the charging entity's ledger, and invoices raised on a regular cadence — that is the evidence file. A single year-end journal labelled 'management fee' with no agreement, no invoice and a suspiciously round number is not a transaction; it is a finding waiting to be written."
+      ]
+    },
+    {
+      "h": "What to check before the charge is posted",
+      "list": [
+        "Signed agreement in force for the period, naming the services, the cost base, the mark-up and the allocation key",
+        "Cost pool reconciles to the provider's ledger, with shareholder costs removed and pass-through costs identified",
+        "Allocation key is the same one used last period, and based on something measurable such as headcount, users or transactions",
+        "Tax invoice shows both TRNs, the period covered and VAT at 5% (unless both are in one VAT group)",
+        "Mirror entry is posted in the recipient's ledger in the same month",
+        "For payments to owners or directors, a note of the market value of the service and why it is genuine (see [director and owner remuneration](/guides/uae-director-owner-remuneration))"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab posts intercompany charges only against the agreement and invoice as evidence, keeps both sides' entries mirrored so the charge never exists in one ledger only, applies the VAT treatment consistently, and shows related-party flows on their own report — the same view a reviewer would build, available before they ask."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Are intercompany management fees subject to VAT in the UAE?",
+      "a": "Yes, at 5%, unless both entities are members of the same VAT tax group. Being related is not enough on its own; the charging entity must issue a tax invoice, and the paying entity recovers the VAT subject to its own recovery position."
+    },
+    {
+      "q": "What mark-up should be used for intercompany services in the UAE?",
+      "a": "For low value-adding support services, the FTA's Transfer Pricing Guide accepts a 5% mark-up on cost without a benchmarking study. Core services, senior management services, sales and marketing, financial services and research need a comparability analysis to support the margin."
+    },
+    {
+      "q": "Are management fees deductible for UAE Corporate Tax?",
+      "a": "Yes, if the service is real, benefits the payer, and is priced at arm's length under Article 34. Charges for shareholder activities, duplicated services and payments to owners or directors above market value are not deductible."
+    },
+    {
+      "q": "When do I need to file a transfer pricing disclosure in the UAE?",
+      "a": "With the Corporate Tax return, where transactions with related parties exceed AED 40 million in aggregate (disclosing each category over AED 4 million), or payments to a connected person exceed AED 500,000. The return is due nine months after the end of the tax period."
+    },
+    {
+      "q": "Can a free zone company charge management fees to a mainland company?",
+      "a": "Yes. Headquarter services to related parties are a qualifying activity under Ministerial Decision No. 229 of 2025, so the income can qualify for the 0% rate. The fee must be at arm's length, and it is the charge the FTA is most likely to examine, because it moves profit from 9% to 0%."
+    },
+    {
+      "q": "Do I need an intercompany agreement in the UAE?",
+      "a": "The law does not prescribe a form, but without a signed agreement it is hard to show the service was agreed, real and priced on a defined basis. Sign it before the charges start, and keep it alongside the invoices and the cost workings."
+    }
+  ],
+  "sources": [
+    { "label": "FTA: Transfer Pricing Guide CTGTP1 (intra-group services, low value-adding services, documentation thresholds)", "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf" },
+    { "label": "FTA: Corporate Tax Returns Guide (related party and connected person schedules)", "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/CT-Returns-EN-11-11-2024.pdf" },
+    { "label": "Ministerial Decision No. 229 of 2025 on Qualifying Activities and Excluded Activities", "href": "https://mof.gov.ae/wp-content/uploads/2025/09/EN-Ministerial-Decision-No.-229-of-2025-Regarding-Qualifying-Activities-and-Excluded-Activities.pdf" },
+    { "label": "Federal Decree-Law No. 8 of 2017 on VAT and its amendments (MoF consolidated text)", "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf" }
+  ],
+  "related": ["uae-transfer-pricing-documentation", "free-zone-corporate-tax-0-percent", "uae-director-owner-remuneration", "uae-qualifying-group-relief"]
+}

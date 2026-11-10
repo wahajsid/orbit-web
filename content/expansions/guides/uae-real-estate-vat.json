@@ -1,0 +1,146 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "The map",
+      "list": [
+        "New residential, first supply within three years of completion — zero-rated: no VAT charged, full input-VAT recovery for the developer",
+        "Residential thereafter — exempt: no VAT charged, and no input-VAT recovery on costs attributable to it",
+        "Commercial property, sale or lease — standard-rated 5%",
+        "Bare land — exempt; land with civil-engineering works or partially completed buildings is a facts question, not a label question",
+        "Hotel apartments and serviced accommodation — standard-rated: the supply is closer to hospitality than housing, and since 15 November 2024 the Executive Regulation excludes hotel apartments and serviced apartments from the definition of a residential building outright"
+      ]
+    },
+    {
+      "h": "Why the treatment matters more than the rate",
+      "ps": [
+        "Zero-rated and exempt both mean the tenant or buyer pays no VAT — but they are opposites for the supplier. Zero-rating keeps the door to input-VAT recovery open; exemption closes it. A residential landlord's agency fees, maintenance and management costs carry 5% that is simply lost. A developer selling first supplies at 0% recovers construction VAT in full — which is why the three-year window and the completion date are worth documenting to the day."
+      ]
+    },
+    {
+      "h": "Where the rules sit",
+      "ps": [
+        "Zero-rating is in Article 45 of Federal Decree-Law No. 8 of 2017: clause 9 for the first supply of a residential building within three years of completion, clause 10 for buildings designed for charities, and clause 11 for buildings converted from non-residential to residential. Exemption is in Article 46: clause 2 for residential buildings other than zero-rated supplies, and clause 3 for bare land. The detail is in the Executive Regulation, Articles 37 (residential buildings), 38 and 39 (charity and converted buildings) and 44 (bare land). The FTA's Real Estate VAT Guide (VATGRE1) explains how the authority applies them."
+      ]
+    },
+    {
+      "h": "What counts as residential",
+      "ps": [
+        "Article 37 defines a residential building as one intended and designed for human occupation. It includes any building or part of one occupied, or foreseeably to be occupied, as someone's principal place of residence, student and school accommodation, accommodation for the armed forces and police, and orphanages, nursing homes and rest homes. A small home office, garages and gardens do not change the answer.",
+        "It excludes anything not fixed to the ground that can be moved without damage, hotels, motels, bed and breakfasts and hospitals, hotel apartments and serviced apartments, and any building constructed or converted without lawful authority. Labour accommodation is a common edge case; the FTA's public clarification on residential versus serviced labour accommodation is covered in our guide to [staff accommodation](/guides/uae-vat-staff-accommodation-recovery-2026)."
+      ]
+    },
+    {
+      "h": "The first supply and the three-year clock",
+      "ps": [
+        "The clock starts on the completion date, which is normally the date an appropriately qualified party certifies the building as complete. If the building is occupied earlier, the occupation date counts. The first supply can be a sale or a lease, to anyone, and it must happen within three years of that date. Any later supply, even inside the three years, is exempt.",
+        "Article 52(4) of the Executive Regulation protects developers who lease first: where the first supply is a zero-rated lease, the developer keeps full recovery of the input VAT on that supply even if it intends to make exempt supplies of the building later. The FTA guide confirms that later exempt leases do not require a capital assets adjustment of the original construction recovery.",
+        "A converted building gets its own clock. Under Article 39, the first supply of a building converted to residential use is zero-rated if it happens within three years of the conversion's completion and the original building was not used as, or part of, a residential building in the five years before the conversion work started."
+      ]
+    },
+    {
+      "h": "Commercial property, land and service charges",
+      "ps": [
+        "Offices, shops, warehouses and other non-residential buildings are standard-rated on sale and on lease. Land is exempt only if it is bare: no completed buildings, no partially completed buildings and no civil engineering works. The FTA treats construction as a partially completed building once it has progressed beyond foundation level, and earlier works can still be civil engineering works that make the land covered, and therefore standard-rated.",
+        "Service charges levied by a master developer or owners' association for communal areas are standard-rated even in a residential community, because they pay for maintenance services, not for the building itself."
+      ]
+    },
+    {
+      "h": "Mixed portfolios and mixed buildings",
+      "ps": [
+        "A building with retail below and apartments above makes both taxable and exempt supplies, which drags the owner into input-VAT apportionment: directly attributable costs follow their supply, shared costs split by a fair method, and the recovery position needs an annual true-up. The same logic hits any landlord holding commercial and residential side by side — the portfolio's VAT is managed at the cost-allocation level, not the invoice level.",
+        "The standard method and its 2028 change are set out in our guide to [partial exemption](/guides/uae-partial-exemption-input-vat). The FTA guide recognises floorspace as one basis a mixed-use owner can apply for as a special method, with written FTA approval in advance."
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A developer completes a building on 1 March 2026: two floors of shops and eight floors of apartments. Construction VAT is AED 5,000,000. The developer attributes AED 1,000,000 to the retail floors and AED 4,000,000 to the apartments, using a fair basis it documents.",
+        "Retail floors: leases at 5% are taxable, so the AED 1,000,000 is recoverable. Apartments sold off plan and transferred within three years are zero-rated first supplies, so the AED 4,000,000 is recoverable too. Dr VAT recoverable 5,000,000, Cr Construction payables 5,000,000. The developer keeps completion certificates and transfer dates for every unit.",
+        "If one apartment is still unsold and unlet on 1 March 2029, its first supply can no longer be zero-rated: it will be exempt, and the developer has to revisit the input VAT it recovered for that unit. That is the stranded-VAT trap listed below, and the reason to track every unit's first-supply date against the completion date.",
+        "Later, as landlord of the retail floors and of apartments it kept, the owner pays building maintenance of AED 400,000 plus AED 20,000 VAT. Direct taxable input VAT in the period is AED 30,000 and direct exempt input VAT is AED 10,000, so the standard ratio is 30,000 over 40,000, or 75%. AED 15,000 of the shared VAT is recoverable: Dr VAT recoverable 15,000, Dr Maintenance expense 405,000, Cr Payables 420,000. Test a single property's treatment in the [real estate VAT checker](/tools/uae-real-estate-vat-checker)."
+      ]
+    },
+    {
+      "h": "Selling commercial property",
+      "ps": [
+        "A sale of commercial property by anyone other than its developer goes through a special payment process. The seller issues a tax invoice as normal, but the buyer pays the VAT directly to the FTA, or through an FTA-nominated bank where available, before the land department will process the transfer. The seller still declares the output tax on its return and enters the same amount in the adjustments column, so the VAT is not paid twice.",
+        "The process does not apply to leases, to residential property, to sales by the developer, or to the sale of a tenanted commercial building to a taxable person where it qualifies as the transfer of a business. Article 7(2) of the Decree-Law treats the transfer of the whole or an independent part of a business to a taxable person, to continue that business, as not a supply at all."
+      ]
+    },
+    {
+      "h": "The traps",
+      "list": [
+        "Charging 5% on residential rent because the tenant is a company — the supply's nature, not the tenant's, decides",
+        "Missing the first-supply window: completing in year one and first-supplying in year four turns 0% into exempt and strands the construction VAT",
+        "Commercial buyers forgetting the special payment mechanics on commercial property sales — the VAT is paid to the FTA directly before transfer, where the seller is not the developer",
+        "Treating a serviced-apartment operation as exempt residential when its substance is hospitality",
+        "Treating an occupied building as uncompleted because the certificate is late: occupation starts the three-year clock",
+        "Selling 'land' with foundations poured or roads laid as bare land"
+      ]
+    },
+    {
+      "h": "What to keep on file",
+      "list": [
+        "Completion certificate, and evidence of the first occupation date if earlier",
+        "For each unit, the date and nature of its first supply (sale or lease) and the counterparty",
+        "For conversions, evidence of the building's use in the five years before work started",
+        "For land, a site record at the date of sale showing whether any construction or civil works exist",
+        "The cost attribution basis for mixed buildings, and the FTA approval if you use a special method",
+        "For commercial sales, the payment transaction number or bank proof of the buyer's VAT payment"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab classifies property income streams per unit and treatment, attributes costs to taxable and exempt pools as invoices arrive, computes the recovery ratio with the annual adjustment, and keeps completion and first-supply dates on the asset record — the facts the treatment turns on."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there VAT on residential rent in the UAE?",
+      "a": "No. Residential leases are exempt under Article 46(2) of the VAT Decree-Law, except the first supply of a new building within three years of completion, which is zero-rated. Either way the tenant pays no VAT, but an exempt landlord cannot recover VAT on its costs."
+    },
+    {
+      "q": "Is VAT charged on commercial property in the UAE?",
+      "a": "Yes, at 5% on both sales and leases. On a sale by anyone other than the developer, the buyer pays the VAT directly to the FTA before the land department transfers ownership, unless the sale is a transfer of a business with its tenants to a taxable person."
+    },
+    {
+      "q": "Do I pay VAT when buying an off-plan apartment in the UAE?",
+      "a": "No. The developer's first supply of a new residential unit within three years of completion is zero-rated, and buying off plan is a first supply. VAT does apply at 5% to service charges and to agents' fees."
+    },
+    {
+      "q": "Are hotel apartments residential for UAE VAT?",
+      "a": "No. Since 15 November 2024, Article 37(2) of the Executive Regulation excludes hotel apartments and serviced apartments from the definition of a residential building, so their supply is standard-rated at 5%."
+    },
+    {
+      "q": "Is land subject to VAT in the UAE?",
+      "a": "Bare land is exempt. Land with completed or partially completed buildings or civil engineering works is not bare and is standard-rated. The FTA treats construction beyond foundation level as a partially completed building."
+    },
+    {
+      "q": "When does the three-year zero-rating period start for a new building?",
+      "a": "On the completion date, normally the date the building is certified complete, or the date it is first occupied if that is earlier. The first sale or lease must happen within three years of that date."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT, consolidated (Articles 7, 45 and 46)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (Articles 37, 39, 44 and 52)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Real Estate VAT Guide (VATGRE1)",
+      "href": "https://tax.gov.ae/DownloadOpenTextFile?fileUrl=en/VAT_VAT_Guides/Real_Estate_Guide/Real_Estate_Guide_VATGRE1_EN_19_04_2021_EN.pdf"
+    }
+  ],
+  "related": [
+    "uae-partial-exemption-input-vat",
+    "construction-retention-accounting-vat",
+    "ksa-real-estate-transaction-tax"
+  ]
+}

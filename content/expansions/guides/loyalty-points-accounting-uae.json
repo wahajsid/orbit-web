@@ -1,0 +1,145 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The mistake almost everyone makes",
+      "ps": [
+        "Most businesses book the full sale as revenue and treat the loyalty points as a future marketing cost. IFRS 15 says the opposite: points a customer earns in a sale are a material right — a separate performance obligation — and part of today's sale price belongs to them. Until the points are redeemed or expire, that slice is a contract liability, not revenue.",
+        "The difference is not cosmetic. A retailer with an active programme can be carrying months of deferred revenue; recognising it all upfront overstates today's profit and understates a real obligation — the kind of adjustment an auditor makes late, painfully, and with a restated comparative."
+      ]
+    },
+    {
+      "h": "Where IFRS 15 says this",
+      "ps": [
+        "The rules sit in the application guidance on customer options for additional goods or services, paragraphs B39 to B43. An option is a separate performance obligation when it gives the customer a material right they would not have received without entering into the contract (B40): a discount on future purchases that a walk-in customer would not get is the classic case. Paragraph B42 says that where the standalone selling price of the option is not directly observable, you estimate it from the discount the customer would obtain, adjusted for any discount available without the option and for the likelihood that the option will be exercised.",
+        "Unredeemed points are dealt with by the breakage paragraphs, B44 to B47, which apply to any customer right paid for in advance and never exercised. If you expect to be entitled to the breakage, you recognise it in proportion to the pattern of redemptions; if not, only when redemption becomes remote. The estimate is variable consideration, so the constraint in paragraphs 56 to 58 applies."
+      ]
+    },
+    {
+      "h": "The mechanics, step by step",
+      "list": [
+        "Split the transaction price between the goods sold today and the points granted, in proportion to their relative standalone selling prices",
+        "The standalone selling price of a point is not its face value — it is the redemption value weighted by the likelihood of redemption. Points you expect to expire are worth less",
+        "Park the points' share as a contract liability (deferred revenue) on the balance sheet",
+        "Release it to revenue as points are redeemed — in proportion to the pattern of expected total redemptions, so breakage income emerges as the programme runs, not in one lump at expiry",
+        "Re-estimate the redemption rate at each close; the adjustment flows through revenue, not equity"
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A customer spends AED 1,000 and earns points worth AED 50 of future goods, of which you expect 80% to be redeemed. The points' standalone value is AED 40. Allocate: 1,000 × 1,000/1,040 ≈ AED 962 to today's sale, AED 38 deferred for the points. When half the expected redemptions have happened, half the AED 38 has been released — whether or not the calendar says the points are old.",
+        "The AED 1,000 in this example is the price excluding VAT. The IFRS 15 transaction price never includes VAT collected for the FTA, so always run the allocation on net figures."
+      ]
+    },
+    {
+      "h": "The same example at programme scale, with VAT and journals",
+      "ps": [
+        "In one quarter a retailer makes sales of AED 1,000,000 excluding VAT, and customers pay AED 1,050,000 including VAT. The sales earn points that can be used as AED 50,000 off future shelf prices, and redemption history says 80% will be used, so the points' standalone selling price is AED 40,000. The allocation is 1,000,000 × 40,000/1,040,000 = AED 38,461.54 to the points and AED 961,538.46 to the goods. Output VAT is AED 50,000 on the full net price: issuing points does not reduce the taxable value of the sale.",
+        "Next quarter customers use AED 20,000 of points against goods with a shelf price of AED 105,000 including VAT and pay AED 85,000 in cash. VAT follows what the customer actually pays, so output VAT is AED 4,047.62 (85,000 × 5/105). Of the AED 40,000 of points expected to be used, half have now been used, so half of the liability, AED 19,230.77, is released to revenue."
+      ],
+      "list": [
+        "On the original sales: Dr Cash 1,050,000 / Cr Revenue 961,538.46 / Cr Contract liability (points) 38,461.54 / Cr Output VAT 50,000",
+        "On redemption: Dr Cash 85,000 / Dr Contract liability (points) 19,230.77 / Cr Revenue 100,183.15 / Cr Output VAT 4,047.62"
+      ]
+    },
+    {
+      "h": "When the redemption estimate changes",
+      "ps": [
+        "At the next close the data shows customers are using fewer points than expected: the expected rate falls from 80% to 70%, so total expected redemptions fall from AED 40,000 to AED 35,000. The AED 38,461.54 allocated at the point of sale does not change, because IFRS 15 does not reallocate the transaction price for later changes in standalone selling prices (paragraph 88). What changes is the pattern. AED 20,000 used out of AED 35,000 expected is 57.14% complete, so the cumulative release should be AED 21,978.02. AED 19,230.77 has been released already, so a further AED 2,747.25 goes to revenue now as a cumulative catch-up.",
+        "This is why the redemption rate needs a documented owner and a monthly review. The [loyalty points calculator](/tools/loyalty-points-calculator) runs the allocation and the release for a given rate so the movement can be checked against the ledger."
+      ]
+    },
+    {
+      "h": "What UAE VAT expects",
+      "ps": [
+        "VAT follows the consideration actually charged, not the IFRS allocation. On the original sale, output VAT is due on the full amount the customer pays — issuing points does not reduce the taxable value. When points are later redeemed as a price reduction on a new purchase, VAT is due on the net amount the customer actually pays for that supply. Article 28(2) of the Executive Regulation allows the value of a supply to be reduced for a discount only where the customer benefits from the reduction and the supplier funded it, which is the normal position in a retailer's own programme.",
+        "The sharp edge is redemptions where the customer pays nothing: goods handed over wholly against points can fall into the deemed-supply rules if input VAT was recovered on them. The regulations carve out small amounts — but the thresholds are tight and measured over rolling 12-month periods, and a busy programme crosses them without noticing. The defensible pattern is to decide the treatment when the programme is designed, document it, and apply it mechanically — not to hope the redemptions stay small."
+      ]
+    },
+    {
+      "h": "The deemed supply thresholds in numbers",
+      "ps": [
+        "Article 11(1) of the VAT Decree-Law treats business goods or services given away for no consideration as a deemed supply where input tax was recovered on them, and Article 37 values that supply at the cost incurred. Article 12 lists the exceptions, and Article 5 of the Executive Regulation, as amended by Cabinet Decision No. 100 of 2024 with effect from 15 November 2024, sets the figures:"
+      ],
+      "list": [
+        "Samples and commercial gifts: no deemed supply where the value of goods supplied to each recipient does not exceed AED 500 in a 12-month period (Decree-Law Article 12(4), Executive Regulation Article 5(1))",
+        "Overall cap: the exception also covers deemed supplies while the total output tax on all of them stays within AED 2,000 per supplier over 12 months; anything above that is payable (Article 12(5), Article 5(2)(a))",
+        "The 12 months are the period ending with the month in which the supply is made, so the test rolls forward every month (Article 5(3))",
+        "No deemed supply at all where no input tax was recovered on the goods (Article 12(1))"
+      ]
+    },
+    {
+      "h": "Partner and coalition programmes",
+      "ps": [
+        "Where another company supplies the rewards, for example points that customers spend with an airline or a partner retailer, ask whether you are principal or agent for that reward under IFRS 15 paragraphs B34 to B38. If you only arrange for the partner to supply it, you are usually an agent and recognise the net amount you keep when your obligation is met, not the gross value of the points.",
+        "The VAT analysis also changes. If a programme operator pays the redeeming retailer for the points used, the retailer's discount is no longer funded by the retailer, so the Article 28(2) condition is not met and the operator's payment is generally part of the consideration for the redemption supply. Read the programme agreement for who pays whom and for what before deciding the VAT treatment, and keep that reading in the VAT file."
+      ]
+    },
+    {
+      "h": "What to check before the programme goes live",
+      "list": [
+        "Whether points carry a fixed AED value per point and an expiry date, and whether that is published in the terms",
+        "Who funds each redemption: you, a brand partner, or a programme operator",
+        "That the point-of-sale system records points earned and points used per transaction, separately from cash and card",
+        "That redemption receipts and tax invoices show VAT on the net amount paid where points act as a discount",
+        "A monthly report of free redemptions by recipient, so the AED 500 per-recipient and AED 2,000 total output tax tests can be run",
+        "An approved redemption-rate assumption, its evidence, and the date it was last reviewed"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab carries the points liability as its own ledger account, posts the allocation on each qualifying sale, releases it on redemption evidence, and keeps the redemption-rate estimate as a monthly close decision with the movement history attached — so the liability is always current and the auditor sees the model, not a plug."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "Gift cards follow a different VAT route, with no supply at issue: see [gift cards and vouchers in the UAE](/guides/gift-cards-vouchers-vat-uae). The release and the estimate review belong in the [month-end close checklist](/guides/month-end-close-checklist)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Are loyalty points revenue or a liability under IFRS 15?",
+      "a": "They are a liability until used. Points that give a material right are a separate performance obligation, so part of the sale price is allocated to them and held as a contract liability. It becomes revenue when points are redeemed or, for expected breakage, in proportion to redemptions."
+    },
+    {
+      "q": "How do you calculate the standalone selling price of a loyalty point?",
+      "a": "Start with the value the customer gets on redemption and reduce it for the points you expect never to be used, as paragraph B42 of IFRS 15 requires. AED 50 of points with an 80% expected redemption rate has a standalone selling price of AED 40. Allocate the sale price between goods and points in proportion to their standalone selling prices."
+    },
+    {
+      "q": "Is VAT charged when customers redeem loyalty points in the UAE?",
+      "a": "VAT is charged on what the customer actually pays for the redemption purchase. Where the points work as a discount funded by the retailer, the taxable value is the reduced price. Where the customer pays nothing and input tax was recovered on the goods, the deemed supply rules need to be checked."
+    },
+    {
+      "q": "Do loyalty points reduce the VAT on the original sale?",
+      "a": "No. Output VAT on the sale that earns the points is due on the full consideration the customer pays. The IFRS 15 allocation to the points is an accounting split and does not change the taxable value."
+    },
+    {
+      "q": "What is the deemed supply threshold for gifts in the UAE?",
+      "a": "Goods given as samples or commercial gifts are not a deemed supply if their value per recipient does not exceed AED 500 in a 12-month period. There is also an overall cap: the exception applies while total output tax on all deemed supplies stays within AED 2,000 over 12 months. Both tests roll forward month by month."
+    },
+    {
+      "q": "What happens to the points liability when the redemption rate changes?",
+      "a": "The amount originally allocated to the points stays the same; only the release pattern changes. You recalculate how much of the expected redemptions has happened and post a cumulative catch-up to revenue, up or down, in the period the estimate changes."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 11, 12, 37, 39), consolidated to 1 January 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law and its amendments (Articles 5 and 28), consolidated to Cabinet Decision No. 149 of 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 15 Revenue from Contracts with Customers (paragraphs B39 to B47, customer options and breakage)",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/"
+    }
+  ],
+  "related": ["gift-cards-vouchers-vat-uae", "month-end-close-checklist"]
+}

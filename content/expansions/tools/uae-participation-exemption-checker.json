@@ -1,0 +1,78 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "Enter the dividend or gain in AED, your ownership percentage, the acquisition cost and the months held (for a gain, months actually held; for a dividend, held or intended to be held). Then tick whether the dividend comes from a UAE-resident company, and, if not, whether the participation is taxed at 9% or more where it is resident (or meets the equivalent test).",
+        "A dividend from a UAE-resident company is shown as Exempt with no further tests. Otherwise the result is Exempt only when all three tests pass: ownership of 5% or more, or an acquisition cost of AED 4,000,000 or more; at least 12 months held; and the subject-to-tax box ticked. If any test fails, the checker names each blocker.",
+        "When the amount is not exempt, the checker shows the tax as the higher of zero and (amount - 375,000) x 9%, rounded to the nearest dirham. That assumes the amount is your only taxable income; if you already use the AED 375,000 band elsewhere, the tax is simply 9% of the amount."
+      ],
+      "list": [
+        "For a capital gain, enter months actually held. The 'intention to hold' route only works for dividends; the FTA guide says a gain needs 12 months of actual uninterrupted ownership.",
+        "The checker does not test two further conditions in Article 23(2): the holding must give at least 5% of profits and of liquidation proceeds, and not more than 50% of the participation's direct and indirect assets may be holdings that would not qualify if held directly. Check both yourself."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 22 of Federal Decree-Law No. 47 of 2022 exempts dividends and other profit distributions from a UAE-resident juridical person without conditions. Article 23 exempts income from a Participating Interest in a foreign company, which covers dividends, capital gains on disposal, foreign exchange gains or losses and impairment gains or losses on the holding.",
+        "A Participating Interest is a holding of 5% or more of the shares or capital, held or intended to be held for an uninterrupted 12 months. For tax periods starting on or after 1 January 2025, Ministerial Decision No. 302 of 2024 (which replaced Ministerial Decision No. 116 of 2023) treats an aggregated acquisition cost equal to or above AED 4,000,000 as meeting both the 5% ownership test and the 5% profit and liquidation entitlement. The participation must be subject to Corporate Tax or a similar foreign tax at a rate of at least 9%. A Qualifying Free Zone Person, an Exempt Person and, under conditions, a holding company whose main activity is holding participations are treated as meeting that test, and Ministerial Decision No. 302 of 2024 allows an effective-rate route where the headline rate is below 9%. The asset test also applies.",
+        "The mirror image matters for the computation. Losses on a holding whose income is exempt cannot be relieved (Article 37(3)(c)), and expenditure incurred in deriving exempt income is not deductible, so legal and advisory costs of buying or selling an exempt participation are usually added back. Interest on borrowing used to acquire and hold a participation is an exception: the FTA's Interest Deduction Limitation guide treats it as deductible, subject to the general and related-party interest rules. See our guide to [holding companies and the participation exemption](/guides/uae-holding-company-participation-exemption) and the [interest cap calculator](/tools/uae-interest-cap-calculator)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai mainland holding company sells its 8% stake in a United Kingdom trading company for a gain of AED 6,000,000. It bought the shares 30 months ago. It pays UK corporation tax at a headline rate well above 9%. The holding company has no other taxable income."
+    ],
+    "list": [
+      "Step 1: enter gain 6,000,000, ownership 8, acquisition cost 0 (not needed, as 8% already passes) and months held 30. Leave the UAE-dividend box unticked and tick the subject-to-tax box.",
+      "Step 2: ownership 8% is at least 5%, 30 months is at least 12, and the subject-to-tax box is ticked. Result: Exempt.",
+      "Step 3: before relying on it, confirm the shares carry at least 8% of profits and liquidation proceeds and that the UK company's assets are not mainly non-qualifying holdings.",
+      "Step 4: in the return, deduct the AED 6,000,000 gain as exempt income and add back the AED 120,000 of deal advisory fees booked in the profit and loss account as expenditure incurred in deriving exempt income.",
+      "Contrast: if the shares had been held for 10 months, enter 10. The checker shows Taxable, with tax of (6,000,000 - 375,000) x 9% = AED 506,250."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the participation exemption in UAE corporate tax?",
+      "a": "It exempts dividends and capital gains from a foreign company in which you hold at least 5%, or which cost AED 4 million or more, held for 12 months, where that company is taxed at 9% or more. Article 23 of the Corporate Tax Law sets the conditions."
+    },
+    {
+      "q": "Are dividends from UAE companies taxable?",
+      "a": "No. Dividends and profit distributions from a UAE-resident juridical person are exempt under Article 22 of the Corporate Tax Law, whatever the size of the holding or how long it has been held."
+    },
+    {
+      "q": "Can I meet the 12-month holding period after the dividend is paid?",
+      "a": "For a dividend, yes: the law accepts an intention to hold for an uninterrupted 12 months, so a dividend received in month four can be exempt if you then keep the shares. If the holding drops below 5% before 12 months are up, Article 23(10) brings the exempt income back into taxable income in that period. For a capital gain, the 12 months must have been completed by the sale."
+    },
+    {
+      "q": "Does the participation exemption cover shares in a free zone company?",
+      "a": "It can. A Qualifying Free Zone Person is treated as meeting the subject-to-tax test. Dividends from any UAE-resident company are already exempt under Article 22, so the question mainly arises on a capital gain."
+    },
+    {
+      "q": "Are costs of buying an exempt shareholding deductible?",
+      "a": "Generally not, because expenditure incurred in deriving exempt income is not deductible. Interest on borrowing to acquire and hold the participation is the exception and stays deductible within the interest limitation rules."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Exempt Income: Dividends and Participation Exemption Corporate Tax Guide (CTGEXI1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/CT%20-%20Exempt%20Income%20-%20Dividends%20and%20Participation%20Exemption%20-%2016%2010%202023.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 302 of 2024 on the Participation Exemption (tax periods from 1 January 2025)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2024/12/2-Ministerial-Decision-No-302-of-2024-on-the-Participation-Exemption-and-Foreign-Permanent-Establishment-Exemption-on-the-Taxation-of-Corporations-and-Businesses-for-publishing.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments (Articles 22 and 23)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "FTA: Interest Deduction Limitation Rules Corporate Tax Guide (CTGIDL1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Interest-Deduction-guide.pdf"
+    }
+  ]
+}

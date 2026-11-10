@@ -1,0 +1,81 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "You enter the sale price or lease value and pick one of five supply types. The checker returns the VAT treatment, the VAT on your figure and whether input VAT on the related costs can be recovered. Negative values are treated as zero."
+      ],
+      "list": [
+        "New residential, first supply within three years of completion: zero-rated, VAT AED 0, input VAT fully recoverable",
+        "Residential, later sale or lease after the first supply: exempt, VAT AED 0, input VAT not recoverable. A first lease within three years of completion counts as the first supply and is zero-rated",
+        "Commercial, sale or lease: standard-rated, VAT = value × 5%, input VAT fully recoverable",
+        "Bare land: exempt, VAT AED 0, input VAT not recoverable",
+        "Hotel apartments and serviced accommodation: standard-rated, VAT = value × 5%, input VAT fully recoverable",
+        "The value you enter is treated as VAT-exclusive. For a mixed-use building, split the price between the residential and commercial parts and run each part separately"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 45(9) of the VAT Decree-Law zero-rates the first supply of a residential building, by sale or lease, in whole or in part, within three years of its completion. Article 46 exempts every other supply of residential buildings by sale or lease, and the supply of bare land. Commercial property is not mentioned in either list, so its sale or lease is standard-rated at 5%.",
+        "Article 37 of the Executive Regulation defines a residential building as one intended and designed for people to live in, including student housing and nursing homes. It excludes hotels, motels, hotel apartments, serviced apartments and buildings put up without lawful authority. That is why serviced accommodation is taxed at 5% here, whatever the building looks like.",
+        "Two points the checker's labels compress. First, the first supply of a new residential building can be a lease. If a developer's first supply within three years is a lease, that lease is zero-rated, not exempt, and Article 52(4) of the Executive Regulation lets the developer recover the input VAT in full even if later supplies will be exempt. The second option is for leases and sales after that first supply. Second, when a commercial property is sold by anyone other than its developer, the FTA requires the buyer to pay the VAT directly to the FTA before the Land Department transfer (this does not apply to commercial leases, developer sales, or a sale with sitting tenants to a taxable buyer that counts as a transfer of a business); the seller still issues a tax invoice and reports the output tax with a matching adjustment so it is not paid twice. The [real estate VAT guide](/guides/uae-real-estate-vat) covers both."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "An investor's company owns two assets. It sells a vacant shop unit it bought from the developer six years ago for AED 2,500,000 to a registered buyer, and it signs a one-year lease of a flat at AED 120,000, which a family has rented from it before."
+    ],
+    "list": [
+      "Shop: enter 2500000 and pick commercial. Standard 5%, VAT AED 125,000, input VAT recoverable",
+      "Because the seller is not the developer, the buyer pays the AED 125,000 to the FTA before the transfer at the Land Department and keeps the payment reference. A buyer making taxable supplies recovers it in its own return",
+      "Seller's journal: debit buyer AED 2,500,000 for the price, credit the property disposal account; output VAT of AED 125,000 is reported in the return with the matching adjustment because the buyer paid it",
+      "Flat: enter 120000 and pick residential, later sale or lease after the first supply. Exempt, VAT AED 0. The 5% on the agency fee and maintenance for that flat cannot be recovered",
+      "Had the flat been a new building leased for the first time within three years of completion, picking the first option gives zero-rated, VAT AED 0, with the construction VAT recoverable",
+      "Holding both kinds of property puts the company into partial exemption for its shared costs. Use the [partial exemption calculator](/tools/uae-partial-exemption-calculator)"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is VAT charged on residential property in the UAE?",
+      "a": "Usually not. The first sale or lease of a new residential building within three years of completion is zero-rated, and later sales and leases are exempt. Either way the buyer or tenant pays no VAT; the difference is whether the landlord or developer can recover its input VAT."
+    },
+    {
+      "q": "Is VAT charged on commercial property rent in the UAE?",
+      "a": "Yes. Sales and leases of commercial property are standard-rated at 5%. A registered tenant making taxable supplies can normally recover the VAT."
+    },
+    {
+      "q": "Who pays VAT when buying commercial property in the UAE?",
+      "a": "On a sale by someone other than the developer, the buyer pays the 5% directly to the FTA, or through a nominated bank where available, before the Land Department transfer. On a sale by the developer, the developer charges and accounts for the VAT in the usual way."
+    },
+    {
+      "q": "Is VAT charged on serviced apartments and hotel apartments?",
+      "a": "Yes, at 5%. Article 37 of the Executive Regulation excludes hotel apartments and serviced apartments from the definition of a residential building, so the residential exemption does not apply."
+    },
+    {
+      "q": "Is the sale of land subject to VAT in the UAE?",
+      "a": "Bare land is exempt. Article 44 of the Executive Regulation defines bare land as land not covered by completed or partially completed buildings or civil engineering works, so check what has been built before relying on the exemption."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 45 and 46)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Articles 37, 44 and 52)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: VAT Payment User Guide for Commercial Property Buyers",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Payment%20for%20Commercial%20Property%20Buyers%20User%20GuideEnglishv20%2006%2005%202021.pdf"
+    },
+    {
+      "label": "FTA: Real Estate VAT Guide (VATGRE1), section 6.4 on payment of VAT on commercial property sales",
+      "href": "https://tax.gov.ae/DownloadOpenTextFile?fileUrl=en%2FVAT_VAT_Guides%2FReal_Estate_Guide%2FReal_Estate_Guide_VATGRE1_EN_19_04_2021_EN.pdf"
+    }
+  ]
+}

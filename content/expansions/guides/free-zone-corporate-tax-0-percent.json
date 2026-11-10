@@ -1,0 +1,113 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 10,
+  "sections": [
+    {
+      "h": "The headline, corrected",
+      "ps": [
+        "Being registered in a free zone does not give you 0% Corporate Tax. The 0% rate applies only to the qualifying income of a Qualifying Free Zone Person (QFZP) — a status you earn by meeting every condition, every period. Everything that is not qualifying income is taxed at 9%, and a QFZP does not get the AED 375,000 0% band that mainland businesses enjoy on that non-qualifying slice.",
+        "The legal chain is short. Article 3(2) of the Corporate Tax Law sets the two rates for a QFZP, Article 18 sets the conditions, Cabinet Decision No. 100 of 2023 defines qualifying income, and Ministerial Decision No. 229 of 2025 lists the qualifying and excluded activities and fixes the de minimis numbers. MD 229 was issued on 28 August 2025, repealed Ministerial Decision No. 265 of 2023 and applies from 1 June 2023, so it governs every tax period the regime has run."
+      ]
+    },
+    {
+      "h": "The conditions — all of them, every period",
+      "list": [
+        "Maintain adequate substance in the free zone — people, premises and expenditure proportionate to the income booked there",
+        "Derive qualifying income: broadly, transactions with other free zone persons, and income from a defined list of qualifying activities. Under MD 229 the list is manufacturing, processing, trading of qualifying commodities, holding shares and other securities for investment, ownership and operation of ships, reinsurance, fund management, wealth and investment management, headquarter services to related parties, treasury and financing services to related parties or for its own account, aircraft financing and leasing, distribution of goods in or from a designated zone, logistics, and activities ancillary to these",
+        "Stay out of excluded activities — dealings with natural persons (with narrow exceptions for ships, fund management, wealth management and aircraft leasing), regulated banking, insurance other than reinsurance and captive insurance, regulated finance and leasing, and ownership or exploitation of immovable property other than commercial property in a free zone let to free zone persons. Income from intellectual property other than qualifying IP is not an excluded activity, but it is taxed at 9% regardless of the counterparty",
+        "Keep non-qualifying revenue inside the de minimis: the lower of AED 5 million or 5% of total revenue",
+        "Prepare audited financial statements, comply with transfer pricing rules and documentation, and not have elected into the standard 9% regime"
+      ]
+    },
+    {
+      "h": "Qualifying income, line by line",
+      "ps": [
+        "Cabinet Decision 100 gives four routes to qualifying income. Income from transactions with a free zone person qualifies unless the activity is excluded. Income from a non-free-zone person qualifies only if the activity is on the MD 229 list and not excluded. Qualifying IP income, calculated under the nexus formula in Article 4 of MD 229, qualifies. Anything else qualifies only while the de minimis holds.",
+        "Two words in that structure decide most cases. First, beneficial recipient: a sale to a free zone company counts as a free zone transaction only if that company uses and enjoys the goods or services itself, rather than passing them on to someone else under contract. Selling consulting hours to a free zone company that rebills them to a mainland client is non-qualifying revenue. Second, the activity definitions are narrow. Trading of qualifying commodities means quoted-price metals, minerals, industrial chemicals, energy, agricultural and environmental commodities, not packaged retail goods, and it is unavailable to a QFZP whose distribution, warehousing, logistics or inventory management revenue is 51% or more of its total. Designated zone distribution qualifies only where the goods enter the UAE through that zone and are sold to a reseller, a processor or a public benefit entity.",
+        "Some income is carved out of the regime altogether and taxed at 9% without counting towards the de minimis: income attributable to a domestic permanent establishment on the mainland, income attributable to a foreign permanent establishment, income from immovable property dealings with non-free-zone persons, and non-qualifying IP income. A mainland branch office or showroom therefore does not break the QFZP, but its profit is taxed at 9%."
+      ]
+    },
+    {
+      "h": "The de minimis test with numbers",
+      "ps": [
+        "Article 3 of MD 229 sets the test: non-qualifying revenue in the tax period must not exceed 5% of total revenue or AED 5,000,000, whichever is lower. The 5% limb binds for any QFZP with revenue below AED 100 million; above that, the fixed AED 5 million cap binds. Revenue from domestic and foreign permanent establishments, excluded immovable property income and non-qualifying IP income is removed from both sides of the fraction before you test.",
+        "Worked example. A Jebel Ali company has total revenue of AED 48 million: AED 45.8 million from distribution through the designated zone to resellers, and AED 2.2 million from online sales to UAE consumers. Consumer sales are transactions with natural persons, an excluded activity, so the AED 2.2 million is non-qualifying revenue. The limit is the lower of 5% × 48,000,000 = AED 2,400,000 and AED 5,000,000, so AED 2.4 million. The company passes with AED 200,000 of headroom, roughly one good month of web sales.",
+        "Passing does not make the consumer profit tax free. If the taxable income attributable to that AED 2.2 million slice is AED 400,000, the QFZP pays 9% on all of it with no AED 375,000 band: AED 36,000. Book it as Dr Corporate tax expense 36,000 / Cr Corporate tax payable 36,000, and keep the allocation schedule showing how revenue and costs were split between the qualifying and non-qualifying streams, because that schedule is what the FTA will test."
+      ]
+    },
+    {
+      "h": "The cliff",
+      "ps": [
+        "Fail any condition — blow the de minimis, let substance thin out, miss the audit — and QFZP status is lost not just for that period but for the four that follow: five years of 9% on everything. The regime is generous precisely because the exit is punitive; it is designed to be planned for, not stumbled into.",
+        "Article 5(2) of MD 229 dates the loss from the beginning of the tax period in which the failure happens, not from the day it happens. Take the same company with total taxable income of AED 6 million. As a QFZP it pays AED 36,000. Once it has fallen out, it is taxed as an ordinary taxable person: (6,000,000 − 375,000) × 9% = AED 506,250 a year. Over the failed year and the four that follow, at the same profit, that is about AED 2.53 million against AED 180,000. The extra AED 2.2 million of consumer revenue that crosses the line costs far more than it earns."
+      ]
+    },
+    {
+      "h": "Audit, filing and the regime's other strings",
+      "list": [
+        "Audited financial statements are compulsory for every QFZP whatever its revenue: Article 5(1)(b) of MD 229, read with Ministerial Decision No. 84 of 2025, which applies to tax periods starting on or after 1 January 2025",
+        "A QFZP cannot use Small Business Relief, Qualifying Group Relief, Business Restructuring Relief, transfer of tax losses or a tax group (FTA Free Zone Persons guide CTGFZP1, section 3.3, and Article 40(1)(f) of the Corporate Tax Law)",
+        "Transfer pricing compliance is itself a condition (Article 18(1)(d)). Dealings with mainland related parties must be at arm's length, and transactions with a party taxed at a different rate belong in the local file where one is required",
+        "Electing out under Article 19 moves the company onto the standard rates, with the AED 375,000 band, from the start of the period of election or the next one. It suits loss-making entities and those that cannot keep the de minimis",
+        "Members of multinational groups with consolidated revenue of EUR 750 million or more face the 15% domestic minimum top-up tax for financial years starting on or after 1 January 2025 under Cabinet Decision No. 142 of 2024, so the 0% rate does not reach the group's bottom line for them"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Counting a sale to a free zone company as qualifying when that company resells the service or goods to the mainland",
+        "Treating any trading as commodity trading. Electronics, food in retail packs and general merchandise are not qualifying commodities",
+        "Running a mainland sales office without carving its profit out as a domestic permanent establishment",
+        "Testing the de minimis once, after the year end, using gross revenue that still includes PE and property income",
+        "Outsourcing core activities to a provider outside the free zone. Cabinet Decision 100, Article 8, allows outsourcing only to a person in a free zone or designated zone with adequate supervision"
+      ]
+    },
+    {
+      "h": "What this means for structuring",
+      "ps": [
+        "The real work is classification discipline: knowing, customer by customer and revenue stream by revenue stream, what is qualifying, what is excluded, and how close the non-qualifying tail is to the de minimis line — continuously, because the test is annual but the drift is monthly. A free zone entity selling to mainland consumers through the year and checking the mix in month twelve has already made its decision by accident.",
+        "If the business model needs mainland consumer sales, put them in a separate mainland entity or a properly attributed mainland branch, price intercompany flows at arm's length, and keep the QFZP for the activity that qualifies. The [free zone de minimis calculator](/tools/freezone-de-minimis-calculator) shows the headroom for a given revenue mix, and [free zone vs mainland tax](/guides/uae-freezone-vs-mainland-tax) covers the choice of setup."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tags revenue by counterparty type and activity as invoices post, keeps a running qualifying / non-qualifying split with the de minimis headroom visible, and raises the flag when the tail approaches the line — while the mix can still be managed, not after the period has decided itself."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do all free zone companies pay 0% corporate tax in the UAE?",
+      "a": "No. Only a Qualifying Free Zone Person pays 0%, and only on qualifying income. It must keep adequate substance, earn qualifying income, stay within the de minimis, have audited accounts, comply with transfer pricing rules and not elect out. Its other taxable income is taxed at 9% with no AED 375,000 band, and a free zone company that fails the conditions is taxed like a mainland company."
+    },
+    {
+      "q": "What is the de minimis rule for free zone companies?",
+      "a": "Non-qualifying revenue in a tax period must not exceed 5% of total revenue or AED 5 million, whichever is lower (Article 3 of Ministerial Decision No. 229 of 2025). Revenue attributable to domestic or foreign permanent establishments, certain immovable property income and non-qualifying IP income is excluded from both figures before you test."
+    },
+    {
+      "q": "What are the qualifying activities for a free zone person?",
+      "a": "Ministerial Decision No. 229 of 2025 lists manufacturing, processing, trading of qualifying commodities, holding shares and securities for investment, ships, reinsurance, fund management, wealth and investment management, headquarter services to related parties, treasury and financing to related parties or for its own account, aircraft financing and leasing, distribution in or from a designated zone, logistics and ancillary activities. It replaced Ministerial Decision No. 265 of 2023 with effect from 1 June 2023."
+    },
+    {
+      "q": "Can a free zone company sell to mainland customers and keep the 0% rate?",
+      "a": "Sometimes. Mainland sales qualify only if the activity is on the qualifying list, for example manufacturing or designated zone distribution to resellers, and is not excluded. Sales to individual consumers are excluded activities and count as non-qualifying revenue, so they must stay within the de minimis. Profit from a mainland branch is taxed at 9% without breaking the status."
+    },
+    {
+      "q": "What happens if a free zone company fails the QFZP conditions?",
+      "a": "It ceases to be a QFZP from the beginning of the tax period in which the failure occurs and for the following four tax periods (Article 5(2) of MD 229). For those five periods all of its taxable income is taxed at the standard rates, 0% up to AED 375,000 and 9% above."
+    },
+    {
+      "q": "Does a Qualifying Free Zone Person need audited financial statements?",
+      "a": "Yes, regardless of revenue. Ministerial Decision No. 84 of 2025 requires every QFZP to prepare and maintain audited financial statements for tax periods starting on or after 1 January 2025, and MD 229 makes the audit a condition of the status itself."
+    }
+  ],
+  "sources": [
+    { "label": "MoF: Ministerial Decision No. 229 of 2025 on Qualifying Activities and Excluded Activities", "href": "https://mof.gov.ae/wp-content/uploads/2025/09/EN-Ministerial-Decision-No.-229-of-2025-Regarding-Qualifying-Activities-and-Excluded-Activities.pdf" },
+    { "label": "MoF: Cabinet Decision No. 100 of 2023 on Determining Qualifying Income for the Qualifying Free Zone Person", "href": "https://mof.gov.ae/wp-content/uploads/2023/11/Cabinet-Decision-No.-100-of-2023-on-Determining-Qualifying-Income-for-the-Qualifying-Free-Zone-Person.pdf" },
+    { "label": "FTA: Corporate Tax Guide on Free Zone Persons (CTGFZP1)", "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Free%20Zone%20Persons%20-%2020%2005%202024%20final%20for%20GCD.pdf" },
+    { "label": "MoF: Ministerial Decision No. 84 of 2025 on Audited Financial Statements", "href": "https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf" },
+    { "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (English)", "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf" }
+  ],
+  "related": ["uae-freezone-vs-mainland-tax", "uae-designated-zone-vat", "uae-transfer-pricing-documentation"]
+}

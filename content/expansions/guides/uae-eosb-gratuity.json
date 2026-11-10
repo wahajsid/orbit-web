@@ -1,0 +1,131 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The core rule",
+      "ps": [
+        "A full-time foreign employee who completes at least one year of continuous service is entitled to an end-of-service benefit calculated on their basic wage: 21 days of basic wage for each of the first five years of service, and 30 days for each year beyond five. The total benefit is capped at two years' wage.",
+        "Two details do most of the damage in practice: the calculation runs on the basic wage — allowances for housing, transport and the like are excluded — and unpaid days of absence don't count toward the service period.",
+        "The source is Article 51 of Federal Decree-Law No. 33 of 2021 Regulating Labour Relations. Clause 2 sets the 21-day and 30-day rates, clause 3 gives a pro-rata benefit for part years once the first full year is complete, clause 4 excludes unpaid absence, clause 5 fixes the basis as the last basic wage the worker was entitled to, and clause 6 caps the total at two years' wage. UAE nationals are outside this calculation: clause 1 sends them to the pension and social security legislation instead."
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "An employee on a basic wage of AED 10,000/month leaves after 7 years. Daily basic wage: 10,000 ÷ 30 = AED 333.33, because Article 67 of the Decree-Law treats a month as 30 days and a year as 365. First five years: 5 × 21 days = 105 days. Years six and seven: 2 × 30 = 60 days. Total 165 days = AED 55,000.",
+        "Some payroll systems divide annual basic pay by 365 instead (10,000 × 12 ÷ 365 = AED 328.77 a day), which gives AED 54,247 for the same employee. That understates the benefit by about 1.4%. The 30-day month is also the basis of MoHRE's alternative savings scheme, whose contribution rates of 5.83% and 8.33% of monthly basic pay are simply 21 ÷ 360 and 30 ÷ 360."
+      ]
+    },
+    {
+      "h": "Part years, unpaid leave and the cap",
+      "ps": [
+        "Once the first year is complete, every further month counts. An employee on AED 12,000 basic who leaves after 3 years and 6 months has 3.5 × 21 = 73.5 days, so 73.5 × 400 = AED 29,400. An employee who leaves after 11 months gets nothing under Article 51, however close to the year they were.",
+        "Unpaid absence is taken out of the service period before you count. Approved unpaid leave, unauthorised absence and the additional unpaid leave of up to 45 days a mother may take after maternity leave when she or her child is ill as a result of pregnancy or childbirth (which Article 30 of the Decree-Law expressly excludes from the service term) all shorten the period. Paid annual leave, sick leave on pay and public holidays do not.",
+        "The cap only bites for long service. On the 30-day basis, the raw figure reaches 24 months' basic wage at 730 days, which is just over 25 years of service. A worker on AED 8,000 basic with 30 years has 855 days (AED 228,000) but is paid the cap of AED 192,000."
+      ]
+    },
+    {
+      "h": "Why it belongs in your monthly books",
+      "ps": [
+        "The gratuity is a liability that grows with every month of service. A business that only computes it when someone resigns is carrying an understated liability all year — and discovering the true cost at the worst moment. The clean pattern: accrue the provision monthly per employee, and settle against the provision on exit, so the P&L feels the cost in the periods that earned it."
+      ]
+    },
+    {
+      "h": "The journal entries",
+      "ps": [
+        "Take the AED 10,000 employee from the example. At the end of year six the balance owed is 135 days × 333.33 = AED 45,000. At the end of year seven it is AED 55,000. The year-seven charge is therefore AED 10,000, or AED 833.33 a month, which is more than the AED 583.33 a month charged in each of the first five years because the 30-day rate now applies.",
+        "Each month: Dr Employee benefits expense (EOSB) 833.33, Cr Provision for end-of-service benefits 833.33. On exit: Dr Provision for end-of-service benefits 55,000, Cr Bank 55,000. Any difference between the provision and the final settlement (a raise in the last months, a late correction to service dates) goes through the expense line in the month of exit.",
+        "The leave-today basis above is what most UAE SMEs book. Entities reporting under full IFRS treat the gratuity as a post-employment defined benefit obligation under IAS 19, measured with the projected unit credit method using salary growth, attrition and a discount rate. The [IAS 19 actuarial EOSB calculator](/tools/ias19-actuarial-eosb-calculator) shows how far the two figures can drift apart."
+      ]
+    },
+    {
+      "h": "Paying it: the 14-day deadline and deductions",
+      "ps": [
+        "Article 53 requires the employer to pay the worker's wages and all other entitlements, gratuity included, within 14 days of the end of the contract. Build the final settlement into the exit checklist so the cash is ready before the last working day, not after.",
+        "Article 51(7) lets the employer deduct amounts owed under the law or a judgment, and Article 29 of the Executive Regulation (Cabinet Resolution No. 1 of 2022) lists the cases: loan repayments or overpaid amounts, pension and insurance contributions required by law, approved disciplinary deductions, court-ordered debts, and the cost of damage the worker caused by fault or by breaching instructions. Deductions for violations or damage must follow the Decree-Law's procedures and be made within three months of the amount falling due unless otherwise agreed."
+      ],
+      "list": [
+        "Confirm the last basic wage from the contract and the latest approved amendment, not from the payslip total",
+        "Recompute service from the start date in the contract, less every day of unpaid leave or absence on file",
+        "Apply 21 days per year up to five years, 30 days beyond, pro rata for the part year",
+        "Test the result against 24 months' basic wage",
+        "List each deduction with its legal basis and the worker's supporting document",
+        "Pay within 14 days and keep the signed settlement with the payroll evidence"
+      ]
+    },
+    {
+      "h": "Part-time workers and the alternative savings scheme",
+      "ps": [
+        "Article 30 of the Executive Regulation pro-rates the benefit for part-time and job-sharing contracts: contract hours per year divided by full-time hours per year gives a percentage, which is applied to the full-time benefit. A worker contracted for 1,040 hours against a 2,080-hour full-time year gets 50%. Temporary contracts of less than a year carry no benefit.",
+        "Article 51(8) allows the Cabinet to approve alternatives, and Cabinet Resolution No. 96 of 2023 created the voluntary alternative end-of-service benefits system. An employer that joins pays monthly contributions into a fund approved by the Securities and Commodities Authority: 5.83% of the employee's monthly basic salary during the first five years of service and 8.33% after that. Employees may add voluntary contributions up to 25% of total annual salary. Gratuity earned before enrolment stays owed under Article 51; the scheme only covers service from the date the employee joins it, so the old provision stays on the balance sheet until the employee leaves."
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Calculating on gross pay or on basic plus housing because the offer letter quoted a package",
+        "Paying nothing to a worker who resigned: Article 51 contains no reduction for resignation, unlike the old Federal Law No. 8 of 1980",
+        "Paying nothing for the part year after the first anniversary",
+        "Counting unpaid leave as service, or forgetting a long unpaid absence recorded in HR but never in payroll",
+        "Leaving the 30-day step-up out of the monthly accrual, so the provision falls short for everyone past year five",
+        "Accruing a gratuity for UAE nationals who are covered by the pension system instead"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab's payroll engine computes the EOSB provision per employee as part of the monthly run, posts the provision movements with the register as evidence, and keeps the salary history append-only — so the balance sheet always carries what you actually owe."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How is gratuity calculated in the UAE?",
+      "a": "On the last basic wage: 21 days for each of the first five years of service and 30 days for each year after that, pro rata for part years, capped at two years' wage. A day's wage is the monthly basic divided by 30. Example: AED 10,000 basic after seven years is 165 days, AED 55,000. You can check any case with the [gratuity calculator](/tools/eosb-gratuity-calculator)."
+    },
+    {
+      "q": "Do I get gratuity if I resign in the UAE?",
+      "a": "Yes, if you have completed at least one year of continuous service. Article 51 of Federal Decree-Law No. 33 of 2021 does not reduce the benefit for resignation, so a worker who resigns after three years is entitled to the same 63 days as one whose contract is ended by the employer."
+    },
+    {
+      "q": "Is gratuity calculated on basic or gross salary?",
+      "a": "Basic. Article 51(5) bases the benefit on the last basic wage the worker was entitled to, so housing, transport and other allowances are excluded. If a contract labels most of the package as allowances, the gratuity is correspondingly smaller."
+    },
+    {
+      "q": "Does unpaid leave affect gratuity?",
+      "a": "Yes. Article 51(4) excludes unpaid days of absence from the service period, so each day of unpaid leave pushes the entitlement back by a day. Paid annual leave and paid sick leave still count as service."
+    },
+    {
+      "q": "How long does an employer have to pay gratuity?",
+      "a": "14 days from the end of the contract under Article 53 of the Decree-Law. The deadline covers final wages and all other entitlements, not just the gratuity."
+    },
+    {
+      "q": "What are the 5.83% and 8.33% contribution rates?",
+      "a": "They are the monthly employer contributions under the voluntary alternative end-of-service savings scheme set up by Cabinet Resolution No. 96 of 2023: 5.83% of monthly basic salary for employees with under five years' service and 8.33% after five years. They mirror the 21-day and 30-day rates on a 30-day month."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoHRE: Federal Decree-Law No. 33 of 2021 Regulating Labour Relations and its amendments (Articles 51, 53, 67)",
+      "href": "https://www.mohre.gov.ae/assets/download/e82f7872/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments_638990571068264034.pdf.aspx"
+    },
+    {
+      "label": "MoHRE: Cabinet Resolution No. 1 of 2022, Executive Regulation of the Decree-Law (Articles 29 and 30)",
+      "href": "https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx"
+    },
+    {
+      "label": "MoHRE: Voluntary alternative end-of-service benefits scheme (Cabinet Resolution No. 96 of 2023)",
+      "href": "https://mohre.gov.ae/en/media-center/news/1/11/2023/voluntary-alternative-end-of-service-benefits-scheme-goes-into-effect-by-cabinet-resolution-aiming-t"
+    },
+    {
+      "label": "MoHRE: Alternative end-of-service benefits system (approved funds and customer guides)",
+      "href": "https://mohre.gov.ae/en/guidance-and-awareness-portal-new/alternative-end-of-service-benefits-system"
+    },
+    {
+      "label": "IFRS Foundation: IAS 19 Employee Benefits",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ias-19-employee-benefits/"
+    }
+  ],
+  "related": ["uae-wps-payroll-compliance", "month-end-close-checklist"]
+}

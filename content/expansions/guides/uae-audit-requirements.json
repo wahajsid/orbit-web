@@ -1,0 +1,144 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "Three overlapping regimes",
+      "ps": [
+        "Whether you 'need an audit' in the UAE has three separate answers that stack: what the Corporate Tax law demands, what the Commercial Companies Law demands, and what your licensing authority demands. Businesses that only checked one list are usually the ones surprised in licence-renewal week."
+      ]
+    },
+    {
+      "h": "The Corporate Tax rule",
+      "ps": [
+        "Article 54(2) of Federal Decree-Law No. 47 of 2022 lets the Minister decide which taxpayers must prepare and maintain audited financial statements. The current decision is Ministerial Decision No. 84 of 2025, which replaced Ministerial Decision No. 82 of 2023 for tax periods starting on or after 1 January 2025. Article 2 of the decision sets the categories:"
+      ],
+      "list": [
+        "Revenue above AED 50,000,000 in a tax period → audited financial statements must be prepared and maintained. The test applies to a taxable person that is not a Tax Group",
+        "Every Qualifying Free Zone Person → audited financial statements, regardless of size — the audit is a condition of the 0% regime itself, and failing it risks the five-year QFZP cliff",
+        "Every Tax Group → audited special purpose financial statements in the form the FTA specifies, whatever the group's revenue",
+        "Everyone else → financial statements per the law and ministerial decisions, but not necessarily audited for CT purposes"
+      ]
+    },
+    {
+      "h": "The detail inside Ministerial Decision 84",
+      "list": [
+        "Non-resident persons: only revenue earned through a permanent establishment or nexus in the UAE counts towards the AED 50 million (Article 2(4))",
+        "Free zone distributors: a QFZP distributing goods or materials in or from a Designated Zone must also follow any extra procedures the FTA prescribes (Article 2(3))",
+        "Periods that started before 1 January 2025 stay under Ministerial Decision 82 of 2023, which used the same AED 50 million line and the same QFZP rule",
+        "The decision says 'prepare and maintain'. The FTA can ask for the statements under Article 54(1), and you should expect to produce them with little notice"
+      ]
+    },
+    {
+      "h": "Tax Groups: audited aggregated statements",
+      "ps": [
+        "FTA Decision No. 7 of 2025, issued on 16 July 2025, sets the form for Tax Groups. The group prepares aggregated financial statements: each member's standalone IFRS (or IFRS for SMEs) statements added together line by line, using uniform accounting policies, with transactions between members eliminated. Consolidation adjustments under IFRS 3 and IFRS 10, such as goodwill and fair value uplifts on acquired subsidiaries, are left out. The aggregated set covers financial position, profit or loss, other comprehensive income and changes in equity, in dirhams.",
+        "Those statements must be audited under a special purpose framework in line with International Standards on Auditing, and submitted to the FTA within nine months of the end of the tax period. In practice that is the same date as the group's Corporate Tax return, so the aggregation has to be finished well before the audit fieldwork starts."
+      ]
+    },
+    {
+      "h": "The rules that existed before CT",
+      "list": [
+        "The Commercial Companies Law requires mainland companies (LLCs included) to appoint a licensed auditor and keep accounts — enforcement historically varied, but the obligation is statutory. Article 27(1) of Federal Decree-Law No. 32 of 2021 requires every joint stock company and every LLC to have one or more auditors auditing the accounts each year, and Article 102 has the LLC's general assembly elect the auditor every year. Other company forms may appoint one",
+        "Most free zones require annual audited financial statements for licence renewal — DMCC, JAFZA, DIFC and peers, each with their own filing windows",
+        "Banks, investors and major customers impose audits contractually regardless of what the law requires"
+      ]
+    },
+    {
+      "h": "What the Commercial Companies Law expects each year",
+      "ps": [
+        "The company law obligations run on their own clock. Article 87 gives an LLC manager three months from the year end to prepare the balance sheet, the profit and loss account and an annual report, with a profit distribution proposal, for the general assembly. Under Article 94 the annual general assembly considers the auditor's report, approves the accounts and appoints the auditor for the next year. Article 27(3) requires the accounts to follow International Accounting Standards, and Article 26 requires the accounting records to be kept at the head office for at least five years from the end of the financial year.",
+        "Article 5 limits the reach of the law in free zones: it does not apply to free zone companies where the zone's own laws or regulations say so, which most do. A free zone company therefore looks to its zone's company regulations for the audit rule, unless it is permitted to operate outside the zone. A sole establishment owned by an individual is not a company under this law; it needs an audit for Corporate Tax only if it crosses the AED 50 million line."
+      ]
+    },
+    {
+      "h": "Which standards the statements follow",
+      "ps": [
+        "For Corporate Tax purposes the accepted frameworks are IFRS, or IFRS for SMEs for a taxpayer with revenue of AED 50 million or less (Ministerial Decision No. 114 of 2023). So a business crossing the audit threshold is, by the same number, leaving the SME standard. Plan the switch to full IFRS for the same year the audit begins, not after it, because the auditor will be testing against full IFRS from the first audited period."
+      ]
+    },
+    {
+      "h": "Worked example: five entities, five answers",
+      "list": [
+        "Mainland LLC, revenue AED 14 million: no Corporate Tax audit requirement, but Articles 27 and 102 of the Commercial Companies Law still require an annual auditor. The audited accounts will also make the CT return easier to defend",
+        "Mainland LLC, revenue AED 62 million: audited statements required under Ministerial Decision 84 as well as the company law. Full IFRS applies, since revenue exceeds AED 50 million",
+        "Free zone company electing QFZP status, revenue AED 1.8 million: audited statements required for Corporate Tax regardless of size. Miss them and the 0% rate is lost for that period and the following four",
+        "Tax Group of a parent and two subsidiaries, aggregated revenue AED 30 million: audited special purpose aggregated statements under FTA Decision 7 of 2025, submitted within nine months. Each LLC member still needs its own statutory audit under the company law",
+        "Foreign company with a UAE permanent establishment earning AED 35 million there, and AED 400 million worldwide: under the AED 50 million test only the AED 35 million counts, so no CT audit requirement on revenue grounds"
+      ]
+    },
+    {
+      "h": "What this means in practice",
+      "ps": [
+        "The operative question is no longer 'is an audit required' but 'is there any credible configuration where it isn't' — for a free-zone entity claiming 0%, or anything with real revenue, the answer is usually no. The businesses that suffer are the ones that treat the audit as a year-end event: an auditor walking into books with unreconciled banks, undocumented journals and missing evidence charges for the archaeology, in fees and in time. Books kept audit-ready make the audit a formality."
+      ]
+    },
+    {
+      "h": "Timeline for a December year end",
+      "list": [
+        "31 December: year end; stock counts, cash counts and bank confirmations set up beforehand",
+        "By 31 March: LLC manager's accounts and report ready for the general assembly (Commercial Companies Law, Article 87)",
+        "Spring: audit fieldwork, general assembly approves the audited accounts and reappoints the auditor",
+        "By the free zone's deadline: audited statements filed with the licensing authority, often tied to licence renewal",
+        "By 30 September: Corporate Tax return and payment due; a Tax Group's audited aggregated statements also due",
+        "Seven years: Corporate Tax records kept for seven years after the end of the tax period (Article 56), longer than the five years in company law"
+      ]
+    },
+    {
+      "h": "Common mistakes",
+      "list": [
+        "Reading the AED 50 million test as the only rule and skipping the company law audit on a small mainland LLC",
+        "Assuming a small free zone company is exempt: if it wants the 0% rate as a QFZP, size is irrelevant",
+        "Producing consolidated statements for a Tax Group instead of the aggregated special purpose set the FTA asks for",
+        "Leaving the opening balances of the first audited year unaudited, so the auditor qualifies the comparatives",
+        "Filing the Corporate Tax return from management accounts, then finding the audit adjustments change taxable income"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab keeps the books audit-ready by construction — every posting carries its evidence, every adjustment its reason, every period its lock — and produces the schedules an auditor asks for first: bank reconciliations, ageing, fixed assets, provisions, related-party flows. The audit becomes a review of work already done."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "The free zone conditions are set out in [free zone 0% Corporate Tax](/guides/free-zone-corporate-tax-0-percent), and when a Tax Group makes sense in [holding companies under Corporate Tax](/guides/uae-holding-company-participation-exemption). The [audit requirement checker](/tools/uae-audit-requirement-checker) runs the Corporate Tax tests for one entity, and the [month-end close checklist](/guides/month-end-close-checklist) is the routine that keeps the year-end audit short."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is audit mandatory for an LLC in the UAE?",
+      "a": "For a mainland LLC, yes. Article 27 of the Commercial Companies Law (Federal Decree-Law No. 32 of 2021) requires every LLC to have an auditor audit its accounts each year, and Article 102 has the general assembly elect that auditor annually. This applies whatever the revenue, separately from the Corporate Tax rules."
+    },
+    {
+      "q": "What is the revenue threshold for audited financial statements under UAE Corporate Tax?",
+      "a": "AED 50 million. Under Ministerial Decision No. 84 of 2025, a taxable person that is not a Tax Group and earns revenue above AED 50,000,000 in the tax period must prepare and maintain audited financial statements. It applies to tax periods starting on or after 1 January 2025."
+    },
+    {
+      "q": "Do free zone companies need audited financial statements?",
+      "a": "A Qualifying Free Zone Person always does for Corporate Tax, regardless of revenue, because audited statements are a condition of the 0% regime. Separately, most free zone authorities require audited accounts for licence renewal under their own regulations."
+    },
+    {
+      "q": "Does a Tax Group need audited financial statements?",
+      "a": "Yes. It must prepare audited special purpose aggregated financial statements under FTA Decision No. 7 of 2025, audited under a special purpose framework in line with ISA, and submit them within nine months of the end of the tax period."
+    },
+    {
+      "q": "Do I have to submit audited financial statements with the Corporate Tax return?",
+      "a": "The law requires you to prepare and maintain them, and the FTA may request them under Article 54(1) of the Corporate Tax Law. Tax Groups are the exception with a fixed submission date: their audited aggregated statements are due within nine months of the period end."
+    },
+    {
+      "q": "How long must audited accounts and records be kept in the UAE?",
+      "a": "Seven years after the end of the tax period for Corporate Tax (Article 56 of the Corporate Tax Law). The Commercial Companies Law sets at least five years from the end of the financial year, so the seven-year rule is the one to plan around."
+    }
+  ],
+  "sources": [
+    { "label": "MoF: Ministerial Decision No. 84 of 2025 on Audited Financial Statements", "href": "https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf" },
+    { "label": "FTA: Decision No. 7 of 2025 on audited special purpose financial statements for a Tax Group", "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/FTA-Decision-No-7-of-2025-for-publishing.pdf" },
+    { "label": "MoF: Federal Decree-Law No. 47 of 2022 and its amendments (Articles 54 and 56)", "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf" },
+    { "label": "Ministry of Economy: Federal Decree-Law No. 32 of 2021 on Commercial Companies (Articles 5, 26, 27, 87, 94, 102)", "href": "https://www.moet.gov.ae/documents/20121/376326/Commercial+Companies.pdf/12d14f53-1a3e-47b4-8e70-fac3f672c403?t=1645596097819" },
+    { "label": "FTA: Corporate Tax Guide, Free Zone Persons (CTGFZP1), sections 3.2.7 and 12.3 to 12.4", "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Free%20Zone%20Persons%20-%2020%2005%202024%20final%20for%20GCD.pdf" }
+  ],
+  "related": ["free-zone-corporate-tax-0-percent", "uae-holding-company-participation-exemption", "uae-cash-vs-accrual-corporate-tax", "uae-tax-deadlines"]
+}

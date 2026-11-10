@@ -1,0 +1,102 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "Start with three facts about the purchase: whether you are VAT-registered, whether you account for the VAT yourself under the reverse charge, and whether the supplier issues e-invoices. Enter the invoice total including VAT and say whether the supplier issued a full or a simplified tax invoice. Then tick the fields the invoice actually shows.",
+        "The checker first decides which type of invoice is allowed, in this order. If the supplier issues e-invoices, only a full invoice is allowed. If the reverse charge applies, only a full invoice. If you are not registered, a simplified invoice is allowed at any amount. If you are registered and the total including VAT is AED 10,000 or less, a simplified invoice is allowed. If the price before VAT is AED 10,000 or less but the total with VAT is above it, it shows a full invoice as the safe choice. Above that, a full invoice is required.",
+        "It then compares the invoice with the right field list: 11 lines for a full invoice and 5 for a simplified one. Your name, address and TRN are only asked for when you are registered, and the reverse charge statement only when the reverse charge applies. The invoice is valid when the type is allowed and nothing is missing."
+      ],
+      "list": [
+        "The checker tests the document only. It does not verify that the TRN is real, that the arithmetic is right or that the supplier is registered",
+        "It assumes the 5% rate when it works out the price before VAT for the AED 10,000 test",
+        "A valid invoice is one condition of an input VAT claim. Only a registered business can recover input VAT, and the payment condition and the [supplier checks](/tools/uae-supplier-verification-checker) still apply"
+      ]
+    },
+    {
+      "h": "What a full tax invoice must show (Article 59(1))",
+      "list": [
+        "The words “Tax Invoice” clearly displayed",
+        "The supplier's name, address and Tax Registration Number",
+        "The recipient's name, address and TRN, where the recipient is registered",
+        "A sequential or unique invoice number",
+        "The date of issue, and the date of supply if different",
+        "A description of the goods or services",
+        "For each line: unit price, quantity or volume, VAT rate and the amount payable in AED",
+        "Any discount offered",
+        "The gross amount payable in AED",
+        "The VAT charged in AED, with the exchange rate where another currency is converted (see the [currency converter](/tools/uae-vat-currency-converter))",
+        "Where the recipient must account for the VAT, a statement saying so and a reference to the relevant provision of the Decree-Law"
+      ]
+    },
+    {
+      "h": "Simplified invoices and the AED 10,000 test",
+      "ps": [
+        "A simplified tax invoice needs five particulars under Article 59(2): the words “Tax Invoice”, the supplier's name, address and TRN, the date of issue, a description of the goods or services, and the total consideration and VAT in AED. Article 59(5) allows one, other than where the reverse charge applies, in two cases: the recipient is not registered, or the recipient is registered and the consideration for the supply does not exceed AED 10,000. Exactly AED 10,000 qualifies.",
+        "The Regulation does not say whether that consideration includes VAT. That is why the checker treats AED 9,523.81 to AED 10,000 before VAT, where the total with VAT passes AED 10,000, as a grey band. The [AED 10,000 guide](/guides/uae-simplified-tax-invoice-aed-10000) explains the reading.",
+        "A simplified invoice must be issued on the date of supply; a full one within 14 days of it (Article 59(13)). Once a supplier issues tax invoices as e-invoices, whether it must or chooses to, Article 59(16) disapplies Clause 5, so the simplified option is gone for that supplier. The checker applies that literally whenever you tick the e-invoice box."
+      ]
+    },
+    {
+      "h": "If the invoice fails",
+      "ps": [
+        "Hold the input VAT and ask the supplier for a corrected invoice, or a credit note and a new invoice. Claim the VAT in the return for the period in which you hold a valid one. A missing supplier TRN is the most common failure; see [invoices without a TRN](/guides/uae-tax-invoice-without-trn) for what to do when the supplier is not registered at all. The full field-by-field explanation is in the [tax invoice checklist](/guides/uae-tax-invoice-checklist)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: three invoices from a print supplier",
+    "ps": [
+      "Use the calculator's defaults: you are registered, no reverse charge, no e-invoices, a total of AED 8,400 including VAT, and a simplified invoice. All fields are ticked except the supplier's name, address and TRN."
+    ],
+    "list": [
+      "Type allowed: simplified or full, because AED 8,400 including VAT is under AED 10,000 on any reading",
+      "Result: not valid yet. Missing: supplier's name, address and TRN. Hold the VAT of AED 400 and ask for a corrected invoice",
+      "Tick the supplier field and the result becomes a valid tax invoice",
+      "Change the total to 10,290 (AED 9,800 plus VAT of AED 490). The price before VAT is under AED 10,000, but the total is over it, so the type allowed becomes full (safe) and the simplified invoice is not enough. Switch to a full invoice and tick the 11 fields it shows",
+      "Untick “We are VAT-registered” with a total of 15,750. A simplified invoice is allowed at any amount and your own details drop out of the list, although as an unregistered business you cannot recover the VAT anyway",
+      "Tick the reverse charge box and the type becomes full only, with the reverse charge statement added to the list"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What must a UAE tax invoice show?",
+      "a": "A full tax invoice must show the words Tax Invoice, the supplier's name, address and TRN, the recipient's details and TRN if registered, a sequential number, the date of issue and of supply, a description, per-line prices, quantities, rates and amounts in AED, any discount, the gross amount and VAT in AED with any exchange rate, and a reverse charge statement where relevant."
+    },
+    {
+      "q": "When can a simplified tax invoice be issued in the UAE?",
+      "a": "When the recipient is not VAT-registered, or is registered and the consideration does not exceed AED 10,000. It is never allowed where the reverse charge applies, and not once the supplier issues its tax invoices as e-invoices."
+    },
+    {
+      "q": "Is the AED 10,000 simplified invoice limit including VAT?",
+      "a": "The Executive Regulation says consideration and does not settle it. A total of AED 10,000 or less including VAT is safe on any reading. Between AED 9,523.81 and AED 10,000 before VAT, ask for a full invoice."
+    },
+    {
+      "q": "Can I recover input VAT on a simplified tax invoice?",
+      "a": "Yes, provided it shows the five particulars in Article 59(2), including the supplier's TRN and the VAT in AED, and the simplified format was allowed for that supply."
+    },
+    {
+      "q": "How long does a UAE supplier have to issue a tax invoice?",
+      "a": "Within 14 days of the date of supply for a full tax invoice. A simplified tax invoice must be issued on the date of supply itself."
+    },
+    {
+      "q": "How do I check a UAE TRN on an invoice?",
+      "a": "A TRN is 15 digits. Look it up on the FTA's TRN verification service, which sits behind a CAPTCHA, and check that the name returned matches the supplier. The checker on this page only tests whether the TRN is shown."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Article 59)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Tax invoices (VAT11), knowledge centre guide",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Knowledge%20Center%20Page/VAT11%20-%20Tax%20invoices%20En.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    }
+  ]
+}

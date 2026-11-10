@@ -1,0 +1,79 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter six averages for a group of employees: headcount, average basic monthly wage, average service in years, the discount rate, annual salary growth and annual attrition. The model projects five years ahead and treats everyone still employed at the end of year 5 as leaving then.",
+        "For each exit year y from 1 to 5 it runs these steps, then adds a final line for the stayers. Results show to two decimal places."
+      ],
+      "list": [
+        "Projected basic = average basic × (1 + salary growth)^y, and projected service = average service + y",
+        "Daily wage = projected basic ÷ 30",
+        "Gratuity per employee = daily wage × (21 days for each of the first five years of projected service + 30 days for each year above five), capped at 24 months of projected basic",
+        "Exit probability in year y = attrition × (1 − attrition)^(y − 1); the stayer probability is (1 − attrition)^5",
+        "Present value = gratuity × probability × headcount ÷ (1 + discount rate)^y, summed across the six lines to give the DBO estimate",
+        "Undiscounted (today) = today's labour-law gratuity on average basic and service × headcount, and the uplift is DBO ÷ undiscounted − 1"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "The benefit formula is Article 51 of Federal Decree-Law No. 33 of 2021: 21 days' basic wage for each of the first five years and 30 days for each later year, with a total cap of two years' wage, and the daily wage is monthly basic ÷ 30 under Article 67. The 2021 law has no reduction for resignation, so the same formula applies whatever the reason for leaving, once a year of service is complete.",
+        "IAS 19 treats the gratuity as a post-employment defined benefit plan measured with the projected unit credit method. Benefit is attributed to periods of service, and because the formula gives more per year after year five, paragraph 70 requires straight-line attribution from the start of service. The defined benefit obligation is the present value of the benefit earned by service to date, using projected final salary.",
+        "Each exit line is scaled back to service already rendered: its present value is multiplied by average service today ÷ projected service at that exit date (for the stayers, at the end of the projection). That is the attribution step of the projected unit credit method, so the estimate reflects only the benefit earned to date, not service still to be worked.",
+        "The discount rate comes from market yields on high-quality corporate bonds at the reporting date, or government bonds where there is no deep corporate bond market, matched to the currency and expected term of the payments (paragraph 83). Changes in assumptions are remeasurements recognised in other comprehensive income and never reclassified to profit or loss (paragraph 122). A full valuation uses employee-level data, separate resignation and termination rates and mortality."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A trading company has 25 expatriate staff with an average basic wage of AED 12,000 a month and 3.5 years' average service. It assumes a 5.0% discount rate, 3.0% salary growth and 15% annual attrition. Enter 25, 12000, 3.5, 5.0, 3.0 and 15 (these are the defaults)."
+    ],
+    "list": [
+      "Year 1 exit: basic 12,000 × 1.03 = 12,360; service 4.5 years = 94.5 days; gratuity 12,360 ÷ 30 × 94.5 = AED 38,934.00; probability 15.00%; PV 38,934 × 15% × 25 ÷ 1.05 = AED 139,050.00",
+      "Years 2 to 5: gratuities AED 50,923.20, 65,563.62, 81,036.63 and 97,379.02 at probabilities 12.75%, 10.84%, 9.21% and 7.83%, giving PVs of AED 147,226.94, 153,449.03, 153,536.71 and 149,357.10",
+      "Still employed: 44.37% × 97,379.02 × 25 ÷ 1.05^5 = AED 846,356.92",
+      "DBO estimate shown: AED 766,116.63; undiscounted today: 12,000 ÷ 30 × 73.5 days × 25 = AED 735,000.00; actuarial uplift shown: 4.23%",
+      "How it gets there: each exit line is multiplied by 3.5 ÷ projected service at exit (3.5/4.5, 3.5/5.5 and so on to 3.5/8.5) before discounting. The result sits about 4% above the undiscounted labour-law amount, the order of magnitude to expect from a projected unit credit valuation on these assumptions.",
+      "Booking: the year-on-year movement in the obligation splits into current service cost and interest cost, charged to staff costs in profit or loss, and remeasurements from changed assumptions, taken to OCI. Benefits paid to leavers reduce the provision directly."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Do UAE companies need an actuarial valuation for end of service benefits?",
+      "a": "Under IFRS, yes in principle: the gratuity is a defined benefit obligation and IAS 19 requires the projected unit credit method. Smaller entities sometimes carry the labour-law amount where they can show the difference is immaterial."
+    },
+    {
+      "q": "What discount rate is used for EOSB under IAS 19?",
+      "a": "Yields on high-quality corporate bonds at the reporting date, or government bond yields where no deep corporate bond market exists, matched to the currency and expected term of the payments."
+    },
+    {
+      "q": "Why is the IAS 19 EOSB liability different from the labour law amount?",
+      "a": "The labour-law figure is what you would pay if everyone left today. IAS 19 projects salaries to the expected exit date, weights each outcome by the probability of leaving and discounts the result. Salary growth pushes the figure up; discounting pushes it down."
+    },
+    {
+      "q": "Where do actuarial gains and losses on EOSB go?",
+      "a": "Into other comprehensive income as remeasurements, and they are never reclassified to profit or loss. Current service cost and interest cost go to profit or loss."
+    },
+    {
+      "q": "Is the gratuity daily wage basic divided by 30 or by 365?",
+      "a": "Monthly basic ÷ 30. Article 67 of the Labour Law treats a month as 30 days. See the [EOSB gratuity calculator](/tools/eosb-gratuity-calculator) for a single employee and the [EOSB guide](/guides/uae-eosb-gratuity) for monthly accruals."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS Foundation: IAS 19 Employee Benefits (2026 issued text, paragraphs 67, 70, 83, 122)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards/english/2026/issued/ias19.html"
+    },
+    {
+      "label": "IFRS Interpretations Committee: IAS 19 actuarial assumptions, discount rate (November 2013)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/agenda-decisions/2013/ias-19-actuarial-assumptions-discount-rate-november-2013.pdf"
+    },
+    {
+      "label": "IFRS Foundation: Attributing benefit to periods of service (IAS 19), agenda decision 2021",
+      "href": "https://ifrs.org/projects/completed-projects/2021/attributing-benefit-to-periods-of-service-ias-19/tentative-agenda-decision-and-comment-letters"
+    }
+  ]
+}

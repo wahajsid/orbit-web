@@ -1,0 +1,101 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this converter works",
+      "ps": [
+        "Enter the currency code, the net amount before VAT in that currency, and the UAE Central Bank rate for the date of supply, in dirhams per unit of the currency. If you know the rate on the day the customer paid, enter that too. The USD button fills in the dirham's peg of 3.6725 for both rates.",
+        "The converter multiplies the net amount by the rate and rounds to the fil to get the net in AED. VAT is 5% of that AED figure, rounded to the fil, and the gross in AED is the two added together. The note shows the gross in the invoice currency (net × 1.05) and the figures that go into Box 1 of the VAT return.",
+        "If you enter a payment rate, it converts the foreign-currency gross at that rate and shows the difference from the AED gross as an exchange gain or loss. That difference belongs in the accounts; it does not change the VAT."
+      ],
+      "list": [
+        "For a currency other than USD, the converter warns if the rate you typed has one to three decimal places, because the Central Bank publishes more and the FTA does not allow rounding",
+        "It assumes one standard-rated amount at 5%. Split zero-rated, exempt or mixed-rate invoices yourself, and convert each line if the invoice has several",
+        "It does not look up the Central Bank rate. Take it from the Central Bank's published rates for the date of supply"
+      ]
+    },
+    {
+      "h": "Which rate, and which date",
+      "ps": [
+        "Article 69 of the VAT Decree-Law says that where a supply is in a currency other than the dirham, the amount on the tax invoice is converted into AED at the exchange rate approved by the UAE Central Bank at the date of supply. The date of supply is usually the earliest of delivery or completion, receipt of payment and issue of the tax invoice, not the date the customer settles.",
+        "The FTA's public clarification VATP004 adds three practical points. Use the exact rate as published, with the same number of decimal places; its example is 3.672500 for the US dollar, which may not be shortened to 3.7. The Central Bank updates its rates each day on or after 6 pm, so an invoice raised before then may use the rate published the day before. For imported services under the [reverse charge](/guides/uae-vat-reverse-charge), use the Central Bank rate for the date of supply, and the overseas supplier's invoice date is accepted as that date. The [reverse charge calculator](/tools/uae-reverse-charge-calculator) works out the VAT itself."
+      ]
+    },
+    {
+      "h": "What the invoice must show in dirhams",
+      "ps": [
+        "You may invoice in any currency, but Article 59(1) of the Executive Regulation requires a full tax invoice to show, for each line, the unit price, quantity, rate of VAT and amount payable in AED, the gross amount payable in AED, and the VAT in AED together with the exchange rate applied. A simplified invoice must show the total consideration and the VAT in AED. An invoice that shows only foreign-currency figures fails, even where the arithmetic is right, and the customer cannot rely on it to recover the VAT. The [tax invoice checker](/tools/uae-tax-invoice-checker) tests the other fields.",
+        "Imported goods are different: Customs converts the value on the import declaration, and VATP004 lets you declare import VAT at the Customs rate even where it differs from the Central Bank's, with no adjustment needed."
+      ]
+    },
+    {
+      "h": "The books and the return",
+      "ps": [
+        "The VAT is fixed in dirhams at the date of supply. When the customer pays later at a different rate, the difference is an exchange gain or loss in profit or loss, and the output tax already declared stays as it was. Your accounts may use another rate source. For Corporate Tax, a business that keeps its accounts in another currency converts under FTA Decision No. 13 of 2023, which sets its own order of Central Bank rates: spot rate, then monthly average, then annual average. Expect a small difference between VAT-reported turnover and book revenue, and explain it in your [VAT to Corporate Tax reconciliation](/tools/uae-vat-ct-reconciliation-calculator). The [foreign-currency invoice guide](/guides/uae-vat-foreign-currency-invoices) covers credit notes on converted invoices."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a euro invoice paid a month later",
+    "ps": [
+      "Use the converter's defaults. A Dubai consultancy invoices a registered UAE client EUR 8,000 plus VAT. The work is completed and invoiced on the same day, and for illustration the Central Bank rate for that date is 4.2850 dirhams per euro. The client pays a month later, when the rate is 4.3100."
+    ],
+    "list": [
+      "Net in AED: 8,000 × 4.2850 = AED 34,280.00",
+      "VAT at 5%: 34,280.00 × 5% = AED 1,714.00",
+      "Gross in AED: 34,280.00 + 1,714.00 = AED 35,994.00. The invoice shows EUR 8,400.00 in total, plus these three AED figures and the rate 4.2850",
+      "VAT return: AED 34,280.00 in Box 1 with output tax of AED 1,714.00",
+      "Payment: EUR 8,400 × 4.3100 = AED 36,204.00 received, AED 210.00 more than booked. That AED 210.00 is an exchange gain in the accounts; the output tax stays AED 1,714.00",
+      "Type 4.29 as the rate instead and the converter warns you to check it, because a shortened rate changes the VAT",
+      "Press the USD button for a dollar invoice: USD 8,000 × 3.6725 = AED 29,380.00 net and AED 1,469.00 of VAT, with no exchange difference at the peg"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Which exchange rate should I use for UAE VAT?",
+      "a": "The rate approved by the UAE Central Bank at the date of supply, under Article 69 of the VAT Decree-Law. Use it exactly as published, with all its decimal places."
+    },
+    {
+      "q": "Can a UAE tax invoice be issued in US dollars or euros?",
+      "a": "Yes, but a full tax invoice must also show the line amounts, the gross amount and the VAT in AED, with the exchange rate applied. A simplified invoice must show the total and the VAT in AED."
+    },
+    {
+      "q": "Can I round the Central Bank exchange rate on an invoice?",
+      "a": "No. The FTA's clarification VATP004 requires the exact rate with the same number of decimal places as published, and gives 3.672500 for the US dollar as the example."
+    },
+    {
+      "q": "Does an exchange gain or loss on payment change the VAT?",
+      "a": "No. The VAT is fixed in AED at the date of supply. A different rate when the customer pays creates an exchange gain or loss in the accounts, not a VAT adjustment."
+    },
+    {
+      "q": "What if the invoice is raised before the Central Bank publishes the day's rate?",
+      "a": "The Central Bank updates its rates on or after 6 pm. VATP004 accepts that an invoice issued before then may use the rate published on the Central Bank's website at that time, which is the previous day's rate."
+    },
+    {
+      "q": "Which exchange rate applies to imported goods?",
+      "a": "The rate Customs applies on the import declaration. VATP004 lets you declare import VAT at that rate even if it differs from the Central Bank's, without an adjustment."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Article 69)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: VAT Public Clarification VATP004, Use of Exchange Rates for VAT purposes",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/04-use-of-exchange-rates.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law and its amendments (Article 59)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Decision No. 13 of 2023 on converting amounts in a currency other than AED for Corporate Tax",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/Federal-Tax-Authority/FTA%20Decision%20No.%2013%20of%202023%20on%20Determination%20of%20Conditions%20for%20Conversion%20of%20Amounts%20Quantified%20in%20a%20Currency%20other%20than%20AED%20-%20for%20publishing.pdf"
+    },
+    {
+      "label": "Central Bank of the UAE: exchange rates",
+      "href": "https://www.centralbank.ae/en/forex-eibor/exchange-rates/"
+    }
+  ]
+}

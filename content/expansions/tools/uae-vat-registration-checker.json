@@ -1,0 +1,81 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "You enter two figures: the value of taxable supplies in the last 12 months, and the value you expect in the next 30 days. Negative entries are treated as zero. The checker takes the higher of the two and compares it with the thresholds."
+      ],
+      "list": [
+        "Above AED 375,000: registration is mandatory",
+        "Above AED 187,500 but not above AED 375,000: voluntary registration is available",
+        "AED 187,500 or less: below both thresholds",
+        "The second result shows the gap to AED 375,000: how far you are over it, or how far below",
+        "A figure exactly equal to a threshold does not trigger it, because the law tests whether supplies exceed the threshold"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 13 of Federal Decree-Law No. 8 of 2017 makes registration mandatory for a person resident in the UAE when the supplies counted under Article 19 exceeded the mandatory threshold over the previous 12 months, or are expected to exceed it in the next 30 days on their own. Article 7 of the Executive Regulation sets that threshold at AED 375,000 and Article 8 sets the voluntary threshold at AED 187,500. The 12 months are any rolling 12, tested month by month, not your financial year. Cabinet Decision No. 149 of 2026, which amended the Executive Regulation from 1 October 2026, did not change these thresholds.",
+        "What goes in the first field matters. Article 19 counts standard-rated and zero-rated supplies, imports and services you receive from abroad that you would account for under the reverse charge, the supplies of any business you have taken over, and in some cases supplies of related parties. Exempt supplies are left out, and Article 20 excludes sales of your own capital assets. Where the FTA finds a business has been split artificially, Article 13 of the Executive Regulation aggregates the parts.",
+        "Voluntary registration can also rest on taxable expenses above AED 187,500 (Article 17 of the Decree-Law). This checker tests supplies only, so if your case rests on expenses, enter them in the first field to see the same verdict. A person with no place of residence in the UAE has no threshold at all: it must register as soon as it makes supplies here on which no one else accounts for the tax."
+      ]
+    },
+    {
+      "h": "Deadline and penalty",
+      "ps": [
+        "Once registration is mandatory you have 30 days to apply (Article 7(2) of the Executive Regulation). On the 12-month test the FTA registers you from the first day of the month after the month in which you became liable; on the 30-day test, from the date there were reasonable grounds to expect the threshold to be exceeded. Either way, VAT is due on taxable supplies from that date even if you only register later. Failing to apply in time carries a fixed penalty of AED 10,000 under Cabinet Decision No. 40 of 2017, an amount left unchanged by the amendments in Cabinet Decision No. 129 of 2025 that took effect on 14 April 2026. Late payment of the back-dated VAT then attracts 14% a year, charged monthly. The [VAT penalty calculator](/tools/uae-vat-penalty-calculator) works through that exposure."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Dubai design studio invoices all its work at 5% once registered. Its taxable supplies for the 12 months to 31 August 2026 total AED 360,000, and nothing large is booked for September."
+    ],
+    "list": [
+      "Enter 360000 and 0: the verdict is voluntary registration available, AED 15,000 below the mandatory threshold",
+      "In September it bills AED 52,000 and September 2025, which drops out of the window, was AED 20,000. The 12 months to 30 September 2026 now total 360,000 + 52,000 − 20,000 = AED 392,000",
+      "Enter 392000 and 0: registration is mandatory, AED 17,000 over the threshold",
+      "The studio must apply within 30 days of becoming liable, and the FTA will register it from 1 October 2026 whether or not it has applied. From that date it charges 5% on its invoices",
+      "Separately, a start-up with AED 100,000 of past supplies that signs a AED 400,000 contract to be delivered in the next 30 days enters 100000 and 400000: mandatory now, AED 25,000 over, on the 30-day test alone"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the VAT registration threshold in the UAE?",
+      "a": "AED 375,000 of taxable supplies and imports over the previous 12 months, or expected in the next 30 days, makes registration mandatory. Between AED 187,500 and AED 375,000, of supplies or of taxable expenses, you may register voluntarily."
+    },
+    {
+      "q": "How long do I have to register for VAT after crossing the threshold?",
+      "a": "30 days from the date you become required to register, under Article 7 of the VAT Executive Regulation. Registration is effective from the first day of the month after you crossed on the 12-month test, so VAT is owed from then even if the application is late."
+    },
+    {
+      "q": "What is the penalty for late VAT registration in the UAE?",
+      "a": "AED 10,000. The amount was not changed by Cabinet Decision No. 129 of 2025 (effective 14 April 2026), and it is charged on top of the VAT due on supplies made since the effective registration date."
+    },
+    {
+      "q": "Do zero-rated supplies count towards the VAT threshold?",
+      "a": "Yes. Zero-rated supplies are taxable supplies, so exports and other zero-rated sales count. Exempt supplies, such as bare land or local passenger transport, do not, and neither do sales of your own capital assets."
+    },
+    {
+      "q": "Is the VAT threshold based on the calendar year?",
+      "a": "No. It is any 12 consecutive months, checked at the end of every month, plus a forward look at the next 30 days. A seasonal business can cross mid-year; the [tax deadlines guide](/guides/uae-tax-deadlines) covers what follows."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT (Articles 13, 17, 19, 20)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT-Decree-Law-No-8-of-2017.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Articles 7, 8, 13)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf"
+    }
+  ]
+}

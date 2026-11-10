@@ -1,0 +1,154 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 14,
+  "sections": [
+    {
+      "h": "The short answer",
+      "ps": [
+        "From 1 October 2026, you can recover input VAT on accommodation you give your employees through the legal-obligation exception in Article 53(1)(c)(1) of the VAT Executive Regulation only where the accommodation is mandatory under decisions or directives issued by the Ministry of Human Resources and Emiratisation (MoHRE). A general duty under labour law is no longer enough. The other route, a contractual obligation or documented policy, now works only in the cases and conditions set by the Federal Tax Authority (FTA) in FTA Decision No. 17 of 2026, in force from 1 October 2026: accommodation the work operationally requires, and new-joiner accommodation for no longer than 30 days.",
+        "The change comes from Cabinet Decision No. 149 of 2026, issued on 1 September 2026, which amends Cabinet Decision No. 52 of 2017. It matters most to construction, facilities management, hospitality, manufacturing, logistics and oil and gas businesses that house large workforces. This guide sets out the test, applies it to each accommodation cost, and works through an example in dirhams. For the other changes in the same decision, see our guide to [Cabinet Decision 149 of 2026](/guides/uae-vat-cabinet-decision-149-2026-input-tax)."
+      ]
+    },
+    {
+      "h": "What changed in the wording",
+      "ps": [
+        "Article 53(1)(c) blocks input VAT on goods and services bought for employees free of charge and for their personal benefit, and then lists exceptions. The block itself is unchanged. The first two exceptions have been rewritten."
+      ],
+      "list": [
+        "Legal obligation, before: recovery was allowed where there was a legal obligation to provide the goods or services under any applicable labour law in the State or a Designated Zone.",
+        "Legal obligation, from 1 October 2026: recovery is allowed where provision is mandatory under the applicable labour legislation of the State or any free zone, including financial and non-financial free zones, but this does not include accommodation unless it is mandatory under MoHRE decisions or directives.",
+        "Contract or policy, before: recovery was allowed where there was a contractual obligation or documented policy to provide the benefit so employees could perform their role, and it could be proven to be normal business practice.",
+        "Contract or policy, from 1 October 2026: recovery is allowed where there is a contractual obligation or documented policy, in accordance with the cases and conditions specified by the FTA. The normal-business-practice test has gone, and the FTA conditions replace it. The FTA issued them as FTA Decision No. 17 of 2026, which lists six cases, two of them for accommodation.",
+        "Unchanged: the exception for health insurance for employees and their family members, and the exception where the provision is a deemed supply."
+      ]
+    },
+    {
+      "h": "FTA Decision No. 17 of 2026: the accommodation cases and conditions",
+      "ps": [
+        "FTA Decision No. 17 of 2026, issued on 9 September and published on 28 September 2026, lists the only cases in which the contract-or-policy route in Article 53(1)(c)(2) works. Every condition of a case must be met; a contract clause or HR policy alone is not enough. The English text is an unofficial translation and the Arabic prevails. Case 3, accommodation, has five conditions:"
+      ],
+      "list": [
+        "(a) The employee cannot opt for a cash allowance or other financial compensation instead.",
+        "(b) The accommodation meets the operational requirements of the work and is not part of the employee's benefits or ordinary compensation.",
+        "(c) The nature or requirements of the work mean the employee must live near the workplace, work site or client's location.",
+        "(d) It houses the employee alone, with no family members or other personal use, unless the employee must live permanently near the workplace so that it is the usual residence.",
+        "(e) It is commensurate with the job and basic residency needs, without significant recreational or personal elements.",
+        "Case 4, new employees: accommodation for no longer than 30 days, commensurate with the job and basic residency needs."
+      ]
+    },
+    {
+      "h": "The decision tree for each accommodation cost",
+      "list": [
+        "Step 1. Is the cost accommodation, or a different employee benefit? The MoHRE carve-out applies only to accommodation the employer provides. Transport, meals away from the camp and other benefits go through the general legal-obligation and contract-or-policy tests; under Decision 17 the contractual route covers work transport, food at remote sites, phones and internet, and business parking.",
+        "Step 2. Does the supply carry VAT at all? Under FTA public clarification VATP003, labour accommodation that is occupied by employees as their principal place of residence, fixed to the ground, built or converted with lawful authority and not similar to a hotel or serviced apartment is residential, so its lease is exempt (or zero-rated if it is the first supply). There is no VAT on the rent to recover. Where the operator adds room cleaning, laundry and linen changes, catering, telephone and internet, or maintenance beyond general upkeep, the supply may be serviced accommodation and standard-rated at 5%.",
+        "Step 3. Is the accommodation mandatory under a MoHRE decision? Law firm Clyde & Co reports that Ministerial Resolution No. 122 of 2026 requires an employer to provide accommodation in MoHRE-approved and registered labour accommodation where it has 50 or more workers and the worker's monthly wage does not exceed AED 1,500. Local authorities may widen that scope within an emirate by lowering the headcount or raising the wage cap. Check the resolution text and any emirate-level rule that applies to you.",
+        "Step 4. If yes, recover under the normal rules: a valid tax invoice, use for taxable supplies, and settlement that will not fall foul of the new [cash-payment block in Article 54(3)](/guides/uae-vat-cash-payments-petty-cash-2026) once the Minister sets the threshold.",
+        "Step 5. If no, the only remaining route is a contractual obligation or documented policy, which now works only through FTA Decision No. 17 of 2026. Test the worker against all five conditions of case 3, or case 4 for a new employee housed for no longer than 30 days. If every condition is met and evidenced, recover as in Step 4. If any fails, for example because the employee could take a housing allowance instead, the VAT is blocked and becomes a cost."
+      ]
+    },
+    {
+      "h": "Cost by cost",
+      "list": [
+        "Rent of a labour camp or staff building: if the lease is residential under VATP003, it is exempt and there is nothing to recover. If it is serviced accommodation, the 5% is recoverable only for workers the employer is required by MoHRE to house, or for workers who meet case 3 or case 4 of FTA Decision No. 17 of 2026.",
+        "Serviced accommodation or hotel rooms used to house staff: hotels and serviced apartments are not residential buildings under Article 37 of the Executive Regulation, so these supplies carry 5%. Where they house staff, the same MoHRE test applies, and failing that case 3 or, for a new joiner staying no more than 30 days, case 4 of Decision 17. A hotel night on a business trip is a separate question and is outside this guide.",
+        "Utilities for the accommodation: electricity and water supplied to the employer carry VAT. Neither the amendment nor Decision 17 lists running costs separately. Because they are part of providing the accommodation, the cautious approach is to apply the same test as the rent: a MoHRE mandate, or case 3 or 4.",
+        "Furniture, bedding and lockers: the same reasoning applies. Treat them as part of the accommodation and apply the MoHRE test or Decision 17, bearing in mind condition (e) of case 3.",
+        "Maintenance, cleaning, pest control and security at the camp: when the landlord supplies these as incidental services with no extra fee, VATP003 treats them as part of the residential supply, so they follow the rent. When you buy them under your own contract, they carry 5% and the cautious approach is again the MoHRE test, or case 3 for workers outside the mandate. As reported by Clyde & Co, Resolution No. 122 of 2026 itself sets standards such as licensed security guarding, free internet and periodic cleaning, which supports treating these as part of mandated accommodation where the mandate applies.",
+        "Transport from the camp to site: this is not accommodation, so the MoHRE carve-out does not reach it. It falls under the general employee-benefit tests, and first check whether the supply carries VAT at all, because local passenger transport can be exempt. Where VAT is charged, case 1 of Decision 17 allows recovery for residence-to-work transport with no personal use and no cash alternative.",
+        "Housing allowance paid in cash: the employer buys no accommodation, so there is no input VAT to recover and the MoHRE test does not arise."
+      ]
+    },
+    {
+      "h": "Worked example: a contractor with 300 workers",
+      "ps": [
+        "A Dubai contractor houses 300 workers in a camp run by an operator that provides beds, catering, laundry and room cleaning. The operator treats this as serviced accommodation and charges AED 1,100 per bed per month plus 5% VAT. Of the 300 workers, 220 earn AED 1,500 a month or less. The other 80 are foremen and technicians on higher wages. The camp is MoHRE-registered."
+      ],
+      "list": [
+        "Monthly invoice: 300 beds × AED 1,100 = AED 330,000, plus VAT of AED 16,500.",
+        "September 2026 invoice: under the old wording, the contractor could recover the full AED 16,500 where it could show a labour-law obligation, or a contract or documented policy that was normal business practice.",
+        "From 1 October 2026, MoHRE-mandated beds: 220 × AED 1,100 = AED 242,000, VAT of AED 12,100, recoverable under the legal-obligation exception.",
+        "From 1 October 2026, the other 80 beds: 80 × AED 1,100 = AED 88,000, VAT of AED 4,400. There is no MoHRE mandate, so this depends on case 3 of FTA Decision No. 17 of 2026, tested worker by worker. The next section applies it.",
+        "If the camp were instead a residential lease at AED 250,000 a month, the rent would be exempt. The contractor's own utilities (AED 40,000 plus AED 2,000 VAT) and security and cleaning contract (AED 30,000 plus AED 1,500 VAT) would still carry AED 3,500 of VAT. Split by headcount, 220/300 of it, about AED 2,567, passes the MoHRE test, and the other 80/300, about AED 933, follows the case 3 result below: about AED 583 recoverable for the 50 who qualify and AED 350 blocked for the 30 who do not. A headcount split is one reasonable way to evidence use. Record the method you choose."
+      ]
+    },
+    {
+      "h": "Worked example: applying Decision 17 to the other 80 beds",
+      "ps": [
+        "The figures are illustrative. Of the 80 workers outside the MoHRE mandate, 50 are site foremen and engineers whose contracts give a single camp room only while posted to the project, 60 km from the nearest town, with no housing allowance in its place. The other 30 are technicians whose offer letters let them choose a camp bed or a AED 1,500 monthly housing allowance."
+      ],
+      "list": [
+        "The 50: all five conditions of case 3 are met. 50 × AED 1,100 = AED 55,000, VAT of AED 2,750, recoverable.",
+        "The 30: they could have taken the allowance, so condition (a) fails, and (b) is doubtful. 30 × AED 1,100 = AED 33,000, VAT of AED 1,650, blocked: AED 19,800 a year. Removing the allowance option for site roles can bring the technicians within case 3 for future periods; changing the paperwork alone does not.",
+        "October 2026 in total: recoverable AED 12,100 + AED 2,750 = AED 14,850; blocked AED 1,650. Journal: Dr Staff accommodation 331,650 (net AED 330,000 plus blocked VAT AED 1,650), Dr VAT recoverable 14,850, Cr Accounts payable 346,500.",
+        "A new engineer spends 25 nights in a hotel apartment at AED 400 a night before a bed is free: AED 10,000 plus AED 500 VAT, recoverable under case 4. At 45 nights the 30-day condition fails, and the Decision does not say whether the first 30 nights survive, so treat the whole stay as blocked unless case 3 is met."
+      ]
+    },
+    {
+      "h": "What to do from 1 October 2026",
+      "list": [
+        "List every accommodation-related cost: rent, serviced beds, hotel stays used as housing, utilities, furniture, facilities management and security.",
+        "Check how each supplier charges VAT, and ask camp operators whether they treat the supply as residential or serviced under VATP003.",
+        "Count workers by wage band against the MoHRE threshold, by entity and by emirate, and keep the payroll evidence for each VAT period.",
+        "Confirm each camp is MoHRE-approved and registered, and keep the registration record with the VAT file.",
+        "Review employment contracts and HR policies against the five conditions of case 3 of FTA Decision No. 17 of 2026, looking for housing allowance options, family occupancy and housing listed as part of the pay package, and keep the evidence for each condition by role. Track new-joiner hotel stays against the 30-day limit in case 4.",
+        "Decide how you will split shared costs between mandated and other workers, and write the method down.",
+        "Pay camp operators and accommodation suppliers by bank transfer, so the Article 54(3) cash block cannot apply.",
+        "Review any VAT on accommodation already held or claimed for periods from 1 October 2026 against Decision 17, and watch for FTA guidance on the Decision and for the final text of any MoHRE resolution you rely on."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "The tax agent already tests every inbound invoice against the [Article 59 tax-invoice checklist](/guides/uae-tax-invoice-checklist) before input VAT is claimed. From 1 October 2026 it also tags employee-benefit and accommodation costs and holds recovery until the legal-obligation or FTA-condition basis is recorded. Every hold names the rule and the missing evidence, and a person makes the call. The wider changes are covered in our guide to [Cabinet Decision 149 of 2026](/guides/uae-vat-cabinet-decision-149-2026-input-tax)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I recover VAT on employee accommodation in the UAE from 1 October 2026?",
+      "a": "Under the legal-obligation exception in Article 53(1)(c)(1), only where the accommodation is mandatory under MoHRE decisions or directives. Otherwise recovery depends on the contractual-obligation or documented-policy exception, which applies only in the cases and conditions set by FTA Decision No. 17 of 2026: accommodation the operational requirements of the work demand (case 3), or temporary accommodation for a new employee for no longer than 30 days (case 4)."
+    },
+    {
+      "q": "What are the conditions in FTA Decision 17 of 2026 for staff accommodation?",
+      "a": "For case 3, all five must be met: the employee cannot take a cash allowance instead; the housing serves operational needs and is not part of ordinary pay; the work requires living near the workplace, site or client; it houses the employee alone, without family, unless the employee must live permanently near the workplace; and it is basic, without significant recreational or personal elements."
+    },
+    {
+      "q": "Which employers must provide accommodation to workers under MoHRE rules?",
+      "a": "As reported by Clyde & Co, Ministerial Resolution No. 122 of 2026 requires employers with 50 or more workers to provide MoHRE-approved and registered accommodation for workers whose monthly wage does not exceed AED 1,500. Local authorities can widen the scope within an emirate. Check the resolution itself before relying on it."
+    },
+    {
+      "q": "Is labour accommodation rent subject to VAT in the UAE?",
+      "a": "It depends on what is supplied. FTA public clarification VATP003 treats labour accommodation used as a principal place of residence, fixed to the ground, lawfully built and not hotel-like as residential, so the lease is exempt or zero-rated on first supply. Accommodation with room cleaning, laundry, catering or similar services can be serviced accommodation and standard-rated at 5%."
+    },
+    {
+      "q": "Can I still rely on the employment contract to recover VAT on staff housing?",
+      "a": "Only if the arrangement also meets every condition of case 3 or case 4 of FTA Decision No. 17 of 2026. The contract is the starting point, not the test. Housing offered as part of the salary package, or with the option of a housing allowance instead, fails the conditions and the VAT is blocked."
+    },
+    {
+      "q": "Does paying a housing allowance change the VAT position?",
+      "a": "Yes. A cash allowance is not a purchase of accommodation by the employer, so there is no input VAT on it and the Article 53 test does not arise. The employee's own rent is a matter between the employee and the landlord. Offering employees the choice of an allowance or company housing also means the company housing fails condition (a) of case 3 of FTA Decision No. 17 of 2026."
+    },
+    {
+      "q": "Do the new rules apply to hotel stays for staff?",
+      "a": "Hotels and serviced apartments carry 5% VAT. Where they are used to house staff, the same MoHRE test applies from 1 October 2026, and failing that the FTA Decision No. 17 conditions; a new employee's stay of no more than 30 days is recoverable under case 4. Hotel stays on business trips raise different questions and are not covered by the accommodation carve-out analysis in this guide."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA Decision No. 17 of 2026 on the Cases and Conditions for the Recovery of Input Tax Incurred on Employee Expenses (issued 9 Sep 2026, in force 1 Oct 2026; unofficial English translation)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/legislation/FTA%20Decision%20No.%2017%20of%202026%20on%20the%20Cases%20and%20Conditions%20for%20the%20Recovery%20of%20Input%20Tax%20Incurred%20on%20Employee%20Expenses%20-%20Publishing.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (Articles 37 and 53)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: VAT Public Clarification VATP003, Labour accommodation: residential versus serviced property",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/03-Labour-Accomodation-residential-versus-serviced-property.pdf"
+    },
+    {
+      "label": "Clyde & Co: UAE MHRE updates labour accommodation requirements (Ministerial Resolution No. 122 of 2026)",
+      "href": "https://www.clydeco.com/en/insights/2026/06/uae-mhre-updates-labour-accommodation-requirements"
+    }
+  ]
+}

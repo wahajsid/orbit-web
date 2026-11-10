@@ -1,0 +1,90 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Enter the loan principal, the number of days it was outstanding in the period, the rate actually charged and the arm's length rate, both as simple annual percentages. Then say where each side sits: in the UAE taxed at 9%, in the UAE at 0% as a free zone company, or outside the UAE.",
+        "Interest is worked out as principal × rate × days ÷ 365, once at the rate charged and once at the arm's length rate. The difference is the adjustment. If the charge was too low, the lender's taxable income rises by the difference, and a UAE borrower gets a matching deduction. If it was too high, the borrower loses the deduction for the excess, and a UAE lender's income falls by the same amount.",
+        "Each UAE side's change is multiplied by its rate, 9% or 0%, and the two are added to give the net extra UAE tax for the group. A side outside the UAE is left out, because its tax is a matter for its own country."
+      ],
+      "list": [
+        "Differences under AED 0.50 are treated as arm's length, with no adjustment",
+        "The calculator takes the arm's length rate as given. It does not benchmark it, test whether the balance is really debt, or price guarantees and cash pools",
+        "It assumes simple interest on a constant principal. For a loan with drawdowns or repayments, run each balance and period separately",
+        "The 0% free zone option assumes the interest falls within the company's 0% qualifying income. If it does not, choose 9%",
+        "It does not apply the Article 30 interest cap, the Article 31 block or any relief for losses"
+      ]
+    },
+    {
+      "h": "The arm's length rule and the corresponding adjustment",
+      "ps": [
+        "Article 34 of the Corporate Tax Law requires transactions between related parties to meet the arm's length standard: the result must be consistent with what independent parties would have agreed in a similar transaction under similar circumstances. Where the result falls outside the arm's length range, the FTA adjusts taxable income to the arm's length result (Article 34(8)).",
+        "Article 34(10) then requires the FTA, when it or the taxpayer adjusts one side, to make a corresponding adjustment to the related party on the other side. Between two UAE companies both taxed at 9% the two changes cancel out, which is why the calculator shows nil net tax for that case. The tax arises when the rates differ: a 9% lender funding a 0% free zone company interest-free, or a UAE borrower paying an excessive rate to a foreign parent. Where a foreign tax authority makes the first adjustment, Article 34(11) lets the UAE company apply for a corresponding adjustment; the calculator does not model that route."
+      ]
+    },
+    {
+      "h": "Choosing the arm's length rate",
+      "ps": [
+        "Start from the borrower's own credit standing, match the loan's currency, amount, tenor, security and repayment terms, and benchmark against comparable independent loans or a base rate such as EIBOR plus a justified credit spread. Write the rate and the reasoning into a signed agreement before the money moves. The [intercompany loans guide](/guides/uae-intercompany-loans-transfer-pricing) covers whether a long-standing balance is really a loan, and how guarantees and cash pools are priced, and the [transfer pricing documentation guide](/guides/uae-transfer-pricing-documentation) covers the files the FTA can ask for."
+      ]
+    },
+    {
+      "h": "The interest rules that apply after",
+      "list": [
+        "Article 31 denies the deduction for interest on a related-party loan used to fund a dividend or profit distribution to a related party, a return of share capital to a related party, a capital contribution to a related party, or the purchase of shares in a company that is or becomes a related party. It does not apply where you show the main purpose was not a Corporate Tax advantage, and no advantage is deemed to arise where the lender is taxed on the interest at 9% or more",
+        "Article 30 caps net interest expenditure at 30% of EBITDA, excluding exempt income, with a threshold set by the Minister below which the cap does not apply. Only the arm's length interest enters that test. Run it with the [interest cap calculator](/tools/uae-interest-cap-calculator) and see the [interest deduction guide](/guides/uae-interest-deduction-limitation)"
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: an interest-free loan to a free zone subsidiary",
+    "ps": [
+      "Use the calculator's defaults. A mainland parent taxed at 9% lends AED 50,000,000 to its free zone subsidiary for 365 days and charges nothing. The credit analysis supports 6.2% as the arm's length rate. Lender: UAE, 9%. Borrower: UAE, 0% (free zone)."
+    ],
+    "list": [
+      "Interest charged: AED 0. Arm's length interest: 50,000,000 × 6.2% × 365 ÷ 365 = AED 3,100,000",
+      "Under-charged: the parent's taxable income rises by AED 3,100,000, which is AED 279,000 of tax at 9%",
+      "The subsidiary gets a corresponding deduction of AED 3,100,000 under Article 34(10), worth nothing at 0%",
+      "Net extra UAE tax for the group: AED 279,000 a year",
+      "Change the borrower to UAE, 9%: the subsidiary's deduction is worth AED 279,000 and the net extra tax falls to nil",
+      "The reverse case: principal 20,000,000, charged 12%, arm's length 7%, lender outside the UAE, borrower UAE 9%. Interest charged AED 2,400,000 against AED 1,400,000 at arm's length. The borrower loses a deduction of AED 1,000,000, which is AED 90,000 of tax"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Are interest-free intercompany loans allowed in the UAE?",
+      "a": "They are not prohibited, but for Corporate Tax the FTA can impute arm's length interest under Article 34. That raises the lender's taxable income, with a corresponding deduction for a UAE borrower. Where both are taxed at 9% the effect nets out; where the rates differ, it does not."
+    },
+    {
+      "q": "How do I set an arm's length interest rate on an intercompany loan?",
+      "a": "Assess the borrower's credit standing, match the loan's terms, and benchmark against comparable independent loans or a base rate such as EIBOR plus a justified credit spread. Document it in a signed agreement before the loan is drawn."
+    },
+    {
+      "q": "Does transfer pricing apply between two UAE companies?",
+      "a": "Yes. Article 34 applies to all related-party transactions, domestic ones included. When one side is adjusted, Article 34(10) requires a corresponding adjustment for the related party on the other side."
+    },
+    {
+      "q": "What is a corresponding adjustment in UAE Corporate Tax?",
+      "a": "When the FTA or a taxpayer adjusts taxable income to meet the arm's length standard, the FTA makes the mirror adjustment to the related party in the same transaction, so the same amount is not taxed twice in the UAE."
+    },
+    {
+      "q": "Is interest on a related-party loan always deductible at arm's length?",
+      "a": "No. Article 31 can deny it entirely when the loan funds a dividend, a capital return, a capital contribution or a share purchase involving a related party, unless the main purpose was not a tax advantage. The Article 30 cap then applies to what is left."
+    },
+    {
+      "q": "Does the calculator work for loans in US dollars?",
+      "a": "Yes, if you enter AED amounts. Convert the principal and interest at the rates your accounts use, and benchmark the arm's length rate on a dollar base rate such as SOFR rather than EIBOR."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Articles 30, 31 and 34)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "OECD: Transfer Pricing Guidelines for Multinational Enterprises and Tax Administrations 2022 (Chapter X, financial transactions)",
+      "href": "https://www.oecd.org/en/publications/2022/01/oecd-transfer-pricing-guidelines-for-multinational-enterprises-and-tax-administrations-2022_57104b3a.html"
+    }
+  ]
+}

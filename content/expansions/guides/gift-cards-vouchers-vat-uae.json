@@ -1,0 +1,148 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The rule in one sentence",
+      "ps": [
+        "Under Article 7(1) of the UAE VAT Decree-Law, selling or issuing a voucher is not itself a supply — VAT happens when the voucher is redeemed, on the goods or services it buys. The one exception: if a voucher is sold for more than its advertised monetary value, VAT is due on the excess at the time of sale. Article 40 sets that excess as the value of the voucher supply, and Article 26(4) fixes its date of supply as the date of issue.",
+        "This is a genuinely different regime from Europe's single-purpose/multi-purpose split — importing that logic into a UAE VAT position is one of the most common errors in advice found online. In the UAE the treatment does not depend on whether the redemption VAT rate is known upfront."
+      ]
+    },
+    {
+      "h": "What counts as a voucher",
+      "ps": [
+        "The instrument must give the right to receive goods or services up to a stated monetary value, or a stated discount — a AED 500 gift card, a prepaid dining voucher. Instruments without a face value entitlement, and postage stamps issued by the Emirates Post Group, sit outside the definition. Points in a loyalty programme usually need their own analysis: they rarely carry a monetary value that is identifiable when they are issued, which Article 28(6) of the Executive Regulation requires before an instrument is treated as a voucher.",
+        "The definition is in Article 1 of the Decree-Law and covers physical and electronic forms alike: a plastic card, a code in an email and a balance stored in an app all qualify if they carry a stated value or discount. A booking deposit for a specific service on a specific date is not a voucher; it is an advance payment, and under Article 25(7) receiving it creates a tax point straight away."
+      ]
+    },
+    {
+      "h": "The legal map",
+      "ps": [
+        "Five provisions do almost all the work, and they are worth citing by number in your VAT policy file:"
+      ],
+      "list": [
+        "Decree-Law Article 1: the definition of Voucher",
+        "Decree-Law Article 7(1): the sale or issue of a voucher is not a supply unless the consideration received exceeds its advertised monetary value",
+        "Decree-Law Article 40: the value of a voucher supply is the difference between the consideration received and the advertised monetary value",
+        "Decree-Law Article 26(4): the date of supply of a voucher is the date of issue or supply",
+        "Executive Regulation Article 28(4) to (6): a voucher used at redemption is not a discount unless it was given for no consideration; a voucher sold by the supplier below face value creates a discount equal to the shortfall; and an instrument is only a voucher if its redeemable monetary value is identifiable at issue"
+      ]
+    },
+    {
+      "h": "The three moments that matter",
+      "list": [
+        "Issue — no VAT on the sale of the card at or below face value; the cash received is a liability (unearned), not revenue",
+        "Redemption — a normal taxable supply of whatever is bought, at that supply's rate, with the voucher as consideration; the tax invoice is issued for this supply",
+        "Expiry / breakage — no supply ever happened, so no output VAT is due on the unredeemed balance; for accounting, IFRS 15 requires expected breakage to be recognised as revenue in proportion to actual redemptions rather than in one lump at expiry, where you expect to be entitled to it"
+      ]
+    },
+    {
+      "h": "Worked example: a AED 500 gift card programme",
+      "ps": [
+        "A retailer sells 1,000 gift cards of AED 500 each in December, all at face value. Cash received is AED 500,000. No supply has taken place, so there is no output VAT and no tax invoice.",
+        "In January a customer uses one card towards goods priced at AED 630 including VAT and pays the other AED 130 by card. The supply is AED 630 inclusive, so output VAT is AED 30 (630 × 5/105) and revenue is AED 600. The voucher is part of the consideration, which is why Article 28(4) stops it being treated as a discount.",
+        "History says 8% of cards are never used, so the retailer expects AED 460,000 of redemptions and AED 40,000 of breakage. By the end of March AED 230,000 has been redeemed, half of what is expected, so half the expected breakage, AED 20,000, is released to revenue. The voucher liability is now AED 250,000 (500,000 less 230,000 redeemed less 20,000 breakage). Breakage revenue carries no output VAT, because no goods or services were supplied for it."
+      ],
+      "list": [
+        "On sale: Dr Cash 500,000 / Cr Voucher liability 500,000",
+        "On redemption: Dr Voucher liability 500 / Dr Cash 130 / Cr Revenue 600 / Cr Output VAT 30",
+        "On breakage release: Dr Voucher liability 20,000 / Cr Revenue (breakage) 20,000"
+      ]
+    },
+    {
+      "h": "Vouchers sold below face value, above face value, or given away",
+      "ps": [
+        "Below face value. A corporate client buys 100 AED 500 cards from the retailer for AED 450 each as staff rewards. Because the supplier itself issued and sold the voucher for less than its stated value, Article 28(5) treats the AED 50 shortfall as a discount on the redemption supply. An employee who spends one card on goods priced at AED 500 including VAT gives consideration of AED 450, so output VAT is AED 21.43 (450 × 5/105), not AED 23.81. The rule applies only where the supplier sold the voucher: a discount given by an independent reseller does not reduce your taxable value.",
+        "Above face value. If an AED 500 card is sold for AED 525, for example with an activation or packaging fee built into the price, Article 7(1) makes the sale a supply to the extent of the AED 25 excess, and Article 26(4) puts its date of supply on the day of sale. VAT is due on that excess now, and the AED 500 face value is still taxed later on redemption.",
+        "Given away free. A promotional AED 100 voucher handed out for nothing is a discount when it is used, because Article 28(4) carves out vouchers provided for no consideration. A customer who uses it against goods priced at AED 525 including VAT pays AED 425, so output VAT is AED 20.24 on the amount actually paid. Keep the promotion terms with the VAT file: they are what proves the voucher was free."
+      ]
+    },
+    {
+      "h": "The operational traps",
+      "list": [
+        "Booking card sales as revenue at the till — overstates revenue and desynchronises the VAT return from the ledger",
+        "Charging VAT at issue and again at redemption — double tax that a customer or an audit will eventually surface",
+        "Selling vouchers through resellers at a margin without deciding whose supply the margin is",
+        "No voucher liability register — without one, breakage income and the VAT position are both guesses"
+      ]
+    },
+    {
+      "h": "Breakage under IFRS 15",
+      "ps": [
+        "Paragraphs B44 to B47 of IFRS 15 deal with customers' unexercised rights. If you expect to be entitled to a breakage amount, B46 requires you to recognise it as revenue in proportion to the pattern of rights the customers exercise. If you do not expect to be entitled to it, you recognise breakage only when the likelihood of the customer using the remaining balance becomes remote. The estimate is subject to the constraint on variable consideration in paragraphs 56 to 58, so a new programme with no redemption history usually waits.",
+        "Build the estimate by issue cohort, for example all cards sold in a month, because redemption curves differ by season and channel. Re-estimate at each close and true up the cumulative breakage released so far. Where a law requires unclaimed balances to be paid to a government body, B47 says the amount stays a liability and is never breakage revenue."
+      ]
+    },
+    {
+      "h": "What to check on the voucher terms and the till",
+      "list": [
+        "The stated monetary value or discount is printed or held on the instrument from the day of issue (Article 28(6))",
+        "The price charged at sale is compared with face value: anything above face value is a supply on that day",
+        "The point-of-sale system posts voucher sales to a liability account, not to revenue, and issues a receipt rather than a tax invoice",
+        "At redemption, the tax invoice shows the full price of the goods and the VAT on it, with the voucher shown as a payment method, not as a discount, unless it was free",
+        "Vouchers you sold below face value are flagged in the register so the Article 28(5) discount is applied when they come back",
+        "Expiry dates, any extension policy and refund terms are written down: they drive the breakage estimate and the point at which it becomes remote"
+      ]
+    },
+    {
+      "h": "Corporate buyers and staff rewards",
+      "ps": [
+        "A business that buys gift cards at face value is charged no VAT on them, so it has no input VAT to recover at that point. The taxable supply happens later, between the retailer and whoever redeems the card. Booking voucher purchases with a 5% input VAT line is therefore an error, and an easy one to spot because the supplier's document will not be a tax invoice. If an earlier return claimed such amounts, a [voluntary disclosure](/guides/uae-vat-voluntary-disclosure) is the route to correct it."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab posts voucher sales to a voucher liability account, matches redemptions to the liability with the sale document as evidence, tracks the unredeemed balance by expiry cohort, and releases breakage on the documented pattern — so the VAT return and the balance sheet tell the same story."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "Loyalty points look similar but are accounted for as a material right on the original sale: see [loyalty points under IFRS 15 and UAE VAT](/guides/loyalty-points-accounting-uae). For what the redemption invoice must contain, use the [UAE tax invoice checklist](/guides/uae-tax-invoice-checklist)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is VAT charged on gift cards in the UAE?",
+      "a": "Not when the card is sold at or below its face value. Article 7(1) of the VAT Decree-Law says the sale or issue of a voucher is not a supply, so VAT is charged later, when the card is used to buy goods or services. Only an amount charged above the face value is taxed at the time of sale."
+    },
+    {
+      "q": "When is VAT paid on a gift voucher in the UAE?",
+      "a": "At redemption. The goods or services bought with the voucher are a normal taxable supply, the voucher counts as part of the consideration, and output VAT is calculated on the full price at that supply's rate. The exception is any excess over face value charged when the voucher was sold, which is taxed on the day of sale under Article 26(4)."
+    },
+    {
+      "q": "Is VAT due on expired gift cards in the UAE?",
+      "a": "No output VAT arises on an unredeemed balance because no goods or services were ever supplied for it and the original sale was not a supply. The balance is still income for accounting purposes: under IFRS 15 it is released as breakage revenue, either in line with redemptions or when use becomes remote."
+    },
+    {
+      "q": "Do I issue a tax invoice when I sell a gift card?",
+      "a": "No, not for a card sold at or below face value, because there is no supply to invoice. Issue a receipt and issue the tax invoice when the card is redeemed. If you charge more than face value, the excess is a taxable supply and needs a tax invoice."
+    },
+    {
+      "q": "How do you account for gift card breakage under IFRS 15?",
+      "a": "Estimate the share of balances that will never be used, by issue cohort, and release that amount to revenue in proportion to actual redemptions under paragraph B46. If you cannot estimate it reliably, wait until the chance of redemption is remote. Unclaimed balances that must be paid to a government body stay a liability."
+    },
+    {
+      "q": "Does selling vouchers at a discount reduce the VAT?",
+      "a": "Yes, if you issued and sold the voucher yourself. Article 28(5) of the Executive Regulation treats the difference between face value and the price paid as a discount on the redemption supply, so VAT is calculated on the lower amount. A discount given by an independent reseller does not reduce your taxable value."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 1, 7, 26, 40), consolidated to 1 January 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law and its amendments (Article 28), consolidated to Cabinet Decision No. 149 of 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 15 Revenue from Contracts with Customers (paragraphs B44 to B47, customers' unexercised rights)",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/"
+    }
+  ],
+  "related": ["loyalty-points-accounting-uae", "uae-tax-invoice-checklist", "uae-vat-voluntary-disclosure"]
+}

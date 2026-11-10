@@ -1,0 +1,143 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "What WPS is",
+      "ps": [
+        "The Wages Protection System is MOHRE's electronic salary-monitoring channel: employers registered with the ministry pay wages through approved banks and exchange houses, and each payroll run generates a Salary Information File (SIF) that tells the ministry who was paid, how much, and when — matched against the registered contracts. It is how the state knows salaries were actually paid, in full, on time.",
+        "The legal basis is Article 22(2) of Federal Decree-Law No. 33 of 2021, which requires wages to be paid on their due dates under the regulations approved by the ministry. Since 1 June 2026 those regulations are Ministerial Resolution No. 340 of 2026 Concerning the Wage Protection System, which repealed Ministerial Resolution No. 598 of 2022."
+      ]
+    },
+    {
+      "h": "What changed on 1 June 2026",
+      "ps": [
+        "Resolution 340 replaced the old contract-by-contract due dates and the 15-day grace period with one rule for every private sector establishment: wages for a Gregorian month fall due on the first day of the following month, and any payment after that date is a delay. Wages for October 2026 are due on 1 November 2026. Paying earlier is fine; paying on the 10th is now late.",
+        "The compliance thresholds also moved up from 80% to 85%, and the 30-day breathing space that used to apply to new joiners is no longer in the list of exclusions, so a new hire's first month is monitored like everyone else's."
+      ],
+      "list": [
+        "Establishment test (Article 2(1)): compliant if, by the due date, it transfers at least 85% of the total wages due to its workers",
+        "Worker test (Article 2(2)): a worker counts as paid if they receive at least 85% of their wage and the difference is a lawful deduction or withholding",
+        "Lawful deductions are those in Article 25 of the Decree-Law: loan repayments with written consent, recovery of overpayments up to 20% of the wage, legally required pension and insurance contributions, approved disciplinary deductions up to 5%, court debts up to a quarter of the wage, and damage up to five days' wage a month, with a 50% overall ceiling",
+        "Because the worker test stops at 85%, a deduction above 15% of a month's wage can make a lawful payment look like a short payment in WPS even though Article 25 allows it"
+      ]
+    },
+    {
+      "h": "The rules that bite",
+      "list": [
+        "Wages must be paid through WPS-approved channels — cash and personal transfers don't count as paid, however real the money was",
+        "Payment is due on the first day of the month following the month worked under Ministerial Resolution No. 340 of 2026 (in force from 1 June 2026); there is no longer a 15-day grace period, and anything paid after the due date is a delay",
+        "Compliance is measured on coverage too: paying most staff but skipping some, or paying less than 85% of the registered wage without a lawful deduction to explain it, flags the file",
+        "Consequences escalate: reminders, then blocks on new work permits, then fines and referral — and the block is the one that operationally hurts, because hiring stops"
+      ]
+    },
+    {
+      "h": "The escalation timetable",
+      "ps": [
+        "Annex 1 to Resolution 340 sets out what happens, counted from the due date. The steps are automatic: nobody at the ministry has to decide to act against you."
+      ],
+      "list": [
+        "From the due date: electronic monitoring of every establishment until payment is proven",
+        "From the second day after the due date: notifications and alerts to non-compliant establishments",
+        "Fifth day: new work permits suspended, with a warning to the owner",
+        "Eleventh day, for a repeat violation within six months: the administrative fine under Cabinet Resolution No. 21 of 2020, and reclassification of the establishment into the third category under Ministerial Resolution No. 209 of 2022",
+        "Sixteenth day, for establishments with 25 or more workers (or, in construction, transport and storage, security, cleaning, recruitment agencies and domestic worker recruitment offices, employers whose establishments together have 25 or more unpaid workers): automatic registration of a labour dispute for the affected workers and suspension of work permits",
+        "Twenty-first day: an executive instrument for the unpaid wages where there are fewer than 50 workers, collective dispute procedures at 50 or more, precautionary attachment, a travel ban on the person in charge, and referral to the Public Prosecution for establishments with more than 50 workers that repeat the violation within two consecutive months"
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A trading company has 40 staff and a September 2026 payroll of AED 400,000. Under Resolution 340 the due date is 1 October 2026 and the establishment threshold is 85%, or AED 340,000.",
+        "On 1 October it transfers AED 330,000 through WPS, holding back four salespeople's pay (AED 70,000) while commissions are agreed. That is 82.5% of the total, so the company is non-compliant from the due date. If the AED 70,000 is not paid, alerts start on 3 October, new work permits stop on 6 October, and because the company has 25 or more workers, labour disputes can be registered for the four salespeople on the sixteenth day after the due date.",
+        "One of the paid staff earns AED 10,000 and repays a staff loan at AED 1,200 a month with written consent, so receives AED 8,800 (88%). That worker passes the 85% test. A second worker repaying AED 2,000 a month receives 80% and shows as underpaid in WPS, even though the deduction is within Article 25. The fix is to cap loan instalments at 15% of wage or record the deduction with the ministry before the run.",
+        "In the books, accrue September pay at month end (Dr Salaries and wages 400,000, Cr Salaries payable 400,000) and clear the payable when the SIF settles (Dr Salaries payable 330,000, Cr Bank 330,000). An open salaries payable balance after the first of the month is now, by definition, a late payment that the ministry can see."
+      ]
+    },
+    {
+      "h": "Who is outside WPS",
+      "ps": [
+        "Article 4 of Resolution 340 lists the exclusions. Most need the ministry to be notified or to approve a request, so an exclusion that exists only in HR's spreadsheet is no exclusion."
+      ],
+      "list": [
+        "Workers with a wage claim referred to court or covered by an executive instrument, within the limits of that claim",
+        "Workers with an absconding report in force",
+        "Workers whose liberty is restricted by a competent authority, once the ministry is notified with documents",
+        "Workers on approved unpaid leave, once the ministry is notified with documents",
+        "Seafarers, on the establishment's request and the ministry's decision",
+        "Foreign workers of foreign establishments or their UAE branches who are paid outside the UAE, on request and with the workers' approval",
+        "Workers on mission work permits of three months or less",
+        "Fishing boats and public taxis owned by individual citizens, banks and financial institutions, and places of worship"
+      ]
+    },
+    {
+      "h": "Where payroll runs go wrong",
+      "list": [
+        "The SIF says one thing, the bank transfer another — rejected records that nobody reconciles",
+        "Registered contract salaries drifting from actual salaries after raises, so every month quietly mismatches",
+        "Unpaid-leave and EOSB settlements processed outside WPS without the paper trail",
+        "Free-zone employers assuming WPS doesn't apply — several free zones run their own equivalent regimes with the same logic",
+        "Payroll still scheduled for the 5th or the 10th of the month because that was compliant under the old 15-day window",
+        "Outsourced payroll providers missing the cut-off: Article 5 lets you delegate payment, but the establishment stays responsible and the sanctions are applied to it"
+      ]
+    },
+    {
+      "h": "A month-end WPS checklist",
+      "list": [
+        "Set the bank or exchange house cut-off so the SIF settles no later than the 1st, allowing for weekends and public holidays",
+        "Reconcile the SIF total to the payroll register and to the bank debit, line by line",
+        "Test every worker at 85%: wage paid against registered wage, with the Article 25 basis for any difference",
+        "Confirm unpaid leave and other exclusions were notified to the ministry before the run",
+        "Match the headcount in the SIF to active work permits, including joiners in their first month",
+        "Pay final settlements, including gratuity, within the 14 days required by Article 53 of the Decree-Law and keep the evidence on file"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab's payroll run produces the register and the SIF-shaped output from the same numbers, reconciles the bank confirmation against it, flags rejected or short-paid records the day they bounce, and keeps contract-vs-paid drift visible — so WPS status is something you know, not something you discover."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the WPS salary deadline in the UAE in 2026?",
+      "a": "The first day of the following Gregorian month. Since 1 June 2026, Ministerial Resolution No. 340 of 2026 makes the 1st the single due date for the previous month's wages, and any payment after it is a delay. The old 15-day grace period under Resolution 598 of 2022 no longer applies."
+    },
+    {
+      "q": "What is the 85% rule in WPS?",
+      "a": "An establishment is compliant if it transfers at least 85% of total wages due by the due date, and a worker counts as paid if they receive at least 85% of their wage with the difference explained by a lawful deduction. Both thresholds were 80% before 1 June 2026."
+    },
+    {
+      "q": "What happens if an employer pays salary late through WPS?",
+      "a": "Alerts start from the second day after the due date, new work permits are suspended on the fifth day, and repeat offenders face fines and third-category classification on the eleventh day. From the sixteenth day larger employers can have labour disputes registered automatically, and from the twenty-first day the ministry can move to attachment, travel bans and prosecution referral."
+    },
+    {
+      "q": "Do employees on unpaid leave need to be included in the SIF?",
+      "a": "No, provided the leave is approved and the ministry has been notified with the supporting documents. Article 4 of Resolution 340 excludes workers on approved unpaid leave for the leave period only; without the notification they still count as unpaid."
+    },
+    {
+      "q": "Can a payroll provider pay salaries on the employer's behalf?",
+      "a": "Yes. Article 5 of Resolution 340 allows delegation if the ministry is given the delegate's details and a copy of the delegation or contract. The employer remains responsible for paying on the due date and bears the sanctions if the delegate is late."
+    },
+    {
+      "q": "Does WPS apply to new employees in their first month?",
+      "a": "Yes. Resolution 598 of 2022 gave new joiners a 30-day allowance, but that is not among the exclusions in Resolution 340, so from 1 June 2026 a new worker's first month's wage is due on the 1st like everyone else's."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoHRE: Ministerial Resolution No. 340 of 2026 Concerning the Wage Protection System (in force 1 June 2026)",
+      "href": "https://www.mohre.gov.ae/assets/download/1f19ab7b/Ministerial%20Resolution%20No.%200340%20of%202026.pdf.aspx"
+    },
+    {
+      "label": "MoHRE: Wages Protection System (guidance, resolutions and approved agents)",
+      "href": "https://www.mohre.gov.ae/en/guidance-and-awareness-portal-new/wages-protection-system"
+    },
+    {
+      "label": "MoHRE: Federal Decree-Law No. 33 of 2021 Regulating Labour Relations and its amendments (Articles 22, 25, 53)",
+      "href": "https://www.mohre.gov.ae/assets/download/e82f7872/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments_638990571068264034.pdf.aspx"
+    }
+  ],
+  "related": ["uae-eosb-gratuity", "month-end-close-checklist"]
+}

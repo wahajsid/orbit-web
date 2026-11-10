@@ -1,0 +1,80 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter one tax rate and a line for each balance that has a temporary difference: a description, whether it is an asset or a liability, its carrying amount in the IFRS balance sheet and its tax base. Lines can be added or removed. The rate defaults to 9%.",
+        "For every line the calculator applies the same steps and shows the results to two decimal places."
+      ],
+      "list": [
+        "Taxable difference = carrying amount − tax base for an asset, or tax base − carrying amount for a liability",
+        "A positive (taxable) difference creates a deferred tax liability (DTL) = difference × rate",
+        "A negative (deductible) difference creates a deferred tax asset (DTA) = the difference without its sign × rate",
+        "Total DTL and total DTA are summed across the lines, and the net position is total DTL − total DTA, labelled DTL or DTA"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "IAS 12 defines a temporary difference as the gap between the carrying amount of an asset or liability and its tax base. For an asset, a carrying amount above the tax base is a taxable difference (DTL); below it, a deductible difference (DTA). For a liability the direction reverses: a liability carried above its tax base, such as a warranty provision or retirement benefit liability deductible only when paid (IAS 12 paragraph 26), gives a deductible difference and a DTA. Mark each line as an asset or a liability and the calculator applies the right direction.",
+        "Deferred tax is measured (paragraphs 47 and 49) at the rates enacted or substantively enacted at the reporting date that are expected to apply when the difference reverses. UAE Corporate Tax applies 0% to taxable income up to AED 375,000 and 9% above it (Cabinet Decision No. 116 of 2022), for financial years starting on or after 1 June 2023. Most groups use 9%, but where profits sit near the AED 375,000 band the rate should be the average expected to apply in the years of reversal, and a Qualifying Free Zone Person measures qualifying income at 0%.",
+        "Because UAE taxable income starts from accounting net profit (Article 20), many IFRS differences never arise. The ones that do are specific: fair value gains deferred under the Article 20(3) realisation election, the [4% investment property deduction](/guides/uae-investment-property-tax-depreciation), net interest carried forward under the 30% EBITDA cap, and unused tax losses, which can offset only 75% of later taxable income. A DTA is recognised only to the extent that future taxable profit is probable; reversing DTLs count towards that test.",
+        "Two IAS 12 amendments matter. The May 2021 amendment narrowed the initial recognition exemption, so leases and decommissioning provisions that create equal taxable and deductible differences now carry deferred tax on both. The May 2023 amendment gives a mandatory exception from recognising deferred tax for Pillar Two top-up taxes, which covers the UAE Domestic Minimum Top-up Tax of 15% (Cabinet Decision No. 142 of 2024) for groups with global revenue of EUR 750 million or more, from financial years starting on or after 1 January 2025. DTAs and DTLs must be offset when, and only when, the entity has a legally enforceable right to set off current tax and they relate to taxes levied by the same authority (paragraph 74)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A mainland company with a December year-end holds an investment property at fair value of AED 6,000,000. It elected the realisation basis, so the property's tax base is AED 5,000,000. It also has AED 750,000 of unused tax losses and budgets taxable profit well above AED 375,000 in the coming years. Set the rate to 9%, delete the default lines and enter two asset lines: investment property (carrying 6000000, tax base 5000000) and tax losses (carrying 0, tax base 750000). The defaults also show the liability rule at work: a lease liability of 820,000 with a nil tax base is a deductible difference and gives a DTA of 73,800."
+    ],
+    "list": [
+      "Investment property: 6,000,000 − 5,000,000 = 1,000,000 taxable difference; DTL = 1,000,000 × 9% = AED 90,000.00",
+      "Tax losses: 0 − 750,000 = −750,000; DTA = 750,000 × 9% = AED 67,500.00",
+      "Net position: 90,000 − 67,500 = AED 22,500.00 DTL",
+      "Journal, if both arise in the current year: Dr deferred tax expense 22,500, Dr deferred tax asset 67,500, Cr deferred tax liability 90,000. The fair value gain sits in profit or loss, so its deferred tax does too.",
+      "Recognition test: the DTA is supportable because the DTL reverses on sale and forecast profits exist. Remember that losses relieve only 75% of each year's taxable income, which affects how quickly the asset is used, not whether it is recognised."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What tax rate should I use for deferred tax in the UAE?",
+      "a": "Usually 9%, the rate on taxable income above AED 375,000. If profits are expected to fall partly within the 0% band when differences reverse, use the average rate expected to apply in those years. Qualifying Free Zone Persons use 0% on qualifying income."
+    },
+    {
+      "q": "Does a UAE company need to recognise deferred tax?",
+      "a": "Yes, if it reports under IFRS and has temporary differences. Corporate Tax applies from financial years starting on or after 1 June 2023, so IAS 12 deferred tax applies from then."
+    },
+    {
+      "q": "Is deferred tax recognised on a lease under IFRS 16?",
+      "a": "Since the May 2021 amendment to IAS 12, the initial recognition exemption no longer applies when a transaction creates equal taxable and deductible differences, so both a DTL on the right-of-use asset and a DTA on the lease liability are recognised where the tax base differs. Where UAE tax follows the IFRS 16 accounting, there may be no difference at all."
+    },
+    {
+      "q": "Can I recognise a deferred tax asset on UAE tax losses?",
+      "a": "Only to the extent that future taxable profit is probable. Losses carry forward indefinitely subject to the conditions in the law, but can offset at most 75% of taxable income in each later period, so model the timing with the [tax loss carry-forward calculator](/tools/uae-tax-loss-carry-forward-calculator)."
+    },
+    {
+      "q": "Does deferred tax apply to the UAE 15% top-up tax?",
+      "a": "No. The May 2023 amendment to IAS 12 requires entities not to recognise or disclose deferred tax for Pillar Two income taxes, which includes the UAE Domestic Minimum Top-up Tax. Targeted disclosures of current top-up tax and exposure apply instead."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IFRS Foundation: IAS 12 Income Taxes (2026 issued text)",
+      "href": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards/english/2026/issued/ias12.html"
+    },
+    {
+      "label": "IFRS Foundation: IAS 12 amendments summary",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ias-12-income-taxes/"
+    },
+    {
+      "label": "Ministry of Finance: Cabinet Decision No. 116 of 2022 on taxable income subject to Corporate Tax",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Cabinet-Decision-No-116-of-2022-on-the-annual-Taxable-Income-subject-to-Corporate-Tax.pdf"
+    },
+    {
+      "label": "Ministry of Finance: UAE Domestic Minimum Top-up Tax",
+      "href": "https://mof.gov.ae/?p=35764"
+    }
+  ]
+}

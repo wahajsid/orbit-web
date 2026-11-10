@@ -1,0 +1,147 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 9,
+  "sections": [
+    {
+      "h": "The two phases, briefly",
+      "ps": [
+        "Phase 1 (generation, live since December 2021) required all VAT-registered businesses in KSA to issue e-invoices from a compliant system — no handwritten or plain-PDF invoices. Phase 2 (integration) is the real shift: your invoicing system connects to ZATCA's Fatoora platform, and invoices flow to the authority in near-real time.",
+        "The legal base is the E-Invoicing Regulation issued by the ZATCA Board on 4 December 2020, with the controls and technical specifications in the implementing resolution. Phase 1 took effect on 4 December 2021 for all resident taxpayers. Phase 2 has applied in waves since 1 January 2023, and it does not replace Phase 1: a business that has not reached its wave still has to generate and store invoices electronically."
+      ]
+    },
+    {
+      "h": "What integration means day to day",
+      "list": [
+        "Standard (B2B) tax invoices are cleared: sent to ZATCA first, cryptographically stamped, and only then delivered to your customer — an uncleared invoice is not a valid tax invoice",
+        "Simplified (B2C) invoices are reported: issued to the customer immediately, transmitted to ZATCA within 24 hours",
+        "Every invoice carries the Phase 2 technical envelope: XML (or PDF/A-3 with embedded XML), UUID, cryptographic stamp, hash chain, and QR code",
+        "Your system must be onboarded onto Fatoora with a production certificate per device/unit"
+      ]
+    },
+    {
+      "h": "Clearance and reporting in more detail",
+      "ps": [
+        "ZATCA's Detailed Guidelines (section 6.4) describe clearance as a real-time model: the seller submits the standard tax invoice through the API, Fatoora validates it, adds the cryptographic stamp and QR code, and returns the cleared XML. Only that cleared document is shared with the buyer, in XML or PDF/A-3 with the XML embedded. Clearance applies to tax invoices and to the credit and debit notes linked to them.",
+        "Simplified tax invoices follow the reporting model. The seller's own solution stamps the invoice and prints the QR code, hands it to the customer at once, and submits the XML (not PDF/A-3) to Fatoora within 24 hours of generation. A simplified invoice is the B2C document, but the guidelines also allow it for a B2B supply where the value is below SAR 1,000."
+      ]
+    },
+    {
+      "h": "The wave system",
+      "ps": [
+        "ZATCA phases businesses in by taxable revenue, in numbered waves with individually announced deadlines. Integration began in January 2023 with the largest taxpayers (above SAR 3 billion) and the threshold has stepped down wave by wave since — reaching businesses with revenue in the low millions of riyals through 2025 and continuing downward in 2026. Each wave gets formal notice from ZATCA at least six months before its deadline.",
+        "The operational takeaway: if you are VAT-registered in KSA and not yet integrated, your wave is a matter of when, not if. The revenue test uses your VAT-taxable revenue, and ZATCA's notification arrives against the year they measured — a business that grew recently should assume it is closer to the front of the queue than it feels."
+      ]
+    },
+    {
+      "h": "The waves announced for 2025 to 2027",
+      "ps": [
+        "The test in each wave is revenue subject to VAT above a threshold in any one of the listed years. A single year over the line is enough, even if revenue has since fallen. These are the most recent waves as published by ZATCA:"
+      ],
+      "list": [
+        "Wave 21: revenue above SAR 1.25 million in 2022, 2023 or 2024, integrated by 30 November 2025",
+        "Wave 22: above SAR 1 million in 2022, 2023 or 2024, by 31 December 2025",
+        "Wave 23: above SAR 750,000 in 2022, 2023 or 2024, by 31 March 2026",
+        "Wave 24: above SAR 375,000 in 2022, 2023 or 2024, by 30 June 2026",
+        "Wave 25 (announced 24 July 2026): above SAR 187,500 in 2022, 2023, 2024 or 2025, by 1 February 2027. This is the first wave to count 2025 revenue"
+      ]
+    },
+    {
+      "h": "Who Wave 25 catches",
+      "ps": [
+        "Wave 24 used SAR 375,000, the same figure as the mandatory VAT registration threshold, so it reached almost every compulsorily registered business. Wave 25 halves that to SAR 187,500, which is the voluntary registration threshold. In practice it brings in voluntarily registered businesses and anyone whose revenue sat between the two figures in any year from 2022 to 2025, including businesses that only started trading in 2025.",
+        "As at 20 October 2026 ZATCA has not announced a further wave. If your 2022 to 2025 revenue never exceeded SAR 187,500, you are outside every wave announced so far, but you remain bound by Phase 1."
+      ]
+    },
+    {
+      "h": "Worked example: one wave check, one invoice, one correction",
+      "ps": [
+        "A Riyadh consultancy registered for VAT in 2024. Its revenue subject to VAT was SAR 160,000 in 2024 and SAR 290,000 in 2025. It missed Wave 24, which looked only at 2022 to 2024 and needed more than SAR 375,000. It is inside Wave 25, because 2025 revenue exceeded SAR 187,500, so its solution must be live on Fatoora by 1 February 2027.",
+        "After go-live it bills a Jeddah client SAR 40,000 plus VAT at 15%, so SAR 46,000. The invoice is submitted for clearance, comes back stamped, and only then is emailed to the client. The entry is the ordinary one, posted on the cleared document:"
+      ],
+      "list": [
+        "Dr Trade receivables SAR 46,000 / Cr Revenue SAR 40,000 / Cr Output VAT payable SAR 6,000",
+        "A month later the fee is cut by SAR 5,000. The credit note references the original invoice, goes through clearance in its own right, and only then is posted: Dr Revenue SAR 5,000 / Dr Output VAT payable SAR 750 / Cr Trade receivables SAR 5,750",
+        "If clearance fails, the error is fixed and a new invoice is cleared. The rejected XML is not sent to the client and is not posted as a sale"
+      ]
+    },
+    {
+      "h": "When Fatoora does not answer",
+      "ps": [
+        "ZATCA's guidelines deal with outages directly. For simplified invoices the seller keeps trading, keeps the invoices, and retries reporting at regular intervals until it succeeds. For standard invoices, if the platform is not responding, the seller can issue the invoice to keep trading but must clear it as soon as the connection returns, and keep evidence of the attempts, such as API logs. The buyer's position is the reason to treat this as urgent: an uncleared tax invoice is not eligible for input VAT deduction."
+      ]
+    },
+    {
+      "h": "Where implementations go wrong",
+      "list": [
+        "Treating it as a tax project instead of a systems project — the hard part is the ERP/POS integration and certificate management, not the VAT logic",
+        "Invoice fields that pass Phase 1 but fail Phase 2 validation: missing buyer details on standard invoices, wrong invoice type codes, broken hash chains after system restores",
+        "Credit notes issued outside the platform flow — corrections must travel the same cleared/reported path as the invoices they amend",
+        "Waiting for the notification letter to start — six months is short for an ERP integration with certification testing"
+      ]
+    },
+    {
+      "h": "What to check before go-live",
+      "list": [
+        "Your wave: test each year from 2022 to 2025 against the SAR 187,500 line, using revenue subject to VAT as reported in your returns",
+        "Every invoicing point: each ERP instance, POS terminal or billing tool that issues invoices needs its own onboarding and certificate",
+        "The invoice counter and previous-invoice hash: the solution must not allow the counter to be reset, and a restore from backup must not break the chain",
+        "Buyer data on standard invoices: the buyer's VAT number and address held as structured fields, not free text",
+        "Credit and debit notes: each one references the original invoice and goes through the same clearance or reporting route",
+        "Storage: cleared and reported XML retained in a form you can produce on request, alongside the PDF/A-3 copies sent to customers",
+        "The outage procedure: who is told, how retries are logged, and who checks that every held invoice was cleared or reported afterwards"
+      ]
+    },
+    {
+      "h": "Penalties",
+      "ps": [
+        "ZATCA published its e-invoicing violations list in November 2021 for the generation phase: SAR 5,000 for not issuing electronic invoices, SAR 10,000 for deleting or amending e-invoices after issue, and a warning first for a missing QR code on a simplified invoice, a missing buyer VAT number on a tax invoice, or failing to report a system malfunction. Fines are applied by type of violation and number of repetitions. Treat integration failures with the same seriousness: the cost that hurts most is usually the customer's lost input VAT and the commercial dispute that follows."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab validates KSA invoices against the Phase 2 field requirements as they arrive, flags documents that would fail clearance, and reconciles what your system issued against what the ledger holds — so integration day is a switch-flip, not an archaeology project."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "If you also trade in the UAE, its own e-invoicing timetable starts in 2027: see [UAE tax deadlines](/guides/uae-tax-deadlines) and the [tax invoice checklist](/guides/uae-tax-invoice-checklist). For other KSA obligations, the [zakat calculator](/tools/ksa-zakat-calculator) and the [withholding tax calculator](/tools/ksa-withholding-tax-calculator) cover the two that most often sit next to VAT."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the latest ZATCA e-invoicing wave?",
+      "a": "Wave 25, announced on 24 July 2026. It covers taxpayers whose revenue subject to VAT exceeded SAR 187,500 in 2022, 2023, 2024 or 2025, and they must integrate with Fatoora by 1 February 2027. As at 20 October 2026 no later wave has been announced."
+    },
+    {
+      "q": "How do I know if my business is in a ZATCA Phase 2 wave?",
+      "a": "Check your revenue subject to VAT for each year a wave lists. If any one year is above that wave's threshold, you are in it. ZATCA also notifies the businesses in each wave directly, at least six months before the integration date."
+    },
+    {
+      "q": "What is the difference between clearance and reporting?",
+      "a": "Clearance applies to standard tax invoices: ZATCA validates and stamps the invoice before you send it to the buyer. Reporting applies to simplified invoices: you give the invoice to the customer immediately and submit the XML to Fatoora within 24 hours."
+    },
+    {
+      "q": "Can I issue a simplified tax invoice to a business customer in Saudi Arabia?",
+      "a": "Yes, where the value of the supply is below SAR 1,000. Above that, a VAT-registered business customer should receive a standard tax invoice, which must be cleared before it is shared."
+    },
+    {
+      "q": "What happens if the Fatoora platform is down when I issue an invoice?",
+      "a": "Keep trading, keep evidence of each attempt, and clear or report the invoices as soon as the connection returns. Simplified invoices are retried until reported. Standard invoices issued during an outage must be cleared once the platform is available, because an uncleared invoice does not give the buyer input VAT deduction."
+    },
+    {
+      "q": "Do credit notes need to be cleared in ZATCA Phase 2?",
+      "a": "Yes. Credit and debit notes follow the same route as the invoice they correct: cleared if the original was a standard tax invoice, reported within 24 hours if it was simplified. Each note should reference the original invoice."
+    }
+  ],
+  "sources": [
+    { "label": "ZATCA: Criteria for selecting the targeted taxpayers in Wave 25 of the Integration Phase (24 July 2026)", "href": "https://zatca.gov.sa/en/MediaCenter/News/Pages/Wave25-E-invoicing.aspx" },
+    { "label": "ZATCA: E-invoicing roll-out phases", "href": "https://zatca.gov.sa/en/E-Invoicing/Introduction/Pages/Roll-out-phases.aspx" },
+    { "label": "ZATCA: Detailed Guidelines for E-Invoicing, version 2 (May 2023)", "href": "https://zatca.gov.sa/en/E-Invoicing/Introduction/Guidelines/Documents/E-Invoicing_Detailed__Guideline.pdf" },
+    { "label": "ZATCA: Violations and fines related to e-invoicing (November 2021)", "href": "https://zatca.gov.sa/en/MediaCenter/News/Pages/E-invoicing-Violations-Fines.aspx" },
+    { "label": "EY Tax News: Saudi Arabia announces 25th wave of Phase 2 e-invoicing integration (wave history table)", "href": "https://taxnews.ey.com/news/2026-1705-saudi-arabia-announces-25th-wave-of-phase-2-e-invoicing-integration" }
+  ],
+  "related": ["uae-tax-invoice-checklist", "uae-tax-deadlines", "ksa-real-estate-transaction-tax"]
+}

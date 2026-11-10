@@ -1,0 +1,77 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "There are two inputs: total revenue of the Qualifying Free Zone Person for the tax period, and the part of it that is non-qualifying revenue, both in AED.",
+        "The threshold is the lower of AED 5,000,000 and 5% of total revenue. The test passes when non-qualifying revenue is equal to or below the threshold, and fails when it is above. The calculator shows the threshold, the result (Within or Breached) and either the headroom left or the amount by which you are over, all rounded to the nearest dirham. With total revenue of zero it shows no result.",
+        "Enter the figures after removing the revenue the rules take out of both sides of the test (see the list below). The calculator does not do that step for you, and it does not test the other Qualifying Free Zone Person conditions."
+      ],
+      "list": [
+        "Leave out revenue from immovable property in a free zone where it comes from transactions with non-free zone persons for commercial property, or from any transaction for non-commercial property (such as residential units).",
+        "Leave out revenue attributable to a domestic or foreign permanent establishment of the free zone person.",
+        "Leave out revenue from owning or exploiting intellectual property, except revenue that relates to qualifying intellectual property income."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 4 of Cabinet Decision No. 100 of 2023 sets the structure. Non-qualifying revenue is revenue in the period from excluded activities, from activities that are not qualifying activities where the other party is a non-free zone person, and from transactions with a free zone person that is not the beneficial recipient of the goods or services. Total revenue is all revenue of the person in the period. Clause 3 removes the property, permanent establishment and intellectual property revenue listed above from both figures.",
+        "The numbers come from Ministerial Decision No. 229 of 2025, which repealed and replaced Ministerial Decision No. 265 of 2023 with effect from 1 June 2023. Article 3 of the 2025 Decision keeps the test at 5% of total revenue or AED 5,000,000, whichever is lower. The 2025 Decision also widened qualifying commodity trading, so revenue that was non-qualifying under the old list may now be qualifying: recheck your classification before relying on an older workpaper.",
+        "The cost of failing is severe. Under Ministerial Decision No. 229 of 2025, a person that fails any condition at any time in a tax period stops being a Qualifying Free Zone Person from the beginning of that period and for the following four tax periods. During those periods it is taxed like any other taxable person: 0% on the first AED 375,000 of taxable income and 9% above it, with no 0% rate on qualifying income.",
+        "The de minimis is one of several conditions. A Qualifying Free Zone Person must also keep adequate substance in the free zone, meet the transfer pricing rules, not elect for the standard rates, and prepare audited financial statements (now under Ministerial Decision No. 84 of 2025). Our guide to the [free zone 0% rate](/guides/free-zone-corporate-tax-0-percent) covers them, and the [audit requirement checker](/tools/uae-audit-requirement-checker) covers the audit point."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A JAFZA distribution company has gross revenue of AED 32 million for 2025. AED 2 million of that is rent from warehouse space it sublets to mainland companies. Of the remaining AED 30 million, AED 1.2 million comes from services to mainland customers that are not qualifying activities. The rest is qualifying distribution income."
+    ],
+    "list": [
+      "Step 1: remove the AED 2 million of rent from mainland tenants. It is revenue from commercial property in a free zone transacted with non-free zone persons, so it sits outside both sides of the test (it is taxed at 9% separately).",
+      "Step 2: enter total revenue 30,000,000 and non-qualifying revenue 1,200,000.",
+      "Step 3: threshold = lower of 5,000,000 and 5% x 30,000,000 = AED 1,500,000.",
+      "Step 4: 1,200,000 is not above 1,500,000, so the result is Within, with AED 300,000 of headroom.",
+      "Step 5: the mistake to avoid. If the rent were left in both figures as non-qualifying revenue, total revenue would be 32,000,000, the threshold AED 1,600,000 and non-qualifying revenue AED 3,200,000: a false breach of AED 1,600,000.",
+      "Step 6: headroom is not a spending limit, because extra non-qualifying revenue also raises total revenue. A further AED 315,790 of mainland service revenue (total revenue 30,315,790, threshold AED 1,515,789.50, non-qualifying revenue 1,515,790) would tip the test into breach and cost the 0% rate for 2025 to 2029."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the de minimis rule for UAE free zone companies?",
+      "a": "Non-qualifying revenue in a tax period must not exceed the lower of 5% of total revenue and AED 5,000,000. Ministerial Decision No. 229 of 2025 sets these figures. A free zone person with AED 30 million of revenue can earn up to AED 1.5 million of non-qualifying revenue and keep the 0% rate."
+    },
+    {
+      "q": "What happens if a free zone company breaches the de minimis?",
+      "a": "It stops being a Qualifying Free Zone Person from the start of that tax period and for the next four periods. All its taxable income is then taxed at the standard rates, 0% up to AED 375,000 and 9% above."
+    },
+    {
+      "q": "Does rental income count towards the de minimis test?",
+      "a": "Not where it comes from free zone property let to non-free zone persons as commercial property, or from residential or other non-commercial property. Cabinet Decision No. 100 of 2023 removes that revenue from both non-qualifying and total revenue, and it is taxed at 9% on its own."
+    },
+    {
+      "q": "Is the AED 5 million de minimis limit per year?",
+      "a": "It is per tax period, which is normally the 12-month financial year. The test is run again for each period on that period's revenue."
+    },
+    {
+      "q": "Did Ministerial Decision 229 of 2025 change the de minimis?",
+      "a": "No. It replaced Ministerial Decision No. 265 of 2023 from 1 June 2023 and kept the 5% or AED 5,000,000 test. Its main change was to the list of qualifying activities, for example wider qualifying commodity trading."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 229 of 2025 on Qualifying Activities and Excluded Activities",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/09/EN-Ministerial-Decision-No.-229-of-2025-Regarding-Qualifying-Activities-and-Excluded-Activities.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Cabinet Decision No. 100 of 2023 on Determining Qualifying Income",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/11/Cabinet-Decision-No.-100-of-2023-on-Determining-Qualifying-Income-for-the-Qualifying-Free-Zone-Person.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments (Article 18)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    }
+  ]
+}

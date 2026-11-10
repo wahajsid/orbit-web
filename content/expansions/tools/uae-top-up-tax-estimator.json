@@ -1,0 +1,102 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this estimator works",
+      "ps": [
+        "Enter four figures for all of the group's UAE entities together: GloBE income, adjusted covered taxes, eligible payroll costs and the carrying value of tangible assets. Then choose the year in which the fiscal year starts: 2025, 2026 or 2027.",
+        "The estimator follows the jurisdictional calculation in Article 5 of the OECD GloBE Model Rules. The effective tax rate is covered taxes ÷ GloBE income. The top-up percentage is 15% minus that rate, and nil if the rate is 15% or more. The substance-based income exclusion is a percentage of payroll plus a percentage of tangible assets. Excess profit is GloBE income less the exclusion, and never below nil. The estimated top-up tax is the top-up percentage × excess profit.",
+        "If GloBE income is nil or negative, the estimator shows no top-up tax. Negative payroll, asset and tax figures are treated as nil."
+      ],
+      "list": [
+        "Transitional exclusion rates used: 9.6% of payroll and 7.6% of tangible assets for years starting in 2025; 9.4% and 7.4% for 2026; 9.2% and 7.2% for 2027",
+        "For 2025 and 2026 the note shows the simplified effective rate the transitional CbCR safe harbour needs: 16% and 17%",
+        "Not modelled: the GloBE income and covered tax adjustments themselves, additional current top-up tax, the de minimis exclusion, the safe harbours, excluded entities, and the allocation of the tax between entities. Treat the result as a first estimate before advisers run the full computation"
+      ]
+    },
+    {
+      "h": "Who pays the UAE top-up tax",
+      "ps": [
+        "Cabinet Decision No. 142 of 2024 introduced a Domestic Minimum Top-up Tax (DMTT) for fiscal years starting on or after 1 January 2025. It applies to UAE entities of multinational groups with annual revenue of EUR 750 million or more in the ultimate parent's consolidated financial statements in at least two of the four fiscal years immediately before the year in question. The Ministry of Finance says the rules follow the OECD GloBE Model Rules and are read in line with the OECD Commentary and Administrative Guidance.",
+        "UAE groups end up below 15% for familiar reasons: the 9% Corporate Tax rate, the 0% band on the first AED 375,000, and above all the 0% rate for a [Qualifying Free Zone Person](/guides/free-zone-corporate-tax-0-percent). Because the calculation blends every UAE entity, one 0% company can pull down the rate for the whole UAE footprint. Use the [Corporate Tax calculator](/tools/uae-corporate-tax-calculator) for the 9% side."
+      ]
+    },
+    {
+      "h": "The substance-based income exclusion",
+      "ps": [
+        "The exclusion takes a routine return on people and physical assets out of the charge. Under Article 5.3 of the Model Rules the long-run rates are 5% of eligible payroll costs and 5% of the carrying value of eligible tangible assets. Article 9.2 replaces both with higher transitional rates that fall each year: for fiscal years beginning in 2025, 9.6% and 7.6%; in 2026, 9.4% and 7.4%; in 2027, 9.2% and 7.2%. The rates step down further until 2033.",
+        "The exclusion only reduces the profit the top-up percentage is applied to. It does not change the effective tax rate. A group whose UAE profit is mostly routine, with large payroll and assets in the UAE, can therefore face a low rate and still owe little."
+      ]
+    },
+    {
+      "h": "Safe harbours and registration",
+      "ps": [
+        "The OECD's December 2022 safe harbour package set a transitional CbCR safe harbour for fiscal years beginning on or before 31 December 2026, under which top-up tax is deemed nil if the country-by-country report passes a de minimis, simplified effective tax rate or routine profits test. The simplified rate must be at least 16% for 2025 and 17% for 2026. The OECD's 2026 side-by-side package agreed to extend that safe harbour by one year; check whether the UAE has adopted the extension before relying on it for 2027.",
+        "A safe harbour removes the tax, not the registration. Under FTA Decision No. 12 of 2026, an entity in scope must register for top-up tax within seven months of the end of its first fiscal year in scope, and an entity whose fiscal year ended before 30 April 2026 must register on or before 30 November 2026. That includes every group with a calendar 2025 year. The [DMTT guide](/guides/uae-domestic-minimum-top-up-tax) covers returns, payment and penalties."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: three UAE entities of a European group",
+    "ps": [
+      "Use the estimator's defaults. A group with EUR 2 billion of revenue has a mainland trading company, a free zone distribution hub and a services company in the UAE. For the fiscal year starting in 2025, their combined GloBE income is AED 400,000,000 and their adjusted covered taxes are AED 30,000,000. Eligible payroll is AED 50,000,000 and tangible assets carry at AED 200,000,000."
+    ],
+    "list": [
+      "UAE effective tax rate: 30,000,000 ÷ 400,000,000 = 7.50%",
+      "Top-up percentage: 15% − 7.50% = 7.50%",
+      "Exclusion: 9.6% × 50,000,000 = 4,800,000, plus 7.6% × 200,000,000 = 15,200,000, total AED 20,000,000",
+      "Excess profit: 400,000,000 − 20,000,000 = AED 380,000,000",
+      "Estimated top-up tax: 7.50% × 380,000,000 = AED 28,500,000",
+      "Switch the year to 2026 with the same figures: the exclusion falls to AED 19,500,000, excess profit rises to AED 380,500,000 and the estimate to AED 28,537,500",
+      "Registration for the 2025 year is due by 30 November 2026 whatever the final figure"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the UAE Domestic Minimum Top-up Tax?",
+      "a": "A tax under Cabinet Decision No. 142 of 2024 that lifts the effective tax rate of a large multinational group's UAE entities to 15%, for fiscal years starting on or after 1 January 2025. It follows the OECD Pillar Two GloBE Model Rules."
+    },
+    {
+      "q": "Who is in scope of the UAE 15% minimum tax?",
+      "a": "UAE entities of multinational groups whose consolidated revenue was EUR 750 million or more in at least two of the four fiscal years immediately before the year being tested."
+    },
+    {
+      "q": "How is the top-up tax calculated?",
+      "a": "Divide covered taxes by GloBE income to get the effective tax rate. The top-up percentage is 15% minus that rate. Apply it to excess profit, which is GloBE income less the substance-based income exclusion for payroll and tangible assets."
+    },
+    {
+      "q": "What are the substance-based income exclusion rates for 2025 and 2026?",
+      "a": "For fiscal years beginning in 2025, 9.6% of eligible payroll and 7.6% of tangible assets. For 2026, 9.4% and 7.4%. For 2027, 9.2% and 7.2%, under Article 9.2 of the OECD Model Rules."
+    },
+    {
+      "q": "When is the UAE top-up tax registration deadline?",
+      "a": "Within seven months of the end of the first fiscal year in scope. For a fiscal year ending before 30 April 2026, including a calendar 2025 year, the deadline is 30 November 2026 under FTA Decision No. 12 of 2026."
+    },
+    {
+      "q": "Does a free zone company pay the UAE top-up tax?",
+      "a": "It can. Its income and taxes are blended with the group's other UAE entities, so a 0% Qualifying Free Zone Person in an in-scope group pulls the UAE effective rate down and can create a top-up."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: announcement of Cabinet Decision No. 142 of 2024 on the top-up tax for multinational enterprises",
+      "href": "https://mof.gov.ae/en/news/ministry-of-finance-announces-issuance-of-a-cabinet-decision-on-the-introduction-of-top-up-tax-for-multinational-enterprises/"
+    },
+    {
+      "label": "FTA: Decision No. 12 of 2026 on registration and deregistration timelines for top-up tax",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/legislation/FTA%20Decision%20No.%2012%20of%202026%20on%20Registration%20and%20Deregistration%20Timelines%20-%2008%202026.pdf"
+    },
+    {
+      "label": "OECD: Global Anti-Base Erosion Model Rules (Pillar Two), Articles 5.2, 5.3 and 9.2",
+      "href": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2021/12/tax-challenges-arising-from-digitalisation-of-the-economy-global-anti-base-erosion-model-rules-pillar-two_eed81a23/782bac33-en.pdf"
+    },
+    {
+      "label": "OECD: Safe Harbours and Penalty Relief, Global Anti-Base Erosion Rules (Pillar Two), December 2022",
+      "href": "https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/safe-harbours-and-penalty-relief-global-anti-base-erosion-rules-pillar-two.pdf"
+    },
+    {
+      "label": "OECD: Global Anti-Base Erosion Model Rules (Pillar Two), Side-by-Side Package, 2026",
+      "href": "https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/side-by-side-package.pdf"
+    }
+  ]
+}

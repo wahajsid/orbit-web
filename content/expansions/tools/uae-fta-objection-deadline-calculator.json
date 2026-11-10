@@ -1,0 +1,87 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Choose what you are challenging, enter the date you were notified of the decision, and enter the number of public holidays that fall on weekdays inside the window. The calculator counts 40 business days forward and shows the last day to file, with the Article of the Tax Procedures Law that sets the deadline.",
+        "The count leaves out the day of notification, as Article 49 requires, and skips Saturdays and Sundays. Each holiday you enter adds one more business day. Because the count only ever lands on a weekday, the rule that a deadline falling on a non-business day moves to the next business day is built in."
+      ],
+      "list": [
+        "All four stages carry the same 40-business-day period, so the date does not change with the stage. The note changes: for an objection to the Committee it reminds you that the tax must be paid first, and for an appeal to court it adds the penalty payment condition",
+        "The calculator does not know the holiday calendar. Count only holidays that fall on a weekday in the window, and check whether the Cabinet has moved any of them",
+        "It does not calculate the FTA's or the Committee's own deadlines to decide, or extensions",
+        "Notification date means the date you were notified under the law, which may not be the date you first read the email. If in doubt, count from the earlier date"
+      ]
+    },
+    {
+      "h": "The four deadlines in the Tax Procedures Law",
+      "list": [
+        "Tax assessment review (Article 28): a request to review a tax assessment and its penalties, with reasons, within 40 business days of being notified. The FTA decides within 40 business days and tells you within 5. You can then ask for reconsideration of that decision within 40 business days",
+        "Reconsideration (Article 29): a request to reconsider any FTA decision, with reasons, within 40 business days of being notified. The FTA decides with reasons within 40 business days and tells you within 5. You cannot ask for reconsideration of an assessment while a review of it is still pending",
+        "Objection to the Tax Disputes Resolution Committee (Article 32): within 40 business days of being notified of the FTA's reconsideration decision. The objection is not accepted unless a reconsideration request was made first and the tax in dispute has been paid in full. The Committee decides within 20 business days (Article 33)",
+        "Appeal to court (Article 36): within 40 business days of being notified of the Committee's decision. The appeal is inadmissible unless the tax is paid in full and at least 50% of the penalties are paid or covered by an approved bank guarantee"
+      ],
+      "ps": [
+        "These Articles are in Federal Decree-Law No. 28 of 2022 as amended, most recently by Federal Decree-Law No. 17 of 2025 with effect from 1 January 2026."
+      ]
+    },
+    {
+      "h": "Business days, holidays and extensions",
+      "ps": [
+        "A business day is any day except weekends and official holidays. Article 49 adds three rules: the day of notification does not count, a period ending on a non-business day runs to the next business day, and periods are counted on the Gregorian calendar. The calculator treats Saturday and Sunday as the weekend.",
+        "Article 35 lets the FTA or the Committee extend your periods under Articles 28, 29 and 32 for reasons set out in the Executive Regulation. A refusal to extend the period for an objection or a court appeal is final and cannot itself be challenged, so plan to file within the original deadline.",
+        "Where the tax and penalties in the Committee's decision do not exceed AED 100,000 in total, the decision is final (Article 33(3)). Above that, it becomes enforceable if no one appeals to court within 40 business days (Article 34(2)). For what leads to an assessment in the first place, see the [group tax audit guide](/guides/uae-fta-group-tax-audit) and the [FTA VAT audit guide](/guides/uae-fta-vat-audit-preparation)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: an assessment notified in October",
+    "ps": [
+      "Use the calculator's defaults. The FTA notifies a company of a tax assessment on Tuesday 20 October 2026, and the company wants a review."
+    ],
+    "list": [
+      "Day 1 is Wednesday 21 October 2026; the notification day does not count",
+      "With no holidays entered, the 40th business day is Tuesday 15 December 2026",
+      "The window includes the National Day holiday on 2 and 3 December, which falls on a Wednesday and Thursday in 2026. Enter 2 and the last day becomes Thursday 17 December 2026. Check the official announcement for any other holiday in the window",
+      "When the FTA's review decision arrives, run the calculator again from the date you are notified of it to get the 40-business-day deadline for reconsideration, and repeat at each later stage",
+      "At the objection stage, pay the disputed tax before filing. The penalties can wait until the court stage, where at least 50% must be paid or guaranteed"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How long do I have to object to an FTA decision in the UAE?",
+      "a": "40 business days from the date you are notified, to request a reconsideration under Article 29 of the Tax Procedures Law. For a tax assessment you can instead request a review under Article 28 within the same 40 business days."
+    },
+    {
+      "q": "How are business days counted for FTA deadlines?",
+      "a": "Weekends and official holidays do not count, the day of notification is not counted, and a deadline that falls on a non-business day moves to the next business day (Article 49)."
+    },
+    {
+      "q": "What is the deadline to object to the Tax Disputes Resolution Committee?",
+      "a": "40 business days from notification of the FTA's reconsideration decision. The objection is only accepted if you requested reconsideration first and have paid the disputed tax in full."
+    },
+    {
+      "q": "Do I have to pay the tax before objecting to the FTA?",
+      "a": "Not for a review or reconsideration request. For an objection to the Committee the tax must be paid in full, and for an appeal to court the tax must be paid in full and at least 50% of the penalties paid or guaranteed."
+    },
+    {
+      "q": "Can the FTA objection deadline be extended?",
+      "a": "The FTA or the Committee may extend it for reasons listed in the Executive Regulation, but a refusal to extend the period for an objection or a court appeal is final. Do not rely on getting one."
+    },
+    {
+      "q": "When is the Tax Disputes Resolution Committee's decision final?",
+      "a": "When the tax and administrative penalties in the decision do not exceed AED 100,000 in total. Above that, either side can appeal to court within 40 business days."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 28 of 2022 on Tax Procedures and its amendments (Articles 28, 29, 32 to 36 and 49)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%2028%20of%202022%20-%20publishing%2003%2012%202025.pdf"
+    },
+    {
+      "label": "UAE Government portal: public holidays",
+      "href": "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"
+    }
+  ]
+}

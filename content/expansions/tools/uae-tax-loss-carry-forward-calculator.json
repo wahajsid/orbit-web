@@ -1,0 +1,69 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "There are two inputs: taxable income for the current tax period before any loss relief, and the tax losses brought forward that are still available, both in AED. Negative entries are treated as zero.",
+        "The cap is 75% of the period's taxable income. Losses used = the lower of the losses available and the cap. Taxable income after offset = taxable income - losses used. Tax payable = the higher of zero and (taxable income after offset - 375,000) x 9%, shown to two decimals. Losses carried onward = losses available - losses used. All other figures are rounded to the nearest dirham.",
+        "The calculator assumes the losses have passed the survival tests described below and that the business is not a Qualifying Free Zone Person or a member of a Tax Group. It handles one period at a time: for a run of years, enter each year's taxable income with the previous year's 'carried onward' figure."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 37 of Federal Decree-Law No. 47 of 2022 allows a tax loss to be set against the taxable income of later periods, with no time limit. The amount used in any later period cannot exceed 75% of that period's taxable income before any loss relief. Article 37(4) makes the offset compulsory: losses must be used against the next period's income, up to the cap, before anything can be carried further. You cannot choose to save them for a higher-rate year.",
+        "Three kinds of loss can never be relieved (Article 37(3)): losses from before Corporate Tax began for you, losses incurred before you became a taxable person, and losses from an asset or activity whose income is exempt or not taken into account, such as a loss on a participation that qualifies for exemption.",
+        "Article 39 adds a survival test. Losses can be carried forward only if the same person or persons continuously owned at least 50% of the business from the start of the loss period to the end of the period of use, or, after a change of more than 50%, the business continued the same or a similar activity. Relevant factors are whether it uses some or all of the same assets, has not made significant changes to its core identity or operations, and whether any change grew out of what existed before. Companies listed on a recognised stock exchange are outside this test.",
+        "Ministerial Decision No. 73 of 2023 stops losses made in a Small Business Relief period from being carried forward at all. Losses from earlier normal periods survive and can be used in a later period where the relief is not elected. Within a group with at least 75% common ownership, Article 38 also allows a loss to be transferred to another resident company, subject to the same 75% cap; see the [Qualifying Group relief guide](/guides/uae-qualifying-group-relief)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "An Abu Dhabi hospitality company made a tax loss of AED 3,100,000 in 2024, its first Corporate Tax period. Ownership has not changed. In 2025 its taxable income before loss relief is AED 2,400,000."
+    ],
+    "list": [
+      "Step 1: enter taxable income 2,400,000 and brought-forward losses 3,100,000.",
+      "Step 2: cap = 75% x 2,400,000 = AED 1,800,000.",
+      "Step 3: losses used = lower of 3,100,000 and 1,800,000 = AED 1,800,000.",
+      "Step 4: taxable income after offset = 2,400,000 - 1,800,000 = AED 600,000.",
+      "Step 5: tax payable = (600,000 - 375,000) x 9% = AED 20,250.00, due by 30 September 2026.",
+      "Step 6: losses carried onward = 3,100,000 - 1,800,000 = AED 1,300,000. In 2026, enter that figure with the 2026 taxable income.",
+      "Step 7: the entries. Dr Current tax expense 20,250; Cr Corporate Tax payable 20,250. Under IAS 12 the deferred tax asset on the loss is unwound as it is used; at 9%, using AED 1,800,000 of loss releases about AED 162,000 of the asset, but only where the asset was recognised and allowing for the AED 375,000 band."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How long can tax losses be carried forward in the UAE?",
+      "a": "Indefinitely. Article 37 of the Corporate Tax Law sets no expiry date, as long as the 50% ownership test or the same-business test in Article 39 keeps being met."
+    },
+    {
+      "q": "What is the 75% loss limit in UAE corporate tax?",
+      "a": "Brought-forward losses can reduce a period's taxable income by at most 75% of that income before loss relief. With AED 1,000,000 of income, up to AED 750,000 of losses can be used and AED 250,000 stays taxable."
+    },
+    {
+      "q": "Can I choose not to use my tax losses this year?",
+      "a": "No. Article 37(4) requires losses carried forward to be set off against the next period's taxable income, up to the 75% cap, before any remainder carries further."
+    },
+    {
+      "q": "Do tax losses survive a change in ownership?",
+      "a": "Yes if the same owners kept at least 50% throughout, or, after a change of more than 50%, the company continues the same or a similar business. Listed companies are exempt from this test."
+    },
+    {
+      "q": "Can losses from before corporate tax started be used?",
+      "a": "No. Losses incurred before Corporate Tax applied to you, or before you became a taxable person, cannot be relieved. Our guide to [tax loss carry-forward](/guides/uae-tax-loss-carry-forward) covers the transition rules."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ministry of Finance: Federal Decree-Law No. 47 of 2022 and its amendments (Articles 37 to 39)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 73 of 2023 on Small Business Relief (Article 4)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2023/04/Ministerial-Decision-No.-73-of-2023-on-Small-Business-Relief-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+    }
+  ]
+}

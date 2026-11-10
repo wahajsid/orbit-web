@@ -1,0 +1,101 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Start with revenue for the financial year as shown in the financial statements, and the total of Box 1, Box 4 and Box 5 from the VAT returns covering the same months. Then enter the reconciling items, each as a positive number in the field with the right sign.",
+        "Expected VAT supplies = revenue + advances received this year for later work − prior-year advances recognised as revenue this year − unbilled revenue with no tax point yet + supplies that are not revenue − income that is not a supply ± other items. The calculator compares that with what was declared and shows the unexplained difference in dirhams and as a percentage of expected supplies. A difference under AED 1 counts as closed."
+      ],
+      "list": [
+        "A positive difference means you declared more for VAT than the bridge expects; a negative one means less",
+        "Use the “other items” field for exchange rate differences, credit notes falling in a different period, and anything else you can evidence. Enter a negative figure to subtract",
+        "The calculator does the arithmetic. It does not tell you whether an item is correctly treated for VAT, and it does not decide whether a voluntary disclosure is needed",
+        "Work one entity, or one VAT tax group, at a time. The perimeter must be the same on both sides"
+      ]
+    },
+    {
+      "h": "Which VAT figures to use",
+      "ps": [
+        "Compare revenue with the net value of standard-rated supplies (Box 1), zero-rated supplies (Box 4) and exempt supplies (Box 5) on the VAT201 return. Leave out Box 3, which reports supplies received under the reverse charge, and the import boxes, which are purchases rather than sales.",
+        "Line up the months. VAT quarters are often staggered, for example ending in February, May, August and November, so they will not match a December year-end. Use monthly figures from the ledger behind each return, or add the returns that cover the financial year and adjust for the months at each end. If one VAT tax group return covers several companies, reconcile it against the combined revenue of the same companies; see the [VAT tax group guide](/guides/uae-vat-tax-group)."
+      ]
+    },
+    {
+      "h": "Why the two numbers differ",
+      "list": [
+        "Advances: VAT is due on receipt of payment when that comes before delivery, but under IFRS 15 an advance stays a liability until the work is done. This year's advances for next year's work add to VAT supplies; last year's advances recognised as revenue now come off",
+        "Unbilled revenue: revenue recognised on work in progress where no invoice has been issued and no payment received may not have reached its date of supply for VAT yet",
+        "Supplies that are not revenue: a sale of a fixed asset is a supply at its full price for VAT, while the accounts show only the gain or loss. Deemed supplies under Article 11 of the VAT Decree-Law, such as certain gifts or private use of business goods, have no revenue at all",
+        "Income that is not a supply: dividends, fair value gains and similar items are in the accounts but are not consideration for a supply",
+        "Exchange rates: VAT uses the Central Bank rate at the date of supply, which may differ from the rate in the books; see [foreign-currency invoices](/guides/uae-vat-foreign-currency-invoices)",
+        "Credit notes and corrections: a credit note issued after year-end, or a voluntary disclosure, moves VAT turnover into another period"
+      ]
+    },
+    {
+      "h": "When the bridge does not close",
+      "ps": [
+        "Investigate the unexplained difference until each part is either explained with evidence or corrected. A VAT error that changes the tax due may need a [voluntary disclosure](/guides/uae-vat-voluntary-disclosure) rather than a correction in the next return, and the [voluntary disclosure penalty calculator](/tools/uae-voluntary-disclosure-penalty-calculator) shows the cost. Keep the bridge with the Corporate Tax working papers: Article 56 of the Corporate Tax Law requires records that support the return to be kept for seven years after the end of the tax period. The [reconciliation guide](/guides/uae-vat-corporate-tax-reconciliation) explains each reconciling item in more detail."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a services company's 2025 bridge",
+    "ps": [
+      "Use the calculator's defaults. A company's revenue for 2025 is AED 48,500,000. The VAT returns for January to December 2025 declare AED 48,610,000 across Boxes 1, 4 and 5."
+    ],
+    "list": [
+      "Add AED 1,200,000 of advances received in 2025 for 2026 deliveries, which were taxed for VAT on receipt",
+      "Subtract AED 900,000 of advances taxed for VAT in 2024 and recognised as revenue in 2025",
+      "Subtract AED 600,000 of unbilled revenue with no invoice issued and no payment received",
+      "Add AED 350,000 for vehicles sold during the year, declared in Box 1 at their sale price",
+      "Expected VAT supplies: 48,500,000 + 1,200,000 − 900,000 − 600,000 + 350,000 = AED 48,550,000",
+      "Unexplained difference: 48,610,000 − 48,550,000 = +AED 60,000, which is 0.12% of expected supplies",
+      "The team finds a December credit note of AED 60,000 that was booked in the 2025 accounts but issued and declared in January 2026, outside the VAT months used. Enter 60,000 under other items and the bridge closes"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Should VAT turnover match revenue in the Corporate Tax return?",
+      "a": "Not exactly, but every difference should be explained. Advances, unbilled revenue, asset sales, income that is not a supply, exchange rates and credit notes all create legitimate differences."
+    },
+    {
+      "q": "Which VAT return boxes should I compare with revenue?",
+      "a": "Box 1 (standard-rated supplies), Box 4 (zero-rated supplies) and Box 5 (exempt supplies), net of VAT, for the same months as the financial year. Leave out Box 3 reverse charge supplies and the import boxes."
+    },
+    {
+      "q": "How do I reconcile VAT returns with the financial statements?",
+      "a": "Start from revenue in the financial statements, add and subtract each reconciling item with a schedule behind it, compare the result with Box 1, 4 and 5 for the same months, and investigate whatever is left until it is explained or corrected."
+    },
+    {
+      "q": "Why is my VAT turnover higher than my revenue?",
+      "a": "Common reasons are advances received before the work is done, sales of fixed assets declared at full price, deemed supplies, and credit notes that fall into a different period. If none of these explains it, check for errors."
+    },
+    {
+      "q": "What if the reconciliation shows a VAT error?",
+      "a": "Correct it. Depending on the size and type of error, that may mean a voluntary disclosure for the original period rather than an adjustment in the next return."
+    },
+    {
+      "q": "How long should I keep the VAT to Corporate Tax reconciliation?",
+      "a": "With the Corporate Tax working papers for seven years after the end of the tax period, as Article 56 of the Corporate Tax Law requires for records that support the return."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Article 56)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 11, 25 and 69)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (VAT201 boxes)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    },
+    {
+      "label": "IFRS Foundation: IFRS 15 Revenue from Contracts with Customers",
+      "href": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "Goods sold online, delivered in the UAE",
+      "ps": [
+        "Domestic e-commerce is plain VAT: 5% on the price, a tax invoice (simplified is usually enough for consumers), and output tax in the period of supply. The platform doesn't change the analysis — a sale through your own site, a marketplace, or Instagram DM is the same supply. What online sellers actually get wrong is registration timing: the AED 375,000 mandatory threshold creeps up on a growing store month by month, and it tests taxable supplies and imports over the rolling previous 12 months, not the calendar year.",
+        "A simplified tax invoice is allowed where the customer is not VAT-registered, or is registered and the consideration does not exceed AED 10,000 (Executive Regulation Article 59(5)). A business customer buying above that needs a full tax invoice, so a B2B checkout should capture the buyer's TRN."
+      ]
+    },
+    {
+      "h": "The registration test in detail",
+      "ps": [
+        "Under Article 13 of the VAT Decree-Law and Article 7 of the Executive Regulation, a UAE-resident business must register when the value of its taxable supplies and imports exceeded AED 375,000 over the previous 12 months, or is expected to exceed it in the next 30 days. Zero-rated exports count towards the threshold; exempt and out-of-scope supplies do not. The application is due within 30 days of the obligation arising, and if you miss it the FTA registers you from the date you should have been registered and you owe the VAT on sales made since then.",
+        "Run the test at the end of every month on the trailing 12 months, and separately whenever a large order, a marketing campaign or a marketplace launch makes the next 30 days look different. Voluntary registration is available from AED 187,500. The [VAT registration checker](/tools/uae-vat-registration-checker) runs both tests."
+      ]
+    },
+    {
+      "h": "When the tax point falls on an online order",
+      "ps": [
+        "For a single sale of goods, Article 25 of the Decree-Law fixes the date of supply as the earliest of delivery (or the goods being put at the customer's disposal), receipt of payment, or the tax invoice. Most online orders are paid at checkout, so the tax point is the payment date, even if dispatch happens the following month. Cash-on-delivery orders reverse that: the tax point is usually delivery.",
+        "Returns and refunds are adjusted through a tax credit note under Article 70 of the Decree-Law, not by netting the refund off next month's sales. Keep the link from each credit note to the original invoice so the adjustment can be traced."
+      ]
+    },
+    {
+      "h": "Goods shipped abroad",
+      "ps": [
+        "An export of goods is zero-rated — 0% VAT, with full input-tax recovery — but the rate is earned by evidence: official customs exit documents and commercial evidence of the shipment, retained per order. An online seller shipping GCC and international orders without an evidence file is sitting on supplies the FTA can re-rate to 5% wholesale. Zero-rated is a documentation standard, not a default.",
+        "Since 15 November 2024, Article 30 of the Executive Regulation (as amended by Cabinet Decision No. 100 of 2024) accepts, for a direct export: a customs declaration plus commercial evidence such as an air, sea or land waybill or manifest; or a shipping certificate from the carrier plus official evidence such as a customs exit or clearance certificate; or, for goods placed under customs suspension, the customs declaration for that suspension. The goods must leave the UAE within 90 days of the date of supply, and the evidence must identify the supplier, the consignor, the goods, the value, the destination and the mode and route of transport. Courier consignments for low-value parcels need the same discipline: the courier's export manifest is the commercial evidence and it must tie to your order number."
+      ]
+    },
+    {
+      "h": "Goods sent into the UAE",
+      "ps": [
+        "Goods sold while they are still outside the UAE are supplied outside the UAE, so no UAE VAT applies to the sale itself; import VAT is due instead from whoever is named as the importer for customs. A VAT-registered importer that has linked its customs registration number to its TRN accounts for the import VAT in its return and can usually recover it in the same return. A seller that imports stock first and then sells it from a UAE warehouse makes a domestic supply with 5% VAT, which is the more common model for scaling online brands."
+      ]
+    },
+    {
+      "h": "Electronic services follow use, not the seller",
+      "ps": [
+        "For electronically supplied services — apps, SaaS, streaming, e-learning, digital downloads — the place of supply follows where the service is actually used and enjoyed. Sold to users in the UAE, they carry UAE VAT; genuinely used abroad, they are outside the scope of UAE VAT under Article 31 of the Decree-Law, evidence again deciding, and input tax on the costs of making them remains recoverable. The rule cuts the other way too: a foreign platform selling electronic services to UAE consumers must register for UAE VAT with no threshold — the first dirham counts.",
+        "Article 23(2) of the Executive Regulation defines electronic services as services automatically delivered over the internet, an electronic network or an electronic marketplace, and lists domain names and hosting, software and updates, digitised content, music, films and games on demand, online magazines, website advertising space, broadcasts, live streaming and distance learning. The FTA's e-commerce guide adds that the delivery must involve minimal human input: bespoke software built to order is not an electronic service even if it is delivered online. A non-resident with UAE business customers who are VAT-registered does not need to register for those sales, because the customer accounts for the VAT under the [reverse charge](/guides/uae-vat-reverse-charge)."
+      ]
+    },
+    {
+      "h": "Marketplaces: whose supply is it?",
+      "ps": [
+        "Article 9 of the Decree-Law decides this. An agent acting in the name of and on behalf of the seller (a disclosed agent) leaves the sale as the seller's supply; the platform's commission is its own separate supply to the seller. An agent acting in its own name (an undisclosed agent) is treated as buying from the seller and selling to the customer, so it accounts for VAT on the full sale price. The platform's terms and the documents the customer receives show which model applies, and both sides need to agree on it so that the sale is taxed once, not twice or not at all."
+      ]
+    },
+    {
+      "h": "Worked example: one month for a UAE online store",
+      "ps": [
+        "A VAT-registered store has the following month. Domestic orders paid at checkout total AED 210,000 including VAT, giving output VAT of AED 10,000. Exports to customers outside the UAE total AED 60,000, priced exclusive of VAT as Article 27(2) allows for exports. For AED 55,000 of those, the courier manifest and customs declaration are on file within 90 days, so they are zero-rated. For AED 5,000 the evidence is still missing after 90 days, so Article 30(9) requires VAT at 5%, AED 250, which the store now bears itself.",
+        "The store also sells a digital subscription. AED 21,000 including VAT comes from users in the UAE (output VAT AED 1,000); AED 30,000 comes from users abroad, which is outside the scope of UAE VAT under Article 31, so no output VAT arises on it. Payment gateway fees of AED 4,000 plus VAT of AED 200 carry a tax invoice from the gateway, so the AED 200 is recoverable input tax."
+      ],
+      "list": [
+        "Output VAT for the month: 10,000 + 250 + 1,000 = AED 11,250",
+        "Input VAT on gateway fees: AED 200",
+        "Zero-rated exports reported: AED 55,000; the AED 5,000 without evidence moves to standard-rated"
+      ]
+    },
+    {
+      "h": "E-invoicing and the October 2026 rules",
+      "ps": [
+        "The UAE e-invoicing system does not yet apply to sales to consumers. Under Ministerial Decision No. 244 of 2025, business-to-consumer transactions, and businesses that deal only with consumers, are outside the system until the Minister decides otherwise. B2B sellers are in: businesses with revenue of AED 50 million or more must appoint an accredited service provider by 30 October 2026 (extended from 31 July by Ministerial Decision No. 66 of 2026) and go live by 1 January 2027, and smaller businesses must appoint one by 31 March 2027 and go live by 1 July 2027. A store with both trade and retail customers needs a way to split the two at invoice level.",
+        "From 1 October 2026, Cabinet Decision No. 149 of 2026 also blocks input VAT on supplies above a ministerial threshold paid in cash. Stores that pay couriers, packers or suppliers in cash should read the [cash payments guide](/guides/uae-vat-cash-payments-petty-cash-2026) and move those payments to bank channels."
+      ]
+    },
+    {
+      "h": "The operational checklist",
+      "list": [
+        "Track the rolling-12-month taxable supplies and imports against AED 375,000 monthly, not annually",
+        "Keep customs exit evidence per exported order, linked to the order number",
+        "Classify each revenue stream: goods vs electronic services vs facilitation/commission — each has its own analysis",
+        "Marketplace sellers: agree in writing who invoices the customer and who accounts for the VAT — the platform's terms decide whose supply it is",
+        "COD and gateway settlements: reconcile collected VAT to the gateway payouts, where double-counting and gaps both hide"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab ingests order and gateway data, classifies each line by destination and stream, holds zero-rating where the export evidence is missing, watches the rolling threshold, and reconciles collected VAT against settlements — the whole checklist above, running continuously."
+      ]
+    },
+    {
+      "h": "Related reading",
+      "ps": [
+        "For subscription and app businesses, the [SaaS and digital services guide](/guides/uae-vat-saas-digital-services) goes further on use and enjoyment. To test a specific order flow, use the [e-commerce VAT checker](/tools/uae-ecommerce-vat-checker)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to register for VAT to sell online in the UAE?",
+      "a": "Yes, once your taxable supplies and imports exceed AED 375,000 over the previous 12 months or are expected to exceed it in the next 30 days, and you must apply within 30 days. Below that you can register voluntarily from AED 187,500. A business with no place of residence in the UAE has no threshold at all if no one else accounts for the VAT on its sales."
+    },
+    {
+      "q": "Is VAT charged on goods shipped outside the UAE from an online store?",
+      "a": "They can be zero-rated as exports if they leave the UAE within 90 days and you keep the evidence Article 30 of the Executive Regulation requires, such as a customs declaration with a waybill or manifest. Without that evidence the sale is taxed at 5%."
+    },
+    {
+      "q": "Do foreign companies selling digital services to UAE customers pay VAT?",
+      "a": "Yes. Electronic services are supplied where they are used and enjoyed, so services used in the UAE are within UAE VAT. A non-resident selling to UAE consumers must register with no threshold; for VAT-registered UAE business customers, the customer accounts for the VAT under the reverse charge instead."
+    },
+    {
+      "q": "Who charges VAT on marketplace sales, the platform or the seller?",
+      "a": "It depends on how the platform acts. If it sells in the seller's name as a disclosed agent, the seller charges VAT on the sale and the platform charges VAT on its commission. If it sells in its own name, it is treated as buying and reselling, so it accounts for VAT on the full price under Article 9 of the VAT Decree-Law."
+    },
+    {
+      "q": "Does UAE e-invoicing apply to online sales to consumers?",
+      "a": "Not yet. Ministerial Decision No. 244 of 2025 keeps business-to-consumer transactions, and businesses selling only to consumers, outside the e-invoicing system until a further decision. Sales to businesses are in scope from 1 January 2027 for sellers with revenue of AED 50 million or more and from 1 July 2027 for the rest."
+    },
+    {
+      "q": "When do I pay VAT on an online order paid at checkout but shipped later?",
+      "a": "In the period the payment is received. Under Article 25 of the VAT Decree-Law the date of supply is the earliest of delivery, payment or the tax invoice, so prepaid orders are taxed on the payment date, not the dispatch date."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: E-Commerce VAT Guide (VATGEC1)",
+      "href": "https://tax.gov.ae/DownloadOpenTextFile?fileUrl=en/VAT_VAT_Guides/E_Commerce/E_Commerce_VAT%20Guide_EN_09_08_2020_EN.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Articles 9, 13, 25, 31, 70), consolidated to 1 January 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law and its amendments (Articles 7, 23, 30, 59), consolidated to Cabinet Decision No. 149 of 2026",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 244 of 2025 on the Implementation of the Electronic Invoicing System",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/09/Ministerial-Decision-No.-244-of-2025-on-the-Implementation-of-the-Electronic-Invoicing-System.pdf"
+    },
+    {
+      "label": "Ministry of Finance: Ministerial Decision No. 66 of 2026 amending the e-invoicing implementation deadlines",
+      "href": "https://mof.gov.ae/wp-content/uploads/2026/05/Ministerial-Resolution-No.-66-of-2026-Amending-Certain-Provisions-of-Ministerial-Resolution-No.-244-of-2025-Regarding-the-Implementation-of-the-Electronic-Invoicing-System-En-20260514.pdf"
+    }
+  ],
+  "related": ["uae-vat-saas-digital-services", "uae-vat-reverse-charge", "uae-designated-zone-vat"]
+}

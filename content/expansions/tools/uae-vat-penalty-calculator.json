@@ -1,0 +1,76 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the VAT that is still unpaid and the number of days since the payment deadline, then tick whether the return itself was also late and whether that is a repeat. Negative entries are treated as zero and the days are rounded down to a whole number.",
+        "The late-payment penalty is worked out as unpaid VAT × 14% × months ÷ 12. Months are counted as days late divided by the average calendar month (365 ÷ 12, about 30.4 days), rounded up, so any part of a month counts as a full month: 1 to 30 days late is one month, 31 to 60 days is two, and a full year late is twelve. The old 300% cap no longer applies. The late-filing penalty is a fixed AED 1,000, or AED 2,000 if you tick the repeat box. The total is the two added together."
+      ],
+      "list": [
+        "Late payment: about 1.17% of the unpaid VAT for each month or part month",
+        "Late filing: AED 1,000 first time, AED 2,000 on a repeat within 24 months",
+        "The unpaid balance is assumed to stay the same for the whole period; if you paid part of it, run the calculator once per balance and period",
+        "The average-month count is a close approximation. The law charges on the same date each calendar month, so around month ends the exact count can differ by one from the figure here"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "From 14 April 2026, Cabinet Decision No. 129 of 2025 replaced the penalty table in Cabinet Decision No. 40 of 2017. For failure to settle payable tax on time, the penalty is now a monthly penalty of 14% a year, for each month or part of a month, on the unsettled payable tax. It starts on the day after the payment due date and is imposed again on the same date each month until the tax is paid. The old ladder of 2% and 4% charges followed by a monthly percentage, capped at 300%, no longer applies.",
+        "For VAT the payment deadline is the same as the filing deadline: the 28th day of the month after the tax period ends. Where the tax comes from a voluntary disclosure, the due date for this penalty is 20 business days from submitting the disclosure; for an FTA tax assessment it is 20 business days from receiving it.",
+        "Failing to file the return on time is a separate violation in Table 1 of the decision: AED 1,000 the first time and AED 2,000 for a repeat within 24 months. The same 14% late-payment rule applies to a registrant who fails to account for tax on behalf of another person, and to Corporate Tax and excise tax. For the Corporate Tax side, use the [Corporate Tax penalty calculator](/tools/uae-corporate-tax-penalty-calculator)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A trading company's return for the quarter ended 30 June 2026 was due on 28 July 2026, with VAT payable of AED 80,000. It filed and paid on 11 October 2026, 75 days late, and it had not filed late in the previous 24 months."
+    ],
+    "list": [
+      "Enter 80000 and 75, tick that the return was also late, leave repeat unticked",
+      "Months: 75 ÷ 30 = 2.5, rounded up to 3. On calendar dates the penalty is imposed on 29 July, 29 August and 29 September, so the count agrees",
+      "Late-payment penalty: 80,000 × 14% × 3 ÷ 12 = AED 2,800",
+      "Late-filing penalty: AED 1,000",
+      "Total exposure: AED 3,800. Under the pre-April 2026 rules the same facts would have cost far more, because the old 2% and 4% charges alone came to AED 4,800",
+      "Journal: debit penalties expense AED 3,800, credit FTA payable AED 3,800. Penalties are not input tax and are not deductible for Corporate Tax"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the penalty for late payment of VAT in the UAE?",
+      "a": "From 14 April 2026 it is 14% a year on the unpaid tax, charged monthly: about 1.17% for each month or part month, starting the day after the due date. The old 300% cap is gone, so the charge keeps running until the tax is paid."
+    },
+    {
+      "q": "What is the penalty for filing a VAT return late in the UAE?",
+      "a": "AED 1,000 the first time and AED 2,000 if it happens again within 24 months. This is separate from the late-payment penalty, so a return that is both late and unpaid attracts both."
+    },
+    {
+      "q": "Is there still a 300% cap on UAE VAT penalties?",
+      "a": "No. Cabinet Decision No. 129 of 2025 removed the old 2% and 4% ladder along with its 300% cap. The new 14% a year has no 300% ceiling, but it builds up far more slowly than the old ladder did."
+    },
+    {
+      "q": "Does the late-payment penalty stop when I file a voluntary disclosure?",
+      "a": "The disclosure has its own penalty of 1% of the tax difference a month up to the date you submit it. After that the disclosed tax is due within 20 business days, and if it is not paid by then the 14% a year late-payment penalty runs on it. The [voluntary disclosure calculator](/tools/uae-voluntary-disclosure-penalty-calculator) works out the first part."
+    },
+    {
+      "q": "Can FTA penalties be waived or paid in instalments?",
+      "a": "You can apply through EmaraTax for a penalty waiver or an instalment plan once the FTA has issued a penalty decision. An instalment plan needs unsettled penalties of at least AED 50,000 and no payable tax outstanding for the period. The FTA can take up to 110 business days to decide."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025 (Table 1, items 8, 9 and 14)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Cabinet%20Decision%20No.%2040%20of%202017%20and%20its%20amendments%20-%20publishing%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: entry into force of the decision amending administrative penalties (14 April 2026)",
+      "href": "https://tax.gov.ae/en/media.centre/news/federal.tax.authority.announces.entry.into.force.of.the.decision.amending.administrative.penalties.imposed.for.violations.of.tax.legislation.and.calls.on.registrants.to.benefit.from.the.advantages.of.the.new.decision.aspx"
+    },
+    {
+      "label": "FTA: requests for instalment, waiver and refund of administrative penalties",
+      "href": "https://tax.gov.ae/en/services/administrative.penalty.waiver.request.aspx"
+    }
+  ]
+}

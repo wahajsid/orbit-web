@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the VAT-inclusive amount written off in dirhams and the number of whole months since the date of supply, then tick three boxes: output VAT was charged and paid to the FTA, the consideration has been written off in your accounts, and the customer has been notified of the write-off.",
+        "The months test passes only when the number entered is greater than 6. Enter the count of complete months, so a supply made six months and ten days ago is entered as 6 and shows as not yet eligible. Wait until the six months have actually passed before claiming.",
+        "If all four conditions are met, the result shows the output tax adjustment, which is the amount written off x 5 / 105, to two decimal places. If any condition is missing, it lists the outstanding ones and shows no amount."
+      ],
+      "list": [
+        "Enter only the unpaid part. Receipts already collected against the invoice are not written off and carry no relief.",
+        "The 5/105 fraction assumes a standard-rated supply. Zero-rated and exempt supplies carried no output tax, so there is nothing to recover.",
+        "The tool does not compute the customer's input tax reversal or the VAT on any later recovery."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Bad-debt relief sits in Article 64 of Federal Decree-Law No. 8 of 2017 on VAT, as amended. Clause 1 lets a registered supplier reduce output tax in the current tax period to adjust output tax paid for a previous period, but only when all four conditions hold. The goods or services were supplied and the tax charged and paid. The consideration was written off in full or in part as a bad debt in the supplier's accounts. More than six months have passed from the date of supply. The supplier has notified the recipient of the amount written off.",
+        "Clause 3 fixes the amount: the tax related to the consideration written off. For a 5% supply, that is 5/105 of the VAT-inclusive amount written off. The six months run from the date of supply under Article 25, which is the earliest of delivery, completion, receipt of payment or the tax invoice. That is not the payment due date.",
+        "Clause 2 is the mirror. A registered customer that deducted the input tax, received your notice and has not paid for over six months must reduce its recoverable input tax by the same measure. An IFRS 9 loss allowance is not a write-off for this purpose. The receivable must be written off against the specific invoice. Our [bad-debt relief guide](/guides/uae-vat-bad-debt-relief) covers the evidence and the credit-note alternative.",
+        "If the customer later pays an amount you claimed relief on, Article 64 does not spell out the mechanism. Record the receipt and account for the VAT fraction of the amount received, and take advice where the sum is material. An error in a past claim is corrected through a [voluntary disclosure](/guides/uae-vat-voluntary-disclosure), which since 14 April 2026 costs 1% of the tax difference per month."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A registered consultancy completes a project on 12 January 2026 and invoices AED 200,000 plus VAT of AED 10,000, a total of AED 210,000. The VAT is declared and paid in the return for the quarter to 31 March 2026. The client pays AED 84,000 in March and nothing more. The board approves writing off the remaining AED 126,000 on 31 August 2026, and the client is notified by email on 3 September 2026."
+    ],
+    "list": [
+      "Step 1: enter 126,000 as the gross written-off amount, not the original AED 210,000.",
+      "Step 2: on 3 September seven complete months have passed since 12 January, so enter 7. The six-month mark was 12 July 2026.",
+      "Step 3: tick all three boxes. The result shows 'Relief available'.",
+      "Step 4: relief = 126,000 x 5 / 105 = AED 6,000.00. The VAT in the AED 84,000 that was paid stays with the FTA.",
+      "Step 5: journal on write-off: Dr Bad debt expense (or loss allowance) 120,000; Dr VAT bad-debt relief pending 6,000; Cr Trade receivables 126,000.",
+      "Step 6: when the notice is sent and the last condition is met: Dr VAT output 6,000; Cr VAT bad-debt relief pending 6,000. Report it in the return for the quarter to 30 September 2026.",
+      "Check: untick 'Customer notified' and the result changes to 'Not yet', with the outstanding condition listed."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How do I calculate VAT bad debt relief in the UAE?",
+      "a": "Multiply the VAT-inclusive amount written off by 5/105 for a standard-rated supply. Article 64(3) sets the relief equal to the tax related to the consideration written off, so AED 126,000 written off gives AED 6,000. Amounts already received are excluded."
+    },
+    {
+      "q": "What are the conditions for bad debt relief under UAE VAT?",
+      "a": "All four must be met. The supply was made and the VAT charged and paid, the consideration was written off in your accounts, more than six months have passed since the date of supply, and you have notified the customer of the amount written off."
+    },
+    {
+      "q": "When can I claim bad debt relief in the UAE?",
+      "a": "In the return for the tax period in which the last of the four conditions is met. That is never earlier than six months after the date of supply, and later if the write-off or the notice comes afterwards."
+    },
+    {
+      "q": "Can I claim bad debt relief on part of an invoice?",
+      "a": "Yes. Article 64 covers consideration written off in full or in part. Relief is the VAT fraction of the unpaid part only. Write off AED 126,000 of a AED 210,000 invoice and the relief is AED 6,000, not AED 10,000."
+    },
+    {
+      "q": "What happens if the customer pays after I claim bad debt relief?",
+      "a": "The relief you claimed on that amount no longer matches the facts. Article 64 does not set out the mechanism, so record the receipt and account for the VAT fraction of what you received. Take advice where the amount is material."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments, Articles 25 and 64",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation (Cabinet Decision No. 52 of 2017, consolidated to Cabinet Decision No. 149 of 2026), which adds no separate bad-debt conditions",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    }
+  ]
+}

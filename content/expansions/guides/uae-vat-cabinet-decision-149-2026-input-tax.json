@@ -1,0 +1,140 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 11,
+  "sections": [
+    {
+      "h": "What happened",
+      "ps": [
+        "Cabinet Decision No. 149 of 2026, issued on 1 September 2026 and announced by the Ministry of Finance on 8 September, amends Cabinet Decision No. 52 of 2017, the Executive Regulation of the UAE VAT law. Most of the changes take effect on 1 October 2026. The one exception is input tax apportionment, which changes from the first tax year commencing after 1 October 2027.",
+        "Three of the amendments change which input VAT you can recover. That makes them a bookkeeping problem before they are a tax-return problem: the test has to happen when the invoice arrives, not when the return is prepared. This guide lists each change, what it means in practice, and the check Hysaab now runs.",
+        "Two follow-on instruments matter. FTA Decision No. 17 of 2026, issued on 9 September 2026, published on 28 September and in force from 1 October 2026, sets the cases and conditions for recovering input tax on employee benefits under a contract or documented policy. The Ministerial Decision that will set the cash-payment threshold under Article 54(3) had not been published on the FTA legislation page as of 20 October 2026."
+      ]
+    },
+    {
+      "h": "1. Input tax is blocked on high-value supplies paid in cash (new Article 54(3))",
+      "ps": [
+        "From 1 October 2026, input tax cannot be recovered on any supply whose value exceeds a threshold to be set by the Minister, where the consideration is paid, or intended to be paid, in cash. The threshold and the controls sit in a Ministerial Decision that had not been issued at the time of writing.",
+        "This is a standalone denial of recovery, not a timing rule. The drafting refers to the value of the supply rather than to the invoice or the payment, so on a literal reading a large supply that is partly settled in cash could lose recovery on the whole supply. It complements FTA Decision 13 of 2026 on supplier due diligence, which already pushes businesses toward electronic settlement. The open questions on cheques, part-cash settlement and petty cash are worked through in our guide to [VAT on cash payments and petty cash](/guides/uae-vat-cash-payments-petty-cash-2026)."
+      ],
+      "list": [
+        "Map where cash settlement happens above any likely threshold: site petty cash, subcontractor payments, cash on delivery, retail and food and beverage purchasing.",
+        "Move those flows to traceable bank channels before October.",
+        "Record the settlement method against each purchase so the block can be applied and evidenced."
+      ]
+    },
+    {
+      "h": "2. Employee benefits: the exceptions are redrafted (Article 53(1)(c))",
+      "ps": [
+        "Input tax on goods and services provided to employees stays blocked in principle. Two exceptions survive, both narrower than before."
+      ],
+      "list": [
+        "Legal obligation: recovery is allowed where provision is mandatory under the labour legislation of the State or of any free zone, financial or non-financial. The old wording said Designated Zone, which never matched the DIFC and ADGM employment regimes; this widens the exception.",
+        "Accommodation is carved out of the legal-obligation route unless it is mandatory under decisions or directives of the Ministry of Human Resources and Emiratisation. Construction, hospitality, manufacturing and logistics businesses that recover VAT on labour accommodation and camp operating costs need to retest each cost against a MoHRE mandate rather than a general labour-law obligation.",
+        "Contractual obligation or documented policy: recovery now depends on the cases and conditions specified by the FTA, which it issued as FTA Decision No. 17 of 2026, in force from 1 October 2026. An employment contract or HR policy on its own is not a basis for recovery: the benefit must fall within one of the six cases set out below and meet every condition of that case.",
+        "Nothing in the amendment addresses utilities, furniture or maintenance around accommodation separately, and Decision 17 does not list them either. The FTA public clarification on residential versus serviced labour accommodation (VATP003) still decides whether the rent carries VAT, and the cautious approach is to apply the same test to running costs as to the rent: a MoHRE mandate, or the Decision 17 accommodation conditions. The cost-by-cost test is in our guide to [recovering VAT on staff accommodation](/guides/uae-vat-staff-accommodation-recovery-2026)."
+      ]
+    },
+    {
+      "h": "FTA Decision No. 17 of 2026: the six cases for employee benefits",
+      "ps": [
+        "Decision 17 applies to input tax on goods or services used by employees free of charge where there is a contractual obligation or documented policy to provide them, the route in Article 53(1)(c)(2) (Article 1). Article 2 lists six cases. All the conditions of a case must be met; a benefit outside the six cases stays blocked unless the legal-obligation, health-insurance or deemed-supply exception applies. The FTA's English text is an unofficial translation, and the Arabic text is the authoritative version."
+      ],
+      "list": [
+        "Case 1, transport: only between the employee's residence and the workplace or client premises, or for other purposes directly related to the job; not used for personal benefit; and the employee cannot take a cash allowance or other financial compensation instead.",
+        "Case 2, food and drink: the employee lives in a remote, distant or isolated area; there are no suitable cooking facilities at the residence or workplace and no nearby restaurants; the food is linked to the work or residence period the job requires; and there is no cash option.",
+        "Case 3, accommodation: no cash allowance or financial compensation option; the housing serves the operational requirements of the work and is not part of the employee's benefits or ordinary compensation; the work requires living near the workplace, site or client; the housing is for the employee alone, with no family members or other personal use, unless the employee must live permanently near the workplace so that it is the usual residence; and it is commensurate with the job and basic residency needs, without significant recreational or personal elements.",
+        "Case 4, accommodation for new employees: temporary, for no longer than 30 days, and commensurate with the job and basic residency needs.",
+        "Case 5, mobile phones, airtime, data and home internet: needed for the job, including outside working hours or away from the workplace; personal use incidental and insignificant; a documented internal policy setting permitted use and the consequences of misuse; and reasonable monitoring, with records kept where there is unauthorised use.",
+        "Case 6, parking: incurred solely for business purposes, such as job duties or business visits; a documented internal policy on when parking is reimbursed and how it is approved; and receipts kept showing the date, time, amount and VAT paid."
+      ]
+    },
+    {
+      "h": "Worked example: one month of employee costs",
+      "ps": [
+        "The figures are illustrative. An oilfield services company, VAT-registered and making only taxable supplies, receives these invoices in October 2026, each with a valid tax invoice and paid by bank transfer. None of the accommodation is MoHRE-mandated, because the staff concerned earn above the wage cap."
+      ],
+      "list": [
+        "Desert camp for 40 rotating engineers: AED 200,000 plus AED 10,000 VAT. Single rooms, basic fittings, no housing allowance option, housing tied to the rotation. Case 3 is met, so AED 10,000 is recoverable.",
+        "Serviced apartment in Dubai for a manager and family, offered in the contract as an alternative to a housing allowance: AED 15,000 plus AED 750 VAT. Case 3 fails on the cash option, on ordinary compensation and on family occupancy. AED 750 is blocked.",
+        "Hotel apartment for a new hire for 20 nights: AED 8,000 plus AED 400 VAT. Case 4 is met, so AED 400 is recoverable.",
+        "Mobile and data plans for field staff under a written usage policy with monthly usage reports: AED 6,000 plus AED 300 VAT. Case 5 is met, so AED 300 is recoverable.",
+        "Total VAT AED 11,450: recoverable AED 10,700, blocked AED 750. The journal entry for the serviced apartment is Dr Staff housing 15,750, Cr Accounts payable 15,750, with no VAT recoverable posted. The other three invoices post Dr expense (net), Dr VAT recoverable, Cr Accounts payable as normal."
+      ]
+    },
+    {
+      "h": "3. Bundled supplies: substance overrides form (new Article 4(6))",
+      "ps": [
+        "A taxable person may no longer treat a multi-component supply as several supplies where the nature and economic substance of the supply show that the components are interconnected and cannot be separated. Such a supply is a single composite supply and follows the VAT treatment of its principal component.",
+        "Separate pricing on the invoice used to be enough to fall outside composite-supply treatment. It no longer is. If parts of a package carry different rates, standard, zero or exempt, you now need to show the parts are genuinely separable in practice. Bundled financial products, real estate with related services, education and healthcare packages, hospitality, telecoms and digital bundles are the obvious places to look. The test questions and a worked school-fee example are in our guide to [composite and bundled supplies](/guides/uae-vat-composite-bundled-supplies-2026)."
+      ]
+    },
+    {
+      "h": "4. Capital assets are defined by the asset, not the spend (Article 57(1))",
+      "ps": [
+        "A capital asset is now a business asset with a cost of AED 5,000,000 or more, excluding tax, rather than a single item of expenditure of that amount. The threshold, the ten-year and five-year useful lives and the tax-payable condition are unchanged. On a plain reading, expenditure of AED 5 million or more that is expensed rather than capitalised falls outside the Capital Asset Scheme even where it has a long useful life, which matters for large fit-outs, refurbishments and IT programmes with mixed accounting treatment. Article 57(3), which aggregates staged payments, still refers to a single item of expenditure."
+      ]
+    },
+    {
+      "h": "5. Apportionment moves to a turnover ratio from 2028 (Article 55(6), (7) and (19))",
+      "ps": [
+        "For partially exempt businesses, residual input tax will be apportioned on the value of supplies that carry recovery over the value of all supplies, instead of the current ratio of recoverable input tax to total input tax. Disposals of the business's own capital assets and reverse-charge receipts of concerned goods and services are excluded from the calculation. Government entities and charities keep the input-tax ratio under new Clause 19.",
+        "This applies from the first tax year commencing after 1 October 2027: 1 January 2028 for calendar-year filers, and 1 February, 1 March or 1 April 2028 for quarterly filers depending on the tax year set under Article 55(1). The annual actual-use adjustment, including the AED 250,000 threshold, continues. Banks, insurers, residential landlords and holding companies with ancillary exempt income should model both methods on a full year of data now, for example in our [partial exemption calculator](/tools/uae-partial-exemption-calculator), and consider applying for a special method well before the transition."
+      ]
+    },
+    {
+      "h": "The clarificatory changes",
+      "list": [
+        "Profit margin scheme (Article 29(5)): acquisition costs and fees are added to the purchase price only where the input tax on them is not recoverable. Used-goods dealers should split acquisition costs by recovery status in stock records.",
+        "Healthcare zero-rating (Article 41(4)): pharmaceutical products and medical equipment are consolidated into a single category of medical products, to be specified by Cabinet Decision. Keep SKU-level registration evidence.",
+        "Exported financial services (Article 52(2)): the outside-the-State test becomes less than 30 days instead of less than a month.",
+        "Tax credit notes (Article 60(1)(a)): the labelling requirement now correctly reads credit note rather than invoice. Content requirements are unchanged."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "The tax agent already tests every inbound invoice against the [Article 59 tax-invoice checklist](/guides/uae-tax-invoice-checklist) before input VAT is claimed. From 1 October 2026 it also records the settlement method on every purchase and holds the input VAT on cash-settled supplies above the threshold once the Ministerial Decision sets it; tags employee-benefit and accommodation costs and holds recovery until the legal-obligation or FTA-condition basis is recorded; flags invoices where separately priced components carry different VAT rates so the composite-supply position is documented; and tests capitalised assets at AED 5 million and above for the Capital Asset Scheme. Partially exempt clients get the turnover-based apportionment modelled alongside the current method ahead of 2028. Every hold names the rule and the missing evidence, and a person makes the call."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "When does Cabinet Decision 149 of 2026 take effect?",
+      "a": "Most amendments take effect on 1 October 2026. The change to input tax apportionment applies from the first tax year commencing after 1 October 2027, which is 1 January 2028 for calendar-year filers."
+    },
+    {
+      "q": "Is the cash-payment block on input tax already in force?",
+      "a": "The provision is in force from 1 October 2026, but the value threshold and the controls are set by a Ministerial Decision that had not been issued at the time of writing. Businesses should map cash settlements now and move large payments to traceable channels."
+    },
+    {
+      "q": "Can I still recover VAT on staff accommodation?",
+      "a": "Only where the accommodation is mandatory under MoHRE decisions or directives, or where it meets every condition of case 3 (operationally required accommodation) or case 4 (new employees, no longer than 30 days) of FTA Decision No. 17 of 2026. A general labour-law obligation is no longer enough on its own, and housing offered as part of the pay package or with a cash-allowance option fails the conditions."
+    },
+    {
+      "q": "What is FTA Decision 17 of 2026?",
+      "a": "It is the FTA decision, issued on 9 September 2026 and in force from 1 October 2026, that sets the only cases in which input VAT on free employee benefits provided under a contract or documented policy can be recovered: work transport, food at remote sites, operationally required accommodation, new-joiner accommodation up to 30 days, phones and internet, and business parking. Each case has conditions that must all be met."
+    },
+    {
+      "q": "Does separate pricing still keep bundled components apart for VAT?",
+      "a": "No. Under new Article 4(6), where the components are economically interconnected and inseparable, the supply is a single composite supply and follows its principal component, regardless of separate pricing."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (issued 1 Sep 2026, effective 1 Oct 2026)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA Decision No. 17 of 2026 on the Cases and Conditions for the Recovery of Input Tax Incurred on Employee Expenses (unofficial English translation)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/legislation/FTA%20Decision%20No.%2017%20of%202026%20on%20the%20Cases%20and%20Conditions%20for%20the%20Recovery%20of%20Input%20Tax%20Incurred%20on%20Employee%20Expenses%20-%20Publishing.pdf"
+    },
+    {
+      "label": "FTA Decision No. 13 of 2026 on verification of the validity and integrity of supplies",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/FTA%20Decision%20No.%2013%20of%202026%20on%20Measures%2018%2008%202026.pdf"
+    },
+    {
+      "label": "FTA: VAT legislation index (no Ministerial Decision on the Article 54(3) cash threshold listed as of 20 Oct 2026)",
+      "href": "https://tax.gov.ae/en/legislation.aspx"
+    }
+  ]
+}

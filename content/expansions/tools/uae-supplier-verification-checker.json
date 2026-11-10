@@ -1,0 +1,91 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "Tell it whether the supplier is a company or an individual, the value of this supply excluding VAT, what you bought from the supplier over the last 12 months and what you expect to buy over the next 12, and how you pay. Tick the box if you have already verified this supplier within the last 12 months.",
+        "The checker takes the higher of the two 12-month figures as the supplier total. If this supply is under AED 10,000 and the total does not exceed AED 100,000, the result is that no checks are required. Otherwise it lists the checks that apply, in the order you would run them."
+      ],
+      "list": [
+        "Supplier checks (identity, place of business, risk indicators) are listed unless you ticked that the supplier was verified in the last 12 months",
+        "The bank confirmation and the review of public coverage are added when the supplier total exceeds AED 375,000. If the supplier was verified recently, the checker reminds you to confirm those two items are on file",
+        "The checks on the supply itself are always listed once the exception does not apply, with extra points for cash payments and for payments to a third party or a foreign account",
+        "The checker tells you which checks apply. It does not run them, and it cannot tell you whether a supply is in fact connected to tax evasion"
+      ]
+    },
+    {
+      "h": "Why the checks matter for input VAT",
+      "ps": [
+        "Article 54(bis) of the VAT Decree-Law, added by Federal Decree-Law No. 16 of 2025, requires the FTA to refuse input tax where the supply was part of a chain of supplies related to tax evasion and the buyer knew it, and allows the FTA to refuse it where the buyer should have known. Clause 3 of that Article treats a buyer as someone who should have known if it did not verify the supplies it receives before deducting input tax, using the measures set by the FTA.",
+        "FTA Decision No. 13 of 2026 sets those measures. It was issued on 22 July 2026 and applies from 1 October 2026. The checks sit alongside the invoice rules, so you still need a [valid tax invoice](/tools/uae-tax-invoice-checker), and the [cash payment rules](/guides/uae-vat-cash-payments-petty-cash-2026) still apply."
+      ]
+    },
+    {
+      "h": "The thresholds, as the Decision words them",
+      "list": [
+        "Article 6(1): you may skip the measures for a taxable supply where the consideration, excluding VAT, is less than AED 10,000",
+        "Article 6(2): that exception does not apply where the total value of supplies from the supplier exceeds AED 100,000 over the previous 12 months, or is expected to exceed it over the next 12. Once over that line, every supply from the supplier is checked, whatever its size",
+        "Article 3(4): where supplies from the supplier exceed AED 375,000 over the previous 12 months, or are expected to over the next 12, obtain a written confirmation from an authorised UAE bank that the supplier holds an account, without reservations or conditions, and review public reviews and media coverage. The bank letter does not have to be addressed to you",
+        "Article 5(1): verify the supplier the first time you deal with it, and again on recurring dealings where it has not been verified in the previous 12 months. Each supply is checked under Article 4 every time"
+      ]
+    },
+    {
+      "h": "What the checks involve",
+      "ps": [
+        "For a company supplier, confirm its incorporation through an official database or the certificate of incorporation, with matching name and address, and take a copy of the Emirates ID or passport of the person who represents it. For an individual, take a copy of a valid Emirates ID or passport and meet them, in person or by video, before the supply. Confirm a real place of business that fits the activity, and check the risk indicators: more than two address changes or two key-staff changes in 12 months, or trading out of proportion to the supplier's size and history. If an indicator applies, keep a written explanation.",
+        "For each supply, check that there is a genuine commercial reason, that payment is electronic or that any cash payment has a documented reason, stays within the thresholds in tax law and is easy to verify, that the price is not far from market without a reason, that the goods or services are within the supplier's activity and licence, that the goods' origin and the supplier's right to sell them have been checked, and that any intermediary's role is explained. Article 5 also requires a written policy naming who runs, reviews and supervises the checks. If the supplier's invoice has a problem, see [invoices without a TRN](/guides/uae-tax-invoice-without-trn)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a cleaning contractor just over the line",
+    "ps": [
+      "Use the calculator's defaults. A company supplier invoices AED 9,000 a month excluding VAT, paid by bank transfer. Purchases over the last 12 months were AED 72,000 and the contract renewal puts the next 12 months at AED 108,000. The supplier has not been verified before."
+    ],
+    "list": [
+      "Supplier total tested: the higher of 72,000 and 108,000, so AED 108,000",
+      "This supply is under AED 10,000, but the total exceeds AED 100,000, so the Article 6 exception falls away. Result: checks required",
+      "Listed checks: company identity and the representative's ID, place of business, risk indicators, the checks on this supply, and documenting each step under a written policy. No bank letter, because AED 108,000 does not exceed AED 375,000",
+      "Change the next 12 months to 96,000 and the total becomes AED 96,000. The exception applies and no checks are required; keep the totals on file to show how you reached that view",
+      "Change both figures to 420,000, as for a supplier invoicing AED 35,000 a month, and the bank confirmation and media review are added",
+      "Switch the payment to cash and the checker adds the cash point: a documented reason, within the thresholds in tax law, and easy to verify"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is FTA Decision No. 13 of 2026?",
+      "a": "It sets the checks a UAE taxable person must run on its suppliers and on each supply before deducting input VAT, for the purposes of Article 54(bis) of the VAT Decree-Law. It was issued on 22 July 2026 and applies from 1 October 2026."
+    },
+    {
+      "q": "Do I need to verify suppliers for purchases under AED 10,000?",
+      "a": "Not if the supply is under AED 10,000 excluding VAT and your total purchases from that supplier do not exceed AED 100,000 over the previous 12 months, or the expected next 12. Above that total, every supply from the supplier needs the checks."
+    },
+    {
+      "q": "When is a bank letter needed for a UAE supplier?",
+      "a": "When supplies from that supplier exceed AED 375,000 over the previous 12 months or are expected to over the next 12. You need a written confirmation from an authorised UAE bank that the supplier has an account, without reservations, and a review of public reviews and media coverage."
+    },
+    {
+      "q": "How often must I re-verify a supplier?",
+      "a": "At the first dealing, and again on recurring dealings where the supplier has not been verified in the previous 12 months. The checks on each supply apply every time."
+    },
+    {
+      "q": "What happens if I do not verify a supplier?",
+      "a": "If the supply turns out to be part of a chain connected to tax evasion, Article 54(bis)(3) treats you as someone who should have known, and the FTA may refuse the input tax. Records of the checks are your evidence that you took the required care."
+    },
+    {
+      "q": "How do I check a UAE supplier's TRN?",
+      "a": "Use the TRN verification service on the FTA's website and confirm that the name returned matches the supplier on the invoice. A TRN is 15 digits. The service sits behind a CAPTCHA, so it is a manual check; keep a screenshot with the supplier file."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Decision No. 13 of 2026 on measures to verify supplies before deducting input tax (Articles 3 to 7)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/FTA%20Decision%20No.%2013%20of%202026%20on%20Measures%2018%2008%202026.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments (Article 54(bis))",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    }
+  ]
+}

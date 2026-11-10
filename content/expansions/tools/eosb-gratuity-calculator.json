@@ -1,0 +1,78 @@
+{
+  "updated": "2026-10-07",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter three numbers: the basic monthly wage in AED, whole years of service, and extra months. The months field is limited to 0 to 11 and negative values are treated as zero. Service is years plus months divided by 12, so 8 years and 4 months is 8.33 years.",
+        "If service is under one year the result is a dash, because there is no entitlement. Otherwise the calculator works through these steps and shows the result to two decimal places."
+      ],
+      "list": [
+        "Daily basic wage = basic monthly wage ÷ 30",
+        "Days for the first five years = the lower of service and 5, × 21",
+        "Days after five years = service above 5 (if any), × 30",
+        "Gratuity before the cap = daily basic wage × total days",
+        "Cap = basic monthly wage × 24; the result is the lower of the two, and the note tells you when the cap applied"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Article 51 of Federal Decree-Law No. 33 of 2021 gives a full-time foreign worker who has completed at least one year of continuous service 21 days' basic wage for each of the first five years and 30 days' basic wage for each later year, with part years paid pro rata once the first year is complete. The basis is the last basic wage the worker was entitled to, so housing, transport and other allowances are left out, and the total may not exceed two years' wage. Unpaid days of absence are excluded from service, so deduct them before you enter years and months. UAE nationals are covered by the pension legislation instead.",
+        "The daily wage follows Article 67 of the Decree-Law, which treats a month as 30 days: a day's basic wage is the monthly basic divided by 30. That is also the basis behind the 5.83% and 8.33% contribution rates in MoHRE's alternative savings scheme (21 ÷ 360 and 30 ÷ 360). Some payroll systems divide annual basic pay by 365 instead, which understates every uncapped result by about 1.4%.",
+        "The employer must pay the gratuity with the worker's other entitlements within 14 days of the contract ending (Article 53). Part-time workers receive the full-time figure scaled by their contracted hours over full-time hours, under Article 30 of the Executive Regulation; this calculator does not do that scaling. For how the liability should sit in your books each month, see the [EOSB guide](/guides/uae-eosb-gratuity), and for the IFRS measurement, the [IAS 19 actuarial calculator](/tools/ias19-actuarial-eosb-calculator)."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "An operations manager on a basic wage of AED 15,000 a month (gross AED 25,000 with allowances) leaves after 8 years and 4 months with no unpaid leave. Enter 15000, 8 and 4."
+    ],
+    "list": [
+      "Service: 8 + 4 ÷ 12 = 8.33 years",
+      "First five years: 5 × 21 = 105 days",
+      "After five years: 3.33 × 30 = 100 days, so 205 days in total",
+      "Daily basic wage: 15,000 ÷ 30 = AED 500.00",
+      "Gratuity: 500.00 × 205 = AED 102,500.00, the figure to settle and to provide for",
+      "Cap: 15,000 × 24 = AED 360,000, so the cap does not apply",
+      "The allowances do not enter the calculation: using the AED 25,000 gross would overstate the gratuity by two thirds"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How do I calculate gratuity for 5 years in the UAE?",
+      "a": "Five years at 21 days each is 105 days of basic wage. On AED 10,000 basic that is 105 × 333.33 = AED 35,000."
+    },
+    {
+      "q": "Is gratuity paid for less than one year of service?",
+      "a": "No. Article 51 requires at least one year of continuous service. After that, every further month counts pro rata, so 1 year and 6 months earns 31.5 days."
+    },
+    {
+      "q": "Does gratuity reduce if the employee resigns?",
+      "a": "No. Article 51 of Federal Decree-Law No. 33 of 2021 has no reduction for resignation. The resignation reductions belonged to the old Federal Law No. 8 of 1980."
+    },
+    {
+      "q": "What is the maximum gratuity in the UAE?",
+      "a": "Two years' basic wage, or 24 times the monthly basic. On the 30-day basis the cap is reached at 730 days, just over 25 years of service."
+    },
+    {
+      "q": "Can an employer deduct money from gratuity?",
+      "a": "Only amounts owed under the law or a judgment. Article 29 of the Executive Regulation lists them: loan repayments and overpayments, legally required pension and insurance contributions, approved disciplinary deductions, court debts and damage the worker caused through fault."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoHRE: Federal Decree-Law No. 33 of 2021 and its amendments (Articles 51, 53, 67)",
+      "href": "https://www.mohre.gov.ae/assets/download/e82f7872/Federal%20Decree-Law%20No.%2033%20of%202021%20Regarding%20the%20Regulation%20of%20Employment%20Relationship%20and%20its%20amendments_638990571068264034.pdf.aspx"
+    },
+    {
+      "label": "MoHRE: Cabinet Resolution No. 1 of 2022, Executive Regulation (Articles 29 and 30)",
+      "href": "https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx"
+    },
+    {
+      "label": "MoHRE: Voluntary alternative end-of-service benefits scheme (Cabinet Resolution No. 96 of 2023)",
+      "href": "https://mohre.gov.ae/en/media-center/news/1/11/2023/voluntary-alternative-end-of-service-benefits-scheme-goes-into-effect-by-cabinet-resolution-aiming-t"
+    }
+  ]
+}

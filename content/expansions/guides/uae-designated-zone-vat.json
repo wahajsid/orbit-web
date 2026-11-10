@@ -1,0 +1,160 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 10,
+  "sections": [
+    {
+      "h": "The misconception to clear first",
+      "ps": [
+        "A designated zone is a specific fenced, customs-controlled area named in a Cabinet Decision — not every free zone qualifies, and being in one does not switch VAT off. Companies in designated zones register for VAT under the normal thresholds, charge VAT on their services, and file returns like everyone else. The special treatment is narrow: it applies to certain movements and supplies of goods.",
+        "The registration point is written into the law: Article 51(10) of the Executive Regulation deems any person established, registered or resident in a designated zone to be resident in the State for VAT purposes."
+      ]
+    },
+    {
+      "h": "The legal basis in five references",
+      "list": [
+        "Article 50 of the VAT Decree-Law: a designated zone that meets the conditions in the Executive Regulation is treated as outside the State",
+        "Article 51 of the Decree-Law: goods may move from one designated zone to another without tax becoming due, under conditions set by the Executive Regulation",
+        "Article 52 of the Decree-Law: the Executive Regulation decides when business conducted in a designated zone is treated as conducted in the State",
+        "Article 51 of the Executive Regulation (Cabinet Decision No. 52 of 2017, last amended on this point by Cabinet Decision No. 88 of 2021): the conditions, the place-of-supply rules and the deemed-import rules",
+        "Cabinet Decision No. 59 of 2017 and its amendments: the list of designated zones"
+      ]
+    },
+    {
+      "h": "Checking that your zone, and your plot, qualifies",
+      "ps": [
+        "Being on the list is not the whole test. Article 51(1) treats a listed zone as outside the State only while it is a fenced geographic area with security measures and customs controls over people and goods, has internal procedures for keeping, storing and processing goods, and its operator complies with FTA procedures. Under Article 51(2), a zone that changes how it operates or breaches those conditions is treated as inside the State.",
+        "The FTA's Public Clarification TAXP010, issued in October 2026, says to check the published list and then confirm with the free zone authority that the specific area where your company sits meets the Article 51(1) conditions. The test is applied to the area where you actually operate, not to the authority that issued your licence.",
+        "TAXP010 also confirms that a VAT designated zone is not automatically a designated zone for corporate tax. A corporate tax designated zone must be both on the VAT list and a free zone under the Corporate Tax Law, and a Qualifying Free Zone Person can only treat distribution of goods as a qualifying activity where it is carried out in or from a corporate tax designated zone (Ministerial Decision No. 229 of 2025). See our guide to the [free zone 0% corporate tax rate](/guides/free-zone-corporate-tax-0-percent)."
+      ]
+    },
+    {
+      "h": "What is actually outside the scope",
+      "list": [
+        "A supply of goods within a designated zone, where the goods are incorporated into another product, resold, or otherwise not consumed in the zone — outside the scope of UAE VAT",
+        "Goods moved between two designated zones — outside the scope, provided the goods aren't released into circulation or used in transit, and the customs controls hold",
+        "Goods supplied from a designated zone directly abroad — outside the scope of UAE VAT (customs export procedures still apply)"
+      ]
+    },
+    {
+      "h": "What is taxed exactly as on the mainland",
+      "list": [
+        "Services — all of them. Place of supply of services in a designated zone is treated as the mainland: rent, logistics fees, consultancy, everything at the normal rate",
+        "Goods consumed inside the zone — a supply of goods bought to be used or consumed there (not resold or incorporated) is taxed normally",
+        "Goods moving from the zone to the mainland — this is an import: import VAT is due on entry, accounted via the importer's TRN or at customs",
+        "Water and every form of energy supplied in the zone are treated as supplied in the State (Article 51(8)). Leasing property in the zone is a service, so it follows the services rule above and the normal real estate rules"
+      ]
+    },
+    {
+      "h": "The evidence each outside-scope treatment needs",
+      "ps": [
+        "Article 51(5) starts from the position that a supply of goods within a zone to a person who will consume them is a supply in the State. It is lifted only in three cases, and each one has its own evidence test."
+      ],
+      "list": [
+        "Incorporation: the goods are incorporated into, attached to or used in producing another good in the same zone, and that good is not consumed. Keep the bill of materials or production records that show it",
+        "Delivery abroad: the supplier keeps commercial or official evidence of delivery outside the State and customs evidence that the goods left the zone",
+        "Movement to the mainland: the supplier keeps official evidence that VAT was applied on the import, usually the customs declaration showing the importer's TRN",
+        "Zone to zone: the goods are not released, used or altered in transit, and the move follows the customs suspension rules of the GCC Common Customs Law (Article 51(3)). The FTA may ask the owner for a financial guarantee covering the VAT at risk (Article 51(4))",
+        "Narrow services exception: delivery or shipping supplied with the goods in the second and third cases above can be outside the State where the seller is a non-resident, unregistered seller using a third-party electronic sales platform (Article 51(7))"
+      ]
+    },
+    {
+      "h": "When stock becomes an import without leaving the zone",
+      "ps": [
+        "Article 51(9) treats goods on which the owner has not paid VAT as imported into the State in two situations: the owner consumes them, unless they go into another good in a designated zone that is not itself consumed, or there is a shortage. Stock-count differences in a bonded warehouse are therefore VAT events, not just inventory write-downs. The count sheets, the reconciliation and the explanation of each variance are VAT records."
+      ]
+    },
+    {
+      "h": "Worked example: one quarter for a zone trader",
+      "ps": [
+        "A registered electronics distributor operates from a fenced area of a listed zone that meets Article 51(1). It brings in goods from Asia under customs suspension. No UAE VAT arises on entry because the zone is treated as outside the State. In the quarter to 31 December 2026 it records the following."
+      ],
+      "list": [
+        "Sale to a customer in Kenya, AED 420,000, shipped from the zone with an exit declaration: outside the scope, no VAT, provided both the commercial evidence and the customs exit evidence are on file",
+        "Sale to a Dubai mainland retailer, AED 168,000, delivered to the retailer's premises: an import into the State. Import VAT is charged on the customs value including freight, insurance and customs duty (Article 35 of the Decree-Law). Assuming AED 8,400 of duty, VAT is 5% of AED 176,400, which is AED 8,820, accounted for by the importer of record under its TRN. The distributor keeps the declaration as its Article 51(5)(c) evidence",
+        "Office furniture from the distributor's surplus sold to a neighbouring zone company for its own use, AED 20,000: consumed in the zone, so the place of supply is the State. Output VAT is AED 1,000. Dr Receivable 21,000; Cr Revenue 20,000; Cr VAT output 1,000",
+        "Storage and handling fees charged to a foreign brand owner: a service in the zone, so it is taxed under the normal place-of-supply and zero-rating rules, exactly as if the warehouse were on the mainland",
+        "Year-end count shortage of goods costing AED 15,000: a deemed import under Article 51(9). VAT of 5% is due on the import value of the missing goods, AED 750 if that value is the AED 15,000 cost"
+      ]
+    },
+    {
+      "h": "The penalty for getting the movements wrong",
+      "ps": [
+        "Since 14 April 2026, the penalty for failing to comply with the conditions and procedures for keeping goods in a designated zone or moving them to another designated zone is the higher of AED 50,000 or 50% of the tax chargeable on the goods involved. This is Table 3 of Cabinet Decision No. 40 of 2017 as amended by Cabinet Decision No. 129 of 2025. It sits on top of the VAT itself and any late-payment penalty."
+      ]
+    },
+    {
+      "h": "Where businesses get hurt",
+      "ps": [
+        "The pattern in audits is consistent: a designated-zone trader treats everything it does as outside scope — including its service income and its mainland deliveries — and the FTA reconstructs years of output tax and import VAT at once. The clean discipline is per-transaction: what is being supplied, where the goods physically move, and whether they are consumed. Those three questions decide the treatment; the licence address does not."
+      ]
+    },
+    {
+      "h": "A monthly checklist for a designated-zone trader",
+      "list": [
+        "Tag every sales invoice as goods or services, and every goods line by movement: within the zone, zone to zone, zone to mainland, zone to abroad",
+        "For within-zone sales, record whether the buyer will consume the goods or resell or incorporate them, and keep the buyer's declaration",
+        "Match every export and every mainland delivery to its customs declaration before the return is filed",
+        "Reconcile bonded stock monthly and treat unexplained shortages as deemed imports",
+        "Check that service income, rent and utilities recharges carry 5% VAT unless a specific zero-rating applies",
+        "Re-confirm the zone's status with the free zone authority when you move premises or the zone changes its operations",
+        "Use our [designated zone VAT checker](/tools/uae-designated-zone-vat-checker) as a first screen and the [free zone vs mainland guide](/guides/uae-freezone-vs-mainland-tax) for the wider picture"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab classifies designated-zone transactions by supply type and movement — within-zone, zone-to-zone, zone-to-mainland, zone-to-abroad — applies the matching treatment on each invoice, and accrues the import VAT the moment goods cross into the mainland, so the return reflects the movements rather than the misconception."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do free zone companies charge VAT in the UAE?",
+      "a": "Yes, in most cases. A free zone company registers and charges VAT like a mainland business. Only listed designated zones that meet Article 51(1) get special treatment, and even then only for certain supplies and movements of goods. Services are always taxed as supplied in the State."
+    },
+    {
+      "q": "How do I know if my free zone is a designated zone for VAT?",
+      "a": "Check the FTA's list of designated zones, made under Cabinet Decision No. 59 of 2017 and its amendments. Then confirm with your free zone authority that your specific area meets the Article 51(1) conditions: fenced, customs-controlled and with procedures for storing goods. The FTA's TAXP010 clarification of October 2026 asks for both steps."
+    },
+    {
+      "q": "Is VAT charged on goods sold from a designated zone to the mainland?",
+      "a": "Yes. Moving goods from a designated zone to the mainland is an import, and 5% import VAT is due on the customs value plus freight, insurance and duty. The supplier must keep official evidence that VAT was applied on the import (Article 51(5)(c))."
+    },
+    {
+      "q": "Is there VAT on goods moved between two designated zones?",
+      "a": "No, provided the goods are not released, used or altered during the transfer and the move follows the GCC customs suspension rules (Article 51(3)). The FTA can require a financial guarantee, and breaching the conditions now costs the higher of AED 50,000 or 50% of the tax."
+    },
+    {
+      "q": "Are services provided in a designated zone subject to VAT?",
+      "a": "Yes. Article 51(6) treats services whose place of supply is in a designated zone as supplied in the State, so rent, logistics, consultancy and management fees follow the normal mainland rules. The only exception is narrow and covers shipping by non-resident sellers on third-party e-commerce platforms."
+    },
+    {
+      "q": "Is a VAT designated zone the same as a corporate tax designated zone?",
+      "a": "No. The FTA's TAXP010 confirms that a corporate tax designated zone must be both a VAT designated zone and a free zone under the Corporate Tax Law. Being on the VAT list alone does not qualify a zone for the corporate tax distribution activity."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Public Clarification TAXP010, Free Zones and Designated Zones for Tax Purposes (October 2026)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/Guide/TAXP010%20-%20Designated%20Zones%20for%20CT%20VAT%20Excise%20-%2010%202026.pdf"
+    },
+    {
+      "label": "FTA: VAT Executive Regulation (Cabinet Decision No. 52 of 2017 and amendments), Article 51",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments, Articles 35 and 50–52",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "MoF: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025 (Table 3)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/11/Cabinet-Decision-No.-40-of-2017-and-its-amendments-v14.11.25.pdf"
+    }
+  ],
+  "related": [
+    "uae-freezone-vs-mainland-tax",
+    "free-zone-corporate-tax-0-percent",
+    "uae-vat-reverse-charge",
+    "uae-fta-vat-audit-preparation"
+  ]
+}

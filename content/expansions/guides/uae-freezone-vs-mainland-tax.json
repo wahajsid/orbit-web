@@ -1,0 +1,131 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "Corporate tax: conditional 0% vs simple 9%",
+      "ps": [
+        "Mainland is straightforward: 0% to AED 375,000 of taxable income, 9% above, Small Business Relief available under AED 3m revenue for tax periods ending on or before 31 December 2029. Free zone offers the famous 0% — but only as a Qualifying Free Zone Person, only on qualifying income, with substance, audited accounts, transfer pricing compliance and the de minimis test all holding, every period. A free-zone company selling mainly to mainland consumers usually fails the de minimis, loses the status for five tax periods and is then taxed exactly like a mainland company, 0% to AED 375,000 and 9% above, while still carrying the free-zone licence and audit costs. If its consumer sales stay small enough to keep the status, that slice is taxed at 9% with no AED 375,000 band.",
+        "The honest sorting question: who are your customers? Mostly other free-zone businesses or foreign markets in a qualifying activity → the 0% regime is real. Mostly mainland UAE consumers → the free-zone tax advantage largely evaporates, and the decision should be made on licensing, premises and ownership factors instead."
+      ]
+    },
+    {
+      "h": "The same profit, three outcomes",
+      "ps": [
+        "Take a business with taxable income of AED 2,000,000 and revenue of AED 20 million, and run it through the three setups founders usually compare.",
+        "The figures ignore the cost of the audit, which a QFZP must buy whatever its size. For a small free zone company the audit fee, the substance (staff, office, operating spend in the zone) and the extra classification work can absorb a large share of the saving, which is why the 0% is worth most to businesses with real profit and real qualifying activity."
+      ],
+      "list": [
+        "Mainland LLC: (2,000,000 − 375,000) × 9% = AED 146,250",
+        "Free zone QFZP whose income is all qualifying, for example a logistics provider serving free zone and foreign clients: AED 0",
+        "Free zone company with AED 1.5 million of its revenue from mainland consumers: 5% of AED 20 million is AED 1,000,000, below the AED 5 million cap, so the de minimis is breached. The company is not a QFZP for this period and the next four and pays AED 146,250 a year, the same as the mainland LLC"
+      ]
+    },
+    {
+      "h": "What only one side can have",
+      "list": [
+        "Small Business Relief: available to resident persons with revenue of AED 3 million or less, but not to a Qualifying Free Zone Person (FTA Free Zone Persons guide, section 3.3)",
+        "The AED 375,000 0% band: every taxable person except a QFZP, which gets 0% on qualifying income and 9% from the first dirham of the rest (Article 3 of the Corporate Tax Law)",
+        "Tax groups and loss transfers: a QFZP cannot join a tax group (Article 40(1)(f)) and cannot transfer losses or claim Qualifying Group Relief or Business Restructuring Relief, so a mixed group cannot net a free zone profit against a mainland loss",
+        "Dividends: dividends from one UAE resident company to another are exempt from Corporate Tax (Article 22), so profits can move from a free zone subsidiary to a mainland parent, or the other way, without a second layer of tax"
+      ]
+    },
+    {
+      "h": "VAT: mostly indifferent",
+      "ps": [
+        "VAT registration, rates and filing are the same in both setups. The exception is the small list of designated zones, where certain movements of goods sit outside the scope — a real benefit for goods traders structured around them, and irrelevant to services businesses, whose supplies are taxed as mainland wherever the desk sits.",
+        "Two current changes apply equally to both. Cabinet Decision No. 149 of 2026 amends the VAT Executive Regulation from 1 October 2026, and the UAE e-invoicing programme starts with businesses with revenue of AED 50 million or more, which must appoint an accredited service provider by 30 October 2026 and go live on 1 January 2027; other businesses appoint by 31 March 2027 and go live on 1 July 2027. A free zone licence is not an exemption from either. The designated zone rules are covered in [designated zone VAT](/guides/uae-designated-zone-vat)."
+      ]
+    },
+    {
+      "h": "The rest of the ledger",
+      "list": [
+        "Audit: free zones typically require audited statements for licence renewal, and QFZP status requires them by law; a small mainland LLC often carries lighter practical audit pressure. For Corporate Tax, Ministerial Decision No. 84 of 2025 requires audited statements from every QFZP and from other taxable persons only once revenue exceeds AED 50 million, for tax periods starting on or after 1 January 2025",
+        "Substance: the free-zone 0% needs demonstrable people, premises and spend in the zone — a flexi-desk and a licence does not survive review",
+        "Banking and customers: some mainland counterparties and government work still prefer or require mainland licences",
+        "Switching later: moving an established business between regimes is a real migration — licences, visas, contracts, sometimes the bank — so the choice deserves modelling, not defaults"
+      ]
+    },
+    {
+      "h": "Running both: a free zone and a mainland company",
+      "ps": [
+        "Many groups end up with both: a free zone entity for the qualifying activity (designated zone distribution, logistics, headquarter or treasury services, holding shares) and a mainland company for local consumer and government sales. This works if the boundary is real. The two companies are related parties, so every charge between them must be at arm's length under Article 34, and because they are taxed at different rates the transactions fall within the local file where the group is large enough to need one.",
+        "Worked example. A mainland retailer buys stock from its designated zone sister at AED 10 million a year, and the free zone entity earns a 30% margin while comparable independent distributors earn 8%. Moving AED 2.2 million of margin from 9% to 0% saves AED 198,000 of tax on paper, and it is exactly the pattern the FTA's transfer pricing reviews look for. The defensible version prices the free zone company like a distributor of its functions and risks, documents the benchmark and accepts that most of the retail profit is taxed on the mainland. See [transfer pricing documentation](/guides/uae-transfer-pricing-documentation)."
+      ]
+    },
+    {
+      "h": "Registration and filing: identical on both sides",
+      "ps": [
+        "Whatever the licence, the Corporate Tax mechanics are the same. A company incorporated on or after 1 March 2024, free zone or mainland, must apply to register within three months of incorporation (FTA Decision No. 3 of 2024). The return and payment are due within nine months of the end of the tax period, so the year ended 31 December 2025 was due by 30 September 2026. Late payment of Corporate Tax has attracted a penalty of 14% a year, calculated monthly, since 14 April 2026 under Cabinet Decision No. 129 of 2025.",
+        "The free zone return simply carries more: a Free Zone schedule splitting qualifying income from taxable income, the de minimis working, and the audited statements behind both. A free zone company that is not a QFZP files the ordinary return and keeps the AED 375,000 band. The penalty regime is in [Corporate Tax penalties](/guides/uae-corporate-tax-penalties)."
+      ]
+    },
+    {
+      "h": "Questions that decide it",
+      "list": [
+        "What share of revenue will come from individual consumers, and from mainland customers outside a qualifying activity?",
+        "Will revenue exceed AED 100 million? Above that the AED 5 million de minimis cap binds, not the 5% limb",
+        "Is the activity on the qualifying list in Ministerial Decision No. 229 of 2025, read with its narrow definitions?",
+        "Can you staff and house the core income-generating activity in the zone, and pay for an annual audit?",
+        "Are losses likely in the early years? A QFZP cannot share them with a mainland group company, and electing into the standard regime may be better",
+        "Is the group part of a multinational with EUR 750 million or more of consolidated revenue? The 15% domestic minimum top-up tax under Cabinet Decision No. 142 of 2024 applies from financial years starting on or after 1 January 2025 and largely neutralises the 0%"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab runs the same books either way — and for free-zone entities it tracks the qualifying/non-qualifying revenue split, the de minimis headroom and the audit readiness that keep the 0% alive, so the structure you chose stays the structure you have."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is it better to set up in a free zone or mainland in the UAE for tax?",
+      "a": "It depends on your customers and activity. A free zone company pays 0% only as a Qualifying Free Zone Person on qualifying income, which suits businesses dealing with other free zone companies or abroad in a qualifying activity. A business selling mainly to UAE consumers usually gets no Corporate Tax advantage from a free zone and carries extra audit cost."
+    },
+    {
+      "q": "Do free zone companies pay 9% corporate tax?",
+      "a": "On some income, yes. A Qualifying Free Zone Person pays 9% on taxable income that is not qualifying income, with no AED 375,000 0% band. A free zone company that fails the conditions loses the status for five tax periods and pays the standard rates on everything."
+    },
+    {
+      "q": "Can a free zone company get Small Business Relief?",
+      "a": "Not while it is a Qualifying Free Zone Person. Small Business Relief, for resident persons with revenue of AED 3 million or less in tax periods ending on or before 31 December 2029, is listed by the FTA among the reliefs a QFZP cannot use. A free zone company that is not a QFZP can elect it if it meets the conditions."
+    },
+    {
+      "q": "Is VAT different in a free zone and the mainland?",
+      "a": "Generally no. Registration, the 5% rate and returns are the same. Only designated zones have special rules for certain supplies of goods, and services supplied from a free zone are taxed as if supplied on the mainland."
+    },
+    {
+      "q": "Can a free zone company trade with mainland customers?",
+      "a": "Licensing rules depend on the free zone and emirate. For Corporate Tax, mainland sales are qualifying only within listed activities such as manufacturing, processing or designated zone distribution to resellers. Other mainland sales are non-qualifying revenue and must stay within the lower of 5% of revenue or AED 5 million."
+    },
+    {
+      "q": "Do mainland companies need audited financial statements for corporate tax?",
+      "a": "Only above AED 50 million of revenue. Ministerial Decision No. 84 of 2025 requires audited statements from taxable persons with revenue above AED 50 million and from every Qualifying Free Zone Person, for tax periods starting on or after 1 January 2025. Licensing authorities may impose their own audit requirements."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Ministerial Decision No. 229 of 2025 on Qualifying Activities and Excluded Activities",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/09/EN-Ministerial-Decision-No.-229-of-2025-Regarding-Qualifying-Activities-and-Excluded-Activities.pdf"
+    },
+    {
+      "label": "FTA: Corporate Tax Guide on Free Zone Persons (CTGFZP1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Guides/CT/Free%20Zone%20Persons%20-%2020%2005%202024%20final%20for%20GCD.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 84 of 2025 on Audited Financial Statements",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf"
+    },
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (English)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    }
+  ],
+  "related": [
+    "free-zone-corporate-tax-0-percent",
+    "uae-small-business-relief",
+    "uae-designated-zone-vat",
+    "uae-audit-requirements"
+  ]
+}

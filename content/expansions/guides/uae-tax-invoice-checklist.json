@@ -1,0 +1,159 @@
+{
+  "updated": "2026-10-07",
+  "minutes": 10,
+  "sections": [
+    {
+      "h": "Why it matters",
+      "ps": [
+        "Input VAT can only be recovered against a valid tax invoice. If a supplier's invoice fails the requirements of Article 59 of the UAE VAT Executive Regulations, the 5% you paid is not recoverable until the invoice is corrected — and claiming it anyway is exactly the kind of finding a Federal Tax Authority audit exists to catch.",
+        "The rule sits in Article 55(1) of the VAT Decree-Law: input tax is deducted in the first tax period in which you have received and retained the tax invoice and paid the consideration, or part of it. From the date e-invoicing applies to you, the invoice must also be retained through the Electronic Invoicing System. A missing particular therefore does not just look untidy. It moves the recovery date to whenever the corrected document arrives."
+      ]
+    },
+    {
+      "h": "Where the checklist comes from, and what changed in 2025 and 2026",
+      "ps": [
+        "The particulars are set by Article 59 of the Executive Regulation (Cabinet Decision No. 52 of 2017). Article 59 was last amended by Cabinet Decision No. 100 of 2024, effective 15 November 2024, and Cabinet Decision No. 100 of 2025, effective 29 September 2025. The 2025 change added Clause 16: where you issue a tax invoice as an electronic invoice, whether because the e-invoicing mandate applies or voluntarily, the simplified-invoice rules and several other clauses of Article 59 no longer apply to you.",
+        "Cabinet Decision No. 149 of 2026, effective 1 October 2026, did not change the Article 59 particulars. It did add a new cash-payment block on input tax in Article 54(3), covered in our guide to [Cabinet Decision 149 of 2026](/guides/uae-vat-cabinet-decision-149-2026-input-tax), and FTA Decision No. 13 of 2026 added supplier verification checks from the same date. A valid invoice is now necessary but not always sufficient."
+      ]
+    },
+    {
+      "h": "A full tax invoice must show",
+      "list": [
+        "The words “Tax Invoice” clearly displayed on the document",
+        "The supplier's name, address and Tax Registration Number (TRN)",
+        "The recipient's name, address and TRN, where the recipient is registered",
+        "A sequential invoice number, or a unique number that identifies the document",
+        "The date of issue — and the date of supply, if it differs",
+        "A description of the goods or services supplied",
+        "For each line: the unit price, quantity or volume, the rate of tax and the amount payable, in AED",
+        "Any discount offered",
+        "The gross amount payable in AED",
+        "The tax amount payable in AED — with the exchange rate applied, if the invoice was issued in another currency",
+        "Where the recipient accounts for the tax (reverse charge), a statement saying so and a reference to the relevant provision"
+      ]
+    },
+    {
+      "h": "When a simplified tax invoice is enough",
+      "ps": [
+        "Where the recipient is not registered for VAT, or is registered and the consideration does not exceed AED 10,000 (Article 59(5)), a simplified tax invoice is permitted. It still must show: the words “Tax Invoice”, the supplier's name, address and TRN, the date of issue, a description of the goods or services, and the total consideration with the tax amount charged.",
+        "Two limits apply. A simplified invoice is never available where the [reverse charge](/guides/uae-vat-reverse-charge) applies under Article 48 of the Decree-Law, and under Clause 16 it is not available at all once you issue invoices through the Electronic Invoicing System. The AED 10,000 test is on the consideration for the supply, and a simplified invoice must be issued on the date of supply rather than within the usual 14 days (Article 59(13)(a))."
+      ]
+    },
+    {
+      "h": "The 14-day rule and the penalty",
+      "ps": [
+        "Article 67 of the Decree-Law and Article 59(13) of the Executive Regulation require a tax invoice within 14 days of the date of supply. The date of supply is the earliest of the events in Article 25, which include delivery, completion of a service, receipt of payment and issue of the invoice. A deposit received in advance therefore starts the clock.",
+        "Where several supplies to the same customer go on a summary tax invoice, it must be issued and delivered within 14 days of the end of the calendar month in which the supplies took place (Article 59(6) and 59(13)(b)).",
+        "From 14 April 2026, Cabinet Decision No. 129 of 2025 set the penalty for failing to issue a tax invoice or alternative document within the legal period at AED 2,500 for each detected case. The same AED 2,500 applies to a late tax credit note and to failing the conditions for issuing invoices and credit notes electronically. Filing and payment dates are in our [UAE tax deadlines](/guides/uae-tax-deadlines) guide."
+      ]
+    },
+    {
+      "h": "Other documents that count, and ones that do not",
+      "list": [
+        "Self-billing: a registered customer may raise the invoice on the supplier's behalf if both agree in writing that the supplier will not issue one, the document carries every Clause 1 particular and the words “Tax Invoice raised by buyer” (Article 59(9)). Any invoice the supplier then issues for that supply is not a tax invoice",
+        "Agents: a registered agent may issue the tax invoice for a supply made on behalf of a principal, provided the principal does not, and each keeps the other's name, address and TRN (Article 59(11))",
+        "Wholly zero-rated supplies: no tax invoice is required if sufficient records exist to establish the particulars (Article 59(3))",
+        "Electronic invoices outside the e-invoicing system are allowed if you can store them securely and the authenticity of origin and integrity of content are guaranteed (Article 59(8))",
+        "Not tax invoices: quotations, pro formas, delivery notes, statements of account and card terminal slips, whatever they say at the top"
+      ]
+    },
+    {
+      "h": "Foreign-currency invoices",
+      "ps": [
+        "Article 69 of the Decree-Law requires amounts on a foreign-currency invoice to be converted at the Central Bank of the UAE rate on the date of supply, and Article 59(1)(k) requires the AED tax amount and the rate applied on the invoice. A USD 20,000 service at a rate of 3.6725 is AED 73,450, so the invoice must show VAT of AED 3,672.50. Fractions of a fils may be rounded to the nearest fils (Article 61 of the Executive Regulation). An invoice that shows VAT of USD 1,000 and nothing in AED fails Clause 1(k), however clear it otherwise is."
+      ]
+    },
+    {
+      "h": "Worked example: testing one purchase invoice",
+      "ps": [
+        "A VAT-registered Dubai company receives an invoice on 3 November 2026 from an IT reseller for laptops: AED 48,000 plus VAT of AED 2,400, total AED 50,400. It carries the words Tax Invoice, the supplier's name, address and TRN, a unique number, the date, a line for each model with unit price, quantity, rate and amount, and the AED totals. It does not show the buyer's TRN.",
+        "Because the buyer is registered and the consideration exceeds AED 10,000, a simplified invoice is not allowed, so Clause 1 applies in full and Clause 1(c) fails. The AED 2,400 is held rather than claimed:"
+      ],
+      "list": [
+        "On receipt: Dr IT equipment 48,000; Dr VAT input held (suspense) 2,400; Cr Accounts payable 50,400",
+        "Correction request sent to the supplier naming the missing particular, Article 59(1)(c)",
+        "Corrected invoice received 18 November: Dr VAT recoverable 2,400; Cr VAT input held 2,400, claimed in the return for the period that includes 18 November, provided the consideration or part of it has been paid",
+        "Had the invoice been for AED 9,500 plus VAT, a simplified invoice would have been valid and the missing buyer TRN would not matter"
+      ]
+    },
+    {
+      "h": "Tax credit notes are the mirror document",
+      "ps": [
+        "When the price falls, a supply is cancelled or goods come back, Article 62(2) of the Decree-Law requires a tax credit note within 14 days. Article 60 of the Executive Regulation sets its particulars: the words “Tax Credit Note”, both parties' names, addresses and TRNs, the date, the original value, the correct value, the difference and the VAT on that difference in AED, a brief reason, and enough information to identify the original supply. Where there is more than one credit note against the same invoice, each one starts from the value as already adjusted."
+      ]
+    },
+    {
+      "h": "E-invoicing: the dates that matter",
+      "ps": [
+        "Ministerial Decision No. 244 of 2025 sets the timetable. A pilot started on 1 July 2026 and any business may adopt the system voluntarily from that date. Businesses with revenue of AED 50 million or more must appoint an Accredited Service Provider by 30 October 2026 (extended from 31 July 2026 by Ministerial Decision No. 66 of 2026) and go live by 1 January 2027. Businesses below AED 50 million must appoint one by 31 March 2027 and go live by 1 July 2027. Government entities follow by 1 October 2027. Revenue means gross income for the most recent accounting period per the financial statements. Business-to-consumer transactions are outside the system until the Minister decides otherwise.",
+        "Once you are on the system, Clause 16 switches off the simplified invoice, so every B2B invoice you issue needs the full particulars, transmitted in the prescribed electronic format."
+      ]
+    },
+    {
+      "h": "The failures we see most",
+      "list": [
+        "No TRN, or a TRN that doesn't validate — the single most common failure",
+        "The words “Tax Invoice” missing (a quotation or delivery note dressed as an invoice)",
+        "VAT charged at the wrong rate, or arithmetic that doesn't reconcile line-by-line",
+        "Foreign-currency invoices with no AED tax amount or exchange rate",
+        "The same invoice arriving twice through two channels and being claimed twice"
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab tests every inbound invoice against this checklist on arrival, holds the input VAT on failures instead of claiming it, names the exact failing field, and can draft the correction request to the supplier. The claim happens when the paper holds up — not before."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between a tax invoice and a simplified tax invoice in the UAE?",
+      "a": "A simplified tax invoice carries fewer particulars. It needs the words Tax Invoice, the supplier's name, address and TRN, the date, a description, and the total consideration with the VAT in AED. A full tax invoice adds the recipient's details and TRN where registered, a sequential number, line-level prices, quantities and rates, discounts and the exchange rate (Article 59(1) and (2) of the Executive Regulation)."
+    },
+    {
+      "q": "Can I claim input VAT on a simplified tax invoice?",
+      "a": "Yes, if a simplified invoice was permitted for that supply. For a registered buyer that means consideration of AED 10,000 or less and no reverse charge (Article 59(5)(b)). Above AED 10,000 you need a full tax invoice showing your TRN before the VAT is recoverable."
+    },
+    {
+      "q": "How many days do I have to issue a tax invoice in the UAE?",
+      "a": "14 days from the date of supply under Article 67 of the VAT Decree-Law. A simplified invoice must be issued on the date of supply, and a summary invoice within 14 days of the end of the month. Since 14 April 2026 a late or missing invoice costs AED 2,500 per detected case."
+    },
+    {
+      "q": "Does a UAE tax invoice have to be in Arabic?",
+      "a": "No. Article 59 lists the particulars but no language, and English invoices are common. The Tax Procedures Law lets the FTA accept records in other languages, but it can ask for an Arabic translation, at your cost, when you submit them."
+    },
+    {
+      "q": "Can I issue a UAE tax invoice in US dollars?",
+      "a": "Yes, but the VAT amount must also be shown in AED along with the exchange rate applied (Article 59(1)(k)). The conversion uses the Central Bank of the UAE rate on the date of supply (Article 69 of the Decree-Law)."
+    },
+    {
+      "q": "When does e-invoicing become mandatory in the UAE?",
+      "a": "1 January 2027 for businesses with revenue of AED 50 million or more, and 1 July 2027 for those below, under Ministerial Decision No. 244 of 2025. The deadlines to appoint an Accredited Service Provider are 31 July 2026 and 31 March 2027. B2C transactions are excluded for now."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: VAT Executive Regulation (Cabinet Decision No. 52 of 2017 and amendments to Cabinet Decision No. 149 of 2026), Articles 59–61",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments, Articles 25, 55, 62, 65, 67, 69",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal-Decree-Law-No-8-of-2017-and-amendments.pdf"
+    },
+    {
+      "label": "FTA: Ministerial Decision No. 244 of 2025 on the Implementation of the Electronic Invoicing System",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Ministerial%20Decision%20No.%20244%20of%202025%20on%20The%20Implementation%20of%20the%20Electronic%20Invoicing%20System.pdf"
+    },
+    {
+      "label": "MoF: Cabinet Decision No. 40 of 2017 on administrative penalties, as amended by Cabinet Decision No. 129 of 2025",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/11/Cabinet-Decision-No.-40-of-2017-and-its-amendments-v14.11.25.pdf"
+    }
+  ],
+  "related": [
+    "uae-vat-cabinet-decision-149-2026-input-tax",
+    "uae-vat-reverse-charge",
+    "uae-blocked-input-vat",
+    "uae-fta-vat-audit-preparation"
+  ]
+}

@@ -6,7 +6,7 @@ import { WhtCalculator } from "@/components/tools/calculators";
 export const metadata: Metadata = {
   title: "KSA withholding tax (WHT) calculator — Hysaab",
   description:
-    "Free Saudi withholding tax calculator: domestic rates by payment category — management fees 20%, royalties 15%, most others 5% — with net-of-tax gross-up handled.",
+    "Free Saudi withholding tax calculator: domestic rates by payment category — management fees 20%, royalties and any other payments 15%, rent, interest, technical services and freight 5% — with net-of-tax gross-up handled.",
   alternates: langAlternates("/tools/ksa-withholding-tax-calculator"),
 };
 

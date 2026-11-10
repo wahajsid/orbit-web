@@ -1,0 +1,138 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 8,
+  "sections": [
+    {
+      "h": "The choice, stripped to its frame",
+      "ps": [
+        "A foreign company entering the UAE picks between registering a branch — the same legal entity, operating through a permanent establishment — and incorporating a subsidiary, a separate UAE company it owns. Both pay 9% on UAE profits above the threshold. The differences live in liability, attribution and what happens to the money afterwards.",
+        "In Corporate Tax terms the branch makes the foreign company a non-resident person with a permanent establishment in the State. Article 14 of the Corporate Tax Law lists a branch, an office, a factory and a place of management as fixed places that create one, and Article 12(3) taxes the non-resident on the taxable income attributable to it. The subsidiary is a resident person in its own right, taxed under Article 12(1) on its worldwide income."
+      ]
+    },
+    {
+      "h": "The branch route",
+      "list": [
+        "Same legal person: the parent is directly liable for everything the branch does — no liability shield",
+        "Taxed on profits attributable to the UAE permanent establishment, determined on arm's-length principles as if the branch were independent — the attribution analysis IS the tax computation, so document it",
+        "No dividend mechanics: remitting branch profits home is an internal transfer, and the UAE currently imposes no withholding tax on outbound payments anyway",
+        "Licensing is real: a branch needs its own commercial licence, a local presence, and typically audited branch accounts. For Corporate Tax purposes, Ministerial Decision No. 84 of 2025 requires audited statements once revenue derived through the UAE permanent establishment exceeds AED 50 million, counting only that UAE revenue"
+      ]
+    },
+    {
+      "h": "The subsidiary route",
+      "list": [
+        "Separate legal person: liability contained, contracts in its own name, bankable locally",
+        "Taxed as any UAE company — 0% to AED 375,000, 9% above; free-zone regimes can apply where conditions are met (a branch of a foreign company cannot elect Small Business Relief; a UAE-incorporated subsidiary may, if it qualifies)",
+        "Dividends up to the foreign parent leave the UAE with no withholding tax; whether they are taxed on arrival is the parent jurisdiction's affair — often sheltered by its own participation regime",
+        "Transfer pricing applies to everything it does with the group: management fees, licences, funding — the intercompany disciplines apply from day one"
+      ]
+    },
+    {
+      "h": "Side by side",
+      "list": [
+        "Corporate Tax registration: a new resident subsidiary, including a free zone company, applies within three months of incorporation; a non-resident with a permanent establishment applies within six months of the date the permanent establishment came into existence (FTA Decision No. 3 of 2024, in force from 1 March 2024)",
+        "Small Business Relief: available only to resident persons under Article 21, so a subsidiary with revenue of AED 3 million or less can elect it for tax periods ending on or before 31 December 2029; a branch cannot",
+        "Free zone regime: a branch of a non-resident registered in a free zone is a free zone person and can, in principle, be a Qualifying Free Zone Person, as can a free zone subsidiary, subject to all the conditions",
+        "Withholding tax: 0% under Article 45 on UAE-sourced payments to non-residents, so neither branch remittances nor subsidiary dividends suffer UAE tax on the way out",
+        "Exit: closing a branch means deregistering the foreign company's UAE presence; selling a subsidiary means selling shares, which the buyer can take over with its history"
+      ]
+    },
+    {
+      "h": "Worked example: AED 2 million of UAE profit",
+      "ps": [
+        "A foreign engineering group expects UAE profit of AED 2,000,000 a year. Through a subsidiary: (2,000,000 − 375,000) × 9% = AED 146,250 of Corporate Tax. The AED 1,853,750 left can be paid up as a dividend with no UAE withholding. The UAE company books Dr Retained earnings 1,853,750 / Cr Dividend payable 1,853,750, then Dr Dividend payable / Cr Bank on payment.",
+        "Through a branch, the Corporate Tax on the same attributable profit is the same AED 146,250, because the AED 375,000 0% band in Article 3(1) applies to taxable persons generally and is not reserved for residents. The branch remits AED 1,853,750 to head office as a movement on the head office current account: Dr Head office account 1,853,750 / Cr Bank 1,853,750. Nothing in that entry is a dividend.",
+        "The tax line only diverges when the facts do. A branch whose attributable profit is understated because head office charges it too much faces an upward adjustment; a subsidiary in the same position faces the same adjustment under the related party rules. Losses in the early years stay in the UAE either way and are carried forward against future UAE profit, capped at 75% of taxable income each year (see [tax loss carry-forward](/guides/uae-tax-loss-carry-forward))."
+      ]
+    },
+    {
+      "h": "Attribution: what the branch computation needs",
+      "list": [
+        "A functional analysis: which people in the UAE perform which functions, use which assets and manage which risks",
+        "Branch accounts drawn up as if the branch were a separate enterprise, with head office charges supported by agreements or allocation keys and priced at arm's length",
+        "A record of capital and funding allocated to the branch, because interest charged by head office on funding the branch should have kept is easy to challenge",
+        "A reconciliation from the branch trial balance to the taxable income in the return"
+      ]
+    },
+    {
+      "h": "Questions to settle before you choose",
+      "list": [
+        "Will UAE customers, landlords, banks or government buyers insist on contracting with a UAE-incorporated company?",
+        "How much liability can the parent accept for UAE operations, including employment and contract claims?",
+        "Will the UAE operation be small enough, at AED 3 million of revenue or less, to make Small Business Relief worth having? Only a subsidiary can elect it",
+        "Does the parent jurisdiction tax foreign branch profits or exempt them, and how does it treat dividends from a UAE subsidiary?",
+        "Is a sale or a joint venture likely later? Shares in a subsidiary can be sold; a branch business has to be transferred asset by asset",
+        "Will the UAE operation be in a free zone, and is its activity on the qualifying list in Ministerial Decision No. 229 of 2025?"
+      ]
+    },
+    {
+      "h": "The mirror: UAE companies expanding abroad",
+      "ps": [
+        "The same choice runs outbound. A UAE company operating abroad through a foreign permanent establishment can elect to exempt that PE's profits (and losses) from UAE Corporate Tax, provided the PE is taxed at at least 9% locally — the foreign-PE election. Without the election, foreign branch profits are taxed in the UAE with credit for foreign tax paid. A foreign subsidiary, by contrast, sits behind the participation exemption. The modelling question is always the same: where are losses expected, and which regime lets them land usefully?",
+        "Two details shape that model. The election under Article 24 covers all of the company's foreign permanent establishments that meet the 9% condition, not a chosen few, and it excludes their losses as well as their profits. Without it, the foreign tax credit in Article 47 cannot exceed the UAE tax due on the relevant income and cannot be carried forward or back, so foreign tax above 9% is simply lost. The subsidiary route and the [participation exemption](/guides/uae-holding-company-participation-exemption) avoid both issues, provided the 5%, 12-month and subject-to-tax tests are met."
+      ]
+    },
+    {
+      "h": "Large groups: the 15% floor",
+      "ps": [
+        "For members of multinational groups with consolidated revenue of EUR 750 million or more in at least two of the four preceding years, the UAE domestic minimum top-up tax under Cabinet Decision No. 142 of 2024 applies from financial years starting on or after 1 January 2025. A UAE branch and a UAE subsidiary are both constituent entities for this purpose, so the branch-or-subsidiary choice does not avoid the 15% effective rate; it changes only which entity carries the compliance."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab keeps branch books attributable — separate cost centres, arm's-length intercompany charges, the PE computation maintained monthly — and for groups it keeps each entity's CT position distinct, so the branch-vs-subsidiary decision stays visible in the numbers instead of dissolving into one blended ledger."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is a foreign company branch in the UAE subject to corporate tax?",
+      "a": "Yes. A UAE branch is a permanent establishment, and the foreign company is taxed as a non-resident person on the profit attributable to it: 0% up to AED 375,000 and 9% above. It must register within six months of the permanent establishment coming into existence."
+    },
+    {
+      "q": "Should I open a branch or a subsidiary in the UAE?",
+      "a": "The Corporate Tax rate is the same, so decide on liability, licensing and exit. A subsidiary limits the parent's liability, can use Small Business Relief if it qualifies, and can be sold as shares. A branch exposes the parent to the branch's liabilities and needs an attribution analysis, but has no dividend mechanics."
+    },
+    {
+      "q": "Is there withholding tax on dividends paid from the UAE?",
+      "a": "No. Withholding tax under Article 45 of the Corporate Tax Law is set at 0%, so dividends from a UAE subsidiary to a foreign parent, and remittances from a branch to head office, carry no UAE withholding tax. Tax on arrival depends on the parent's jurisdiction."
+    },
+    {
+      "q": "Can a branch of a foreign company get Small Business Relief in the UAE?",
+      "a": "No. Article 21 limits Small Business Relief to resident persons, and a branch of a foreign company is a non-resident with a permanent establishment. A UAE-incorporated subsidiary with revenue of AED 3 million or less can elect it for tax periods ending on or before 31 December 2029, if it meets the other conditions."
+    },
+    {
+      "q": "What is the foreign permanent establishment exemption in the UAE?",
+      "a": "It is an election under Article 24 that lets a UAE resident leave out the income and losses of its foreign permanent establishments, provided each is taxed abroad at a rate of at least 9%. It applies to all qualifying foreign permanent establishments together, and no foreign tax credit is then claimed on them."
+    },
+    {
+      "q": "Does a UAE branch need audited financial statements?",
+      "a": "For Corporate Tax, only if revenue derived through the UAE permanent establishment exceeds AED 50 million, under Ministerial Decision No. 84 of 2025 for tax periods starting on or after 1 January 2025, or if it is a Qualifying Free Zone Person. Licensing authorities may require audited branch accounts regardless."
+    }
+  ],
+  "sources": [
+    {
+      "label": "MoF: Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses (Articles 12, 14, 21, 24, 45 and 47)",
+      "href": "https://mof.gov.ae/wp-content/uploads/2022/12/Federal-Decree-Law-No.-47-of-2022-EN.pdf"
+    },
+    {
+      "label": "FTA: Decision No. 3 of 2024 on the timeline for Corporate Tax registration",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf"
+    },
+    {
+      "label": "MoF: Ministerial Decision No. 84 of 2025 on Audited Financial Statements",
+      "href": "https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf"
+    },
+    {
+      "label": "FTA: Top-up Tax Guide on Scope and Registration (TTGREG1)",
+      "href": "https://tax.gov.ae//Datafolder/Files/Guides/Top-Up-Taxes/TTGREG1%20-%20Scope%20and%20Registration%20guide%20-%2008%202026.pdf"
+    }
+  ],
+  "related": [
+    "uae-holding-company-participation-exemption",
+    "uae-transfer-pricing-documentation",
+    "uae-small-business-relief",
+    "uae-tax-loss-carry-forward"
+  ]
+}

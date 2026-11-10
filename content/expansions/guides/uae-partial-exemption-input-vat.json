@@ -1,0 +1,147 @@
+{
+  "updated": "2026-10-20",
+  "minutes": 7,
+  "sections": [
+    {
+      "h": "Who this catches",
+      "ps": [
+        "Partial exemption is not a niche bank problem. A landlord with one residential unit, a trading company doing a little margin-based FX, a school with a bus service — any business making both taxable and exempt supplies recovers input VAT only in part, and needs a method for the split. Most discover this at their first audit rather than their first return."
+      ]
+    },
+    {
+      "h": "Which supplies are exempt, and which still allow recovery",
+      "ps": [
+        "Article 46 of Federal Decree-Law No. 8 of 2017 exempts four categories: financial services specified in the Executive Regulation, residential buildings other than zero-rated first supplies, bare land, and local passenger transport. Input VAT that relates to these is not recoverable.",
+        "Article 54(1) of the Decree-Law sets out what does allow recovery: taxable supplies, including zero-rated ones, supplies made outside the UAE that would be taxable if made here, and certain exempt financial services. Article 52(1) of the Executive Regulation identifies those as financial services whose place of supply is outside the UAE and whose recipient is outside the UAE when the services are performed. A bank's fees from non-resident customers therefore sit in the recoverable pot even though the same service to a UAE customer is exempt."
+      ]
+    },
+    {
+      "h": "The three pots",
+      "list": [
+        "Directly attributable to taxable supplies — fully recoverable (subject to the usual blocked categories)",
+        "Directly attributable to exempt supplies — not recoverable at all",
+        "Residual — overheads, rent, audit fees, software: everything serving the whole business, recoverable only in proportion"
+      ]
+    },
+    {
+      "h": "The ratio and the true-up",
+      "ps": [
+        "The standard method computes the recoverable share of the residual pot from the ratio your attributed input tax already implies — recoverable attributed input tax over total attributed input tax — rounded per the regulations, applied return by return. Then once a year comes the wash-up: recompute the year as a whole, compare with what was actually recovered, and adjust the difference in the prescribed period. Businesses whose mix moves through the year routinely find the annual adjustment larger than any single quarter's residual claim.",
+        "Where the standard method produces a result that doesn't fairly reflect actual use, the regulations allow a special method with FTA approval — sector-specific approaches exist, but the default assumption should be the standard method until the FTA agrees otherwise in writing."
+      ]
+    },
+    {
+      "h": "The standard method, step by step",
+      "list": [
+        "Step 1: take out blocked input tax under Article 53 of the Executive Regulation. It never enters the calculation",
+        "Step 2: total the input tax directly attributable to supplies that allow recovery (a) and to supplies that do not (b)",
+        "Step 3: everything else is residual input tax",
+        "Step 4: the recovery percentage is a divided by (a + b), multiplied by 100 and rounded to the nearest whole number. The FTA's own examples: 90.87 becomes 91%, 61.50 becomes 62%, 73.19 becomes 73%",
+        "Step 5: recoverable input tax for the period is a, plus the residual multiplied by the percentage. Only that figure goes in Box 9 of the return"
+      ]
+    },
+    {
+      "h": "A worked example",
+      "ps": [
+        "A Dubai company leases commercial units (taxable) and residential flats (exempt). In its first quarter it incurs AED 80,000 of input VAT on the commercial units, AED 20,000 on the flats and AED 50,000 of residual VAT on head-office costs. The ratio is 80,000 over 100,000, which is 80%. Recoverable residual VAT is AED 40,000, and total recovery for the quarter is AED 120,000.",
+        "The VAT side of the quarter's purchase entries: Dr VAT recoverable 120,000 and Dr Property costs 30,000 for the irrecoverable VAT, against AED 150,000 of VAT in payables. Box 9 shows AED 120,000 of VAT.",
+        "Across the four quarters the company recovered AED 158,000 of residual VAT. For the whole tax year, direct taxable VAT is AED 300,000, direct exempt VAT is AED 100,000 and residual VAT is AED 200,000. The annual ratio is 75%, so residual VAT properly recoverable is AED 150,000. The wash-up repays AED 8,000 in the first return of the following tax year, through the adjustments column of Box 9: Dr Property costs 8,000, Cr VAT recoverable 8,000.",
+        "The company then compares AED 150,000 with what a ratio reflecting actual use would give. On its floorspace records that is AED 140,000. The difference of AED 10,000 is below AED 250,000, so no actual-use adjustment is required. You can reproduce the period and annual figures in the [partial exemption calculator](/tools/uae-partial-exemption-calculator)."
+      ]
+    },
+    {
+      "h": "The two annual calculations",
+      "ps": [
+        "Article 55(9) and (10) of the Executive Regulation require the wash-up in the first tax period of the next tax year, with no threshold. Article 55(11) then requires an actual-use adjustment only if the difference between the standard result and a result reflecting actual use exceeds AED 250,000 for the year. Under Article 55(12) that threshold is reduced pro rata for a tax year shorter than 12 months.",
+        "The tax year follows your stagger, not your financial year. For quarterly filers it ends on 31 January, the last day of February or 31 March and every 12 months after. For annual periods it is the period itself, and for monthly filers it is the calendar year. It also ends early on deregistration and when an entity joins or leaves a tax group (Article 55(4))."
+      ]
+    },
+    {
+      "h": "From 2028: the ratio moves to turnover",
+      "ps": [
+        "Cabinet Decision No. 149 of 2026 rewrites Article 55(6) of the Executive Regulation. From the first tax year commencing after 1 October 2027 (1 January 2028 for calendar-year filers), the residual pot recovers at the value of supplies that carry recovery over the value of all supplies, instead of the ratio of attributed input tax. Disposals of the business's own capital assets and reverse-charge receipts of concerned goods and services stay out of the calculation. Government entities and charities keep the input tax ratio, and the annual wash-up continues, with the AED 250,000 threshold still governing the actual-use adjustment.",
+        "The two methods can give very different answers. A business with large exempt revenue but little directly attributable exempt input tax, such as a residential landlord with a commercial portfolio, often recovers less on turnover. Run a full year of your own data through both methods in the [partial exemption calculator](/tools/uae-partial-exemption-calculator) now, and apply for a special method before the transition if the turnover ratio misstates actual use. The full list of changes is in our guide to [Cabinet Decision 149 of 2026](/guides/uae-vat-cabinet-decision-149-2026-input-tax).",
+        "On the example above, suppose commercial rent is AED 6,000,000 and residential rent AED 4,000,000. The turnover ratio is 60%, rounded to the nearest whole number as the new text requires, against 75% on input tax. On AED 200,000 of residual VAT that is AED 120,000 recoverable instead of AED 150,000: AED 30,000 a year of extra cost from the same records."
+      ]
+    },
+    {
+      "h": "Special methods and fixed percentages",
+      "ps": [
+        "Article 55(13) lets you apply to the FTA to use an alternative basis from the list of mechanisms the FTA accepts, and the FTA can also require you to apply. The FTA's apportionment guide (VATGIT1) describes outputs-based, floorspace and sector-based approaches. An approved method runs from a future date the FTA sets, and you can only apply to change it after at least two tax years (Article 55(14) and (15)).",
+        "Separately, Article 55(16) lets you apply to use the previous tax year's recovery percentage in each period of the current year. That smooths the quarterly returns but does not remove the wash-up or the actual-use test."
+      ]
+    },
+    {
+      "h": "The traps",
+      "list": [
+        "Recovering everything because exempt supplies feel incidental — the test is making exempt supplies, not majoring in them",
+        "No cost-attribution discipline, so the residual pot swallows costs that were directly attributable — in either direction",
+        "Skipping the annual adjustment entirely — it is a required calculation, not an optional refinement",
+        "Forgetting the de minimis-style relief does not exist here the way it does in other regimes — small exempt streams still trigger the mechanics",
+        "Putting blocked input tax into pot a or b, which distorts the ratio as well as the claim",
+        "Ignoring reverse-charge VAT on overheads: it is residual input tax and goes through the ratio (see the [reverse charge guide](/guides/uae-vat-reverse-charge))"
+      ]
+    },
+    {
+      "h": "Changes of use and large assets",
+      "ps": [
+        "Apportionment is a period calculation. When the use of a cost changes before it is consumed, Article 56 requires an adjustment instead, for changes within five years of the date of supply. For buildings costing AED 5,000,000 or more excluding VAT with a useful life of ten years or more, and other assets of that value with a life of five years or more, the capital assets scheme in Articles 57 and 58 monitors recovery over ten or five years. A mixed-use building, covered in our [real estate VAT guide](/guides/uae-real-estate-vat), often meets both rules."
+      ]
+    },
+    {
+      "h": "How Hysaab applies this",
+      "ps": [
+        "Hysaab attributes each cost line to taxable, exempt or residual as documents post, computes the period ratio and the recoverable residual automatically, and runs the annual wash-up from the same records — so partial exemption becomes arithmetic on clean attributions instead of a year-end estimate."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How do you calculate partial exemption for UAE VAT?",
+      "a": "Remove blocked input tax, attribute the rest to taxable supplies (a), exempt supplies (b) or residual. Recover a in full, nothing of b, and residual VAT at a divided by (a + b), rounded to the nearest whole percentage. Recalculate for the whole tax year in the first period of the next one and adjust the difference."
+    },
+    {
+      "q": "What is the AED 250,000 threshold in UAE input tax apportionment?",
+      "a": "It applies to the actual-use adjustment under Article 55(11) of the Executive Regulation. If the standard method's annual result differs from a result reflecting actual use by more than AED 250,000, you must adjust the difference. The annual wash-up itself has no threshold."
+    },
+    {
+      "q": "Is residential rent exempt from VAT in the UAE?",
+      "a": "Yes, except the first supply of a new residential building within three years of completion, which is zero-rated. A landlord with both residential and commercial property makes exempt and taxable supplies and must apportion its shared input VAT."
+    },
+    {
+      "q": "What changes in UAE VAT apportionment from 2028?",
+      "a": "Cabinet Decision No. 149 of 2026 replaces the input-tax ratio with a turnover ratio, the value of supplies that allow recovery over the value of all supplies, from the first tax year starting after 1 October 2027. Capital asset disposals and reverse-charge receipts are excluded. Government entities and charities keep an input-tax ratio."
+    },
+    {
+      "q": "Can I use a special method for input tax apportionment in the UAE?",
+      "a": "Only with the FTA's written approval, from a date the FTA sets. Article 55(13) of the Executive Regulation allows an application where the standard method does not reflect actual use, and you cannot apply to change an approved method for at least two tax years."
+    },
+    {
+      "q": "When is the annual input tax adjustment made in the UAE?",
+      "a": "In the first tax period of the following tax year, which follows your VAT stagger rather than your financial year. It is reported through the adjustments column of Box 9."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: VAT Executive Regulation, consolidated to Cabinet Decision No. 149 of 2026 (Articles 52, 55 to 58)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Input Tax Apportionment Guide (VATGIT1)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Input%20Tax%20Apportionment%20Guide%20-%20EN%20-%2016%2006%202023.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT, consolidated (Articles 46 and 54)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    },
+    {
+      "label": "FTA: VAT Returns User Guide (Box 9 and the adjustments column)",
+      "href": "https://tax.gov.ae/DataFolder/Files/Pdf/VAT%20Returns%20User%20GuideEnglishV40%2015%2008%202021%20SEP2021.pdf"
+    }
+  ],
+  "related": [
+    "uae-vat-cabinet-decision-149-2026-input-tax",
+    "uae-real-estate-vat",
+    "uae-blocked-input-vat"
+  ]
+}

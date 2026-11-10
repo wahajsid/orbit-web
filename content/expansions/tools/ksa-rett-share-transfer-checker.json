@@ -1,0 +1,79 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this checker works",
+      "ps": [
+        "You enter the market value of the Saudi real estate held, the market value of total assets, the percentage of interests transferred over three years and the price allocated to the real estate, and tick whether the real estate is held to earn revenue from sale or lease and whether the shares are listed on the Saudi Exchange.",
+        "The checker runs the tests in order and stops at the first one that fails:"
+      ],
+      "list": [
+        "Listed shares: exempt, and no tax is shown.",
+        "Real estate not held to earn revenue from sale or lease: outside scope, because the entity is not a real estate company.",
+        "Real estate divided by total assets below 50%: outside scope on these figures. The ratio is shown to two decimal places.",
+        "Interests transferred below 30%: a real estate company, but below the threshold.",
+        "Otherwise taxable. The base is the higher of (real estate value x percentage transferred) and the allocated price, and the tax is 5% of that base."
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "Under the Real Estate Transaction Tax Law (Royal Decree No. M/84, in force 10 April 2025) and its Implementing Regulations, transferring interests in a real estate company counts as an indirect transfer of real estate. ZATCA's Detailed Guideline for RETT (version 6, May 2026) defines a real estate company as any company, fund or entity, whatever its purpose, that owns real estate in the Kingdom directly or indirectly to earn revenue from selling or leasing it. That real estate must be worth at least 50% of the fair market value of all its assets, either on the transfer date or at any time in the 365 days before it.",
+        "A transfer is taxable when a person, or persons acting in concert, transfer 30% or more of the interests, in one transaction or a series of related transactions within three years. Below that, the transfer is outside the scope of RETT altogether. Add up every related transfer in the three years: the tax falls due on the one that takes the total to 30% or more.",
+        "The tax base is the fair market value of all the real estate the company owns, directly or indirectly, multiplied by the percentage transferred, or the agreed price allocated to the real estate, whichever is higher. The tax falls due on the earlier of the transfer and an unconditional agreement to transfer, and must be paid within 30 days. Late payment costs 2% a month or part-month, capped at 50%.",
+        "Exempt under exemption 5.1.23 are initial public offerings and trading of securities listed on the Capital Market, acquisitions of shares in listed joint-stock companies, and trading of units in unlisted investment funds below 50% of the fund's units. The checker models only the listed-shares case. Group, in-kind contribution and share-for-share merger exemptions each carry a five-year holding condition. They are covered in the [exemptions guide](/guides/ksa-rett-exemptions)."
+      ]
+    },
+    {
+      "h": "Inputs to get right",
+      "list": [
+        "Use fair market values, not book values, for both the real estate and total assets. Old land at historical cost can hide a real estate company.",
+        "Run the ratio on the transfer date and on the highest point in the previous 365 days. The checker tests one date only.",
+        "Enter only real estate held for sale or lease in the ratio. Owner-occupied premises do not count towards the 50% test.",
+        "Enter the cumulative percentage for every related transfer in the last three years, including transfers by parties acting in concert."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "A Riyadh holding company owns leased warehouses with a market value of SAR 80 million. Its total assets at market value are SAR 120 million. A shareholder sells a 40% stake for SAR 30 million under an unconditional agreement signed on 1 September 2026. The agreement allocates SAR 28 million of the price to the real estate. The shares are not listed. These are the checker's default figures."
+    ],
+    "list": [
+      "Step 1: enter 80,000,000 and 120,000,000, 40% and 28,000,000. Tick 'held to earn revenue' and leave 'listed' unticked.",
+      "Step 2: ratio = 80 / 120 = 66.67%, which is at least 50%, so this is a real estate company.",
+      "Step 3: 40% is at least 30%, so the transfer is taxable.",
+      "Step 4: base = the higher of 80,000,000 x 40% = SAR 32,000,000 and SAR 28,000,000 = SAR 32,000,000.",
+      "Step 5: RETT = 32,000,000 x 5% = SAR 1,600,000.00. It falls due on 1 September 2026, the date of the unconditional agreement, and is payable by 1 October 2026.",
+      "Step 6: change the stake to 25% and the checker says the sale is below the threshold. If the same shareholder sold 10% two years earlier, the related transfers total 35% within three years, so enter 35% and the test is met again. The tax then falls due on the transfer that took the total past 30%. Agree the base on aggregated transfers with your adviser, because the checker applies the percentage you enter to the current values."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is RETT due on a share sale in Saudi Arabia?",
+      "a": "Only where the company is a real estate company and 30% or more of its interests are transferred within three years. A real estate company is one whose real estate held for sale or lease is worth at least 50% of its total assets at market value, on the transfer date or at any time in the prior 365 days. Listed shares are exempt."
+    },
+    {
+      "q": "How is RETT calculated on a transfer of shares?",
+      "a": "5% of the higher of two amounts: the market value of all the company's real estate multiplied by the percentage transferred, or the agreed price allocated to the real estate. On SAR 80 million of real estate and a 40% stake, the first limb is SAR 32 million and the tax SAR 1.6 million."
+    },
+    {
+      "q": "Do small share transfers add up for RETT?",
+      "a": "Yes. Transfers by the same person, or by persons acting in concert, in one transaction or related transactions within three years are added together. The tax falls due on the transfer that takes the total to 30% or more."
+    },
+    {
+      "q": "Are fund units subject to RETT?",
+      "a": "An investment fund can be a real estate company. Trading units in an unlisted fund is exempt where the transaction is below 50% of the fund's units, and trading securities listed on the Capital Market is exempt. See the [RETT guide on share transfers](/guides/ksa-rett-share-transfers-real-estate-companies)."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ZATCA: Detailed Guideline for the Real Estate Transaction Tax (version 6, May 2026), sections 2, 3.1, 4.2 and 5.1.23",
+      "href": "https://zatca.gov.sa/en/HelpCenter/guidelines/Documents/Detailed-Guideline-for-RETT-In-accordance-with-provision-of-RETT-Law-and-its-Implementing-Regulations.pdf"
+    },
+    {
+      "label": "ZATCA: Real Estate Transaction Tax Law and Implementing Regulations",
+      "href": "https://zatca.gov.sa/en/RulesRegulations/Taxes/Pages/RETTRegulation.aspx"
+    }
+  ]
+}

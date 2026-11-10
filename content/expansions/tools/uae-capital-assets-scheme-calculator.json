@@ -1,0 +1,95 @@
+{
+  "updated": "2026-11-10",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "Choose the kind of asset first. A building or part of a building is monitored for 10 years, so the calculator divides the Year 1 input VAT by 10. Any other capital asset is monitored for 5 years, so it divides by 5. Then enter W, the input VAT incurred on the asset in Year 1, and X, the percentage of W you recovered in Year 1.",
+        "For each later year you enter Q, that year's recovery percentage for the asset. The calculator works out R = W ÷ 10 × Q (or W ÷ 5 × Q) and compares it with Z = W ÷ 10 × X (or W ÷ 5 × X), which is the same every year. Where R is higher, input tax increases by the difference; where it is lower, input tax is reduced. Percentages are held between 0% and 100%.",
+        "If you enter a year of sale earlier than the final year, the calculator stops using your Q figures after that year. Every remaining year is treated as 100% taxable if you tick that the sale is taxable, or 0% if it is not, and those years are added up separately as the adjustment for the sale."
+      ],
+      "list": [
+        "Results: the annual share Z, the net of the annual adjustments up to the year of sale, and the remaining-years adjustment on a sale",
+        "The table shows Q, R, Z and the adjustment for every year from Year 2, with deemed years marked",
+        "The year of sale itself is adjusted on the Q you enter for it; only the years after it are deemed. That follows the usual reading of Article 58, but check it against your facts",
+        "The calculator does not test whether the asset qualifies. It does not work out Q for you, and it does not handle an asset owned before registration or a disposal on deregistration"
+      ]
+    },
+    {
+      "h": "What counts as a capital asset",
+      "ps": [
+        "Article 57 of the VAT Executive Regulation, as amended by Cabinet Decision No. 149 of 2026, defines a capital asset as a business asset costing AED 5,000,000 or more, excluding VAT, on which VAT is payable, with an estimated useful life of at least 10 years for a building or part of a building and at least 5 years for other assets. Stock held for resale is never a capital asset.",
+        "Smaller amounts add up. Staged payments for buying or constructing a building, for extending, refurbishing or fitting out a building, and for goods or property assembled from separately supplied components are treated as one item once they reach AED 5,000,000, unless there is a distinct break between separate works on a building. The [Cabinet Decision 149 guide](/guides/uae-vat-cabinet-decision-149-2026-input-tax) covers what the new wording means for large projects."
+      ]
+    },
+    {
+      "h": "The rules behind the formula",
+      "ps": [
+        "Article 58 sets the scheme out. The tax year in which the asset is acquired is Year 1, and for an asset you develop yourself, Year 1 is the year you start using it. You record W and X in a capital asset register, together with every later adjustment. At the end of each year from Year 2 you calculate Q under the normal apportionment rules, which for most businesses means the [partial exemption method](/guides/uae-partial-exemption-input-vat). If Q differs from X, you make the R against Z adjustment.",
+        "Annual adjustments go into the tax period set by Article 55(9), which is the first tax period of the following tax year, the same period as the annual partial exemption adjustment. Run the [partial exemption calculator](/tools/uae-partial-exemption-calculator) first if you need a figure for Q."
+      ]
+    },
+    {
+      "h": "Selling the asset, or joining a tax group",
+      "ps": [
+        "If the asset is sold or otherwise disposed of before the final year, the scheme ceases in that tax year. Article 58(12) treats the remaining years as if the asset had been used for taxable supplies where the disposal is a taxable supply, for exempt supplies where the disposal is exempt, and outside the business where the disposal is not a supply in the course of business. Under Article 58(15), the adjustments for all the remaining years go into the return for the tax period in which the asset is disposed of. A taxable sale of a building can therefore release VAT that was blocked years earlier, and an exempt sale, such as a residential building, can claw it back.",
+        "Transferring the asset as part of a business, joining a [VAT tax group](/guides/uae-vat-tax-group) or leaving one to register alone ends the tax year on that day, and the next tax year starts the following day with the owner of the asset (Article 58(13)). The calculator does not model a change of tax year, so treat each new owner's years separately."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example: a mixed-use building sold in Year 6",
+    "ps": [
+      "Use the calculator's defaults. A developer completes a building on which it incurs input VAT of AED 2,500,000 (W). In Year 1, 80% of the building is used for commercial lettings, which are taxable, and 20% for residential lettings, which are exempt, so it recovers 80% (X). Choose Building, enter 2500000 and 80, and type the yearly recovery percentages below."
+    ],
+    "list": [
+      "Annual share: Z = 2,500,000 ÷ 10 × 80% = AED 200,000",
+      "Year 2: Q is 80%, so R = 250,000 × 80% = AED 200,000 and there is no adjustment",
+      "Year 3: two commercial floors become flats and Q falls to 60%. R = AED 150,000, so input tax is reduced by AED 50,000",
+      "Years 4, 5 and 6: Q is 90%. R = AED 225,000, so input tax increases by AED 25,000 in each year",
+      "Net annual adjustments for Years 2 to 6: 0 − 50,000 + 25,000 + 25,000 + 25,000 = +AED 25,000",
+      "Enter 6 as the year of sale and tick that the sale is taxable. Years 7 to 10 are deemed 100% taxable: 4 × (250,000 − 200,000) = +AED 200,000 of extra input tax, claimed in the return for the period of the sale",
+      "Untick the box for an exempt sale and the same four years are deemed 0%: 4 × (0 − 200,000) = −AED 800,000, repaid in the return for the period of the sale"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What is the capital assets scheme in UAE VAT?",
+      "a": "It is the rule in Articles 57 and 58 of the VAT Executive Regulation that keeps the input VAT on a large asset under review for 10 years (buildings) or 5 years (other assets). Each year in which the recovery percentage differs from Year 1, one-tenth or one-fifth of the original VAT is adjusted up or down."
+    },
+    {
+      "q": "Which assets fall under the UAE capital assets scheme?",
+      "a": "A business asset costing AED 5 million or more, excluding VAT, on which VAT is payable, with an estimated useful life of at least 10 years for a building or 5 years for other assets. Stock for resale is excluded, and staged payments for one building or project are added together."
+    },
+    {
+      "q": "How is the capital asset adjustment calculated?",
+      "a": "R = W ÷ 10 × Q for a building (W ÷ 5 × Q for other assets), compared with Z = W ÷ 10 × X. W is the Year 1 input VAT, X the Year 1 recovery percentage and Q the current year's percentage. If R exceeds Z you claim the difference; if it is lower you repay it."
+    },
+    {
+      "q": "When is the capital asset adjustment made?",
+      "a": "In the first tax period of the following tax year, alongside the annual partial exemption adjustment. On a sale or other disposal, the adjustments for all the remaining years go into the return for the period of the disposal."
+    },
+    {
+      "q": "What happens to the capital assets scheme if I sell the building?",
+      "a": "The remaining years are treated as fully taxable if the sale is taxable and fully exempt if it is exempt, and all of them are adjusted in the return for the period of the sale. A taxable sale can release blocked VAT; an exempt sale can claw back VAT you recovered."
+    },
+    {
+      "q": "Do I need a capital asset register?",
+      "a": "Yes. Article 58(4) requires a register showing the Year 1 input tax (W), and Article 58(5) requires the Year 1 recovery percentage (X), with details of every adjustment made. Without W and X you cannot do the yearly test."
+    }
+  ],
+  "sources": [
+    {
+      "label": "FTA: Executive Regulation of the VAT Decree-Law, as amended to Cabinet Decision No. 149 of 2026 (Articles 55, 57 and 58)",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2026/Law-No-8-of-2017-and-its-amendments--09-2026.pdf"
+    },
+    {
+      "label": "FTA: Input Tax Apportionment VAT Guide (VATGIT1), for working out Q",
+      "href": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Input%20Tax%20Apportionment%20Guide%20-%20EN%20-%2016%2006%202023.pdf"
+    },
+    {
+      "label": "FTA: Federal Decree-Law No. 8 of 2017 on VAT and its amendments",
+      "href": "https://tax.gov.ae/Datafolder/Files/Legislation/2025/Federal%20Decree-Law%20No.%208%20of%202017%20and%20amendments%20-%20publishing%2028%2011%202025.pdf"
+    }
+  ]
+}

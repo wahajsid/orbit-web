@@ -1,0 +1,74 @@
+{
+  "updated": "2026-10-20",
+  "method": [
+    {
+      "h": "How this calculator works",
+      "ps": [
+        "You enter the gross monthly salary, the share of it that is basic wage, and whether the employee is a UAE or GCC national. For a national you also enter the employer pension rate, which defaults to 12.5%. Negative amounts are treated as zero and the basic share is limited to 0 to 100%.",
+        "The calculator then works out a monthly cost to two decimal places and an annual figure rounded to the nearest dirham."
+      ],
+      "list": [
+        "Basic wage = gross × basic %",
+        "Expatriate: monthly EOSB provision = basic ÷ 30 × 21 ÷ 12, which is 21 days' basic a year spread over 12 months",
+        "National: no EOSB; monthly pension contribution = gross × employer pension rate",
+        "Monthly employer cost = gross + EOSB provision or pension contribution",
+        "Annual cost = monthly cost × 12"
+      ]
+    },
+    {
+      "h": "The rules behind it",
+      "ps": [
+        "For expatriate staff, Article 51 of Federal Decree-Law No. 33 of 2021 gives 21 days' basic wage for each of the first five years of service and 30 days for each later year, capped at two years' wage. Article 67 treats a month as 30 days, so a day's basic wage is monthly basic ÷ 30. The calculator accrues at the 21-day rate. From the sixth year the accrual rises to 30 days, so multiply the EOSB line by 30 ÷ 21 for long-serving staff. Only basic wage counts; housing and other allowances are excluded.",
+        "For UAE nationals in the private sector, contributions go to the General Pension and Social Security Authority (GPSSA). Under Federal Law No. 7 of 1999, which covers Emiratis employed before 31 October 2023, the employee pays 5% and the employer 12.5%, with the government adding 2.5%. Under Federal Decree-Law No. 57 of 2023, for Emiratis entering the workforce from 31 October 2023, the employee pays 11% and the employer 15%; where the contribution salary is below AED 20,000, the government pays 2.5% of that 15%, leaving the employer 12.5%. Employers headquartered in Abu Dhabi fall under the Abu Dhabi pension law instead, at its own rates. GCC nationals working in the UAE are covered under their home state's scheme, so enter the rate that applies to them.",
+        "GPSSA calculates private sector contributions on the salary in the employment contract, with a minimum contribution salary of AED 3,000 and a maximum of AED 70,000. The calculator caps the base at AED 70,000 a month, so a higher gross does not overstate the pension line. The employee's own share is deducted from pay and is not an employer cost.",
+        "Wages run through the Wage Protection System, and under MoHRE Ministerial Resolution No. 340 of 2026 they are due by the 1st of the following month from 1 June 2026. See the [WPS payroll guide](/guides/uae-wps-payroll-compliance). Visa, medical insurance, leave and air ticket costs are not included: add them on top."
+      ]
+    }
+  ],
+  "example": {
+    "h": "Worked example",
+    "ps": [
+      "Two hires on a gross salary of AED 15,000 a month, each with a basic wage of 60% of gross. The first is an expatriate. The second is an Emirati who joined the workforce in 2025, so Decree-Law No. 57 of 2023 applies; the contribution salary is below AED 20,000, so the employer rate is 12.5%. Enter 15000 and 60, then tick the national box and enter 12.5 for the second hire."
+    ],
+    "list": [
+      "Basic wage: 15,000 × 60% = AED 9,000",
+      "Expatriate EOSB: 9,000 ÷ 30 = AED 300 a day; × 21 days = AED 6,300 a year; ÷ 12 = AED 525.00 a month",
+      "Expatriate total: 15,000 + 525 = AED 15,525.00 a month, AED 186,300 a year. After five years' service the provision becomes 9,000 ÷ 30 × 30 ÷ 12 = AED 750.00 a month",
+      "Emirati pension: 15,000 × 12.5% = AED 1,875.00 a month; total AED 16,875.00 a month, AED 202,500 a year. The employee's 11% (AED 1,650) is deducted from salary",
+      "If the Emirati's contract salary rose to AED 25,000, the government share falls away and the employer rate becomes 15%: enter 25000 and 15 to get AED 3,750.00 a month in pension",
+      "Monthly journal for the expatriate: Dr salaries 15,000.00 and Dr EOSB expense 525.00; Cr salaries payable 15,000.00 and Cr EOSB provision 525.00"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How much does it cost to employ someone in the UAE?",
+      "a": "For an expatriate, at least gross salary plus the end-of-service accrual of 21 days' basic a year (30 days after five years), plus visa, medical insurance, leave and ticket costs. For an Emirati, gross salary plus the employer pension contribution of 12.5% or 15%."
+    },
+    {
+      "q": "What is the employer pension contribution for UAE nationals?",
+      "a": "12.5% of contribution salary for Emiratis under the 1999 law. For those who joined the workforce from 31 October 2023 it is 15%, of which the government pays 2.5% where the contribution salary is below AED 20,000. Abu Dhabi-headquartered employers follow the Abu Dhabi pension law."
+    },
+    {
+      "q": "How do I calculate the monthly gratuity provision?",
+      "a": "Monthly basic ÷ 30 × 21 ÷ 12 for each of the first five years, and monthly basic ÷ 30 × 30 ÷ 12 after that. On AED 9,000 basic that is AED 525 and AED 750 a month. Use the [EOSB gratuity calculator](/tools/eosb-gratuity-calculator) for the amount payable on exit."
+    },
+    {
+      "q": "Do employers pay end of service gratuity for UAE nationals?",
+      "a": "No. UAE nationals in the private sector are covered by the pension system, so the employer pays monthly contributions instead of a lump-sum gratuity."
+    },
+    {
+      "q": "Is pension calculated on basic or gross salary?",
+      "a": "For the private sector, GPSSA uses the salary in the employment contract, between AED 3,000 and AED 70,000 a month. Check what the contract states as salary before choosing the base."
+    }
+  ],
+  "sources": [
+    {
+      "label": "GPSSA: how contributions are calculated under the applicable law",
+      "href": "https://gpssa.gov.ae/pages/en/media-center/news/gpssa-explains-how-contributions-are-calculated-accordance-applicable-law"
+    },
+    {
+      "label": "GPSSA: breakouts and explanation of the UAE federal pension laws",
+      "href": "https://gpssa.gov.ae/pages/en/media-center/news/gpssa-provides-breakouts-and-explanation-uae-federal-laws-regarding-pension-and"
+    }
+  ]
+}
