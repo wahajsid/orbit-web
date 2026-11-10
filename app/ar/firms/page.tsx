@@ -1,14 +1,22 @@
 /* ── /ar/firms: Hysaab Practice ──────────────────────────────────────
-   Arabic twin of app/(en)/firms/page.tsx, rebuilt 2026-09-23 (website
-   change plan). Same order: the tax work first, the nine areas of three,
-   Hysaab Audit, how the AI is allowed to work, the five questions firms
-   ask (DRAFT: owner review, lib/trust.ts) and why we built it, with the
-   day in the firm (ServicesDay) and the savings calculator (SavingsCalc)
-   in Arabic, as on the English page.
-   AR-REVIEW: every Arabic string on this page is a new draft for the
-   native reviewer (brand/AR-REVIEW.md). */
+   Arabic twin of app/(en)/firms/page.tsx, rebuilt 2026-10-25 in the
+   homepage's Tick & Tie language: W/P strips, the highlighter headline, a
+   work film in the hero (WorkFilm, locale="ar") and the demo form at the
+   end. Same order as the English page: the tax work first, a day in the
+   firm (ServicesDay), the nine areas, the savings calculator (SavingsCalc),
+   the rules for the AI, the five questions firms ask (lib/trust.ts) with
+   Hysaab Audit, and why we built it. Every Arabic string carried over from
+   the September page is unchanged; brand and system names stay Latin and
+   digits Western.
+   AR-REVIEW: every Arabic string on this page is a draft for the native
+   reviewer (brand/AR-REVIEW.md); the strings new on 2026-10-25 are the
+   hero, the film and the section strips. */
 
-import { PageShell, PageHero } from "@/components/home/PageShell";
+import { SiteHeader } from "@/components/home/HomeHeader";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { EnquiryForm } from "@/components/home/EnquiryForm";
+import { Wp, Tm } from "@/components/home/tt/Wp";
+import { WorkFilm } from "@/components/home/WorkFilm";
 import { ServicesDay } from "@/components/hysaab/ServicesDay";
 import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
 import { langAlternates } from "@/lib/site-meta";
@@ -72,210 +80,159 @@ const AREAS: { k: string; h: string; items: React.ReactNode[] }[] = [
   ] },
 ];
 
+/* AR-REVIEW: the rules for the AI */
+const RULES: [string, string, string][] = [
+  ["مقترحات لا أفعال", "كل اقتراح بطاقة", "المهام وبنود سجلات الوقت والالتزامات والمعالجات الضريبية تصل مقترحات. ولا يُنشأ شيء حتى يقبله أحد."],
+  ["الأشخاص يرسلون", "لا بريد يخرج من تلقاء نفسه", "الردود تُصاغ ولا تُرسل تلقائيًا. والإرسال التلقائي إلى العميل معطّل افتراضيًا، وحين يُفعَّل ينتظر 24 ساعة."],
+  ["المال محسوب بدقة", "الشيفرة تتولى الحساب", "الأتعاب والأعمال قيد التنفيذ والتحصيل وكل رقم ضريبي تُحسب بالشيفرة. والذكاء الاصطناعي يكتب الكلمات حول الأرقام، لا الأرقام."],
+  ["مساءلة بالتصميم", "سجل لقرارات الذكاء الاصطناعي", "كل قرار يتخذه الذكاء الاصطناعي يُسجَّل مع موافقة الشخص أو عدمها، وتقارير الحوكمة تُظهر للعملاء والجهات الرقابية كيف يُستخدم."],
+  ["الحكم يبقى بشريًا", "أشياء لا يلمسها الذكاء الاصطناعي", "تقييمات الأداء بشرية فقط. وقواعد الأتمتة معطّلة عند التسليم. والإقرارات والفواتير والرواتب تحتاج إلى معدّ ومراجع."],
+  ["مبني ليُوثق به", "الأمان من أول جدول", "أمان على مستوى الصفوف في كل جدول، ووصول بحسب فريق الارتباط، وتسجيل دخول ثنائي إلزامي، وروابط تنتهي صلاحيتها، وفحص المرفقات من البرمجيات الخبيثة، ونسخ احتياطية يومية."],
+];
+
 const newTab = <span className="hw-sr">{DEMO_NEW_TAB.ar}</span>;
+const inEnglish = <span className="hw-sr"> (بالإنجليزية)</span>;
 
 export default function PracticePage() {
   return (
-    /* AR-REVIEW: every string below */
-    <PageShell locale="ar" band={{ kicker: "احجز عرضًا تجريبيًا", title: "أعد إلى فريقك وقته للحكم المهني.", body: "يفتح Hysaab Practice أبوابه أولًا لمجموعة صغيرة من مكاتب الضرائب والاستشارات. احجز عرضًا تجريبيًا وسيأخذك شخص حقيقي في جولة على إقرار من نوع عملك." }}>
-      <PageHero
-        locale="ar"
-        eyebrow="لمكاتب الضرائب والاستشارات"
-        title={<>Hysaab Practice.<br /><span>وكلاء ذكاء اصطناعي لمكاتب الضرائب والاستشارات.</span></>}
-        lede={<>يتولى الوكلاء العمل الضريبي: مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات، ومعالجات مستمدة من سوابق مكتبك، ومراجعة نقدية قبل تقديم أي شيء. والقرار لشركائك. ويعمل <a href="/audit">Hysaab Audit</a> على ملف التدقيق بجانبه.</>}
-      >
-        <a className="hw-btn hw-btn--peach" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
-        <a className="hw-link hw-link--light" href="#day">شاهد يومًا في المكتب</a>
-      </PageHero>
+    <div className="hw-page tt-page" id="top">
+      <a href="#main" className="hw-skip">تخطَّ إلى المحتوى</a>
+      <span data-motion-page="full" hidden />
+      <SiteHeader locale="ar" />
+      <main id="main">
+        {/* ── P-1 الوعد، وإقرار يُفحص (AR-REVIEW: the strip, headline and the film) ── */}
+        <section className="tt-sec tt-grid tt-hero tt-hero3">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-1" right={<>أعدّه <b>الوكلاء</b> · وقرره <b>شركاؤك</b></>}>Hysaab Practice · لمكاتب الضرائب والاستشارات</Wp>
+            <div className="tt-hero2-g tt-hero3-g">
+              <div className="tt-hero2-copy">
+                <h1>كل إقرار مفحوص <span className="tt-hl">قبل أن يوقّعه الشريك.</span></h1>
+                <p className="tt-hero-sub">يتولى الوكلاء العمل الضريبي: مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات، ومعالجات مستمدة من سوابق مكتبك، ومراجعة نقدية قبل تقديم أي شيء. والقرار لشركائك، ويدير المكتب نفسه من حول العمل.</p>
+                <div className="tt-acts tt-hero2-acts">
+                  <a className="hw-btn hw-btn--navy m-cta" {...DEMO}>احجز عرضًا تجريبيًا <span aria-hidden="true">↗</span>{newTab}</a>
+                  <a className="tt-link" href="#day">شاهد يومًا في المكتب <span aria-hidden="true">↓</span></a>
+                </div>
+              </div>
+              <WorkFilm
+                locale="ar"
+                bar="مكتبك · إقرار ضريبة القيمة المضافة للربع الثالث · Al Noor Trading" tag="توضيحي" title="إقرار الربع الثالث"
+                sr="رسم توضيحي لإقرار ضريبة القيمة المضافة في Hysaab Practice: تُقرأ كشوف العميل، وتُجرى 144 فحصًا، وتُقترح معالجة من سابقة المكتب، وتتحدى مراجعة نقدية الإقرار، ويُصاغ الشرح، فيصبح جاهزًا لاعتماد الشريك."
+                cap="عميل وأرقام توضيحية · الفحوص هي فحوص المنتج نفسه"
+                rows={[
+                  { label: "البيانات", task: "قراءة كشوف المبيعات والمشتريات", done: "1,284 سطرًا · مطابقة للدفاتر" },
+                  { label: "الفحوص", task: "144 فحصًا لضريبة القيمة المضافة", done: "141 ناجحة · 3 ملاحظات، لكل منها قاعدتها" },
+                  { label: "المعالجة", task: "معالجة مقترحة من سابقة", done: "موقف المكتب FP-12 · ضريبة مدخلات الضيافة محجوبة" },
+                  { label: "المراجعة", task: "مراجعة نقدية للإقرار", done: "أجاب المعدّ عن اعتراضين" },
+                  { label: "الصياغة", task: "الشرح وخطاب الإحالة", done: "صيغا للمراجع" },
+                ]}
+                final={{ k: "جاهز للاعتماد", h: "فُحص الإقرار", s: "حُسمت الملاحظات · والنسخة المقدَّمة ستكون دائمة", sign: "مطلوب اعتماد الشريك" }}
+              />
+            </div>
+          </div>
+        </section>
 
-      <section id="tax-work">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">العمل الضريبي أولًا</p>
-              <h2>كل إقرار مفحوص<br /><span>قبل أن يوقّعه الشريك.</span></h2>
-            </div>
-            <p>ما يدفع العملاء لمكتبك مقابله هو الحكم المهني على ضرائبهم. يُعدّ Hysaab Practice هذا العمل ويختبره، ليصرف فريقك ساعاته على القرارات.</p>
+        {/* ── P-2 العمل الضريبي أولًا ── */}
+        <section className="tt-sec" id="tax-work" aria-labelledby="pr-tax-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-2" right="العمل الذي يدفع العملاء مقابله">العمل الضريبي أولًا</Wp>
+            <h2 className="tt-h2" id="pr-tax-h" data-reveal="">ليصرف فريقك ساعاته <span className="tt-hl" data-play="">على القرارات.</span></h2>
+            <p className="tt-lead">ما يدفع العملاء لمكتبك مقابله هو الحكم المهني على ضرائبهم. يُعدّ Hysaab Practice هذا العمل ويختبره أولًا.</p>
+            <ol className="tt-steps tt-steps3" data-reveal="stagger-lg">
+              <li><span className="tt-step-n">01</span><div><h3>مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات.</h3><p>يمر كل إقرار بمئات الفحوص عبر الاكتمال والمعالجة والفحص قبل أن يُطلب من أحد مراجعته. وكل ملاحظة تسمّي القاعدة والرقم المعنيين.</p></div></li>
+              <li><span className="tt-step-n">02</span><div><h3>معالجات من سوابق مكتبك.</h3><p>تُقترح المعالجات الضريبية من سوابق المكتب نفسه أولًا، مع إظهار المصدر، فتكون الإجابة هي التي كان مكتبك سيقدّمها.</p></div></li>
+              <li><span className="tt-step-n">03</span><div><h3>مراجعة نقدية قبل الاعتماد.</h3><p>تتحدى مراجعة نقدية الإقرار قبل أن يعتمده الشريك، وتُصاغ شروح الفروقات وخطابات الإحالة للمراجع. والنسخ المقدَّمة دائمة: التصحيحات تحل محلها ولا تكتب فوقها.</p></div></li>
+            </ol>
           </div>
-          <div className="hw-rows">
-            <article><span className="hw-mono">01</span><h3>مئات الفحوص لضريبة القيمة المضافة وضريبة الشركات.</h3><p>يمر كل إقرار بمئات الفحوص عبر الاكتمال والمعالجة والفحص قبل أن يُطلب من أحد مراجعته. وكل ملاحظة تسمّي القاعدة والرقم المعنيين.</p></article>
-            <article><span className="hw-mono">02</span><h3>معالجات من سوابق مكتبك.</h3><p>تُقترح المعالجات الضريبية من سوابق المكتب نفسه أولًا، مع إظهار المصدر، فتكون الإجابة هي التي كان مكتبك سيقدّمها.</p></article>
-            <article><span className="hw-mono">03</span><h3>مراجعة نقدية قبل الاعتماد.</h3><p>تتحدى مراجعة نقدية الإقرار قبل أن يعتمده الشريك، وتُصاغ شروح الفروقات وخطابات الإحالة للمراجع. والنسخ المقدَّمة دائمة: التصحيحات تحل محلها ولا تكتب فوقها.</p></article>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── يوم في المكتب (AR-REVIEW) ── */}
-      <section id="day" className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">يوم في المكتب</p>
-              <h2>يوم ثلاثاء واحد. ست لحظات كانت الأعمال الإدارية تلتهمها.</h2>
-            </div>
-            <p>مكتب وعملاء توضيحيون. اضغط الأزرار في النافذة: لا يُحتسب شيء يقترحه الذكاء الاصطناعي حتى يؤكده شخص.</p>
+        {/* ── P-3 يوم في المكتب ── */}
+        <section className="tt-sec tt-grid" id="day" aria-labelledby="pr-day-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-3" right="مكتب وعملاء توضيحيون">يوم في المكتب</Wp>
+            <h2 className="tt-h2" id="pr-day-h" data-reveal="">يوم ثلاثاء واحد. <span className="tt-hl" data-play="">ست لحظات كانت الأعمال الإدارية تلتهمها.</span></h2>
+            <p className="tt-lead">اضغط الأزرار في النافذة: لا يُحتسب شيء يقترحه الذكاء الاصطناعي حتى يؤكده شخص.</p>
+            <div className="tt-embed"><ServicesDay locale="ar" /></div>
           </div>
-          <ServicesDay locale="ar" />
-        </div>
-      </section>
+        </section>
 
-      <section className="hw-block--family">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">ويدير المكتب نفسه من حوله</p>
-              <h2>تسعة مجالات في المكتب.<br /><span>ونظام واحد تحتها.</span></h2>
+        {/* ── P-4 ويدير المكتب نفسه من حوله ── */}
+        <section className="tt-sec" aria-labelledby="pr-areas-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-4" right="سجل واحد تحتها">ويدير المكتب نفسه من حوله</Wp>
+            <h2 className="tt-h2" id="pr-areas-h" data-reveal="">تسعة مجالات في المكتب. <span className="tt-hl" data-play="">ونظام واحد تحتها.</span></h2>
+            <p className="tt-lead">العملاء والإقرارات والوقت والفوترة والأشخاص يتشاركون سجلًا واحدًا: خطاب الارتباط الموقَّع ينشئ الالتزامات، والالتزامات تنشئ العمل، والعمل يصبح سجل الوقت والفاتورة.</p>
+            <div className="tt-areas" data-reveal="stagger-lg">
+              {AREAS.map((a) => (
+                <article key={a.k}>
+                  <p className="tt-who">{a.k}</p>
+                  <h3>{a.h}</h3>
+                  <ul>{a.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+                </article>
+              ))}
             </div>
-            <p>العملاء والإقرارات والوقت والفوترة والأشخاص يتشاركون سجلًا واحدًا: خطاب الارتباط الموقَّع ينشئ الالتزامات، والالتزامات تنشئ العمل، والعمل يصبح سجل الوقت والفاتورة.</p>
+            <p className="tt-promise"><Tm m="T" /> ما يحل محله: أداة إدارة المكتب، والبريد المشترك، وجداول المواعيد، وبوابة المستندات، ونظام إدارة العملاء، وتطبيق التوقيع الإلكتروني، وتطبيق سجلات الوقت، وملف الموارد البشرية.</p>
           </div>
-          <div className="hw-cards">
-            {AREAS.map((m) => (
-              <article key={m.k}>
-                <p className="hw-eyebrow">{m.k}</p>
-                <h3>{m.h}</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 8 }}>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">ما يحل محله</span>
-            <p>أداة إدارة المكتب، والبريد المشترك، وجداول المواعيد، وبوابة المستندات، ونظام إدارة العملاء، وتطبيق التوقيع الإلكتروني، وتطبيق سجلات الوقت، وملف الموارد البشرية.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── الوقت والتكلفة (AR-REVIEW) ── */}
-      <section>
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">الوقت والتكلفة</p>
-              <h2>كم تكلّف الأعمال الإدارية مكتبك.</h2>
-            </div>
-            <p>أدخل فريقك وتكلفة الساعة لديك. كل افتراض معروض على الصفحة، فالرقم رقمك لتناقشه.</p>
+        {/* ── P-5 الوقت والتكلفة ── */}
+        <section className="tt-sec tt-grid" aria-labelledby="pr-calc-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-5" right="كل افتراض معروض">الوقت والتكلفة</Wp>
+            <h2 className="tt-h2" id="pr-calc-h" data-reveal="">كم تكلّف الأعمال الإدارية <span className="tt-hl" data-play="">مكتبك.</span></h2>
+            <p className="tt-lead">أدخل فريقك وتكلفة الساعة لديك. كل افتراض معروض على الصفحة، فالرقم رقمك لتناقشه.</p>
+            <div className="tt-embed"><SavingsCalc locale="ar" /></div>
           </div>
-          <SavingsCalc locale="ar" />
-        </div>
-      </section>
+        </section>
 
-      <section className="hw-block--sage">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Hysaab Audit</p>
-              <h2>إن كنت توقّع آراء التدقيق،<br /><span>فالملف يعمل هنا أيضًا.</span></h2>
+        {/* ── P-6 قواعد الذكاء الاصطناعي ── */}
+        <section className="tt-sec tt-memory" aria-labelledby="pr-rules-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-6" right="كيف يُسمح للذكاء الاصطناعي بالعمل">القواعد</Wp>
+            <h2 className="tt-h2" id="pr-rules-h" data-reveal="">النموذج يقترح. والشيفرة تحسب. <span className="tt-hl" data-play="">وشخص مسمّى يؤكد.</span></h2>
+            <div className="tt-rules" data-reveal="stagger-lg">
+              {RULES.map(([k, h, p]) => <article key={k}><p className="tt-who">{k}</p><h3>{h}</h3><p>{p}</p></article>)}
             </div>
-            <p>يتبع Hysaab Audit القاعدة نفسها: المحركات تحسب، وشخص مرخّص يستنتج. اشترِه وحده أو مع Hysaab Practice. لكلٍّ منهما سجلات عملائه الخاصة، وقواعد الاستقلالية في مكتبك تحدد من يعمل على أي عميل.</p>
           </div>
-          <div className="hw-cards">
-            <article>
-              <p className="hw-eyebrow">الاختبار</p>
-              <h3>كل قيد، لا خمسة وعشرون</h3>
-              <p>يقيّم اختبار قيود اليومية المجتمع كله وفق ثلاثين معيارًا من معيار ISA 240. وتُصمَّم عينات الوحدة النقدية وتُختار وتُقيَّم حتى الحد الأعلى للأخطاء.</p>
-            </article>
-            <article>
-              <p className="hw-eyebrow">الملف</p>
-              <h3>يُكتب مع انتهاء العمل</h3>
-              <p>أوراق عمل بالغرض والمصدر والإجراء والنتائج والاستنتاج، مع إحالات متبادلة. يوقّع المعدّ ثم المراجع ثم الشريك بالترتيب، وتوقيع الشريك يقفل النسخة.</p>
-            </article>
-            <article>
-              <p className="hw-eyebrow">الاستقلالية</p>
-              <h3>جدار فاصل، لا مجرد سياسة</h3>
-              <p>سجلات التدقيق ملك للمكتب؛ ويمنح العميل صلاحية قراءة لفترة محددة قابلة للإلغاء. والاختبار يجري على نسخة ثابتة مجزّأة، لا على الدفتر الحي. ولا يوقّع Hysaab أي رأي أبدًا.</p>
-            </article>
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">للمزيد</span>
-            <p><a href="/audit">شاهد Hysaab Audit شاشةً بشاشة (بالإنجليزية) <span aria-hidden="true">←</span></a></p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="hw-block--dark">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">كيف يُسمح للذكاء الاصطناعي بالعمل</p>
-              <h2>النموذج يقترح. والشيفرة تحسب.<br /><span>وشخص مسمّى يؤكد.</span></h2>
+        {/* ── P-7 خمسة أسئلة، و Hysaab Audit ── */}
+        <section className="tt-sec" id="questions" aria-labelledby="pr-q-h">
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-7" right="إجابات مباشرة">خمسة أسئلة تطرحها المكاتب</Wp>
+            <h2 className="tt-h2" id="pr-q-h" data-reveal="">عملاؤك يبقون عملاءك. <span className="tt-hl" data-play="">وهنا نرسم الحد.</span></h2>
+            <div className="hw-faq tt-faq">
+              {FIRM_QUESTIONS.ar.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <div className="hw-faq-a"><p>{f.a}</p></div>
+                </details>
+              ))}
+            </div>
+            <div className="tt-firmrow tt-firmrow--2">
+              <a href="/audit"><span className="tt-prod-st"><span>إن كنت توقّع آراء التدقيق</span><b>Hysaab Audit</b></span><strong>فالملف يعمل هنا أيضًا</strong><span>يقيّم اختبار قيود اليومية المجتمع كله وفق ثلاثين معيارًا من معيار ISA 240، وتُصمَّم العينات وتُقيَّم، وتُكتب أوراق العمل مع انتهاء العمل. ولا يوقّع Hysaab أي رأي أبدًا.{inEnglish}</span></a>
+              <a href="/ar/trust"><span className="tt-prod-st"><span>للمزيد</span><b>الثقة</b></span><strong>التزاماتنا تجاه المكاتب المهنية</strong><span>كيف نرعى بياناتك، والحدود التجارية التي نلتزم بها.</span></a>
             </div>
           </div>
-          <div className="hw-cards">
-            <article className="is-navy">
-              <p className="hw-eyebrow">مقترحات لا أفعال</p>
-              <h3>كل اقتراح بطاقة</h3>
-              <p>المهام وبنود سجلات الوقت والالتزامات والمعالجات الضريبية تصل مقترحات. ولا يُنشأ شيء حتى يقبله أحد.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">الأشخاص يرسلون</p>
-              <h3>لا بريد يخرج من تلقاء نفسه</h3>
-              <p>الردود تُصاغ ولا تُرسل تلقائيًا. والإرسال التلقائي إلى العميل معطّل افتراضيًا، وحين يُفعَّل ينتظر 24 ساعة.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">المال محسوب بدقة</p>
-              <h3>الشيفرة تتولى الحساب</h3>
-              <p>الأتعاب والأعمال قيد التنفيذ والتحصيل وكل رقم ضريبي تُحسب بالشيفرة. والذكاء الاصطناعي يكتب الكلمات حول الأرقام، لا الأرقام.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">مساءلة بالتصميم</p>
-              <h3>سجل لقرارات الذكاء الاصطناعي</h3>
-              <p>كل قرار يتخذه الذكاء الاصطناعي يُسجَّل مع موافقة الشخص أو عدمها، وتقارير الحوكمة تُظهر للعملاء والجهات الرقابية كيف يُستخدم.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">الحكم يبقى بشريًا</p>
-              <h3>أشياء لا يلمسها الذكاء الاصطناعي</h3>
-              <p>تقييمات الأداء بشرية فقط. وقواعد الأتمتة معطّلة عند التسليم. والإقرارات والفواتير والرواتب تحتاج إلى معدّ ومراجع.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">مبني ليُوثق به</p>
-              <h3>الأمان من أول جدول</h3>
-              <p>أمان على مستوى الصفوف في كل جدول، ووصول بحسب فريق الارتباط، وتسجيل دخول ثنائي إلزامي، وروابط تنتهي صلاحيتها، وفحص المرفقات من البرمجيات الخبيثة، ونسخ احتياطية يومية.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="questions">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">خمسة أسئلة تطرحها المكاتب</p>
-              <h2>عملاؤك يبقون عملاءك.<br /><span>وهنا نرسم الحد.</span></h2>
-            </div>
-            <p>إجابات مباشرة عن الحدود التجارية. والالتزامات كاملة، ومنها كيف نرعى بياناتك، في <a href="/ar/trust">صفحة الثقة</a>.</p>
-          </div>
-          <div className="hw-faq">
-            {FIRM_QUESTIONS.ar.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <div className="hw-faq-a"><p>{f.a}</p></div>
-              </details>
-            ))}
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">للمزيد</span>
-            <p><a href="/ar/trust">التزاماتنا تجاه المكاتب المهنية والفرق المالية</a></p>
-          </div>
-        </div>
-      </section>
-
-      <section className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-split">
-            <div>
-              <p className="hw-eyebrow">لماذا بنيناه</p>
-              <h2>بُني داخل مكتب ضرائب خليجي عامل.</h2>
-            </div>
-            <div className="hw-prose">
-              <p>بدأ Hysaab Practice نظامًا يعمل عليه مكتبنا الاستشاري نفسه. كل شاشة فيه وُجدت لأن شريكًا أو مديرًا أو موظفًا مبتدئًا احتاج إليها في موعد حقيقي، لعملاء حقيقيين والهيئة الاتحادية للضرائب في الطرف الآخر.</p>
-              <p>نفتحه لمجموعة صغيرة من المكاتب المؤسِّسة في الإمارات والسعودية.</p>
+        {/* ── P-8 لماذا بنيناه، والدعوة ── */}
+        <section className="tt-sec tt-grid hw-conversation tt-conversation" id="conversation">
+          <span id="contact" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap">
+            <Wp locale="ar" r="P-8" right="يرد عليك شخص">بُني داخل مكتب ضرائب خليجي عامل</Wp>
+            <div className="hw-conversation-grid" data-reveal="stagger-lg">
+              <div>
+                <h2 className="tt-h2">أعد إلى فريقك <span className="tt-hl" data-play="">وقته للحكم المهني.</span></h2>
+                <p className="tt-lead">بدأ Hysaab Practice نظامًا يعمل عليه مكتبنا الاستشاري نفسه. كل شاشة فيه وُجدت لأن شريكًا أو مديرًا أو موظفًا مبتدئًا احتاج إليها في موعد حقيقي، لعملاء حقيقيين والهيئة الاتحادية للضرائب في الطرف الآخر. نفتحه لمجموعة صغيرة من المكاتب المؤسِّسة في الإمارات والسعودية.</p>
+                <p className="tt-promise"><Tm m="P" /> سنريك ما يعمل اليوم، ونسمّي ما لا يعمل، ولن ندع الذكاء الاصطناعي يتخذ قرارًا هو من حق فريقك.</p>
+                <p className="hw-demo-direct">تفضّل أن تختار الموعد بنفسك؟ <a className="tt-link" {...DEMO}>اختر موعدًا في تقويمنا <span aria-hidden="true">↗</span>{newTab}</a></p>
+              </div>
+              <EnquiryForm source="Arabic Practice page" locale="ar" demo />
             </div>
           </div>
-          <div className="hw-note">
-            <span className="hw-mono">وعدنا</span>
-            <p>سنريك ما يعمل اليوم، ونسمّي ما لا يعمل، ولن ندع الذكاء الاصطناعي يتخذ قرارًا هو من حق فريقك.</p>
-          </div>
-        </div>
-      </section>
-    </PageShell>
+        </section>
+      </main>
+      <SiteFooter locale="ar" />
+    </div>
   );
 }

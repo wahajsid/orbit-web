@@ -230,3 +230,25 @@ html.m-ready .ck-replay { visibility: visible; animation: m-fade 400ms var(--m-e
   .ck-person h2 { font-size: 47px; }
   .ck-facts-grid { grid-template-columns: 1fr; gap: 34px; }
 }
+
+/* ── The second way in: a bank statement (2026-10-25) ── */
+.ck-alt { color: var(--hw-cream) !important; font-weight: 600; font-size: 15px; border-bottom: 2px solid var(--hw-blush); padding-bottom: 1px; text-decoration: none !important; }
+.ck-alt:hover { color: var(--hw-blush) !important; }
+.ck-stmt { background: var(--hw-cream); padding-block: 90px; border-top: 1px solid var(--hw-hairline); scroll-margin-top: 80px; }
+.ck-stmt-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.ck-stmt .hw-eyebrow { color: var(--hw-supporting); }
+.ck-stmt h2 { font: 900 clamp(32px, 3.6vw, 48px)/1.04 var(--hw-serif); letter-spacing: -0.03em; margin-top: 15px !important; color: var(--hw-ink); }
+.ck-stmt h2 em { font-style: normal; background: linear-gradient(transparent 20%, var(--hw-blush) 20%, var(--hw-blush) 90%, transparent 90%); padding-inline: 0.06em; }
+.ck-stmt-p { color: var(--hw-supporting); font-size: 17px; line-height: 1.6; margin-top: 18px !important; max-width: 52ch; }
+.ck-stmt-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 8px; }
+.ck-stmt-list li { position: relative; padding-inline-start: 26px; font-size: 15.5px; }
+.ck-stmt-list li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: var(--hw-red); font-weight: 700; }
+.ck-actions--plain { animation: none; }
+.ck-offer--dark { color: var(--hw-supporting); }
+.ck-stmt-why { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--hw-hairline); }
+.ck-stmt-why p { max-width: 80ch; color: var(--hw-supporting); font-size: 16px; line-height: 1.6; }
+.ck-stmt-why strong { color: var(--hw-ink); }
+.ck-stmt-why a { color: var(--hw-ink); text-decoration: underline; text-underline-offset: 3px; }
+.ck-end-alt { margin-top: 18px !important; }
+.ck-end-alt a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 900px) { .ck-stmt-grid { grid-template-columns: 1fr; gap: 36px; } }

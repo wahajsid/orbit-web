@@ -242,7 +242,7 @@ const simplified: Guide = {
     {
       h: "How Hysaab applies this",
       ps: [
-        "Hysaab tests every supplier invoice against the Article 59 field lists on arrival, names the field that fails, and holds the input VAT until a corrected invoice arrives. Where the type is in doubt, it applies the full invoice list, because a full tax invoice is valid in every case.",
+        "Hysaab tests every supplier invoice against the Article 59 field lists on arrival, names the field that fails, and holds the input VAT until a corrected invoice arrives. An invoice of AED 10,000 or less, VAT included, is tested against the five simplified fields, so a valid receipt is not held. A reverse-charge invoice, or one in the unsettled band just above the limit, is tested against the full list.",
       ],
     },
   ],
@@ -323,7 +323,7 @@ const fx: Guide = {
     {
       h: "How Hysaab applies this",
       ps: [
-        "Hysaab converts foreign-currency invoices to AED at a rate it records with its source and date, keeps the dirham's 3.6725 peg exact rather than rounded, and flags any foreign-currency tax invoice that does not show both the AED tax amount and the exchange rate. The free [foreign-currency VAT converter](/tools/uae-vat-currency-converter) shows the same working for a single invoice.",
+        "Hysaab converts a foreign-currency invoice at the date of supply, not the day it arrives. It uses the Central Bank rate for that date when one is on file (the latest earlier publication over a weekend or holiday), otherwise the AED rate printed on the invoice, and keeps the dirham's 3.6725 peg exact rather than rounded. When only a market rate is available, it says so and asks you to confirm the Central Bank rate before the VAT is relied on. It also flags any foreign-currency tax invoice that does not show both the AED tax amount and the exchange rate. The free [foreign-currency VAT converter](/tools/uae-vat-currency-converter) shows the same working for a single invoice.",
       ],
     },
   ],

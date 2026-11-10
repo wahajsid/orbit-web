@@ -1,15 +1,19 @@
 /* ── /firms: Hysaab Practice ─────────────────────────────────────────
-   Rebuilt 2026-09 in the V4 design (PageShell + hw-* kit). Preserves
-   the ServicesDay interactive walkthrough and SavingsCalc calculator.
-   Website change plan 2026-09-23: the product is Hysaab Practice. The
-   page leads with the tax work (hundreds of VAT and CT checks, treatments
-   from the firm's own precedents, red-team review); the admin moves
-   lower as "and the firm runs itself around it"; the areas list is cut
-   from 31 items to 9 areas of 3; the five questions firms ask are
-   answered (DRAFT: owner review, lib/trust.ts) with a link to /trust;
-   every CTA books a demo. */
+   Rebuilt 2026-10-25 in the homepage's Tick & Tie language (W/P strips,
+   the highlighter, a work film in the hero, the demo form at the end).
+   Everything on the September page is kept: the tax work first (hundreds
+   of VAT and CT checks, treatments from the firm's own precedents, a
+   red-team review), the ServicesDay walkthrough, the nine areas, the
+   SavingsCalc calculator, Hysaab Audit, the rules for the AI, the five
+   questions firms ask (lib/trust.ts) and why we built it. The film is an
+   illustrative return; its check count is the product's 144 UAE VAT
+   checks. */
 
-import { PageShell, PageHero } from "@/components/home/PageShell";
+import { SiteHeader } from "@/components/home/HomeHeader";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { EnquiryForm } from "@/components/home/EnquiryForm";
+import { Wp, Tm } from "@/components/home/tt/Wp";
+import { WorkFilm } from "@/components/home/WorkFilm";
 import { ServicesDay } from "@/components/hysaab/ServicesDay";
 import { SavingsCalc } from "@/components/hysaab/SavingsCalc";
 import { langAlternates } from "@/lib/site-meta";
@@ -72,214 +76,156 @@ const AREAS: { k: string; h: string; items: React.ReactNode[] }[] = [
   ] },
 ];
 
+const RULES: [string, string, string][] = [
+  ["Proposals, not actions", "Every AI suggestion is a card", "Tasks, timesheet lines, obligations and tax treatments arrive as proposals. Nothing is created until someone accepts it."],
+  ["People send", "No email leaves on its own", "Replies are drafted, never sent automatically. Auto-send to a client is off by default and, when enabled, waits in a 24-hour hold."],
+  ["Money is deterministic", "Code does the arithmetic", "Fees, WIP, realisation and every tax figure are computed in code. The AI writes words around numbers, never the numbers."],
+  ["Accountable by design", "A ledger of AI decisions", "Every AI decision is logged with whether a person agreed, and governance reports show clients and regulators how AI is used."],
+  ["Judgement stays human", "Some things AI cannot touch", "Appraisal ratings are human only. Automation rules ship switched off. Returns, invoices and payroll need a maker and a checker."],
+  ["Built to be trusted", "Security from the first table", "Row-level security on every table, access by engagement team, mandatory two-factor sign-in, expiring links, malware-scanned uploads and daily backups."],
+];
+
 const newTab = <span className="hw-sr">{DEMO_NEW_TAB.en}</span>;
 
 export default function PracticePage() {
   return (
-    <PageShell band={{ kicker: "Book a demo", title: "Give your people their judgement back.", body: "Hysaab Practice opens to a small group of tax and advisory firms first. Book a demo and a real person will walk you through it on your own kind of return." }}>
-      <PageHero
-        eyebrow="For tax and advisory firms"
-        title={<>Hysaab Practice.<br /><span>AI agents for tax and advisory firms.</span></>}
-        lede={<>Agents run the tax work: hundreds of VAT and CT checks, treatments drawn from your own precedents and a red-team review before anything is filed. Your partners make the calls. <a href="/audit">Hysaab Audit</a> runs the ISA file alongside it.</>}
-      >
-        <a className="hw-btn hw-btn--peach" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
-        <a className="hw-link hw-link--light" href="#day">Watch a day in the firm</a>
-      </PageHero>
+    <div className="hw-page tt-page" id="top">
+      <a href="#main" className="hw-skip">Skip to the content</a>
+      <span data-motion-page="full" hidden />
+      <SiteHeader />
+      <main id="main">
+        {/* ── P-1 The promise and a return being checked ── */}
+        <section className="tt-sec tt-grid tt-hero tt-hero3">
+          <div className="hw-wrap">
+            <Wp r="P-1" right={<>Prepared by <b>agents</b> · Decided by <b>your partners</b></>}>Hysaab Practice · for tax and advisory firms</Wp>
+            <div className="tt-hero2-g tt-hero3-g">
+              <div className="tt-hero2-copy">
+                <h1>Every return checked <span className="tt-hl">before a partner signs it.</span></h1>
+                <p className="tt-hero-sub">Agents run the tax work: hundreds of VAT and CT checks, treatments drawn from your own precedents and a red-team review before anything is filed. Your partners make the calls, and the firm runs itself around the work.</p>
+                <div className="tt-acts tt-hero2-acts">
+                  <a className="hw-btn hw-btn--navy m-cta" {...DEMO}>Book a demo <span aria-hidden="true">↗</span>{newTab}</a>
+                  <a className="tt-link" href="#day">Watch a day in the firm <span aria-hidden="true">↓</span></a>
+                </div>
+              </div>
+              <WorkFilm
+                bar="Your firm · Q3 VAT return · Al Noor Trading" tag="Illustrative" title="Q3 VAT return"
+                sr="Illustration of a VAT return in Hysaab Practice: the client's listings are read, 144 VAT checks run, a treatment is proposed from the firm's own precedent, a red-team review challenges the return and the narrative is drafted, leaving it ready for the partner's approval."
+                cap="Illustrative client and figures · the checks are the product's own"
+                rows={[
+                  { label: "Data", task: "Sales and purchase listings read", done: "1,284 lines · tied to the ledger" },
+                  { label: "Checks", task: "144 UAE VAT checks run", done: "141 pass · 3 findings, each with its rule" },
+                  { label: "Treat", task: "Treatment proposed from precedent", done: "Firm position FP-12 · input VAT blocked on entertainment" },
+                  { label: "Red team", task: "The return challenged", done: "2 challenges answered by the preparer" },
+                  { label: "Draft", task: "Narrative and transmittal letter", done: "Drafted for the reviewer" },
+                ]}
+                final={{ k: "Ready for approval", h: "Return checked", s: "Findings resolved · the filed version will be permanent", sign: "Partner approval required" }}
+              />
+            </div>
+          </div>
+        </section>
 
-      {/* ── The tax work, first ── */}
-      <section id="tax-work">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">The tax work first</p>
-              <h2>Every return checked<br /><span>before a partner signs it.</span></h2>
-            </div>
-            <p>The work clients pay your firm for is judgement on their tax. Hysaab Practice prepares and tests that work, so your people spend their hours on the calls.</p>
+        {/* ── P-2 The tax work first ── */}
+        <section className="tt-sec" id="tax-work" aria-labelledby="pr-tax-h">
+          <div className="hw-wrap">
+            <Wp r="P-2" right="The work clients pay you for">The tax work first</Wp>
+            <h2 className="tt-h2" id="pr-tax-h" data-reveal="">Your people spend their hours <span className="tt-hl" data-play="">on the calls.</span></h2>
+            <p className="tt-lead">The work clients pay your firm for is judgement on their tax. Hysaab Practice prepares and tests that work first.</p>
+            <ol className="tt-steps tt-steps3" data-reveal="stagger-lg">
+              <li><span className="tt-step-n">01</span><div><h3>Hundreds of VAT and CT checks.</h3><p>Every return runs through hundreds of checks across completeness, treatment and examination before anyone is asked to review it. Each finding names the rule and the figure it concerns.</p></div></li>
+              <li><span className="tt-step-n">02</span><div><h3>Treatments from your own precedents.</h3><p>Tax treatments are proposed from the firm’s own precedents first, with the source shown, so the answer is the one your firm would give.</p></div></li>
+              <li><span className="tt-step-n">03</span><div><h3>A red-team review before approval.</h3><p>A red-team review challenges the return before a partner approves it. Filed versions are permanent: corrections supersede, never overwrite.</p></div></li>
+            </ol>
           </div>
-          <div className="hw-rows">
-            <article><span className="hw-mono">01</span><h3>Hundreds of VAT and CT checks.</h3><p>Every return runs through hundreds of checks across completeness, treatment and examination before anyone is asked to review it. Each finding names the rule and the figure it concerns.</p></article>
-            <article><span className="hw-mono">02</span><h3>Treatments from your own precedents.</h3><p>Tax treatments are proposed from the firm’s own precedents first, with the source shown, so the answer is the one your firm would give.</p></article>
-            <article><span className="hw-mono">03</span><h3>A red-team review before approval.</h3><p>A red-team review challenges the return before a partner approves it, and variance narratives and transmittal letters are drafted for the reviewer. Filed versions are permanent: corrections supersede, never overwrite.</p></article>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── A day in the firm ── */}
-      <section id="day" className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">A day in the firm</p>
-              <h2>One Tuesday. Six moments the admin used to eat.</h2>
-            </div>
-            <p>Illustrative firm and clients. Press the buttons in the window: nothing the AI proposes counts until a person confirms it.</p>
+        {/* ── P-3 A day in the firm ── */}
+        <section className="tt-sec tt-grid" id="day" aria-labelledby="pr-day-h">
+          <div className="hw-wrap">
+            <Wp r="P-3" right="Illustrative firm and clients">A day in the firm</Wp>
+            <h2 className="tt-h2" id="pr-day-h" data-reveal="">One Tuesday. <span className="tt-hl" data-play="">Six moments the admin used to eat.</span></h2>
+            <p className="tt-lead">Press the buttons in the window: nothing the AI proposes counts until a person confirms it.</p>
+            <div className="tt-embed"><ServicesDay /></div>
           </div>
-          <ServicesDay />
-        </div>
-      </section>
+        </section>
 
-      {/* ── And the firm runs itself around it ── */}
-      <section className="hw-block--family">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">And the firm runs itself around it</p>
-              <h2>Nine areas of the firm.<br /><span>One system underneath.</span></h2>
+        {/* ── P-4 The firm runs itself around it ── */}
+        <section className="tt-sec" aria-labelledby="pr-areas-h">
+          <div className="hw-wrap">
+            <Wp r="P-4" right="One record underneath">And the firm runs itself around it</Wp>
+            <h2 className="tt-h2" id="pr-areas-h" data-reveal="">Nine areas of the firm. <span className="tt-hl" data-play="">One system underneath.</span></h2>
+            <p className="tt-lead">Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
+            <div className="tt-areas" data-reveal="stagger-lg">
+              {AREAS.map((a) => (
+                <article key={a.k}>
+                  <p className="tt-who">{a.k}</p>
+                  <h3>{a.h}</h3>
+                  <ul>{a.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+                </article>
+              ))}
             </div>
-            <p>Clients, filings, time, billing and people share one record, so a signed engagement letter creates the obligations, the obligations create the work, and the work becomes the timesheet and the invoice.</p>
+            <p className="tt-promise"><Tm m="T" /> What it replaces: the practice management tool, the shared inbox, the deadline spreadsheets, the document portal, the CRM, the e-signature app, the timesheet app and the HR file.</p>
           </div>
-          <div className="hw-cards">
-            {AREAS.map((m) => (
-              <article key={m.k}>
-                <p className="hw-eyebrow">{m.k}</p>
-                <h3>{m.h}</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 8 }}>{m.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">What it replaces</span>
-            <p>The practice management tool, the shared inbox, the deadline spreadsheets, the document portal, the CRM, the e-signature app, the timesheet app and the HR file.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Savings ── */}
-      <section>
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Time and cost</p>
-              <h2>What the admin is costing your firm.</h2>
-            </div>
-            <p>Put in your team and your hourly cost. Every assumption is on the page, so the number is yours to argue with.</p>
+        {/* ── P-5 Time and cost ── */}
+        <section className="tt-sec tt-grid" aria-labelledby="pr-calc-h">
+          <div className="hw-wrap">
+            <Wp r="P-5" right="Every assumption on the page">Time and cost</Wp>
+            <h2 className="tt-h2" id="pr-calc-h" data-reveal="">What the admin <span className="tt-hl" data-play="">is costing your firm.</span></h2>
+            <p className="tt-lead">Put in your team and your hourly cost. Every assumption is on the page, so the number is yours to argue with.</p>
+            <div className="tt-embed"><SavingsCalc /></div>
           </div>
-          <SavingsCalc />
-        </div>
-      </section>
+        </section>
 
-      {/* ── Hysaab Audit ── */}
-      <section className="hw-block--sage">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Hysaab Audit</p>
-              <h2>If you sign audit opinions,<br /><span>the file runs here too.</span></h2>
+        {/* ── P-6 The rules for the AI ── */}
+        <section className="tt-sec tt-memory" aria-labelledby="pr-rules-h">
+          <div className="hw-wrap">
+            <Wp r="P-6" right="How the AI is allowed to work">The rules</Wp>
+            <h2 className="tt-h2" id="pr-rules-h" data-reveal="">The model proposes. Code computes. <span className="tt-hl" data-play="">A named person confirms.</span></h2>
+            <div className="tt-rules" data-reveal="stagger-lg">
+              {RULES.map(([k, h, p]) => <article key={k}><p className="tt-who">{k}</p><h3>{h}</h3><p>{p}</p></article>)}
             </div>
-            <p>Hysaab Audit follows the same rule: the engines compute, a licensed human concludes. Buy it on its own or with Hysaab Practice. Each keeps its own client records, so your independence rules decide who works on which client.</p>
           </div>
-          <div className="hw-cards">
-            <article>
-              <p className="hw-eyebrow">Testing</p>
-              <h3>Every journal, not twenty-five</h3>
-              <p>Journal-entry testing scores the whole population against thirty ISA 240 criteria. Monetary-unit sampling designed, selected on a seed and evaluated to an upper misstatement limit. Fourteen tie-out engines set their own tick marks.</p>
-            </article>
-            <article>
-              <p className="hw-eyebrow">The file</p>
-              <h3>Written as the work concludes</h3>
-              <p>Workpapers with purpose, source, procedure, results and a conclusion, cross-referenced. Preparer, reviewer and partner sign in order; a partner signature locks the version. Phase gates refuse to open while conditions are unmet.</p>
-            </article>
-            <article>
-              <p className="hw-eyebrow">Independence</p>
-              <h3>A firewall, not a policy</h3>
-              <p>Audit records belong to the firm; the client grants read access for a fixed, revocable window. Testing runs on a hashed snapshot, never the live ledger. Hysaab never signs an opinion.</p>
-            </article>
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">Explore further</span>
-            <p><a href="/audit">See Hysaab Audit, screen by screen <span aria-hidden="true">→</span></a></p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Humans in the loop ── */}
-      <section className="hw-block--dark">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">How the AI is allowed to work</p>
-              <h2>The model proposes. Code computes.<br /><span>A named person confirms.</span></h2>
+        {/* ── P-7 Hysaab Audit, and the five questions ── */}
+        <section className="tt-sec" id="questions" aria-labelledby="pr-q-h">
+          <div className="hw-wrap">
+            <Wp r="P-7" right="Straight answers">Five questions firms ask</Wp>
+            <h2 className="tt-h2" id="pr-q-h" data-reveal="">Your clients stay yours. <span className="tt-hl" data-play="">Here is where we draw the line.</span></h2>
+            <div className="hw-faq tt-faq">
+              {FIRM_QUESTIONS.en.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <div className="hw-faq-a"><p>{f.a}</p></div>
+                </details>
+              ))}
+            </div>
+            <div className="tt-firmrow tt-firmrow--2">
+              <a href="/audit"><span className="tt-prod-st"><span>If you sign audit opinions</span><b>Hysaab Audit</b></span><strong>The file runs here too</strong><span>Every journal scored against thirty ISA 240 criteria, samples designed and evaluated, workpapers written as the work concludes. Hysaab never signs an opinion.</span></a>
+              <a href="/trust"><span className="tt-prod-st"><span>Read further</span><b>Trust</b></span><strong>Our commitments to firms</strong><span>How we look after your data, and the commercial boundaries we keep.</span></a>
             </div>
           </div>
-          <div className="hw-cards">
-            <article className="is-navy">
-              <p className="hw-eyebrow">Proposals, not actions</p>
-              <h3>Every AI suggestion is a card</h3>
-              <p>Tasks, timesheet lines, obligations and tax treatments arrive as proposals. Nothing is created until someone accepts it.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">People send</p>
-              <h3>No email leaves on its own</h3>
-              <p>Replies are drafted, never sent automatically. Auto-send to a client is off by default and, when enabled, waits in a 24-hour hold.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Money is deterministic</p>
-              <h3>Code does the arithmetic</h3>
-              <p>Fees, WIP, realisation and every tax figure are computed in code. The AI writes words around numbers, never the numbers.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Accountable by design</p>
-              <h3>A ledger of AI decisions</h3>
-              <p>Every AI decision is logged with whether a person agreed, and governance reports show clients and regulators how AI is used.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Judgement stays human</p>
-              <h3>Some things AI cannot touch</h3>
-              <p>Appraisal ratings are human only. Automation rules ship switched off. Returns, invoices and payroll need a maker and a checker.</p>
-            </article>
-            <article className="is-navy">
-              <p className="hw-eyebrow">Built to be trusted</p>
-              <h3>Security from the first table</h3>
-              <p>Row-level security on every table, access by engagement team, mandatory two-factor sign-in, expiring links, malware-scanned uploads and daily backups.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Five questions firms ask (DRAFT: owner review, lib/trust.ts) ── */}
-      <section id="questions">
-        <div className="hw-wrap hw-section">
-          <div className="hw-heading">
-            <div>
-              <p className="hw-eyebrow">Five questions firms ask</p>
-              <h2>Your clients stay yours.<br /><span>Here is where we draw the line.</span></h2>
-            </div>
-            <p>Straight answers on the commercial boundaries. The full set of commitments, including how we look after your data, is on our <a href="/trust">trust page</a>.</p>
-          </div>
-          <div className="hw-faq">
-            {FIRM_QUESTIONS.en.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <div className="hw-faq-a"><p>{f.a}</p></div>
-              </details>
-            ))}
-          </div>
-          <div className="hw-note">
-            <span className="hw-mono">Read further</span>
-            <p><a href="/trust">Our commitments to firms and finance teams</a></p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why ── */}
-      <section className="hw-block--rule">
-        <div className="hw-wrap hw-section">
-          <div className="hw-split">
-            <div>
-              <p className="hw-eyebrow">Why we built it</p>
-              <h2>Built inside a working Gulf tax firm.</h2>
-            </div>
-            <div className="hw-prose">
-              <p>Hysaab Practice started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end.</p>
-              <p>We are opening it to a small group of firms in the UAE and KSA first.</p>
+        {/* ── P-8 Why, and the invitation ── */}
+        <section className="tt-sec tt-grid hw-conversation tt-conversation" id="conversation">
+          <span id="contact" className="hw-anchor" aria-hidden="true" />
+          <div className="hw-wrap">
+            <Wp r="P-8" right="A person replies">Built inside a working Gulf tax firm</Wp>
+            <div className="hw-conversation-grid" data-reveal="stagger-lg">
+              <div>
+                <h2 className="tt-h2">Give your people <span className="tt-hl" data-play="">their judgement back.</span></h2>
+                <p className="tt-lead">Hysaab Practice started as the system our own advisory practice runs on. Every screen exists because a partner, a manager or a junior needed it on a real deadline, for real clients with the FTA on the other end. We are opening it to a small group of firms in the UAE and KSA first.</p>
+                <p className="tt-promise"><Tm m="P" /> We will show you what works today, label what does not, and never let the AI make a call that belongs to your people.</p>
+                <p className="hw-demo-direct">Prefer to pick a time yourself? <a className="tt-link" {...DEMO}>Choose a slot in our calendar <span aria-hidden="true">↗</span>{newTab}</a></p>
+              </div>
+              <EnquiryForm source="Practice page" demo />
             </div>
           </div>
-          <div className="hw-note">
-            <span className="hw-mono">Our promise</span>
-            <p>We will show you what works today, label what does not, and never let the AI make a call that belongs to your people.</p>
-          </div>
-        </div>
-      </section>
-    </PageShell>
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }

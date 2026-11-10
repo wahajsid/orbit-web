@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ToolPage } from "@/components/tools/ToolPage";
+import { langAlternates } from "@/lib/site-meta";
 import { IpDepreciationCalculator } from "@/components/tools/calculators";
 
 export const metadata: Metadata = {
   title: "Investment property 4% tax depreciation calculator — Hysaab",
   description:
     "Free calculator for Ministerial Decision 173 of 2025: Opening Value, the 4% yearly deduction on fair-valued investment property, tax saved and the add-back on sale.",
-  alternates: { canonical: "./" },
+  alternates: langAlternates("/tools/uae-investment-property-depreciation-calculator"),
 };
 
 export default function Page() {

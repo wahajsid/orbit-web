@@ -21,6 +21,13 @@ export default function ToolsPage() {
       <section>
         <div className="hw-wrap hw-section">
           <div className="hw-index">
+            <a href="/check#statement">
+              <div>
+                <h3>Free check: your books or a bank statement</h3>
+                <p>Connect Xero or QuickBooks read-only, or upload a bank statement: what needs fixing first, where the money went and what to look at.</p>
+              </div>
+              <span className="hw-mono">Free</span>
+            </a>
             {TOOLS.map((t) => (
               <a key={t.slug} href={`/tools/${t.slug}`}>
                 <div>
